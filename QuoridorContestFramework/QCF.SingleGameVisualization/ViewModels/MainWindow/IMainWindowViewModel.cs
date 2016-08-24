@@ -1,16 +1,8 @@
-﻿namespace QCF.SingleGameVisualization.ViewModels.MainWindow
+﻿using QCF.UiTools.WpfTools.ViewModelBase;
+
+namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 {
-	internal interface IMainWindowViewModel
+	internal interface IMainWindowViewModel : IViewModel
 	{
-	}
-
-	internal class MainWindowViewModel : IMainWindowViewModel
-	{
-		
-	}
-
-	internal class MainWindowViewModelSampleData : IMainWindowViewModel
-	{
-		
 	}
 }

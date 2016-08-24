@@ -40,6 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coordination\FieldCoordinate.cs" />
+    <Compile Include="Coordination\Orientation.cs" />
+    <Compile Include="Coordination\PlayerType.cs" />
+    <Compile Include="Coordination\XField.cs" />
+    <Compile Include="Coordination\YField.cs" />
+    <Compile Include="GameElements\BoardState.cs" />
+    <Compile Include="GameElements\PlayerState.cs" />
+    <Compile Include="GameElements\PlayerTransitions.cs" />
+    <Compile Include="GameElements\Wall.cs" />
+    <Compile Include="Moves\FigureMove.cs" />
+    <Compile Include="GameElements\Player.cs" />
+    <Compile Include="Moves\WallMove.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
