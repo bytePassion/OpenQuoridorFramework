@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07EF24DB-4F29-48D9-AE1A-42F641CA5988}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QCF.UiTools</RootNamespace>
+    <AssemblyName>QCF.UiTools</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Communication\State\ISharedState.cs" />
+    <Compile Include="Communication\State\ISharedStateReadOnly.cs" />
+    <Compile Include="Communication\State\ISharedStateWriteOnly.cs" />
+    <Compile Include="Communication\State\SharedState.cs" />
+    <Compile Include="FrameworkExtensions\DispatcherExtension.cs" />
+    <Compile Include="FrameworkExtensions\DisposingObject.cs" />
+    <Compile Include="FrameworkExtensions\EqualsExtension.cs" />
+    <Compile Include="FrameworkExtensions\FrameworkElementExtensions.cs" />
+    <Compile Include="FrameworkExtensions\LinqExtension.cs" />
+    <Compile Include="FrameworkExtensions\ObservableCollectionExtensions.cs" />
+    <Compile Include="FrameworkExtensions\PropertyChangedNotifierExtension.cs" />
+    <Compile Include="SemanticTypes\Base\SemanticType1.cs" />
+    <Compile Include="SemanticTypes\Base\SemanticType2.cs" />
+    <Compile Include="SemanticTypes\Base\SimpleDoubleSemanticType.cs" />
+    <Compile Include="SemanticTypes\Base\TupleDoubleSemanticType.cs" />
+    <Compile Include="SemanticTypes\Degree.cs" />
+    <Compile Include="SemanticTypes\Height.cs" />
+    <Compile Include="SemanticTypes\Length.cs" />
+    <Compile Include="SemanticTypes\Point.cs" />
+    <Compile Include="SemanticTypes\Radians.cs" />
+    <Compile Include="SemanticTypes\Size.cs" />
+    <Compile Include="SemanticTypes\Width.cs" />
+    <Compile Include="SemanticTypes\XCoord.cs" />
+    <Compile Include="SemanticTypes\YCoord.cs" />
+    <Compile Include="SemanticTypes\ZCoord.cs" />
+    <Compile Include="Utils\GeometryLibUtils.cs" />
+    <Compile Include="Utils\Guard.cs" />
+    <Compile Include="WpfTools\CommandExecutingBehaviors\ExecuteCommandOnClickBehavior.cs" />
+    <Compile Include="WpfTools\CommandExecutingBehaviors\ExecuteCommandOnDoubleClickBehavior.cs" />
+    <Compile Include="WpfTools\CommandExecutingBehaviors\ExecuteCommandOnEnter.cs" />
+    <Compile Include="WpfTools\CommandExecutingBehaviors\ExecuteCommandOnEscape.cs" />
+    <Compile Include="WpfTools\CommandExecutingBehaviors\ExecuteCommandOnMouseUp.cs" />
+    <Compile Include="WpfTools\CommandExecutingBehaviors\ExecuteCommandWhenToggleButtonGetsCheckedBehavior.cs" />
+    <Compile Include="WpfTools\Commands\Command.cs" />
+    <Compile Include="WpfTools\Commands\ParameterrizedCommand.cs" />
+    <Compile Include="WpfTools\Commands\Updater\ICommandUpdater.cs" />
+    <Compile Include="WpfTools\Commands\Updater\PropertyChangedCommandUpdater.cs" />
+    <Compile Include="WpfTools\Commands\Updater\SharedStateCommandUpdate.cs" />
+    <Compile Include="WpfTools\Commands\Updater\SharedStateReadOnlyCommandUpdate.cs" />
+    <Compile Include="WpfTools\ConverterBase\GenericFiveToOneValueConverter.cs" />
+    <Compile Include="WpfTools\ConverterBase\GenericFourToOneValueConverter.cs" />
+    <Compile Include="WpfTools\ConverterBase\GenericParameterizedValueConverter.cs" />
+    <Compile Include="WpfTools\ConverterBase\GenericThreeToOneValueConverter.cs" />
+    <Compile Include="WpfTools\ConverterBase\GenericTwoToOneValueConverter.cs" />
+    <Compile Include="WpfTools\ConverterBase\GenericValueConverter.cs" />
+    <Compile Include="WpfTools\Converter\BoolToCollapsedVisibilityConverter.cs" />
+    <Compile Include="WpfTools\Converter\BoolToHiddenVisibilityConverter.cs" />
+    <Compile Include="WpfTools\Converter\BoolToNullableBoolConverter.cs" />
+    <Compile Include="WpfTools\Converter\ColorToSolidColorBrushConverter.cs" />
+    <Compile Include="WpfTools\Converter\InvertedBoolToCollapsedVisibilityConverter.cs" />
+    <Compile Include="WpfTools\Converter\SemanticDoubleTypeToDoubleConverter.cs" />
+    <Compile Include="WpfTools\Converter\XCoordAndOffsetToDoubleConverter.cs" />
+    <Compile Include="WpfTools\Converter\XCoordToDoubleConverter.cs" />
+    <Compile Include="WpfTools\Converter\YCoordAndOffsetToDoubleConverter.cs" />
+    <Compile Include="WpfTools\Converter\YCoordToDoubleConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WpfTools\ViewModelBase\IViewModel.cs" />
+    <Compile Include="WpfTools\ViewModelBase\ViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
