@@ -1,10 +1,13 @@
 ﻿using QCF.GameEngine.Coordination;
+using QCF.GameEngine.GameElements;
 
 namespace QCF.GameEngine.Moves
 {
-	public class FigureMove
+	public class FigureMove : Move
 	{
-		public FigureMove(FieldCoordinate oldPosition, FieldCoordinate newPosition)
+		public FigureMove(BoardState stateBeforeMove, Player playerAtMove, 
+						  FieldCoordinate oldPosition, FieldCoordinate newPosition)
+			: base (stateBeforeMove, playerAtMove)
 		{
 			OldPosition = oldPosition;
 			NewPosition = newPosition;

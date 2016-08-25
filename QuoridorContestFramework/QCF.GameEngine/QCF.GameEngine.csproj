@@ -46,13 +46,21 @@
     <Compile Include="Coordination\XField.cs" />
     <Compile Include="Coordination\YField.cs" />
     <Compile Include="GameElements\BoardState.cs" />
+    <Compile Include="GameElements\BoardStateTransition.cs" />
     <Compile Include="GameElements\PlayerState.cs" />
     <Compile Include="GameElements\PlayerTransitions.cs" />
     <Compile Include="GameElements\Wall.cs" />
     <Compile Include="Moves\FigureMove.cs" />
     <Compile Include="GameElements\Player.cs" />
+    <Compile Include="Moves\Move.cs" />
     <Compile Include="Moves\WallMove.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QCF.UiTools\QCF.Tools.csproj">
+      <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
+      <Name>QCF.Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,12 +1,15 @@
-﻿namespace QCF.GameEngine.Moves
+﻿using QCF.GameEngine.GameElements;
+
+namespace QCF.GameEngine.Moves
 {
-	public class WallMove
+	public class WallMove : Move
 	{
-		public WallMove(WallMove placedWall)
+		public WallMove(BoardState stateBeforeMove, Player playerAtMove, Wall placedWall)
+			: base(stateBeforeMove, playerAtMove)
 		{
 			PlacedWall = placedWall;
 		}
 
-		public WallMove PlacedWall { get; }
+		public Wall PlacedWall { get; }
 	}
 }

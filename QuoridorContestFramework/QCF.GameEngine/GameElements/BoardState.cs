@@ -1,22 +1,27 @@
 ﻿using System.Collections.Generic;
+using QCF.GameEngine.Moves;
 
 namespace QCF.GameEngine.GameElements
 {
 	public class BoardState
 	{
-		public BoardState(IReadOnlyList<Wall> placedWalls, PlayerState topPlayer, PlayerState bottomPlayer, Player nextMover)
+		public BoardState(IEnumerable<Wall> placedWalls, 
+						  PlayerState topPlayer, PlayerState bottomPlayer, 
+						  Player currentMover, Move lastMove)
 		{
 			PlacedWalls = placedWalls;
 			TopPlayer = topPlayer;
 			BottomPlayer = bottomPlayer;
-			NextMover = nextMover;
+			CurrentMover = currentMover;
+			LastMove = lastMove;
 		}
 
-		public IReadOnlyList<Wall> PlacedWalls { get; }
+		public IEnumerable<Wall> PlacedWalls { get; }
 		
 		public PlayerState TopPlayer    { get; } 
 		public PlayerState BottomPlayer { get; }
 
-		public Player NextMover { get; }
+		public Player CurrentMover { get; }
+		public Move LastMove { get; }
 	}
 }
