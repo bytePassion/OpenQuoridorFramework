@@ -4,7 +4,7 @@ namespace QCF.GameEngine.GameElements
 {
 	public class Wall
 	{
-		public Wall(XField left, XField right, YField top, YField bottom, Orientation orientation)
+		public Wall(XField left, XField right, YField top, YField bottom, WallOrientation orientation)
 		{
 			Left = left;
 			Right = right;
@@ -18,6 +18,6 @@ namespace QCF.GameEngine.GameElements
 		public YField Top    { get; }
 		public YField Bottom { get; }
 
-		public Orientation Orientation { get; }
+		public WallOrientation Orientation { get; }
 	}
 }

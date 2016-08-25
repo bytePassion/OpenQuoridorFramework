@@ -1,10 +1,20 @@
-﻿using QCF.GameEngine.Moves;
+﻿using System.Collections.Generic;
+using QCF.GameEngine.Moves;
 using QCF.UiTools.FrameworkExtensions;
 
 namespace QCF.GameEngine.GameElements
 {
 	public static class BoardStateTransition
 	{
+		public static BoardState CreateInitialBoadState(Player topPlayer, Player bottomPlayer)
+		{
+			return new BoardState(new List<Wall>(), 
+								  PlayerTransitions.InitialPlayerStateCreation(topPlayer),
+								  PlayerTransitions.InitialPlayerStateCreation(bottomPlayer),
+								  bottomPlayer,
+								  null);
+		}
+
 		public static BoardState ApplyMove (this BoardState currentBoardState, Move move)
 		{
 			var wallMove = move as WallMove;

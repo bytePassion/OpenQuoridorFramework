@@ -5,7 +5,7 @@ namespace QCF.GameEngine.GameElements
 {
 	public class BoardState
 	{
-		public BoardState(IEnumerable<Wall> placedWalls, 
+		internal BoardState(IEnumerable<Wall> placedWalls, 
 						  PlayerState topPlayer, PlayerState bottomPlayer, 
 						  Player currentMover, Move lastMove)
 		{
