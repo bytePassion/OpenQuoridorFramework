@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Coordination\FieldCoordinate.cs" />
-    <Compile Include="Coordination\Orientation.cs" />
+    <Compile Include="Coordination\WallOrientation.cs" />
     <Compile Include="Coordination\PlayerType.cs" />
     <Compile Include="Coordination\XField.cs" />
     <Compile Include="Coordination\YField.cs" />

@@ -1,6 +1,6 @@
 ﻿namespace QCF.GameEngine.Coordination
 {
-	public enum Orientation
+	public enum WallOrientation
 	{
 		Horizontal,
 		Vertical
