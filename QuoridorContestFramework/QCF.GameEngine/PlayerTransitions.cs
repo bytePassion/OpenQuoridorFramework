@@ -1,7 +1,8 @@
 ﻿using System;
-using QCF.GameEngine.Coordination;
+using QCF.GameEngine.Contracts.Coordination;
+using QCF.GameEngine.Contracts.GameElements;
 
-namespace QCF.GameEngine.GameElements
+namespace QCF.GameEngine
 {
 	public static class PlayerTransitions
 	{

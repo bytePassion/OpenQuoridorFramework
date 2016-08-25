@@ -1,6 +1,6 @@
-﻿using QCF.GameEngine.GameElements;
+﻿using QCF.GameEngine.Contracts.GameElements;
 
-namespace QCF.GameEngine.Moves
+namespace QCF.GameEngine.Contracts.Moves
 {
 	public abstract class Move
 	{

@@ -1,14 +1,15 @@
 ﻿using System;
 using QCF.GameEngine.Contracts;
-using QCF.GameEngine.Coordination;
-using QCF.GameEngine.GameElements;
-using QCF.GameEngine.Moves;
+using QCF.GameEngine.Contracts.Coordination;
+using QCF.GameEngine.Contracts.GameElements;
+using QCF.GameEngine.Contracts.Moves;
 
 namespace QFC.SimpleWalkingBot
 {
 	public class SimpleWalkingBot : IQuoridorBot
     {
 	    public event Action<Move> NextMoveAvailable;
+	    public event Action<string> DebugMessageAvailable;
 
 	    private Player myself;
 	    private PlayerType myPlayerType;

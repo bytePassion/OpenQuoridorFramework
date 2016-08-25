@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{26E530F7-814E-4B05-8D4A-9B10BF659CF1}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QCF.GameEngine</RootNamespace>
     <AssemblyName>QCF.GameEngine</AssemblyName>
@@ -29,6 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,10 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardStateTransition.cs" />
+    <Compile Include="GameLoop.cs" />
     <Compile Include="PlayerTransitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\QCF.GameEngine.Contracts\QCF.GameEngine.Contracts.csproj">
+      <Project>{e257aa0a-7215-4cba-b17a-61dc7ec3345a}</Project>
+      <Name>QCF.GameEngine.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QCF.UiTools\QCF.Tools.csproj">
       <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
       <Name>QCF.Tools</Name>

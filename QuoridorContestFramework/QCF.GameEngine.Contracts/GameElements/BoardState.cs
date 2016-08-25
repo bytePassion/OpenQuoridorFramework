@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using QCF.GameEngine.Moves;
+using QCF.GameEngine.Contracts.Moves;
 
-namespace QCF.GameEngine.GameElements
+namespace QCF.GameEngine.Contracts.GameElements
 {
 	public class BoardState
 	{
-		internal BoardState(IEnumerable<Wall> placedWalls, 
+	    public BoardState(IEnumerable<Wall> placedWalls, 
 						  PlayerState topPlayer, PlayerState bottomPlayer, 
 						  Player currentMover, Move lastMove)
 		{

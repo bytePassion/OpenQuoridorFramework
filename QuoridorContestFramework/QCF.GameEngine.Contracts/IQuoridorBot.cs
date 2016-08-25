@@ -1,6 +1,6 @@
 ﻿using System;
-using QCF.GameEngine.GameElements;
-using QCF.GameEngine.Moves;
+using QCF.GameEngine.Contracts.GameElements;
+using QCF.GameEngine.Contracts.Moves;
 
 namespace QCF.GameEngine.Contracts
 {
@@ -11,6 +11,11 @@ namespace QCF.GameEngine.Contracts
 		/// </summary>
 		event Action<Move> NextMoveAvailable;
 
+	    /// <summary>
+	    /// Fire this event to send a DebugMessage to the UI
+	    /// </summary>
+	    event Action<string> DebugMessageAvailable;
+         
 		/// <summary>
 		/// This method is called before the game starts. You will be informed 
 		/// whether you are the bottom- or top player. You can choose a name

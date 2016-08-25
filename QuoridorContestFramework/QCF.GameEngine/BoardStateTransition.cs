@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using QCF.GameEngine.Moves;
+using QCF.GameEngine.Contracts.GameElements;
+using QCF.GameEngine.Contracts.Moves;
 using QCF.UiTools.FrameworkExtensions;
 
-namespace QCF.GameEngine.GameElements
+namespace QCF.GameEngine
 {
 	public static class BoardStateTransition
 	{

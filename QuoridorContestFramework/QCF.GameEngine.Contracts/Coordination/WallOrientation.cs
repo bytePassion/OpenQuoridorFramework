@@ -1,4 +1,4 @@
-﻿namespace QCF.GameEngine.Coordination
+﻿namespace QCF.GameEngine.Contracts.Coordination
 {
 	public enum WallOrientation
 	{

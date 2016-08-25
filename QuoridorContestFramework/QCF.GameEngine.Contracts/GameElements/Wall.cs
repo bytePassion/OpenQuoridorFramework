@@ -1,6 +1,6 @@
-﻿using QCF.GameEngine.Coordination;
+﻿using QCF.GameEngine.Contracts.Coordination;
 
-namespace QCF.GameEngine.GameElements
+namespace QCF.GameEngine.Contracts.GameElements
 {
 	public class Wall
 	{

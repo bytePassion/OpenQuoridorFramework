@@ -1,7 +1,7 @@
-﻿using QCF.GameEngine.Coordination;
-using QCF.GameEngine.GameElements;
+﻿using QCF.GameEngine.Contracts.Coordination;
+using QCF.GameEngine.Contracts.GameElements;
 
-namespace QCF.GameEngine.Moves
+namespace QCF.GameEngine.Contracts.Moves
 {
 	public class FigureMove : Move
 	{

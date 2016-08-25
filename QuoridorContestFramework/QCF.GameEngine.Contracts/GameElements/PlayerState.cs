@@ -1,10 +1,10 @@
-﻿using QCF.GameEngine.Coordination;
+﻿using QCF.GameEngine.Contracts.Coordination;
 
-namespace QCF.GameEngine.GameElements
+namespace QCF.GameEngine.Contracts.GameElements
 {
 	public class PlayerState
 	{
-		internal PlayerState(Player player, FieldCoordinate position, int wallsToPlace)
+	    public PlayerState(Player player, FieldCoordinate position, int wallsToPlace)
 		{
 			Player = player;
 			Position = position;
