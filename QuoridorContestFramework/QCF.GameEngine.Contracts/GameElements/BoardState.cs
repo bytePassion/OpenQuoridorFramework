@@ -22,6 +22,6 @@ namespace QCF.GameEngine.GameElements
 		public PlayerState BottomPlayer { get; }
 
 		public Player CurrentMover { get; }
-		public Move LastMove { get; }
+		public Move LastMove { get; }		
 	}
 }
