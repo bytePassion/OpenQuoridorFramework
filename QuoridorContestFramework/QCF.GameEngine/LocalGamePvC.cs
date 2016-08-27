@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Threading;
 using QCF.GameEngine.Contracts;
 using QCF.GameEngine.Contracts.GameElements;
@@ -30,6 +32,7 @@ namespace QCF.GameEngine
 		private readonly GameLoopThread gameLoopThread;
 
 
+
 		public LocalGamePvC(Player computerPlayer, Player humanPlayer)
 		{
 			this.computerPlayer = computerPlayer;
@@ -37,7 +40,7 @@ namespace QCF.GameEngine
 
 			humenMoves = new TimeoutBlockingQueue<Move>(1000);
 			
-			quoridorAi = new SimpleWalkingBot();
+			quoridorAi = new BotLoader().LoadBot(Assembly.LoadFile("QCF.SimpleWalkingBot.dll"));
 			quoridorAi.Init(computerPlayer);
 
 			var initialBoadState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
