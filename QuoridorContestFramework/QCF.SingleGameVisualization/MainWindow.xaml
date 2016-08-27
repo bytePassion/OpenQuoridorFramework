@@ -24,32 +24,15 @@
 			<ColumnDefinition Width="3*"/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		
-		<Border Grid.Row="1" Grid.Column="0" BorderBrush="Aqua" BorderThickness="2">
 
-			<Grid Background="Aqua">
+		<Border Grid.Row="1" 
+				Grid.Column="0" >
+			<Grid>
+				<Grid Height="40"
+					  VerticalAlignment="Top">
 
-				<Grid>
-					<Grid.RowDefinitions>
-						<RowDefinition/>
-						<RowDefinition Height="0.3*"/>
-						<RowDefinition/>
-						<RowDefinition Height="0.3*"/>
-						<RowDefinition/>
-						<RowDefinition Height="0.3*"/>
-						<RowDefinition/>
-						<RowDefinition Height="0.3*"/>
-						<RowDefinition/>
-						<RowDefinition Height="0.3*"/>
-						<RowDefinition/>
-						<RowDefinition Height="0.3*"/>
-						<RowDefinition/>
-						<RowDefinition Height="0.3*"/>
-						<RowDefinition/>
-						<RowDefinition Height="0.3*"/>
-						<RowDefinition/>
-					</Grid.RowDefinitions>
 					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="40"/>
 						<ColumnDefinition/>
 						<ColumnDefinition Width="0.3*"/>
 						<ColumnDefinition/>
@@ -69,113 +52,208 @@
 						<ColumnDefinition/>
 					</Grid.ColumnDefinitions>
 
-					<Border Grid.Row="0" Grid.Column=" 0" Background="White"/>
-					<Border Grid.Row="0" Grid.Column=" 2" Background="White"/>
-					<Border Grid.Row="0" Grid.Column=" 4" Background="White"/>
-					<Border Grid.Row="0" Grid.Column=" 6" Background="White"/>
-					<Border Grid.Row="0" Grid.Column=" 8" Background="White"/>
-					<Border Grid.Row="0" Grid.Column="10" Background="White"/>
-					<Border Grid.Row="0" Grid.Column="12" Background="White"/>
-					<Border Grid.Row="0" Grid.Column="14" Background="White"/>
-					<Border Grid.Row="0" Grid.Column="16" Background="White"/>
-
-					<Border Grid.Row="2" Grid.Column=" 0" Background="White"/>
-					<Border Grid.Row="2" Grid.Column=" 2" Background="White"/>
-					<Border Grid.Row="2" Grid.Column=" 4" Background="White"/>
-					<Border Grid.Row="2" Grid.Column=" 6" Background="White"/>
-					<Border Grid.Row="2" Grid.Column=" 8" Background="White"/>
-					<Border Grid.Row="2" Grid.Column="10" Background="White"/>
-					<Border Grid.Row="2" Grid.Column="12" Background="White"/>
-					<Border Grid.Row="2" Grid.Column="14" Background="White"/>
-					<Border Grid.Row="2" Grid.Column="16" Background="White"/>
-
-					<Border Grid.Row="4" Grid.Column=" 0" Background="White"/>
-					<Border Grid.Row="4" Grid.Column=" 2" Background="White"/>
-					<Border Grid.Row="4" Grid.Column=" 4" Background="White"/>
-					<Border Grid.Row="4" Grid.Column=" 6" Background="White"/>
-					<Border Grid.Row="4" Grid.Column=" 8" Background="White"/>
-					<Border Grid.Row="4" Grid.Column="10" Background="White"/>
-					<Border Grid.Row="4" Grid.Column="12" Background="White"/>
-					<Border Grid.Row="4" Grid.Column="14" Background="White"/>
-					<Border Grid.Row="4" Grid.Column="16" Background="White"/>
-
-					<Border Grid.Row="6" Grid.Column=" 0" Background="White"/>
-					<Border Grid.Row="6" Grid.Column=" 2" Background="White"/>
-					<Border Grid.Row="6" Grid.Column=" 4" Background="White"/>
-					<Border Grid.Row="6" Grid.Column=" 6" Background="White"/>
-					<Border Grid.Row="6" Grid.Column=" 8" Background="White"/>
-					<Border Grid.Row="6" Grid.Column="10" Background="White"/>
-					<Border Grid.Row="6" Grid.Column="12" Background="White"/>
-					<Border Grid.Row="6" Grid.Column="14" Background="White"/>
-					<Border Grid.Row="6" Grid.Column="16" Background="White"/>
-
-					<Border Grid.Row="8" Grid.Column=" 0" Background="White"/>
-					<Border Grid.Row="8" Grid.Column=" 2" Background="White"/>
-					<Border Grid.Row="8" Grid.Column=" 4" Background="White"/>
-					<Border Grid.Row="8" Grid.Column=" 6" Background="White"/>
-					<Border Grid.Row="8" Grid.Column=" 8" Background="White"/>
-					<Border Grid.Row="8" Grid.Column="10" Background="White"/>
-					<Border Grid.Row="8" Grid.Column="12" Background="White"/>
-					<Border Grid.Row="8" Grid.Column="14" Background="White"/>
-					<Border Grid.Row="8" Grid.Column="16" Background="White"/>
-
-					<Border Grid.Row="10" Grid.Column=" 0" Background="White"/>
-					<Border Grid.Row="10" Grid.Column=" 2" Background="White"/>
-					<Border Grid.Row="10" Grid.Column=" 4" Background="White"/>
-					<Border Grid.Row="10" Grid.Column=" 6" Background="White"/>
-					<Border Grid.Row="10" Grid.Column=" 8" Background="White"/>
-					<Border Grid.Row="10" Grid.Column="10" Background="White"/>
-					<Border Grid.Row="10" Grid.Column="12" Background="White"/>
-					<Border Grid.Row="10" Grid.Column="14" Background="White"/>
-					<Border Grid.Row="10" Grid.Column="16" Background="White"/>
-
-					<Border Grid.Row="12" Grid.Column=" 0" Background="White"/>
-					<Border Grid.Row="12" Grid.Column=" 2" Background="White"/>
-					<Border Grid.Row="12" Grid.Column=" 4" Background="White"/>
-					<Border Grid.Row="12" Grid.Column=" 6" Background="White"/>
-					<Border Grid.Row="12" Grid.Column=" 8" Background="White"/>
-					<Border Grid.Row="12" Grid.Column="10" Background="White"/>
-					<Border Grid.Row="12" Grid.Column="12" Background="White"/>
-					<Border Grid.Row="12" Grid.Column="14" Background="White"/>
-					<Border Grid.Row="12" Grid.Column="16" Background="White"/>
-
-					<Border Grid.Row="14" Grid.Column=" 0" Background="White"/>
-					<Border Grid.Row="14" Grid.Column=" 2" Background="White"/>
-					<Border Grid.Row="14" Grid.Column=" 4" Background="White"/>
-					<Border Grid.Row="14" Grid.Column=" 6" Background="White"/>
-					<Border Grid.Row="14" Grid.Column=" 8" Background="White"/>
-					<Border Grid.Row="14" Grid.Column="10" Background="White"/>
-					<Border Grid.Row="14" Grid.Column="12" Background="White"/>
-					<Border Grid.Row="14" Grid.Column="14" Background="White"/>
-					<Border Grid.Row="14" Grid.Column="16" Background="White"/>
-
-					<Border Grid.Row="16" Grid.Column=" 0" Background="White"/>
-					<Border Grid.Row="16" Grid.Column=" 2" Background="White"/>
-					<Border Grid.Row="16" Grid.Column=" 4" Background="White"/>
-					<Border Grid.Row="16" Grid.Column=" 6" Background="White"/>
-					<Border Grid.Row="16" Grid.Column=" 8" Background="White"/>
-					<Border Grid.Row="16" Grid.Column="10" Background="White"/>
-					<Border Grid.Row="16" Grid.Column="12" Background="White"/>
-					<Border Grid.Row="16" Grid.Column="14" Background="White"/>
-					<Border Grid.Row="16" Grid.Column="16" Background="White"/>
-
+					<TextBlock Grid.Column=" 1" FontSize="30" Text="A" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column=" 3" FontSize="30" Text="B" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column=" 5" FontSize="30" Text="C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column=" 7" FontSize="30" Text="D" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column=" 9" FontSize="30" Text="E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column="11" FontSize="30" Text="F" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column="13" FontSize="30" Text="G" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column="15" FontSize="30" Text="H" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column="17" FontSize="30" Text="I" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			
 				</Grid>
 
-				<ListBox Background="Transparent">
-					
-					<ListBox.ItemsPanel>
-						<ItemsPanelTemplate>
-							<Canvas/>
-						</ItemsPanelTemplate>
-					</ListBox.ItemsPanel>
-					
-					
-				</ListBox>
+				<Grid Width="40"
+					  HorizontalAlignment="Left">
+			
+					<Grid.RowDefinitions>
+						<RowDefinition Height="40"/>
+						<RowDefinition/>
+						<RowDefinition Height="0.3*"/>
+						<RowDefinition/>
+						<RowDefinition Height="0.3*"/>
+						<RowDefinition/>
+						<RowDefinition Height="0.3*"/>
+						<RowDefinition/>
+						<RowDefinition Height="0.3*"/>
+						<RowDefinition/>
+						<RowDefinition Height="0.3*"/>
+						<RowDefinition/>
+						<RowDefinition Height="0.3*"/>
+						<RowDefinition/>
+						<RowDefinition Height="0.3*"/>
+						<RowDefinition/>
+						<RowDefinition Height="0.3*"/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+			
+					<TextBlock Grid.Row=" 1" Text="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+					<TextBlock Grid.Row=" 3" Text="8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+					<TextBlock Grid.Row=" 5" Text="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+					<TextBlock Grid.Row=" 7" Text="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+					<TextBlock Grid.Row=" 9" Text="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+					<TextBlock Grid.Row="11" Text="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+					<TextBlock Grid.Row="13" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+					<TextBlock Grid.Row="15" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+					<TextBlock Grid.Row="17" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+			
+				</Grid>
+
+				<Border BorderBrush="Aqua" 
+						BorderThickness="2"
+						Margin="40,40,0,0">
+
+					<Grid Background="Aqua">
+
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition/>
+								<RowDefinition Height="0.3*"/>
+								<RowDefinition/>
+								<RowDefinition Height="0.3*"/>
+								<RowDefinition/>
+								<RowDefinition Height="0.3*"/>
+								<RowDefinition/>
+								<RowDefinition Height="0.3*"/>
+								<RowDefinition/>
+								<RowDefinition Height="0.3*"/>
+								<RowDefinition/>
+								<RowDefinition Height="0.3*"/>
+								<RowDefinition/>
+								<RowDefinition Height="0.3*"/>
+								<RowDefinition/>
+								<RowDefinition Height="0.3*"/>
+								<RowDefinition/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition/>
+								<ColumnDefinition Width="0.3*"/>
+								<ColumnDefinition/>
+								<ColumnDefinition Width="0.3*"/>
+								<ColumnDefinition/>
+								<ColumnDefinition Width="0.3*"/>
+								<ColumnDefinition/>
+								<ColumnDefinition Width="0.3*"/>
+								<ColumnDefinition/>
+								<ColumnDefinition Width="0.3*"/>
+								<ColumnDefinition/>
+								<ColumnDefinition Width="0.3*"/>
+								<ColumnDefinition/>
+								<ColumnDefinition Width="0.3*"/>
+								<ColumnDefinition/>
+								<ColumnDefinition Width="0.3*"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+
+							<Border Grid.Row="0" Grid.Column=" 0" Background="White"/>
+							<Border Grid.Row="0" Grid.Column=" 2" Background="White"/>
+							<Border Grid.Row="0" Grid.Column=" 4" Background="White"/>
+							<Border Grid.Row="0" Grid.Column=" 6" Background="White"/>
+							<Border Grid.Row="0" Grid.Column=" 8" Background="White"/>
+							<Border Grid.Row="0" Grid.Column="10" Background="White"/>
+							<Border Grid.Row="0" Grid.Column="12" Background="White"/>
+							<Border Grid.Row="0" Grid.Column="14" Background="White"/>
+							<Border Grid.Row="0" Grid.Column="16" Background="White"/>
+
+							<Border Grid.Row="2" Grid.Column=" 0" Background="White"/>
+							<Border Grid.Row="2" Grid.Column=" 2" Background="White"/>
+							<Border Grid.Row="2" Grid.Column=" 4" Background="White"/>
+							<Border Grid.Row="2" Grid.Column=" 6" Background="White"/>
+							<Border Grid.Row="2" Grid.Column=" 8" Background="White"/>
+							<Border Grid.Row="2" Grid.Column="10" Background="White"/>
+							<Border Grid.Row="2" Grid.Column="12" Background="White"/>
+							<Border Grid.Row="2" Grid.Column="14" Background="White"/>
+							<Border Grid.Row="2" Grid.Column="16" Background="White"/>
+
+							<Border Grid.Row="4" Grid.Column=" 0" Background="White"/>
+							<Border Grid.Row="4" Grid.Column=" 2" Background="White"/>
+							<Border Grid.Row="4" Grid.Column=" 4" Background="White"/>
+							<Border Grid.Row="4" Grid.Column=" 6" Background="White"/>
+							<Border Grid.Row="4" Grid.Column=" 8" Background="White"/>
+							<Border Grid.Row="4" Grid.Column="10" Background="White"/>
+							<Border Grid.Row="4" Grid.Column="12" Background="White"/>
+							<Border Grid.Row="4" Grid.Column="14" Background="White"/>
+							<Border Grid.Row="4" Grid.Column="16" Background="White"/>
+
+							<Border Grid.Row="6" Grid.Column=" 0" Background="White"/>
+							<Border Grid.Row="6" Grid.Column=" 2" Background="White"/>
+							<Border Grid.Row="6" Grid.Column=" 4" Background="White"/>
+							<Border Grid.Row="6" Grid.Column=" 6" Background="White"/>
+							<Border Grid.Row="6" Grid.Column=" 8" Background="White"/>
+							<Border Grid.Row="6" Grid.Column="10" Background="White"/>
+							<Border Grid.Row="6" Grid.Column="12" Background="White"/>
+							<Border Grid.Row="6" Grid.Column="14" Background="White"/>
+							<Border Grid.Row="6" Grid.Column="16" Background="White"/>
+
+							<Border Grid.Row="8" Grid.Column=" 0" Background="White"/>
+							<Border Grid.Row="8" Grid.Column=" 2" Background="White"/>
+							<Border Grid.Row="8" Grid.Column=" 4" Background="White"/>
+							<Border Grid.Row="8" Grid.Column=" 6" Background="White"/>
+							<Border Grid.Row="8" Grid.Column=" 8" Background="White"/>
+							<Border Grid.Row="8" Grid.Column="10" Background="White"/>
+							<Border Grid.Row="8" Grid.Column="12" Background="White"/>
+							<Border Grid.Row="8" Grid.Column="14" Background="White"/>
+							<Border Grid.Row="8" Grid.Column="16" Background="White"/>
+
+							<Border Grid.Row="10" Grid.Column=" 0" Background="White"/>
+							<Border Grid.Row="10" Grid.Column=" 2" Background="White"/>
+							<Border Grid.Row="10" Grid.Column=" 4" Background="White"/>
+							<Border Grid.Row="10" Grid.Column=" 6" Background="White"/>
+							<Border Grid.Row="10" Grid.Column=" 8" Background="White"/>
+							<Border Grid.Row="10" Grid.Column="10" Background="White"/>
+							<Border Grid.Row="10" Grid.Column="12" Background="White"/>
+							<Border Grid.Row="10" Grid.Column="14" Background="White"/>
+							<Border Grid.Row="10" Grid.Column="16" Background="White"/>
+
+							<Border Grid.Row="12" Grid.Column=" 0" Background="White"/>
+							<Border Grid.Row="12" Grid.Column=" 2" Background="White"/>
+							<Border Grid.Row="12" Grid.Column=" 4" Background="White"/>
+							<Border Grid.Row="12" Grid.Column=" 6" Background="White"/>
+							<Border Grid.Row="12" Grid.Column=" 8" Background="White"/>
+							<Border Grid.Row="12" Grid.Column="10" Background="White"/>
+							<Border Grid.Row="12" Grid.Column="12" Background="White"/>
+							<Border Grid.Row="12" Grid.Column="14" Background="White"/>
+							<Border Grid.Row="12" Grid.Column="16" Background="White"/>
+
+							<Border Grid.Row="14" Grid.Column=" 0" Background="White"/>
+							<Border Grid.Row="14" Grid.Column=" 2" Background="White"/>
+							<Border Grid.Row="14" Grid.Column=" 4" Background="White"/>
+							<Border Grid.Row="14" Grid.Column=" 6" Background="White"/>
+							<Border Grid.Row="14" Grid.Column=" 8" Background="White"/>
+							<Border Grid.Row="14" Grid.Column="10" Background="White"/>
+							<Border Grid.Row="14" Grid.Column="12" Background="White"/>
+							<Border Grid.Row="14" Grid.Column="14" Background="White"/>
+							<Border Grid.Row="14" Grid.Column="16" Background="White"/>
+
+							<Border Grid.Row="16" Grid.Column=" 0" Background="White"/>
+							<Border Grid.Row="16" Grid.Column=" 2" Background="White"/>
+							<Border Grid.Row="16" Grid.Column=" 4" Background="White"/>
+							<Border Grid.Row="16" Grid.Column=" 6" Background="White"/>
+							<Border Grid.Row="16" Grid.Column=" 8" Background="White"/>
+							<Border Grid.Row="16" Grid.Column="10" Background="White"/>
+							<Border Grid.Row="16" Grid.Column="12" Background="White"/>
+							<Border Grid.Row="16" Grid.Column="14" Background="White"/>
+							<Border Grid.Row="16" Grid.Column="16" Background="White"/>
+
+						</Grid>
+
+						<ListBox Background="Transparent">
+
+							<ListBox.ItemsPanel>
+								<ItemsPanelTemplate>
+									<Canvas/>
+								</ItemsPanelTemplate>
+							</ListBox.ItemsPanel>
+
+
+						</ListBox>
+					</Grid>
+
+				</Border>
 			</Grid>
-			
-			
 		</Border>
-		
+
 		<Border Grid.Row="0"
 				Grid.Column="0"
 				Margin="0,5"
