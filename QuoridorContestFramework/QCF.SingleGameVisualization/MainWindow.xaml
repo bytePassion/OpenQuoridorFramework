@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.MainWindow"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviors="clr-namespace:QCF.SingleGameVisualization.Behaviors"
         mc:Ignorable="d"
         Title="MainWindow" Height="680" Width="585">
 	
@@ -26,7 +28,12 @@
 		</Grid.ColumnDefinitions>
 
 		<Border Grid.Row="1" 
-				Grid.Column="0" >
+				Grid.Column="0">
+
+			<i:Interaction.Behaviors>
+				<behaviors:KeepQuadratic/>
+			</i:Interaction.Behaviors>
+			
 			<Grid>
 				<Grid Height="40"
 					  VerticalAlignment="Top">
