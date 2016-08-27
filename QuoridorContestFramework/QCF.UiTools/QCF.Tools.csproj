@@ -49,6 +49,8 @@
     <Compile Include="Communication\State\ISharedStateReadOnly.cs" />
     <Compile Include="Communication\State\ISharedStateWriteOnly.cs" />
     <Compile Include="Communication\State\SharedState.cs" />
+    <Compile Include="ConcurrencyLib\IThread.cs" />
+    <Compile Include="ConcurrencyLib\TimeoutBlockingQueue.cs" />
     <Compile Include="FrameworkExtensions\DispatcherExtension.cs" />
     <Compile Include="FrameworkExtensions\DisposingObject.cs" />
     <Compile Include="FrameworkExtensions\EqualsExtension.cs" />

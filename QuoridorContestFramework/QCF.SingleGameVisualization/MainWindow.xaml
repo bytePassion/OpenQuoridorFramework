@@ -6,25 +6,34 @@
         xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.MainWindow"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviors="clr-namespace:QCF.SingleGameVisualization.Behaviors"
+        xmlns:computation="clr-namespace:QCF.SingleGameVisualization.Computation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="680" Width="585">
+        Title="MainWindow" Height="830" Width="800">
 	
 	<d:DesignData.DataContext>
 		<sampleData:MainWindowViewModelSampleData/>
 	</d:DesignData.DataContext>
 	
+	<Window.Resources>
+		
+		<computation:TopPlayerMarkerColor    x:Key="TopPlayerMarkerColor"/>
+		<computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor"/>
+		
+	</Window.Resources>
+	
     <Grid>
         
 		<Grid.RowDefinitions>
-			<RowDefinition Height="0.2*"/>
+			<RowDefinition Height="150"/>
 			<RowDefinition/>
-			<RowDefinition Height="0.2*"/>
-			<RowDefinition Height="0.2*"/>
+			<RowDefinition Height="150"/>
+			<RowDefinition Height="70"/>
 		</Grid.RowDefinitions>
 		
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="3*"/>
 			<ColumnDefinition/>
+			<ColumnDefinition Width="2*"/>
 		</Grid.ColumnDefinitions>
 
 		<Border Grid.Row="1" 
@@ -245,7 +254,8 @@
 
 						</Grid>
 
-						<ListBox Background="Transparent">
+						<ListBox ItemsSource="{Binding VisiblePlayers}"
+								 Background="Transparent">
 
 							<ListBox.ItemsPanel>
 								<ItemsPanelTemplate>
@@ -253,6 +263,43 @@
 								</ItemsPanelTemplate>
 							</ListBox.ItemsPanel>
 
+							<!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
+							<ListBox.ItemContainerStyle>
+								<Style TargetType="ListBoxItem">
+<!--									<Setter Property="Canvas.Left">-->
+<!--										<Setter.Value>-->
+<!--											<MultiBinding Converter="{StaticResource PositionLeftComputation}">-->
+<!--												<Binding Path="DataContext.MapWidth" RelativeSource="{RelativeSource AncestorType={x:Type views:ActiveMapComponentLayer}}"/>-->
+<!--												<Binding Path="RelativeMapCoordinateX"/>-->
+<!--											</MultiBinding>-->
+<!--										</Setter.Value>-->
+<!--									</Setter>-->
+<!---->
+<!--									<Setter Property="Canvas.Top">-->
+<!--										<Setter.Value>-->
+<!--											<MultiBinding Converter="{StaticResource PositionTopComputation}">-->
+<!--												<Binding Path="DataContext.MapHeight" RelativeSource="{RelativeSource AncestorType={x:Type views:ActiveMapComponentLayer}}"/>-->
+<!--												<Binding Path="RelativeMapCoordinateY"/>-->
+<!--											</MultiBinding>-->
+<!--										</Setter.Value>-->
+<!--									</Setter>-->
+
+									<Setter Property="Template">
+										<Setter.Value>
+											<ControlTemplate>
+
+													<Border>
+														<Ellipse Fill="Red"/>
+													</Border>
+												
+
+											</ControlTemplate>
+										</Setter.Value>
+									</Setter>
+									
+								</Style>
+							</ListBox.ItemContainerStyle>
+							<!-- ReSharper restore Xaml.BindingWithContextNotResolved -->
 
 						</ListBox>
 					</Grid>
@@ -267,9 +314,75 @@
 				BorderBrush="Black"
 				BorderThickness="2">
 			
-			<TextBlock Text="TopPlayerArea"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center"/>
+			<Grid>
+				
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				
+				<Ellipse Grid.Column="0"
+						 Grid.RowSpan="2"
+						 Width="60"
+						 Height="60"
+						 Stroke="Black"
+						 StrokeThickness="2"
+						 Fill="{Binding IsGameRunning, 
+										Converter={StaticResource TopPlayerMarkerColor}}"/>
+				
+				<TextBlock Text="BotName"
+						   Grid.Column="1"
+						   Grid.Row="0"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+
+				<TextBlock Text="WallsLeft"
+						   Grid.Column="2"
+						   Grid.Row="0"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+
+				<TextBlock Text="{Binding TopPlayerName}"
+						   Grid.Column="1"
+						   Grid.Row="1"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+
+				<TextBlock Text="{Binding TopPlayerWallCountLeft}"
+						   Grid.Column="2"
+						   Grid.Row="1"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+
+				<TextBlock Text="DLL-path:"
+						   Grid.Column="0"
+						   Grid.Row="2"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+
+				<TextBox Grid.Column="1"
+						 Grid.Row="2"
+						 Margin="7"
+						 VerticalContentAlignment="Center"
+						 Text="{Binding DllPathInput, 
+										Mode=TwoWay, 
+										UpdateSourceTrigger=PropertyChanged}"/>
+				<Button Grid.Column="2"
+						Grid.Row="2"
+						Margin="7"
+						Content="BrowseDll"
+						Command="{Binding BrowseDll}"/>
+
+			</Grid>
+			
+			
 			
 		</Border>
 
@@ -279,9 +392,61 @@
 				BorderBrush="Black"
 				BorderThickness="2">
 
-			<TextBlock Text="BottomPlayerArea"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center"/>
+			<Grid>
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+
+				<Ellipse Grid.Column="0"
+						 Grid.RowSpan="2"
+						 Width="60"
+						 Height="60"
+						 Stroke="Black"
+						 StrokeThickness="2"
+						 Fill="{Binding IsGameRunning, 
+										Converter={StaticResource BottomPlayerMarkerColor}}"/>
+
+				<TextBlock Text="WallsLeft"
+						   Grid.Column="2"
+						   Grid.Row="0"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+
+				<TextBlock Text="{Binding BottomPlayerWallCountLeft}"
+						   Grid.Column="2"
+						   Grid.Row="1"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+
+				<TextBlock Text="YourMove:"
+						   Grid.Column="0"
+						   Grid.Row="2"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+				
+				<TextBox Grid.Column="1"
+						 Grid.Row="2"
+						 Margin="7"
+						 VerticalContentAlignment="Center"
+						 Text="{Binding MoveInput, 
+										Mode=TwoWay, 
+										UpdateSourceTrigger=PropertyChanged}"/>
+				<Button Grid.Column="2"
+						Grid.Row="2"
+						Margin="7"
+						Content="ApplyMove"
+						Command="{Binding ApplyMove}"/>
+
+			</Grid>
 
 		</Border>
 
@@ -292,9 +457,21 @@
 				BorderBrush="Black"
 				BorderThickness="2">
 
-			<TextBlock Text="GameControlsHere"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center"/>
+			<Grid>
+				
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				
+				<Button Grid.Column="0" Margin="10" Command="{Binding Start}"     Content="Start"  />
+				<Button Grid.Column="1" Margin="10" Command="{Binding Restart}"   Content="Restart"/>
+				<Button Grid.Column="2" Margin="10" Command="{Binding Stop}"      Content="Stop"   />
+				<Button Grid.Column="3" Margin="10" Command="{Binding AboutHelp}" Content="About &amp; Help"/>
+				
+			</Grid>
 
 		</Border>
 
@@ -305,10 +482,50 @@
 				BorderBrush="Black"
 				BorderThickness="2">
 
-			<TextBlock Text="Debug"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center"/>
+			<Grid>
 
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+
+				<TextBlock Grid.Row="0"
+						   Text="Progress"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+
+				<ListBox Grid.Row="1"
+						 ItemsSource="{Binding GameProgress}"/>
+
+			</Grid>
+
+		</Border>
+
+		<Border Grid.Row="0"
+				Grid.Column="2"
+				Grid.RowSpan="4"
+				Margin="5"
+				BorderBrush="Black"
+				BorderThickness="2">
+
+			<Grid>
+
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				
+				<TextBlock Grid.Row="0"
+						   Text="Debug"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+
+				<ListBox Grid.Row="1"
+						 ItemsSource="{Binding DebugMessages}"/>
+
+			</Grid>
+			
+			
 		</Border>
 
 	</Grid>

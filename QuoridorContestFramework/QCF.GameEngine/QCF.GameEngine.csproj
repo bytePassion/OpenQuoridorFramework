@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="BoardStateTransition.cs" />
     <Compile Include="GameLoop.cs" />
+    <Compile Include="IGame.cs" />
+    <Compile Include="LocalGamePvC.cs" />
     <Compile Include="PlayerTransitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,6 +58,10 @@
     <ProjectReference Include="..\QCF.UiTools\QCF.Tools.csproj">
       <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
       <Name>QCF.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QFC.SimpleWalkingBot\QFC.SimpleWalkingBot.csproj">
+      <Project>{4629a2d4-4146-4e1a-9520-57d12827cd57}</Project>
+      <Name>QFC.SimpleWalkingBot</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

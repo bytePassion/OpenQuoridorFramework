@@ -57,6 +57,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Behaviors\KeepQuadratic.cs" />
+    <Compile Include="Computation\BottomPlayerMarkerColor.cs" />
+    <Compile Include="Computation\TopPlayerMarkerColor.cs" />
+    <Compile Include="Global\Constants.cs" />
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
@@ -101,14 +104,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\QCF.GameEngine.Contracts\QCF.GameEngine.Contracts.csproj">
+      <Project>{e257aa0a-7215-4cba-b17a-61dc7ec3345a}</Project>
+      <Name>QCF.GameEngine.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QCF.GameEngine\QCF.GameEngine.csproj">
+      <Project>{26e530f7-814e-4b05-8d4a-9b10bf659cf1}</Project>
+      <Name>QCF.GameEngine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QCF.UiTools\QCF.Tools.csproj">
       <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
       <Name>QCF.Tools</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Computation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
