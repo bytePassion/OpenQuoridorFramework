@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BoardStateTransition.cs" />
     <Compile Include="BotLoader.cs" />
+    <Compile Include="GameGraph.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="LocalGamePvC.cs" />
     <Compile Include="PlayerTransitions.cs" />

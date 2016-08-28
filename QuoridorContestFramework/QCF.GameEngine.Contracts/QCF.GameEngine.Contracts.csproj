@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coordination\Edge.cs" />
     <Compile Include="Coordination\FieldCoordinate.cs" />
     <Compile Include="Coordination\PlayerType.cs" />
     <Compile Include="Coordination\WallOrientation.cs" />
