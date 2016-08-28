@@ -48,6 +48,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			BottomPlayerWallCountLeft = 9;
 
 			MoveInput = "e8";
+			DllPathInput = "blubb.dll";
 
 			IsGameRunning = true;
 		}

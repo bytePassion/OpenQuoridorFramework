@@ -1,19 +1,31 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using Microsoft.Win32;
 using QCF.GameEngine.Contracts.GameElements;
+using QCF.UiTools.FrameworkExtensions;
+using QCF.UiTools.WpfTools.Commands;
 using QCF.UiTools.WpfTools.ViewModelBase;
 
 namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 {
 	internal class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
+		private string dllPathInput;
+		private string moveInput;
+		private int bottomPlayerWallCountLeft;
+		private int topPlayerWallCountLeft;
+		private string bottomPlayerName;
+		private string topPlayerName;
+
 		public MainWindowViewModel ()
 		{
 			DebugMessages  = new ObservableCollection<string>();
 			GameProgress   = new ObservableCollection<string>();
 			VisiblePlayers = new ObservableCollection<PlayerState>();
 			VisibleWalls   = new ObservableCollection<Wall>();
+
+			BrowseDll = new Command(DoBrowseDll);
 
 			IsGameRunning = true;
 		}
@@ -32,14 +44,56 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		public bool IsGameRunning { get; }
 
-		public string TopPlayerName    { get; }
-		public string BottomPlayerName { get; }
+		public string TopPlayerName
+		{
+			get { return topPlayerName; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref topPlayerName, value); }
+		}
 
-		public int TopPlayerWallCountLeft { get; }
-		public int BottomPlayerWallCountLeft { get; }
+		public string BottomPlayerName
+		{
+			get { return bottomPlayerName; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref bottomPlayerName, value); }
+		}
 
-		public string MoveInput { get; set; }
-		public string DllPathInput { get; set; }
+		public int TopPlayerWallCountLeft
+		{
+			get { return topPlayerWallCountLeft; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref topPlayerWallCountLeft, value); }
+		}
+
+		public int BottomPlayerWallCountLeft
+		{
+			get { return bottomPlayerWallCountLeft; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref bottomPlayerWallCountLeft, value); }
+		}
+
+		public string MoveInput
+		{
+			get { return moveInput; }
+			set { PropertyChanged.ChangeAndNotify(this, ref moveInput, value); }
+		}
+
+		public string DllPathInput
+		{
+			get { return dllPathInput; }
+			set { PropertyChanged.ChangeAndNotify(this, ref dllPathInput, value); }
+		}
+
+
+		private void DoBrowseDll()
+		{
+			var dialog = new OpenFileDialog
+			{
+				Filter = "dll|*.dll"
+			};
+
+			var result = dialog.ShowDialog();
+
+			if (result.HasValue)
+				if (result.Value)
+					DllPathInput = dialog.FileName;
+		}
 
 
 		protected override void CleanUp() {	}
