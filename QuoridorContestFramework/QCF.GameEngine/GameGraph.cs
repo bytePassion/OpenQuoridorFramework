@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using QCF.GameEngine.Contracts.Coordination;
+using QCF.GameEngine.Contracts.GameElements;
 
 namespace QCF.GameEngine
 {
@@ -38,18 +39,19 @@ namespace QCF.GameEngine
             
         }
 
-        public bool ValidateMove(Edge edge)
+        public bool ValidateMove(Edge edge, Player player)
         {
             //nodes of edge still connected?
             if (!graph[edge.Node1].Contains(edge.Node2))
                 return false;
-
+            if (!IsExitPathAvailable(edge.Node1, player))
+                return false;
             //search if open path still available
 
             return true;
         }
 
-        private bool IsExitPathAvailable(IEnumerable<FieldCoordinate> exitNodes)
+        private bool IsExitPathAvailable(FieldCoordinate startCoordinatem, Player player)
         {
             return true;
         }
