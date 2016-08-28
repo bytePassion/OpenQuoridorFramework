@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 using QCF.GameEngine.Contracts.GameElements;
 using QCF.UiTools.WpfTools.ViewModelBase;
@@ -31,5 +32,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		string MoveInput    { get; set; }
 		string DllPathInput { get; set; }
+
+		Size BoardSize { get; set; }
 	}
 }

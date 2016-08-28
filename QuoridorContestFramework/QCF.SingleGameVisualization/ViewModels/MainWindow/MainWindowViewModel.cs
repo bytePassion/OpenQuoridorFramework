@@ -1,7 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
+using QCF.GameEngine.Contracts.Coordination;
 using QCF.GameEngine.Contracts.GameElements;
 using QCF.UiTools.FrameworkExtensions;
 using QCF.UiTools.WpfTools.Commands;
@@ -17,6 +19,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		private int topPlayerWallCountLeft;
 		private string bottomPlayerName;
 		private string topPlayerName;
+		private Size boardSize;
 
 		public MainWindowViewModel ()
 		{
@@ -24,6 +27,29 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			GameProgress   = new ObservableCollection<string>();
 			VisiblePlayers = new ObservableCollection<PlayerState>();
 			VisibleWalls   = new ObservableCollection<Wall>();
+
+
+
+			VisiblePlayers = new ObservableCollection<PlayerState>
+			{
+				new PlayerState(new Player(PlayerType.TopPlayer),    new FieldCoordinate(XField.B, YField.Seven), 10),
+				new PlayerState(new Player(PlayerType.BottomPlayer), new FieldCoordinate(XField.G, YField.Five),  10),
+				new PlayerState(new Player(PlayerType.BottomPlayer), new FieldCoordinate(XField.I, YField.Nine),  10),
+				new PlayerState(new Player(PlayerType.BottomPlayer), new FieldCoordinate(XField.I, YField.One),   10),
+			};
+
+			
+
+			VisibleWalls = new ObservableCollection<Wall>
+			{
+				new Wall(new FieldCoordinate(XField.E, YField.Eight), WallOrientation.Horizontal),
+				new Wall(new FieldCoordinate(XField.A, YField.Two),   WallOrientation.Horizontal),
+				new Wall(new FieldCoordinate(XField.B, YField.Three), WallOrientation.Vertical),
+				new Wall(new FieldCoordinate(XField.F, YField.Four),  WallOrientation.Vertical)
+			};
+
+
+
 
 			BrowseDll = new Command(DoBrowseDll);
 
@@ -78,6 +104,12 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		{
 			get { return dllPathInput; }
 			set { PropertyChanged.ChangeAndNotify(this, ref dllPathInput, value); }
+		}
+
+		public Size BoardSize
+		{
+			get { return boardSize; }
+			set { PropertyChanged.ChangeAndNotify(this, ref boardSize, value); }
 		}
 
 

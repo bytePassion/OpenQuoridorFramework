@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 using QCF.GameEngine.Contracts.Coordination;
 using QCF.GameEngine.Contracts.GameElements;
@@ -50,6 +51,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			MoveInput = "e8";
 			DllPathInput = "blubb.dll";
 
+			BoardSize = new Size(352, 385);
+
 			IsGameRunning = true;
 		}
 
@@ -75,6 +78,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		public string MoveInput { get; set; }
 		public string DllPathInput { get; set; }
+
+		public Size BoardSize { get; set; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		

@@ -1,12 +1,13 @@
 ﻿<Window x:Class="QCF.SingleGameVisualization.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:behaviors="clr-namespace:QCF.SingleGameVisualization.Behaviors"
-        xmlns:computation="clr-namespace:QCF.SingleGameVisualization.Computation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	    xmlns:behaviors="clr-namespace:QCF.SingleGameVisualization.Behaviors"
+        xmlns:computation="clr-namespace:QCF.SingleGameVisualization.Computation"
         xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.MainWindow"
+        xmlns:singleGameVisualization="clr-namespace:QCF.SingleGameVisualization"
         Title="MainWindow"
         Width="800"
         Height="830"
@@ -18,8 +19,16 @@
 
     <Window.Resources>
 
-        <computation:TopPlayerMarkerColor x:Key="TopPlayerMarkerColor" />
-        <computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
+        <computation:TopPlayerMarkerColor      x:Key="TopPlayerMarkerColor" />
+		<computation:BottomPlayerMarkerColor   x:Key="BottomPlayerMarkerColor" />
+		<computation:ComputeFigureLeftPosition x:Key="ComputeFigureLeftPosition"/>
+		<computation:ComputeFigureTopPosition  x:Key="ComputeFigureTopPosition"/>
+		<computation:ComputeFigureHeight       x:Key="ComputeFigureHeight"/>
+		<computation:ComputeFigureWidth        x:Key="ComputeFigureWidth"/>
+		<computation:ComputeWallLeftPosition   x:Key="ComputeWallLeftPosition"/>
+		<computation:ComputeWallTopPosition    x:Key="ComputeWallTopPosition"/>
+		<computation:ComputeWallHeight         x:Key="ComputeWallHeight"/>
+		<computation:ComputeWallWidth          x:Key="ComputeWallWidth"/>
 
     </Window.Resources>
 
@@ -169,11 +178,11 @@
 
         <Border Grid.Row="1" Grid.Column="0">
 
-            <i:Interaction.Behaviors>
-                <behaviors:KeepQuadratic />
-            </i:Interaction.Behaviors>
+			<i:Interaction.Behaviors>
+<!--				<behaviors:KeepQuadratic/>-->
+			</i:Interaction.Behaviors>
 
-            <Grid>
+			<Grid>
                 <Grid Height="40" VerticalAlignment="Top">
 
                     <Grid.ColumnDefinitions>
@@ -320,6 +329,12 @@
                         BorderBrush="Aqua"
                         BorderThickness="2">
 
+					<i:Interaction.Behaviors>
+						<behaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, 
+																				Mode=OneWayToSource, 
+																			    UpdateSourceTrigger=PropertyChanged}"/>
+					</i:Interaction.Behaviors>
+					
                     <Grid Background="Aqua">
 
                         <Grid>
@@ -627,34 +642,48 @@
                             <!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
-                                    <!--									<Setter Property="Canvas.Left">-->
-                                    <!--										<Setter.Value>-->
-                                    <!--											<MultiBinding Converter="{StaticResource PositionLeftComputation}">-->
-                                    <!--												<Binding Path="DataContext.MapWidth" RelativeSource="{RelativeSource AncestorType={x:Type views:ActiveMapComponentLayer}}"/>-->
-                                    <!--												<Binding Path="RelativeMapCoordinateX"/>-->
-                                    <!--											</MultiBinding>-->
-                                    <!--										</Setter.Value>-->
-                                    <!--									</Setter>-->
-                                    <!--    -->
-                                    <!--									<Setter Property="Canvas.Top">-->
-                                    <!--										<Setter.Value>-->
-                                    <!--											<MultiBinding Converter="{StaticResource PositionTopComputation}">-->
-                                    <!--												<Binding Path="DataContext.MapHeight" RelativeSource="{RelativeSource AncestorType={x:Type views:ActiveMapComponentLayer}}"/>-->
-                                    <!--												<Binding Path="RelativeMapCoordinateY"/>-->
-                                    <!--											</MultiBinding>-->
-                                    <!--										</Setter.Value>-->
-                                    <!--									</Setter>-->
+									<Setter Property="Canvas.Left">
+										<Setter.Value>
+											<MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
+												<Binding/>
+												<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
+											</MultiBinding>
+										</Setter.Value>
+									</Setter>
 
-                                    <Setter Property="Template">
+									<Setter Property="Canvas.Top">
+										<Setter.Value>
+											<MultiBinding Converter="{StaticResource ComputeFigureTopPosition}">
+												<Binding/>
+												<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
+											</MultiBinding>
+										</Setter.Value>
+									</Setter>
+
+									<Setter Property="Template">
                                         <Setter.Value>
-                                            <ControlTemplate>
+											<ControlTemplate>
 
-                                                <Border>
-                                                    <Ellipse Fill="Red" />
-                                                </Border>
+												<Rectangle Fill="Red" >
+
+													<Rectangle.Width>
+														<MultiBinding Converter="{StaticResource ComputeFigureWidth}">
+															<Binding/>
+															<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
+														</MultiBinding>
+													</Rectangle.Width>
 
 
-                                            </ControlTemplate>
+													<Rectangle.Height>
+														<MultiBinding Converter="{StaticResource ComputeFigureHeight}">
+															<Binding/>
+															<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
+														</MultiBinding>
+													</Rectangle.Height>
+
+												</Rectangle>
+
+											</ControlTemplate>
                                         </Setter.Value>
                                     </Setter>
 
@@ -663,7 +692,70 @@
                             <!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
 
                         </ListBox>
-                    </Grid>
+
+						<ListBox Background="Transparent" ItemsSource="{Binding VisibleWalls}">
+
+							<ListBox.ItemsPanel>
+								<ItemsPanelTemplate>
+									<Canvas />
+								</ItemsPanelTemplate>
+							</ListBox.ItemsPanel>
+
+							<!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
+							<ListBox.ItemContainerStyle>
+								<Style TargetType="ListBoxItem">
+									<Setter Property="Canvas.Left">
+										<Setter.Value>
+											<MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">
+												<Binding/>
+												<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
+											</MultiBinding>
+										</Setter.Value>
+									</Setter>
+
+									<Setter Property="Canvas.Top">
+										<Setter.Value>
+											<MultiBinding Converter="{StaticResource ComputeWallTopPosition}">
+												<Binding/>
+												<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
+											</MultiBinding>
+										</Setter.Value>
+									</Setter>
+
+									<Setter Property="Template">
+										<Setter.Value>
+											<ControlTemplate>
+
+												<Rectangle Fill="SaddleBrown" >
+
+													<Rectangle.Width>
+														<MultiBinding Converter="{StaticResource ComputeWallWidth}">
+															<Binding/>
+															<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
+														</MultiBinding>
+													</Rectangle.Width>
+
+
+													<Rectangle.Height>
+														<MultiBinding Converter="{StaticResource ComputeWallHeight}">
+															<Binding/>
+															<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
+														</MultiBinding>
+													</Rectangle.Height>
+
+												</Rectangle>
+
+											</ControlTemplate>
+										</Setter.Value>
+									</Setter>
+
+								</Style>
+							</ListBox.ItemContainerStyle>
+							<!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
+
+						</ListBox>
+
+					</Grid>
 
                 </Border>
             </Grid>

@@ -57,7 +57,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Behaviors\KeepQuadratic.cs" />
+    <Compile Include="Behaviors\SizeReportingBehavior.cs" />
     <Compile Include="Computation\BottomPlayerMarkerColor.cs" />
+    <Compile Include="Computation\WallsAndFigureComputations.cs" />
     <Compile Include="Computation\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
