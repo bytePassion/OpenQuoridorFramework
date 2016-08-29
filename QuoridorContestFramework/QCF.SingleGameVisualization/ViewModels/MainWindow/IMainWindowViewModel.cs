@@ -1,13 +1,14 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows;
 using System.Windows.Input;
-using QCF.GameEngine.Contracts.GameElements;
+using QCF.SingleGameVisualization.ViewModels.Board;
 using QCF.UiTools.WpfTools.ViewModelBase;
 
 namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 {
 	internal interface IMainWindowViewModel : IViewModel
 	{
+		IBoardViewModel BoardViewModel { get; }
+
 		ICommand Start     { get; }
 		ICommand Restart   { get; }
 		ICommand Stop      { get; }
@@ -17,10 +18,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		ICommand BrowseDll { get; }
 
 		ObservableCollection<string> DebugMessages { get; } 
-		ObservableCollection<string> GameProgress  { get; }
-		
-		ObservableCollection<Wall>        VisibleWalls   { get; } 
-		ObservableCollection<PlayerState> VisiblePlayers { get; } 
+		ObservableCollection<string> GameProgress  { get; }				
 
 		bool IsGameRunning { get; }
 
@@ -31,8 +29,6 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		int BottomPlayerWallCountLeft { get; }
 
 		string MoveInput    { get; set; }
-		string DllPathInput { get; set; }
-
-		Size BoardSize { get; set; }
+		string DllPathInput { get; set; }		
 	}
 }

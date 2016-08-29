@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using QCF.SingleGameVisualization.ViewModels.Board;
 using QCF.SingleGameVisualization.ViewModels.MainWindow;
 
 namespace QCF.SingleGameVisualization
@@ -9,7 +10,8 @@ namespace QCF.SingleGameVisualization
 		{
 			base.OnStartup(e);
 
-			var mainWindowViewModel = new MainWindowViewModel();
+			var boardViewModel = new BoardViewModel();
+			var mainWindowViewModel = new MainWindowViewModel(boardViewModel);
 
 			var mainWindow = new MainWindow
 			{

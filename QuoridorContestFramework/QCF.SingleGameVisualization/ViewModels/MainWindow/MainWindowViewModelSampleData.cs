@@ -1,9 +1,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows;
 using System.Windows.Input;
-using QCF.GameEngine.Contracts.Coordination;
-using QCF.GameEngine.Contracts.GameElements;
+using QCF.SingleGameVisualization.ViewModels.Board;
 
 #pragma warning disable 0067
 
@@ -13,6 +11,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 	{
 		public MainWindowViewModelSampleData()
 		{
+			BoardViewModel = new BoardViewModelSampleData();
+
 			DebugMessages = new ObservableCollection<string>
 			{
 				"blubb1",
@@ -26,21 +26,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			{
 				"1. e2 e8",
 				"2. e3 e7"
-			};
-
-			VisiblePlayers = new ObservableCollection<PlayerState>
-			{
-				new PlayerState(new Player(PlayerType.TopPlayer),    new FieldCoordinate(XField.B, YField.Seven), 10),
-				new PlayerState(new Player(PlayerType.BottomPlayer), new FieldCoordinate(XField.G, YField.Five),  10)
-			};
-
-			VisibleWalls = new ObservableCollection<Wall>
-			{
-				new Wall(new FieldCoordinate(XField.E, YField.Eight), WallOrientation.Horizontal),
-				new Wall(new FieldCoordinate(XField.A, YField.Two),   WallOrientation.Vertical),
-				new Wall(new FieldCoordinate(XField.B, YField.Three), WallOrientation.Horizontal),
-				new Wall(new FieldCoordinate(XField.F, YField.Four),  WallOrientation.Vertical)
-			};
+			};			
 
 			TopPlayerName    = "PlayerOben";
 			BottomPlayerName = "PlayerUnten";
@@ -49,12 +35,12 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			BottomPlayerWallCountLeft = 9;
 
 			MoveInput = "e8";
-			DllPathInput = "blubb.dll";
-
-			BoardSize = new Size(352, 385);
+			DllPathInput = "blubb.dll";			
 
 			IsGameRunning = true;
 		}
+
+		public IBoardViewModel BoardViewModel { get; }
 
 		public ICommand Start      => null;
 		public ICommand Restart    => null;
@@ -64,9 +50,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		public ICommand BrowseDll  => null;
 
 		public ObservableCollection<string>      DebugMessages  { get; }
-		public ObservableCollection<string>      GameProgress   { get; }
-		public ObservableCollection<Wall>        VisibleWalls   { get; }
-		public ObservableCollection<PlayerState> VisiblePlayers { get; }
+		public ObservableCollection<string>      GameProgress   { get; }		
 
 		public bool IsGameRunning { get; }
 
@@ -77,9 +61,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		public int BottomPlayerWallCountLeft { get; }
 
 		public string MoveInput { get; set; }
-		public string DllPathInput { get; set; }
-
-		public Size BoardSize { get; set; }
+		public string DllPathInput { get; set; }		
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		

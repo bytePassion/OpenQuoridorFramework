@@ -8,6 +8,7 @@
         xmlns:computation="clr-namespace:QCF.SingleGameVisualization.Computation"
         xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.MainWindow"
         xmlns:singleGameVisualization="clr-namespace:QCF.SingleGameVisualization"
+        xmlns:views="clr-namespace:QCF.SingleGameVisualization.Views"
         Title="MainWindow"
         Width="800"
         Height="830"
@@ -17,20 +18,10 @@
         <sampleData:MainWindowViewModelSampleData />
     </d:DesignData.DataContext>
 
-    <Window.Resources>
-
-        <computation:TopPlayerMarkerColor      x:Key="TopPlayerMarkerColor" />
-		<computation:BottomPlayerMarkerColor   x:Key="BottomPlayerMarkerColor" />
-		<computation:ComputeFigureLeftPosition x:Key="ComputeFigureLeftPosition"/>
-		<computation:ComputeFigureTopPosition  x:Key="ComputeFigureTopPosition"/>
-		<computation:ComputeFigureHeight       x:Key="ComputeFigureHeight"/>
-		<computation:ComputeFigureWidth        x:Key="ComputeFigureWidth"/>
-		<computation:ComputeWallLeftPosition   x:Key="ComputeWallLeftPosition"/>
-		<computation:ComputeWallTopPosition    x:Key="ComputeWallTopPosition"/>
-		<computation:ComputeWallHeight         x:Key="ComputeWallHeight"/>
-		<computation:ComputeWallWidth          x:Key="ComputeWallWidth"/>
-
-    </Window.Resources>
+	<Window.Resources>
+		<computation:TopPlayerMarkerColor    x:Key="TopPlayerMarkerColor" />
+		<computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
+	</Window.Resources>
 
     <Grid>
 
@@ -254,511 +245,80 @@
 
                 </Grid>
 
-                <Grid Width="40" HorizontalAlignment="Left">
+				<Grid Width="40" HorizontalAlignment="Left">
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40" />
-                        <RowDefinition />
-                        <RowDefinition Height="0.3*" />
-                        <RowDefinition />
-                        <RowDefinition Height="0.3*" />
-                        <RowDefinition />
-                        <RowDefinition Height="0.3*" />
-                        <RowDefinition />
-                        <RowDefinition Height="0.3*" />
-                        <RowDefinition />
-                        <RowDefinition Height="0.3*" />
-                        <RowDefinition />
-                        <RowDefinition Height="0.3*" />
-                        <RowDefinition />
-                        <RowDefinition Height="0.3*" />
-                        <RowDefinition />
-                        <RowDefinition Height="0.3*" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="40" />
+						<RowDefinition />
+						<RowDefinition Height="0.3*" />
+						<RowDefinition />
+						<RowDefinition Height="0.3*" />
+						<RowDefinition />
+						<RowDefinition Height="0.3*" />
+						<RowDefinition />
+						<RowDefinition Height="0.3*" />
+						<RowDefinition />
+						<RowDefinition Height="0.3*" />
+						<RowDefinition />
+						<RowDefinition Height="0.3*" />
+						<RowDefinition />
+						<RowDefinition Height="0.3*" />
+						<RowDefinition />
+						<RowDefinition Height="0.3*" />
+						<RowDefinition />
+					</Grid.RowDefinitions>
 
-                    <TextBlock Grid.Row=" 1"
+					<TextBlock Grid.Row=" 1"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="9" />
-                    <TextBlock Grid.Row=" 3"
+					<TextBlock Grid.Row=" 3"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="8" />
-                    <TextBlock Grid.Row=" 5"
+					<TextBlock Grid.Row=" 5"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="7" />
-                    <TextBlock Grid.Row=" 7"
+					<TextBlock Grid.Row=" 7"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="6" />
-                    <TextBlock Grid.Row=" 9"
+					<TextBlock Grid.Row=" 9"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="5" />
-                    <TextBlock Grid.Row="11"
+					<TextBlock Grid.Row="11"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="4" />
-                    <TextBlock Grid.Row="13"
+					<TextBlock Grid.Row="13"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="3" />
-                    <TextBlock Grid.Row="15"
+					<TextBlock Grid.Row="15"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="2" />
-                    <TextBlock Grid.Row="17"
+					<TextBlock Grid.Row="17"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="1" />
+				</Grid>
 
-                </Grid>
-
-                <Border Margin="40,40,0,0"
-                        BorderBrush="Aqua"
-                        BorderThickness="2">
-
-					<i:Interaction.Behaviors>
-						<behaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, 
-																				Mode=OneWayToSource, 
-																			    UpdateSourceTrigger=PropertyChanged}"/>
-					</i:Interaction.Behaviors>
-					
-                    <Grid Background="Aqua">
-
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition Height="0.3*" />
-                                <RowDefinition />
-                                <RowDefinition Height="0.3*" />
-                                <RowDefinition />
-                                <RowDefinition Height="0.3*" />
-                                <RowDefinition />
-                                <RowDefinition Height="0.3*" />
-                                <RowDefinition />
-                                <RowDefinition Height="0.3*" />
-                                <RowDefinition />
-                                <RowDefinition Height="0.3*" />
-                                <RowDefinition />
-                                <RowDefinition Height="0.3*" />
-                                <RowDefinition />
-                                <RowDefinition Height="0.3*" />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="0.3*" />
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="0.3*" />
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="0.3*" />
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="0.3*" />
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="0.3*" />
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="0.3*" />
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="0.3*" />
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="0.3*" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-
-                            <Border Grid.Row="0"
-                                    Grid.Column=" 0"
-                                    Background="White" />
-                            <Border Grid.Row="0"
-                                    Grid.Column=" 2"
-                                    Background="White" />
-                            <Border Grid.Row="0"
-                                    Grid.Column=" 4"
-                                    Background="White" />
-                            <Border Grid.Row="0"
-                                    Grid.Column=" 6"
-                                    Background="White" />
-                            <Border Grid.Row="0"
-                                    Grid.Column=" 8"
-                                    Background="White" />
-                            <Border Grid.Row="0"
-                                    Grid.Column="10"
-                                    Background="White" />
-                            <Border Grid.Row="0"
-                                    Grid.Column="12"
-                                    Background="White" />
-                            <Border Grid.Row="0"
-                                    Grid.Column="14"
-                                    Background="White" />
-                            <Border Grid.Row="0"
-                                    Grid.Column="16"
-                                    Background="White" />
-
-                            <Border Grid.Row="2"
-                                    Grid.Column=" 0"
-                                    Background="White" />
-                            <Border Grid.Row="2"
-                                    Grid.Column=" 2"
-                                    Background="White" />
-                            <Border Grid.Row="2"
-                                    Grid.Column=" 4"
-                                    Background="White" />
-                            <Border Grid.Row="2"
-                                    Grid.Column=" 6"
-                                    Background="White" />
-                            <Border Grid.Row="2"
-                                    Grid.Column=" 8"
-                                    Background="White" />
-                            <Border Grid.Row="2"
-                                    Grid.Column="10"
-                                    Background="White" />
-                            <Border Grid.Row="2"
-                                    Grid.Column="12"
-                                    Background="White" />
-                            <Border Grid.Row="2"
-                                    Grid.Column="14"
-                                    Background="White" />
-                            <Border Grid.Row="2"
-                                    Grid.Column="16"
-                                    Background="White" />
-
-                            <Border Grid.Row="4"
-                                    Grid.Column=" 0"
-                                    Background="White" />
-                            <Border Grid.Row="4"
-                                    Grid.Column=" 2"
-                                    Background="White" />
-                            <Border Grid.Row="4"
-                                    Grid.Column=" 4"
-                                    Background="White" />
-                            <Border Grid.Row="4"
-                                    Grid.Column=" 6"
-                                    Background="White" />
-                            <Border Grid.Row="4"
-                                    Grid.Column=" 8"
-                                    Background="White" />
-                            <Border Grid.Row="4"
-                                    Grid.Column="10"
-                                    Background="White" />
-                            <Border Grid.Row="4"
-                                    Grid.Column="12"
-                                    Background="White" />
-                            <Border Grid.Row="4"
-                                    Grid.Column="14"
-                                    Background="White" />
-                            <Border Grid.Row="4"
-                                    Grid.Column="16"
-                                    Background="White" />
-
-                            <Border Grid.Row="6"
-                                    Grid.Column=" 0"
-                                    Background="White" />
-                            <Border Grid.Row="6"
-                                    Grid.Column=" 2"
-                                    Background="White" />
-                            <Border Grid.Row="6"
-                                    Grid.Column=" 4"
-                                    Background="White" />
-                            <Border Grid.Row="6"
-                                    Grid.Column=" 6"
-                                    Background="White" />
-                            <Border Grid.Row="6"
-                                    Grid.Column=" 8"
-                                    Background="White" />
-                            <Border Grid.Row="6"
-                                    Grid.Column="10"
-                                    Background="White" />
-                            <Border Grid.Row="6"
-                                    Grid.Column="12"
-                                    Background="White" />
-                            <Border Grid.Row="6"
-                                    Grid.Column="14"
-                                    Background="White" />
-                            <Border Grid.Row="6"
-                                    Grid.Column="16"
-                                    Background="White" />
-
-                            <Border Grid.Row="8"
-                                    Grid.Column=" 0"
-                                    Background="White" />
-                            <Border Grid.Row="8"
-                                    Grid.Column=" 2"
-                                    Background="White" />
-                            <Border Grid.Row="8"
-                                    Grid.Column=" 4"
-                                    Background="White" />
-                            <Border Grid.Row="8"
-                                    Grid.Column=" 6"
-                                    Background="White" />
-                            <Border Grid.Row="8"
-                                    Grid.Column=" 8"
-                                    Background="White" />
-                            <Border Grid.Row="8"
-                                    Grid.Column="10"
-                                    Background="White" />
-                            <Border Grid.Row="8"
-                                    Grid.Column="12"
-                                    Background="White" />
-                            <Border Grid.Row="8"
-                                    Grid.Column="14"
-                                    Background="White" />
-                            <Border Grid.Row="8"
-                                    Grid.Column="16"
-                                    Background="White" />
-
-                            <Border Grid.Row="10"
-                                    Grid.Column=" 0"
-                                    Background="White" />
-                            <Border Grid.Row="10"
-                                    Grid.Column=" 2"
-                                    Background="White" />
-                            <Border Grid.Row="10"
-                                    Grid.Column=" 4"
-                                    Background="White" />
-                            <Border Grid.Row="10"
-                                    Grid.Column=" 6"
-                                    Background="White" />
-                            <Border Grid.Row="10"
-                                    Grid.Column=" 8"
-                                    Background="White" />
-                            <Border Grid.Row="10"
-                                    Grid.Column="10"
-                                    Background="White" />
-                            <Border Grid.Row="10"
-                                    Grid.Column="12"
-                                    Background="White" />
-                            <Border Grid.Row="10"
-                                    Grid.Column="14"
-                                    Background="White" />
-                            <Border Grid.Row="10"
-                                    Grid.Column="16"
-                                    Background="White" />
-
-                            <Border Grid.Row="12"
-                                    Grid.Column=" 0"
-                                    Background="White" />
-                            <Border Grid.Row="12"
-                                    Grid.Column=" 2"
-                                    Background="White" />
-                            <Border Grid.Row="12"
-                                    Grid.Column=" 4"
-                                    Background="White" />
-                            <Border Grid.Row="12"
-                                    Grid.Column=" 6"
-                                    Background="White" />
-                            <Border Grid.Row="12"
-                                    Grid.Column=" 8"
-                                    Background="White" />
-                            <Border Grid.Row="12"
-                                    Grid.Column="10"
-                                    Background="White" />
-                            <Border Grid.Row="12"
-                                    Grid.Column="12"
-                                    Background="White" />
-                            <Border Grid.Row="12"
-                                    Grid.Column="14"
-                                    Background="White" />
-                            <Border Grid.Row="12"
-                                    Grid.Column="16"
-                                    Background="White" />
-
-                            <Border Grid.Row="14"
-                                    Grid.Column=" 0"
-                                    Background="White" />
-                            <Border Grid.Row="14"
-                                    Grid.Column=" 2"
-                                    Background="White" />
-                            <Border Grid.Row="14"
-                                    Grid.Column=" 4"
-                                    Background="White" />
-                            <Border Grid.Row="14"
-                                    Grid.Column=" 6"
-                                    Background="White" />
-                            <Border Grid.Row="14"
-                                    Grid.Column=" 8"
-                                    Background="White" />
-                            <Border Grid.Row="14"
-                                    Grid.Column="10"
-                                    Background="White" />
-                            <Border Grid.Row="14"
-                                    Grid.Column="12"
-                                    Background="White" />
-                            <Border Grid.Row="14"
-                                    Grid.Column="14"
-                                    Background="White" />
-                            <Border Grid.Row="14"
-                                    Grid.Column="16"
-                                    Background="White" />
-
-                            <Border Grid.Row="16"
-                                    Grid.Column=" 0"
-                                    Background="White" />
-                            <Border Grid.Row="16"
-                                    Grid.Column=" 2"
-                                    Background="White" />
-                            <Border Grid.Row="16"
-                                    Grid.Column=" 4"
-                                    Background="White" />
-                            <Border Grid.Row="16"
-                                    Grid.Column=" 6"
-                                    Background="White" />
-                            <Border Grid.Row="16"
-                                    Grid.Column=" 8"
-                                    Background="White" />
-                            <Border Grid.Row="16"
-                                    Grid.Column="10"
-                                    Background="White" />
-                            <Border Grid.Row="16"
-                                    Grid.Column="12"
-                                    Background="White" />
-                            <Border Grid.Row="16"
-                                    Grid.Column="14"
-                                    Background="White" />
-                            <Border Grid.Row="16"
-                                    Grid.Column="16"
-                                    Background="White" />
-
-                        </Grid>
-
-                        <ListBox Background="Transparent" ItemsSource="{Binding VisiblePlayers}">
-
-                            <ListBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <Canvas />
-                                </ItemsPanelTemplate>
-                            </ListBox.ItemsPanel>
-
-                            <!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="ListBoxItem">
-									<Setter Property="Canvas.Left">
-										<Setter.Value>
-											<MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
-												<Binding/>
-												<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
-											</MultiBinding>
-										</Setter.Value>
-									</Setter>
-
-									<Setter Property="Canvas.Top">
-										<Setter.Value>
-											<MultiBinding Converter="{StaticResource ComputeFigureTopPosition}">
-												<Binding/>
-												<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
-											</MultiBinding>
-										</Setter.Value>
-									</Setter>
-
-									<Setter Property="Template">
-                                        <Setter.Value>
-											<ControlTemplate>
-
-												<Rectangle Fill="Red" >
-
-													<Rectangle.Width>
-														<MultiBinding Converter="{StaticResource ComputeFigureWidth}">
-															<Binding/>
-															<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
-														</MultiBinding>
-													</Rectangle.Width>
-
-
-													<Rectangle.Height>
-														<MultiBinding Converter="{StaticResource ComputeFigureHeight}">
-															<Binding/>
-															<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
-														</MultiBinding>
-													</Rectangle.Height>
-
-												</Rectangle>
-
-											</ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-
-                                </Style>
-                            </ListBox.ItemContainerStyle>
-                            <!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
-
-                        </ListBox>
-
-						<ListBox Background="Transparent" ItemsSource="{Binding VisibleWalls}">
-
-							<ListBox.ItemsPanel>
-								<ItemsPanelTemplate>
-									<Canvas />
-								</ItemsPanelTemplate>
-							</ListBox.ItemsPanel>
-
-							<!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
-							<ListBox.ItemContainerStyle>
-								<Style TargetType="ListBoxItem">
-									<Setter Property="Canvas.Left">
-										<Setter.Value>
-											<MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">
-												<Binding/>
-												<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
-											</MultiBinding>
-										</Setter.Value>
-									</Setter>
-
-									<Setter Property="Canvas.Top">
-										<Setter.Value>
-											<MultiBinding Converter="{StaticResource ComputeWallTopPosition}">
-												<Binding/>
-												<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
-											</MultiBinding>
-										</Setter.Value>
-									</Setter>
-
-									<Setter Property="Template">
-										<Setter.Value>
-											<ControlTemplate>
-
-												<Rectangle Fill="SaddleBrown" >
-
-													<Rectangle.Width>
-														<MultiBinding Converter="{StaticResource ComputeWallWidth}">
-															<Binding/>
-															<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
-														</MultiBinding>
-													</Rectangle.Width>
-
-
-													<Rectangle.Height>
-														<MultiBinding Converter="{StaticResource ComputeWallHeight}">
-															<Binding/>
-															<Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type singleGameVisualization:MainWindow}}"/>
-														</MultiBinding>
-													</Rectangle.Height>
-
-												</Rectangle>
-
-											</ControlTemplate>
-										</Setter.Value>
-									</Setter>
-
-								</Style>
-							</ListBox.ItemContainerStyle>
-							<!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
-
-						</ListBox>
-
-					</Grid>
-
-                </Border>
-            </Grid>
+				<views:Board Margin="40,40,0,0" 
+							 DataContext="{Binding BoardViewModel}"/>
+				
+			</Grid>
         </Border>
 
         <Border Grid.Row="2"
