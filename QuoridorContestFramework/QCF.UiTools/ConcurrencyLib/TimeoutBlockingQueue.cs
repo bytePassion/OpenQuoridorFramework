@@ -35,6 +35,14 @@ namespace QCF.UiTools.ConcurrencyLib
 			}			
 		}
 
+		public void Clear()
+		{
+			lock (queue)
+			{
+				queue.Clear();
+			}
+		}
+
 		public void Put (T item)
 		{
 			lock (queue)

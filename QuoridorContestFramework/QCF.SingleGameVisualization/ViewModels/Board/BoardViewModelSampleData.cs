@@ -4,6 +4,8 @@ using System.Windows;
 using QCF.GameEngine.Contracts.Coordination;
 using QCF.GameEngine.Contracts.GameElements;
 
+#pragma warning disable 0067
+
 namespace QCF.SingleGameVisualization.ViewModels.Board
 {
 	internal class BoardViewModelSampleData : IBoardViewModel

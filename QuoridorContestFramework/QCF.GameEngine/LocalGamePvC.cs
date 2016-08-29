@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
 using QCF.GameEngine.Contracts;
+using QCF.GameEngine.Contracts.Coordination;
 using QCF.GameEngine.Contracts.GameElements;
 using QCF.GameEngine.Contracts.Moves;
 using QCF.UiTools.ConcurrencyLib;
-using QFC.SimpleWalkingBot;
 
 namespace QCF.GameEngine
 {
-	public class LocalGamePvC : IGamePvC
+	public class LocalGamePvC : IGame
 	{
-		public event Action<Player> WinnerAvailable;
-		public event Action<Move> NextMoveAvailable;
-		public event Action<Player, string> DebugMessageAvailable;
+		public event Action<Player>     WinnerAvailable;
+		public event Action<BoardState> NextBoardstateAvailable;
+		public event Action<string>     DebugMessageAvailable;
 
 		/*
 		 *	computer is topPlayer
@@ -22,94 +21,62 @@ namespace QCF.GameEngine
 		 * 
 		 */
 
+		private readonly TimeoutBlockingQueue<Move> humenMoves;
+		private readonly GameLoopThread gameLoopThread;
 		private readonly IQuoridorBot quoridorAi;
 
-		private readonly TimeoutBlockingQueue<Move> humenMoves;
-
-		private readonly Player computerPlayer;
-		private readonly Player humanPlayer;
-
-		private readonly GameLoopThread gameLoopThread;
-
-
-
-		public LocalGamePvC(Player computerPlayer, Player humanPlayer)
+		public LocalGamePvC(string botDllFile)
 		{
-			this.computerPlayer = computerPlayer;
-			this.humanPlayer = humanPlayer;
+			var computerPlayer = new Player(PlayerType.TopPlayer);
+			var humanPlayer = new Player(PlayerType.BottomPlayer);
 
 			humenMoves = new TimeoutBlockingQueue<Move>(1000);
+
+
 			
-			quoridorAi = new BotLoader().LoadBot(Assembly.LoadFile("QCF.SimpleWalkingBot.dll"));
+			quoridorAi = new BotLoader().LoadBot(Assembly.LoadFile(botDllFile));
 			quoridorAi.Init(computerPlayer);
-
+			quoridorAi.DebugMessageAvailable += OnDebugMessageAvailable;
+			
 			var initialBoadState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
+			
+			gameLoopThread = new GameLoopThread(quoridorAi, humenMoves, initialBoadState);
 
-			gameLoopThread = new GameLoopThread(humenMoves, initialBoadState);
+			gameLoopThread.NewBoardStateAvailable += OnNewBoardStateAvailable;
+			gameLoopThread.WinnerAvailable        += OnWinnerAvailable;
+
 			new Thread(gameLoopThread.Run).Start();
 		}
-				
+
+		private void OnDebugMessageAvailable(string s)
+		{
+			DebugMessageAvailable?.Invoke(s);
+		}
+
+		private void OnWinnerAvailable(Player player)
+		{
+			StopGame();
+			WinnerAvailable?.Invoke(player);
+		}
+
+		private void OnNewBoardStateAvailable(BoardState boardState)
+		{
+			NextBoardstateAvailable?.Invoke(boardState);
+		}
+
 		public void ReportHumanMove(Move move)
 		{
 			humenMoves.Put(move);
 		}
-	}
 
-
-	public class GameLoopThread : IThread
-	{
-		private readonly TimeoutBlockingQueue<Move> humenMoves; 
-
-		private volatile bool stopRunning;
-
-		private BoardState currentBoadState;
-		
-		public GameLoopThread (TimeoutBlockingQueue<Move> humenMoves, BoardState initialBoadState)
+		public void StopGame()
 		{
-			this.humenMoves = humenMoves;
+			quoridorAi.DebugMessageAvailable -= OnDebugMessageAvailable;
 
-			currentBoadState = initialBoadState;
+			gameLoopThread.Stop();
 
-			stopRunning = false;
-			IsRunning = false;
+			gameLoopThread.NewBoardStateAvailable -= OnNewBoardStateAvailable;
+			gameLoopThread.WinnerAvailable        -= OnWinnerAvailable;
 		}
-
-		public void Run ()
-		{
-			IsRunning = true;
-
-			bool exit = false;
-
-			
-
-			while (!stopRunning)
-			{
-
-				Move nextHumanMove;
-
-				while ((nextHumanMove = humenMoves.TimeoutTake()) == null)
-				{
-					if (stopRunning)
-					{
-						exit = true;
-						break;
-					}
-				}
-
-				if (exit)
-					break;
-
-
-			}
-			
-			IsRunning = false;
-		}
-
-		public void Stop ()
-		{
-			stopRunning = true;
-		}
-
-		public bool IsRunning { get; private set; }
 	}
 }

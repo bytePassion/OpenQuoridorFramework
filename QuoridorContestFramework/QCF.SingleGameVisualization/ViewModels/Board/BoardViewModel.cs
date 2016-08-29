@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using QCF.GameEngine.Contracts.Coordination;
 using QCF.GameEngine.Contracts.GameElements;
+using QCF.UiTools.Communication.State;
 using QCF.UiTools.FrameworkExtensions;
 using QCF.UiTools.WpfTools.ViewModelBase;
 
@@ -10,10 +11,16 @@ namespace QCF.SingleGameVisualization.ViewModels.Board
 {
 	internal class BoardViewModel : ViewModel, IBoardViewModel
 	{
+		private readonly ISharedStateReadOnly<BoardState> displayedBoardStateVariable;
+
 		private Size boardSize;
 
-		public BoardViewModel()
+		public BoardViewModel(ISharedStateReadOnly<BoardState> displayedBoardStateVariable)
 		{
+			this.displayedBoardStateVariable = displayedBoardStateVariable;
+
+			displayedBoardStateVariable.StateChanged += OnDisplayedBoardStateVariableChanged;
+
 			VisiblePlayers = new ObservableCollection<PlayerState>
 			{
 				new PlayerState(new Player(PlayerType.TopPlayer),    new FieldCoordinate(XField.B, YField.Seven), 10),
@@ -32,7 +39,18 @@ namespace QCF.SingleGameVisualization.ViewModels.Board
 
 			BoardSize = new Size(100,100);
 		}
-		
+
+		private void OnDisplayedBoardStateVariableChanged(BoardState newBoardState)
+		{
+			VisiblePlayers.Clear();
+			VisibleWalls.Clear();
+
+			newBoardState.PlacedWalls.Do(VisibleWalls.Add);
+
+			VisiblePlayers.Add(newBoardState.TopPlayer);
+			VisiblePlayers.Add(newBoardState.BottomPlayer);
+		}
+
 		public ObservableCollection<Wall>        VisibleWalls   { get; }
 		public ObservableCollection<PlayerState> VisiblePlayers { get; }
 

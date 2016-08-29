@@ -7,12 +7,11 @@ namespace QCF.GameEngine
 	public interface IGame
 	{
 		event Action<Player> WinnerAvailable;
-		event Action<Move> NextMoveAvailable;
-		event Action<Player, string> DebugMessageAvailable;
-	}
+		event Action<BoardState> NextBoardstateAvailable;
+		event Action<string> DebugMessageAvailable;
 
-	public interface IGamePvC : IGame
-	{
-		void ReportHumanMove(Move move);
-	}
+		void ReportHumanMove (Move move);
+
+		void StopGame();
+	}	
 }
