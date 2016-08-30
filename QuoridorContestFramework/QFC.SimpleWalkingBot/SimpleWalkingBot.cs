@@ -23,10 +23,13 @@ namespace QFC.SimpleWalkingBot
 
 	    public void DoMove(BoardState currentState)
 	    {
-		    var myState = myPlayerType == PlayerType.BottomPlayer ? currentState.BottomPlayer : currentState.TopPlayer;
+		    var myState = myPlayerType == PlayerType.BottomPlayer 
+								? currentState.BottomPlayer 
+								: currentState.TopPlayer;
 
-		    var movingOffset = myPlayerType == PlayerType.BottomPlayer ? -1 : +1 ;
-
+		    var movingOffset = myPlayerType == PlayerType.BottomPlayer 
+								? -1 
+								: +1 ;
 
 		    NextMoveAvailable?.Invoke(new FigureMove(currentState, 
 													 myself, 

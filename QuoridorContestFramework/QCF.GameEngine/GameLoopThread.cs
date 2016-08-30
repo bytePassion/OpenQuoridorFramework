@@ -61,6 +61,7 @@ namespace QCF.GameEngine
 				}								
 
 				currentBoardState = currentBoardState.ApplyMove(nextHumanMove);
+				NewBoardStateAvailable?.Invoke(currentBoardState);
 
 				var winner = GameAnalysis.CheckWinningCondition(currentBoardState);
 				if (winner != null)
@@ -69,9 +70,7 @@ namespace QCF.GameEngine
 					break;
 				}
 				
-				NewBoardStateAvailable?.Invoke(currentBoardState);
-
-
+				
 				var nextBotMove = GetBotMove();
 
 				if (nextBotMove == null)
@@ -84,6 +83,7 @@ namespace QCF.GameEngine
 				}
 
 				currentBoardState = currentBoardState.ApplyMove(nextBotMove);
+				NewBoardStateAvailable?.Invoke(currentBoardState);
 
 				var winner2 = GameAnalysis.CheckWinningCondition(currentBoardState);
 				if (winner2 != null)
