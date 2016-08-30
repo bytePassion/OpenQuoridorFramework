@@ -22,6 +22,8 @@ namespace QCF.SingleGameVisualization
 			};
 			
 			mainWindow.ShowDialog();
+
+			gameService.StopGame();
 		}
 	}
 }

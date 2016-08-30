@@ -72,7 +72,7 @@
 							<Setter.Value>
 								<ControlTemplate>
 
-									<Rectangle Fill="Red" >
+									<Rectangle Fill="#50FF0000" >
 
 										<Rectangle.Width>
 											<MultiBinding Converter="{StaticResource ComputeFigureWidth}">

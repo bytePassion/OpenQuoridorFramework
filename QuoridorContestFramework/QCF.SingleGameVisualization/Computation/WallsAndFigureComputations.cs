@@ -12,7 +12,7 @@ namespace QCF.SingleGameVisualization.Computation
 		{
 			var cellWidth = currentBoadSize.Width / 11.4;
 						
-			return (double)currentPlayerState.Position.XCoord * 1.3 * cellWidth ;
+			return (double)currentPlayerState.Position.XCoord * 1.3 * cellWidth;
 		}
 	}
 

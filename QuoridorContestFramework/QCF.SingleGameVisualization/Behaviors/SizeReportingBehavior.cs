@@ -33,17 +33,17 @@ namespace QCF.SingleGameVisualization.Behaviors
 
 		private void OnLoaded (object sender, RoutedEventArgs routedEventArgs)
 		{
-			ReportSize((UIElement) sender);
+			ReportSize((FrameworkElement) sender);
 		}
 
 		private void OnSizeChanged (object sender, SizeChangedEventArgs sizeChangedEventArgs)
 		{
-			ReportSize((UIElement)sender);
+			ReportSize((FrameworkElement)sender);
 		}
 
-		private void ReportSize(UIElement sender)
+		private void ReportSize(FrameworkElement sender)
 		{
-			ReportedSize = sender.RenderSize;			
+			ReportedSize = sender.RenderSize;
 		}
 	}
 }
