@@ -76,6 +76,12 @@
     <Compile Include="Views\BoardBackground.xaml.cs">
       <DependentUpon>BoardBackground.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BoardHorizontalLabelling.xaml.cs">
+      <DependentUpon>BoardHorizontalLabelling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BoardVerticalLabelling.xaml.cs">
+      <DependentUpon>BoardVerticalLabelling.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +99,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BoardBackground.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BoardHorizontalLabelling.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BoardVerticalLabelling.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

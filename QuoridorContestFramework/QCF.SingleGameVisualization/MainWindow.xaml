@@ -174,148 +174,25 @@
 			</i:Interaction.Behaviors>
 
 			<Grid>
-                <Grid Height="40" VerticalAlignment="Top">
+                
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="40"/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="0.3*" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="0.3*" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="0.3*" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="0.3*" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="0.3*" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="0.3*" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="0.3*" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="0.3*" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
+				<views:BoardHorizontalLabelling Grid.Row="0"
+												Grid.Column="1"/>
 
-                    <TextBlock Grid.Column=" 1"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="A" />
-                    <TextBlock Grid.Column=" 3"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="B" />
-                    <TextBlock Grid.Column=" 5"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="C" />
-                    <TextBlock Grid.Column=" 7"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="D" />
-                    <TextBlock Grid.Column=" 9"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="E" />
-                    <TextBlock Grid.Column="11"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="F" />
-                    <TextBlock Grid.Column="13"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="G" />
-                    <TextBlock Grid.Column="15"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="H" />
-                    <TextBlock Grid.Column="17"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="I" />
+				<views:BoardVerticalLabelling Grid.Row="1"
+											  Grid.Column="0"/>
 
-                </Grid>
-
-				<Grid Width="40" HorizontalAlignment="Left">
-
-					<Grid.RowDefinitions>
-						<RowDefinition Height="40" />
-						<RowDefinition />
-						<RowDefinition Height="0.3*" />
-						<RowDefinition />
-						<RowDefinition Height="0.3*" />
-						<RowDefinition />
-						<RowDefinition Height="0.3*" />
-						<RowDefinition />
-						<RowDefinition Height="0.3*" />
-						<RowDefinition />
-						<RowDefinition Height="0.3*" />
-						<RowDefinition />
-						<RowDefinition Height="0.3*" />
-						<RowDefinition />
-						<RowDefinition Height="0.3*" />
-						<RowDefinition />
-						<RowDefinition Height="0.3*" />
-						<RowDefinition />
-					</Grid.RowDefinitions>
-
-					<TextBlock Grid.Row=" 1"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="9" />
-					<TextBlock Grid.Row=" 3"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="8" />
-					<TextBlock Grid.Row=" 5"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="7" />
-					<TextBlock Grid.Row=" 7"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="6" />
-					<TextBlock Grid.Row=" 9"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="5" />
-					<TextBlock Grid.Row="11"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="4" />
-					<TextBlock Grid.Row="13"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="3" />
-					<TextBlock Grid.Row="15"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="2" />
-					<TextBlock Grid.Row="17"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="1" />
-				</Grid>
-
-				<views:Board Margin="40,40,0,0" 
+				<views:Board Grid.Row="1"
+							 Grid.Column="1"
 							 DataContext="{Binding BoardViewModel}"/>
 				
 			</Grid>
