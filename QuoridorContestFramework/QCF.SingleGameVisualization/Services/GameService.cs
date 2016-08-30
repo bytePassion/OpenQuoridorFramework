@@ -16,8 +16,11 @@ namespace QCF.SingleGameVisualization.Services
 
 		public GameService()
 		{
-			currentGame = null;			
+			currentGame = null;
+			CurrentBoardState = null;
 		}
+
+		public BoardState CurrentBoardState { get; private set; }
 
 		public void CreateGame(string dllPath)
 		{
@@ -40,6 +43,7 @@ namespace QCF.SingleGameVisualization.Services
 
 		private void OnNextBoardstateAvailable(BoardState boardState)
 		{
+			CurrentBoardState = boardState;
 			NewBoardStateAvailable?.Invoke(boardState);
 		}
 

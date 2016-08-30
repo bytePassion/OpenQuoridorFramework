@@ -1,8 +1,7 @@
 ﻿using System.Windows;
-using QCF.Contest.Contracts.GameElements;
+using QCF.SingleGameVisualization.Services;
 using QCF.SingleGameVisualization.ViewModels.Board;
 using QCF.SingleGameVisualization.ViewModels.MainWindow;
-using QCF.Tools.Communication.State;
 
 namespace QCF.SingleGameVisualization
 {
@@ -12,9 +11,9 @@ namespace QCF.SingleGameVisualization
 		{
 			base.OnStartup(e);
 
-			var displayedBoardStateVariable = new SharedState<BoardState>(null);
+			IGameService gameService = new GameService();
 
-			var boardViewModel = new BoardViewModel(displayedBoardStateVariable);
+			var boardViewModel = new BoardViewModel(gameService);
 			var mainWindowViewModel = new MainWindowViewModel(boardViewModel);
 
 			var mainWindow = new MainWindow
