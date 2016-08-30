@@ -1,17 +1,18 @@
 ﻿using System.Globalization;
 using System.Windows.Media;
 using QCF.SingleGameVisualization.Global;
+using QCF.SingleGameVisualization.ViewModels.MainWindow.Helper;
 using QCF.Tools.WpfTools.ConverterBase;
 
 namespace QCF.SingleGameVisualization.Computation
 {
-	internal class TopPlayerMarkerColor : GenericValueConverter<bool, SolidColorBrush>
+	internal class TopPlayerMarkerColor : GenericValueConverter<GameStatus, SolidColorBrush>
 	{
-		protected override SolidColorBrush Convert(bool isGameRunning, CultureInfo culture)
+		protected override SolidColorBrush Convert(GameStatus gameStatus, CultureInfo culture)
 		{
-			return isGameRunning
-						? new SolidColorBrush(Constants.TopPlayerActiveColor)
-						: new SolidColorBrush(Constants.PlayerInactiveColor);
+			return gameStatus == GameStatus.Unloaded
+						? new SolidColorBrush(Constants.PlayerInactiveColor)
+						: new SolidColorBrush(Constants.TopPlayerActiveColor);
 		}
 	}
 }

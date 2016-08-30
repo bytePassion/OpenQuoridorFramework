@@ -11,6 +11,7 @@ namespace QCF.SingleGameVisualization.Services
 		event Action<Player> WinnerAvailable;
 
 		BoardState CurrentBoardState { get; }
+		bool IsGameActive { get; }
 
 		void CreateGame(string dllPath);
 		void ReportHumanMove(Move move);

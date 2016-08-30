@@ -14,7 +14,7 @@ namespace QCF.SingleGameVisualization
 			IGameService gameService = new GameService();
 
 			var boardViewModel = new BoardViewModel(gameService);
-			var mainWindowViewModel = new MainWindowViewModel(boardViewModel);
+			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, gameService);
 
 			var mainWindow = new MainWindow
 			{

@@ -21,6 +21,8 @@ namespace QFC.SimpleWalkingBot
 		    myPlayerType = myself.PlayerType;
 	    }
 
+	    private static int counter = 0;
+
 	    public void DoMove(BoardState currentState)
 	    {
 		    var myState = myPlayerType == PlayerType.BottomPlayer 
@@ -31,9 +33,10 @@ namespace QFC.SimpleWalkingBot
 								? -1 
 								: +1 ;
 
-		    NextMoveAvailable?.Invoke(new FigureMove(currentState, 
-													 myself, 
-													 myState.Position, 
+			DebugMessageAvailable?.Invoke($"bin am moooooven :) [{counter++}]");
+
+			NextMoveAvailable?.Invoke(new FigureMove(currentState, 
+													 myself, 													 
 													 new FieldCoordinate(myState.Position.XCoord, 
 																		 myState.Position.YCoord + movingOffset)));
 	    }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using QCF.SingleGameVisualization.ViewModels.Board;
+using QCF.SingleGameVisualization.ViewModels.MainWindow.Helper;
 using QCF.Tools.WpfTools.ViewModelBase;
 
 namespace QCF.SingleGameVisualization.ViewModels.MainWindow
@@ -20,10 +21,9 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		ObservableCollection<string> DebugMessages { get; } 
 		ObservableCollection<string> GameProgress  { get; }				
 
-		bool IsGameRunning { get; }
+		GameStatus GameStatus { get; }
 
-		string TopPlayerName    { get; } 
-		string BottomPlayerName { get; }		
+		string TopPlayerName    { get; } 			
 
 		int TopPlayerWallCountLeft    { get; }
 		int BottomPlayerWallCountLeft { get; }

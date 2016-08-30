@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using QCF.SingleGameVisualization.ViewModels.Board;
+using QCF.SingleGameVisualization.ViewModels.MainWindow.Helper;
 
 #pragma warning disable 0067
 
@@ -28,8 +29,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 				"2. e3 e7"
 			};			
 
-			TopPlayerName    = "PlayerOben";
-			BottomPlayerName = "PlayerUnten";
+			TopPlayerName    = "PlayerOben";			
 
 			TopPlayerWallCountLeft    = 10;
 			BottomPlayerWallCountLeft = 9;
@@ -37,7 +37,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			MoveInput = "e8";
 			DllPathInput = "blubb.dll";			
 
-			IsGameRunning = true;
+			GameStatus = GameStatus.Active;
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
@@ -49,13 +49,12 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		public ICommand ApplyMove  => null;
 		public ICommand BrowseDll  => null;
 
-		public ObservableCollection<string>      DebugMessages  { get; }
-		public ObservableCollection<string>      GameProgress   { get; }		
+		public ObservableCollection<string> DebugMessages  { get; }
+		public ObservableCollection<string> GameProgress   { get; }
 
-		public bool IsGameRunning { get; }
+		public GameStatus GameStatus { get; }		
 
-		public string TopPlayerName    { get; }
-		public string BottomPlayerName { get; }
+		public string TopPlayerName { get; }		
 
 		public int TopPlayerWallCountLeft   { get; }
 		public int BottomPlayerWallCountLeft { get; }

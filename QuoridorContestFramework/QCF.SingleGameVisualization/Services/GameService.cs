@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 using QCF.GameEngine.Contracts;
@@ -18,9 +19,11 @@ namespace QCF.SingleGameVisualization.Services
 		{
 			currentGame = null;
 			CurrentBoardState = null;
+			IsGameActive = false;
 		}
 
 		public BoardState CurrentBoardState { get; private set; }
+		public bool IsGameActive { get; private set; }
 
 		public void CreateGame(string dllPath)
 		{
@@ -34,22 +37,33 @@ namespace QCF.SingleGameVisualization.Services
 			currentGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentGame.NextBoardstateAvailable += OnNextBoardstateAvailable;
 			currentGame.WinnerAvailable         += OnWinnerAvailable;
+
+			IsGameActive = true;
 		}
 
 		private void OnWinnerAvailable(Player player)
 		{
-			WinnerAvailable?.Invoke(player);
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				WinnerAvailable?.Invoke(player);
+			});			
 		}
 
 		private void OnNextBoardstateAvailable(BoardState boardState)
 		{
-			CurrentBoardState = boardState;
-			NewBoardStateAvailable?.Invoke(boardState);
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				CurrentBoardState = boardState;
+				NewBoardStateAvailable?.Invoke(boardState);
+			});			
 		}
 
 		private void OnDebugMessageAvailable(string s)
 		{
-			NewDebugMsgAvailable?.Invoke(s);
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				NewDebugMsgAvailable?.Invoke(s);
+			});			
 		}
 
 		public void ReportHumanMove(Move move)

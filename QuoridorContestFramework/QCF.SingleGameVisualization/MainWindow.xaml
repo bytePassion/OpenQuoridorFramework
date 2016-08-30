@@ -62,7 +62,7 @@
                          Grid.Column="0"
                          Width="60"
                          Height="60"
-                         Fill="{Binding IsGameRunning,
+                         Fill="{Binding GameStatus,
                                         Converter={StaticResource TopPlayerMarkerColor}}"
                          Stroke="Black"
                          StrokeThickness="2" />
@@ -135,7 +135,11 @@
                            VerticalAlignment="Center"
                            Text="Progress" />
 
-                <ListBox Grid.Row="1" ItemsSource="{Binding GameProgress}" />
+                <ListBox Grid.Row="1" ItemsSource="{Binding GameProgress}">
+					<i:Interaction.Behaviors>
+						<behaviors:ListBoxAutoScrollDownBehavior/>
+					</i:Interaction.Behaviors>
+				</ListBox>
 
             </Grid>
 
@@ -160,7 +164,11 @@
                            VerticalAlignment="Center"
                            Text="Debug" />
 
-                <ListBox Grid.Row="1" ItemsSource="{Binding DebugMessages}" />
+                <ListBox Grid.Row="1" ItemsSource="{Binding DebugMessages}" >
+					<i:Interaction.Behaviors>
+						<behaviors:ListBoxAutoScrollDownBehavior/>
+					</i:Interaction.Behaviors>
+				</ListBox>
 
             </Grid>
 
@@ -222,7 +230,7 @@
                          Grid.Column="0"
                          Width="60"
                          Height="60"
-                         Fill="{Binding IsGameRunning,
+                         Fill="{Binding GameStatus,
                                         Converter={StaticResource BottomPlayerMarkerColor}}"
                          Stroke="Black"
                          StrokeThickness="2" />
