@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QCF.GameEngine.Contracts\QCF.GameEngine.Contracts.csproj">
-      <Project>{e257aa0a-7215-4cba-b17a-61dc7ec3345a}</Project>
-      <Name>QCF.GameEngine.Contracts</Name>
+    <ProjectReference Include="..\QCF.Contest.Contracts\QCF.Contest.Contracts.csproj">
+      <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
+      <Name>QCF.Contest.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

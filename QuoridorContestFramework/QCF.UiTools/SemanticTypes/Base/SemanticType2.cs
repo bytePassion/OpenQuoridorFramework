@@ -1,7 +1,7 @@
 using System;
-using QCF.UiTools.FrameworkExtensions;
+using QCF.Tools.FrameworkExtensions;
 
-namespace QCF.UiTools.SemanticTypes.Base
+namespace QCF.Tools.SemanticTypes.Base
 {
 
 	public abstract class SemanticType<T1, T2>

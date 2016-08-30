@@ -1,6 +1,6 @@
-﻿using QCF.UiTools.SemanticTypes.Base;
+﻿using QCF.Tools.SemanticTypes.Base;
 
-namespace QCF.UiTools.SemanticTypes
+namespace QCF.Tools.SemanticTypes
 {
 
 	public class Height : SimpleDoubleSemanticType

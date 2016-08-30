@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Input;
-using QCF.UiTools.FrameworkExtensions;
-using QCF.UiTools.WpfTools.Commands.Updater;
+using QCF.Tools.FrameworkExtensions;
+using QCF.Tools.WpfTools.Commands.Updater;
 
-namespace QCF.UiTools.WpfTools.Commands
+namespace QCF.Tools.WpfTools.Commands
 {
 	public class ParameterrizedCommand<T> : DisposingObject, ICommand
     {

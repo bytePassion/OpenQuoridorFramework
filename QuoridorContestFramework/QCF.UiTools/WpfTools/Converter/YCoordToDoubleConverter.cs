@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
-using QCF.UiTools.SemanticTypes;
-using QCF.UiTools.WpfTools.ConverterBase;
+using QCF.Tools.SemanticTypes;
+using QCF.Tools.WpfTools.ConverterBase;
 
-namespace QCF.UiTools.WpfTools.Converter
+namespace QCF.Tools.WpfTools.Converter
 {
 	public class YCoordToDoubleConverter : GenericValueConverter<YCoord, double>
     {

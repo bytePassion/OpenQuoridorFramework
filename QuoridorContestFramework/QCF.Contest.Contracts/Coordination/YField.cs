@@ -1,4 +1,4 @@
-﻿namespace QCF.GameEngine.Contracts.Coordination
+﻿namespace QCF.Contest.Contracts.Coordination
 {
 	public enum YField
 	{

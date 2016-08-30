@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
-using QCF.GameEngine.Contracts.GameElements;
-using QCF.UiTools.WpfTools.ViewModelBase;
+using QCF.Contest.Contracts.GameElements;
+using QCF.Tools.WpfTools.ViewModelBase;
 
 namespace QCF.SingleGameVisualization.ViewModels.Board
 {

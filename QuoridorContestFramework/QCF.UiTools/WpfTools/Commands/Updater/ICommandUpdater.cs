@@ -1,6 +1,6 @@
 using System;
 
-namespace QCF.UiTools.WpfTools.Commands.Updater
+namespace QCF.Tools.WpfTools.Commands.Updater
 {
 	public interface ICommandUpdater : IDisposable
     {

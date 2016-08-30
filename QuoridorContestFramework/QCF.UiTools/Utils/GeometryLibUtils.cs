@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows;
 
-namespace QCF.UiTools.Utils
+namespace QCF.Tools.Utils
 {
 	public static class GeometryLibUtils
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Threading;
 
-namespace QCF.UiTools.FrameworkExtensions
+namespace QCF.Tools.FrameworkExtensions
 {
 	public static class DispatcherExtension
 	{

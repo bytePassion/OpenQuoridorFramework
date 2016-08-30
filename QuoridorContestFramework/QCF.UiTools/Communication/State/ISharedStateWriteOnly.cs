@@ -1,4 +1,4 @@
-namespace QCF.UiTools.Communication.State
+namespace QCF.Tools.Communication.State
 {
 	public interface ISharedStateWriteOnly<in T>
     {

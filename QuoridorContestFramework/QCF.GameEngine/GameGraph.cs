@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
-using QCF.GameEngine.Contracts.Coordination;
-using QCF.GameEngine.Contracts.GameElements;
+using QCF.Contest.Contracts.Coordination;
+using QCF.Contest.Contracts.GameElements;
 
 namespace QCF.GameEngine
 {
-    //non directed graph with edges added in both directions 
-    public class GameGraph
+	//non directed graph with edges added in both directions 
+	public class GameGraph
     {
         private readonly Dictionary<FieldCoordinate, List<FieldCoordinate>> graph = new Dictionary<FieldCoordinate, List<FieldCoordinate>>();
 

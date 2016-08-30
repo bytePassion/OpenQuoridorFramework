@@ -1,8 +1,8 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
-using QCF.GameEngine.Contracts.Coordination;
-using QCF.GameEngine.Contracts.GameElements;
+using QCF.Contest.Contracts.Coordination;
+using QCF.Contest.Contracts.GameElements;
 
 #pragma warning disable 0067
 

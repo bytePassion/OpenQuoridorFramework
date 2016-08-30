@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using QCF.GameEngine.Contracts.Moves;
+using QCF.Contest.Contracts.Moves;
 
-namespace QCF.GameEngine.Contracts.GameElements
+namespace QCF.Contest.Contracts.GameElements
 {
 	public class BoardState
 	{

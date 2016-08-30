@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Interactivity;
-using QCF.UiTools.Utils;
+using QCF.Tools.Utils;
 
 namespace QCF.SingleGameVisualization.Behaviors
 {

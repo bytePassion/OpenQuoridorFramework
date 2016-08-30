@@ -1,7 +1,8 @@
 ﻿using System;
+using QCF.Contest.Contracts.GameElements;
+using QCF.Contest.Contracts.Moves;
 using QCF.GameEngine;
-using QCF.GameEngine.Contracts.GameElements;
-using QCF.GameEngine.Contracts.Moves;
+using QCF.GameEngine.Contracts;
 
 namespace QCF.SingleGameVisualization.Services
 {

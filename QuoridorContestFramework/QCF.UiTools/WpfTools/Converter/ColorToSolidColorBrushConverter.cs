@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
 using System.Windows.Media;
-using QCF.UiTools.WpfTools.ConverterBase;
+using QCF.Tools.WpfTools.ConverterBase;
 
-namespace QCF.UiTools.WpfTools.Converter
+namespace QCF.Tools.WpfTools.Converter
 {
 	public class ColorToSolidColorBrushConverter : GenericValueConverter<Color, SolidColorBrush>
 	{

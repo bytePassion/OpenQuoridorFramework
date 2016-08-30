@@ -1,8 +1,8 @@
 ﻿using System;
-using QCF.GameEngine.Contracts.GameElements;
-using QCF.GameEngine.Contracts.Moves;
+using QCF.Contest.Contracts.GameElements;
+using QCF.Contest.Contracts.Moves;
 
-namespace QCF.GameEngine.Contracts
+namespace QCF.Contest.Contracts
 {
 	public interface IQuoridorBot
 	{

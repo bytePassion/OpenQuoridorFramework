@@ -1,6 +1,6 @@
-﻿using QCF.GameEngine.Contracts.Coordination;
-using QCF.GameEngine.Contracts.GameElements;
-using QCF.GameEngine.Contracts.Moves;
+﻿using QCF.Contest.Contracts.Coordination;
+using QCF.Contest.Contracts.GameElements;
+using QCF.Contest.Contracts.Moves;
 
 namespace QCF.GameEngine
 {

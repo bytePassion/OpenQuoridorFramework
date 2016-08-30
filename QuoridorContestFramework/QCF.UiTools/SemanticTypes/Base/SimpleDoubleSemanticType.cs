@@ -1,7 +1,7 @@
 ﻿using System;
-using QCF.UiTools.Utils;
+using QCF.Tools.Utils;
 
-namespace QCF.UiTools.SemanticTypes.Base
+namespace QCF.Tools.SemanticTypes.Base
 {
 	public abstract class SimpleDoubleSemanticType : SemanticType<double>
     {        

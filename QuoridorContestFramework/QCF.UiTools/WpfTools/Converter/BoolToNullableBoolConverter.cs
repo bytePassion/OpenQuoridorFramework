@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
-using QCF.UiTools.WpfTools.ConverterBase;
+using QCF.Tools.WpfTools.ConverterBase;
 
-namespace QCF.UiTools.WpfTools.Converter
+namespace QCF.Tools.WpfTools.Converter
 {
 	public class BoolToNullableBoolConverter : GenericValueConverter<bool, bool?>
 	{

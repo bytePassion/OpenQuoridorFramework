@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Windows.Input;
 using Microsoft.Win32;
 using QCF.SingleGameVisualization.ViewModels.Board;
-using QCF.UiTools.FrameworkExtensions;
-using QCF.UiTools.WpfTools.Commands;
-using QCF.UiTools.WpfTools.ViewModelBase;
+using QCF.Tools.FrameworkExtensions;
+using QCF.Tools.WpfTools.Commands;
+using QCF.Tools.WpfTools.ViewModelBase;
 
 namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 {

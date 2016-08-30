@@ -1,6 +1,6 @@
-﻿using QCF.GameEngine.Contracts.Coordination;
+﻿using QCF.Contest.Contracts.Coordination;
 
-namespace QCF.GameEngine.Contracts.GameElements
+namespace QCF.Contest.Contracts.GameElements
 {
 	public class PlayerState
 	{

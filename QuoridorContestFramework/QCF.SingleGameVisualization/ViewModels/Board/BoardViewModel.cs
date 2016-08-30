@@ -1,11 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
-using QCF.GameEngine.Contracts.Coordination;
-using QCF.GameEngine.Contracts.GameElements;
-using QCF.UiTools.Communication.State;
-using QCF.UiTools.FrameworkExtensions;
-using QCF.UiTools.WpfTools.ViewModelBase;
+using QCF.Contest.Contracts.Coordination;
+using QCF.Contest.Contracts.GameElements;
+using QCF.Tools.Communication.State;
+using QCF.Tools.FrameworkExtensions;
+using QCF.Tools.WpfTools.ViewModelBase;
 
 namespace QCF.SingleGameVisualization.ViewModels.Board
 {

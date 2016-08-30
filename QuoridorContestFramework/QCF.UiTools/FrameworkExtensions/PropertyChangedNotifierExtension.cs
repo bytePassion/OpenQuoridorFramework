@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace QCF.UiTools.FrameworkExtensions
+namespace QCF.Tools.FrameworkExtensions
 {
 	public static class PropertyChangedNotifierExtension
 	{

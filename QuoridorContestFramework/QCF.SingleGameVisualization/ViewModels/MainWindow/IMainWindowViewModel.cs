@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using QCF.SingleGameVisualization.ViewModels.Board;
-using QCF.UiTools.WpfTools.ViewModelBase;
+using QCF.Tools.WpfTools.ViewModelBase;
 
 namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 {

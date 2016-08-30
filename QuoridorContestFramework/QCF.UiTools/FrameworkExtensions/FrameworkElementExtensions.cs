@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using QCF.UiTools.Utils;
+using QCF.Tools.Utils;
 
-namespace QCF.UiTools.FrameworkExtensions
+namespace QCF.Tools.FrameworkExtensions
 {
 	public static class FrameworkElementExtensions
     {

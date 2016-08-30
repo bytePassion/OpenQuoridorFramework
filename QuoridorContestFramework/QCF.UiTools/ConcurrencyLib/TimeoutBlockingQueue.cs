@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using QCF.UiTools.FrameworkExtensions;
+using QCF.Tools.FrameworkExtensions;
 
-namespace QCF.UiTools.ConcurrencyLib
+namespace QCF.Tools.ConcurrencyLib
 {
 	/**
 		Achtung: kann sein, dass es nur mit einem abnehmer wirklich gut funktioniert ....

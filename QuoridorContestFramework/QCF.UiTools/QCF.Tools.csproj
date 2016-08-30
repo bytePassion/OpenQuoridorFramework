@@ -7,8 +7,8 @@
     <ProjectGuid>{07EF24DB-4F29-48D9-AE1A-42F641CA5988}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QCF.UiTools</RootNamespace>
-    <AssemblyName>QCF.UiTools</AssemblyName>
+    <RootNamespace>QCF.Tools</RootNamespace>
+    <AssemblyName>QCF.Tools</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

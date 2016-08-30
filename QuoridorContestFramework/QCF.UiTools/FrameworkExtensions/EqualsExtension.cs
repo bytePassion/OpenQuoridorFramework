@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace QCF.UiTools.FrameworkExtensions
+namespace QCF.Tools.FrameworkExtensions
 {
 	public static class EqualsExtension
 	{

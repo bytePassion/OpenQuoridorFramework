@@ -1,4 +1,4 @@
-﻿namespace QCF.UiTools.ConcurrencyLib
+﻿namespace QCF.Tools.ConcurrencyLib
 {
 	public interface IThread
 	{

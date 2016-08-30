@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace QCF.UiTools.Communication.State
+namespace QCF.Tools.Communication.State
 {
 	public interface ISharedStateReadOnly<out T>
     {

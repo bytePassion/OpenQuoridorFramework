@@ -1,7 +1,7 @@
 using System.ComponentModel;
-using QCF.UiTools.FrameworkExtensions;
+using QCF.Tools.FrameworkExtensions;
 
-namespace QCF.UiTools.WpfTools.ViewModelBase
+namespace QCF.Tools.WpfTools.ViewModelBase
 {
 	public abstract class ViewModel : DisposingObject, 
                                       IViewModel                                      

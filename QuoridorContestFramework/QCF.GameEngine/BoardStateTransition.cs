@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using QCF.GameEngine.Contracts.GameElements;
-using QCF.GameEngine.Contracts.Moves;
-using QCF.UiTools.FrameworkExtensions;
+using QCF.Contest.Contracts.GameElements;
+using QCF.Contest.Contracts.Moves;
+using QCF.Tools.FrameworkExtensions;
 
 namespace QCF.GameEngine
 {

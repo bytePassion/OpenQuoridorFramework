@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace QCF.UiTools.WpfTools.ConverterBase
+namespace QCF.Tools.WpfTools.ConverterBase
 {
 	public abstract class GenericFiveToOneValueConverter<TFrom1, TFrom2, TFrom3, TFrom4, TFrom5, TTo> : IMultiValueConverter
 	{

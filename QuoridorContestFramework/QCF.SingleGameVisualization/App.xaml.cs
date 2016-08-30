@@ -1,8 +1,8 @@
 ﻿using System.Windows;
-using QCF.GameEngine.Contracts.GameElements;
+using QCF.Contest.Contracts.GameElements;
 using QCF.SingleGameVisualization.ViewModels.Board;
 using QCF.SingleGameVisualization.ViewModels.MainWindow;
-using QCF.UiTools.Communication.State;
+using QCF.Tools.Communication.State;
 
 namespace QCF.SingleGameVisualization
 {

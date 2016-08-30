@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.SingleGameVisualization", "QCF.SingleGameVisualization\QCF.SingleGameVisualization.csproj", "{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.GameEngine.Contracts", "QCF.GameEngine.Contracts\QCF.GameEngine.Contracts.csproj", "{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QFC.SimpleWalkingBot", "QFC.SimpleWalkingBot\QFC.SimpleWalkingBot.csproj", "{4629A2D4-4146-4E1A-9520-57D12827CD57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.Contest.Contracts", "QCF.Contest.Contracts\QCF.Contest.Contracts.csproj", "{8692572D-4B60-407C-BB7B-80FC66E63904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{4629A2D4-4146-4E1A-9520-57D12827CD57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4629A2D4-4146-4E1A-9520-57D12827CD57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4629A2D4-4146-4E1A-9520-57D12827CD57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8692572D-4B60-407C-BB7B-80FC66E63904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8692572D-4B60-407C-BB7B-80FC66E63904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8692572D-4B60-407C-BB7B-80FC66E63904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8692572D-4B60-407C-BB7B-80FC66E63904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

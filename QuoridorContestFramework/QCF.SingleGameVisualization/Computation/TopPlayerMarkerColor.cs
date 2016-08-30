@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows.Media;
 using QCF.SingleGameVisualization.Global;
-using QCF.UiTools.WpfTools.ConverterBase;
+using QCF.Tools.WpfTools.ConverterBase;
 
 namespace QCF.SingleGameVisualization.Computation
 {

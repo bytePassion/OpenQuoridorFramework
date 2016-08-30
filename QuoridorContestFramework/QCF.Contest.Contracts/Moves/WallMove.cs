@@ -1,6 +1,6 @@
-﻿using QCF.GameEngine.Contracts.GameElements;
+﻿using QCF.Contest.Contracts.GameElements;
 
-namespace QCF.GameEngine.Contracts.Moves
+namespace QCF.Contest.Contracts.Moves
 {
 	public class WallMove : Move
 	{

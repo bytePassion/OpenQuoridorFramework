@@ -125,6 +125,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\QCF.Contest.Contracts\QCF.Contest.Contracts.csproj">
+      <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
+      <Name>QCF.Contest.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QCF.GameEngine.Contracts\QCF.GameEngine.Contracts.csproj">
       <Project>{e257aa0a-7215-4cba-b17a-61dc7ec3345a}</Project>
       <Name>QCF.GameEngine.Contracts</Name>

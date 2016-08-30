@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using QCF.UiTools.FrameworkExtensions;
+using QCF.Tools.FrameworkExtensions;
 
-namespace QCF.UiTools.Utils
+namespace QCF.Tools.Utils
 {
 	public static class Guard
     {

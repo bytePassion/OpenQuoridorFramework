@@ -1,4 +1,4 @@
-﻿using QCF.GameEngine.Contracts.Coordination;
+﻿using QCF.Contest.Contracts.Coordination;
 
 namespace QCF.GameEngine
 {

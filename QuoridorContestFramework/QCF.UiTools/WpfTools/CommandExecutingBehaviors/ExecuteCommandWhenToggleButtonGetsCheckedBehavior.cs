@@ -3,7 +3,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Interactivity;
 
-namespace QCF.UiTools.WpfTools.CommandExecutingBehaviors
+namespace QCF.Tools.WpfTools.CommandExecutingBehaviors
 {
 	public class ExecuteCommandWhenToggleButtonGetsCheckedBehavior : Behavior<ToggleButton>
 	{

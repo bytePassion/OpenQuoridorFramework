@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Reflection;
-using QCF.GameEngine.Contracts;
+using QCF.Contest.Contracts;
 
 namespace QCF.GameEngine
 {
-    public class BotLoader
+	public class BotLoader
     {
         public IQuoridorBot LoadBot(Assembly assembly)
         {

@@ -1,8 +1,8 @@
 using System;
-using QCF.UiTools.Communication.State;
-using QCF.UiTools.FrameworkExtensions;
+using QCF.Tools.Communication.State;
+using QCF.Tools.FrameworkExtensions;
 
-namespace QCF.UiTools.WpfTools.Commands.Updater
+namespace QCF.Tools.WpfTools.Commands.Updater
 {
 	public class SharedStateCommandUpdate<T> : DisposingObject, ICommandUpdater
     {

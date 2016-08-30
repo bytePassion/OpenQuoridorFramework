@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using QCF.UiTools.FrameworkExtensions;
+using QCF.Tools.FrameworkExtensions;
 
-namespace QCF.UiTools.WpfTools.Commands.Updater
+namespace QCF.Tools.WpfTools.Commands.Updater
 {
 	public class PropertyChangedCommandUpdater : DisposingObject, ICommandUpdater
 	{

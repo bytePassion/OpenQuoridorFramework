@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
-using QCF.UiTools.SemanticTypes.Base;
-using QCF.UiTools.WpfTools.ConverterBase;
+using QCF.Tools.SemanticTypes.Base;
+using QCF.Tools.WpfTools.ConverterBase;
 
-namespace QCF.UiTools.WpfTools.Converter
+namespace QCF.Tools.WpfTools.Converter
 {
 	public class SemanticDoubleTypeToDoubleConverter : GenericValueConverter<SemanticType<double>, double>
     {

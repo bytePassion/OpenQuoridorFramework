@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
 using System.Windows;
-using QCF.GameEngine.Contracts.Coordination;
-using QCF.GameEngine.Contracts.GameElements;
-using QCF.UiTools.WpfTools.ConverterBase;
+using QCF.Contest.Contracts.Coordination;
+using QCF.Contest.Contracts.GameElements;
+using QCF.Tools.WpfTools.ConverterBase;
 
 namespace QCF.SingleGameVisualization.Computation
 {
