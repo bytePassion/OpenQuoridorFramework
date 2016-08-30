@@ -31,8 +31,6 @@ namespace QCF.GameEngine
 			var humanPlayer = new Player(PlayerType.BottomPlayer);
 
 			humenMoves = new TimeoutBlockingQueue<Move>(1000);
-
-
 			
 			quoridorAi = new BotLoader().LoadBot(Assembly.LoadFile(botDllFile));
 			quoridorAi.Init(computerPlayer);
