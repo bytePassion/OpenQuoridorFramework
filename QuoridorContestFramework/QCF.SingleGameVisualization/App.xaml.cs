@@ -12,9 +12,10 @@ namespace QCF.SingleGameVisualization
 			base.OnStartup(e);
 
 			IGameService gameService = new GameService();
+			ILastUsedBotService lastUsedBotService = new LastUsedBotService();
 
 			var boardViewModel = new BoardViewModel(gameService);
-			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, gameService);
+			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, gameService, lastUsedBotService);
 
 			var mainWindow = new MainWindow
 			{

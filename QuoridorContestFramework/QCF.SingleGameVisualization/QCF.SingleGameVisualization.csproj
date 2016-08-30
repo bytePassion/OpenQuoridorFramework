@@ -65,6 +65,8 @@
     <Compile Include="Global\Constants.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\IGameService.cs" />
+    <Compile Include="Services\ILastUsedBotService.cs" />
+    <Compile Include="Services\LastUsedBotService.cs" />
     <Compile Include="Tools\MoveParser.cs" />
     <Compile Include="ViewModels\Board\BoardViewModel.cs" />
     <Compile Include="ViewModels\Board\BoardViewModelSampleData.cs" />

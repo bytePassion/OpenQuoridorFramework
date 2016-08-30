@@ -20,6 +20,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 	internal class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
 		private readonly IGameService gameService;
+		private readonly ILastUsedBotService lastUsedBotService;
 		private string dllPathInput;
 		private string moveInput;
 		private int bottomPlayerWallCountLeft;
@@ -27,9 +28,10 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		private string topPlayerName;
 		private GameStatus gameStatus;		
 
-		public MainWindowViewModel (IBoardViewModel boardViewModel, IGameService gameService)
+		public MainWindowViewModel (IBoardViewModel boardViewModel, IGameService gameService, ILastUsedBotService lastUsedBotService)
 		{
 			this.gameService = gameService;
+			this.lastUsedBotService = lastUsedBotService;
 			BoardViewModel = boardViewModel;
 			DebugMessages  = new ObservableCollection<string>();
 			GameProgress   = new ObservableCollection<string>();			
@@ -47,7 +49,9 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 									IsMoveApplyable,
 									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
 
-			GameStatus = GameStatus.Unloaded;			
+			GameStatus = GameStatus.Unloaded;
+
+			DllPathInput = lastUsedBotService.GetLastUsedBot();
 		}		
 
 		private void OnNewDebugMsgAvailable(string s)
@@ -166,6 +170,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 				MessageBox.Show($"die datei {DllPathInput} existiert nicht");
 				return;
 			}
+
+			lastUsedBotService.SaveLastUsedBot(DllPathInput);
 
 			gameService.CreateGame(DllPathInput);
 
