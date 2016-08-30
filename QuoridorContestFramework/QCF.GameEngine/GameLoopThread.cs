@@ -19,7 +19,9 @@ namespace QCF.GameEngine
 
 		private BoardState currentBoardState;
 		
-		public GameLoopThread (IQuoridorBot bot, TimeoutBlockingQueue<Move> humenMoves, BoardState initialBoardState)
+		public GameLoopThread (IQuoridorBot bot, 
+							   TimeoutBlockingQueue<Move> humenMoves, 
+							   BoardState initialBoardState)
 		{
 			this.bot = bot;
 			this.humenMoves = humenMoves;
@@ -52,11 +54,21 @@ namespace QCF.GameEngine
 				if (nextHumanMove == null)
 					break;
 
-				// TODO: check if move is legal
-				// TODO: check if winner
+				if (!GameAnalysis.IsMoveLegal(currentBoardState, nextHumanMove))
+				{
+					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player);
+					break;
+				}								
 
 				currentBoardState = currentBoardState.ApplyMove(nextHumanMove);
 
+				var winner = GameAnalysis.CheckWinningCondition(currentBoardState);
+				if (winner != null)
+				{
+					WinnerAvailable?.Invoke(winner);
+					break;
+				}
+				
 				NewBoardStateAvailable?.Invoke(currentBoardState);
 
 
@@ -65,13 +77,24 @@ namespace QCF.GameEngine
 				if (nextBotMove == null)
 					break;
 
-				// TODO: check if move is legel
-				// TODO: check if winner
+				if (!GameAnalysis.IsMoveLegal(currentBoardState, nextBotMove))
+				{
+					WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player);
+					break;
+				}
 
 				currentBoardState = currentBoardState.ApplyMove(nextBotMove);
+
+				var winner2 = GameAnalysis.CheckWinningCondition(currentBoardState);
+				if (winner2 != null)
+				{
+					WinnerAvailable?.Invoke(winner2);
+					break;
+				}				
 			}
 
 			IsRunning = false;
+			bot.NextMoveAvailable -= OnNextBotMoveAvailable;
 		}
 
 		private Move GetBotMove()
