@@ -7,6 +7,7 @@ using Microsoft.Win32;
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
 using QCF.SingleGameVisualization.Services;
+using QCF.SingleGameVisualization.Tools;
 using QCF.SingleGameVisualization.ViewModels.Board;
 using QCF.SingleGameVisualization.ViewModels.MainWindow.Helper;
 using QCF.Tools.FrameworkExtensions;

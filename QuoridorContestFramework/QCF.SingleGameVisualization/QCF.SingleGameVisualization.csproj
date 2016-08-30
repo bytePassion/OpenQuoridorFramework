@@ -65,7 +65,7 @@
     <Compile Include="Global\Constants.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\IGameService.cs" />
-    <Compile Include="Services\MoveParser.cs" />
+    <Compile Include="Tools\MoveParser.cs" />
     <Compile Include="ViewModels\Board\BoardViewModel.cs" />
     <Compile Include="ViewModels\Board\BoardViewModelSampleData.cs" />
     <Compile Include="ViewModels\Board\IBoardViewModel.cs" />

@@ -2,7 +2,7 @@
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 
-namespace QCF.SingleGameVisualization.Services
+namespace QCF.SingleGameVisualization.Tools
 {
 	internal static class MoveParser
 	{
