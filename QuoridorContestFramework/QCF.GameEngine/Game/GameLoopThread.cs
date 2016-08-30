@@ -2,9 +2,11 @@
 using QCF.Contest.Contracts;
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
+using QCF.GameEngine.Analysis;
+using QCF.GameEngine.Transitions;
 using QCF.Tools.ConcurrencyLib;
 
-namespace QCF.GameEngine
+namespace QCF.GameEngine.Game
 {
 	public class GameLoopThread : IThread
 	{

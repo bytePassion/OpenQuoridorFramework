@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace QCF.GameEngine
+namespace QCF.GameEngine.Loader
 {
 	public static class TypeLoaderExtension
     {

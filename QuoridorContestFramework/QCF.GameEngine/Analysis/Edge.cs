@@ -1,6 +1,6 @@
 ﻿using QCF.Contest.Contracts.Coordination;
 
-namespace QCF.GameEngine
+namespace QCF.GameEngine.Analysis
 {
 	public class Edge
     {

@@ -2,7 +2,7 @@
 using System.Reflection;
 using QCF.Contest.Contracts;
 
-namespace QCF.GameEngine
+namespace QCF.GameEngine.Loader
 {
 	public class BotLoader
     {

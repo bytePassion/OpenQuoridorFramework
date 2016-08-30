@@ -3,7 +3,7 @@ using System.Text;
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
 
-namespace QCF.GameEngine
+namespace QCF.GameEngine.Analysis
 {
 	//non directed graph with edges added in both directions 
 	public class GameGraph

@@ -3,7 +3,7 @@ using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 using QCF.Tools.FrameworkExtensions;
 
-namespace QCF.GameEngine
+namespace QCF.GameEngine.Transitions
 {
 	public static class BoardStateTransition
 	{

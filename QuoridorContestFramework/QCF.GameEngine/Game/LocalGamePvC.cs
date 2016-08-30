@@ -6,9 +6,11 @@ using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 using QCF.GameEngine.Contracts;
+using QCF.GameEngine.Loader;
+using QCF.GameEngine.Transitions;
 using QCF.Tools.ConcurrencyLib;
 
-namespace QCF.GameEngine
+namespace QCF.GameEngine.Game
 {
 	public class LocalGamePvC : IGame
 	{

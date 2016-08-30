@@ -2,7 +2,7 @@
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 
-namespace QCF.GameEngine
+namespace QCF.GameEngine.Analysis
 {
 	internal static class GameAnalysis
 	{

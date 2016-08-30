@@ -2,7 +2,7 @@
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
 
-namespace QCF.GameEngine
+namespace QCF.GameEngine.Transitions
 {
 	public static class PlayerTransitions
 	{
