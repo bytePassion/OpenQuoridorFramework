@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using QCF.GameEngine.Contracts.Coordination;
 
-namespace QCF.GameEngine.Contracts.Coordination
+namespace QCF.GameEngine
 {
-    public class Edge
+	public class Edge
     {
         public FieldCoordinate Node1 { get; }
         public FieldCoordinate Node2 { get; }

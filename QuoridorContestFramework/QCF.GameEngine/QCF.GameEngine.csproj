@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{26E530F7-814E-4B05-8D4A-9B10BF659CF1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QCF.GameEngine</RootNamespace>
     <AssemblyName>QCF.GameEngine</AssemblyName>
@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BoardStateTransition.cs" />
     <Compile Include="BotLoader.cs" />
+    <Compile Include="Edge.cs" />
     <Compile Include="GameAnalysis.cs" />
     <Compile Include="GameGraph.cs" />
     <Compile Include="GameLoopThread.cs" />
