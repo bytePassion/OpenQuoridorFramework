@@ -22,6 +22,8 @@ namespace QCF.Contest.Contracts.GameElements
 		public PlayerState BottomPlayer { get; }
 
 		public Player CurrentMover { get; }
-		public Move LastMove { get; }		
+
+		public Move       LastMove { get; }
+		public BoardState LastBoardState => LastMove?.StateBeforeMove;
 	}
 }
