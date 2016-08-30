@@ -1,12 +1,12 @@
 ﻿<Window x:Class="QCF.SingleGameVisualization.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:behaviors="clr-namespace:QCF.SingleGameVisualization.Behaviors"
+        xmlns:computation="clr-namespace:QCF.SingleGameVisualization.Computation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	    xmlns:behaviors="clr-namespace:QCF.SingleGameVisualization.Behaviors"
-        xmlns:computation="clr-namespace:QCF.SingleGameVisualization.Computation"
-        xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.MainWindow"        
+        xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.MainWindow"
         xmlns:views="clr-namespace:QCF.SingleGameVisualization.Views"
         Title="MainWindow"
         Width="1200"
@@ -17,10 +17,10 @@
         <sampleData:MainWindowViewModelSampleData />
     </d:DesignData.DataContext>
 
-	<Window.Resources>
-		<computation:TopPlayerMarkerColor    x:Key="TopPlayerMarkerColor" />
-		<computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
-	</Window.Resources>
+    <Window.Resources>
+        <computation:TopPlayerMarkerColor x:Key="TopPlayerMarkerColor" />
+        <computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
+    </Window.Resources>
 
     <Grid>
 
@@ -135,10 +135,10 @@
                            Text="Progress" />
 
                 <ListBox Grid.Row="1" ItemsSource="{Binding GameProgress}">
-					<i:Interaction.Behaviors>
-						<behaviors:ListBoxAutoScrollDownBehavior/>
-					</i:Interaction.Behaviors>
-				</ListBox>
+                    <i:Interaction.Behaviors>
+                        <behaviors:ListBoxAutoScrollDownBehavior />
+                    </i:Interaction.Behaviors>
+                </ListBox>
 
             </Grid>
 
@@ -163,46 +163,47 @@
                            VerticalAlignment="Center"
                            Text="Debug" />
 
-                <ListBox Grid.Row="1" ItemsSource="{Binding DebugMessages}" >
-					<i:Interaction.Behaviors>
-						<behaviors:ListBoxAutoScrollDownBehavior/>
-					</i:Interaction.Behaviors>
-				</ListBox>
+                <ListBox Grid.Row="1" ItemsSource="{Binding DebugMessages}">
+                    <i:Interaction.Behaviors>
+                        <behaviors:ListBoxAutoScrollDownBehavior />
+                    </i:Interaction.Behaviors>
+                </ListBox>
 
             </Grid>
 
 
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="0">
+        <Border Grid.Row="1"
+                Grid.Column="0"
+                Padding="0">
 
-			<i:Interaction.Behaviors>
-<!--				<behaviors:KeepQuadratic/>-->
-			</i:Interaction.Behaviors>
+            <i:Interaction.Behaviors>
+                <!--				<behaviors:KeepQuadratic/>-->
+            </i:Interaction.Behaviors>
 
-			<Grid>
-                
-				<Grid.RowDefinitions>
-					<RowDefinition Height="40"/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="40"/>
-					<ColumnDefinition/>
-				</Grid.ColumnDefinitions>
+            <Grid>
 
-				<views:BoardHorizontalLabelling Grid.Row="0"
-												Grid.Column="1"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-				<views:BoardVerticalLabelling Grid.Row="1"
-											  Grid.Column="0"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
 
-				<views:Board Grid.Row="1"
-							 Grid.Column="1"
-							 DataContext="{Binding BoardViewModel}"/>
-				
-			</Grid>
+                <views:BoardHorizontalLabelling Grid.Row="0" Grid.Column="1" />
+
+                <views:BoardVerticalLabelling Grid.Row="1" Grid.Column="0" />
+
+                <views:Board Grid.Row="1"
+                             Grid.Column="1"
+                             DataContext="{Binding BoardViewModel}"
+                             Padding="0" />
+
+            </Grid>
         </Border>
 
         <Border Grid.Row="2"
