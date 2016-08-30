@@ -6,12 +6,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	    xmlns:behaviors="clr-namespace:QCF.SingleGameVisualization.Behaviors"
         xmlns:computation="clr-namespace:QCF.SingleGameVisualization.Computation"
-        xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.MainWindow"
-        xmlns:singleGameVisualization="clr-namespace:QCF.SingleGameVisualization"
+        xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.MainWindow"        
         xmlns:views="clr-namespace:QCF.SingleGameVisualization.Views"
         Title="MainWindow"
-        Width="800"
-        Height="830"
+        Width="1200"
+        Height="950"
         mc:Ignorable="d">
 
     <d:DesignData.DataContext>

@@ -24,7 +24,7 @@ namespace QCF.SingleGameVisualization.ViewModels.Board
 			gameService.NewBoardStateAvailable += OnDisplayedBoardStateVariableChanged;
 			OnDisplayedBoardStateVariableChanged(gameService.CurrentBoardState);
 									
-			BoardSize = new Size(100,100);
+			BoardSize = new Size(100,100);			
 		}
 		
 		private void OnDisplayedBoardStateVariableChanged(BoardState newBoardState)
@@ -39,7 +39,7 @@ namespace QCF.SingleGameVisualization.ViewModels.Board
 				VisiblePlayers.Add(newBoardState.TopPlayer);
 				VisiblePlayers.Add(newBoardState.BottomPlayer);
 			}
-		}
+		}		
 
 		public ObservableCollection<Wall>        VisibleWalls   { get; }
 		public ObservableCollection<PlayerState> VisiblePlayers { get; }
@@ -50,7 +50,10 @@ namespace QCF.SingleGameVisualization.ViewModels.Board
 			set { PropertyChanged.ChangeAndNotify(this, ref boardSize, value); }
 		}
 
-		protected override void CleanUp () { }
+		protected override void CleanUp()
+		{
+			gameService.NewBoardStateAvailable -= OnDisplayedBoardStateVariableChanged;
+		}
 		public override event PropertyChangedEventHandler PropertyChanged;
 	}
 }
