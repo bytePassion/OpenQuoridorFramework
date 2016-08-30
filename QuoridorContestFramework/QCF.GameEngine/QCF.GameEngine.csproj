@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game\GameFactory.cs" />
     <Compile Include="Transitions\BoardStateTransition.cs" />
     <Compile Include="Loader\BotLoader.cs" />
     <Compile Include="Analysis\Edge.cs" />

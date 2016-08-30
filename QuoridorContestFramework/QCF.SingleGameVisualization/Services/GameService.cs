@@ -3,20 +3,21 @@ using System.Windows;
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 using QCF.GameEngine.Contracts;
-using QCF.GameEngine.Game;
 
 namespace QCF.SingleGameVisualization.Services
 {
 	internal class GameService : IGameService
 	{
+		private readonly IGameFactory gameFactory;
 		public event Action<BoardState> NewBoardStateAvailable;
 		public event Action<string> NewDebugMsgAvailable;
 		public event Action<Player> WinnerAvailable;
 
 		private IGame currentGame;		
 
-		public GameService()
+		public GameService(IGameFactory gameFactory)
 		{
+			this.gameFactory = gameFactory;
 			currentGame = null;
 			CurrentBoardState = null;
 			IsGameActive = false;
@@ -32,7 +33,7 @@ namespace QCF.SingleGameVisualization.Services
 				StopGame();
 			}
 
-			currentGame = new LocalGamePvC(dllPath);
+			currentGame = gameFactory.CreateNewGame(dllPath);
 
 			currentGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentGame.NextBoardstateAvailable += OnNextBoardstateAvailable;

@@ -27,8 +27,8 @@ namespace QCF.GameEngine.Game
 		private readonly TimeoutBlockingQueue<Move> humenMoves;
 		private readonly GameLoopThread gameLoopThread;
 		private readonly IQuoridorBot quoridorAi;
-
-		public LocalGamePvC(string botDllFile)
+		
+		internal LocalGamePvC(string botDllFile)
 		{
 			var computerPlayer = new Player(PlayerType.TopPlayer);
 			var humanPlayer = new Player(PlayerType.BottomPlayer);
