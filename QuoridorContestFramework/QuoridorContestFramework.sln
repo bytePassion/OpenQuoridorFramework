@@ -5,13 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.SingleGameVisualization", "QCF.SingleGameVisualization\QCF.SingleGameVisualization.csproj", "{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.Tools", "QCF.UiTools\QCF.Tools.csproj", "{07EF24DB-4F29-48D9-AE1A-42F641CA5988}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.Tools", "QCF.Tools\QCF.Tools.csproj", "{07EF24DB-4F29-48D9-AE1A-42F641CA5988}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.GameEngine", "QCF.GameEngine\QCF.GameEngine.csproj", "{26E530F7-814E-4B05-8D4A-9B10BF659CF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.GameEngine.Contracts", "QCF.GameEngine.Contracts\QCF.GameEngine.Contracts.csproj", "{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.SimpleWalkingBot", "QFC.SimpleWalkingBot\QCF.SimpleWalkingBot.csproj", "{4629A2D4-4146-4E1A-9520-57D12827CD57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.SimpleWalkingBot", "QCF.SimpleWalkingBot\QCF.SimpleWalkingBot.csproj", "{4629A2D4-4146-4E1A-9520-57D12827CD57}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.Contest.Contracts", "QCF.Contest.Contracts\QCF.Contest.Contracts.csproj", "{8692572D-4B60-407C-BB7B-80FC66E63904}"
 EndProject

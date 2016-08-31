@@ -174,7 +174,7 @@
       <Project>{26e530f7-814e-4b05-8d4a-9b10bf659cf1}</Project>
       <Name>QCF.GameEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QCF.UiTools\QCF.Tools.csproj">
+    <ProjectReference Include="..\QCF.Tools\QCF.Tools.csproj">
       <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
       <Name>QCF.Tools</Name>
     </ProjectReference>

@@ -64,7 +64,7 @@
       <Project>{e257aa0a-7215-4cba-b17a-61dc7ec3345a}</Project>
       <Name>QCF.GameEngine.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QCF.UiTools\QCF.Tools.csproj">
+    <ProjectReference Include="..\QCF.Tools\QCF.Tools.csproj">
       <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
       <Name>QCF.Tools</Name>
     </ProjectReference>
