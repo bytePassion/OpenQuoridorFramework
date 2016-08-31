@@ -81,6 +81,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 				TopPlayerName = string.Empty;
 				TopPlayerWallCountLeft = 10;
 				BottomPlayerWallCountLeft = 10;
+
+				GameProgress.Clear();
 			}
 			else
 			{
@@ -90,6 +92,16 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 				TopPlayerWallCountLeft = boardState.TopPlayer.WallsToPlace;
 				BottomPlayerWallCountLeft = boardState.BottomPlayer.WallsToPlace;
+
+				if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+				{
+					if (GameProgress.Count > 0)
+						GameProgress[GameProgress.Count - 1] = GameProgress[GameProgress.Count - 1] + $" {boardState.LastMove}";
+				}
+				else
+				{
+					GameProgress.Add($"{GameProgress.Count+1}. {boardState.LastMove}");
+				}
 			}			
 		}
 

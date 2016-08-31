@@ -1,4 +1,5 @@
-﻿using QCF.Contest.Contracts.GameElements;
+﻿using QCF.Contest.Contracts.Coordination;
+using QCF.Contest.Contracts.GameElements;
 
 namespace QCF.Contest.Contracts.Moves
 {
@@ -11,5 +12,12 @@ namespace QCF.Contest.Contracts.Moves
 		}
 
 		public Wall PlacedWall { get; }
+
+		public override string ToString()
+		{
+			return PlacedWall.Orientation == WallOrientation.Horizontal
+				? $"{PlacedWall.TopLeft}h"
+				: $"{PlacedWall.TopLeft}v";
+		}
 	}
 }

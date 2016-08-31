@@ -13,5 +13,10 @@ namespace QCF.Contest.Contracts.Moves
 		}
 		
 		public FieldCoordinate NewPosition { get; }
+
+		public override string ToString()
+		{
+			return NewPosition.ToString();
+		}
 	}
 }

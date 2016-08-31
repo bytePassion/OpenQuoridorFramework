@@ -12,5 +12,7 @@ namespace QCF.Contest.Contracts.Moves
 
 		public BoardState StateBeforeMove { get; }
 		public Player PlayerAtMove { get; }
+
+		public abstract override string ToString();
 	}
 }

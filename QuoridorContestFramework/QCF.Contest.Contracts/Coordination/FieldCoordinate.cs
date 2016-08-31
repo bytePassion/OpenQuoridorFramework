@@ -10,5 +10,46 @@
 
 		public XField XCoord { get; }
 		public YField YCoord { get; }
+
+		public override string ToString()
+		{
+			return XCoordToString(XCoord) + YCoordToString(YCoord);
+		}
+
+		private static string XCoordToString(XField xCoord)
+		{
+			switch (xCoord)
+			{
+				case XField.A: return "a";
+				case XField.B: return "b";
+				case XField.C: return "c";
+				case XField.D: return "d";
+				case XField.E: return "e";
+				case XField.F: return "f";
+				case XField.G: return "g";
+				case XField.H: return "h";
+				case XField.I: return "i";
+			}
+
+			return "error";
+		}
+
+		private static string YCoordToString(YField yCoord)
+		{
+			switch (yCoord)
+			{
+				case YField.One:   return "1";
+				case YField.Two:   return "2";
+				case YField.Three: return "3";
+				case YField.Four:  return "4";
+				case YField.Five:  return "5";
+				case YField.Six:   return "6";
+				case YField.Seven: return "7";
+				case YField.Eight: return "8";
+				case YField.Nine:  return "9";
+			}
+
+			return "error";
+		}
 	}
 }
