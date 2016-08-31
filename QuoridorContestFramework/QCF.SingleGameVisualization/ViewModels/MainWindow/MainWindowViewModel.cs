@@ -26,7 +26,9 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		private int bottomPlayerWallCountLeft;
 		private int topPlayerWallCountLeft;		
 		private string topPlayerName;
-		private GameStatus gameStatus;		
+		private GameStatus gameStatus;
+		private bool isAutoScrollProgressActive;
+		private bool isAutoScrollDebugMsgActive;
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel, IGameService gameService, ILastUsedBotService lastUsedBotService)
 		{
@@ -38,8 +40,10 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			
 			gameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameService.WinnerAvailable        += OnWinnerAvailable;
-			gameService.NewDebugMsgAvailable   += OnNewDebugMsgAvailable; 
+			gameService.NewDebugMsgAvailable   += OnNewDebugMsgAvailable;
 
+			IsAutoScrollDebugMsgActive = true;
+			IsAutoScrollProgressActive = true;
 
 			BrowseDll = new Command(DoBrowseDll);
 			Start = new Command(DoStart,
@@ -116,6 +120,18 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		public ObservableCollection<string> DebugMessages { get; }
 		public ObservableCollection<string> GameProgress  { get; }
+
+		public bool IsAutoScrollProgressActive
+		{
+			get { return isAutoScrollProgressActive; }
+			set { PropertyChanged.ChangeAndNotify(this, ref isAutoScrollProgressActive, value); }
+		}
+
+		public bool IsAutoScrollDebugMsgActive
+		{
+			get { return isAutoScrollDebugMsgActive; }
+			set { PropertyChanged.ChangeAndNotify(this, ref isAutoScrollDebugMsgActive, value); }
+		}
 
 		public GameStatus GameStatus
 		{

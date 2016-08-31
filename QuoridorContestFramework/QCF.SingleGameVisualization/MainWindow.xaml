@@ -126,6 +126,7 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" />
+					<RowDefinition Height="30" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
@@ -134,11 +135,30 @@
                            VerticalAlignment="Center"
                            Text="Progress" />
 
-                <ListBox Grid.Row="1" ItemsSource="{Binding GameProgress}">
-                    <i:Interaction.Behaviors>
-                        <behaviors:ListBoxAutoScrollDownBehavior />
-                    </i:Interaction.Behaviors>
-                </ListBox>
+				<Border Grid.Row="1"
+						BorderThickness="0,0,0,2"
+						BorderBrush="Black">
+					<CheckBox HorizontalAlignment="Left"
+						  VerticalAlignment="Center"
+						  Content="Auto Scroll down"
+						  Margin="10,0,0,0"
+						  IsChecked="{Binding IsAutoScrollProgressActive, 
+											  Mode=TwoWay, 
+											  UpdateSourceTrigger=PropertyChanged}"/>
+				</Border>
+				
+				
+				<ScrollViewer Grid.Row="2" 
+							  HorizontalScrollBarVisibility="Auto"
+							  VerticalScrollBarVisibility="Visible">
+					<ItemsControl ItemsSource="{Binding GameProgress}"/>
+
+					<i:Interaction.Behaviors>
+						<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}"/>
+					</i:Interaction.Behaviors>
+				</ScrollViewer>
+				
+                
 
             </Grid>
 
@@ -155,6 +175,7 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" />
+					<RowDefinition Height="30" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
@@ -163,13 +184,29 @@
                            VerticalAlignment="Center"
                            Text="Debug" />
 
-                <ListBox Grid.Row="1" ItemsSource="{Binding DebugMessages}">
-                    <i:Interaction.Behaviors>
-                        <behaviors:ListBoxAutoScrollDownBehavior />
-                    </i:Interaction.Behaviors>
-                </ListBox>
+				<Border Grid.Row="1"
+						BorderThickness="0,0,0,2"
+						BorderBrush="Black">
+					<CheckBox HorizontalAlignment="Left"
+						  VerticalAlignment="Center"
+						  Content="Auto Scroll down"
+						  Margin="10,0,0,0"
+						  IsChecked="{Binding IsAutoScrollDebugMsgActive, 
+											  Mode=TwoWay, 
+											  UpdateSourceTrigger=PropertyChanged}"/>
+				</Border>
 
-            </Grid>
+				<ScrollViewer Grid.Row="2" 
+							  HorizontalScrollBarVisibility="Auto"
+							  VerticalScrollBarVisibility="Visible">
+					<ItemsControl ItemsSource="{Binding DebugMessages}"/>
+
+					<i:Interaction.Behaviors>
+						<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}"/>
+					</i:Interaction.Behaviors>
+				</ScrollViewer>
+
+			</Grid>
 
 
         </Border>
@@ -309,3 +346,6 @@
 
     </Grid>
 </Window>
+
+
+

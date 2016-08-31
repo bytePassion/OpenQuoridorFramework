@@ -38,6 +38,9 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			DllPathInput = "blubb.dll";			
 
 			GameStatus = GameStatus.Active;
+
+			IsAutoScrollDebugMsgActive = true;
+			IsAutoScrollProgressActive = true;
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
@@ -51,6 +54,9 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		public ObservableCollection<string> DebugMessages  { get; }
 		public ObservableCollection<string> GameProgress   { get; }
+
+		public bool IsAutoScrollProgressActive { get; set; }
+		public bool IsAutoScrollDebugMsgActive { get; set; }
 
 		public GameStatus GameStatus { get; }		
 

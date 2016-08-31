@@ -21,6 +21,9 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		ObservableCollection<string> DebugMessages { get; } 
 		ObservableCollection<string> GameProgress  { get; }				
 
+		bool IsAutoScrollProgressActive { get; set; }
+		bool IsAutoScrollDebugMsgActive { get; set; }
+
 		GameStatus GameStatus { get; }
 
 		string TopPlayerName    { get; } 			

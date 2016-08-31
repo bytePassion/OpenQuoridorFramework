@@ -57,7 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Behaviors\KeepQuadratic.cs" />
-    <Compile Include="Behaviors\ListBoxAutoScrollDownBehavior.cs" />
+    <Compile Include="Behaviors\AutoScrollDownBehavior.cs" />
     <Compile Include="Behaviors\SizeReportingBehavior.cs" />
     <Compile Include="Computation\BottomPlayerMarkerColor.cs" />
     <Compile Include="Computation\ComputeFigureHeight.cs" />

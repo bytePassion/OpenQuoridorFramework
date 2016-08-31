@@ -33,8 +33,11 @@ namespace QFC.SimpleWalkingBot
 								? -1 
 								: +1 ;
 
-			DebugMessageAvailable?.Invoke($"bin am moooooven :) [{counter++}]");
-
+		    for (int i = 0; i < 20; i++)
+		    {
+				DebugMessageAvailable?.Invoke($"bin am moooooven :) [{counter++}]");
+			}
+			
 			NextMoveAvailable?.Invoke(new FigureMove(currentState, 
 													 myself, 													 
 													 new FieldCoordinate(myState.Position.XCoord, 
