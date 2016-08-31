@@ -8,6 +8,7 @@ using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
 using QCF.SingleGameVisualization.Services;
 using QCF.SingleGameVisualization.Tools;
+using QCF.SingleGameVisualization.ViewModels.AboutHelpWindow;
 using QCF.SingleGameVisualization.ViewModels.Board;
 using QCF.SingleGameVisualization.ViewModels.MainWindow.Helper;
 using QCF.Tools.FrameworkExtensions;
@@ -59,12 +60,26 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			ApplyMove = new Command(DoApplyMove,
 									IsMoveApplyable,
 									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
+			ShowAboutHelp = new Command(DoShowAboutHelp);
 
 			GameStatus = GameStatus.Unloaded;
 
 			DllPathInput = lastUsedBotService.GetLastUsedBot();
 		}
-		
+
+		private void DoShowAboutHelp()
+		{
+			var aboutHelpWindowViewModel = new AboutHelpWindowViewModel();
+
+			var window = new Windows.AboutHelpWindow()
+			{
+				Owner = Application.Current.MainWindow,
+				DataContext = aboutHelpWindowViewModel
+			};
+
+			window.ShowDialog();
+		}
+
 		private void OnNewDebugMsgAvailable(string s)
 		{
 			DebugMessages.Add(s);
@@ -121,7 +136,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		public ICommand Start     { get; }
 		public ICommand Restart   { get; }
 		public ICommand Stop      { get; }
-		public ICommand AboutHelp { get; }
+		public ICommand ShowAboutHelp { get; }
 		public ICommand ApplyMove { get; }
 		public ICommand BrowseDll { get; }
 

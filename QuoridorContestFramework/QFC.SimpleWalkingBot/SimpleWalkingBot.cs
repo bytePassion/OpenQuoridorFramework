@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using QCF.Contest.Contracts;
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
@@ -34,11 +35,15 @@ namespace QFC.SimpleWalkingBot
 								: +1 ;
 
 			DebugMessageAvailable?.Invoke($"bin am moooooven :) [{counter++}]");
-						
-			NextMoveAvailable?.Invoke(new FigureMove(currentState, 
-													 myself, 													 
-													 new FieldCoordinate(myState.Position.XCoord, 
+				
+			new Thread(() =>
+			{
+				Thread.Sleep(1000);
+				NextMoveAvailable?.Invoke(new FigureMove(currentState,
+													 myself,
+													 new FieldCoordinate(myState.Position.XCoord,
 																		 myState.Position.YCoord + movingOffset)));
+			}).Start();								
 	    }
     }
 }

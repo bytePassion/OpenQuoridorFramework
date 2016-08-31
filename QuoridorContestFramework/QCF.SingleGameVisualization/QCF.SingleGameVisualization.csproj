@@ -76,6 +76,9 @@
     <Compile Include="Services\ILastUsedBotService.cs" />
     <Compile Include="Services\LastUsedBotService.cs" />
     <Compile Include="Tools\MoveParser.cs" />
+    <Compile Include="ViewModels\AboutHelpWindow\AboutHelpWindowViewModel.cs" />
+    <Compile Include="ViewModels\AboutHelpWindow\AboutHelpWindowViewModelSampleData.cs" />
+    <Compile Include="ViewModels\AboutHelpWindow\IAboutHelpWindowViewModel.cs" />
     <Compile Include="ViewModels\Board\BoardViewModel.cs" />
     <Compile Include="ViewModels\Board\BoardViewModelSampleData.cs" />
     <Compile Include="ViewModels\Board\IBoardViewModel.cs" />
@@ -95,6 +98,10 @@
     <Compile Include="Views\BoardVerticalLabelling.xaml.cs">
       <DependentUpon>BoardVerticalLabelling.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\AboutHelpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,6 +109,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\AboutHelpWindow.xaml.cs">
+      <DependentUpon>AboutHelpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

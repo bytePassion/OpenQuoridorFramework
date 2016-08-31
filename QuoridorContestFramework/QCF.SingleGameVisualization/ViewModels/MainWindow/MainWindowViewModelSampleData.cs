@@ -48,7 +48,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		public ICommand Start      => null;
 		public ICommand Restart    => null;
 		public ICommand Stop       => null;
-		public ICommand AboutHelp  => null;
+		public ICommand ShowAboutHelp  => null;
 		public ICommand ApplyMove  => null;
 		public ICommand BrowseDll  => null;
 

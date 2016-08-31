@@ -13,7 +13,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		ICommand Start     { get; }
 		ICommand Restart   { get; }
 		ICommand Stop      { get; }
-		ICommand AboutHelp { get; }
+		ICommand ShowAboutHelp { get; }
 
 		ICommand ApplyMove { get; }
 		ICommand BrowseDll { get; }

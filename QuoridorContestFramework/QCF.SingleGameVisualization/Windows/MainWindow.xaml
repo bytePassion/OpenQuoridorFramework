@@ -337,7 +337,7 @@
                         Content="Stop" />
                 <Button Grid.Column="3"
                         Margin="10"
-                        Command="{Binding AboutHelp}"
+                        Command="{Binding ShowAboutHelp}"
                         Content="About &amp; Help" />
 
             </Grid>
