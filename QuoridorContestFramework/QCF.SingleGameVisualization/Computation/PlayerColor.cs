@@ -12,8 +12,8 @@ namespace QCF.SingleGameVisualization.Computation
 		protected override SolidColorBrush Convert(PlayerState value, CultureInfo culture)
 		{
 			return value.Player.PlayerType == PlayerType.TopPlayer
-				? new SolidColorBrush(Constants.TopPlayerActiveColor)
-				: new SolidColorBrush(Constants.BottomPlayerActiveColor);
+				? Constants.TopPlayerActiveColor
+				: Constants.BottomPlayerActiveColor;
 		}
 	}
 }

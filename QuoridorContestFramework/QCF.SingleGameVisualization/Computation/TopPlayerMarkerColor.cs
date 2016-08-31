@@ -11,8 +11,8 @@ namespace QCF.SingleGameVisualization.Computation
 		protected override SolidColorBrush Convert(GameStatus gameStatus, CultureInfo culture)
 		{
 			return gameStatus == GameStatus.Unloaded
-						? new SolidColorBrush(Constants.PlayerInactiveColor)
-						: new SolidColorBrush(Constants.TopPlayerActiveColor);
+						? Constants.PlayerInactiveColor
+						: Constants.TopPlayerActiveColor;
 		}
 	}
 }

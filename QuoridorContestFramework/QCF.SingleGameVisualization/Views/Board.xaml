@@ -8,6 +8,7 @@
              xmlns:local="clr-namespace:QCF.SingleGameVisualization.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.Board"
+             xmlns:global="clr-namespace:QCF.SingleGameVisualization.Global"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
@@ -37,7 +38,7 @@
 																	UpdateSourceTrigger=PropertyChanged}" />
         </i:Interaction.Behaviors>
 
-        <Grid Background="Aqua">
+        <Grid>
 
             <local:BoardBackground />
 
@@ -80,7 +81,7 @@
 
                                     <Ellipse Fill="{Binding Converter={StaticResource PlayerColor}}" 
 											 StrokeThickness="1" 
-											 Stroke="Black">
+											 Stroke="{x:Static global:Constants.FrameColor}">
 
 										<Ellipse.Width>
                                             <MultiBinding Converter="{StaticResource ComputeFigureWidth}">
@@ -145,7 +146,9 @@
                             <Setter.Value>
                                 <ControlTemplate>
 
-                                    <Rectangle Fill="SaddleBrown" StrokeThickness="0">
+                                    <Rectangle Fill="{x:Static global:Constants.WallColor}" 
+											   StrokeThickness="1"
+											   Stroke="{x:Static global:Constants.FrameColor}">
 
                                         <Rectangle.Width>
                                             <MultiBinding Converter="{StaticResource ComputeWallWidth}">
