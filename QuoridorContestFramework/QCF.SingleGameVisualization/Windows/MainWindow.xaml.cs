@@ -1,4 +1,4 @@
-﻿namespace QCF.SingleGameVisualization
+﻿namespace QCF.SingleGameVisualization.Windows
 {
 	public partial class MainWindow
 	{

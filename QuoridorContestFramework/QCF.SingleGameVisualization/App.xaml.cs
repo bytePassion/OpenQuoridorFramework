@@ -20,7 +20,7 @@ namespace QCF.SingleGameVisualization
 			var boardViewModel = new BoardViewModel(gameService);
 			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, gameService, lastUsedBotService);
 
-			var mainWindow = new MainWindow
+			var mainWindow = new Windows.MainWindow
 			{
 				DataContext = mainWindowViewModel
 			};
