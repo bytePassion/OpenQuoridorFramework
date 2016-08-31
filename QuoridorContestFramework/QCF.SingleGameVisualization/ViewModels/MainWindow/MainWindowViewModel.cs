@@ -48,7 +48,14 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			BrowseDll = new Command(DoBrowseDll);
 			Start = new Command(DoStart,
 								() => GameStatus == GameStatus.Unloaded,
-								new PropertyChangedCommandUpdater(this, nameof(GameStatus)));			
+								new PropertyChangedCommandUpdater(this, nameof(GameStatus)));	
+			Stop = new Command(DoStop,
+							   () => GameStatus != GameStatus.Unloaded,
+							   new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
+			Restart = new Command(DoRestart,
+							      () => GameStatus != GameStatus.Unloaded,
+							      new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
+
 			ApplyMove = new Command(DoApplyMove,
 									IsMoveApplyable,
 									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
@@ -56,8 +63,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			GameStatus = GameStatus.Unloaded;
 
 			DllPathInput = lastUsedBotService.GetLastUsedBot();
-		}		
-
+		}
+		
 		private void OnNewDebugMsgAvailable(string s)
 		{
 			DebugMessages.Add(s);
@@ -203,7 +210,28 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 			gameService.CreateGame(DllPathInput);
 
-			((Command)Start).RaiseCanExecuteChanged();
+			((Command)ApplyMove).RaiseCanExecuteChanged();
+		}
+
+		private void DoStop ()
+		{
+			gameService.StopGame();
+
+			GameProgress.Clear();
+			DebugMessages.Clear();
+
+			GameStatus = GameStatus.Unloaded;
+		}
+
+		private void DoRestart ()
+		{
+			if (Stop.CanExecute(null))
+			{
+				Stop.Execute(null);
+
+				if (Start.CanExecute(null))
+					Start.Execute(null);
+			}
 		}
 
 		private bool IsMoveApplyable ()

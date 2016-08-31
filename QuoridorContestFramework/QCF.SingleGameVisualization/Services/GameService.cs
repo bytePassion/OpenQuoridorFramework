@@ -19,12 +19,11 @@ namespace QCF.SingleGameVisualization.Services
 		{
 			this.gameFactory = gameFactory;
 			currentGame = null;
-			CurrentBoardState = null;
-			IsGameActive = false;
+			CurrentBoardState = null;			
 		}
 
 		public BoardState CurrentBoardState { get; private set; }
-		public bool IsGameActive { get; private set; }
+		
 
 		public void CreateGame(string dllPath)
 		{
@@ -37,9 +36,7 @@ namespace QCF.SingleGameVisualization.Services
 
 			currentGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentGame.NextBoardstateAvailable += OnNextBoardstateAvailable;
-			currentGame.WinnerAvailable         += OnWinnerAvailable;
-
-			IsGameActive = true;
+			currentGame.WinnerAvailable         += OnWinnerAvailable;			
 		}
 
 		private void OnWinnerAvailable(Player player)
@@ -76,11 +73,15 @@ namespace QCF.SingleGameVisualization.Services
 		{
 			if (currentGame != null)
 			{
+				NewBoardStateAvailable?.Invoke(null);
+
 				currentGame.StopGame();
 
 				currentGame.DebugMessageAvailable   -= OnDebugMessageAvailable;
 				currentGame.NextBoardstateAvailable -= OnNextBoardstateAvailable;
 				currentGame.WinnerAvailable         -= OnWinnerAvailable;
+
+				currentGame = null;
 			}
 		}
 	}
