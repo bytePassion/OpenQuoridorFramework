@@ -16,7 +16,7 @@
 			return XCoordToString(XCoord) + YCoordToString(YCoord);
 		}
 
-		private static string XCoordToString(XField xCoord)
+	    private static string XCoordToString(XField xCoord)
 		{
 			switch (xCoord)
 			{

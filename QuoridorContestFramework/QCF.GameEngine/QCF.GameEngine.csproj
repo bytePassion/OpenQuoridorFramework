@@ -43,10 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\InitialGraphCreator.cs" />
+    <Compile Include="Analysis\Node.cs" />
     <Compile Include="Game\GameFactory.cs" />
     <Compile Include="Transitions\BoardStateTransition.cs" />
     <Compile Include="Loader\BotLoader.cs" />
-    <Compile Include="Analysis\Edge.cs" />
     <Compile Include="Analysis\GameAnalysis.cs" />
     <Compile Include="Analysis\GameGraph.cs" />
     <Compile Include="Game\GameLoopThread.cs" />

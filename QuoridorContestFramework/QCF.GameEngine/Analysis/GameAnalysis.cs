@@ -6,11 +6,23 @@ namespace QCF.GameEngine.Analysis
 {
 	internal static class GameAnalysis
 	{
-		public static bool IsMoveLegal(BoardState currentBoardState, Move potentialNextMove)
-		{
-			// TODO: check if move is legally applyable on the boadstate
+	    private static GameGraph Graph { get; } = new GameGraph().InitGraph();
 
-			return true;
+	    public static bool IsMoveLegal(BoardState currentBoardState, Move potentialNextMove)
+		{
+
+		    if (potentialNextMove.GetType() == typeof(FigureMove))
+		    {
+		        var move = (FigureMove)potentialNextMove;
+		        var node1 = ((FigureMove) move.StateBeforeMove.LastMove).NewPosition;
+		        var node2 = move.NewPosition;
+		    }
+		    else
+		    {
+		        
+		    }
+
+            return true;
 		}
 
 		public static Player CheckWinningCondition(BoardState currentBoardState)
