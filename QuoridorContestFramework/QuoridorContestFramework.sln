@@ -11,9 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.GameEngine", "QCF.GameE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.GameEngine.Contracts", "QCF.GameEngine.Contracts\QCF.GameEngine.Contracts.csproj", "{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QFC.SimpleWalkingBot", "QFC.SimpleWalkingBot\QFC.SimpleWalkingBot.csproj", "{4629A2D4-4146-4E1A-9520-57D12827CD57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.SimpleWalkingBot", "QFC.SimpleWalkingBot\QCF.SimpleWalkingBot.csproj", "{4629A2D4-4146-4E1A-9520-57D12827CD57}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.Contest.Contracts", "QCF.Contest.Contracts\QCF.Contest.Contracts.csproj", "{8692572D-4B60-407C-BB7B-80FC66E63904}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCF.XelorsBot", "QCF.XelorsBot\QCF.XelorsBot.csproj", "{60AC8705-AB44-433C-B617-291E1F7C829E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{8692572D-4B60-407C-BB7B-80FC66E63904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8692572D-4B60-407C-BB7B-80FC66E63904}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8692572D-4B60-407C-BB7B-80FC66E63904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60AC8705-AB44-433C-B617-291E1F7C829E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60AC8705-AB44-433C-B617-291E1F7C829E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60AC8705-AB44-433C-B617-291E1F7C829E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60AC8705-AB44-433C-B617-291E1F7C829E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,8 +7,8 @@
     <ProjectGuid>{4629A2D4-4146-4E1A-9520-57D12827CD57}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QFC.SimpleWalkingBot</RootNamespace>
-    <AssemblyName>QFC.SimpleWalkingBot</AssemblyName>
+    <RootNamespace>QCF.SimpleWalkingBot</RootNamespace>
+    <AssemblyName>QCF.SimpleWalkingBot</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
