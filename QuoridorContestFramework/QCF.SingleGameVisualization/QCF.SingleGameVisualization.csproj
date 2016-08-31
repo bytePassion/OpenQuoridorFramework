@@ -60,8 +60,15 @@
     <Compile Include="Behaviors\ListBoxAutoScrollDownBehavior.cs" />
     <Compile Include="Behaviors\SizeReportingBehavior.cs" />
     <Compile Include="Computation\BottomPlayerMarkerColor.cs" />
+    <Compile Include="Computation\ComputeFigureHeight.cs" />
+    <Compile Include="Computation\ComputeFigureLeftPosition.cs" />
+    <Compile Include="Computation\ComputeFigureTopPosition.cs" />
+    <Compile Include="Computation\ComputeFigureWidth.cs" />
+    <Compile Include="Computation\ComputeWallHeight.cs" />
+    <Compile Include="Computation\ComputeWallLeftPosition.cs" />
+    <Compile Include="Computation\ComputeWallTopPosition.cs" />
     <Compile Include="Computation\PlayerColor.cs" />
-    <Compile Include="Computation\WallsAndFigureComputations.cs" />
+    <Compile Include="Computation\ComputeWallWidth.cs" />
     <Compile Include="Computation\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
     <Compile Include="Services\GameService.cs" />
