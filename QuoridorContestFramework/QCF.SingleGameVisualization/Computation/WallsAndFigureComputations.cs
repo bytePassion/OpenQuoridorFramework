@@ -12,7 +12,7 @@ namespace QCF.SingleGameVisualization.Computation
 		{
 			var cellWidth = currentBoadSize.Width / 11.4;
 						
-			return (double)currentPlayerState.Position.XCoord * 1.3 * cellWidth;
+			return (double)currentPlayerState.Position.XCoord * 1.3 * cellWidth + 1;
 		}
 	}
 
@@ -22,7 +22,7 @@ namespace QCF.SingleGameVisualization.Computation
 		{
 			var cellHeight = currentBoadSize.Height / 11.4;
 
-			return (double)currentPlayerState.Position.YCoord * 1.3 * cellHeight;
+			return (double)currentPlayerState.Position.YCoord * 1.3 * cellHeight + 1;
 		}
 	}
 
@@ -32,7 +32,7 @@ namespace QCF.SingleGameVisualization.Computation
 		{
 			var cellHeight = currentBoadSize.Height / 11.4;
 
-			return cellHeight;
+			return cellHeight - 4;
 		}
 	}
 
@@ -42,7 +42,7 @@ namespace QCF.SingleGameVisualization.Computation
 		{
 			var cellWidth = currentBoadSize.Width / 11.4;
 
-			return cellWidth;
+			return cellWidth - 4;
 		}
 	}
 

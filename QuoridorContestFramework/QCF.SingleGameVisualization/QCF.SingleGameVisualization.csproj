@@ -60,6 +60,7 @@
     <Compile Include="Behaviors\ListBoxAutoScrollDownBehavior.cs" />
     <Compile Include="Behaviors\SizeReportingBehavior.cs" />
     <Compile Include="Computation\BottomPlayerMarkerColor.cs" />
+    <Compile Include="Computation\PlayerColor.cs" />
     <Compile Include="Computation\WallsAndFigureComputations.cs" />
     <Compile Include="Computation\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />

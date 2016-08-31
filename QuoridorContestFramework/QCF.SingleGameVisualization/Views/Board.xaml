@@ -12,25 +12,29 @@
              d:DesignWidth="300"
              mc:Ignorable="d">
 
-    <d:DesignData.DataContext>
-        <sampleData:BoardViewModelSampleData />
-    </d:DesignData.DataContext>
+	<d:DesignData.DataContext>
+		<sampleData:BoardViewModelSampleData />
+	</d:DesignData.DataContext>
 
-    <UserControl.Resources>
+	<UserControl.Resources>
         <computation:ComputeFigureLeftPosition x:Key="ComputeFigureLeftPosition" />
-        <computation:ComputeFigureTopPosition x:Key="ComputeFigureTopPosition" />
-        <computation:ComputeFigureHeight x:Key="ComputeFigureHeight" />
-        <computation:ComputeFigureWidth x:Key="ComputeFigureWidth" />
-        <computation:ComputeWallLeftPosition x:Key="ComputeWallLeftPosition" />
-        <computation:ComputeWallTopPosition x:Key="ComputeWallTopPosition" />
-        <computation:ComputeWallHeight x:Key="ComputeWallHeight" />
-        <computation:ComputeWallWidth x:Key="ComputeWallWidth" />
+        <computation:ComputeFigureTopPosition  x:Key="ComputeFigureTopPosition" />
+        <computation:ComputeFigureHeight       x:Key="ComputeFigureHeight" />
+        <computation:ComputeFigureWidth        x:Key="ComputeFigureWidth" />
+        <computation:ComputeWallLeftPosition   x:Key="ComputeWallLeftPosition" />
+        <computation:ComputeWallTopPosition    x:Key="ComputeWallTopPosition" />
+        <computation:ComputeWallHeight         x:Key="ComputeWallHeight" />
+        <computation:ComputeWallWidth          x:Key="ComputeWallWidth" />
+		
+		<computation:PlayerColor x:Key="PlayerColor"/>
     </UserControl.Resources>
 
     <Border>
 
         <i:Interaction.Behaviors>
-            <behaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
+            <behaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, 
+																	Mode=OneWayToSource, 
+																	UpdateSourceTrigger=PropertyChanged}" />
         </i:Interaction.Behaviors>
 
         <Grid Background="Aqua">
@@ -74,24 +78,25 @@
                             <Setter.Value>
                                 <ControlTemplate>
 
-                                    <Rectangle Fill="#50FF0000" StrokeThickness="0">
+                                    <Ellipse Fill="{Binding Converter={StaticResource PlayerColor}}" 
+											 StrokeThickness="1" 
+											 Stroke="Black">
 
-                                        <Rectangle.Width>
+										<Ellipse.Width>
                                             <MultiBinding Converter="{StaticResource ComputeFigureWidth}">
                                                 <Binding />
                                                 <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:Board}}" />
                                             </MultiBinding>
-                                        </Rectangle.Width>
+                                        </Ellipse.Width>
 
-
-                                        <Rectangle.Height>
+										<Ellipse.Height>
                                             <MultiBinding Converter="{StaticResource ComputeFigureHeight}">
                                                 <Binding />
                                                 <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:Board}}" />
                                             </MultiBinding>
-                                        </Rectangle.Height>
+                                        </Ellipse.Height>
 
-                                    </Rectangle>
+                                    </Ellipse>
 
                                 </ControlTemplate>
                             </Setter.Value>
