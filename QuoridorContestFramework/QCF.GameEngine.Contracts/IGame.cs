@@ -6,7 +6,7 @@ namespace QCF.GameEngine.Contracts
 {
 	public interface IGame
 	{
-		event Action<Player> WinnerAvailable;
+		event Action<Player, WinningReason> WinnerAvailable;
 		event Action<BoardState> NextBoardstateAvailable;
 		event Action<string> DebugMessageAvailable;
 

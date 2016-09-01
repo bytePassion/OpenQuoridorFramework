@@ -11,7 +11,7 @@ namespace QCF.SingleGameVisualization.Services
 		private readonly IGameFactory gameFactory;
 		public event Action<BoardState> NewBoardStateAvailable;
 		public event Action<string> NewDebugMsgAvailable;
-		public event Action<Player> WinnerAvailable;
+		public event Action<Player, WinningReason> WinnerAvailable;
 
 		private IGame currentGame;		
 
@@ -39,11 +39,11 @@ namespace QCF.SingleGameVisualization.Services
 			currentGame.WinnerAvailable         += OnWinnerAvailable;			
 		}
 
-		private void OnWinnerAvailable(Player player)
+		private void OnWinnerAvailable(Player player, WinningReason winningReason)
 		{
 			Application.Current.Dispatcher.Invoke(() =>
 			{
-				WinnerAvailable?.Invoke(player);
+				WinnerAvailable?.Invoke(player, winningReason);
 			});			
 		}
 

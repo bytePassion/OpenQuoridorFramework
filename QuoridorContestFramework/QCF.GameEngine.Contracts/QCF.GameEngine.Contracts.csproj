@@ -43,6 +43,7 @@
     <Compile Include="GameFactory.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinningReason.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QCF.Contest.Contracts\QCF.Contest.Contracts.csproj">

@@ -14,9 +14,9 @@ namespace QCF.GameEngine.Game
 {
 	public class LocalGamePvC : IGame
 	{
-		public event Action<Player>     WinnerAvailable;
-		public event Action<BoardState> NextBoardstateAvailable;
-		public event Action<string>     DebugMessageAvailable;
+		public event Action<Player, WinningReason> WinnerAvailable;
+		public event Action<BoardState>            NextBoardstateAvailable;
+		public event Action<string>                DebugMessageAvailable;
 
 		/*
 		 *	computer is topPlayer
@@ -54,10 +54,10 @@ namespace QCF.GameEngine.Game
 			DebugMessageAvailable?.Invoke(s);
 		}
 
-		private void OnWinnerAvailable(Player player)
+		private void OnWinnerAvailable(Player player, WinningReason winningReason)
 		{
 			StopGame();
-			WinnerAvailable?.Invoke(player);
+			WinnerAvailable?.Invoke(player, winningReason);
 		}
 
 		private void OnNewBoardStateAvailable(BoardState boardState)

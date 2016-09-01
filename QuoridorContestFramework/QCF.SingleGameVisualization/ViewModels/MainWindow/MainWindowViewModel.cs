@@ -8,6 +8,7 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
+using QCF.GameEngine.Contracts;
 using QCF.SingleGameVisualization.Services;
 using QCF.SingleGameVisualization.Tools;
 using QCF.SingleGameVisualization.ViewModels.AboutHelpWindow;
@@ -105,12 +106,12 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			DebugMessages.Add(s);
 		}
 
-		private void OnWinnerAvailable(Player player)
+		private void OnWinnerAvailable(Player player, WinningReason winningReason)
 		{
 			MessageBox.Show(
 				player.PlayerType == PlayerType.TopPlayer
-						? $@"Sry ... the bot '{player.Name}' beated you"
-						: "congratulations! you beated the bot"
+						? $"Sry ... the bot '{player.Name}' beated you\nReason: {winningReason}"
+						: $"congratulations! you beated the bot\nReason: {winningReason}"
 			);
 
 			GameStatus = GameStatus.Finished;

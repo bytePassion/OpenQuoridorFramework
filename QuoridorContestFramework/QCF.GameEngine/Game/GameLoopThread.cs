@@ -4,6 +4,7 @@ using QCF.Contest.Contracts;
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 using QCF.GameEngine.Analysis;
+using QCF.GameEngine.Contracts;
 using QCF.GameEngine.Transitions;
 using QCF.Tools.ConcurrencyLib;
 
@@ -19,8 +20,8 @@ namespace QCF.GameEngine.Game
 
 		private readonly Timer botTimer;
 
-		public event Action<BoardState> NewBoardStateAvailable;
-		public event Action<Player>     WinnerAvailable;
+		public event Action<BoardState>             NewBoardStateAvailable;
+		public event Action<Player, WinningReason>  WinnerAvailable;
 
 		private readonly IQuoridorBot bot;
 		private readonly TimeoutBlockingQueue<Move> humenMoves;
@@ -75,7 +76,7 @@ namespace QCF.GameEngine.Game
 
 				if (!GameAnalysis.IsMoveLegal(currentBoardState, nextHumanMove))
 				{
-					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player);
+					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.InvalidMove);
 					break;
 				}								
 
@@ -85,7 +86,7 @@ namespace QCF.GameEngine.Game
 				var winner = GameAnalysis.CheckWinningCondition(currentBoardState);
 				if (winner != null)
 				{
-					WinnerAvailable?.Invoke(winner);
+					WinnerAvailable?.Invoke(winner, WinningReason.RegularQuoridorWin);
 					break;
 				}
 				
@@ -97,7 +98,7 @@ namespace QCF.GameEngine.Game
 
 				if (!GameAnalysis.IsMoveLegal(currentBoardState, nextBotMove))
 				{
-					WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player);
+					WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.InvalidMove);
 					break;
 				}
 
@@ -107,7 +108,7 @@ namespace QCF.GameEngine.Game
 				var winner2 = GameAnalysis.CheckWinningCondition(currentBoardState);
 				if (winner2 != null)
 				{
-					WinnerAvailable?.Invoke(winner2);
+					WinnerAvailable?.Invoke(winner2, WinningReason.RegularQuoridorWin);
 					break;
 				}				
 			}
@@ -131,7 +132,7 @@ namespace QCF.GameEngine.Game
 
 			if (nextMove is BotsTimeOut)
 			{				
-				WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player);
+				WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.AiThougtMoreThanAnMinute);
 				return null;
 			}
 				
