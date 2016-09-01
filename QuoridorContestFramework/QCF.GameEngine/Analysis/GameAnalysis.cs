@@ -12,7 +12,19 @@ namespace QCF.GameEngine.Analysis
             var gameGraph = new GameGraph().InitGraph().ApplyWalls(currentBoardState.PlacedWalls);
 		    if (potentialNextMove.GetType() == typeof(FigureMove))
 		    {
-		        Debug.WriteLine(gameGraph.ToString());
+		        FieldCoordinate currentPosition;
+		        if (currentBoardState.CurrentMover.PlayerType == PlayerType.TopPlayer)
+		        {
+		            currentPosition = currentBoardState.TopPlayer.Position;
+		        }
+		        else
+		        {
+		            currentPosition = currentBoardState.BottomPlayer.Position;
+		        }
+                Debug.WriteLine(gameGraph.ToString());
+                return gameGraph.ValidateMove(currentPosition, ((FigureMove) potentialNextMove).NewPosition,
+		            currentBoardState.CurrentMover);
+
 		    }
 		    else
 		    {
