@@ -38,6 +38,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		private bool isAutoScrollProgressActive;
 		private bool isAutoScrollDebugMsgActive;
 		private string topPlayerRestTime;
+		private bool isDisabledOverlayVisible;
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel, IGameService gameService, ILastUsedBotService lastUsedBotService)
 		{
@@ -198,10 +199,21 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			set { PropertyChanged.ChangeAndNotify(this, ref isAutoScrollDebugMsgActive, value); }
 		}
 
+		public bool IsDisabledOverlayVisible
+		{
+			get { return isDisabledOverlayVisible; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref isDisabledOverlayVisible, value); }
+		}
+
 		public GameStatus GameStatus
 		{
 			get { return gameStatus; }
-			private set { PropertyChanged.ChangeAndNotify(this, ref gameStatus, value); }
+			private set
+			{
+				IsDisabledOverlayVisible = value != GameStatus.Active;
+
+				PropertyChanged.ChangeAndNotify(this, ref gameStatus, value);
+			}
 		}
 
 

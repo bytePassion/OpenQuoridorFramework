@@ -8,6 +8,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.MainWindow"
         xmlns:views="clr-namespace:QCF.SingleGameVisualization.Views"
+        xmlns:converter="clr-namespace:QCF.Tools.WpfTools.Converter;assembly=QCF.Tools"
         Title="MainWindow"
         Width="1200"
         Height="950"
@@ -20,6 +21,7 @@
     <Window.Resources>
         <computation:TopPlayerMarkerColor x:Key="TopPlayerMarkerColor" />
         <computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
+		<converter:BoolToCollapsedVisibilityConverter x:Key="BoolToCollapsedVisibilityConverter"/>
     </Window.Resources>
 
     <Grid>
@@ -235,7 +237,21 @@
 
             <Grid>
 
-                <Grid.RowDefinitions>
+				<Grid.Style>
+					<Style TargetType="Grid">
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding IsDisabledOverlayVisible}" Value="True">
+								<Setter Property="Effect">
+									<Setter.Value>
+										<BlurEffect KernelType="Gaussian" Radius="5" />
+									</Setter.Value>
+								</Setter>
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</Grid.Style>
+
+				<Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
@@ -253,6 +269,11 @@
                              Grid.Column="1"
                              DataContext="{Binding BoardViewModel}"
                              Padding="0" />
+				
+				<Border Grid.ColumnSpan="2"
+						Grid.RowSpan="2"  
+						Background="#60000000"
+						Visibility="{Binding IsDisabledOverlayVisible, Converter={StaticResource BoolToCollapsedVisibilityConverter}}"/>
 
             </Grid>
         </Border>

@@ -42,6 +42,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 			IsAutoScrollDebugMsgActive = true;
 			IsAutoScrollProgressActive = true;
+
+			IsDisabledOverlayVisible = true;
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
@@ -59,6 +61,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		public bool IsAutoScrollProgressActive { get; set; }
 		public bool IsAutoScrollDebugMsgActive { get; set; }
+
+		public bool IsDisabledOverlayVisible { get; }
 
 		public GameStatus GameStatus { get; }		
 

@@ -25,6 +25,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		bool IsAutoScrollProgressActive { get; set; }
 		bool IsAutoScrollDebugMsgActive { get; set; }
 
+		bool IsDisabledOverlayVisible { get; }
+
 		GameStatus GameStatus { get; }
 
 		string TopPlayerName    { get; } 	
