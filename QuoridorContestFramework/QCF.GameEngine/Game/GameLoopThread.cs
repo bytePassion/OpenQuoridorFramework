@@ -83,13 +83,17 @@ namespace QCF.GameEngine.Game
 				currentBoardState = currentBoardState.ApplyMove(nextHumanMove);
 				NewBoardStateAvailable?.Invoke(currentBoardState);
 
+				if (nextHumanMove is Capitulation)
+				{
+					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.Capitulation);
+				}
+
 				var winner = GameAnalysis.CheckWinningCondition(currentBoardState);
 				if (winner != null)
 				{
 					WinnerAvailable?.Invoke(winner, WinningReason.RegularQuoridorWin);
 					break;
-				}
-				
+				}								
 				
 				var nextBotMove = GetBotMove();
 
@@ -105,6 +109,11 @@ namespace QCF.GameEngine.Game
 				currentBoardState = currentBoardState.ApplyMove(nextBotMove);
 				NewBoardStateAvailable?.Invoke(currentBoardState);
 
+				if (nextBotMove is Capitulation)
+				{
+					WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.Capitulation);
+				}
+				
 				var winner2 = GameAnalysis.CheckWinningCondition(currentBoardState);
 				if (winner2 != null)
 				{

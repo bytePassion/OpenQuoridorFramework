@@ -46,12 +46,13 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		public IBoardViewModel BoardViewModel { get; }
 
-		public ICommand Start      => null;
-		public ICommand Restart    => null;
-		public ICommand Stop       => null;
+		public ICommand Start          => null;
+		public ICommand Restart        => null;
+		public ICommand Stop           => null;
 		public ICommand ShowAboutHelp  => null;
-		public ICommand ApplyMove  => null;
-		public ICommand BrowseDll  => null;
+		public ICommand Capitulate     => null;
+		public ICommand ApplyMove      => null;
+		public ICommand BrowseDll      => null;
 
 		public ObservableCollection<string> DebugMessages  { get; }
 		public ObservableCollection<string> GameProgress   { get; }

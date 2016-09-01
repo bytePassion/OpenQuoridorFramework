@@ -19,9 +19,8 @@ namespace QCF.GameEngine.Transitions
 		public static BoardState ApplyMove (this BoardState currentBoardState, Move move)
 		{
 			var wallMove = move as WallMove;
-
 			if (wallMove != null)
-			{
+			{				
 				var topPlayerState = currentBoardState.TopPlayer.Player == wallMove.PlayerAtMove 
 											? currentBoardState.TopPlayer.SpendWall()
 											: currentBoardState.TopPlayer;
@@ -36,24 +35,28 @@ namespace QCF.GameEngine.Transitions
 									  currentBoardState.GetNextMover(),
 									  move);
 			}
-			else
+			else if (move is FigureMove)
 			{
 				var fieldMove = (FigureMove) move;
 
 				var topPlayerState = currentBoardState.TopPlayer.Player == move.PlayerAtMove
-											? currentBoardState.TopPlayer.MovePlayer(fieldMove.NewPosition)
-											: currentBoardState.TopPlayer;
+					? currentBoardState.TopPlayer.MovePlayer(fieldMove.NewPosition)
+					: currentBoardState.TopPlayer;
 
 				var bottomPlayerState = currentBoardState.BottomPlayer.Player == move.PlayerAtMove
-											? currentBoardState.BottomPlayer.MovePlayer(fieldMove.NewPosition)
-											: currentBoardState.BottomPlayer;
+					? currentBoardState.BottomPlayer.MovePlayer(fieldMove.NewPosition)
+					: currentBoardState.BottomPlayer;
 
 				return new BoardState(currentBoardState.PlacedWalls,
-									  topPlayerState,
-									  bottomPlayerState,
-									  currentBoardState.GetNextMover(),
-									  move);
+					topPlayerState,
+					bottomPlayerState,
+					currentBoardState.GetNextMover(),
+					move);
 			}
+			else
+			{									//
+				return currentBoardState;		//	Capitulation
+			}									//
 		}
 
 		private static Player GetNextMover(this BoardState currentBoardState)

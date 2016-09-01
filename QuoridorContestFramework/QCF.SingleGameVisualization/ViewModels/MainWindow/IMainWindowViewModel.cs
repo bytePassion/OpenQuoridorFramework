@@ -10,10 +10,11 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 	{
 		IBoardViewModel BoardViewModel { get; }
 
-		ICommand Start     { get; }
-		ICommand Restart   { get; }
-		ICommand Stop      { get; }
+		ICommand Start         { get; }
+		ICommand Restart       { get; }
+		ICommand Stop          { get; }
 		ICommand ShowAboutHelp { get; }
+		ICommand Capitulate    { get; }
 
 		ICommand ApplyMove { get; }
 		ICommand BrowseDll { get; }

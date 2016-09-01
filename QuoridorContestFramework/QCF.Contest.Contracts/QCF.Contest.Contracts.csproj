@@ -50,6 +50,7 @@
     <Compile Include="GameElements\PlayerState.cs" />
     <Compile Include="GameElements\Wall.cs" />
     <Compile Include="IQuoridorBot.cs" />
+    <Compile Include="Moves\Capitulation.cs" />
     <Compile Include="Moves\FigureMove.cs" />
     <Compile Include="Moves\Move.cs" />
     <Compile Include="Moves\WallMove.cs" />

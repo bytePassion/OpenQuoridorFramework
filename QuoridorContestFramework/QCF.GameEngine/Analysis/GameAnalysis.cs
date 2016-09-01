@@ -9,6 +9,11 @@ namespace QCF.GameEngine.Analysis
 	{
 	    public static bool IsMoveLegal(BoardState currentBoardState, Move potentialNextMove)
 		{
+		    if (potentialNextMove is Capitulation)
+		    {
+			    return true;
+		    }
+
             var gameGraph = new GameGraph().InitGraph().ApplyWalls(currentBoardState.PlacedWalls);
 		    if (potentialNextMove.GetType() == typeof(FigureMove))
 		    {

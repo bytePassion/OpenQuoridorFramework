@@ -8,6 +8,7 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
+using QCF.Contest.Contracts.Moves;
 using QCF.GameEngine.Contracts;
 using QCF.SingleGameVisualization.Services;
 using QCF.SingleGameVisualization.Tools;
@@ -67,6 +68,9 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			ApplyMove = new Command(DoApplyMove,
 									IsMoveApplyable,
 									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
+			Capitulate = new Command(DoCapitulate,
+									 IsMoveApplyable,
+									 new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
 			ShowAboutHelp = new Command(DoShowAboutHelp);
 
 			GameStatus = GameStatus.Unloaded;
@@ -80,7 +84,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			};
 
 			botCountDownTimer.Tick += BotCountDownTimerOnTick;
-		}
+		}		
 
 		private void BotCountDownTimerOnTick(object sender, EventArgs eventArgs)
 		{
@@ -115,11 +119,13 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			);
 
 			GameStatus = GameStatus.Finished;
+			StopTimer();
 		}
 
 		private void OnNewBoardStateAvailable(BoardState boardState)
 		{
 			((Command)ApplyMove).RaiseCanExecuteChanged();
+			((Command)Capitulate).RaiseCanExecuteChanged();
 
 			if (boardState == null)
 			{
@@ -173,6 +179,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		public ICommand Restart       { get; }
 		public ICommand Stop          { get; }
 		public ICommand ShowAboutHelp { get; }
+		public ICommand Capitulate    { get; }
 		public ICommand ApplyMove     { get; }
 		public ICommand BrowseDll     { get; }
 
@@ -268,8 +275,9 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			gameService.CreateGame(DllPathInput);
 
 			((Command)ApplyMove).RaiseCanExecuteChanged();
+			((Command)Capitulate).RaiseCanExecuteChanged();
 		}
-
+		
 		private void DoStop ()
 		{
 			gameService.StopGame();
@@ -312,6 +320,12 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			}
 
 			gameService.ReportHumanMove(move);
+		}
+
+		private void DoCapitulate ()
+		{
+			gameService.ReportHumanMove(new Capitulation(gameService.CurrentBoardState,
+														 gameService.CurrentBoardState.CurrentMover));
 		}
 
 		protected override void CleanUp() {	}

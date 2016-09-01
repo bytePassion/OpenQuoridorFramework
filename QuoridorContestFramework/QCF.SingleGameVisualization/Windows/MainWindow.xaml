@@ -316,6 +316,12 @@
                         Margin="7"
                         Command="{Binding ApplyMove}"
                         Content="ApplyMove" />
+				
+				<Button Grid.Row="0"
+						Grid.Column="1"
+						Margin="7"
+						Content="Caputulate"
+						Command="{Binding Capitulate}"/>
 
             </Grid>
 
