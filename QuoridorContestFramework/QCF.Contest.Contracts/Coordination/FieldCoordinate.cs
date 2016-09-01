@@ -24,7 +24,7 @@ namespace QCF.Contest.Contracts.Coordination
 		public static bool operator ==(FieldCoordinate c1, FieldCoordinate c2) =>  c1.Equals(c2);
 		public static bool operator !=(FieldCoordinate c1, FieldCoordinate c2) => !c1.Equals(c2);		
 
-		private static string XCoordToString(XField xCoord)
+	    private static string XCoordToString(XField xCoord)
 		{
 			switch (xCoord)
 			{
