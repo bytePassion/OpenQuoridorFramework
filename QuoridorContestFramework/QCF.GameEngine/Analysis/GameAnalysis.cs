@@ -7,17 +7,12 @@ namespace QCF.GameEngine.Analysis
 {
 	internal static class GameAnalysis
 	{
-	    private static GameGraph Graph { get; } = new GameGraph().InitGraph();
-
 	    public static bool IsMoveLegal(BoardState currentBoardState, Move potentialNextMove)
 		{
-
+            var gameGraph = new GameGraph().InitGraph().ApplyWalls(currentBoardState.PlacedWalls);
 		    if (potentialNextMove.GetType() == typeof(FigureMove))
 		    {
-		        var move = (FigureMove)potentialNextMove;
-		        //var node1 = ((FigureMove) move.StateBeforeMove.LastMove).NewPosition;
-		        //var node2 = move.NewPosition;
-		        Debug.WriteLine(Graph.ToString());
+		        Debug.WriteLine(gameGraph.ToString());
 		    }
 		    else
 		    {

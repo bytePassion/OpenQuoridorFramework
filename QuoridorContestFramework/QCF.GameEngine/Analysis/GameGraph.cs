@@ -70,6 +70,33 @@ namespace QCF.GameEngine.Analysis
             }
         }
 
+        public GameGraph ApplyWalls(IEnumerable<Wall> walls)
+        {
+            foreach (var wall in walls)
+            {
+                var topleftNode = GetNodeForCoordinate(wall.TopLeft);
+                var bottomleftNode = GetNodeForCoordinate(wall.TopLeft.GetBottom());
+                var topRightNode = GetNodeForCoordinate(wall.TopLeft.GetRight());
+                var bottomRightNode = GetNodeForCoordinate(wall.TopLeft.GetBottom().GetRight());
+
+                if (wall.Orientation == WallOrientation.Horizontal)
+                {
+                    Graph.Find(n => n.Coordinate == topleftNode.Coordinate).Neighbors.Remove(bottomleftNode);
+                    Graph.Find(n => n.Coordinate == topRightNode.Coordinate).Neighbors.Remove(bottomRightNode);
+                    Graph.Find(n => n.Coordinate == bottomleftNode.Coordinate).Neighbors.Remove(topleftNode);
+                    Graph.Find(n => n.Coordinate == bottomRightNode.Coordinate).Neighbors.Remove(topRightNode);
+                }
+                else
+                {
+                    Graph.Find(n => n.Coordinate == topleftNode.Coordinate).Neighbors.Remove(topRightNode);
+                    Graph.Find(n => n.Coordinate == topRightNode.Coordinate).Neighbors.Remove(topleftNode);
+                    Graph.Find(n => n.Coordinate == bottomleftNode.Coordinate).Neighbors.Remove(bottomRightNode);
+                    Graph.Find(n => n.Coordinate == bottomRightNode.Coordinate).Neighbors.Remove(bottomleftNode);
+                }
+            }
+            return this;
+        }
+
         private bool IsExitPathAvailable(FieldCoordinate startCoordinate, Player player)
         {
             var startNode = GetNodeForCoordinate(startCoordinate);
@@ -144,5 +171,18 @@ namespace QCF.GameEngine.Analysis
 
             return builder.ToString();
         }
+    }
+
+    internal static class FieldCoordinateExtensions
+    {
+        public static bool ExistsLeft(this FieldCoordinate coord) => coord.XCoord != XField.A;
+        public static bool ExistsRight(this FieldCoordinate coord) => coord.XCoord != XField.I;
+        public static bool ExistsTop(this FieldCoordinate coord) => coord.YCoord != YField.Nine;
+        public static bool ExistsBottom(this FieldCoordinate coord) => coord.YCoord != YField.One;
+
+        public static FieldCoordinate GetLeft(this FieldCoordinate coord) => new FieldCoordinate(coord.XCoord - 1, coord.YCoord);
+        public static FieldCoordinate GetRight(this FieldCoordinate coord) => new FieldCoordinate(coord.XCoord + 1, coord.YCoord);
+        public static FieldCoordinate GetTop(this FieldCoordinate coord) => new FieldCoordinate(coord.XCoord, coord.YCoord - 1);
+        public static FieldCoordinate GetBottom(this FieldCoordinate coord) => new FieldCoordinate(coord.XCoord, coord.YCoord + 1);
     }
 }
