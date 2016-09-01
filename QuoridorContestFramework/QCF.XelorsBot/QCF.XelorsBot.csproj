@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graph\Construction.cs" />
+    <Compile Include="Graph\FieldCoordinateExtensions.cs" />
+    <Compile Include="Graph\Node.cs" />
+    <Compile Include="Graph\RatingGraph.cs" />
+    <Compile Include="Graph\XGraph.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -47,6 +52,10 @@
     <ProjectReference Include="..\QCF.Contest.Contracts\QCF.Contest.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>QCF.Contest.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QCF.Tools\QCF.Tools.csproj">
+      <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
+      <Name>QCF.Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
