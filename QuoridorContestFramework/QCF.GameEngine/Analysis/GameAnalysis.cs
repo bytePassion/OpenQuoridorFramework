@@ -1,4 +1,5 @@
-﻿using QCF.Contest.Contracts.Coordination;
+﻿using System.Diagnostics;
+using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 
@@ -14,8 +15,9 @@ namespace QCF.GameEngine.Analysis
 		    if (potentialNextMove.GetType() == typeof(FigureMove))
 		    {
 		        var move = (FigureMove)potentialNextMove;
-		        var node1 = ((FigureMove) move.StateBeforeMove.LastMove).NewPosition;
-		        var node2 = move.NewPosition;
+		        //var node1 = ((FigureMove) move.StateBeforeMove.LastMove).NewPosition;
+		        //var node2 = move.NewPosition;
+		        Debug.WriteLine(Graph.ToString());
 		    }
 		    else
 		    {

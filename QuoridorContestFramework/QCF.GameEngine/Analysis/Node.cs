@@ -15,10 +15,15 @@ namespace QCF.GameEngine.Analysis
             this.Coordinate = coord;
         }
 
-        public Node AddNeighbors(IEnumerable<FieldCoordinate> neighbors)
+        public Node AddNeighbors(IEnumerable<Node> neighbors)
         {
-            Neighbors.AddRange(neighbors.Select(x => new Node(x)));
+            Neighbors.AddRange(neighbors);
             return this;
+        }
+
+        public override string ToString()
+        {
+            return Coordinate.ToString();
         }
     }
 }
