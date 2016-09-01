@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using QCF.Contest.Contracts;
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
@@ -10,6 +11,14 @@ namespace QCF.GameEngine.Game
 {
 	public class GameLoopThread : IThread
 	{
+		private class BotsTimeOut : Move
+		{
+			public BotsTimeOut() : base(null, null) {}
+			public override string ToString() => null;
+		}
+
+		private readonly Timer botTimer;
+
 		public event Action<BoardState> NewBoardStateAvailable;
 		public event Action<Player>     WinnerAvailable;
 
@@ -36,11 +45,19 @@ namespace QCF.GameEngine.Game
 
 			stopRunning = false;
 			IsRunning = false;
+
+			botTimer = new Timer(TimerTick, null, Timeout.Infinite, Timeout.Infinite);			
+		}
+
+		private void TimerTick(object state)
+		{
+			botMoves.Put(new BotsTimeOut());
 		}
 
 		private void OnNextBotMoveAvailable(Move move)
 		{
 			botMoves.Put(move);
+			botTimer.Change(Timeout.Infinite, Timeout.Infinite);
 		}
 
 		public void Run ()
@@ -102,7 +119,8 @@ namespace QCF.GameEngine.Game
 		private Move GetBotMove()
 		{
 			botMoves.Clear();
-			bot.DoMove(currentBoardState);
+			botTimer.Change(60000, -1);
+			bot.DoMove(currentBoardState);			
 
 			Move nextMove;
 			while ((nextMove = botMoves.TimeoutTake()) == null)
@@ -111,6 +129,12 @@ namespace QCF.GameEngine.Game
 					return null;
 			}
 
+			if (nextMove is BotsTimeOut)
+			{				
+				WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player);
+				return null;
+			}
+				
 			return nextMove;
 		}
 
@@ -119,10 +143,12 @@ namespace QCF.GameEngine.Game
 			Move nextMove;
 
 			while ((nextMove = humenMoves.TimeoutTake()) == null)
-			{
+			{				
 				if (stopRunning)
 					return null;
 			}
+
+			botTimer.Change(Timeout.Infinite, Timeout.Infinite);
 
 			return nextMove;
 		}
