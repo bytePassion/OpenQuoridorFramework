@@ -26,7 +26,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		GameStatus GameStatus { get; }
 
-		string TopPlayerName    { get; } 			
+		string TopPlayerName    { get; } 	
+		string TopPlayerRestTime { get; }		
 
 		int TopPlayerWallCountLeft    { get; }
 		int BottomPlayerWallCountLeft { get; }

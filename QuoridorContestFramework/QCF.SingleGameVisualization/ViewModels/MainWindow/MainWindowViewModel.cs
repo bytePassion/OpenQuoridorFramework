@@ -1,8 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 using Microsoft.Win32;
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
@@ -20,8 +22,11 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 {
 	internal class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
+		private readonly DispatcherTimer botCountDownTimer;
+
 		private readonly IGameService gameService;
 		private readonly ILastUsedBotService lastUsedBotService;
+
 		private string dllPathInput;
 		private string moveInput;
 		private int bottomPlayerWallCountLeft;
@@ -30,6 +35,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		private GameStatus gameStatus;
 		private bool isAutoScrollProgressActive;
 		private bool isAutoScrollDebugMsgActive;
+		private string topPlayerRestTime;
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel, IGameService gameService, ILastUsedBotService lastUsedBotService)
 		{
@@ -65,6 +71,20 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			GameStatus = GameStatus.Unloaded;
 
 			DllPathInput = lastUsedBotService.GetLastUsedBot();
+
+			botCountDownTimer = new DispatcherTimer
+			{
+				Interval = TimeSpan.FromSeconds(1),
+				IsEnabled = false
+			};
+
+			botCountDownTimer.Tick += BotCountDownTimerOnTick;
+		}
+
+		private void BotCountDownTimerOnTick(object sender, EventArgs eventArgs)
+		{
+			var currentCount = int.Parse(TopPlayerRestTime);
+			TopPlayerRestTime = (currentCount - 1).ToString();
 		}
 
 		private void DoShowAboutHelp()
@@ -123,22 +143,37 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 				{
 					if (GameProgress.Count > 0)
 						GameProgress[GameProgress.Count - 1] = GameProgress[GameProgress.Count - 1] + $" {boardState.LastMove}";
+
+					StopTimer();
 				}
 				else
 				{
 					GameProgress.Add($"{GameProgress.Count+1}. {boardState.LastMove}");
+					StartTimer();
 				}
 			}			
 		}
 
+		private void StartTimer()
+		{
+			TopPlayerRestTime = "60";
+			botCountDownTimer.Start();
+		}
+
+		private void StopTimer()
+		{
+			botCountDownTimer.Stop();
+			TopPlayerRestTime = "--";
+		}
+
 		public IBoardViewModel BoardViewModel { get; }
 
-		public ICommand Start     { get; }
-		public ICommand Restart   { get; }
-		public ICommand Stop      { get; }
+		public ICommand Start         { get; }
+		public ICommand Restart       { get; }
+		public ICommand Stop          { get; }
 		public ICommand ShowAboutHelp { get; }
-		public ICommand ApplyMove { get; }
-		public ICommand BrowseDll { get; }
+		public ICommand ApplyMove     { get; }
+		public ICommand BrowseDll     { get; }
 
 		public ObservableCollection<string> DebugMessages { get; }
 		public ObservableCollection<string> GameProgress  { get; }
@@ -166,7 +201,13 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		{
 			get { return topPlayerName; }
 			private set { PropertyChanged.ChangeAndNotify(this, ref topPlayerName, value); }
-		}		
+		}
+
+		public string TopPlayerRestTime
+		{
+			get { return topPlayerRestTime; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref topPlayerRestTime, value); }
+		}
 
 		public int TopPlayerWallCountLeft
 		{

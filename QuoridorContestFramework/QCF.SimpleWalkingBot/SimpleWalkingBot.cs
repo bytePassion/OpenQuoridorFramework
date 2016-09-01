@@ -38,7 +38,7 @@ namespace QFC.SimpleWalkingBot
 				
 			new Thread(() =>
 			{
-				Thread.Sleep(1000);
+				Thread.Sleep(7000);
 				NextMoveAvailable?.Invoke(new FigureMove(currentState,
 													 myself,
 													 new FieldCoordinate(myState.Position.XCoord,

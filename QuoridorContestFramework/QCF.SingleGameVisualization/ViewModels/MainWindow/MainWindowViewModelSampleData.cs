@@ -29,7 +29,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 				"2. e3 e7"
 			};			
 
-			TopPlayerName    = "PlayerOben";			
+			TopPlayerName    = "PlayerOben";
+			TopPlayerRestTime = "36";		
 
 			TopPlayerWallCountLeft    = 10;
 			BottomPlayerWallCountLeft = 9;
@@ -60,7 +61,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		public GameStatus GameStatus { get; }		
 
-		public string TopPlayerName { get; }		
+		public string TopPlayerName { get; }
+		public string TopPlayerRestTime { get; }
 
 		public int TopPlayerWallCountLeft   { get; }
 		public int BottomPlayerWallCountLeft { get; }

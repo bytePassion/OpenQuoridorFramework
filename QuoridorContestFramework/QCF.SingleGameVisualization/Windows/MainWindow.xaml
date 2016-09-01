@@ -48,7 +48,8 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
@@ -98,18 +99,31 @@
 
                 <TextBox Grid.Row="2"
                          Grid.Column="1"
+						 Grid.ColumnSpan="2"
                          Margin="7"
                          VerticalContentAlignment="Center"
                          Text="{Binding DllPathInput,
                                         Mode=TwoWay,
                                         UpdateSourceTrigger=PropertyChanged}" />
                 <Button Grid.Row="2"
-                        Grid.Column="2"
+                        Grid.Column="3"
                         Margin="7"
                         Command="{Binding BrowseDll}"
                         Content="BrowseDll" />
+				
+				<TextBlock Grid.Row="0"
+						   Grid.Column="3"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   Text="max. Rechenzeit"/>
 
-            </Grid>
+				<TextBlock Grid.Row="1"
+						   Grid.Column="3"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   Text="{Binding TopPlayerRestTime}"/>
+
+			</Grid>
 
 
 
