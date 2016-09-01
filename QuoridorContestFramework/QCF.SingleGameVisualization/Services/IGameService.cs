@@ -13,7 +13,7 @@ namespace QCF.SingleGameVisualization.Services
 
 		BoardState CurrentBoardState { get; }		
 
-		void CreateGame(string dllPath);
+		void CreateGame(string dllPath, int maxMovesPerPlayer);
 		void ReportHumanMove(Move move);
 		void StopGame();
 	}

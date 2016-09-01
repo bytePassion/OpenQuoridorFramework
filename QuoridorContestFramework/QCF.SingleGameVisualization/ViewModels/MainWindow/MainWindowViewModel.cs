@@ -272,7 +272,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 			lastUsedBotService.SaveLastUsedBot(DllPathInput);
 
-			gameService.CreateGame(DllPathInput);
+			gameService.CreateGame(DllPathInput, 100);
 
 			((Command)ApplyMove).RaiseCanExecuteChanged();
 			((Command)Capitulate).RaiseCanExecuteChanged();

@@ -25,14 +25,14 @@ namespace QCF.SingleGameVisualization.Services
 		public BoardState CurrentBoardState { get; private set; }
 		
 
-		public void CreateGame(string dllPath)
+		public void CreateGame(string dllPath, int maxMovesPerPlayer)
 		{
 			if (currentGame != null)
 			{
 				StopGame();
 			}
 
-			currentGame = gameFactory.CreateNewGame(dllPath);
+			currentGame = gameFactory.CreateNewGame(dllPath, maxMovesPerPlayer);
 
 			currentGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentGame.NextBoardstateAvailable += OnNextBoardstateAvailable;

@@ -28,7 +28,7 @@ namespace QCF.GameEngine.Game
 		private readonly GameLoopThread gameLoopThread;
 		private readonly IQuoridorBot quoridorAi;
 		
-		internal LocalGamePvC(string botDllFile)
+		internal LocalGamePvC(string botDllFile, int maxMovesPerPlayer)
 		{
 			var computerPlayer = new Player(PlayerType.TopPlayer);
 			var humanPlayer = new Player(PlayerType.BottomPlayer);
@@ -41,7 +41,7 @@ namespace QCF.GameEngine.Game
 			
 			var initialBoadState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
 			
-			gameLoopThread = new GameLoopThread(quoridorAi, humenMoves, initialBoadState);
+			gameLoopThread = new GameLoopThread(quoridorAi, humenMoves, initialBoadState, maxMovesPerPlayer);
 
 			gameLoopThread.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameLoopThread.WinnerAvailable        += OnWinnerAvailable;

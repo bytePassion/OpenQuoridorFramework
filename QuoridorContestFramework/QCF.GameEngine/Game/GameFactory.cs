@@ -4,9 +4,9 @@ namespace QCF.GameEngine.Game
 {
 	public class GameFactory : IGameFactory
 	{
-		public IGame CreateNewGame(string botDllFile)
+		public IGame CreateNewGame(string botDllFile, int maxMovesPerPlayer)
 		{
-			return new LocalGamePvC(botDllFile);
+			return new LocalGamePvC(botDllFile, maxMovesPerPlayer);
 		}
 	}
 }

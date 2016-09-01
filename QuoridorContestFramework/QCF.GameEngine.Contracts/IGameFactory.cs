@@ -2,6 +2,6 @@
 {
 	public interface IGameFactory
 	{
-		IGame CreateNewGame(string botDllFile);
+		IGame CreateNewGame(string botDllFile, int maxMovesPerPlayer);
 	}
 }

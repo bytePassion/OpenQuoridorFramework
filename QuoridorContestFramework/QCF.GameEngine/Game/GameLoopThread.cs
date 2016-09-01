@@ -16,24 +16,27 @@ namespace QCF.GameEngine.Game
 		{
 			public BotsTimeOut() : base(null, null) {}
 			public override string ToString() => null;
-		}
-
-		private readonly Timer botTimer;
+		}		
 
 		public event Action<BoardState>             NewBoardStateAvailable;
 		public event Action<Player, WinningReason>  WinnerAvailable;
 
+		private readonly Timer botTimer;
+
 		private readonly IQuoridorBot bot;
 		private readonly TimeoutBlockingQueue<Move> humenMoves;
 		private readonly TimeoutBlockingQueue<Move> botMoves;
+		private readonly int maxMovesPerPlayer;
 
 		private volatile bool stopRunning;
 
 		private BoardState currentBoardState;
 		
+
 		public GameLoopThread (IQuoridorBot bot, 
 							   TimeoutBlockingQueue<Move> humenMoves, 
-							   BoardState initialBoardState)
+							   BoardState initialBoardState,
+							   int maxMovesPerPlayer)
 		{
 			this.bot = bot;
 			this.humenMoves = humenMoves;
@@ -43,6 +46,7 @@ namespace QCF.GameEngine.Game
 			bot.NextMoveAvailable += OnNextBotMoveAvailable;
 
 			currentBoardState = initialBoardState;
+			this.maxMovesPerPlayer = maxMovesPerPlayer;
 
 			stopRunning = false;
 			IsRunning = false;
@@ -65,10 +69,17 @@ namespace QCF.GameEngine.Game
 		{
 			IsRunning = true;			
 
-			NewBoardStateAvailable?.Invoke(currentBoardState);			
+			NewBoardStateAvailable?.Invoke(currentBoardState);
+
+			var moveCounter = 0;
 
 			while (!stopRunning)
 			{
+				if (moveCounter >= maxMovesPerPlayer)
+				{
+					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.MaximumOfMovesExceded);
+				}
+
 				var nextHumanMove = PickHumanMove();
 
 				if (nextHumanMove == null)
@@ -119,7 +130,9 @@ namespace QCF.GameEngine.Game
 				{
 					WinnerAvailable?.Invoke(winner2, WinningReason.RegularQuoridorWin);
 					break;
-				}				
+				}
+
+				moveCounter++;
 			}
 
 			IsRunning = false;
