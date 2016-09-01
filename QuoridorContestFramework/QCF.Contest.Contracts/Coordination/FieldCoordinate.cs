@@ -1,20 +1,28 @@
-﻿namespace QCF.Contest.Contracts.Coordination
+﻿using QCF.Tools.FrameworkExtensions;
+
+namespace QCF.Contest.Contracts.Coordination
 {
 	public struct FieldCoordinate
 	{
+		private readonly int hashCode;
+
 		public FieldCoordinate(XField xCoord, YField yCoord)
 		{
 			XCoord = xCoord;
 			YCoord = yCoord;
+
+			hashCode = new {xCoord, yCoord}.GetHashCode();
 		}
 
 		public XField XCoord { get; }
 		public YField YCoord { get; }
 
-		public override string ToString()
-		{
-			return XCoordToString(XCoord) + YCoordToString(YCoord);
-		}
+		public override string ToString()         => XCoordToString(XCoord) + YCoordToString(YCoord);
+		public override bool   Equals(object obj) => this.Equals(obj, (c1, c2) => c1.XCoord == c2.XCoord && c1.YCoord == c2.YCoord);
+		public override int    GetHashCode()      => hashCode;
+
+		public static bool operator ==(FieldCoordinate c1, FieldCoordinate c2) =>  c1.Equals(c2);
+		public static bool operator !=(FieldCoordinate c1, FieldCoordinate c2) => !c1.Equals(c2);		
 
 		private static string XCoordToString(XField xCoord)
 		{

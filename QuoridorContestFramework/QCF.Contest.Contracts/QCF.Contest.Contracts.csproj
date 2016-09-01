@@ -55,6 +55,12 @@
     <Compile Include="Moves\WallMove.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QCF.Tools\QCF.Tools.csproj">
+      <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
+      <Name>QCF.Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
