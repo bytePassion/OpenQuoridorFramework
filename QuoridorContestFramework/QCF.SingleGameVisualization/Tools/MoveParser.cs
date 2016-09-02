@@ -31,9 +31,10 @@ namespace QCF.SingleGameVisualization.Tools
 					var orientation = GetOrientation(moveString[2]);
 
 					if (xCoord.HasValue && yCoord.HasValue && orientation.HasValue)
-						return new WallMove(stateBeforeMove,
-										    playerAtMove,
-											new Wall(new FieldCoordinate(xCoord.Value, yCoord.Value),orientation.Value));
+						if (xCoord.Value < XField.I && yCoord.Value < YField.One)
+							return new WallMove(stateBeforeMove,
+												playerAtMove,
+												new Wall(new FieldCoordinate(xCoord.Value, yCoord.Value),orientation.Value));
 
 					break;
 				}
