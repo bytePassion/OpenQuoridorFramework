@@ -27,7 +27,7 @@
 		<computation:ComputeWallWidth          x:Key="ComputeWallWidth" />
 	</UserControl.Resources>
 
-	<Border>
+	<Border Background="Transparent">
 
 		<i:Interaction.Behaviors>
 			<behaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, 
@@ -44,7 +44,8 @@
 			
 			<ListBox Background="Transparent"
                      ItemsSource="{Binding PossibleMoves}"
-                     Padding="-1">
+                     Padding="-1"
+					 IsHitTestVisible="False">
 
 				<ListBox.ItemsPanel>
 					<ItemsPanelTemplate>
@@ -110,6 +111,7 @@
 			<ListBox Background="Transparent"
                      BorderThickness="0"
                      Padding="-1"
+					 IsHitTestVisible="False"
                      ItemsSource="{Binding PotentialPlacedWall}">
 				<ListBox.ItemsPanel>
 					<ItemsPanelTemplate>

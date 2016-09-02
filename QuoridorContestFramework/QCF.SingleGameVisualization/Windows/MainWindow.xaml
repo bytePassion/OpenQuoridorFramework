@@ -261,13 +261,18 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <views:BoardHorizontalLabelling Grid.Row="0" Grid.Column="1" />
+                <views:BoardHorizontalLabelling Grid.Row="0"
+												Grid.Column="1" 
+												IsHitTestVisible="False"/>
 
-                <views:BoardVerticalLabelling Grid.Row="1" Grid.Column="0" />
+                <views:BoardVerticalLabelling  Grid.Row="1" 
+											   Grid.Column="0" 
+											   IsHitTestVisible="False"/>
 
                 <views:Board Grid.Row="1"
                              Grid.Column="1"
                              DataContext="{Binding BoardViewModel}"
+							 IsHitTestVisible="False"
                              Padding="0" />
 				
 				<views:BoardPlacement Grid.Row="1"

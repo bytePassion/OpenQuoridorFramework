@@ -30,6 +30,8 @@ namespace QCF.SingleGameVisualization.ViewModels.BoardPlacement
 			this.gameService = gameService;
 			this.gameFactory = gameFactory;
 
+			allPossibleWalls = GenerateAllPossibleWalls();
+
 			gameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 
 			BoardClick = new Command(HandleBoardClick);
@@ -38,13 +40,29 @@ namespace QCF.SingleGameVisualization.ViewModels.BoardPlacement
 			PotentialPlacedWall = new ObservableCollection<Wall>();
 		}
 
+		private IList<Wall> GenerateAllPossibleWalls()
+		{
+			var resultList = new List<Wall>(128);
+
+			for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
+			{
+				for (var yCoord = YField.Nine; yCoord < YField.One; yCoord++)
+				{
+					resultList.Add(new Wall(new FieldCoordinate(xCoord, yCoord), WallOrientation.Horizontal));
+					resultList.Add(new Wall(new FieldCoordinate(xCoord, yCoord), WallOrientation.Vertical));
+				}
+			}
+
+			return resultList;
+		}
+
 		private void OnNewBoardStateAvailable(BoardState boardState)
 		{
-			if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+			if (boardState?.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 			{
 				var boardAnalysis = gameFactory.GetGameAnalysis(boardState);
 
-				allPossibleWalls = new List<Wall>(boardAnalysis.GetPossibleWalls());
+//				allPossibleWalls = new List<Wall>(boardAnalysis.GetPossibleWalls());
 				
 				boardAnalysis.GetPossibleMoves()
 							 .Select(move => new PlayerState(null, move, -1))
@@ -54,7 +72,7 @@ namespace QCF.SingleGameVisualization.ViewModels.BoardPlacement
 			{
 				PossibleMoves.Clear();
 				PotentialPlacedWall.Clear();
-				allPossibleWalls = null;
+			//	allPossibleWalls = null;
 			}						
 		}
 
@@ -135,10 +153,19 @@ namespace QCF.SingleGameVisualization.ViewModels.BoardPlacement
 				if (currentMousePosition.XCoord >= xMin && currentMousePosition.XCoord <= xMax &&
 				    currentMousePosition.YCoord >= yMin && currentMousePosition.YCoord <= yMax)
 				{
-					PotentialPlacedWall.Add(possibleWall);
+					if (PotentialPlacedWall.Count > 0 && PotentialPlacedWall[0] != possibleWall)
+					{
+						PotentialPlacedWall.Clear();						
+					}
+
+					if (PotentialPlacedWall.Count == 0)
+						PotentialPlacedWall.Add(possibleWall);
+					
 					return;
 				}
 			}
+
+			PotentialPlacedWall.Clear();
 		}
 
 		private FieldCoordinate? IsMouseOverPotentialMoveField()
