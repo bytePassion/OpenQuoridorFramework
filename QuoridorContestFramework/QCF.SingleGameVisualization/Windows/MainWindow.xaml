@@ -27,11 +27,11 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="50"/>
             <RowDefinition />
-            <RowDefinition Height="150" />
-            <RowDefinition Height="70" />
-        </Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+		</Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*" />
@@ -39,104 +39,134 @@
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0"
-                Grid.Column="0"
-                Margin="0,5"
-                BorderBrush="Black"
-                BorderThickness="2">
 
-            <Grid>
+		<Grid Grid.Row="0"
+			  Grid.Column="0"
+			  Grid.ColumnSpan="3">
+			
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="150"/>
+				<ColumnDefinition Width="100"/>
+				<ColumnDefinition/>
+				<ColumnDefinition Width="150"/>
+				<ColumnDefinition Width="150"/>
+			</Grid.ColumnDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="100"/>
-					<ColumnDefinition Width="100"/>
-                </Grid.ColumnDefinitions>
+			<Button Grid.Column="0"
+                    Margin="10"
+                    Command="{Binding Start}"
+                    Content="Start" />
 
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
+			<Button Grid.Column="4"
+                    Margin="10"
+                    Command="{Binding ShowAboutHelp}"
+                    Content="About &amp; Help" />
 
-                <Ellipse Grid.RowSpan="2"
-                         Grid.Column="0"
-                         Width="60"
-                         Height="60"
-                         Fill="{Binding GameStatus,
-                                        Converter={StaticResource TopPlayerMarkerColor}}"
-                         Stroke="Black"
-                         StrokeThickness="2" />
+			<TextBlock Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="Bot-DLL-path:" />
 
-                <TextBlock Grid.Row="0"
-                           Grid.Column="1"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="BotName" />
+			<TextBox Grid.Column="2"						 
+                     Margin="7,10"
+                     VerticalContentAlignment="Center"
+                     Text="{Binding DllPathInput,
+                                    Mode=TwoWay,
+                                    UpdateSourceTrigger=PropertyChanged}" />
+			<Button Grid.Column="3"
+                    Margin="10"
+                    Command="{Binding BrowseDll}"
+                    Content="BrowseDll" />
 
-                <TextBlock Grid.Row="0"
-                           Grid.Column="2"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="WallsLeft" />
+		</Grid>
 
-                <TextBlock Grid.Row="1"
-                           Grid.Column="1"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="{Binding TopPlayerName}" />
+		<Border Grid.Row="1"
+				Grid.Column="0"
+				Margin="5,5,5,0"
+				BorderThickness="1"
+				BorderBrush="Black">
+							
+			<Grid >
+			
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+			
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="70"/>
+					<ColumnDefinition Width="150"/>
+					<ColumnDefinition/>
+					<ColumnDefinition Width="150"/>
+				</Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="1"
-                           Grid.Column="2"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="{Binding TopPlayerWallCountLeft}" />
+				<Ellipse Grid.RowSpan="2"
+						 Grid.Column="0"
+						 Width="40"
+						 Height="40"
+						 Fill="{Binding GameStatus,
+										Converter={StaticResource TopPlayerMarkerColor}}"
+						 Stroke="Black"
+						 StrokeThickness="2" />
 
-                <TextBlock Grid.Row="2"
-                           Grid.Column="0"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="DLL-path:" />
 
-                <TextBox Grid.Row="2"
-                         Grid.Column="1"
-						 Grid.ColumnSpan="2"
-                         Margin="7"
-                         VerticalContentAlignment="Center"
-                         Text="{Binding DllPathInput,
-                                        Mode=TwoWay,
-                                        UpdateSourceTrigger=PropertyChanged}" />
-                <Button Grid.Row="2"
-                        Grid.Column="3"
-                        Margin="7"
-                        Command="{Binding BrowseDll}"
-                        Content="BrowseDll" />
-				
+				<TextBlock Grid.Row="0"
+						   Grid.Column="1"
+						   HorizontalAlignment="Right"
+						   VerticalAlignment="Center"
+						   Text="BotName:" 
+						   Margin="0,0,10,0"/>
+
 				<TextBlock Grid.Row="0"
 						   Grid.Column="3"
-						   HorizontalAlignment="Center"
+						   Grid.RowSpan="2"
+						   HorizontalAlignment="Left"
 						   VerticalAlignment="Center"
-						   Text="max. Rechenzeit"/>
+						   FontSize="30"
+						   Margin="30,0,0,0"
+						   Text="Walls:" />
+
+				<TextBlock Grid.Row="0"
+						   Grid.Column="2"
+						   HorizontalAlignment="Left"
+						   VerticalAlignment="Center"
+						   Text="{Binding TopPlayerName}" />
+
+				<TextBlock Grid.Row="0"
+						   Grid.Column="3"
+						   Grid.RowSpan="2"
+						   HorizontalAlignment="Right"					   
+						   VerticalAlignment="Center"
+						   FontSize="30"
+						   Margin="0,0,5,0"
+						   Text="{Binding TopPlayerWallCountLeft}" />
+
+
 
 				<TextBlock Grid.Row="1"
-						   Grid.Column="3"
-						   HorizontalAlignment="Center"
+						   Grid.Column="1"
+						   HorizontalAlignment="Right"
+						   VerticalAlignment="Center"
+						   Text="max. Rechenzeit:"
+						   Margin="0,0,10,0"/>
+
+				<TextBlock Grid.Row="1"
+						   Grid.Column="2"
+						   HorizontalAlignment="Left"
 						   VerticalAlignment="Center"
 						   Text="{Binding TopPlayerRestTime}"/>
 
+
 			</Grid>
 
-
-
-        </Border>
-
-        <Border Grid.Row="0"
+		</Border>
+		
+        <Border Grid.Row="1"
                 Grid.RowSpan="3"
                 Grid.Column="1"
                 Margin="5"
                 BorderBrush="Black"
-                BorderThickness="2">
+                BorderThickness="1">
 
             <Grid>
 
@@ -152,7 +182,7 @@
                            Text="Progress" />
 
 				<Border Grid.Row="1"
-						BorderThickness="0,0,0,2"
+						BorderThickness="0,0,0,1"
 						BorderBrush="Black">
 					<CheckBox HorizontalAlignment="Left"
 						  VerticalAlignment="Center"
@@ -180,12 +210,12 @@
 
         </Border>
 
-        <Border Grid.Row="0"
-                Grid.RowSpan="4"
+        <Border Grid.Row="1"
+                Grid.RowSpan="3"
                 Grid.Column="2"
                 Margin="5"
                 BorderBrush="Black"
-                BorderThickness="2">
+                BorderThickness="1">
 
             <Grid>
 
@@ -201,7 +231,7 @@
                            Text="Debug" />
 
 				<Border Grid.Row="1"
-						BorderThickness="0,0,0,2"
+						BorderThickness="0,0,0,1"
 						BorderBrush="Black">
 					<CheckBox HorizontalAlignment="Left"
 						  VerticalAlignment="Center"
@@ -227,15 +257,18 @@
 
         </Border>
 
-        <Border Grid.Row="1"
+        <Border Grid.Row="2"
                 Grid.Column="0"
+				Margin="5,0"
+				BorderThickness="1,0"
+				BorderBrush="Black"
                 Padding="0">
 
             <i:Interaction.Behaviors>
                 <!--				<behaviors:KeepQuadratic/>-->
             </i:Interaction.Behaviors>
 
-            <Grid>
+            <Grid Margin="15">
 
 				<Grid.Style>
 					<Style TargetType="Grid">
@@ -291,84 +324,59 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="2"
-                Grid.Column="0"
-                Margin="0,5"
+        <Border Grid.Row="3"
+                Grid.Column="0"    
+				Margin="5,0,5,5"
                 BorderBrush="Black"
-                BorderThickness="2">
+                BorderThickness="1">
 
             <Grid>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="70" />
                     <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
+             
 
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-
-                <Ellipse Grid.RowSpan="2"
-                         Grid.Column="0"
-                         Width="60"
-                         Height="60"
+                <Ellipse Grid.Column="0"
+                         Width="40"
+                         Height="40"
                          Fill="{Binding GameStatus,
                                         Converter={StaticResource BottomPlayerMarkerColor}}"
                          Stroke="Black"
                          StrokeThickness="2" />
 
-                <TextBlock Grid.Row="0"
-                           Grid.Column="2"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="WallsLeft" />
 
-				<TextBlock Grid.Row="1"
-                           Grid.Column="2"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="{Binding BottomPlayerWallCountLeft}" />
+				<TextBlock Grid.Column="2"						   
+						   HorizontalAlignment="Left"
+						   VerticalAlignment="Center"
+						   FontSize="30"
+						   Margin="30,0,0,0"
+						   Text="Walls:" />
+				
+
+				<TextBlock Grid.Column="2"						  
+						   HorizontalAlignment="Right"					   
+						   VerticalAlignment="Center"
+						   FontSize="30"
+						   Margin="0,0,5,0"
+						   Text="{Binding BottomPlayerWallCountLeft}" />
+
+								
 
 				<Button Grid.Row="0"
 						Grid.Column="1"
 						Margin="7"
 						Content="Capitulate"
+						Width="100"
+						HorizontalAlignment="Right"
 						Command="{Binding Capitulate}"/>
 
             </Grid>
 
         </Border>
-
-        <Border Grid.Row="3"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Margin="0,5,5,5"
-                BorderBrush="Black"
-                BorderThickness="2">
-
-            <Grid>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-
-				<Button Grid.Column="0"
-                        Margin="10"
-                        Command="{Binding Start}"
-                        Content="Start" />
-				<Button Grid.Column="3"
-                        Margin="10"
-                        Command="{Binding ShowAboutHelp}"
-                        Content="About &amp; Help" />
-			</Grid>
-
-        </Border>
+        
 
     </Grid>
 </Window>
