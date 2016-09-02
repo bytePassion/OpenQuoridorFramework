@@ -341,7 +341,7 @@
 				<Button Grid.Row="0"
 						Grid.Column="1"
 						Margin="7"
-						Content="Caputulate"
+						Content="Capitulate"
 						Command="{Binding Capitulate}"/>
 
             </Grid>
