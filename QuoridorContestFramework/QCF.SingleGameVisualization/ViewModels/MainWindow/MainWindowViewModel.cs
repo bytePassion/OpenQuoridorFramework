@@ -11,7 +11,6 @@ using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 using QCF.GameEngine.Contracts;
 using QCF.SingleGameVisualization.Services;
-using QCF.SingleGameVisualization.Tools;
 using QCF.SingleGameVisualization.ViewModels.AboutHelpWindow;
 using QCF.SingleGameVisualization.ViewModels.Board;
 using QCF.SingleGameVisualization.ViewModels.BoardPlacement;
@@ -30,8 +29,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		private readonly IGameService gameService;
 		private readonly ILastUsedBotService lastUsedBotService;
 
-		private string dllPathInput;
-		private string moveInput;
+		private string dllPathInput;		
 		private int bottomPlayerWallCountLeft;
 		private int topPlayerWallCountLeft;		
 		private string topPlayerName;
@@ -63,10 +61,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			BrowseDll = new Command(DoBrowseDll);
 			Start = new Command(DoStart,
 								() => GameStatus != GameStatus.Active,
-								new PropertyChangedCommandUpdater(this, nameof(GameStatus)));				
-			ApplyMove = new Command(DoApplyMove,
-									IsMoveApplyable,
-									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
+								new PropertyChangedCommandUpdater(this, nameof(GameStatus)));							
 			Capitulate = new Command(DoCapitulate,
 									 IsMoveApplyable,
 									 new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
@@ -122,8 +117,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		}
 
 		private void OnNewBoardStateAvailable(BoardState boardState)
-		{
-			((Command)ApplyMove).RaiseCanExecuteChanged();
+		{			
 			((Command)Capitulate).RaiseCanExecuteChanged();
 
 			if (boardState == null)
@@ -175,11 +169,9 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		public IBoardViewModel BoardViewModel { get; }
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 
-		public ICommand Start         { get; }
-		
+		public ICommand Start         { get; }		
 		public ICommand ShowAboutHelp { get; }
-		public ICommand Capitulate    { get; }
-		public ICommand ApplyMove     { get; }
+		public ICommand Capitulate    { get; }		
 		public ICommand BrowseDll     { get; }
 
 		public ObservableCollection<string> DebugMessages { get; }
@@ -238,13 +230,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			get { return bottomPlayerWallCountLeft; }
 			private set { PropertyChanged.ChangeAndNotify(this, ref bottomPlayerWallCountLeft, value); }
 		}
-
-		public string MoveInput
-		{
-			get { return moveInput; }
-			set { PropertyChanged.ChangeAndNotify(this, ref moveInput, value); }
-		}
-
+		
 		public string DllPathInput
 		{
 			get { return dllPathInput; }
@@ -293,8 +279,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 			GameStatus = GameStatus.Unloaded;
 
 			gameService.CreateGame(DllPathInput, 100);
-
-			((Command)ApplyMove).RaiseCanExecuteChanged();
+			
 			((Command)Capitulate).RaiseCanExecuteChanged();
 		}
 				
@@ -305,21 +290,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 			return gameService.CurrentBoardState.CurrentMover.PlayerType == PlayerType.BottomPlayer;
 		}
-
-		private void DoApplyMove ()
-		{
-			var move = MoveParser.GetMove(MoveInput, 
-										  gameService.CurrentBoardState, 
-										  gameService.CurrentBoardState.CurrentMover);
-
-			if (move == null)
-			{
-				MessageBox.Show("kein gültiger zug");
-				return;
-			}
-
-			gameService.ReportHumanMove(move);
-		}
+		
 
 		private void DoCapitulate ()
 		{

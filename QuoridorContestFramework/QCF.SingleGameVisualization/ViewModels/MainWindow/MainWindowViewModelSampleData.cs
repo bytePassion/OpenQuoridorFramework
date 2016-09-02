@@ -36,8 +36,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 			TopPlayerWallCountLeft    = 10;
 			BottomPlayerWallCountLeft = 9;
-
-			MoveInput = "e8";
+			
 			DllPathInput = "blubb.dll";			
 
 			GameStatus = GameStatus.Active;
@@ -53,8 +52,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		public ICommand Start          => null;		
 		public ICommand ShowAboutHelp  => null;
-		public ICommand Capitulate     => null;
-		public ICommand ApplyMove      => null;
+		public ICommand Capitulate     => null;		
 		public ICommand BrowseDll      => null;
 
 		public ObservableCollection<string> DebugMessages  { get; }
@@ -72,8 +70,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		public int TopPlayerWallCountLeft   { get; }
 		public int BottomPlayerWallCountLeft { get; }
-
-		public string MoveInput { get; set; }
+		
 		public string DllPathInput { get; set; }		
 
 		public void Dispose () { }

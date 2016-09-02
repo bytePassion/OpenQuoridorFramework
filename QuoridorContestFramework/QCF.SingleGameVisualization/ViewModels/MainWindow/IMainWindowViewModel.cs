@@ -14,10 +14,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		ICommand Start         { get; }		
 		ICommand ShowAboutHelp { get; }
-		ICommand Capitulate    { get; }
-
-		ICommand ApplyMove { get; }
-		ICommand BrowseDll { get; }
+		ICommand Capitulate    { get; }		
+		ICommand BrowseDll     { get; }
 
 		ObservableCollection<string> DebugMessages { get; } 
 		ObservableCollection<string> GameProgress  { get; }				
@@ -34,8 +32,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		int TopPlayerWallCountLeft    { get; }
 		int BottomPlayerWallCountLeft { get; }
-
-		string MoveInput    { get; set; }
+		
 		string DllPathInput { get; set; }		
 	}
 }

@@ -326,31 +326,12 @@
                            VerticalAlignment="Center"
                            Text="WallsLeft" />
 
-                <TextBlock Grid.Row="1"
+				<TextBlock Grid.Row="1"
                            Grid.Column="2"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding BottomPlayerWallCountLeft}" />
 
-                <TextBlock Grid.Row="2"
-                           Grid.Column="0"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="YourMove:" />
-
-                <TextBox Grid.Row="2"
-                         Grid.Column="1"
-                         Margin="7"
-                         VerticalContentAlignment="Center"
-                         Text="{Binding MoveInput,
-                                        Mode=TwoWay,
-                                        UpdateSourceTrigger=PropertyChanged}" />
-                <Button Grid.Row="2"
-                        Grid.Column="2"
-                        Margin="7"
-                        Command="{Binding ApplyMove}"
-                        Content="ApplyMove" />
-				
 				<Button Grid.Row="0"
 						Grid.Column="1"
 						Margin="7"
