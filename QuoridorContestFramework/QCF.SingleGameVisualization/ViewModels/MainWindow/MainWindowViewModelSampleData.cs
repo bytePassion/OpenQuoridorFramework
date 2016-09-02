@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using QCF.SingleGameVisualization.ViewModels.Board;
+using QCF.SingleGameVisualization.ViewModels.BoardPlacement;
 using QCF.SingleGameVisualization.ViewModels.MainWindow.Helper;
 
 #pragma warning disable 0067
@@ -13,6 +14,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		public MainWindowViewModelSampleData()
 		{
 			BoardViewModel = new BoardViewModelSampleData();
+			BoardPlacementViewModel = new BoardPlacementViewModelSampleData();
 
 			DebugMessages = new ObservableCollection<string>
 			{
@@ -47,6 +49,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
+		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 
 		public ICommand Start          => null;
 		public ICommand Restart        => null;

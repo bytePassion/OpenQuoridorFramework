@@ -3,6 +3,7 @@ using QCF.GameEngine.Contracts;
 using QCF.GameEngine.Game;
 using QCF.SingleGameVisualization.Services;
 using QCF.SingleGameVisualization.ViewModels.Board;
+using QCF.SingleGameVisualization.ViewModels.BoardPlacement;
 using QCF.SingleGameVisualization.ViewModels.MainWindow;
 
 namespace QCF.SingleGameVisualization
@@ -18,7 +19,8 @@ namespace QCF.SingleGameVisualization
 			ILastUsedBotService lastUsedBotService = new LastUsedBotService();
 
 			var boardViewModel = new BoardViewModel(gameService);
-			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, gameService, lastUsedBotService);
+			var boardPlacementViewModel = new BoardPlacementViewModel(gameService, gameFactory);
+			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, boardPlacementViewModel, gameService, lastUsedBotService);
 
 			var mainWindow = new Windows.MainWindow
 			{

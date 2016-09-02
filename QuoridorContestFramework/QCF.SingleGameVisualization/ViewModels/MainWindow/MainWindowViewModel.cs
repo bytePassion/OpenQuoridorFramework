@@ -14,6 +14,7 @@ using QCF.SingleGameVisualization.Services;
 using QCF.SingleGameVisualization.Tools;
 using QCF.SingleGameVisualization.ViewModels.AboutHelpWindow;
 using QCF.SingleGameVisualization.ViewModels.Board;
+using QCF.SingleGameVisualization.ViewModels.BoardPlacement;
 using QCF.SingleGameVisualization.ViewModels.MainWindow.Helper;
 using QCF.Tools.FrameworkExtensions;
 using QCF.Tools.WpfTools.Commands;
@@ -40,10 +41,14 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		private string topPlayerRestTime;
 		private bool isDisabledOverlayVisible;
 
-		public MainWindowViewModel (IBoardViewModel boardViewModel, IGameService gameService, ILastUsedBotService lastUsedBotService)
+		public MainWindowViewModel (IBoardViewModel boardViewModel, 
+									IBoardPlacementViewModel boardPlacementViewModel, 
+									IGameService gameService, 
+									ILastUsedBotService lastUsedBotService)
 		{
 			this.gameService = gameService;
 			this.lastUsedBotService = lastUsedBotService;
+			BoardPlacementViewModel = boardPlacementViewModel;
 			BoardViewModel = boardViewModel;
 			DebugMessages  = new ObservableCollection<string>();
 			GameProgress   = new ObservableCollection<string>();			
@@ -175,6 +180,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
+		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 
 		public ICommand Start         { get; }
 		public ICommand Restart       { get; }

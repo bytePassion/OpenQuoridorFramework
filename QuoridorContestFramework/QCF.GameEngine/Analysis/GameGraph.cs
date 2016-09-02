@@ -8,8 +8,8 @@ using QCF.Contest.Contracts.GameElements;
 
 namespace QCF.GameEngine.Analysis
 {
-    //non directed graph with edges added in both directions 
-    public class GameGraph
+	//non directed graph with edges added in both directions 
+	public class GameGraph
     {
         private readonly List<FieldCoordinate> endCoordinatesForBottomPlayer = new List<FieldCoordinate>();
         private readonly List<FieldCoordinate> endCoordinatesForTopPlayer = new List<FieldCoordinate>();
@@ -99,12 +99,12 @@ namespace QCF.GameEngine.Analysis
 
         private bool IsExitPathAvailable(FieldCoordinate startCoordinate, Player player)
         {
-            var startNode = GetNodeForCoordinate(startCoordinate);
+           // var startNode = GetNodeForCoordinate(startCoordinate);
             return true;
-            return TraverseGraph(startNode,
-                player.PlayerType == PlayerType.BottomPlayer
-                    ? endCoordinatesForBottomPlayer
-                    : endCoordinatesForTopPlayer);
+//            return TraverseGraph(startNode,
+//                player.PlayerType == PlayerType.BottomPlayer
+//                    ? endCoordinatesForBottomPlayer
+//                    : endCoordinatesForTopPlayer);
         }
 
         private bool TraverseGraph(Node startNode, IEnumerable<FieldCoordinate> targetCoords)

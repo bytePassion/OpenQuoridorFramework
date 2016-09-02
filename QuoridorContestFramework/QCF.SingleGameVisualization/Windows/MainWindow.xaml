@@ -270,9 +270,17 @@
                              DataContext="{Binding BoardViewModel}"
                              Padding="0" />
 				
-				<Border Grid.ColumnSpan="2"
+				<views:BoardPlacement Grid.Row="1"
+									  Grid.Column="1"
+									  DataContext="{Binding BoardPlacementViewModel}"
+									  Padding="0"/>
+				
+				<Border Grid.Column="0"
+						Grid.Row="0"
+						Grid.ColumnSpan="2"
 						Grid.RowSpan="2"  
 						Background="#60000000"
+						IsHitTestVisible="False"
 						Visibility="{Binding IsDisabledOverlayVisible, Converter={StaticResource BoolToCollapsedVisibilityConverter}}"/>
 
             </Grid>

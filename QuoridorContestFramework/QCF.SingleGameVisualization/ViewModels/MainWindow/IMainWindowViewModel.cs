@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using QCF.SingleGameVisualization.ViewModels.Board;
+using QCF.SingleGameVisualization.ViewModels.BoardPlacement;
 using QCF.SingleGameVisualization.ViewModels.MainWindow.Helper;
 using QCF.Tools.WpfTools.ViewModelBase;
 
@@ -9,6 +10,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 	internal interface IMainWindowViewModel : IViewModel
 	{
 		IBoardViewModel BoardViewModel { get; }
+		IBoardPlacementViewModel BoardPlacementViewModel { get; }
 
 		ICommand Start         { get; }
 		ICommand Restart       { get; }

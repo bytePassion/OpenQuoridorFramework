@@ -6,6 +6,8 @@ using System.Windows.Input;
 using QCF.Tools.WpfTools.Commands;
 using QCF.Tools.WpfTools.ViewModelBase;
 
+#pragma warning disable 0067
+
 namespace QCF.SingleGameVisualization.ViewModels.AboutHelpWindow
 {
 	internal class AboutHelpWindowViewModel : ViewModel, IAboutHelpWindowViewModel

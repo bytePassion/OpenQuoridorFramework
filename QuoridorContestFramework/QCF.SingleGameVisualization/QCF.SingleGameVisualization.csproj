@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Behaviors\KeepQuadratic.cs" />
     <Compile Include="Behaviors\AutoScrollDownBehavior.cs" />
+    <Compile Include="Behaviors\ReportRelativeMousePositionBehavior.cs" />
     <Compile Include="Behaviors\SizeReportingBehavior.cs" />
     <Compile Include="Computation\BottomPlayerMarkerColor.cs" />
     <Compile Include="Computation\ComputeFigureHeight.cs" />
@@ -79,6 +80,9 @@
     <Compile Include="ViewModels\AboutHelpWindow\AboutHelpWindowViewModel.cs" />
     <Compile Include="ViewModels\AboutHelpWindow\AboutHelpWindowViewModelSampleData.cs" />
     <Compile Include="ViewModels\AboutHelpWindow\IAboutHelpWindowViewModel.cs" />
+    <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />
+    <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
+    <Compile Include="ViewModels\BoardPlacement\IBoardPlacementViewModel.cs" />
     <Compile Include="ViewModels\Board\BoardViewModel.cs" />
     <Compile Include="ViewModels\Board\BoardViewModelSampleData.cs" />
     <Compile Include="ViewModels\Board\IBoardViewModel.cs" />
@@ -95,9 +99,16 @@
     <Compile Include="Views\BoardHorizontalLabelling.xaml.cs">
       <DependentUpon>BoardHorizontalLabelling.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BoardPlacement.xaml.cs">
+      <DependentUpon>BoardPlacement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BoardVerticalLabelling.xaml.cs">
       <DependentUpon>BoardVerticalLabelling.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\BoardPlacement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AboutHelpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

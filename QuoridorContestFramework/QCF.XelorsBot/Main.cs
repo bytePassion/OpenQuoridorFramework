@@ -10,14 +10,17 @@ namespace QCF.XelorsBot
 	    public event Action<Move> NextMoveAvailable;
 	    public event Action<string> DebugMessageAvailable;
 
+	    private Player mySelf;
+
 	    public void Init(Player yourPlayer)
 	    {
-		    throw new NotImplementedException();
+		    mySelf = yourPlayer;
 	    }
 
 	    public void DoMove(BoardState currentState)
 	    {
-		    throw new NotImplementedException();
+			DebugMessageAvailable?.Invoke("");
+		    NextMoveAvailable?.Invoke(new Capitulation(currentState, mySelf));
 	    }
     }
 }
