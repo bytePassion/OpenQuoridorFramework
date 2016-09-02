@@ -377,24 +377,15 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0"
+				<Button Grid.Column="0"
                         Margin="10"
                         Command="{Binding Start}"
                         Content="Start" />
-                <Button Grid.Column="1"
-                        Margin="10"
-                        Command="{Binding Restart}"
-                        Content="Restart" />
-                <Button Grid.Column="2"
-                        Margin="10"
-                        Command="{Binding Stop}"
-                        Content="Stop" />
-                <Button Grid.Column="3"
+				<Button Grid.Column="3"
                         Margin="10"
                         Command="{Binding ShowAboutHelp}"
                         Content="About &amp; Help" />
-
-            </Grid>
+			</Grid>
 
         </Border>
 

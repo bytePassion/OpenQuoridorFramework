@@ -62,15 +62,8 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 			BrowseDll = new Command(DoBrowseDll);
 			Start = new Command(DoStart,
-								() => GameStatus == GameStatus.Unloaded,
-								new PropertyChangedCommandUpdater(this, nameof(GameStatus)));	
-			Stop = new Command(DoStop,
-							   () => GameStatus != GameStatus.Unloaded,
-							   new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
-			Restart = new Command(DoRestart,
-							      () => GameStatus != GameStatus.Unloaded,
-							      new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
-
+								() => GameStatus != GameStatus.Active,
+								new PropertyChangedCommandUpdater(this, nameof(GameStatus)));				
 			ApplyMove = new Command(DoApplyMove,
 									IsMoveApplyable,
 									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
@@ -183,8 +176,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 
 		public ICommand Start         { get; }
-		public ICommand Restart       { get; }
-		public ICommand Stop          { get; }
+		
 		public ICommand ShowAboutHelp { get; }
 		public ICommand Capitulate    { get; }
 		public ICommand ApplyMove     { get; }
@@ -276,6 +268,14 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 
 		private void DoStart()
 		{
+			if (GameStatus == GameStatus.Finished)
+			{
+				gameService.StopGame();
+
+				GameProgress.Clear();
+				DebugMessages.Clear();
+			}
+
 			if (string.IsNullOrWhiteSpace(DllPathInput))
 			{
 				MessageBox.Show("bevor das Spiel gestartet werden kann muss eine bot-Dll ausgewählt werden");
@@ -288,35 +288,16 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 				return;
 			}
 
-			lastUsedBotService.SaveLastUsedBot(DllPathInput);
+			lastUsedBotService.SaveLastUsedBot(DllPathInput);			
+
+			GameStatus = GameStatus.Unloaded;
 
 			gameService.CreateGame(DllPathInput, 100);
 
 			((Command)ApplyMove).RaiseCanExecuteChanged();
 			((Command)Capitulate).RaiseCanExecuteChanged();
 		}
-		
-		private void DoStop ()
-		{
-			gameService.StopGame();
-
-			GameProgress.Clear();
-			DebugMessages.Clear();
-
-			GameStatus = GameStatus.Unloaded;
-		}
-
-		private void DoRestart ()
-		{
-			if (Stop.CanExecute(null))
-			{
-				Stop.Execute(null);
-
-				if (Start.CanExecute(null))
-					Start.Execute(null);
-			}
-		}
-
+				
 		private bool IsMoveApplyable ()
 		{
 			if (GameStatus != GameStatus.Active)

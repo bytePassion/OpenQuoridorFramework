@@ -51,9 +51,7 @@ namespace QCF.SingleGameVisualization.ViewModels.MainWindow
 		public IBoardViewModel BoardViewModel { get; }
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 
-		public ICommand Start          => null;
-		public ICommand Restart        => null;
-		public ICommand Stop           => null;
+		public ICommand Start          => null;		
 		public ICommand ShowAboutHelp  => null;
 		public ICommand Capitulate     => null;
 		public ICommand ApplyMove      => null;
