@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\FieldCoordinateExtensions.cs" />
     <Compile Include="Analysis\HumanPlayerAnalysis.cs" />
     <Compile Include="Analysis\InitialGraphCreator.cs" />
     <Compile Include="Analysis\Node.cs" />
