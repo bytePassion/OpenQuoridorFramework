@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
 using QCF.GameEngine.Contracts;
@@ -7,18 +8,16 @@ namespace QCF.GameEngine.Analysis
 {
 	internal class HumanPlayerAnalysis : IHumanPlayerAnalysis
 	{
-		private readonly BoardState boardState;
-
-		private readonly IEnumerable<FieldCoordinate> possibleMoves;
+		private readonly IList<FieldCoordinate> possibleMoves;
+		private readonly IList<Wall>            possibleWalls;
 
 		public HumanPlayerAnalysis(BoardState boardState)
-		{
-			this.boardState = boardState;
-
+		{			
 			var gameGraph = new GameGraph().InitGraph()
-										   .ApplyWalls(boardState.PlacedWalls);
+										   .ApplyWallsAndPlayers(boardState);
 
 			possibleMoves = new List<FieldCoordinate>();
+			possibleWalls = new List<Wall>();
 
 			if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 			{
@@ -26,9 +25,19 @@ namespace QCF.GameEngine.Analysis
 
 				foreach (var nodeNeighbor in node.Neighbors)
 				{
-					((List<FieldCoordinate>)possibleMoves).Add(nodeNeighbor.Coordinate);
+					possibleMoves.Add(nodeNeighbor.Coordinate);
 				}
-			}			
+
+				var allWalls = GeneratePotensialPossibleWalls(boardState);
+
+				foreach (var wall in allWalls)
+				{
+					if (gameGraph.ValidateWallMove(wall))
+					{
+						possibleWalls.Add(wall);
+					}
+				}
+			}							
 		}
 
 		public IEnumerable<Wall> GetPossibleWalls()
@@ -38,5 +47,26 @@ namespace QCF.GameEngine.Analysis
 		}
 
 		public IEnumerable<FieldCoordinate> GetPossibleMoves() => possibleMoves;
+
+
+		private static IList<Wall> GeneratePotensialPossibleWalls (BoardState boardState)
+		{
+			var resultList = new List<Wall>(128);
+
+			for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
+			{
+				for (var yCoord = YField.Nine; yCoord < YField.One; yCoord++)
+				{
+					var coord = new FieldCoordinate(xCoord, yCoord);
+
+					if (boardState.PlacedWalls.Any(wall => wall.TopLeft == coord))
+
+					resultList.Add(new Wall(coord, WallOrientation.Horizontal));
+					resultList.Add(new Wall(coord, WallOrientation.Vertical));
+				}
+			}
+
+			return resultList;
+		}
 	}
 }

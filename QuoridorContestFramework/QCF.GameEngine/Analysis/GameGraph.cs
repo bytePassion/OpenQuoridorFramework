@@ -13,7 +13,11 @@ namespace QCF.GameEngine.Analysis
     {
         private readonly List<FieldCoordinate> endCoordinatesForBottomPlayer = new List<FieldCoordinate>();
         private readonly List<FieldCoordinate> endCoordinatesForTopPlayer = new List<FieldCoordinate>();
-        public List<Node> Graph { get; } = new List<Node>();
+
+		public List<Node> Graph { get; } = new List<Node>();
+
+	    private FieldCoordinate BottomPlayerPosition;
+	    private FieldCoordinate TopPlayerPosition;
 
         public GameGraph()
         {
@@ -70,9 +74,9 @@ namespace QCF.GameEngine.Analysis
             }
         }
 
-        public GameGraph ApplyWalls(IEnumerable<Wall> walls)
+        public GameGraph ApplyWallsAndPlayers(BoardState boardState)
         {
-            foreach (var wall in walls)
+            foreach (var wall in boardState.PlacedWalls)
             {
                 var topleftNode = GetNodeForCoordinate(wall.TopLeft);
                 var bottomleftNode = GetNodeForCoordinate(wall.TopLeft.GetBottom());
@@ -94,6 +98,10 @@ namespace QCF.GameEngine.Analysis
                     Graph.Find(n => n.Coordinate == bottomRightNode.Coordinate).Neighbors.Remove(bottomleftNode);
                 }
             }
+
+	        BottomPlayerPosition = boardState.BottomPlayer.Position;
+	        TopPlayerPosition = boardState.TopPlayer.Position;
+
             return this;
         }
 
@@ -147,7 +155,18 @@ namespace QCF.GameEngine.Analysis
                 node.Visited = false;
         }
 
-        public bool ValidateMove(FieldCoordinate sourceCoordinate, FieldCoordinate targetCoordinate, Player player)
+	    public bool ValidateWallMove(Wall wall)
+	    {
+			// wallcount == 0 => true
+
+			// is there a way from TopPlayerPosition    to endCoordinatesForTopPlayer?
+			// is there a way from BottomPlayerPosition to endCoordinatesForBottomPlayer?
+
+			// TODO
+			return false;
+	    }
+
+        public bool ValidateFigureMove(FieldCoordinate sourceCoordinate, FieldCoordinate targetCoordinate, Player player)
         {
             if (!GetNodeForCoordinate(sourceCoordinate).Neighbors.Contains(GetNodeForCoordinate(targetCoordinate)))
                 return false;

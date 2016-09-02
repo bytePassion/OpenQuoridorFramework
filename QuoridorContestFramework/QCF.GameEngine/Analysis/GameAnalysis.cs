@@ -14,7 +14,7 @@ namespace QCF.GameEngine.Analysis
 			    return true;
 		    }
 
-            var gameGraph = new GameGraph().InitGraph().ApplyWalls(currentBoardState.PlacedWalls);
+            var gameGraph = new GameGraph().InitGraph().ApplyWallsAndPlayers(currentBoardState);
 		    if (potentialNextMove.GetType() == typeof(FigureMove))
 		    {
 		        FieldCoordinate currentPosition;
@@ -27,7 +27,7 @@ namespace QCF.GameEngine.Analysis
 		            currentPosition = currentBoardState.BottomPlayer.Position;
 		        }
                 Debug.WriteLine(gameGraph.ToString());
-                return gameGraph.ValidateMove(currentPosition, ((FigureMove) potentialNextMove).NewPosition,
+                return gameGraph.ValidateFigureMove(currentPosition, ((FigureMove) potentialNextMove).NewPosition,
 		            currentBoardState.CurrentMover);
 
 		    }
