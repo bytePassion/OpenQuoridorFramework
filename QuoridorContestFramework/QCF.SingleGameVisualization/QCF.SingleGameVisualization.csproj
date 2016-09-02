@@ -76,7 +76,6 @@
     <Compile Include="Services\IGameService.cs" />
     <Compile Include="Services\ILastUsedBotService.cs" />
     <Compile Include="Services\LastUsedBotService.cs" />
-    <Compile Include="Tools\MoveParser.cs" />
     <Compile Include="ViewModels\AboutHelpWindow\AboutHelpWindowViewModel.cs" />
     <Compile Include="ViewModels\AboutHelpWindow\AboutHelpWindowViewModelSampleData.cs" />
     <Compile Include="ViewModels\AboutHelpWindow\IAboutHelpWindowViewModel.cs" />
