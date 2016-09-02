@@ -9,6 +9,7 @@
              xmlns:computation="clr-namespace:QCF.SingleGameVisualization.Computation"             
              xmlns:behaviors="clr-namespace:QCF.SingleGameVisualization.Behaviors"             
              xmlns:commandExecutingBehaviors="clr-namespace:QCF.Tools.WpfTools.CommandExecutingBehaviors;assembly=QCF.Tools"
+             xmlns:global="clr-namespace:QCF.SingleGameVisualization.Global"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 	
@@ -80,7 +81,7 @@
 							<Setter.Value>
 								<ControlTemplate>
 
-									<Ellipse Fill="Orange" >
+									<Ellipse Fill="{x:Static global:Constants.PossibleMoveFieldColor}" >
 
 										<Ellipse.Width>
 											<MultiBinding Converter="{StaticResource ComputeFigureWidth}">
@@ -146,7 +147,7 @@
 							<Setter.Value>
 								<ControlTemplate>
 
-									<Rectangle Fill="Black">
+									<Rectangle Fill="{x:Static global:Constants.PotentialPlacedWallColor}">
 
 										<Rectangle.Width>
 											<MultiBinding Converter="{StaticResource ComputeWallWidth}">
