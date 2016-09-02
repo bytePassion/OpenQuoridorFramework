@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Interactivity;
 using QCF.Tools.Utils;
 
@@ -10,29 +11,21 @@ namespace QCF.SingleGameVisualization.Behaviors
 		{
 			base.OnAttached();
 
-			AssociatedObject.SizeChanged += OnSizeChanged;
+			var border = (Border) AssociatedObject.Parent;
+
+			border.SizeChanged += OnSizeChanged;			
 		}		
-
-		protected override void OnDetaching()
-		{
-			base.OnDetaching();
-
-			AssociatedObject.SizeChanged += OnSizeChanged;
-		}
-
+		
 		private void OnSizeChanged (object sender, SizeChangedEventArgs sizeChangedEventArgs)
 		{
-			var currentSize = sizeChangedEventArgs.NewSize;
+			var parentSize = sizeChangedEventArgs.NewSize;
 
-			if (!GeometryLibUtils.DoubleEquals(currentSize.Height, currentSize.Width))
-			{
-				var newSize = currentSize.Height < currentSize.Width 
-									? new Size(currentSize.Height, currentSize.Height) 
-									: new Size(currentSize.Width,  currentSize.Width);
+			var lengthOfSmalerSide = parentSize.Height > parentSize.Width 
+										? parentSize.Width 
+										: parentSize.Height;
 
-				((FrameworkElement) sender).Height = newSize.Height;
-				((FrameworkElement) sender).Width  = newSize.Width;
-			}
+			AssociatedObject.Height = lengthOfSmalerSide - 32;
+			AssociatedObject.Width  = lengthOfSmalerSide - 32;
 		}
 	}
 }

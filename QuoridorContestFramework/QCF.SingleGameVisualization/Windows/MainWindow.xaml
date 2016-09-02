@@ -257,18 +257,18 @@
 
         </Border>
 
-        <Border Grid.Row="2"
+		<Border Grid.Row="2"
                 Grid.Column="0"
 				Margin="5,0"
 				BorderThickness="1,0"
 				BorderBrush="Black"
                 Padding="0">
 
-            <i:Interaction.Behaviors>
-                <!--				<behaviors:KeepQuadratic/>-->
-            </i:Interaction.Behaviors>
+			<Grid Margin="15">
 
-            <Grid Margin="15">
+				<i:Interaction.Behaviors>
+					<behaviors:KeepQuadratic/>
+				</i:Interaction.Behaviors>
 
 				<Grid.Style>
 					<Style TargetType="Grid">
