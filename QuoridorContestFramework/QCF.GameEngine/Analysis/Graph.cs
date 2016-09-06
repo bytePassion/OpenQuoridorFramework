@@ -70,8 +70,8 @@ namespace QCF.GameEngine.Analysis
 			else
 			{
 				nodes[topleft    ].RemoveEdge(nodes[topleft    ].Right);
-				nodes[bottomLeft ].RemoveEdge(nodes[bottomLeft ].Left);
-				nodes[topRight   ].RemoveEdge(nodes[topRight   ].Right);
+				nodes[bottomLeft ].RemoveEdge(nodes[bottomLeft ].Right);
+				nodes[topRight   ].RemoveEdge(nodes[topRight   ].Left);
 				nodes[bottomRight].RemoveEdge(nodes[bottomRight].Left);		
 			}
 		}
@@ -177,7 +177,7 @@ namespace QCF.GameEngine.Analysis
 
 		private bool IsMoveable (Node sourceNode, Node targetNode)
 		{
-			if (!nodes.ContainsKey(targetNode.Coord))
+			if (targetNode == null || !nodes.ContainsKey(targetNode.Coord))
 				return false;
 
 			return sourceNode.Neighbours.Contains(targetNode);
