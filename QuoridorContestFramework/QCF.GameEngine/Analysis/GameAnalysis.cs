@@ -13,10 +13,9 @@ namespace QCF.GameEngine.Analysis
 			    return true;
 		    }
 
-            return new GameGraph().InitGraph()
-								  .ApplyWallsAndPlayers(currentBoardState)
-								  .ValidateMove(potentialNextMove);
-		              
+			var gameGraph = new Graph(currentBoardState);
+
+			return gameGraph.ValidateMove(potentialNextMove);           		              
 		}
 
 		public static Player CheckWinningCondition(BoardState currentBoardState)

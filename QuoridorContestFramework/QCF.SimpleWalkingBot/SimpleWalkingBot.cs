@@ -5,7 +5,7 @@ using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 
-namespace QFC.SimpleWalkingBot
+namespace QCF.SimpleWalkingBot
 {
 	public class SimpleWalkingBot : IQuoridorBot
     {
@@ -38,7 +38,7 @@ namespace QFC.SimpleWalkingBot
 				
 			new Thread(() =>
 			{
-				Thread.Sleep(7000);
+				//Thread.Sleep(7000);
 				NextMoveAvailable?.Invoke(new FigureMove(currentState,
 													 myself,
 													 new FieldCoordinate(myState.Position.XCoord,

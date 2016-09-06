@@ -2,7 +2,6 @@
 using System.Linq;
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
-using QCF.Contest.Contracts.Moves;
 using QCF.GameEngine.Contracts;
 
 namespace QCF.GameEngine.Analysis
@@ -13,20 +12,19 @@ namespace QCF.GameEngine.Analysis
 		private readonly IList<Wall>            possibleWalls;
 
 		public HumanPlayerAnalysis(BoardState boardState)
-		{			
-			var gameGraph = new GameGraph().InitGraph()
-										   .ApplyWallsAndPlayers(boardState);
-
+		{		
+			var gameGraph = new Graph(boardState);
+							
 			possibleMoves = new List<FieldCoordinate>();
 			possibleWalls = new List<Wall>();
 
 			if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 			{
-				var node = gameGraph.GetNodeForCoordinate(boardState.BottomPlayer.Position);
+				var node = gameGraph.GetNode(boardState.BottomPlayer.Position);
 
-				foreach (var nodeNeighbor in node.Neighbors)
+				foreach (var nodeNeighbor in node.Neighbours)
 				{
-					possibleMoves.Add(nodeNeighbor.Coordinate);
+					possibleMoves.Add(nodeNeighbor.Coord);
 				}
 
 				var allWalls = GeneratePotensialPossibleWalls(boardState);
@@ -34,10 +32,10 @@ namespace QCF.GameEngine.Analysis
 				foreach (var wall in allWalls)
 				{
 					// TODO: hier lieber nur die offensichtlichen ausschließen
-					if (gameGraph.ValidateWallMove(new WallMove(null, null, wall)))
-					{
-						possibleWalls.Add(wall);
-					}
+//					if (gameGraph.ValidateWallMove(new WallMove(null, null, wall)))
+//					{
+//						possibleWalls.Add(wall);
+//					}
 				}
 			}							
 		}

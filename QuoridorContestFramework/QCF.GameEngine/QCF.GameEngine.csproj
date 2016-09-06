@@ -43,15 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\Construction.cs" />
+    <Compile Include="Analysis\Direction.cs" />
     <Compile Include="Analysis\FieldCoordinateExtensions.cs" />
+    <Compile Include="Analysis\Graph.cs" />
     <Compile Include="Analysis\HumanPlayerAnalysis.cs" />
-    <Compile Include="Analysis\InitialGraphCreator.cs" />
     <Compile Include="Analysis\Node.cs" />
     <Compile Include="Game\GameFactory.cs" />
     <Compile Include="Transitions\BoardStateTransition.cs" />
     <Compile Include="Loader\BotLoader.cs" />
     <Compile Include="Analysis\GameAnalysis.cs" />
-    <Compile Include="Analysis\GameGraph.cs" />
     <Compile Include="Game\GameLoopThread.cs" />
     <Compile Include="Game\LocalGamePvC.cs" />
     <Compile Include="Transitions\PlayerTransitions.cs" />
