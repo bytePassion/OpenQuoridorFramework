@@ -9,6 +9,11 @@ namespace QCF.GameEngine.Analysis
         public List<Node> Neighbors { get; } = new List<Node>();
         public bool Visited { get; set; }
 
+        public Node Left;
+        public Node Top;
+        public Node Right;
+        public Node Bottom;
+
         public Node(FieldCoordinate coord)
         {
             Coordinate = coord;

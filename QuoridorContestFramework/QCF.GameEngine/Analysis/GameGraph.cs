@@ -14,6 +14,9 @@ namespace QCF.GameEngine.Analysis
         private readonly List<FieldCoordinate> endCoordinatesForBottomPlayer = new List<FieldCoordinate>();
         private readonly List<FieldCoordinate> endCoordinatesForTopPlayer    = new List<FieldCoordinate>();
 
+        private IList<Tuple<Node, Node>> specialEdgesToAdd; 
+        private IList<Tuple<Node, Node>> RemovedSpecialEdges; 
+
 		public IList<Node> Graph { get; } = new List<Node>();
 		public IDictionary<FieldCoordinate, Node> GraphDictionary { get; } = new Dictionary<FieldCoordinate, Node>();
 
@@ -44,10 +47,10 @@ namespace QCF.GameEngine.Analysis
             return GraphDictionary[coordinate];
         }
 
-        public void RemoveNode(FieldCoordinate coordinate)
+        public void RemoveEdge(Node node1, Node node2)
         {
-	        var nodeToRemove = GetNodeForCoordinate(coordinate);
-	        Graph.Remove(nodeToRemove);          
+            node1.Neighbors.Remove(node2);
+            node2.Neighbors.Remove(node1);
         }
 
         public GameGraph ApplyWallsAndPlayers(BoardState boardState)
@@ -60,7 +63,7 @@ namespace QCF.GameEngine.Analysis
 	        bottomPlayerPosition = boardState.BottomPlayer.Position;
 	        topPlayerPosition = boardState.TopPlayer.Position;
 
-			// TODO: addSpezialEdges if players are neighbours
+            AddSpecialEdges();
 
             return this;
         }
@@ -128,14 +131,82 @@ namespace QCF.GameEngine.Analysis
                 node.Visited = false;
         }
 
-	    public bool ValidateWallMove(WallMove wallMove)
-	    {				
+	    private bool ValidateWallMove(WallMove wallMove)
+	    {	
+            RemoveSpecialEdges();			
 			ApplyWall(wallMove.PlacedWall);
 
-			// TODO: Check for spezial edges
-					
+            AddSpecialEdges();
+            					
 			return TraverseGraph(GetNodeForCoordinate(topPlayerPosition),    endCoordinatesForTopPlayer) &&
 				   TraverseGraph(GetNodeForCoordinate(bottomPlayerPosition), endCoordinatesForBottomPlayer);			
+	    }
+
+	    private void AddSpecialEdges()
+	    {
+            specialEdgesToAdd = new List<Tuple<Node, Node>>();
+            RemovedSpecialEdges = new List<Tuple<Node, Node>>();
+
+            var topNode = GetNodeForCoordinate(topPlayerPosition);
+            var bottomNode = GetNodeForCoordinate(bottomPlayerPosition);
+
+            if (PlayersAreNeighbours())
+	        {
+                RemovedSpecialEdges.Add(new Tuple<Node, Node>(topNode, bottomNode));
+                RemoveEdge(topNode, bottomNode);
+
+                ComputeSpecialEdges(topNode, bottomNode);
+	            ComputeSpecialEdges(bottomNode, topNode);
+	        }
+            
+	    }
+
+	    private bool IsMoveable(Node sourceNode, Node targetNode)
+	    {
+	        if (!GraphDictionary.ContainsKey(targetNode.Coordinate))
+	            return false;
+
+	        return sourceNode.Neighbors.Contains(targetNode);
+	    }
+
+	    private void ComputeSpecialEdges(Node playerNode, Node opponentPlayerNode)
+	    {
+
+	        if (playerNode.Coordinate.XCoord == opponentPlayerNode.Coordinate.XCoord)
+	        {
+	            if (playerNode.Coordinate.YCoord < opponentPlayerNode.Coordinate.YCoord)
+	            {
+	                if (IsMoveable(opponentPlayerNode, GetNodeForCoordinate(playerNode.Coordinate.GetBottom())))
+	                {
+	                    
+	                }
+	            }
+	            else
+	            {
+	                
+	            }
+	        }
+	        else
+	        {
+	            if (playerNode.Coordinate.XCoord < opponentPlayerNode.Coordinate.XCoord)
+	            {
+
+	            }
+	            else
+	            {
+	                
+	            }
+	        }
+	    }
+
+	    private bool PlayersAreNeighbours()
+	    {
+	        return GetNodeForCoordinate(topPlayerPosition).Neighbors.Contains(GetNodeForCoordinate(bottomPlayerPosition));
+	    }
+
+	    private void RemoveSpecialEdges()
+	    {
+	        
 	    }
 
 	    private bool ValidateFigureMove(FigureMove move)
