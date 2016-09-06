@@ -82,16 +82,26 @@ namespace QCF.GameEngine.Analysis
 		{
 			if (from.XCoord == to.XCoord)
 			{
-				return from.YCoord < to.YCoord 
+				return from.YCoord > to.YCoord 
 					? Direction.Top 
 					: Direction.Bottom;
 			}
 			else
 			{
-				return @from.XCoord < to.XCoord 
+				return from.XCoord < to.XCoord 
 					? Direction.Right 
 					: Direction.Left;
 			}
 		}
+
+		public override string ToString()
+		{
+			return $"{Coord}|Left({LeftToString()})Top({TopToString()})Right({RightToString()})Bottom({BottomToString()})";
+		}
+
+		private string LeftToString()    =>   Left?.Coord.ToString() ?? "--";
+		private string RightToString ()  =>  Right?.Coord.ToString() ?? "--";
+		private string TopToString ()    =>    Top?.Coord.ToString() ?? "--";
+		private string BottomToString () => Bottom?.Coord.ToString() ?? "--";
 	}
 }

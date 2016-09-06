@@ -254,7 +254,7 @@ namespace QCF.GameEngine.Analysis
 		{
 			if (from.XCoord == to.XCoord)
 			{
-				return from.YCoord < to.YCoord
+				return from.YCoord > to.YCoord
 					? Direction.Top
 					: Direction.Bottom;
 			}
