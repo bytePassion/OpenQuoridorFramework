@@ -33,6 +33,7 @@ namespace QCF.GameEngine.Analysis
 
 				foreach (var wall in allWalls)
 				{
+					// TODO: hier lieber nur die offensichtlichen ausschließen
 					if (gameGraph.ValidateWallMove(new WallMove(null, null, wall)))
 					{
 						possibleWalls.Add(wall);
