@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using QCF.Contest.Contracts.Coordination;
+﻿using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
 using QCF.Contest.Contracts.Moves;
 
@@ -14,29 +13,10 @@ namespace QCF.GameEngine.Analysis
 			    return true;
 		    }
 
-            var gameGraph = new GameGraph().InitGraph().ApplyWallsAndPlayers(currentBoardState);
-		    if (potentialNextMove.GetType() == typeof(FigureMove))
-		    {
-		        FieldCoordinate currentPosition;
-		        if (currentBoardState.CurrentMover.PlayerType == PlayerType.TopPlayer)
-		        {
-		            currentPosition = currentBoardState.TopPlayer.Position;
-		        }
-		        else
-		        {
-		            currentPosition = currentBoardState.BottomPlayer.Position;
-		        }
-                Debug.WriteLine(gameGraph.ToString());
-                return gameGraph.ValidateFigureMove(currentPosition, ((FigureMove) potentialNextMove).NewPosition,
-		            currentBoardState.CurrentMover);
-
-		    }
-		    else
-		    {
-		        
-		    }
-
-            return true;
+            return new GameGraph().InitGraph()
+								  .ApplyWallsAndPlayers(currentBoardState)
+								  .ValidateMove(potentialNextMove);
+		              
 		}
 
 		public static Player CheckWinningCondition(BoardState currentBoardState)

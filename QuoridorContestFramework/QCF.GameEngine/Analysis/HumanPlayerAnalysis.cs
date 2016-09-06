@@ -2,6 +2,7 @@
 using System.Linq;
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
+using QCF.Contest.Contracts.Moves;
 using QCF.GameEngine.Contracts;
 
 namespace QCF.GameEngine.Analysis
@@ -32,7 +33,7 @@ namespace QCF.GameEngine.Analysis
 
 				foreach (var wall in allWalls)
 				{
-					if (gameGraph.ValidateWallMove(wall))
+					if (gameGraph.ValidateWallMove(new WallMove(null, null, wall)))
 					{
 						possibleWalls.Add(wall);
 					}

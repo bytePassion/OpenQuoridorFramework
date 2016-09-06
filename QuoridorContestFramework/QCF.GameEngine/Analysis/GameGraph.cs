@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using QCF.Contest.Contracts.Coordination;
 using QCF.Contest.Contracts.GameElements;
+using QCF.Contest.Contracts.Moves;
 
 namespace QCF.GameEngine.Analysis
 {
@@ -12,13 +12,14 @@ namespace QCF.GameEngine.Analysis
 	public class GameGraph
     {
         private readonly List<FieldCoordinate> endCoordinatesForBottomPlayer = new List<FieldCoordinate>();
-        private readonly List<FieldCoordinate> endCoordinatesForTopPlayer = new List<FieldCoordinate>();
+        private readonly List<FieldCoordinate> endCoordinatesForTopPlayer    = new List<FieldCoordinate>();
 
-		public List<Node> Graph { get; } = new List<Node>();
+		public IList<Node> Graph { get; } = new List<Node>();
+		public IDictionary<FieldCoordinate, Node> GraphDictionary { get; } = new Dictionary<FieldCoordinate, Node>();
 
-	    private FieldCoordinate BottomPlayerPosition;
-	    private FieldCoordinate TopPlayerPosition;
-
+	    private FieldCoordinate bottomPlayerPosition;
+	    private FieldCoordinate topPlayerPosition;
+		
         public GameGraph()
         {
             InitEndCoordinates();
@@ -31,89 +32,61 @@ namespace QCF.GameEngine.Analysis
 
         private void InitEndCoordinates()
         {
-            endCoordinatesForBottomPlayer.Add(new FieldCoordinate(XField.A, YField.Nine));
-            endCoordinatesForBottomPlayer.Add(new FieldCoordinate(XField.B, YField.Nine));
-            endCoordinatesForBottomPlayer.Add(new FieldCoordinate(XField.C, YField.Nine));
-            endCoordinatesForBottomPlayer.Add(new FieldCoordinate(XField.D, YField.Nine));
-            endCoordinatesForBottomPlayer.Add(new FieldCoordinate(XField.E, YField.Nine));
-            endCoordinatesForBottomPlayer.Add(new FieldCoordinate(XField.F, YField.Nine));
-            endCoordinatesForBottomPlayer.Add(new FieldCoordinate(XField.G, YField.Nine));
-            endCoordinatesForBottomPlayer.Add(new FieldCoordinate(XField.H, YField.Nine));
-            endCoordinatesForBottomPlayer.Add(new FieldCoordinate(XField.I, YField.Nine));
-
-            endCoordinatesForTopPlayer.Add(new FieldCoordinate(XField.A, YField.One));
-            endCoordinatesForTopPlayer.Add(new FieldCoordinate(XField.B, YField.One));
-            endCoordinatesForTopPlayer.Add(new FieldCoordinate(XField.C, YField.One));
-            endCoordinatesForTopPlayer.Add(new FieldCoordinate(XField.D, YField.One));
-            endCoordinatesForTopPlayer.Add(new FieldCoordinate(XField.E, YField.One));
-            endCoordinatesForTopPlayer.Add(new FieldCoordinate(XField.F, YField.One));
-            endCoordinatesForTopPlayer.Add(new FieldCoordinate(XField.G, YField.One));
-            endCoordinatesForTopPlayer.Add(new FieldCoordinate(XField.H, YField.One));
-            endCoordinatesForTopPlayer.Add(new FieldCoordinate(XField.I, YField.One));
+	        for (var xCoord = XField.A; xCoord <= XField.I; xCoord++)
+	        {
+				endCoordinatesForBottomPlayer.Add(new FieldCoordinate(xCoord, YField.Nine));
+				endCoordinatesForTopPlayer.Add(new FieldCoordinate(xCoord, YField.One));
+			}            
         }
-
-
 
         public Node GetNodeForCoordinate(FieldCoordinate coordinate)
         {
-            return
-                Graph.Find(item =>
-                    (item.Coordinate.XCoord == coordinate.XCoord) &&
-                    (item.Coordinate.YCoord == coordinate.YCoord));
+            return GraphDictionary[coordinate];
         }
 
         public void RemoveNode(FieldCoordinate coordinate)
         {
-            try
-            {
-                Graph.Remove(GetNodeForCoordinate(coordinate));
-            }
-            catch (ArgumentNullException argumentNullException)
-            {
-                Debug.WriteLine(argumentNullException);
-            }
+	        var nodeToRemove = GetNodeForCoordinate(coordinate);
+	        Graph.Remove(nodeToRemove);          
         }
 
         public GameGraph ApplyWallsAndPlayers(BoardState boardState)
         {
             foreach (var wall in boardState.PlacedWalls)
             {
-                var topleftNode = GetNodeForCoordinate(wall.TopLeft);
-                var bottomleftNode = GetNodeForCoordinate(wall.TopLeft.GetBottom());
-                var topRightNode = GetNodeForCoordinate(wall.TopLeft.GetRight());
-                var bottomRightNode = GetNodeForCoordinate(wall.TopLeft.GetBottom().GetRight());
-
-                if (wall.Orientation == WallOrientation.Horizontal)
-                {
-                    Graph.Find(n => n.Coordinate == topleftNode.Coordinate).Neighbors.Remove(bottomleftNode);
-                    Graph.Find(n => n.Coordinate == topRightNode.Coordinate).Neighbors.Remove(bottomRightNode);
-                    Graph.Find(n => n.Coordinate == bottomleftNode.Coordinate).Neighbors.Remove(topleftNode);
-                    Graph.Find(n => n.Coordinate == bottomRightNode.Coordinate).Neighbors.Remove(topRightNode);
-                }
-                else
-                {
-                    Graph.Find(n => n.Coordinate == topleftNode.Coordinate).Neighbors.Remove(topRightNode);
-                    Graph.Find(n => n.Coordinate == topRightNode.Coordinate).Neighbors.Remove(topleftNode);
-                    Graph.Find(n => n.Coordinate == bottomleftNode.Coordinate).Neighbors.Remove(bottomRightNode);
-                    Graph.Find(n => n.Coordinate == bottomRightNode.Coordinate).Neighbors.Remove(bottomleftNode);
-                }
+               ApplyWall(wall);
             }
 
-	        BottomPlayerPosition = boardState.BottomPlayer.Position;
-	        TopPlayerPosition = boardState.TopPlayer.Position;
+	        bottomPlayerPosition = boardState.BottomPlayer.Position;
+	        topPlayerPosition = boardState.TopPlayer.Position;
+
+			// TODO: addSpezialEdges if players are neighbours
 
             return this;
         }
 
-        private bool IsExitPathAvailable(FieldCoordinate startCoordinate, Player player)
-        {
-           // var startNode = GetNodeForCoordinate(startCoordinate);
-            return true;
-//            return TraverseGraph(startNode,
-//                player.PlayerType == PlayerType.BottomPlayer
-//                    ? endCoordinatesForBottomPlayer
-//                    : endCoordinatesForTopPlayer);
-        }
+	    private void ApplyWall(Wall wall)
+	    {
+			var topleftNode     = GetNodeForCoordinate(wall.TopLeft);
+			var bottomleftNode  = GetNodeForCoordinate(wall.TopLeft.GetBottom());
+			var topRightNode    = GetNodeForCoordinate(wall.TopLeft.GetRight());
+			var bottomRightNode = GetNodeForCoordinate(wall.TopLeft.GetBottom().GetRight());
+
+			if (wall.Orientation == WallOrientation.Horizontal)
+			{
+				topleftNode.Neighbors.Remove(bottomleftNode);
+				topRightNode.Neighbors.Remove(bottomRightNode);
+				bottomleftNode.Neighbors.Remove(topleftNode);
+				bottomRightNode.Neighbors.Remove(topRightNode);
+			}
+			else
+			{
+				topleftNode.Neighbors.Remove(topRightNode);
+				topRightNode.Neighbors.Remove(topleftNode);
+				bottomleftNode.Neighbors.Remove(bottomRightNode);
+				bottomRightNode.Neighbors.Remove(bottomleftNode);
+			}
+		}
 
         private bool TraverseGraph(Node startNode, IEnumerable<FieldCoordinate> targetCoords)
         {
@@ -155,28 +128,39 @@ namespace QCF.GameEngine.Analysis
                 node.Visited = false;
         }
 
-	    public bool ValidateWallMove(Wall wall)
-	    {
-			// wallcount == 0 => true
+	    public bool ValidateWallMove(WallMove wallMove)
+	    {				
+			ApplyWall(wallMove.PlacedWall);
 
-			// is there a way from TopPlayerPosition    to endCoordinatesForTopPlayer?
-			// is there a way from BottomPlayerPosition to endCoordinatesForBottomPlayer?
-
-			// TODO
-			return false;
+			// TODO: Check for spezial edges
+					
+			return TraverseGraph(GetNodeForCoordinate(topPlayerPosition),    endCoordinatesForTopPlayer) &&
+				   TraverseGraph(GetNodeForCoordinate(bottomPlayerPosition), endCoordinatesForBottomPlayer);			
 	    }
 
-        public bool ValidateFigureMove(FieldCoordinate sourceCoordinate, FieldCoordinate targetCoordinate, Player player)
-        {
-            if (!GetNodeForCoordinate(sourceCoordinate).Neighbors.Contains(GetNodeForCoordinate(targetCoordinate)))
-                return false;
-            if (!IsExitPathAvailable(sourceCoordinate, player)) // sollte hier nicht nötig sein, oder?
-                return false;
+	    private bool ValidateFigureMove(FigureMove move)
+	    {
+			var sourceCoordinate = move.PlayerAtMove.PlayerType == PlayerType.BottomPlayer 
+										? bottomPlayerPosition 
+										: topPlayerPosition;
 
-            return true;
-        }
+		    var targetCoordinate = move.NewPosition;
 
+		    var sourceNode = GetNodeForCoordinate(sourceCoordinate);
+		    var targetNode = GetNodeForCoordinate(targetCoordinate);
 
+			return sourceNode.Neighbors.Contains(targetNode);
+	    }
+
+	    public bool ValidateMove(Move move)
+	    {
+			if (move is FigureMove)
+				return ValidateFigureMove((FigureMove)move);
+			else if (move is WallMove)
+				return ValidateWallMove((WallMove) move);
+			else			
+				throw new ArgumentException();					    
+	    }
 
         public override string ToString()
         {

@@ -4,15 +4,18 @@ using QCF.Contest.Contracts.Coordination;
 
 namespace QCF.GameEngine.Analysis
 {
-    public static class InitialGraphCreator
+	public static class InitialGraphCreator
     {
         public static GameGraph CreateInitialGameGraph(GameGraph graph)
         {
             foreach (var xField in Enum.GetValues(typeof(XField)))
             {
                 var rowNodes = CreateRowNodes((XField) xField);
-                foreach (var rowNode in rowNodes)
-                    graph.Graph.Add(rowNode);
+	            foreach (var rowNode in rowNodes)
+	            {
+		            graph.Graph.Add(rowNode);
+					graph.GraphDictionary.Add(rowNode.Coordinate, rowNode);
+	            }
             }
 
             InitNeighbors(graph);
@@ -38,26 +41,26 @@ namespace QCF.GameEngine.Analysis
             for (var i = 9; i < 72; i++)
                 if (i%9 == 0)
                     graph.Graph[i].AddNeighbors(new List<Node>
-                    {
-                        graph.Graph[i - 9],
-                        graph.Graph[i + 1],
-                        graph.Graph[i + 9]
-                    });
+	                    {
+		                    graph.Graph[i - 9],
+		                    graph.Graph[i + 1],
+		                    graph.Graph[i + 9]
+	                    });
                 else if (i%9 == 8)
                     graph.Graph[i].AddNeighbors(new List<Node>
-                    {
-                        graph.Graph[i - 9],
-                        graph.Graph[i - 1],
-                        graph.Graph[i + 9]
-                    });
+	                    {
+		                    graph.Graph[i - 9],
+		                    graph.Graph[i - 1],
+		                    graph.Graph[i + 9]
+	                    });
                 else
                     graph.Graph[i].AddNeighbors(new List<Node>
-                    {
-                        graph.Graph[i - 1],
-                        graph.Graph[i - 9],
-                        graph.Graph[i + 1],
-                        graph.Graph[i + 9]
-                    });
+	                    {
+		                    graph.Graph[i - 1],
+		                    graph.Graph[i - 9],
+		                    graph.Graph[i + 1],
+		                    graph.Graph[i + 9]
+	                    });
         }
 
         private static IEnumerable<Node> CreateRowNodes(XField xField)
