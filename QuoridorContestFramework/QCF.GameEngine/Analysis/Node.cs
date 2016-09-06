@@ -3,7 +3,7 @@ using QCF.Contest.Contracts.Coordination;
 
 namespace QCF.GameEngine.Analysis
 {
-	internal class Node
+    public class Node
 	{
 		private readonly IList<Node> neighbours;
 

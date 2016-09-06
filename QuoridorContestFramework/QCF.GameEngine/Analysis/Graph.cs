@@ -7,7 +7,7 @@ using QCF.Contest.Contracts.Moves;
 
 namespace QCF.GameEngine.Analysis
 {
-	internal class Graph
+	public class Graph
 	{
 		private readonly List<FieldCoordinate> endCoordinatesForBottomPlayer = new List<FieldCoordinate>();
 		private readonly List<FieldCoordinate> endCoordinatesForTopPlayer    = new List<FieldCoordinate>();
@@ -46,8 +46,9 @@ namespace QCF.GameEngine.Analysis
 
 		private readonly IDictionary<FieldCoordinate, Node> nodes;
 		
+        public IDictionary<FieldCoordinate, Node> Nodes => nodes;
 
-		public Node GetNode (FieldCoordinate coordinate)
+	    public Node GetNode (FieldCoordinate coordinate)
 		{
 			return nodes[coordinate];
 		}

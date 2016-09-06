@@ -4,38 +4,36 @@
              xmlns:behaviors="clr-namespace:QCF.SingleGameVisualization.Behaviors"
              xmlns:computation="clr-namespace:QCF.SingleGameVisualization.Computation"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:global="clr-namespace:QCF.SingleGameVisualization.Global"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:QCF.SingleGameVisualization.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sampleData="clr-namespace:QCF.SingleGameVisualization.ViewModels.Board"
-             xmlns:global="clr-namespace:QCF.SingleGameVisualization.Global"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
 
-	<d:DesignData.DataContext>
-		<sampleData:BoardViewModelSampleData />
-	</d:DesignData.DataContext>
+    <d:DesignData.DataContext>
+        <sampleData:BoardViewModelSampleData />
+    </d:DesignData.DataContext>
 
-	<UserControl.Resources>
+    <UserControl.Resources>
         <computation:ComputeFigureLeftPosition x:Key="ComputeFigureLeftPosition" />
-        <computation:ComputeFigureTopPosition  x:Key="ComputeFigureTopPosition" />
-        <computation:ComputeFigureHeight       x:Key="ComputeFigureHeight" />
-        <computation:ComputeFigureWidth        x:Key="ComputeFigureWidth" />
-        <computation:ComputeWallLeftPosition   x:Key="ComputeWallLeftPosition" />
-        <computation:ComputeWallTopPosition    x:Key="ComputeWallTopPosition" />
-        <computation:ComputeWallHeight         x:Key="ComputeWallHeight" />
-        <computation:ComputeWallWidth          x:Key="ComputeWallWidth" />
-		
-		<computation:PlayerColor x:Key="PlayerColor"/>
+        <computation:ComputeFigureTopPosition x:Key="ComputeFigureTopPosition" />
+        <computation:ComputeFigureHeight x:Key="ComputeFigureHeight" />
+        <computation:ComputeFigureWidth x:Key="ComputeFigureWidth" />
+        <computation:ComputeWallLeftPosition x:Key="ComputeWallLeftPosition" />
+        <computation:ComputeWallTopPosition x:Key="ComputeWallTopPosition" />
+        <computation:ComputeWallHeight x:Key="ComputeWallHeight" />
+        <computation:ComputeWallWidth x:Key="ComputeWallWidth" />
+
+        <computation:PlayerColor x:Key="PlayerColor" />
     </UserControl.Resources>
 
     <Border>
 
         <i:Interaction.Behaviors>
-            <behaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, 
-																	Mode=OneWayToSource, 
-																	UpdateSourceTrigger=PropertyChanged}" />
+            <behaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
         </i:Interaction.Behaviors>
 
         <Grid>
@@ -79,18 +77,18 @@
                             <Setter.Value>
                                 <ControlTemplate>
 
-                                    <Ellipse Fill="{Binding Converter={StaticResource PlayerColor}}" 
-											 StrokeThickness="1" 
-											 Stroke="{x:Static global:Constants.FrameColor}">
+                                    <Ellipse Fill="{Binding Converter={StaticResource PlayerColor}}"
+                                             Stroke="{x:Static global:Constants.FrameColor}"
+                                             StrokeThickness="1">
 
-										<Ellipse.Width>
+                                        <Ellipse.Width>
                                             <MultiBinding Converter="{StaticResource ComputeFigureWidth}">
                                                 <Binding />
                                                 <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:Board}}" />
                                             </MultiBinding>
                                         </Ellipse.Width>
 
-										<Ellipse.Height>
+                                        <Ellipse.Height>
                                             <MultiBinding Converter="{StaticResource ComputeFigureHeight}">
                                                 <Binding />
                                                 <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:Board}}" />
@@ -111,8 +109,8 @@
 
             <ListBox Background="Transparent"
                      BorderThickness="0"
-                     Padding="-1"
-                     ItemsSource="{Binding VisibleWalls}">
+                     ItemsSource="{Binding VisibleWalls}"
+                     Padding="-1">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas />
@@ -146,9 +144,9 @@
                             <Setter.Value>
                                 <ControlTemplate>
 
-                                    <Rectangle Fill="{x:Static global:Constants.WallColor}" 
-											   StrokeThickness="1"
-											   Stroke="{x:Static global:Constants.FrameColor}">
+                                    <Rectangle Fill="{x:Static global:Constants.WallColor}"
+                                               Stroke="{x:Static global:Constants.FrameColor}"
+                                               StrokeThickness="1">
 
                                         <Rectangle.Width>
                                             <MultiBinding Converter="{StaticResource ComputeWallWidth}">
