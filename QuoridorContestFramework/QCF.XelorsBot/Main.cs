@@ -14,7 +14,6 @@ namespace QCF.XelorsBot
 
 	    public void Init(Player yourPlayer)
 	    {
-			//blubb
 		    mySelf = yourPlayer;
 	    }
 

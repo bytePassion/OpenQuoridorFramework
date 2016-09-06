@@ -170,7 +170,7 @@ namespace QCF.GameEngine.Analysis
         {
             if (!GetNodeForCoordinate(sourceCoordinate).Neighbors.Contains(GetNodeForCoordinate(targetCoordinate)))
                 return false;
-            if (!IsExitPathAvailable(sourceCoordinate, player))
+            if (!IsExitPathAvailable(sourceCoordinate, player)) // sollte hier nicht nötig sein, oder?
                 return false;
 
             return true;
