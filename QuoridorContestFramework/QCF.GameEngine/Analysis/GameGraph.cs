@@ -156,10 +156,11 @@ namespace QCF.GameEngine.Analysis
 	    {
 			if (move is FigureMove)
 				return ValidateFigureMove((FigureMove)move);
-			else if (move is WallMove)
+
+			if (move is WallMove)
 				return ValidateWallMove((WallMove) move);
-			else			
-				throw new ArgumentException();					    
+					
+			throw new ArgumentException();					    
 	    }
 
         public override string ToString()
