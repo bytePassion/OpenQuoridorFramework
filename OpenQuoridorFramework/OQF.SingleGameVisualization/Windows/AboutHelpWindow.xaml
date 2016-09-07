@@ -1,0 +1,26 @@
+﻿<Window x:Class="OQF.SingleGameVisualization.Windows.AboutHelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:aboutHelpWindow="clr-namespace:OQF.SingleGameVisualization.ViewModels.AboutHelpWindow"
+        WindowStyle="ToolWindow"		
+        mc:Ignorable="d"
+        Title="AboutHelpWindow" Height="300" Width="300">
+	
+	<d:DesignData.DataContext>
+		<aboutHelpWindow:AboutHelpWindowViewModelSampleData/>
+	</d:DesignData.DataContext>
+	
+    <Grid>
+        
+		<Button HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				Content="Close"
+				Height="30"
+				Width="60"
+				Margin="5"
+				Command="{Binding Close}"/>
+		
+    </Grid>
+</Window>
