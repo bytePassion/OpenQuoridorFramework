@@ -94,14 +94,14 @@ namespace OQF.GameEngine.Analysis
 			}
 		}
 
-		public override string ToString()
-		{
-			return $"{Coord}|Left({LeftToString()})Top({TopToString()})Right({RightToString()})Bottom({BottomToString()})";
-		}
-
-		private string LeftToString()    =>   Left?.Coord.ToString() ?? "--";
-		private string RightToString ()  =>  Right?.Coord.ToString() ?? "--";
-		private string TopToString ()    =>    Top?.Coord.ToString() ?? "--";
-		private string BottomToString () => Bottom?.Coord.ToString() ?? "--";
+//		public override string ToString()
+//		{
+//			return $"{Coord}|Left({LeftToString()})Top({TopToString()})Right({RightToString()})Bottom({BottomToString()})";
+//		}
+//
+//		private string LeftToString()    =>   Left?.Coord.ToString() ?? "--";
+//		private string RightToString ()  =>  Right?.Coord.ToString() ?? "--";
+//		private string TopToString ()    =>    Top?.Coord.ToString() ?? "--";
+//		private string BottomToString () => Bottom?.Coord.ToString() ?? "--";
 	}
 }
