@@ -27,14 +27,14 @@ namespace OQF.GameEngine.Analysis
 					possibleMoves.Add(nodeNeighbor.Coord);
 				}
 
-				possibleWalls = GeneratePotensialPossibleWalls(boardState);				
+				possibleWalls = GeneratePotentialPossibleWalls(boardState);				
 			}							
 		}
 
 		public IEnumerable<Wall>            GetPossibleWalls() => possibleWalls;		
 		public IEnumerable<FieldCoordinate> GetPossibleMoves() => possibleMoves;
 
-		private static IList<Wall> GeneratePotensialPossibleWalls (BoardState boardState)
+		private static IList<Wall> GeneratePotentialPossibleWalls (BoardState boardState)
 		{
 			var resultList = new List<Wall>();
 
@@ -57,8 +57,8 @@ namespace OQF.GameEngine.Analysis
 					}
 
 					if (!placedWalls.Any(wall => wall.Orientation == WallOrientation.Vertical &&
-												 (wall.TopLeft == new FieldCoordinate(coord.XCoord, coord.YCoord+1) ||
-												  wall.TopLeft == new FieldCoordinate(coord.XCoord, coord.YCoord-1))))
+												 (wall.TopLeft == new FieldCoordinate(coord.XCoord, coord.YCoord + 1) ||
+												  wall.TopLeft == new FieldCoordinate(coord.XCoord, coord.YCoord - 1))))
 					{
 						resultList.Add(new Wall(coord, WallOrientation.Vertical));
 					}					
