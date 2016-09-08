@@ -61,7 +61,7 @@ namespace OQF.GameEngine.Analysis
 			}
 		}
 
-		private bool TraverseGraph2 (Node startNode, YField target)
+		private bool TraverseGraph (Node startNode, YField target)
 		{			
 			var stack = new Stack<Node>();
 			stack.Push(startNode);
@@ -120,8 +120,8 @@ namespace OQF.GameEngine.Analysis
 
 			AddSpecialEdges();
 
-			return TraverseGraph2(GetNode(topPlayerPosition),    YField.One) &&
-				   TraverseGraph2(GetNode(bottomPlayerPosition), YField.Nine);
+			return TraverseGraph(GetNode(topPlayerPosition),    YField.One) &&
+				   TraverseGraph(GetNode(bottomPlayerPosition), YField.Nine);
 		}
 
 		public bool ValidateMove (Move move)

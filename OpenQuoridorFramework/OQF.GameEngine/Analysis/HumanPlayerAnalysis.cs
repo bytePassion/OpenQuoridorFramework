@@ -8,8 +8,8 @@ namespace OQF.GameEngine.Analysis
 {
 	internal class HumanPlayerAnalysis : IHumanPlayerAnalysis
 	{
-		private readonly IList<FieldCoordinate> possibleMoves;
-		private readonly IList<Wall>            possibleWalls;
+		private readonly IEnumerable<FieldCoordinate> possibleMoves;
+		private readonly IEnumerable<Wall>      possibleWalls;
 
 		public HumanPlayerAnalysis(BoardState boardState)
 		{		
@@ -20,14 +20,11 @@ namespace OQF.GameEngine.Analysis
 
 			if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 			{
-				var node = gameGraph.GetNode(boardState.BottomPlayer.Position);
-
-				foreach (var nodeNeighbor in node.Neighbours)
-				{
-					possibleMoves.Add(nodeNeighbor.Coord);
-				}
-
-				possibleWalls = GeneratePhysicalPossibleWalls(boardState);				
+				possibleMoves = gameGraph.GetNode(boardState.BottomPlayer.Position)
+										 .Neighbours
+										 .Select(nodeNeigbour => nodeNeigbour.Coord);
+				
+				possibleWalls = GeneratePhysicalPossibleWalls2(boardState);				
 			}							
 		}
 
@@ -66,6 +63,48 @@ namespace OQF.GameEngine.Analysis
 			}
 
 			return resultList;
+		}
+
+		private static IEnumerable<Wall> GeneratePhysicalPossibleWalls2 (BoardState boardState)
+		{
+			var allHorizontalWalls = new Dictionary<FieldCoordinate, Wall>();
+			var allVerticalWalls  = new Dictionary<FieldCoordinate, Wall>();			
+
+			for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
+			{
+				for (var yCoord = YField.Nine; yCoord < YField.One; yCoord++)
+				{
+					var coord = new FieldCoordinate(xCoord, yCoord);
+
+					allHorizontalWalls.Add(coord, new Wall(coord, WallOrientation.Horizontal));
+					allVerticalWalls.Add  (coord, new Wall(coord, WallOrientation.Vertical));					
+				}
+			}
+
+			var horizontalWalls = boardState.PlacedWalls.Where(wall => wall.Orientation == WallOrientation.Horizontal);
+			var verticalWalls   = boardState.PlacedWalls.Where(wall => wall.Orientation == WallOrientation.Vertical);
+
+			foreach (var verticalWall in verticalWalls)
+			{
+				var topLeft = verticalWall.TopLeft;
+
+				allHorizontalWalls.Remove(topLeft);
+				allVerticalWalls.Remove(topLeft);				
+				allVerticalWalls.Remove(new FieldCoordinate(topLeft.XCoord, topLeft.YCoord + 1));
+				allVerticalWalls.Remove(new FieldCoordinate(topLeft.XCoord, topLeft.YCoord - 1));
+			}
+
+			foreach (var horizontalWall in horizontalWalls)
+			{
+				var topLeft = horizontalWall.TopLeft;
+
+				allVerticalWalls.Remove(topLeft);
+				allHorizontalWalls.Remove(topLeft);				
+				allHorizontalWalls.Remove(new FieldCoordinate(topLeft.XCoord - 1, topLeft.YCoord));
+				allHorizontalWalls.Remove(new FieldCoordinate(topLeft.XCoord + 1, topLeft.YCoord));
+			}
+
+			return allHorizontalWalls.Values.Concat(allVerticalWalls.Values);
 		}
 	}
 }
