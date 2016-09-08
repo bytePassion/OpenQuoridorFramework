@@ -27,31 +27,16 @@ namespace OQF.GameEngine.Analysis
 					possibleMoves.Add(nodeNeighbor.Coord);
 				}
 
-				var allWalls = GeneratePotensialPossibleWalls(boardState);
-
-				foreach (var wall in allWalls)
-				{
-					// TODO: hier lieber nur die offensichtlichen ausschließen
-//					if (gameGraph.ValidateWallMove(new WallMove(null, null, wall)))
-//					{
-//						possibleWalls.Add(wall);
-//					}
-				}
+				possibleWalls = GeneratePotensialPossibleWalls(boardState);				
 			}							
 		}
 
-		public IEnumerable<Wall> GetPossibleWalls()
-		{
-			// TODO: implementation
-			return new List<Wall>();
-		}
-
+		public IEnumerable<Wall>            GetPossibleWalls() => possibleWalls;		
 		public IEnumerable<FieldCoordinate> GetPossibleMoves() => possibleMoves;
-
 
 		private static IList<Wall> GeneratePotensialPossibleWalls (BoardState boardState)
 		{
-			var resultList = new List<Wall>(128);
+			var resultList = new List<Wall>();
 
 			for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
 			{
@@ -59,10 +44,24 @@ namespace OQF.GameEngine.Analysis
 				{
 					var coord = new FieldCoordinate(xCoord, yCoord);
 
-					if (boardState.PlacedWalls.Any(wall => wall.TopLeft == coord))
+					var placedWalls = boardState.PlacedWalls;
 
-					resultList.Add(new Wall(coord, WallOrientation.Horizontal));
-					resultList.Add(new Wall(coord, WallOrientation.Vertical));
+					if (placedWalls.Any(wall => wall.TopLeft == coord))
+						continue;
+
+					if (!placedWalls.Any(wall => wall.Orientation == WallOrientation.Horizontal &&
+					                             (wall.TopLeft == new FieldCoordinate(coord.XCoord - 1, coord.YCoord) ||
+					                              wall.TopLeft == new FieldCoordinate(coord.XCoord + 1, coord.YCoord))))
+					{
+						resultList.Add(new Wall(coord, WallOrientation.Horizontal));
+					}
+
+					if (!placedWalls.Any(wall => wall.Orientation == WallOrientation.Vertical &&
+												 (wall.TopLeft == new FieldCoordinate(coord.XCoord, coord.YCoord+1) ||
+												  wall.TopLeft == new FieldCoordinate(coord.XCoord, coord.YCoord-1))))
+					{
+						resultList.Add(new Wall(coord, WallOrientation.Vertical));
+					}					
 				}
 			}
 

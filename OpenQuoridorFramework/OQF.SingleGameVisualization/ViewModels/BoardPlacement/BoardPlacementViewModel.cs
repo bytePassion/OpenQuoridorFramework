@@ -23,7 +23,7 @@ namespace OQF.SingleGameVisualization.ViewModels.BoardPlacement
 		private Point currentMousePosition;
 		private Size boardSize;		
 
-		private IList<Wall> allPossibleWalls;
+		private IEnumerable<Wall> allPossibleWalls;
 
 		public BoardPlacementViewModel(IGameService gameService, IGameFactory gameFactory)
 		{
@@ -49,23 +49,7 @@ namespace OQF.SingleGameVisualization.ViewModels.BoardPlacement
 			PossibleMoves.Clear();
 			PotentialPlacedWall.Clear();
 			allPossibleWalls = null;
-		}
-
-		private IList<Wall> GenerateAllPossibleWalls()
-		{
-			var resultList = new List<Wall>(128);
-
-			for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
-			{
-				for (var yCoord = YField.Nine; yCoord < YField.One; yCoord++)
-				{
-					resultList.Add(new Wall(new FieldCoordinate(xCoord, yCoord), WallOrientation.Horizontal));
-					resultList.Add(new Wall(new FieldCoordinate(xCoord, yCoord), WallOrientation.Vertical));
-				}
-			}
-
-			return resultList;
-		}
+		}		
 
 		private void OnNewBoardStateAvailable(BoardState boardState)
 		{
@@ -73,8 +57,7 @@ namespace OQF.SingleGameVisualization.ViewModels.BoardPlacement
 			{
 				var boardAnalysis = gameFactory.GetGameAnalysis(boardState);
 
-				// allPossibleWalls = new List<Wall>(boardAnalysis.GetPossibleWalls());
-				allPossibleWalls = GenerateAllPossibleWalls();
+				allPossibleWalls = boardAnalysis.GetPossibleWalls();				
 
 				boardAnalysis.GetPossibleMoves()
 							 .Select(move => new PlayerState(null, move, -1))
