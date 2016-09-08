@@ -15,7 +15,7 @@ namespace OQF.SimpleWalkingBot
 	    private Player myself;
 	    private PlayerType myPlayerType;
 
-	    public void Init(Player yourPlayer)
+	    public void Init(Player yourPlayer, GameConstraints gameConstraints)
 	    {
 		    myself = yourPlayer;
 		    myself.Name = "behindiBot";

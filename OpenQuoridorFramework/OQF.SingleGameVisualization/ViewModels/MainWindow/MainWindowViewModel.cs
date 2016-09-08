@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using OQF.Contest.Contracts;
 using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
@@ -278,7 +279,7 @@ namespace OQF.SingleGameVisualization.ViewModels.MainWindow
 
 			GameStatus = GameStatus.Unloaded;
 
-			gameService.CreateGame(DllPathInput, 100);
+			gameService.CreateGame(DllPathInput, new GameConstraints(TimeSpan.FromSeconds(60), 100));
 			
 			((Command)Capitulate).RaiseCanExecuteChanged();
 		}

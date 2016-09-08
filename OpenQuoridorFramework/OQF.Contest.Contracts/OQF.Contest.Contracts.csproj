@@ -45,6 +45,7 @@
     <Compile Include="Coordination\WallOrientation.cs" />
     <Compile Include="Coordination\XField.cs" />
     <Compile Include="Coordination\YField.cs" />
+    <Compile Include="GameConstraints.cs" />
     <Compile Include="GameElements\BoardState.cs" />
     <Compile Include="GameElements\Player.cs" />
     <Compile Include="GameElements\PlayerState.cs" />

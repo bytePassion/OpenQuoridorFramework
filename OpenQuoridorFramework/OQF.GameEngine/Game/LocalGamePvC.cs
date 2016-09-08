@@ -28,7 +28,7 @@ namespace OQF.GameEngine.Game
 		private readonly GameLoopThread gameLoopThread;
 		private readonly IQuoridorBot quoridorAi;
 		
-		internal LocalGamePvC(string botDllFile, int maxMovesPerPlayer)
+		internal LocalGamePvC(string botDllFile, GameConstraints gameConstraints)
 		{
 			var computerPlayer = new Player(PlayerType.TopPlayer);
 			var humanPlayer = new Player(PlayerType.BottomPlayer);
@@ -36,12 +36,12 @@ namespace OQF.GameEngine.Game
 			humenMoves = new TimeoutBlockingQueue<Move>(1000);
 			
 			quoridorAi = new BotLoader().LoadBot(Assembly.LoadFile(botDllFile));
-			quoridorAi.Init(computerPlayer);
+			quoridorAi.Init(computerPlayer, gameConstraints);
 			quoridorAi.DebugMessageAvailable += OnDebugMessageAvailable;
 			
 			var initialBoadState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
 			
-			gameLoopThread = new GameLoopThread(quoridorAi, humenMoves, initialBoadState, maxMovesPerPlayer);
+			gameLoopThread = new GameLoopThread(quoridorAi, humenMoves, initialBoadState, gameConstraints);
 
 			gameLoopThread.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameLoopThread.WinnerAvailable        += OnWinnerAvailable;

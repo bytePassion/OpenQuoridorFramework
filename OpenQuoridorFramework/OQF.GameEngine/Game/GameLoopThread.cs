@@ -26,7 +26,7 @@ namespace OQF.GameEngine.Game
 		private readonly IQuoridorBot bot;
 		private readonly TimeoutBlockingQueue<Move> humenMoves;
 		private readonly TimeoutBlockingQueue<Move> botMoves;
-		private readonly int maxMovesPerPlayer;
+		private readonly GameConstraints gameConstraints;
 
 		private volatile bool stopRunning;
 
@@ -36,7 +36,7 @@ namespace OQF.GameEngine.Game
 		public GameLoopThread (IQuoridorBot bot, 
 							   TimeoutBlockingQueue<Move> humenMoves, 
 							   BoardState initialBoardState,
-							   int maxMovesPerPlayer)
+							   GameConstraints gameConstraints)
 		{
 			this.bot = bot;
 			this.humenMoves = humenMoves;
@@ -46,7 +46,7 @@ namespace OQF.GameEngine.Game
 			bot.NextMoveAvailable += OnNextBotMoveAvailable;
 
 			currentBoardState = initialBoardState;
-			this.maxMovesPerPlayer = maxMovesPerPlayer;
+			this.gameConstraints = gameConstraints;			
 
 			stopRunning = false;
 			IsRunning = false;
@@ -75,7 +75,7 @@ namespace OQF.GameEngine.Game
 
 			while (!stopRunning)
 			{
-				if (moveCounter >= maxMovesPerPlayer)
+				if (moveCounter >= gameConstraints.MaximalMovesPerPlayer)
 				{
 					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.MaximumOfMovesExceded);
 				}
@@ -142,7 +142,7 @@ namespace OQF.GameEngine.Game
 		private Move GetBotMove()
 		{
 			botMoves.Clear();
-			botTimer.Change(60000, -1);
+			botTimer.Change(gameConstraints.MaximalComputingTimePerMove, TimeSpan.Zero);
 			bot.DoMove(currentBoardState);			
 
 			Move nextMove;

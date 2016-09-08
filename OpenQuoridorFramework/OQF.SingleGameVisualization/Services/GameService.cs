@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using OQF.Contest.Contracts;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Contracts;
@@ -25,14 +26,14 @@ namespace OQF.SingleGameVisualization.Services
 		public BoardState CurrentBoardState { get; private set; }
 		
 
-		public void CreateGame(string dllPath, int maxMovesPerPlayer)
+		public void CreateGame(string dllPath, GameConstraints gameConstraints)
 		{
 			if (currentGame != null)
 			{
 				StopGame();
 			}
 
-			currentGame = gameFactory.CreateNewGame(dllPath, maxMovesPerPlayer);
+			currentGame = gameFactory.CreateNewGame(dllPath, gameConstraints);
 
 			currentGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentGame.NextBoardstateAvailable += OnNextBoardstateAvailable;

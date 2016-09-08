@@ -12,7 +12,7 @@ namespace OQF.XelorsBot
 
 	    private Player mySelf;
 
-	    public void Init(Player yourPlayer)
+	    public void Init(Player yourPlayer, GameConstraints gameConstraints)
 	    {
 		    mySelf = yourPlayer;
 	    }
