@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analysis\Construction.cs" />
+    <Compile Include="Analysis\GraphConstruction.cs" />
     <Compile Include="Analysis\Direction.cs" />
     <Compile Include="Analysis\FieldCoordinateExtensions.cs" />
     <Compile Include="Analysis\Graph.cs" />

@@ -3,7 +3,7 @@ using OQF.Contest.Contracts.Coordination;
 
 namespace OQF.GameEngine.Analysis
 {
-	internal static class Construction
+	internal static class GraphConstruction
 	{
 		public static IDictionary<FieldCoordinate, Node> GetAllNodes()
 		{

@@ -9,17 +9,13 @@ namespace OQF.GameEngine.Analysis
 {
 	public class Graph
 	{
-		private readonly List<FieldCoordinate> endCoordinatesForBottomPlayer = new List<FieldCoordinate>();
-		private readonly List<FieldCoordinate> endCoordinatesForTopPlayer    = new List<FieldCoordinate>();
-
 		private readonly FieldCoordinate bottomPlayerPosition;
 		private readonly FieldCoordinate topPlayerPosition;
 
 		public Graph(BoardState boardState = null)
 		{
-			nodes = Construction.GetAllNodes();
-			Construction.AddAllEdges(nodes);
-			InitEndCoordinates();
+			Nodes = GraphConstruction.GetAllNodes();
+			GraphConstruction.AddAllEdges(Nodes);			
 
 			if (boardState != null)
 			{
@@ -35,26 +31,14 @@ namespace OQF.GameEngine.Analysis
 			}
 		}
 
-		private void InitEndCoordinates ()
+		public IDictionary<FieldCoordinate, Node> Nodes { get; }
+
+		public Node GetNode (FieldCoordinate coordinate)
 		{
-			for (var xCoord = XField.A; xCoord <= XField.I; xCoord++)
-			{
-				endCoordinatesForBottomPlayer.Add(new FieldCoordinate(xCoord, YField.Nine));
-				endCoordinatesForTopPlayer.Add(new FieldCoordinate(xCoord, YField.One));
-			}
+			return Nodes[coordinate];
 		}
 
-		private readonly IDictionary<FieldCoordinate, Node> nodes;
-		
-        public IDictionary<FieldCoordinate, Node> Nodes => nodes;
-
-	    public Node GetNode (FieldCoordinate coordinate)
-		{
-			return nodes[coordinate];
-		}
-		
-
-		public void ApplyWall(Wall wall)
+		private void ApplyWall(Wall wall)
 		{
 			var topleft     = wall.TopLeft;
 			var bottomLeft  = topleft.GetBottom();
@@ -63,59 +47,55 @@ namespace OQF.GameEngine.Analysis
 
 			if (wall.Orientation == WallOrientation.Horizontal)
 			{
-				nodes[topleft    ].RemoveEdge(nodes[topleft    ].Bottom);
-				nodes[bottomLeft ].RemoveEdge(nodes[bottomLeft ].Top);
-				nodes[topRight   ].RemoveEdge(nodes[topRight   ].Bottom);
-				nodes[bottomRight].RemoveEdge(nodes[bottomRight].Top);				
+				Nodes[topleft    ].RemoveEdge(Nodes[topleft    ].Bottom);
+				Nodes[bottomLeft ].RemoveEdge(Nodes[bottomLeft ].Top);
+				Nodes[topRight   ].RemoveEdge(Nodes[topRight   ].Bottom);
+				Nodes[bottomRight].RemoveEdge(Nodes[bottomRight].Top);				
 			}
 			else
 			{
-				nodes[topleft    ].RemoveEdge(nodes[topleft    ].Right);
-				nodes[bottomLeft ].RemoveEdge(nodes[bottomLeft ].Right);
-				nodes[topRight   ].RemoveEdge(nodes[topRight   ].Left);
-				nodes[bottomRight].RemoveEdge(nodes[bottomRight].Left);		
+				Nodes[topleft    ].RemoveEdge(Nodes[topleft    ].Right);
+				Nodes[bottomLeft ].RemoveEdge(Nodes[bottomLeft ].Right);
+				Nodes[topRight   ].RemoveEdge(Nodes[topRight   ].Left);
+				Nodes[bottomRight].RemoveEdge(Nodes[bottomRight].Left);		
 			}
 		}
 
+		private bool TraverseGraph2 (Node startNode, YField target)
+		{			
+			var stack = new Stack<Node>();
+			stack.Push(startNode);
+			startNode.Visited = true;
 
-		private bool TraverseGraph (Node startNode, IEnumerable<FieldCoordinate> targetCoords)
-		{
-			foreach (var targetCoord in targetCoords)
+			while (stack.Count != 0)
 			{
-				var stack = new Stack<Node>();
-				stack.Push(startNode);
-				startNode.Visited = true;
-
-				while (stack.Count != 0)
+				var nextNode = stack.Peek();
+				if (nextNode.Coord.YCoord == target)
 				{
-					var nextNode = stack.Peek();
-					if (nextNode.Coord.Equals(targetCoord))
-					{
-						ClearVisitStatusForNodes();
-						return true;
-					}
-
-					var child = nextNode.Neighbours.FirstOrDefault(n => !n.Visited);
-					if (child == null)
-					{
-						stack.Pop();
-					}
-					else
-					{
-						child.Visited = true;
-						stack.Push(child);
-					}
+					ClearVisitStatusForNodes();
+					return true;
 				}
 
-				ClearVisitStatusForNodes();
+				var child = nextNode.Neighbours.FirstOrDefault(n => !n.Visited);
+				if (child == null)
+				{
+					stack.Pop();
+				}
+				else
+				{
+					child.Visited = true;
+					stack.Push(child);
+				}
 			}
+
+			ClearVisitStatusForNodes();			
 			return false;
 		}
-	
+
 
 		private void ClearVisitStatusForNodes ()
 		{
-			foreach (var nodePair in nodes)
+			foreach (var nodePair in Nodes)
 				nodePair.Value.Visited = false;
 		}
 
@@ -140,8 +120,8 @@ namespace OQF.GameEngine.Analysis
 
 			AddSpecialEdges();
 
-			return TraverseGraph(GetNode(topPlayerPosition), endCoordinatesForTopPlayer) &&
-				   TraverseGraph(GetNode(bottomPlayerPosition), endCoordinatesForBottomPlayer);
+			return TraverseGraph2(GetNode(topPlayerPosition),    YField.One) &&
+				   TraverseGraph2(GetNode(bottomPlayerPosition), YField.Nine);
 		}
 
 		public bool ValidateMove (Move move)
@@ -178,7 +158,7 @@ namespace OQF.GameEngine.Analysis
 
 		private bool IsMoveable (Node sourceNode, Node targetNode)
 		{
-			if (targetNode == null || !nodes.ContainsKey(targetNode.Coord))
+			if (targetNode == null || !Nodes.ContainsKey(targetNode.Coord))
 				return false;
 
 			return sourceNode.Neighbours.Contains(targetNode);
@@ -272,7 +252,7 @@ namespace OQF.GameEngine.Analysis
 
 		private void RemoveSpecialEdges ()
 		{
-			foreach (var nodePair in nodes)
+			foreach (var nodePair in Nodes)
 			{
 				nodePair.Value.RemoveAllSpecialEdges();
 			}
