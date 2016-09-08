@@ -28,16 +28,27 @@ namespace OQF.SingleGameVisualization.ViewModels.BoardPlacement
 		public BoardPlacementViewModel(IGameService gameService, IGameFactory gameFactory)
 		{
 			this.gameService = gameService;
-			this.gameFactory = gameFactory;
-
-			allPossibleWalls = GenerateAllPossibleWalls();
+			this.gameFactory = gameFactory;			
 
 			gameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
+			gameService.WinnerAvailable += OnWinnerAvailable;
 
 			BoardClick = new Command(HandleBoardClick);
 
 			PossibleMoves = new ObservableCollection<PlayerState>();
 			PotentialPlacedWall = new ObservableCollection<Wall>();
+		}
+
+		private void OnWinnerAvailable(Player player, WinningReason winningReason)
+		{
+			DisablePlacement();
+		}
+
+		private void DisablePlacement()
+		{
+			PossibleMoves.Clear();
+			PotentialPlacedWall.Clear();
+			allPossibleWalls = null;
 		}
 
 		private IList<Wall> GenerateAllPossibleWalls()
@@ -62,17 +73,16 @@ namespace OQF.SingleGameVisualization.ViewModels.BoardPlacement
 			{
 				var boardAnalysis = gameFactory.GetGameAnalysis(boardState);
 
-//				allPossibleWalls = new List<Wall>(boardAnalysis.GetPossibleWalls());
-				
+				// allPossibleWalls = new List<Wall>(boardAnalysis.GetPossibleWalls());
+				allPossibleWalls = GenerateAllPossibleWalls();
+
 				boardAnalysis.GetPossibleMoves()
 							 .Select(move => new PlayerState(null, move, -1))
 							 .Do(PossibleMoves.Add);
 			}
 			else
 			{
-				PossibleMoves.Clear();
-				PotentialPlacedWall.Clear();
-			//	allPossibleWalls = null;
+				DisablePlacement();
 			}						
 		}
 
@@ -132,36 +142,39 @@ namespace OQF.SingleGameVisualization.ViewModels.BoardPlacement
 			var cellWidth  = boardSize.Width/11.4;
 			var cellHeight = boardSize.Height/11.4;
 
-			foreach (var possibleWall in allPossibleWalls)
-			{				
-				var xMin = possibleWall.Orientation == WallOrientation.Horizontal
-								?  (double)possibleWall.TopLeft.XCoord      * 1.3 * cellWidth
-								: ((double)possibleWall.TopLeft.XCoord + 1) * 1.3 * cellWidth - (0.3 * cellWidth);
-
-				var xMax = xMin + (possibleWall.Orientation == WallOrientation.Horizontal
-										? 2.3*cellWidth
-										: 0.3*cellWidth);
-
-				var yMin = possibleWall.Orientation == WallOrientation.Horizontal
-								? ((double)possibleWall.TopLeft.YCoord + 1) * 1.3 * cellHeight - (0.3*cellHeight)
-								:  (double)possibleWall.TopLeft.YCoord      * 1.3 * cellHeight;
-
-				var yMax = yMin + (possibleWall.Orientation == WallOrientation.Horizontal
-										? 0.3 * cellHeight
-										: 2.3 * cellHeight);
-
-				if (currentMousePosition.XCoord >= xMin && currentMousePosition.XCoord <= xMax &&
-				    currentMousePosition.YCoord >= yMin && currentMousePosition.YCoord <= yMax)
+			if (allPossibleWalls != null)
+			{
+				foreach (var possibleWall in allPossibleWalls)
 				{
-					if (PotentialPlacedWall.Count > 0 && PotentialPlacedWall[0] != possibleWall)
-					{
-						PotentialPlacedWall.Clear();						
-					}
+					var xMin = possibleWall.Orientation == WallOrientation.Horizontal
+						? (double) possibleWall.TopLeft.XCoord*1.3*cellWidth
+						: ((double) possibleWall.TopLeft.XCoord + 1)*1.3*cellWidth - (0.3*cellWidth);
 
-					if (PotentialPlacedWall.Count == 0)
-						PotentialPlacedWall.Add(possibleWall);
-					
-					return;
+					var xMax = xMin + (possibleWall.Orientation == WallOrientation.Horizontal
+						           ? 2.3*cellWidth
+						           : 0.3*cellWidth);
+
+					var yMin = possibleWall.Orientation == WallOrientation.Horizontal
+						? ((double) possibleWall.TopLeft.YCoord + 1)*1.3*cellHeight - (0.3*cellHeight)
+						: (double) possibleWall.TopLeft.YCoord*1.3*cellHeight;
+
+					var yMax = yMin + (possibleWall.Orientation == WallOrientation.Horizontal
+						           ? 0.3*cellHeight
+						           : 2.3*cellHeight);
+
+					if (currentMousePosition.XCoord >= xMin && currentMousePosition.XCoord <= xMax &&
+					    currentMousePosition.YCoord >= yMin && currentMousePosition.YCoord <= yMax)
+					{
+						if (PotentialPlacedWall.Count > 0 && PotentialPlacedWall[0] != possibleWall)
+						{
+							PotentialPlacedWall.Clear();
+						}
+
+						if (PotentialPlacedWall.Count == 0)
+							PotentialPlacedWall.Add(possibleWall);
+
+						return;
+					}
 				}
 			}
 
