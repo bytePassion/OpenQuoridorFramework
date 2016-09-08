@@ -26,14 +26,14 @@ namespace OQF.SingleGameVisualization.Services
 		public BoardState CurrentBoardState { get; private set; }
 		
 
-		public void CreateGame(string dllPath, GameConstraints gameConstraints)
+		public void CreateGame(IQuoridorBot uninitializedBot, GameConstraints gameConstraints)
 		{
 			if (currentGame != null)
 			{
 				StopGame();
 			}
 
-			currentGame = gameFactory.CreateNewGame(dllPath, gameConstraints);
+			currentGame = gameFactory.CreateNewGame(uninitializedBot, gameConstraints);
 
 			currentGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentGame.NextBoardstateAvailable += OnNextBoardstateAvailable;

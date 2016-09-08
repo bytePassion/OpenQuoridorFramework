@@ -27,14 +27,14 @@ namespace OQF.GameEngine.Analysis
 					possibleMoves.Add(nodeNeighbor.Coord);
 				}
 
-				possibleWalls = GeneratePotentialPossibleWalls(boardState);				
+				possibleWalls = GeneratePhysicalPossibleWalls(boardState);				
 			}							
 		}
 
 		public IEnumerable<Wall>            GetPossibleWalls() => possibleWalls;		
 		public IEnumerable<FieldCoordinate> GetPossibleMoves() => possibleMoves;
 
-		private static IList<Wall> GeneratePotentialPossibleWalls (BoardState boardState)
+		private static IList<Wall> GeneratePhysicalPossibleWalls (BoardState boardState)
 		{
 			var resultList = new List<Wall>();
 

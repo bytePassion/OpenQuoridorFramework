@@ -7,9 +7,9 @@ namespace OQF.GameEngine.Game
 {
 	public class GameFactory : IGameFactory
 	{
-		public IGame CreateNewGame(string botDllFile, GameConstraints gameConstraints)
+		public IGame CreateNewGame(IQuoridorBot uninitializedBot, GameConstraints gameConstraints)
 		{
-			return new LocalGamePvC(botDllFile, gameConstraints);
+			return new LocalGamePvC(uninitializedBot, gameConstraints);
 		}
 
 		public IHumanPlayerAnalysis GetGameAnalysis(BoardState boardState)

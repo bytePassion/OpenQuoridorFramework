@@ -14,7 +14,7 @@ namespace OQF.SingleGameVisualization.Services
 
 		BoardState CurrentBoardState { get; }		
 		
-		void CreateGame(string dllPath, GameConstraints gameConstraints);
+		void CreateGame(IQuoridorBot uninitializedBot, GameConstraints gameConstraints);
 		void ReportHumanMove(Move move);
 		void StopGame();
 	}

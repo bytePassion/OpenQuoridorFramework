@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -263,6 +264,8 @@ namespace OQF.SingleGameVisualization.ViewModels.MainWindow
 				DebugMessages.Clear();
 			}
 
+			GameStatus = GameStatus.Unloaded;
+
 			if (string.IsNullOrWhiteSpace(DllPathInput))
 			{
 				MessageBox.Show("bevor das Spiel gestartet werden kann muss eine bot-Dll ausgewählt werden");
@@ -275,11 +278,28 @@ namespace OQF.SingleGameVisualization.ViewModels.MainWindow
 				return;
 			}
 
-			lastUsedBotService.SaveLastUsedBot(DllPathInput);			
+			Assembly dllToLoad;
 
-			GameStatus = GameStatus.Unloaded;
+			try
+			{
+				dllToLoad = Assembly.LoadFile(DllPathInput);
+			}
+			catch
+			{
+				MessageBox.Show($"die datei {DllPathInput} kann nicht als Assembly geladen werden");
+				return;
+			}
 
-			gameService.CreateGame(DllPathInput, new GameConstraints(TimeSpan.FromSeconds(60), 100));
+			var uninitializedBot = BotLoader.LoadBot(dllToLoad);
+
+			if (uninitializedBot == null)
+			{
+				MessageBox.Show($"die Assemply {dllToLoad.FullName} kann nicht als IQuoridorBot instantiiert werden");
+				return;
+			}
+
+			lastUsedBotService.SaveLastUsedBot(DllPathInput);									
+			gameService.CreateGame(uninitializedBot, new GameConstraints(TimeSpan.FromSeconds(60), 100));
 			
 			((Command)Capitulate).RaiseCanExecuteChanged();
 		}

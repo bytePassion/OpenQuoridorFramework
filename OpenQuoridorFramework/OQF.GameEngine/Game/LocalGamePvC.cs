@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Reflection;
 using System.Threading;
 using OQF.Contest.Contracts;
 using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Contracts;
-using OQF.GameEngine.Loader;
 using OQF.GameEngine.Transitions;
 using OQF.Tools.ConcurrencyLib;
 
@@ -28,14 +26,14 @@ namespace OQF.GameEngine.Game
 		private readonly GameLoopThread gameLoopThread;
 		private readonly IQuoridorBot quoridorAi;
 		
-		internal LocalGamePvC(string botDllFile, GameConstraints gameConstraints)
+		internal LocalGamePvC(IQuoridorBot unInitilizedBot, GameConstraints gameConstraints)
 		{
 			var computerPlayer = new Player(PlayerType.TopPlayer);
 			var humanPlayer = new Player(PlayerType.BottomPlayer);
 
 			humenMoves = new TimeoutBlockingQueue<Move>(1000);
-			
-			quoridorAi = new BotLoader().LoadBot(Assembly.LoadFile(botDllFile));
+
+			quoridorAi = unInitilizedBot; 
 			quoridorAi.Init(computerPlayer, gameConstraints);
 			quoridorAi.DebugMessageAvailable += OnDebugMessageAvailable;
 			
