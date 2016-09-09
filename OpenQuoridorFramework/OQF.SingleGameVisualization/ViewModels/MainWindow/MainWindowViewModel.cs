@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Threading;
 using Microsoft.Win32;
 using OQF.Contest.Contracts;
 using OQF.Contest.Contracts.Coordination;
@@ -18,6 +18,7 @@ using OQF.SingleGameVisualization.ViewModels.Board;
 using OQF.SingleGameVisualization.ViewModels.BoardPlacement;
 using OQF.SingleGameVisualization.ViewModels.MainWindow.Helper;
 using OQF.Tools.FrameworkExtensions;
+using OQF.Tools.Utils;
 using OQF.Tools.WpfTools.Commands;
 using OQF.Tools.WpfTools.Commands.Updater;
 using OQF.Tools.WpfTools.ViewModelBase;
@@ -26,7 +27,8 @@ namespace OQF.SingleGameVisualization.ViewModels.MainWindow
 {
 	internal class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
-		private readonly DispatcherTimer botCountDownTimer;
+		private readonly Timer botCountDownTimer;
+		private DateTime startTime;
 
 		private readonly IGameService gameService;
 		private readonly ILastUsedBotService lastUsedBotService;
@@ -73,19 +75,17 @@ namespace OQF.SingleGameVisualization.ViewModels.MainWindow
 
 			DllPathInput = lastUsedBotService.GetLastUsedBot();
 
-			botCountDownTimer = new DispatcherTimer
-			{
-				Interval = TimeSpan.FromSeconds(1),
-				IsEnabled = false
-			};
-
-			botCountDownTimer.Tick += BotCountDownTimerOnTick;
+			botCountDownTimer = new Timer(BotCountDownTimerOnTick, null,Timeout.Infinite, Timeout.Infinite);			
 		}		
 
-		private void BotCountDownTimerOnTick(object sender, EventArgs eventArgs)
+		private void BotCountDownTimerOnTick(object sender)
 		{
-			var currentCount = int.Parse(TopPlayerRestTime);
-			TopPlayerRestTime = (currentCount - 1).ToString();
+			var timeDiff = DateTime.Now - startTime;
+
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				TopPlayerRestTime = GeometryLibUtils.DoubleFormat(60.0 - timeDiff.TotalSeconds, 2);
+			});			
 		}
 
 		private void DoShowAboutHelp()
@@ -158,13 +158,15 @@ namespace OQF.SingleGameVisualization.ViewModels.MainWindow
 
 		private void StartTimer()
 		{
+			startTime = DateTime.Now;
 			TopPlayerRestTime = "60";
-			botCountDownTimer.Start();
+			botCountDownTimer.Change(TimeSpan.Zero, TimeSpan.FromMilliseconds(200));
 		}
 
 		private void StopTimer()
 		{
-			botCountDownTimer.Stop();
+			startTime = default(DateTime);
+			botCountDownTimer.Change(Timeout.Infinite, Timeout.Infinite);
 			TopPlayerRestTime = "--";
 		}
 
