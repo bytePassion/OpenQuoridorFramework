@@ -18,6 +18,7 @@ using OQF.SingleGameVisualization.ViewModels.AboutHelpWindow;
 using OQF.SingleGameVisualization.ViewModels.Board;
 using OQF.SingleGameVisualization.ViewModels.BoardPlacement;
 using OQF.SingleGameVisualization.ViewModels.MainWindow.Helper;
+using OQF.Utils;
 using UtilsLib;
 using WpfLib.Commands;
 using WpfLib.Commands.Updater;
@@ -82,7 +83,7 @@ namespace OQF.SingleGameVisualization.ViewModels.MainWindow
 		{
 			var timeDiff = DateTime.Now - startTime;
 
-			Application.Current.Dispatcher.Invoke(() =>
+			Application.Current?.Dispatcher.Invoke(() =>
 			{
 				TopPlayerRestTime = GeometryLibUtils.DoubleFormat(60.0 - timeDiff.TotalSeconds, 2);
 			});			
@@ -108,14 +109,48 @@ namespace OQF.SingleGameVisualization.ViewModels.MainWindow
 
 		private void OnWinnerAvailable(Player player, WinningReason winningReason)
 		{
-			MessageBox.Show(
-				player.PlayerType == PlayerType.TopPlayer
-						? $"Sry ... the bot '{player.Name}' beated you\nReason: {winningReason}"
-						: $"congratulations! you beated the bot\nReason: {winningReason}"
-			);
-
-			GameStatus = GameStatus.Finished;
 			StopTimer();
+
+			var winOrLooseMsg = player.PlayerType == PlayerType.TopPlayer
+						? $"Sry ... the bot '{player.Name}' beated you\nReason: {winningReason}"
+						: $"congratulations! you beated the bot\nReason: {winningReason}";
+
+			var completeMsg = winOrLooseMsg + "\n\nDo you want to Save the Game?";
+
+			var dialogResult = MessageBox.Show(Application.Current.MainWindow, 
+											   completeMsg, 
+											   "Game over", 
+											   MessageBoxButton.YesNo);
+
+			if (dialogResult == MessageBoxResult.Yes)
+			{
+				var dialog = new SaveFileDialog()
+				{
+					Filter = "textFiles |*.txt",
+					AddExtension = true,
+					CheckFileExists = false,
+					OverwritePrompt = true,
+					ValidateNames = true,
+					CheckPathExists = true,
+					CreatePrompt = false,
+					Title = "Save Game Progress of currently ended game"
+				};
+
+				var result = dialog.ShowDialog();
+
+				if (result.HasValue)
+				{
+					if (result.Value)
+					{
+						var fileText = CreateProgressText.FromBoardState(gameService.CurrentBoardState)
+														 .AndAppendWinnerAndReason(player, winningReason);
+
+						File.WriteAllText(dialog.FileName, fileText);
+					}
+				}
+			}
+
+			GameStatus = GameStatus.Finished;			
 		}
 
 		private void OnNewBoardStateAvailable(BoardState boardState)
