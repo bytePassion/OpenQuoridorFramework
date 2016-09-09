@@ -58,6 +58,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConcurrencyLib\ConcurrencyLib.csproj">
+      <Project>{623D4B55-9687-4C7C-9B23-5C1403A110D1}</Project>
+      <Name>ConcurrencyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkExtensionLib\FrameworkExtensionLib.csproj">
+      <Project>{6C27F04B-CFCC-4267-8720-4A44D7529A21}</Project>
+      <Name>FrameworkExtensionLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Contest.Contracts\OQF.Contest.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Contest.Contracts</Name>
@@ -65,10 +73,6 @@
     <ProjectReference Include="..\OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj">
       <Project>{e257aa0a-7215-4cba-b17a-61dc7ec3345a}</Project>
       <Name>OQF.GameEngine.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OQF.Tools\OQF.Tools.csproj">
-      <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
-      <Name>OQF.Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

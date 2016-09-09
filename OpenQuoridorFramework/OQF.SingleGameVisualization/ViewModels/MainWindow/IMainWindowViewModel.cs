@@ -3,7 +3,7 @@ using System.Windows.Input;
 using OQF.SingleGameVisualization.ViewModels.Board;
 using OQF.SingleGameVisualization.ViewModels.BoardPlacement;
 using OQF.SingleGameVisualization.ViewModels.MainWindow.Helper;
-using OQF.Tools.WpfTools.ViewModelBase;
+using WpfLib.ViewModelBase;
 
 namespace OQF.SingleGameVisualization.ViewModels.MainWindow
 {

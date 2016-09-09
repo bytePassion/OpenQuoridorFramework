@@ -182,6 +182,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FrameworkExtensionLib\FrameworkExtensionLib.csproj">
+      <Project>{6C27F04B-CFCC-4267-8720-4A44D7529A21}</Project>
+      <Name>FrameworkExtensionLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Contest.Contracts\OQF.Contest.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Contest.Contracts</Name>
@@ -194,9 +198,17 @@
       <Project>{26e530f7-814e-4b05-8d4a-9b10bf659cf1}</Project>
       <Name>OQF.GameEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Tools\OQF.Tools.csproj">
-      <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
-      <Name>OQF.Tools</Name>
+    <ProjectReference Include="..\SemanicTypesLib\SemanicTypesLib.csproj">
+      <Project>{8fe851fb-dd9c-4c93-bced-5098235d44e9}</Project>
+      <Name>SemanicTypesLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilsLib\UtilsLib.csproj">
+      <Project>{0363FA52-24D4-4B73-BA27-B9ADC8989DBC}</Project>
+      <Name>UtilsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WpfLib\WpfLib.csproj">
+      <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
+      <Name>WpfLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

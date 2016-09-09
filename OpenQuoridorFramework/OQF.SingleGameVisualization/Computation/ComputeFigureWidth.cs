@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
 using OQF.Contest.Contracts.GameElements;
-using OQF.Tools.WpfTools.ConverterBase;
+using WpfLib.ConverterBase;
 
 namespace OQF.SingleGameVisualization.Computation
 {

@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
+using FrameworkExtensionLib;
 using OQF.Contest.Contracts.GameElements;
 using OQF.SingleGameVisualization.Services;
-using OQF.Tools.FrameworkExtensions;
-using OQF.Tools.WpfTools.ViewModelBase;
+using WpfLib.ViewModelBase;
 
 namespace OQF.SingleGameVisualization.ViewModels.Board
 {

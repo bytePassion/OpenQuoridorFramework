@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using OQF.SingleGameVisualization.Global;
 using OQF.SingleGameVisualization.ViewModels.MainWindow.Helper;
-using OQF.Tools.WpfTools.ConverterBase;
+using WpfLib.ConverterBase;
 
 namespace OQF.SingleGameVisualization.Computation
 {

@@ -1,5 +1,5 @@
 ﻿using System.Windows.Input;
-using OQF.Tools.WpfTools.ViewModelBase;
+using WpfLib.ViewModelBase;
 
 namespace OQF.SingleGameVisualization.ViewModels.AboutHelpWindow
 {

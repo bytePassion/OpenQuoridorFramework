@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using FrameworkExtensionLib;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
-using OQF.Tools.FrameworkExtensions;
 
 namespace OQF.GameEngine.Transitions
 {

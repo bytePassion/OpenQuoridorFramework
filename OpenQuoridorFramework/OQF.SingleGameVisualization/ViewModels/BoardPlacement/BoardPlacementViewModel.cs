@@ -3,15 +3,15 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
+using FrameworkExtensionLib;
 using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Contracts;
 using OQF.SingleGameVisualization.Services;
-using OQF.Tools.FrameworkExtensions;
-using OQF.Tools.SemanticTypes;
-using OQF.Tools.WpfTools.Commands;
-using OQF.Tools.WpfTools.ViewModelBase;
+using SemanicTypesLib;
+using WpfLib.Commands;
+using WpfLib.ViewModelBase;
 using Size = System.Windows.Size;
 
 namespace OQF.SingleGameVisualization.ViewModels.BoardPlacement

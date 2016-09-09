@@ -58,9 +58,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OQF.Tools\OQF.Tools.csproj">
-      <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
-      <Name>OQF.Tools</Name>
+    <ProjectReference Include="..\FrameworkExtensionLib\FrameworkExtensionLib.csproj">
+      <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
+      <Name>FrameworkExtensionLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using OQF.Contest.Contracts.GameElements;
-using OQF.Tools.SemanticTypes;
-using OQF.Tools.WpfTools.ViewModelBase;
+using SemanicTypesLib;
+using WpfLib.ViewModelBase;
 using Size = System.Windows.Size;
 
 namespace OQF.SingleGameVisualization.ViewModels.BoardPlacement

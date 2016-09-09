@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
-using OQF.Tools.SemanticTypes;
+using SemanicTypesLib;
 using Size = System.Windows.Size;
 
 #pragma warning disable 0067

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading;
+using ConcurrencyLib;
 using OQF.Contest.Contracts;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Analysis;
 using OQF.GameEngine.Contracts;
 using OQF.GameEngine.Transitions;
-using OQF.Tools.ConcurrencyLib;
 
 namespace OQF.GameEngine.Game
 {

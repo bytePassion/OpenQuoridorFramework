@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
+using FrameworkExtensionLib;
 using Microsoft.Win32;
 using OQF.Contest.Contracts;
 using OQF.Contest.Contracts.Coordination;
@@ -17,11 +18,10 @@ using OQF.SingleGameVisualization.ViewModels.AboutHelpWindow;
 using OQF.SingleGameVisualization.ViewModels.Board;
 using OQF.SingleGameVisualization.ViewModels.BoardPlacement;
 using OQF.SingleGameVisualization.ViewModels.MainWindow.Helper;
-using OQF.Tools.FrameworkExtensions;
-using OQF.Tools.Utils;
-using OQF.Tools.WpfTools.Commands;
-using OQF.Tools.WpfTools.Commands.Updater;
-using OQF.Tools.WpfTools.ViewModelBase;
+using UtilsLib;
+using WpfLib.Commands;
+using WpfLib.Commands.Updater;
+using WpfLib.ViewModelBase;
 
 namespace OQF.SingleGameVisualization.ViewModels.MainWindow
 {

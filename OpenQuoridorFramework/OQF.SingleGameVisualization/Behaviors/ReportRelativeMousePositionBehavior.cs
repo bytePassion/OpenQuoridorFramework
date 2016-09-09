@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interactivity;
-using OQF.Tools.SemanticTypes;
-using Point = OQF.Tools.SemanticTypes.Point;
+using SemanicTypesLib;
+using Point = SemanicTypesLib.Point;
 
 namespace OQF.SingleGameVisualization.Behaviors
 {

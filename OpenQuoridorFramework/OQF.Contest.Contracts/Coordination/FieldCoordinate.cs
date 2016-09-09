@@ -1,4 +1,4 @@
-﻿using OQF.Tools.FrameworkExtensions;
+﻿using FrameworkExtensionLib;
 
 namespace OQF.Contest.Contracts.Coordination
 {

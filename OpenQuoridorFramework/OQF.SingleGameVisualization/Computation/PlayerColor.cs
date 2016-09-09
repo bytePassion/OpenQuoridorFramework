@@ -3,7 +3,7 @@ using System.Windows.Media;
 using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.SingleGameVisualization.Global;
-using OQF.Tools.WpfTools.ConverterBase;
+using WpfLib.ConverterBase;
 
 namespace OQF.SingleGameVisualization.Computation
 {

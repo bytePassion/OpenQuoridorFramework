@@ -3,8 +3,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using OQF.Tools.WpfTools.Commands;
-using OQF.Tools.WpfTools.ViewModelBase;
+using WpfLib.Commands;
+using WpfLib.ViewModelBase;
 
 #pragma warning disable 0067
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using OQF.Contest.Contracts.GameElements;
-using OQF.Tools.WpfTools.ViewModelBase;
+using WpfLib.ViewModelBase;
 
 namespace OQF.SingleGameVisualization.ViewModels.Board
 {

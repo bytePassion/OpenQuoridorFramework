@@ -53,10 +53,6 @@
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Contest.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Tools\OQF.Tools.csproj">
-      <Project>{07ef24db-4f29-48d9-ae1a-42f641ca5988}</Project>
-      <Name>OQF.Tools</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
