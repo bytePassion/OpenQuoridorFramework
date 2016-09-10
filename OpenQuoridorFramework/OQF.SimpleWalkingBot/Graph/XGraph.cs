@@ -8,67 +8,79 @@ namespace OQF.SimpleWalkingBot.Graph
 {
 	internal class XGraph
 	{
-		private readonly FieldCoordinate playerPosition;
-		private readonly FieldCoordinate oppenentPosition;
+		private readonly Node playerNode;
+		private readonly Node opponendNode;
+		private readonly IDictionary<FieldCoordinate, Node> nodes;
 
 		public XGraph(BoardState currentBoardState, PlayerType playerType)
 		{
 			nodes = Construction.GetAllNodes();
 			Construction.AddAllEdges(nodes);
 
-			foreach (var wall in currentBoardState.PlacedWalls)			
-				ApplyWall(wall);
-
-			playerPosition = playerType == PlayerType.BottomPlayer
-									? currentBoardState.BottomPlayer.Position
-									: currentBoardState.TopPlayer.Position;
-
-			oppenentPosition = playerType == PlayerType.TopPlayer
-									? currentBoardState.BottomPlayer.Position
-									: currentBoardState.TopPlayer.Position;
-		}		
-		
-		private readonly IDictionary<FieldCoordinate, Node> nodes;
-
-		private void ApplyWall(Wall wall)
-		{
-			var topleft     = wall.TopLeft;
-			var bottomLeft  = topleft.GetBottom();
-			var topRight    = topleft.GetRight();
-			var bottomRight = topRight.GetBottom();
-
-			if (wall.Orientation == WallOrientation.Horizontal)
-			{				
-				nodes[topleft    ].Bottom = null;
-				nodes[bottomLeft ].Top    = null;
-				nodes[topRight   ].Bottom = null;
-				nodes[bottomRight].Top    = null;
-			}
-			else
+			foreach (var wall in currentBoardState.PlacedWalls)
 			{
-				nodes[topleft    ].Right = null;
-				nodes[bottomLeft ].Right = null;
-				nodes[topRight   ].Left  = null;
-				nodes[bottomRight].Left  = null;
+				var topleft     = wall.TopLeft;
+				var bottomLeft  = topleft.GetBottom();
+				var topRight    = topleft.GetRight();
+				var bottomRight = topRight.GetBottom();
+
+				if (wall.Orientation == WallOrientation.Horizontal)
+				{
+					nodes[topleft    ].Bottom = null;
+					nodes[bottomLeft ].Top    = null;
+					nodes[topRight   ].Bottom = null;
+					nodes[bottomRight].Top    = null;
+				}
+				else
+				{
+					nodes[topleft    ].Right = null;
+					nodes[bottomLeft ].Right = null;
+					nodes[topRight   ].Left  = null;
+					nodes[bottomRight].Left  = null;
+				}
+			}	
+				
+			playerNode = playerType == PlayerType.BottomPlayer
+									? nodes[currentBoardState.BottomPlayer.Position]
+									: nodes[currentBoardState.TopPlayer.Position];
+
+			opponendNode = playerType == PlayerType.TopPlayer
+									? nodes[currentBoardState.BottomPlayer.Position]
+									: nodes[currentBoardState.TopPlayer.Position];
+		}		
+				
+		public FieldCoordinate GetNextPositionToMove (YField target)
+		{
+			TraverseGraph(playerNode, 0);
+			var nearestTarget = GetTargetField(target);
+			var reversePath = GetReversePath(new List<Node>(), nearestTarget);
+			var nextField = reversePath.Last().Coord;
+
+			if (nextField != opponendNode.Coord)
+			{
+				return nextField;
 			}
+						
+			if (playerNode.Left   != null && playerNode.Left   != opponendNode) return playerNode.Left.Coord;
+			if (playerNode.Top    != null && playerNode.Top    != opponendNode) return playerNode.Top.Coord;
+			if (playerNode.Bottom != null && playerNode.Bottom != opponendNode) return playerNode.Bottom.Coord;
+			if (playerNode.Right  != null && playerNode.Right  != opponendNode) return playerNode.Right.Coord;
+			
+			throw new Exception();
 		}
 
 		private static void TraverseGraph (Node node, int cost)
 		{
-			if (node == null)
-				return;
+			if (node == null) return;
 
-			if (node.MinConst == -1)
-			{
-				node.MinConst = cost;
-			}
+			if (node.MinConst == -1)			
+				node.MinConst = cost;			
 			else
 			{
 				if (node.MinConst <= cost)
 					return;
-				else				
-					node.MinConst = cost;
-				
+								
+				node.MinConst = cost;				
 			}
 			
 			TraverseGraph(node.Left,   cost+1);
@@ -76,14 +88,7 @@ namespace OQF.SimpleWalkingBot.Graph
 			TraverseGraph(node.Bottom, cost+1);
 			TraverseGraph(node.Right,  cost+1);
 		}
-
-
-		private void ClearVisitStatusForNodes ()
-		{
-			foreach (var nodePair in nodes)
-				nodePair.Value.MinConst = -1;
-		}
-
+		
 		private Node GetTargetField(YField target)
 		{
 			var targets = nodes.Where(fieldPair => fieldPair.Key.YCoord == target);
@@ -116,38 +121,6 @@ namespace OQF.SimpleWalkingBot.Graph
 			var min = costDictionary.Min(pair => pair.Key);
 
 			return GetReversePath(currentList, costDictionary[min]);
-		}		
-		
-		private IEnumerable<Node> GetReversePath(Node startNode, YField target)
-		{
-			ClearVisitStatusForNodes();
-			TraverseGraph(startNode, 0);
-			var nearestTarget = GetTargetField(target);
-			var reversePath = GetReversePath(new List<Node>(), nearestTarget);
-			return reversePath;
-		}
-
-		public FieldCoordinate GetNextPositionToMove(YField target)
-		{
-			var playerNode = nodes[playerPosition];
-			var opponendNode = nodes[oppenentPosition];
-
-			var reversePath = GetReversePath(nodes[playerPosition], target);
-			var nextField = reversePath.Last().Coord;
-
-			if (nextField != oppenentPosition)
-			{
-				return nextField;
-			}
-			else
-			{
-				if (playerNode.Left   != null && playerNode.Left   != opponendNode) return playerNode.Left.Coord;
-				if (playerNode.Top    != null && playerNode.Top    != opponendNode) return playerNode.Top.Coord;
-				if (playerNode.Bottom != null && playerNode.Bottom != opponendNode) return playerNode.Bottom.Coord;
-				if (playerNode.Right  != null && playerNode.Right  != opponendNode) return playerNode.Right.Coord;
-			}
-
-			throw new Exception();
-		}		
+		}								
 	}
 }

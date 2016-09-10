@@ -8,6 +8,7 @@ namespace OQF.SimpleWalkingBot.Graph
 		public Node (FieldCoordinate coord)
 		{
 			Coord = coord;
+			MinConst = -1;
 		}
 
 		public readonly FieldCoordinate Coord;

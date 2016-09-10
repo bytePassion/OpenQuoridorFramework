@@ -30,11 +30,7 @@ namespace OQF.SimpleWalkingBot.Graph
 
 				if (fieldCoord.ExistsLeft())   { node.Left   = nodes[fieldCoord.GetLeft()  ]; }
 				if (fieldCoord.ExistsRight())  { node.Right  = nodes[fieldCoord.GetRight() ]; }
-				if (fieldCoord.ExistsTop())
-				{
-					var debug = fieldCoord.GetTop();
-					node.Top    = nodes[debug   ];
-				}
+				if (fieldCoord.ExistsTop())    { node.Top    = nodes[fieldCoord.GetTop()   ]; }
 				if (fieldCoord.ExistsBottom()) { node.Bottom = nodes[fieldCoord.GetBottom()]; }
 			}
 		}
