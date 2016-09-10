@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graph\Construction.cs" />
+    <Compile Include="Graph\FieldCoordinateExtensions.cs" />
+    <Compile Include="Graph\Node.cs" />
+    <Compile Include="Graph\XGraph.cs" />
     <Compile Include="SimpleWalkingBot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

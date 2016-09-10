@@ -4,6 +4,7 @@ using OQF.Contest.Contracts;
 using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
+using OQF.SimpleWalkingBot.Graph;
 
 namespace OQF.SimpleWalkingBot
 {
@@ -26,24 +27,14 @@ namespace OQF.SimpleWalkingBot
 
 	    public void DoMove(BoardState currentState)
 	    {
-		    var myState = myPlayerType == PlayerType.BottomPlayer 
-								? currentState.BottomPlayer 
-								: currentState.TopPlayer;
-
-		    var movingOffset = myPlayerType == PlayerType.BottomPlayer 
-								? -1 
-								: +1 ;
-
+		    var target = myPlayerType == PlayerType.BottomPlayer 
+								? YField.Nine
+								: YField.One;
+		  
 			DebugMessageAvailable?.Invoke($"bin am moooooven :) [{counter++}]");
 				
-			new Thread(() =>
-			{
-				//Thread.Sleep(5000);
-				NextMoveAvailable?.Invoke(new FigureMove(currentState,
-													 myself,
-													 new FieldCoordinate(myState.Position.XCoord,
-																		 myState.Position.YCoord + movingOffset)));
-			}).Start();								
+			var graph = new XGraph(currentState, myPlayerType);
+			NextMoveAvailable?.Invoke(new FigureMove(currentState,myself,graph.GetNextPositionToMove(target)));							
 	    }
     }
 }
