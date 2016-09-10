@@ -13,6 +13,20 @@ namespace OQF.GameEngine.Analysis
 			    return true;
 		    }
 
+			if (potentialNextMove is WallMove)
+			{
+				if (currentBoardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+				{
+					if (currentBoardState.BottomPlayer.WallsToPlace == 0)
+						return false;					
+				}
+				else
+				{
+					if (currentBoardState.TopPlayer.WallsToPlace == 0)
+						return false;
+				}
+			}
+
 			var gameGraph = new Graph(currentBoardState);
 
 			return gameGraph.ValidateMove(potentialNextMove);           		              
