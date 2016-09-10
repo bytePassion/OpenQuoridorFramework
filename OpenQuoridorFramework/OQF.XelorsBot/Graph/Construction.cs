@@ -11,7 +11,7 @@ namespace OQF.XelorsBot.Graph
 
 			for (var x = XField.A; x <= XField.I; x++)
 			{
-				for (var y = YField.One; y <= YField.Nine; y++)
+				for (var y = YField.One; y >= YField.Nine; y--)
 				{					
 					result.Add(new FieldCoordinate(x, y), new Node());
 				}
