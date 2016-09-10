@@ -82,7 +82,8 @@ namespace OQF.SingleGameVisualization.ViewModels.BoardPlacement
 
 				if (gameService.CurrentBoardState?.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 				{
-					CheckIfMouseIsOverPossibleWall();
+					if (gameService.CurrentBoardState.BottomPlayer.WallsToPlace > 0)
+						CheckIfMouseIsOverPossibleWall();
 				}				
 			}
 		}
