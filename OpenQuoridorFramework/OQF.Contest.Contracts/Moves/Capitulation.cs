@@ -9,6 +9,6 @@ namespace OQF.Contest.Contracts.Moves
 		{
 		}
 		
-		public override string ToString() => "capitulation";
+		public override string ToString() => "cap";
 	}
 }

@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateProgressText.cs" />
+    <Compile Include="MoveParser.cs" />
+    <Compile Include="ParseProcessText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
