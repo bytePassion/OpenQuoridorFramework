@@ -2,11 +2,9 @@
 using System.Threading;
 using ConcurrencyLib;
 using OQF.Contest.Contracts;
-using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Contracts;
-using OQF.GameEngine.Transitions;
 
 namespace OQF.GameEngine.Game
 {
@@ -28,18 +26,11 @@ namespace OQF.GameEngine.Game
 		
 		internal LocalGamePvB(IQuoridorBot unInitializedBot, GameConstraints gameConstraints)
 		{
-			var computerPlayer = new Player(PlayerType.TopPlayer);
-			var humanPlayer = new Player(PlayerType.BottomPlayer);
+			quoridorBot = unInitializedBot; 			
+			quoridorBot.DebugMessageAvailable += OnDebugMessageAvailable;
 
 			humenMoves = new TimeoutBlockingQueue<Move>(200);
-			
-			quoridorBot = unInitializedBot; 
-			quoridorBot.Init(computerPlayer, gameConstraints);
-			quoridorBot.DebugMessageAvailable += OnDebugMessageAvailable;
-			
-			var initialBoadState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
-			
-			gameLoopThreadPvB = new GameLoopThreadPvB(quoridorBot, humenMoves, initialBoadState, gameConstraints);
+			gameLoopThreadPvB = new GameLoopThreadPvB(quoridorBot, humenMoves, gameConstraints);
 
 			gameLoopThreadPvB.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameLoopThreadPvB.WinnerAvailable        += OnWinnerAvailable;

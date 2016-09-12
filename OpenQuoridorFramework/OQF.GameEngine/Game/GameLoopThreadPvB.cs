@@ -2,6 +2,7 @@
 using System.Threading;
 using ConcurrencyLib;
 using OQF.Contest.Contracts;
+using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Analysis;
@@ -15,7 +16,7 @@ namespace OQF.GameEngine.Game
 		private class BotsTimeOut : Move
 		{
 			public BotsTimeOut() : base(null, null) {}
-			public override string ToString() => null;
+			public override string ToString() => string.Empty;
 		}		
 
 		public event Action<BoardState>             NewBoardStateAvailable;
@@ -30,22 +31,18 @@ namespace OQF.GameEngine.Game
 
 		private volatile bool stopRunning;
 
-		private BoardState currentBoardState;
-		
-
-		public GameLoopThreadPvB (IQuoridorBot bot, 
-							      TimeoutBlockingQueue<Move> humenMoves, 
-							      BoardState initialBoardState,
+				
+		public GameLoopThreadPvB (IQuoridorBot uninitializedBot, 
+							      TimeoutBlockingQueue<Move> humenMoves, 							      
 							      GameConstraints gameConstraints)
 		{
-			this.bot = bot;
+			bot = uninitializedBot;
 			this.humenMoves = humenMoves;
 
 			botMoves = new TimeoutBlockingQueue<Move>(200);
 
 			bot.NextMoveAvailable += OnNextBotMoveAvailable;
-
-			currentBoardState = initialBoardState;
+			
 			this.gameConstraints = gameConstraints;			
 
 			stopRunning = false;
@@ -67,7 +64,14 @@ namespace OQF.GameEngine.Game
 
 		public void Run ()
 		{
-			IsRunning = true;			
+			IsRunning = true;
+
+			var computerPlayer = new Player(PlayerType.TopPlayer);
+			var humanPlayer    = new Player(PlayerType.BottomPlayer);
+
+			bot.Init(computerPlayer, gameConstraints);
+
+			var currentBoardState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
 
 			NewBoardStateAvailable?.Invoke(currentBoardState);
 
@@ -77,7 +81,7 @@ namespace OQF.GameEngine.Game
 			{
 				if (moveCounter >= gameConstraints.MaximalMovesPerPlayer)
 				{
-					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.MaximumOfMovesExceded);
+					WinnerAvailable?.Invoke(computerPlayer, WinningReason.MaximumOfMovesExceded);
 				}
 
 				var nextHumanMove = PickHumanMove();
@@ -87,7 +91,7 @@ namespace OQF.GameEngine.Game
 
 				if (!GameAnalysis.IsMoveLegal(currentBoardState, nextHumanMove))
 				{
-					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.InvalidMove);
+					WinnerAvailable?.Invoke(computerPlayer, WinningReason.InvalidMove);
 					break;
 				}								
 
@@ -96,7 +100,7 @@ namespace OQF.GameEngine.Game
 
 				if (nextHumanMove is Capitulation)
 				{
-					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.Capitulation);
+					WinnerAvailable?.Invoke(computerPlayer, WinningReason.Capitulation);
 				}
 
 				var winner = GameAnalysis.CheckWinningCondition(currentBoardState);
@@ -106,14 +110,14 @@ namespace OQF.GameEngine.Game
 					break;
 				}								
 				
-				var nextBotMove = GetBotMove();
+				var nextBotMove = GetBotMove(currentBoardState);
 
 				if (nextBotMove == null)
 					break;
 
 				if (!GameAnalysis.IsMoveLegal(currentBoardState, nextBotMove))
 				{
-					WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.InvalidMove);
+					WinnerAvailable?.Invoke(humanPlayer, WinningReason.InvalidMove);
 					break;
 				}
 
@@ -122,7 +126,7 @@ namespace OQF.GameEngine.Game
 
 				if (nextBotMove is Capitulation)
 				{
-					WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.Capitulation);
+					WinnerAvailable?.Invoke(humanPlayer, WinningReason.Capitulation);
 				}
 				
 				var winner2 = GameAnalysis.CheckWinningCondition(currentBoardState);
@@ -139,7 +143,7 @@ namespace OQF.GameEngine.Game
 			bot.NextMoveAvailable -= OnNextBotMoveAvailable;
 		}
 
-		private Move GetBotMove()
+		private Move GetBotMove(BoardState currentBoardState)
 		{
 			botMoves.Clear();
 			botTimer.Change(gameConstraints.MaximalComputingTimePerMove, TimeSpan.Zero);
