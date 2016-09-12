@@ -24,22 +24,22 @@ namespace OQF.GameEngine.Game
 
 		private readonly TimeoutBlockingQueue<Move> humenMoves;
 		private readonly GameLoopThreadPvB gameLoopThreadPvB;
-		private readonly IQuoridorBot quoridorAi;
+		private readonly IQuoridorBot quoridorBot;
 		
-		internal LocalGamePvB(IQuoridorBot unInitilizedBot, GameConstraints gameConstraints)
+		internal LocalGamePvB(IQuoridorBot unInitializedBot, GameConstraints gameConstraints)
 		{
 			var computerPlayer = new Player(PlayerType.TopPlayer);
 			var humanPlayer = new Player(PlayerType.BottomPlayer);
 
-			humenMoves = new TimeoutBlockingQueue<Move>(1000);
-
-			quoridorAi = unInitilizedBot; 
-			quoridorAi.Init(computerPlayer, gameConstraints);
-			quoridorAi.DebugMessageAvailable += OnDebugMessageAvailable;
+			humenMoves = new TimeoutBlockingQueue<Move>(200);
+			
+			quoridorBot = unInitializedBot; 
+			quoridorBot.Init(computerPlayer, gameConstraints);
+			quoridorBot.DebugMessageAvailable += OnDebugMessageAvailable;
 			
 			var initialBoadState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
 			
-			gameLoopThreadPvB = new GameLoopThreadPvB(quoridorAi, humenMoves, initialBoadState, gameConstraints);
+			gameLoopThreadPvB = new GameLoopThreadPvB(quoridorBot, humenMoves, initialBoadState, gameConstraints);
 
 			gameLoopThreadPvB.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameLoopThreadPvB.WinnerAvailable        += OnWinnerAvailable;
@@ -70,7 +70,7 @@ namespace OQF.GameEngine.Game
 
 		public void StopGame()
 		{
-			quoridorAi.DebugMessageAvailable -= OnDebugMessageAvailable;
+			quoridorBot.DebugMessageAvailable -= OnDebugMessageAvailable;
 
 			gameLoopThreadPvB.Stop();
 

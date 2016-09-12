@@ -41,7 +41,7 @@ namespace OQF.GameEngine.Game
 			this.bot = bot;
 			this.humenMoves = humenMoves;
 
-			botMoves = new TimeoutBlockingQueue<Move>(300);
+			botMoves = new TimeoutBlockingQueue<Move>(200);
 
 			bot.NextMoveAvailable += OnNextBotMoveAvailable;
 
