@@ -1,17 +1,15 @@
 using System;
+using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
-using OQF.Contest.Contracts.Moves;
 
 namespace OQF.GameEngine.Contracts
 {
-	public interface IPvBGame
+	public interface IBvBGame
 	{
 		event Action<Player, WinningReason> WinnerAvailable;
 		event Action<BoardState> NextBoardstateAvailable;
-		event Action<string> DebugMessageAvailable;
+		event Action<PlayerType, string> DebugMessageAvailable;		
 
-		void ReportHumanMove (Move move);
-		
-		void StopGame();
+		void StopGame ();
 	}
 }

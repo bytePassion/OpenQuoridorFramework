@@ -51,6 +51,7 @@
     <Compile Include="Analysis\Node.cs" />
     <Compile Include="Game\GameFactory.cs" />
     <Compile Include="Game\GameLoopThreadBvB.cs" />
+    <Compile Include="Game\LocalGameBvB.cs" />
     <Compile Include="Transitions\BoardStateTransition.cs" />
     <Compile Include="Analysis\GameAnalysis.cs" />
     <Compile Include="Game\GameLoopThreadPvB.cs" />
