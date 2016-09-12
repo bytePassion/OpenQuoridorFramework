@@ -12,6 +12,11 @@ namespace OQF.GameEngine.Game
 			return new LocalGamePvB(uninitializedBot, gameConstraints);
 		}
 
+		public IBvBGame CreateNewGame(IQuoridorBot uninitializedBottomPlayerBot, IQuoridorBot uninitializedTopPlayerBot,GameConstraints gameConstraints)
+		{
+			return new LocalGameBvB(uninitializedTopPlayerBot, uninitializedBottomPlayerBot, gameConstraints);
+		}
+
 		public IHumanPlayerAnalysis GetGameAnalysis(BoardState boardState)
 		{
 			return new HumanPlayerAnalysis(boardState);
