@@ -52,8 +52,8 @@
     <Compile Include="Game\GameFactory.cs" />
     <Compile Include="Transitions\BoardStateTransition.cs" />
     <Compile Include="Analysis\GameAnalysis.cs" />
-    <Compile Include="Game\GameLoopThread.cs" />
-    <Compile Include="Game\LocalGamePvC.cs" />
+    <Compile Include="Game\GameLoopThreadPvB.cs" />
+    <Compile Include="Game\LocalGamePvB.cs" />
     <Compile Include="Transitions\PlayerTransitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

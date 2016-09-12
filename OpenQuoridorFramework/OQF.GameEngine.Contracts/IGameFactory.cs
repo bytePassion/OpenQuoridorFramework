@@ -5,7 +5,7 @@ namespace OQF.GameEngine.Contracts
 {
 	public interface IGameFactory
 	{
-		IGame CreateNewGame(IQuoridorBot uninitializedBot, GameConstraints gameConstraints);
+		IPvBGame CreateNewGame(IQuoridorBot uninitializedBot, GameConstraints gameConstraints);
 		IHumanPlayerAnalysis GetGameAnalysis(BoardState boardState);
 	}
 }
