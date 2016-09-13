@@ -286,7 +286,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			if (result.HasValue)
 				if (result.Value)
 					DllPathInput = dialog.FileName;
-		}
+        }
 
 		private void DoStart()
 		{
