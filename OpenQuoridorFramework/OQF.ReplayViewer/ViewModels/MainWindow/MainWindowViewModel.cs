@@ -6,8 +6,9 @@ using System.Windows.Input;
 using FrameworkExtensionLib;
 using Microsoft.Win32;
 using OQF.Contest.Contracts.GameElements;
+using OQF.Info.Enum;
+using OQF.Info.Service;
 using OQF.ReplayViewer.Services;
-using OQF.ReplayViewer.ViewModels.AboutHelpWindow;
 using OQF.ReplayViewer.ViewModels.Board;
 using OQF.Utils;
 using WpfLib.Commands;
@@ -59,15 +60,7 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 
 		private void DoShowAboutHelp()
 		{
-			var aboutHelpWindowViewModel = new AboutHelpWindowViewModel();
-
-			var window = new Windows.AboutHelpWindow()
-			{
-				Owner = Application.Current.MainWindow,
-				DataContext = aboutHelpWindowViewModel
-			};
-
-			window.ShowDialog();
+			InfoWindowService.Show(InfoPage.About);
 		}
 
 		private void DoNextMove()
