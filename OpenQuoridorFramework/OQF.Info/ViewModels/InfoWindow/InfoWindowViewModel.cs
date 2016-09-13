@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -33,20 +32,18 @@ namespace OQF.Info.ViewModels.InfoWindow
 				
 				PageSelectionCommands.Add(new SelectionButtonData(command, page.ToString()));
 			}	
+
+			PageSelectionCommands.FirstOrDefault()?.Command.Execute(null);
 		}
 
 		public ICommand CloseWindow { get; }
 
-		private static void DoCloseWindow ()
+		private void DoCloseWindow ()
 		{
-			var windows = Application.Current.Windows
-											 .OfType<Info.InfoWindow>()
-											 .ToList();
-
-			if (windows.Count == 1)
-				windows[0].Close();
-			else
-				throw new Exception("inner error");
+			Application.Current.Windows
+							   .OfType<Info.InfoWindow>()
+							   .FirstOrDefault(window => ReferenceEquals(window.DataContext, this))
+							   ?.Close();			
 		}
 
 		public int SelectedPage

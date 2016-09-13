@@ -92,7 +92,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		private void DoShowAboutHelp()
 		{
-			InfoWindowService.Show(InfoPage.QuoridorRules, 
+			InfoWindowService.Show(InfoPage.PlayerVsBotApplicationInfo,
+								   InfoPage.QuoridorRules, 
 								   InfoPage.QuoridorNotation,
 								   InfoPage.HowToWriteABot,
 								   InfoPage.About);
