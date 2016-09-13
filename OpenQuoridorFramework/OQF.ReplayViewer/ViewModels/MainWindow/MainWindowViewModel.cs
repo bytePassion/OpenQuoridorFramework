@@ -117,7 +117,6 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 			set { PropertyChanged.ChangeAndNotify(this, ref progressFilePath, value); }
 		}
 
-
 		private void DoBrowseFile()
 		{
 			var dialog = new OpenFileDialog
