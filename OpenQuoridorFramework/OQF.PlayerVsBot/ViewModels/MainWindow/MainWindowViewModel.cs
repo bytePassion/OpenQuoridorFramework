@@ -13,8 +13,9 @@ using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Contracts;
+using OQF.Info.Enum;
+using OQF.Info.Service;
 using OQF.PlayerVsBot.Services;
-using OQF.PlayerVsBot.ViewModels.AboutHelpWindow;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
@@ -91,15 +92,10 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		private void DoShowAboutHelp()
 		{
-			var aboutHelpWindowViewModel = new AboutHelpWindowViewModel();
-
-			var window = new Windows.AboutHelpWindow()
-			{
-				Owner = Application.Current.MainWindow,
-				DataContext = aboutHelpWindowViewModel
-			};
-
-			window.ShowDialog();
+			InfoWindowService.Show(InfoPage.QuoridorRules, 
+								   InfoPage.QuoridorNotation,
+								   InfoPage.HowToWriteABot,
+								   InfoPage.About);
 		}
 
 		private void OnNewDebugMsgAvailable(string s)

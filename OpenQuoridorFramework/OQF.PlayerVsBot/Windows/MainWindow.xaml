@@ -10,6 +10,7 @@
         xmlns:behaviors="clr-namespace:OQF.PlayerVsBot.Behaviors"
         xmlns:views="clr-namespace:OQF.PlayerVsBot.Views"
         Title="MainWindow"
+		WindowStartupLocation="CenterScreen"
         Width="1200"
         Height="950"
         Background="{DynamicResource MaterialDesignPaper}"
