@@ -4,11 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using FrameworkExtensionLib;
+using Lib.FrameworkExtension;
+using Lib.Wpf.Commands;
+using Lib.Wpf.ViewModelBase;
 using OQF.Info.Enum;
 using OQF.Info.ViewModels.InfoWindow.Helper;
-using WpfLib.Commands;
-using WpfLib.ViewModelBase;
 
 namespace OQF.Info.ViewModels.InfoWindow
 {

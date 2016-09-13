@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using ConcurrencyLib;
+using Lib.Concurrency;
 using OQF.Contest.Contracts;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;

@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using Lib.SemanicTypes;
 using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
-using SemanicTypesLib;
 using Size = System.Windows.Size;
 
 #pragma warning disable 0067

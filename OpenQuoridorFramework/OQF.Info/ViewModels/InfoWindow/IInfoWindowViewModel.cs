@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Lib.Wpf.ViewModelBase;
 using OQF.Info.ViewModels.InfoWindow.Helper;
-using WpfLib.ViewModelBase;
 
 namespace OQF.Info.ViewModels.InfoWindow
 {

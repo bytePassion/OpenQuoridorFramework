@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
+using Lib.Wpf.ViewModelBase;
 using OQF.ReplayViewer.ViewModels.Board;
-using WpfLib.ViewModelBase;
 
 namespace OQF.ReplayViewer.ViewModels.MainWindow
 {

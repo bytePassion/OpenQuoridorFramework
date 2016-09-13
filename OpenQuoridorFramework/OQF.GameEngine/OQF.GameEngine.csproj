@@ -60,13 +60,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConcurrencyLib\ConcurrencyLib.csproj">
+    <ProjectReference Include="..\Lib.Concurrency\Lib.Concurrency.csproj">
       <Project>{623D4B55-9687-4C7C-9B23-5C1403A110D1}</Project>
-      <Name>ConcurrencyLib</Name>
+      <Name>Lib.Concurrency</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FrameworkExtensionLib\FrameworkExtensionLib.csproj">
-      <Project>{6C27F04B-CFCC-4267-8720-4A44D7529A21}</Project>
-      <Name>FrameworkExtensionLib</Name>
+    <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
+      <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
+      <Name>Lib.FrameworkExtension</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Contest.Contracts\OQF.Contest.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>

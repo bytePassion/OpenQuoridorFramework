@@ -3,7 +3,10 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using FrameworkExtensionLib;
+using Lib.FrameworkExtension;
+using Lib.Wpf.Commands;
+using Lib.Wpf.Commands.Updater;
+using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Info.Enum;
@@ -11,9 +14,6 @@ using OQF.Info.Service;
 using OQF.ReplayViewer.Services;
 using OQF.ReplayViewer.ViewModels.Board;
 using OQF.Utils;
-using WpfLib.Commands;
-using WpfLib.Commands.Updater;
-using WpfLib.ViewModelBase;
 
 namespace OQF.ReplayViewer.ViewModels.MainWindow
 {

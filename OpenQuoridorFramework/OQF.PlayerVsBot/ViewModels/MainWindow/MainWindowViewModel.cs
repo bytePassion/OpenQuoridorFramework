@@ -6,7 +6,11 @@ using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
-using FrameworkExtensionLib;
+using Lib.FrameworkExtension;
+using Lib.Utils;
+using Lib.Wpf.Commands;
+using Lib.Wpf.Commands.Updater;
+using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
 using OQF.Contest.Contracts;
 using OQF.Contest.Contracts.Coordination;
@@ -20,10 +24,6 @@ using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
 using OQF.Utils;
-using UtilsLib;
-using WpfLib.Commands;
-using WpfLib.Commands.Updater;
-using WpfLib.ViewModelBase;
 
 namespace OQF.PlayerVsBot.ViewModels.MainWindow
 {

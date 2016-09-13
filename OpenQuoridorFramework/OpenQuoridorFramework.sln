@@ -9,11 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.GameEngine", "OQF.GameE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.GameEngine.Contracts", "OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj", "{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.SimpleWalkingBot", "OQF.SimpleWalkingBot\OQF.SimpleWalkingBot.csproj", "{4629A2D4-4146-4E1A-9520-57D12827CD57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWalkingBot", "bots\SimpleWalkingBot\SimpleWalkingBot.csproj", "{4629A2D4-4146-4E1A-9520-57D12827CD57}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Contest.Contracts", "OQF.Contest.Contracts\OQF.Contest.Contracts.csproj", "{8692572D-4B60-407C-BB7B-80FC66E63904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.XelorsBot", "OQF.XelorsBot\OQF.XelorsBot.csproj", "{60AC8705-AB44-433C-B617-291E1F7C829E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XelorsBot", "bots\XelorsBot\XelorsBot.csproj", "{60AC8705-AB44-433C-B617-291E1F7C829E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bots", "Bots", "{5094A226-58A9-4B49-991F-9F3296EE4060}"
 EndProject
@@ -27,17 +27,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameEngine", "GameEngine", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.GameEngine.Test", "OQF.GameEngine.Test\OQF.GameEngine.Test.csproj", "{44DFDB61-3AAD-4D4B-8CE4-B3E778B9EBEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunicationLib", "CommunicationLib\CommunicationLib.csproj", "{A7CA266B-B1A3-4ED5-B0BE-EE5EE80A48FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.Communication", "Lib.Communication\Lib.Communication.csproj", "{A7CA266B-B1A3-4ED5-B0BE-EE5EE80A48FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcurrencyLib", "ConcurrencyLib\ConcurrencyLib.csproj", "{623D4B55-9687-4C7C-9B23-5C1403A110D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.Concurrency", "Lib.Concurrency\Lib.Concurrency.csproj", "{623D4B55-9687-4C7C-9B23-5C1403A110D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameworkExtensionLib", "FrameworkExtensionLib\FrameworkExtensionLib.csproj", "{6C27F04B-CFCC-4267-8720-4A44D7529A21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.FrameworkExtension", "Lib.FrameworkExtension\Lib.FrameworkExtension.csproj", "{6C27F04B-CFCC-4267-8720-4A44D7529A21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanicTypesLib", "SemanicTypesLib\SemanicTypesLib.csproj", "{8FE851FB-DD9C-4C93-BCED-5098235D44E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.SemanicTypes", "Lib.SemanicTypes\Lib.SemanicTypes.csproj", "{8FE851FB-DD9C-4C93-BCED-5098235D44E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilsLib", "UtilsLib\UtilsLib.csproj", "{0363FA52-24D4-4B73-BA27-B9ADC8989DBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.Utils", "Lib.Utils\Lib.Utils.csproj", "{0363FA52-24D4-4B73-BA27-B9ADC8989DBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLib", "WpfLib\WpfLib.csproj", "{762EF986-E716-4D0B-A13B-360A0BF97086}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.Wpf", "Lib.Wpf\Lib.Wpf.csproj", "{762EF986-E716-4D0B-A13B-360A0BF97086}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Utils", "OQF.Utils\OQF.Utils.csproj", "{2F71F7F9-F40A-45E3-9401-5A40933DB8C7}"
 EndProject

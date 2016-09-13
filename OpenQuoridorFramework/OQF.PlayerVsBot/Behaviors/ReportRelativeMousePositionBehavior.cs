@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interactivity;
-using SemanicTypesLib;
-using Point = SemanicTypesLib.Point;
+using Lib.SemanicTypes;
+using Point = Lib.SemanicTypes.Point;
 
 namespace OQF.PlayerVsBot.Behaviors
 {

@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
-using FrameworkExtensionLib;
+using Lib.FrameworkExtension;
+using Lib.Wpf.ViewModelBase;
 using OQF.Contest.Contracts.GameElements;
 using OQF.ReplayViewer.Services;
-using WpfLib.ViewModelBase;
 
 namespace OQF.ReplayViewer.ViewModels.Board
 {

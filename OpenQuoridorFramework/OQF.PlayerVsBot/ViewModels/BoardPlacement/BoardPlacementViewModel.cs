@@ -3,15 +3,15 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
-using FrameworkExtensionLib;
+using Lib.FrameworkExtension;
+using Lib.SemanicTypes;
+using Lib.Wpf.Commands;
+using Lib.Wpf.ViewModelBase;
 using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Contracts;
 using OQF.PlayerVsBot.Services;
-using SemanicTypesLib;
-using WpfLib.Commands;
-using WpfLib.ViewModelBase;
 using Size = System.Windows.Size;
 
 namespace OQF.PlayerVsBot.ViewModels.BoardPlacement

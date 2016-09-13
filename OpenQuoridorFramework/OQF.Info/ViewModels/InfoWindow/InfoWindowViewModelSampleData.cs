@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using Lib.Wpf.Commands;
 using OQF.Info.ViewModels.InfoWindow.Helper;
-using WpfLib.Commands;
 
 #pragma warning disable 0067
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
+using Lib.Wpf.ViewModelBase;
 using OQF.Contest.Contracts.GameElements;
-using WpfLib.ViewModelBase;
 
 namespace OQF.ReplayViewer.ViewModels.Board
 {

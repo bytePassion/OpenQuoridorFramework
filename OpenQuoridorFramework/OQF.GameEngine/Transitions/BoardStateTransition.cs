@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using FrameworkExtensionLib;
+using Lib.FrameworkExtension;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 

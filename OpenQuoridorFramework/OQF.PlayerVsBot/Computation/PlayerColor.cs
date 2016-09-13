@@ -1,9 +1,9 @@
 using System.Globalization;
 using System.Windows.Media;
+using Lib.Wpf.ConverterBase;
 using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.PlayerVsBot.Global;
-using WpfLib.ConverterBase;
 
 namespace OQF.PlayerVsBot.Computation
 {

@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
+using Lib.Wpf.ConverterBase;
 using OQF.Contest.Contracts.GameElements;
-using WpfLib.ConverterBase;
 
 namespace OQF.PlayerVsBot.Computation
 {

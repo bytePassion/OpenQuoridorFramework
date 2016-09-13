@@ -119,13 +119,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FrameworkExtensionLib\FrameworkExtensionLib.csproj">
+    <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
       <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
-      <Name>FrameworkExtensionLib</Name>
+      <Name>Lib.FrameworkExtension</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WpfLib\WpfLib.csproj">
+    <ProjectReference Include="..\Lib.Wpf\Lib.Wpf.csproj">
       <Project>{762ef986-e716-4d0b-a13b-360a0bf97086}</Project>
-      <Name>WpfLib</Name>
+      <Name>Lib.Wpf</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

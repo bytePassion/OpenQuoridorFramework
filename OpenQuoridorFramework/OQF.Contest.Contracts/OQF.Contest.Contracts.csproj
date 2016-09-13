@@ -58,9 +58,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FrameworkExtensionLib\FrameworkExtensionLib.csproj">
+    <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
       <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
-      <Name>FrameworkExtensionLib</Name>
+      <Name>Lib.FrameworkExtension</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

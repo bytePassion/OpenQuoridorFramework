@@ -1,4 +1,4 @@
-﻿using FrameworkExtensionLib;
+﻿using Lib.FrameworkExtension;
 
 namespace OQF.Contest.Contracts.Coordination
 {
@@ -25,7 +25,7 @@ namespace OQF.Contest.Contracts.Coordination
 		public static bool operator !=(FieldCoordinate c1, FieldCoordinate c2) => !c1.Equals(c2);		
 
 	    private static string XCoordToString(XField xCoord)
-		{
+		{			
 			switch (xCoord)
 			{
 				case XField.A: return "a";

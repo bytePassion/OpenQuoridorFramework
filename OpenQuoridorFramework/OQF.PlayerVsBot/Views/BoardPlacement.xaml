@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:commandExecutingBehaviors="clr-namespace:WpfLib.CommandExecutingBehaviors;assembly=WpfLib"
+             xmlns:commandExecutingBehaviors="clr-namespace:Lib.Wpf.CommandExecutingBehaviors;assembly=Lib.Wpf"
              xmlns:boardPlacement="clr-namespace:OQF.PlayerVsBot.ViewModels.BoardPlacement"
              xmlns:computation="clr-namespace:OQF.PlayerVsBot.Computation"
              xmlns:behaviors="clr-namespace:OQF.PlayerVsBot.Behaviors"
