@@ -12,6 +12,9 @@ namespace OQF.GameEngine.Analysis
 		private readonly FieldCoordinate bottomPlayerPosition;
 		private readonly FieldCoordinate topPlayerPosition;
 
+		private Node removedEdgeEndPoint1;
+		private Node removedEdgeEndPoint2;
+
 		public Graph(BoardState boardState = null)
 		{
 			Nodes = GraphConstruction.GetAllNodes();
@@ -115,7 +118,7 @@ namespace OQF.GameEngine.Analysis
 
 		private bool ValidateWallMove (WallMove wallMove)
 		{
-			RemoveSpecialEdges();
+			UndoSpecialEdges();
 			ApplyWall(wallMove.PlacedWall);
 
 			AddSpecialEdges();
@@ -141,6 +144,12 @@ namespace OQF.GameEngine.Analysis
 			node2.RemoveEdge(node1);
 		}
 
+		private void AddEdge(Node node1, Node node2)
+		{
+			node1.AddEdgeToNode(node2);
+			node2.AddEdgeToNode(node1);
+		}
+
 		private void AddSpecialEdges ()
 		{
 			var topNode    = GetNode(topPlayerPosition);
@@ -149,6 +158,9 @@ namespace OQF.GameEngine.Analysis
 			if (PlayersAreNeighbours())
 			{				
 				RemoveEdge(topNode, bottomNode);
+
+				removedEdgeEndPoint1 = topNode;
+				removedEdgeEndPoint2 = bottomNode;
 
 				ComputeSpecialEdges(topNode, bottomNode);
 				ComputeSpecialEdges(bottomNode, topNode);
@@ -250,11 +262,19 @@ namespace OQF.GameEngine.Analysis
 			return GetNode(topPlayerPosition).Neighbours.Contains(GetNode(bottomPlayerPosition));
 		}
 
-		private void RemoveSpecialEdges ()
+		private void UndoSpecialEdges ()
 		{
 			foreach (var nodePair in Nodes)
 			{
 				nodePair.Value.RemoveAllSpecialEdges();
+			}
+
+			if (removedEdgeEndPoint1 != null && removedEdgeEndPoint2 != null)
+			{
+				AddEdge(removedEdgeEndPoint1, removedEdgeEndPoint2);
+
+				removedEdgeEndPoint1 = null;
+				removedEdgeEndPoint2 = null;
 			}
 		}
 	}
