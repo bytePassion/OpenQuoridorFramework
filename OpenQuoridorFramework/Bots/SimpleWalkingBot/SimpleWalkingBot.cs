@@ -31,7 +31,14 @@ namespace SimpleWalkingBot
 			DebugMessageAvailable?.Invoke($"bin am moooooven :) [{counter++}]");
 				
 			var graph = new XGraph(currentState, myself.PlayerType);
-			NextMoveAvailable?.Invoke(new FigureMove(currentState,myself,graph.GetNextPositionToMove(target)));							
+
+		    var nextPosition = graph.GetNextPositionToMove(target);
+
+		    var nextMove = nextPosition.HasValue 
+								? (Move) new FigureMove  (currentState, myself, nextPosition.Value)
+								: (Move) new Capitulation(currentState, myself);
+
+			NextMoveAvailable?.Invoke(nextMove);							
 	    }
     }
 }

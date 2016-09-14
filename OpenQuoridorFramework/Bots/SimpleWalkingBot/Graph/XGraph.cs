@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
@@ -49,7 +48,7 @@ namespace SimpleWalkingBot.Graph
 									: nodes[currentBoardState.TopPlayer.Position];
 		}		
 				
-		public FieldCoordinate GetNextPositionToMove (YField target)
+		public FieldCoordinate? GetNextPositionToMove (YField target)
 		{
 			TraverseGraph(playerNode, 0);
 			var nearestTarget = GetTargetField(target);
@@ -65,8 +64,8 @@ namespace SimpleWalkingBot.Graph
 			if (playerNode.Top    != null && playerNode.Top    != opponendNode) return playerNode.Top.Coord;
 			if (playerNode.Bottom != null && playerNode.Bottom != opponendNode) return playerNode.Bottom.Coord;
 			if (playerNode.Right  != null && playerNode.Right  != opponendNode) return playerNode.Right.Coord;
-			
-			throw new Exception();
+
+			return null;
 		}
 
 		private static void TraverseGraph (Node node, int cost)
