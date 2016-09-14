@@ -1,3 +1,3 @@
 # OpenQuoridorFramework
 
-A Framework to play Quoridor against a bot or another human player
+A Framework to create bots for Quoridor and play against them.
