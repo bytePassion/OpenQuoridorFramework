@@ -33,7 +33,7 @@
 
     <materialDesign:DialogHost>
         <DockPanel>
-            <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                       DockPanel.Dock="Top"
                                       Mode="Dark"
                                       Padding="8">
@@ -66,22 +66,23 @@
                                 Orientation="Horizontal">
                         <TextBlock Margin="20,0"
                                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                                   Text="{Binding TopPlayerName,
-                                                  Mode=OneWay,
-                                                  UpdateSourceTrigger=PropertyChanged}" />
+                                   Text="Spieler" />
                         <TextBlock VerticalAlignment="Center"
                                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
                                    Text="vs." />
                         <TextBlock Margin="20,0"
                                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                                   Text="Spieler" />
+                                   Text="{Binding TopPlayerName,
+                                                  Mode=OneWay,
+                                                  UpdateSourceTrigger=PropertyChanged}" />
 
                     </StackPanel>
                 </DockPanel>
             </materialDesign:ColorZone>
 
-            <materialDesign:Card Margin="5" Padding="8"
-                    DockPanel.Dock="Top">
+            <materialDesign:Card Margin="5"
+                                 DockPanel.Dock="Top"
+                                 Padding="8">
 
                 <Grid>
 
@@ -102,9 +103,7 @@
                              Width="40"
                              Height="40"
                              Fill="{Binding GameStatus,
-                                            Converter={StaticResource TopPlayerMarkerColor}}"
-                             Stroke="Black"
-                             StrokeThickness="2" />
+                                            Converter={StaticResource TopPlayerMarkerColor}}" />
 
 
                     <TextBlock Grid.Row="0"
@@ -159,8 +158,8 @@
             </materialDesign:Card>
 
             <materialDesign:Card Margin="5"
-                    Padding="8"
-                    DockPanel.Dock="Bottom">
+                                 DockPanel.Dock="Bottom"
+                                 Padding="8">
 
                 <Grid>
 
@@ -175,9 +174,7 @@
                              Width="40"
                              Height="40"
                              Fill="{Binding GameStatus,
-                                            Converter={StaticResource BottomPlayerMarkerColor}}"
-                             Stroke="Black"
-                             StrokeThickness="2" />
+                                            Converter={StaticResource BottomPlayerMarkerColor}}" />
 
 
                     <TextBlock Grid.Column="2"
@@ -212,34 +209,35 @@
 
             </materialDesign:Card>
 
-            <Expander DockPanel.Dock="Left" ExpandDirection="Right" IsExpanded="True">
+            <Expander DockPanel.Dock="Left"
+                      ExpandDirection="Right"
+                      IsExpanded="True">
                 <Expander.Header>
-                    <TextBlock Text="Progress" RenderTransformOrigin=".5,.5">
+                    <TextBlock RenderTransformOrigin=".5,.5" Text="Progress">
                         <TextBlock.LayoutTransform>
                             <RotateTransform Angle="90" />
                         </TextBlock.LayoutTransform>
                     </TextBlock>
                 </Expander.Header>
-                <Border Margin="5"
-                        Width="200"
-                        >
+                <GroupBox Width="200"
+                          Margin="5"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                          BorderThickness="0"
+                          Header="Progress"
+                          Style="{DynamicResource MaterialDesignGroupBox}">
 
                     <DockPanel>
+                        <CheckBox Margin="10,0,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Center"
+                                  Content="Auto Scroll down"
+                                  DockPanel.Dock="Top"
+                                  IsChecked="{Binding IsAutoScrollProgressActive,
+                                                      Mode=TwoWay,
+                                                      UpdateSourceTrigger=PropertyChanged}" />
 
-                        <Border BorderBrush="Black"
-                                BorderThickness="0,0,0,1" DockPanel.Dock="Top">
-                            <CheckBox Margin="10,0,0,0"
-                                      HorizontalAlignment="Left"
-                                      VerticalAlignment="Center"
-                                      Content="Auto Scroll down"
-                                      IsChecked="{Binding IsAutoScrollProgressActive,
-                                                          Mode=TwoWay,
-                                                          UpdateSourceTrigger=PropertyChanged}" />
-                        </Border>
-
-
-                        <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                                      VerticalContentAlignment="Stretch"
+                        <ScrollViewer VerticalContentAlignment="Stretch"
+                                      HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Visible">
                             <ItemsControl ItemsSource="{Binding GameProgress}" />
 
@@ -247,66 +245,58 @@
                                 <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
                             </i:Interaction.Behaviors>
                         </ScrollViewer>
-
-
-
                     </DockPanel>
 
-                </Border>
+                </GroupBox>
             </Expander>
 
-            <Expander DockPanel.Dock="Right" ExpandDirection="Left" IsExpanded="False">
+            <Expander DockPanel.Dock="Right"
+                      ExpandDirection="Left"
+                      IsExpanded="False">
                 <Expander.Header>
-                    <TextBlock Text="Debug" RenderTransformOrigin=".5,.5">
+                    <TextBlock RenderTransformOrigin=".5,.5" Text="Debug">
                         <TextBlock.LayoutTransform>
                             <RotateTransform Angle="-90" />
                         </TextBlock.LayoutTransform>
                     </TextBlock>
                 </Expander.Header>
-                 <Border 
-                Margin="5"
-                Width="350"
-                >
+                <GroupBox Width="350"
+                          Margin="5"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                          BorderThickness="0"
+                          Header="Debug"
+                          Style="{DynamicResource MaterialDesignGroupBox}">
 
-            <Grid>
+                    <Grid>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="Debug" />
+                        <CheckBox Grid.Row="0"
+                                  Margin="10,0,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Center"
+                                  Content="Auto Scroll down"
+                                  IsChecked="{Binding IsAutoScrollDebugMsgActive,
+                                                      Mode=TwoWay,
+                                                      UpdateSourceTrigger=PropertyChanged}" />
 
-                <Border Grid.Row="1"
-                        BorderBrush="Black"
-                        BorderThickness="0,0,0,1">
-                    <CheckBox Margin="10,0,0,0"
-                              HorizontalAlignment="Left"
-                              VerticalAlignment="Center"
-                              Content="Auto Scroll down"
-                              IsChecked="{Binding IsAutoScrollDebugMsgActive,
-                                                  Mode=TwoWay,
-                                                  UpdateSourceTrigger=PropertyChanged}" />
-                </Border>
+                        <ScrollViewer Grid.Row="1"
+                                      HorizontalScrollBarVisibility="Auto"
+                                      VerticalScrollBarVisibility="Visible">
+                            <ItemsControl ItemsSource="{Binding DebugMessages}" />
 
-                <ScrollViewer Grid.Row="2"
-                              HorizontalScrollBarVisibility="Auto"
-                              VerticalScrollBarVisibility="Visible">
-                    <ItemsControl ItemsSource="{Binding DebugMessages}" />
+                            <i:Interaction.Behaviors>
+                                <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
+                            </i:Interaction.Behaviors>
+                        </ScrollViewer>
 
-                    <i:Interaction.Behaviors>
-                        <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
-                    </i:Interaction.Behaviors>
-                </ScrollViewer>
-
-            </Grid>
+                    </Grid>
 
 
-        </Border>
+                </GroupBox>
 
             </Expander>
 
@@ -320,20 +310,6 @@
                         <behaviors:KeepQuadratic />
                     </i:Interaction.Behaviors>
 
-                    <Grid.Style>
-                        <Style TargetType="Grid">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsDisabledOverlayVisible}" Value="True">
-                                    <Setter Property="Effect">
-                                        <Setter.Value>
-                                            <BlurEffect KernelType="Gaussian" Radius="5" />
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Grid.Style>
-
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40" />
                         <RowDefinition />
@@ -343,15 +319,6 @@
                         <ColumnDefinition Width="40" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-
-                    <Border Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            Background="#60000000"
-                            IsHitTestVisible="False"
-                            Visibility="{Binding IsDisabledOverlayVisible,
-                                                 Converter={StaticResource BoolToCollapsedVisibilityConverter}}" />
 
                     <views:BoardHorizontalLabelling Grid.Row="0"
                                                     Grid.Column="1"
@@ -384,6 +351,6 @@
 
 
 
-       
+
     </Grid>-->
 </Window>

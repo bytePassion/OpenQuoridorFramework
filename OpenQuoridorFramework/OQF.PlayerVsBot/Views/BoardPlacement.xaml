@@ -58,7 +58,7 @@
 				<ListBox.ItemContainerStyle>
 					<Style TargetType="ListBoxItem">
 						<Setter Property="Padding" Value="0" />
-						<Setter Property="Margin" Value="0" />
+						<Setter Property="Margin" Value="2,2,0,0" />
 						<Setter Property="Canvas.Left">
 							<Setter.Value>
 								<MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
@@ -124,7 +124,7 @@
 				<ListBox.ItemContainerStyle>
 					<Style TargetType="ListBoxItem">
 						<Setter Property="Padding" Value="0" />
-						<Setter Property="Margin" Value="0" />
+						<Setter Property="Margin" Value="1,1,0,0" />
 						<Setter Property="Canvas.Left">
 							<Setter.Value>
 								<MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">
