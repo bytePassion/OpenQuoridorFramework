@@ -73,6 +73,7 @@
       <DependentUpon>TurnamentApplicationInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\TextStyle.cs" />
     <Compile Include="Service\InfoWindowService.cs" />
     <Compile Include="ViewModels\InfoWindow\Helper\SelectionButtonData.cs" />
     <Compile Include="ViewModels\InfoWindow\IInfoWindowViewModel.cs" />

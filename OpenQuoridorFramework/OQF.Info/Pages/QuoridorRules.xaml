@@ -2,25 +2,30 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resources="clr-namespace:OQF.Info.Resources"
              mc:Ignorable="d" 
-             d:DesignHeight="1500" d:DesignWidth="500">
+             d:DesignHeight="1500" d:DesignWidth="900">
 
 	<UserControl.Resources>
 
 		<Style x:Key="TextStyle" TargetType="Run">
-			<Setter Property="Foreground" Value="DarkSlateGray"/>
+			<Setter Property="Foreground" Value="{x:Static resources:TextStyle.TextColor}"/>
 		</Style>
-		
+
 		<Style x:Key="HeadLine" TargetType="Run" BasedOn="{StaticResource TextStyle}">
-			<Setter Property="FontSize" Value="25"/>
-			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="FontSize" Value="{x:Static resources:TextStyle.ParagraphHeaderFontSize}"/>
+			<Setter Property="FontWeight" Value="{x:Static resources:TextStyle.HeaderFontWeight}"/>
 		</Style>
-		
+
+		<Style x:Key="PageHeadLine" TargetType="Run" BasedOn="{StaticResource HeadLine}">
+			<Setter Property="FontSize" Value="{x:Static resources:TextStyle.PageHeaderFontSize}"/>
+		</Style>
+
 		<Style TargetType="Run" BasedOn="{StaticResource TextStyle}">
-			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="FontSize" Value="{x:Static resources:TextStyle.NormalFontSize}"/>
 		</Style>
-		
+
 	</UserControl.Resources>
 	
 	<ScrollViewer HorizontalScrollBarVisibility="Disabled"
@@ -29,13 +34,13 @@
 		<Grid Background="White">
 
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition/>
+				<ColumnDefinition Width="2*"/>
 				<ColumnDefinition/>
 			</Grid.ColumnDefinitions>
 			
 			<TextBlock TextWrapping="Wrap"
 					   Margin="5">
-				<Run Text="Quoridor" Style="{StaticResource HeadLine}" FontSize="45"/>
+				<Run Text="Quoridor - Spielregeln" Style="{StaticResource PageHeadLine}"/>
 				<LineBreak/>
 				<Run Text="Quoridor ist ein abstraktes Strategiespiel für 2 oder 4 Spieler."/>
 				<Run Text="Im OpenQuoridorFramework wird nur das 2-Spieler-Spiel betrachtet, weswegen hier auch nur die Regeln für diese Variante aufgeführt werden."/>			
