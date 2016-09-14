@@ -80,9 +80,7 @@
                 </DockPanel>
             </materialDesign:ColorZone>
 
-            <Border Margin="5,5,5,0"
-                    BorderBrush="Black"
-                    BorderThickness="1"
+            <materialDesign:Card Margin="5" Padding="8"
                     DockPanel.Dock="Top">
 
                 <Grid>
@@ -158,11 +156,10 @@
 
                 </Grid>
 
-            </Border>
+            </materialDesign:Card>
 
-            <Border Margin="5,0,5,5"
-                    BorderBrush="Black"
-                    BorderThickness="1"
+            <materialDesign:Card Margin="5"
+                    Padding="8"
                     DockPanel.Dock="Bottom">
 
                 <Grid>
@@ -213,7 +210,7 @@
 
 
 
-            </Border>
+            </materialDesign:Card>
 
             <Expander DockPanel.Dock="Left" ExpandDirection="Right" IsExpanded="True">
                 <Expander.Header>
@@ -224,8 +221,8 @@
                     </TextBlock>
                 </Expander.Header>
                 <Border Margin="5"
-                        BorderBrush="Black"
-                        BorderThickness="1">
+                        Width="200"
+                        >
 
                     <DockPanel>
 
@@ -268,8 +265,8 @@
                 </Expander.Header>
                  <Border 
                 Margin="5"
-                BorderBrush="Black"
-                BorderThickness="1">
+                Width="350"
+                >
 
             <Grid>
 
@@ -314,8 +311,6 @@
             </Expander>
 
             <Border Margin="5,0"
-                    BorderBrush="Black"
-                    BorderThickness="1,0"
                     DockPanel.Dock="Top"
                     Padding="0">
 
