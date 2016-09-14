@@ -4,15 +4,81 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="1500" d:DesignWidth="500">
 
-	<Grid Background="White">
+	<UserControl.Resources>
 
-		<TextBlock Text="Quoridor Rules"
-				   HorizontalAlignment="Center"
-				   VerticalAlignment="Center"
-				   FontSize="30"/>
+		<Style x:Key="TextStyle" TargetType="Run">
+			<Setter Property="Foreground" Value="DarkSlateGray"/>
+		</Style>
+		
+		<Style x:Key="HeadLine" TargetType="Run" BasedOn="{StaticResource TextStyle}">
+			<Setter Property="FontSize" Value="25"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+		</Style>
+		
+		<Style TargetType="Run" BasedOn="{StaticResource TextStyle}">
+			<Setter Property="FontSize" Value="14"/>
+		</Style>
+		
+	</UserControl.Resources>
+	
+	<ScrollViewer HorizontalScrollBarVisibility="Disabled"
+				  VerticalScrollBarVisibility="Auto">
+	
+		<Grid Background="White">
 
-	</Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			
+			<TextBlock TextWrapping="Wrap"
+					   Margin="5">
+				<Run Text="Quoridor" Style="{StaticResource HeadLine}" FontSize="45"/>
+				<LineBreak/>
+				<Run Text="Quoridor ist ein abstraktes Strategiespiel für 2 oder 4 Spieler."/>
+				<Run Text="Im OpenQuoridorFramework wird nur das 2-Spieler-Spiel betrachtet, weswegen hier auch nur die Regeln für diese Variante aufgeführt werden."/>			
+				<LineBreak/>
+				<LineBreak/>
+				<Run Text="Spielaufbau" Style="{StaticResource HeadLine}"/>
+				<LineBreak/>
+				<Run Text="Quoridor besteht aus einem Spielfeld mit 9x9 Feldern mit Zwischenräumen (Bild 1), zwei Spielfiguren, die auf den Feldern bewegt werden, und 20 Wand-Elementen, die zwischen den Feldern platziert werden können."/>
+				<Run Text="Jeder Spieler erhält eine Spielfigur und 10 Wand-Elemente."/>
+				<Run Text="Die Spielfiguren werden auf den Feldern e1 und e9 (siehe Quoridor-Notation) initial platziert."/>
+				<Run Text="Der Spieler mit der Figur auf e1 beginnt mit dem ersten Zug."/>
+				<Run Text=""/>
+				<Run Text=""/>
+				<LineBreak/>
+				<LineBreak/>
+				<Run Text="Ziel des Spiels" Style="{StaticResource HeadLine}"/>
+				<LineBreak/>
+				<Run Text="Das Spiel endet sofort, wenn ein Spieler eines der 9 gegenüberliegenden Felder betritt. Dieser Spieler gewinnt."/>			
+				<LineBreak/>
+				<LineBreak/>
+				<Run Text="Ablauf" Style="{StaticResource HeadLine}"/>
+				<LineBreak/>
+				<Run Text="Es wird abwechseld gezogen bis ein Gewinner ermittelt ist."/>
+				<Run Text="Ist ein Spieler an der Reihe muss er eine von 2 Aktionen ausführen. Entweder muss die Figur bewegt werden, oder ein Wand-Element platziert werden."/>
+				<Run Text="Hat der Spieler kein Wand-Element mehr übrig, muss er die Figur ziehen."/>
+				<LineBreak/>
+				<Run Text="Eine Figur kann immer nur 1 Feld weit in eine Richtungen (horizontal oder vertikal) bewegt werden."/>
+				<Run Text="Jedoch nicht diagonal, nicht über ein Wand-Element und auch nicht aus dem Spielfeld heraus."/>			
+				<Run Text="Beim Setzen der Wand-Elemente ist zu beachten, dass sich diese immer zwischen den Feldern befinden müssen, sich nicht überschneiden dürfen, nicht aus dem Brett herausragen dürfen und dem Gegner immer ein Weg zu einem Zielfeld offen gehalten werden muss."/>
+				<Run Text=""/>
+				<Run Text=""/>
+				<LineBreak/>
+				<LineBreak/>
+				<Run Text="Sonderregeln zur Bewegung" Style="{StaticResource HeadLine}"/>
+				<LineBreak/>
+				<Run Text="Stehen die Figuren der Spieler in benachbarten Feldern, sodass der, der am Zug ist, auf das Feld des anderen ziehen könnte (Bild 2), kann dieser den Gegner überspringen."/>
+				<Run Text="Ist dieses Feld jedoch nicht begehbar (weil es nicht exitiert oder eine Wand im weg ist), sind die Felder links und rechts des zu überspringenden Gegners potenzielle Zielfelder."/>
+				<Run Text="Aber auch diese sind nur erreichbar, wenn keine Wand-Elemente den Weg versperren."/>
+				<Run Text="Die Bilder 3 und 4 zeigen entsprechende Szenarien mit den jeweils möglichen Sprungpositionen."/>
+			
+			</TextBlock>
+
+		</Grid>
+	</ScrollViewer>
 </UserControl>
 
