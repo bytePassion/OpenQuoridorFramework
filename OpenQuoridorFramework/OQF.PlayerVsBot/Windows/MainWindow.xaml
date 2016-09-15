@@ -64,8 +64,7 @@
 					</Button>
 
 					<ComboBox Margin="4,0"
-							  DockPanel.Dock="Right"
-							  Name="CList"
+							  DockPanel.Dock="Right"							  
 							  ItemsSource="{Binding AvailableCountryCodes}"
 							  SelectedItem="{Binding SelectedCountryCode, 
 													 Mode=TwoWay, 
