@@ -2,16 +2,60 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resources="clr-namespace:OQF.Info.Resources"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-	
-    <Grid Background="White">
-        
-		<TextBlock Text="About"
-				   HorizontalAlignment="Center"
-				   VerticalAlignment="Center"
-				   FontSize="30"/>
-		
-    </Grid>
+           d:DesignHeight="1500" d:DesignWidth="1100">
+
+	<UserControl.Resources>
+
+		<Style x:Key="TextStyle" TargetType="Run">
+			<Setter Property="Foreground" Value="{x:Static resources:TextStyle.TextColor}"/>
+		</Style>
+
+		<Style x:Key="HeadLine" TargetType="Run" BasedOn="{StaticResource TextStyle}">
+			<Setter Property="FontSize" Value="{x:Static resources:TextStyle.ParagraphHeaderFontSize}"/>
+			<Setter Property="FontWeight" Value="{x:Static resources:TextStyle.HeaderFontWeight}"/>
+		</Style>
+
+		<Style x:Key="PageHeadLine" TargetType="Run" BasedOn="{StaticResource HeadLine}">
+			<Setter Property="FontSize" Value="{x:Static resources:TextStyle.PageHeaderFontSize}"/>
+		</Style>
+
+		<Style TargetType="Run" BasedOn="{StaticResource TextStyle}">
+			<Setter Property="FontSize" Value="{x:Static resources:TextStyle.NormalFontSize}"/>
+		</Style>
+
+	</UserControl.Resources>
+
+	<ScrollViewer HorizontalScrollBarVisibility="Disabled"
+				  VerticalScrollBarVisibility="Auto">
+
+		<Grid Background="White">
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+
+			<TextBlock TextWrapping="Wrap"
+					   Margin="5">
+				<Run Text="About OpenQuoridorFramework" Style="{StaticResource PageHeadLine}"/>
+				<LineBreak/>
+				<Run Text="blubb ...."/>
+				<Run Text=""/>			
+				<LineBreak/>
+				<LineBreak/>
+				<Run Text="Flag-Icons" Style="{StaticResource HeadLine}"/>
+				<LineBreak/>
+				<Run Text="Flag icons are made by www.IconDrawer.com."/>
+				
+				
+
+			</TextBlock>
+
+		</Grid>
+	</ScrollViewer>
 </UserControl>
+
+
