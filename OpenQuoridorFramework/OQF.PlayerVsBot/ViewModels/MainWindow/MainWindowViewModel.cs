@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
@@ -12,6 +13,7 @@ using Lib.Utils;
 using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
+using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
 using OQF.Contest.Contracts;
 using OQF.Contest.Contracts.Coordination;
@@ -24,6 +26,7 @@ using OQF.PlayerVsBot.Services;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
+using OQF.PlayerVsBot.Views;
 using OQF.Utils;
 using OQF.Visualization.Resources;
 
@@ -108,6 +111,46 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			DebugMessages.Add(s);
 		}
 
+	    private async void ExecuteWinDialog(string winMessage, Player player, WinningReason winningReason)
+	    {
+	        var view = new WinningDialog
+	        {
+                DataContext = new WinningDialogViewModel(winMessage)
+	        };
+
+	        var dialogResult = await DialogHost.Show(view, "RootDialog");
+
+            if ((bool)dialogResult)
+            {
+                var dialog = new SaveFileDialog()
+                {
+                    Filter = "textFiles |*.txt",
+                    AddExtension = true,
+                    CheckFileExists = false,
+                    OverwritePrompt = true,
+                    ValidateNames = true,
+                    CheckPathExists = true,
+                    CreatePrompt = false,
+                    Title = "Save Game Progress of currently ended game"
+                };
+
+                var result = dialog.ShowDialog();
+
+                if (result.HasValue)
+                {
+                    if (result.Value)
+                    {
+                        var fileText = CreateProgressText.FromBoardState(gameService.CurrentBoardState)
+                                                         .AndAppendWinnerAndReason(player, winningReason);
+
+                        File.WriteAllText(dialog.FileName, fileText);
+                    }
+                }
+            }
+
+            GameStatus = GameStatus.Finished;
+        }
+
 		private void OnWinnerAvailable(Player player, WinningReason winningReason)
 		{
 			StopTimer();
@@ -118,40 +161,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 			var completeMsg = winOrLooseMsg + "\n\nDo you want to Save the Game?";
 
-			var dialogResult = MessageBox.Show(Application.Current.MainWindow, 
-											   completeMsg, 
-											   "Game over", 
-											   MessageBoxButton.YesNo);
-
-			if (dialogResult == MessageBoxResult.Yes)
-			{
-				var dialog = new SaveFileDialog()
-				{
-					Filter = "textFiles |*.txt",
-					AddExtension = true,
-					CheckFileExists = false,
-					OverwritePrompt = true,
-					ValidateNames = true,
-					CheckPathExists = true,
-					CreatePrompt = false,
-					Title = "Save Game Progress of currently ended game"
-				};
-
-				var result = dialog.ShowDialog();
-
-				if (result.HasValue)
-				{
-					if (result.Value)
-					{
-						var fileText = CreateProgressText.FromBoardState(gameService.CurrentBoardState)
-														 .AndAppendWinnerAndReason(player, winningReason);
-
-						File.WriteAllText(dialog.FileName, fileText);
-					}
-				}
-			}
-
-			GameStatus = GameStatus.Finished;			
+		    ExecuteWinDialog(completeMsg, player, winningReason);
+	
 		}
 
 		private void OnNewBoardStateAvailable(BoardState boardState)

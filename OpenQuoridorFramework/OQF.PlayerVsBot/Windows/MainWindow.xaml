@@ -33,7 +33,7 @@
         <converter:BoolToCollapsedVisibilityConverter x:Key="BoolToCollapsedVisibilityConverter" />
     </Window.Resources>
 
-    <materialDesign:DialogHost>
+    <materialDesign:DialogHost Identifier="RootDialog">
         <DockPanel>
             <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                       DockPanel.Dock="Top"
@@ -45,7 +45,7 @@
                             DockPanel.Dock="Left"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             ToolTip="bot dll laden">
-                        <materialDesign:PackIcon Kind="FileImport" />
+                        <materialDesign:PackIcon Kind="OpenInNew" />
                     </Button>
                     <Button Margin="4,0"
                             Command="{Binding Start}"
