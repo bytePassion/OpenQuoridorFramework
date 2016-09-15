@@ -23,8 +23,8 @@ namespace OQF.PlayerVsBot.Behaviors
 										? parentSize.Width 
 										: parentSize.Height;
 
-			AssociatedObject.Height = lengthOfSmalerSide - 32;
-			AssociatedObject.Width  = lengthOfSmalerSide - 32;
+			AssociatedObject.Height = lengthOfSmalerSide - 32 < 0 ? 5 : lengthOfSmalerSide - 32;
+			AssociatedObject.Width  = lengthOfSmalerSide - 32 < 0 ? 5 : lengthOfSmalerSide - 32;
 		}
 	}
 }
