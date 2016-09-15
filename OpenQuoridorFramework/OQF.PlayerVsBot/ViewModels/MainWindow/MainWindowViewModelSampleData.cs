@@ -1,9 +1,11 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
+using OQF.Visualization.Resources;
 
 #pragma warning disable 0067
 
@@ -31,6 +33,14 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 				"2. e3 e7"
 			};			
 
+			AvailableCountryCodes = new ObservableCollection<string>
+			{
+				"de",
+				"en"
+			};
+
+			SelectedCountryCode = AvailableCountryCodes.First();
+
 			TopPlayerName    = "PlayerOben";
 			TopPlayerRestTime = "36";		
 
@@ -57,6 +67,9 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		public ObservableCollection<string> DebugMessages  { get; }
 		public ObservableCollection<string> GameProgress   { get; }
+
+		public ObservableCollection<string> AvailableCountryCodes { get; }
+		public string SelectedCountryCode { get; set; }
 
 		public bool IsAutoScrollProgressActive { get; set; }
 		public bool IsAutoScrollDebugMsgActive { get; set; }

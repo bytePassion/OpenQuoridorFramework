@@ -20,6 +20,9 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		ObservableCollection<string> DebugMessages { get; } 
 		ObservableCollection<string> GameProgress  { get; }				
 
+		ObservableCollection<string> AvailableCountryCodes { get; }
+		string SelectedCountryCode { get; set; }
+
 		bool IsAutoScrollProgressActive { get; set; }
 		bool IsAutoScrollDebugMsgActive { get; set; }
 

@@ -10,6 +10,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:OQF.PlayerVsBot.Views"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         Title="MainWindow"
         Width="1200"
         Height="950"
@@ -28,6 +29,7 @@
     <Window.Resources>
         <computation:TopPlayerMarkerColor x:Key="TopPlayerMarkerColor" />
         <computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
+		<computation:GetFlagImageFromCountryCode x:Key="GetFlagImageFromCountryCode"/>
         <converter:BoolToCollapsedVisibilityConverter x:Key="BoolToCollapsedVisibilityConverter" />
     </Window.Resources>
 
@@ -53,13 +55,38 @@
                         <materialDesign:PackIcon Kind="Play" />
                     </Button>
 
-                    <Button Margin="4,0"
+					<Button Margin="4,0"
                             Command="{Binding ShowAboutHelp}"
                             DockPanel.Dock="Right"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             ToolTip="About + Hilfe">
-                        <materialDesign:PackIcon Kind="Help" />
-                    </Button>
+						<materialDesign:PackIcon Kind="Help" />
+					</Button>
+
+					<ComboBox Margin="4,0"
+							  DockPanel.Dock="Right"
+							  Name="CList"
+							  ItemsSource="{Binding AvailableCountryCodes}"
+							  SelectedItem="{Binding SelectedCountryCode, 
+													 Mode=TwoWay, 
+													 UpdateSourceTrigger=PropertyChanged}">
+
+						<ComboBox.Resources>
+							<system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">0</system:Double>
+						</ComboBox.Resources>
+
+						<ComboBox.ItemTemplate>
+							<DataTemplate DataType="system:String">
+								<Image Source="{Binding Converter={StaticResource GetFlagImageFromCountryCode}}"
+									   Height="25"
+									   Width="40"/>
+							</DataTemplate>
+						</ComboBox.ItemTemplate>
+												
+
+					</ComboBox>
+					
+                   
                     <StackPanel HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 DockPanel.Dock="Left"

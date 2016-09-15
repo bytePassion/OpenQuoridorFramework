@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
@@ -24,6 +25,7 @@ using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
 using OQF.Utils;
+using OQF.Visualization.Resources;
 
 namespace OQF.PlayerVsBot.ViewModels.MainWindow
 {
@@ -55,8 +57,10 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			BoardPlacementViewModel = boardPlacementViewModel;
 			BoardViewModel = boardViewModel;
 			DebugMessages  = new ObservableCollection<string>();
-			GameProgress   = new ObservableCollection<string>();			
-			
+			GameProgress   = new ObservableCollection<string>();
+			AvailableCountryCodes = new ObservableCollection<string>(Languages.AvailableCountryCodes());
+			SelectedCountryCode = AvailableCountryCodes.First();
+
 			gameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameService.WinnerAvailable        += OnWinnerAvailable;
 			gameService.NewDebugMsgAvailable   += OnNewDebugMsgAvailable;
@@ -212,6 +216,10 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		public ObservableCollection<string> DebugMessages { get; }
 		public ObservableCollection<string> GameProgress  { get; }
+
+		public ObservableCollection<string> AvailableCountryCodes { get; }
+
+		public string SelectedCountryCode { get; set; } // TODO;
 
 		public bool IsAutoScrollProgressActive
 		{

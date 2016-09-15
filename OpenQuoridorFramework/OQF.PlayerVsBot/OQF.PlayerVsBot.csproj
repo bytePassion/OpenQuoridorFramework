@@ -76,6 +76,7 @@
     <Compile Include="Computation\ComputeWallHeight.cs" />
     <Compile Include="Computation\ComputeWallLeftPosition.cs" />
     <Compile Include="Computation\ComputeWallTopPosition.cs" />
+    <Compile Include="Computation\GetFlagImageFromCountryCode.cs" />
     <Compile Include="Computation\PlayerColor.cs" />
     <Compile Include="Computation\ComputeWallWidth.cs" />
     <Compile Include="Computation\TopPlayerMarkerColor.cs" />
@@ -207,6 +208,10 @@
     <ProjectReference Include="..\Lib.Wpf\Lib.Wpf.csproj">
       <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
       <Name>Lib.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Visualization.Resources.csproj">
+      <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
+      <Name>OQF.Visualization.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
