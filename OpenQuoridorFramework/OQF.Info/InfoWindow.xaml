@@ -9,7 +9,9 @@
         xmlns:panels="clr-namespace:Lib.Wpf.Panels;assembly=Lib.Wpf"
         mc:Ignorable="d" 
 	    WindowStyle="ToolWindow"
-		WindowStartupLocation="CenterOwner"
+		WindowStartupLocation="CenterOwner"		
+		MinWidth="800"
+		MinHeight="400"
         d:DesignHeight="700" d:DesignWidth="700">
 	
 	<d:DesignData.DataContext>

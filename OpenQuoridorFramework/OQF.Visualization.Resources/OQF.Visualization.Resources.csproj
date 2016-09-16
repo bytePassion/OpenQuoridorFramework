@@ -47,6 +47,17 @@
     <Resource Include="FlagIcons\de.png" />
     <Resource Include="FlagIcons\en.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="InfoImages\Board1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="InfoImages\Board2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="InfoImages\Board3.png" />
+    <Resource Include="InfoImages\Board4.png" />
+    <Resource Include="InfoImages\Board5.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

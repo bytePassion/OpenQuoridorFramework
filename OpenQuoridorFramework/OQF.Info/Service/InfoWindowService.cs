@@ -13,7 +13,9 @@ namespace OQF.Info.Service
 			var infoWindow = new InfoWindow
 			{
 				DataContext = infoWindowViewModel,
-				Owner = Application.Current.MainWindow
+				Owner  = Application.Current.MainWindow,
+				Height = Application.Current.MainWindow.Height,
+				Width  = Application.Current.MainWindow.Width
 			};
 
 			infoWindow.ShowDialog();
