@@ -96,7 +96,7 @@
                             <Run Text="Ein Spielzug bei dem die Figur bewegt wird, wird lediglich durch das Feld notiert auf das der Spieler zieht."/>				
 							<Run Text="Bewegt ein Spieler beispielsweise seine Figur von c3 nach c4 wird dies als 'c4' notiert."/>
 						</TextBlock>
-						
+
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
                             <Run Text="Spielzug (Wand)" />
 
@@ -128,15 +128,6 @@
 				</materialDesign:Card>
 
 			</StackPanel>
-
-
-
-
-			<!--<TextBlock TextWrapping="Wrap"
-					   Margin="5">
-				
-			
-			</TextBlock>-->
 
 		</Grid>
 	</ScrollViewer>

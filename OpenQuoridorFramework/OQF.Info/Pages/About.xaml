@@ -4,58 +4,123 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:resources="clr-namespace:OQF.Info.Resources"
-             mc:Ignorable="d" 
-           d:DesignHeight="1500" d:DesignWidth="1100">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="900"
+             d:DesignWidth="900"
+             mc:Ignorable="d"
+			 Background="LightSteelBlue">
 
-	<UserControl.Resources>
+	<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
 
-		<Style x:Key="TextStyle" TargetType="Run">
-			<Setter Property="Foreground" Value="{x:Static resources:TextStyle.TextColor}"/>
-		</Style>
+		<Grid>
 
-		<Style x:Key="HeadLine" TargetType="Run" BasedOn="{StaticResource TextStyle}">
-			<Setter Property="FontSize" Value="{x:Static resources:TextStyle.ParagraphHeaderFontSize}"/>
-			<Setter Property="FontWeight" Value="{x:Static resources:TextStyle.HeaderFontWeight}"/>
-		</Style>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="70"/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
 
-		<Style x:Key="PageHeadLine" TargetType="Run" BasedOn="{StaticResource HeadLine}">
-			<Setter Property="FontSize" Value="{x:Static resources:TextStyle.PageHeaderFontSize}"/>
-		</Style>
+			
 
-		<Style TargetType="Run" BasedOn="{StaticResource TextStyle}">
-			<Setter Property="FontSize" Value="{x:Static resources:TextStyle.NormalFontSize}"/>
-		</Style>
-
-	</UserControl.Resources>
-
-	<ScrollViewer HorizontalScrollBarVisibility="Disabled"
-				  VerticalScrollBarVisibility="Auto">
-
-		<Grid Background="White">
-
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="2*"/>
-				<ColumnDefinition/>
-			</Grid.ColumnDefinitions>
-
-			<TextBlock TextWrapping="Wrap"
-					   Margin="5">
-				<Run Text="About OpenQuoridorFramework" Style="{StaticResource PageHeadLine}"/>
-				<LineBreak/>
-				<Run Text="blubb ...."/>
-				<Run Text=""/>			
-				<LineBreak/>
-				<LineBreak/>
-				<Run Text="Flag-Icons" Style="{StaticResource HeadLine}"/>
-				<LineBreak/>
-				<Run Text="Flag icons are made by www.IconDrawer.com."/>
-				
-				
-
+			<TextBlock Margin="16,0,0,0" 
+					Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+					FontSize="35">
+                    <Run Text="About OpenQuoridorFramework" />
 			</TextBlock>
+
+		
+
+			<StackPanel Grid.Column="0"
+						Grid.Row="1">
+
+				<materialDesign:Card Margin="8"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                            <Run Text="Applikation" />
+						</TextBlock>
+						<TextBlock Margin="20,0,0,0"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Player Vs. Bot"/>
+						</TextBlock>
+					</StackPanel>
+
+				</materialDesign:Card>
+				
+				<materialDesign:Card Margin="8,0"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                            <Run Text="Version" />
+						</TextBlock>
+						<TextBlock Margin="20,0,0,0"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="1.0.0.0"/>
+						</TextBlock>
+					</StackPanel>
+
+				</materialDesign:Card>
+
+				<materialDesign:Card Margin="8"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                            <Run Text="Autoren" />
+						</TextBlock>
+						<TextBlock Margin="20,0,0,0"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Matthias Drescher"/>
+							<LineBreak/>
+							<Run Text="Alexander Horn"></Run>
+						</TextBlock>
+					</StackPanel>
+
+				</materialDesign:Card>
+
+				<materialDesign:Card Margin="8,0"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                            <Run Text="3rd Party" />
+						</TextBlock>
+						<TextBlock Margin="20,0,0,0"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Flag-Icons from"/>
+							<Run Text="www.icondrawer.com"/>
+						</TextBlock>
+					</StackPanel>
+
+				</materialDesign:Card>
+
+				<materialDesign:Card Margin="8"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                            <Run Text="Quoridor" />
+						</TextBlock>
+						<TextBlock Margin="20,0,0,0"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Erfinder:&#x09;Mirko Marchesi"/>
+							<LineBreak/>
+							<Run Text="Verlag:&#x09;Gigamic"/>
+
+						</TextBlock>
+					</StackPanel>
+
+				</materialDesign:Card>
+
+			</StackPanel>
+
 
 		</Grid>
 	</ScrollViewer>
 </UserControl>
-
-
