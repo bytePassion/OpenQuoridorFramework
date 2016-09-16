@@ -7,11 +7,12 @@
              xmlns:resources="clr-namespace:OQF.Info.Resources"			
              d:DesignHeight="900"
              d:DesignWidth="900"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+			 Background="LightSteelBlue">
 
 	<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
 
-		<Grid Background="White">
+		<Grid >
 
 			<Grid.RowDefinitions>
 				<RowDefinition Height="70"/>
@@ -177,15 +178,6 @@
 				</materialDesign:Card>
 
 			</StackPanel>
-
-
-
-
-			<!--<TextBlock TextWrapping="Wrap"
-					   Margin="5">
-				
-			
-			</TextBlock>-->
 
 		</Grid>
 	</ScrollViewer>
