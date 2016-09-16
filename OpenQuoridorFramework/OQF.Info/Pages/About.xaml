@@ -74,9 +74,9 @@
 						<TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-                            <Run Text="Matthias Drescher"/>
+                            <Run Text="Matthias Drescher&#x09;&#x09;[matthias.drescher@bytePassion.de]"/>
 							<LineBreak/>
-							<Run Text="Alexander Horn"></Run>
+							<Run Text="Alexander Horn&#x09;&#x09;[alexander.horn@bytePassion.de]"></Run>
 						</TextBlock>
 					</StackPanel>
 
@@ -112,7 +112,22 @@
                             <Run Text="Erfinder:&#x09;Mirko Marchesi"/>
 							<LineBreak/>
 							<Run Text="Verlag:&#x09;Gigamic"/>
+						</TextBlock>
+					</StackPanel>
 
+				</materialDesign:Card>
+
+				<materialDesign:Card Margin="8,0"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                            <Run Text="Lizenz" />
+						</TextBlock>
+						<TextBlock Margin="20,0,0,0"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Apache 2.0"/>
 						</TextBlock>
 					</StackPanel>
 
