@@ -9,8 +9,8 @@
         xmlns:mainWindow="clr-namespace:OQF.PlayerVsBot.ViewModels.MainWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="clr-namespace:OQF.PlayerVsBot.Views"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:views="clr-namespace:OQF.PlayerVsBot.Views"
         Title="MainWindow"
         Width="1200"
         Height="950"
@@ -29,7 +29,7 @@
     <Window.Resources>
         <computation:TopPlayerMarkerColor x:Key="TopPlayerMarkerColor" />
         <computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
-		<computation:GetFlagImageFromCountryCode x:Key="GetFlagImageFromCountryCode"/>
+        <computation:GetFlagImageFromCountryCode x:Key="GetFlagImageFromCountryCode" />
         <converter:BoolToCollapsedVisibilityConverter x:Key="BoolToCollapsedVisibilityConverter" />
     </Window.Resources>
 
@@ -55,37 +55,43 @@
                         <materialDesign:PackIcon Kind="Play" />
                     </Button>
 
-					<Button Margin="4,0"
+                    <Button Margin="4,0"
                             Command="{Binding ShowAboutHelp}"
                             DockPanel.Dock="Right"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             ToolTip="About + Hilfe">
-						<materialDesign:PackIcon Kind="Help" />
-					</Button>
+                        <materialDesign:PackIcon Kind="Help" />
+                    </Button>
 
-					<ComboBox Margin="4,0"
-							  DockPanel.Dock="Right"							  
-							  ItemsSource="{Binding AvailableCountryCodes}"
-							  SelectedItem="{Binding SelectedCountryCode, 
-													 Mode=TwoWay, 
-													 UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBox Margin="4,0"
+                              DockPanel.Dock="Right"
+                              ItemsSource="{Binding AvailableCountryCodes}"
+                              SelectedValue="{Binding SelectedCountryCode,
+                                                      Mode=TwoWay,
+                                                      UpdateSourceTrigger=PropertyChanged}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource MaterialDesignComboBoxBlank}" TargetType="{x:Type ComboBox}">
+                                <Setter Property="BorderThickness" Value="0 0 0 0" />
 
-						<ComboBox.Resources>
-							<system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">0</system:Double>
-						</ComboBox.Resources>
+                            </Style>
+                        </ComboBox.Style>
+                        <ComboBox.Resources>
+                            <system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">0</system:Double>
+                        </ComboBox.Resources>
 
-						<ComboBox.ItemTemplate>
-							<DataTemplate DataType="system:String">
-								<Image Source="{Binding Converter={StaticResource GetFlagImageFromCountryCode}}"
-									   Height="25"
-									   Width="40"/>
-							</DataTemplate>
-						</ComboBox.ItemTemplate>
-												
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate DataType="system:String">
+                                <Image Width="40"
+                                       Height="25"
+                                       Source="{Binding Converter={StaticResource GetFlagImageFromCountryCode}}" />
 
-					</ComboBox>
-					
-                   
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+
+
+                    </ComboBox>
+
+
                     <StackPanel HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 DockPanel.Dock="Left"
@@ -236,25 +242,25 @@
             </materialDesign:Card>
 
             <GroupBox Width="200"
-                          Margin="16"
-                          DockPanel.Dock="Left"
-                         BorderThickness="0"
-                          Header="Progress"
-                          Style="{DynamicResource MaterialDesignCardGroupBox}">
+                      Margin="16"
+                      BorderThickness="0"
+                      DockPanel.Dock="Left"
+                      Header="Progress"
+                      Style="{DynamicResource MaterialDesignCardGroupBox}">
 
                 <DockPanel>
                     <CheckBox Margin="10,0,0,0"
-                                  HorizontalAlignment="Left"
-                                  VerticalAlignment="Center"
-                                  Content="Auto Scroll down"
-                                  DockPanel.Dock="Top"
-                                  IsChecked="{Binding IsAutoScrollProgressActive,
-                                                      Mode=TwoWay,
-                                                      UpdateSourceTrigger=PropertyChanged}" />
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Content="Auto Scroll down"
+                              DockPanel.Dock="Top"
+                              IsChecked="{Binding IsAutoScrollProgressActive,
+                                                  Mode=TwoWay,
+                                                  UpdateSourceTrigger=PropertyChanged}" />
 
                     <ScrollViewer VerticalContentAlignment="Stretch"
-                                      HorizontalScrollBarVisibility="Auto"
-                                      VerticalScrollBarVisibility="Visible">
+                                  HorizontalScrollBarVisibility="Auto"
+                                  VerticalScrollBarVisibility="Visible">
                         <ItemsControl ItemsSource="{Binding GameProgress}" />
 
                         <i:Interaction.Behaviors>
@@ -267,44 +273,44 @@
 
 
             <GroupBox Width="350"
-                          Margin="16"
-                          DockPanel.Dock="Right"
-                          BorderThickness="0"
-                          Header="Debug"
-                          Style="{DynamicResource MaterialDesignCardGroupBox}">
+                      Margin="16"
+                      BorderThickness="0"
+                      DockPanel.Dock="Right"
+                      Header="Debug"
+                      Style="{DynamicResource MaterialDesignCardGroupBox}">
 
-                    <Grid>
+                <Grid>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30" />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
 
-                        <CheckBox Grid.Row="0"
-                                  Margin="10,0,0,0"
-                                  HorizontalAlignment="Left"
-                                  VerticalAlignment="Center"
-                                  Content="Auto Scroll down"
-                                  IsChecked="{Binding IsAutoScrollDebugMsgActive,
-                                                      Mode=TwoWay,
-                                                      UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Grid.Row="0"
+                              Margin="10,0,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Content="Auto Scroll down"
+                              IsChecked="{Binding IsAutoScrollDebugMsgActive,
+                                                  Mode=TwoWay,
+                                                  UpdateSourceTrigger=PropertyChanged}" />
 
-                        <ScrollViewer Grid.Row="1"
-                                      HorizontalScrollBarVisibility="Auto"
-                                      VerticalScrollBarVisibility="Visible">
-                            <ItemsControl ItemsSource="{Binding DebugMessages}" />
+                    <ScrollViewer Grid.Row="1"
+                                  HorizontalScrollBarVisibility="Auto"
+                                  VerticalScrollBarVisibility="Visible">
+                        <ItemsControl ItemsSource="{Binding DebugMessages}" />
 
-                            <i:Interaction.Behaviors>
-                                <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
-                            </i:Interaction.Behaviors>
-                        </ScrollViewer>
+                        <i:Interaction.Behaviors>
+                            <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
+                        </i:Interaction.Behaviors>
+                    </ScrollViewer>
 
-                    </Grid>
+                </Grid>
 
 
-                </GroupBox>
+            </GroupBox>
 
-      
+
             <Border Margin="5,0"
                     DockPanel.Dock="Top"
                     Padding="0">
@@ -325,9 +331,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" >
-                        
-                    </materialDesign:Card>
+                    <materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />
 
                     <views:BoardHorizontalLabelling Grid.Row="0"
                                                     Grid.Column="1"
