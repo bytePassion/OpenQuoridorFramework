@@ -50,7 +50,7 @@
                         <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-                            <Run Text="Quoridor besteht aus einem Spielfeld mit 9x9 Feldern mit Zwischenräumen (Bild 1), zwei Spielfiguren, die auf den Feldern bewegt werden, und 20 Wand-Elementen, die zwischen den Feldern platziert werden können." />
+                            <Run Text="Quoridor besteht aus einem Spielfeld mit 9x9 Feldern mit Zwischenräumen (Bild 1), zwei Spielfiguren, die auf den Feldern bewegt werden und 20 Wand-Elementen, die in den Zwischenräumen der Felder platziert werden können." />
                             <Run Text="Jeder Spieler erhält eine Spielfigur und 10 Wand-Elemente." />
                             <Run Text="Die Spielfiguren werden auf den Feldern e1 und e9 (siehe Quoridor-Notation) initial platziert." />
                             <Run Text="Der Spieler mit der Figur auf e1 beginnt mit dem ersten Zug." />
@@ -72,9 +72,9 @@
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
                             <Run Text="Es wird abwechseld gezogen bis ein Gewinner ermittelt ist." />
-                            <Run Text="Ist ein Spieler an der Reihe muss er eine von 2 Aktionen ausführen. Entweder muss die Figur bewegt werden, oder ein Wand-Element platziert werden." />
+                            <Run Text="Ist ein Spieler an der Reihe muss er eine von 2 Aktionen ausführen. Entweder muss die Figur bewegt, oder ein Wand-Element platziert werden." />
                             <Run Text="Hat der Spieler kein Wand-Element mehr übrig, muss er die Figur ziehen." />
-                            <Run Text="Eine Figur kann immer nur 1 Feld weit in eine Richtungen (horizontal oder vertikal) bewegt werden." />
+                            <Run Text="Eine Figur kann immer nur 1 Feld weit in eine Richtung (horizontal oder vertikal) bewegt werden." />
                             <Run Text="Jedoch nicht diagonal, nicht über ein Wand-Element und auch nicht aus dem Spielfeld heraus." />
                             <Run Text="Beim Setzen der Wand-Elemente ist zu beachten, dass sich diese immer zwischen den Feldern befinden müssen, sich nicht überschneiden dürfen, nicht aus dem Brett herausragen dürfen und dem Gegner immer ein Weg zu einem Zielfeld offen gehalten werden muss." />
                         </TextBlock>
@@ -85,8 +85,8 @@
                         <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-                            <Run Text="Stehen die Figuren der Spieler in benachbarten Feldern, sodass der, der am Zug ist, auf das Feld des anderen ziehen könnte (Bild 2), kann dieser den Gegner überspringen (Bild 3)." />
-                            <Run Text="Ist dieses Feld jedoch nicht begehbar (weil es nicht exitiert oder eine Wand im weg ist), sind die Felder links und rechts des zu überspringenden Gegners potenzielle Zielfelder." />
+                            <Run Text="Stehen die Figuren der Spieler in benachbarten Feldern, sodass der, der am Zug ist, auf das Feld des Anderen ziehen könnte (Bild 2), kann dieser den Gegner überspringen (Bild 3)." />
+                            <Run Text="Ist jedoch das Feld hinter der Figur nicht begehbar (weil es nicht existiert oder eine Wand im Weg ist), sind die Felder links und rechts des zu überspringenden Gegners potenzielle Zielfelder." />
                             <Run Text="Aber auch diese sind nur erreichbar, wenn keine Wand-Elemente den Weg versperren." />
                             <Run Text="Die Bilder 4 und 5 zeigen entsprechende Szenarien mit den jeweils möglichen Sprungpositionen." />
 

@@ -59,8 +59,8 @@
                         <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-                            <Run Text="Ein Spielzug bei dem die Figur bewegt wird, wird lediglich durch das Feld notiert auf das der Spieler zieht." />
-                            <Run Text="Bewegt ein Spieler beispielsweise seine Figur von c3 nach c4 wird dies als 'c4' notiert." />
+                            <Run Text="Ein Spielzug, bei dem die Figur bewegt wird, wird lediglich durch das Feld notiert, auf das der Spieler zieht." />
+                            <Run Text="Bewegt ein Spieler beispielsweise seine Figur von c3 nach c4 wird dieser Zug als 'c4' notiert." />
                         </TextBlock>
 
                         <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
@@ -71,8 +71,8 @@
                         <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-                            <Run Text="Ein Spielzug bei dem ein Wand-Element platziert wird, wird durch eine eindeutige Positionsangabe des neuen Wand-Elements festgehalten." />
-                            <Run Text="Eine Wand muss sich immer zwischen vier Feldern befinden. Folglich reicht es aus eines dieser vier Felder und die Ausrichtung der Wand zu notieren." />
+                            <Run Text="Ein Spielzug, bei dem ein Wand-Element platziert wird, wird durch eine eindeutige Positionsangabe des neuen Wand-Elements festgehalten." />
+                            <Run Text="Eine Wand muss sich immer zwischen vier Feldern befinden. Folglich reicht es aus, eines dieser vier Felder und die Ausrichtung der Wand zu notieren." />
                             <Run Text="Bei der hier festgelegten Notation wird dazu das Feld links oben verwendet." />
                             <Run Text="Die Ausrichtungen werden durch ein 'h' für 'horizontal' und ein 'v' für 'vertikal' abgekürzt." />
                         </TextBlock>
@@ -85,8 +85,8 @@
                         <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-                            <Run Text="Nach der oben beschriebenen Notation befinden sich sich die Figuren in Bild 2 auf den Positionen 'c3' und 'e8'." />
-                            <Run Text="Und die beiden Wand-Elemente werden als 'd4h' und 'f8v' notiert." />
+                            <Run Text="Nach der oben beschriebenen Notation befinden sich die Figuren in Bild 2 auf den Positionen 'c3' und 'e8'." />
+                            <Run Text="Die beiden Wand-Elemente werden als 'd4h' und 'f8v' notiert." />
                         </TextBlock>
 
                     </StackPanel>
