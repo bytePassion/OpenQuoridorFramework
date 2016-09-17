@@ -14,7 +14,7 @@
         Title="MainWindow"
         Width="1200"
         Height="950"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="{DynamicResource MaterialDesignFlatButtonClick}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         TextElement.FontSize="12"
         TextElement.FontWeight="Medium"
@@ -106,7 +106,7 @@
                 </DockPanel>
             </materialDesign:ColorZone>
 
-            <materialDesign:Card Margin="5"
+            <materialDesign:Card Margin="8"
                                  DockPanel.Dock="Top"
                                  Padding="8">
 
@@ -183,7 +183,7 @@
 
             </materialDesign:Card>
 
-            <materialDesign:Card Margin="5"
+            <materialDesign:Card Margin="8"
                                  DockPanel.Dock="Bottom"
                                  Padding="8">
 
@@ -235,25 +235,15 @@
 
             </materialDesign:Card>
 
-            <Expander DockPanel.Dock="Left"
-                      ExpandDirection="Right"
-                      IsExpanded="True">
-                <Expander.Header>
-                    <TextBlock RenderTransformOrigin=".5,.5" Text="Progress">
-                        <TextBlock.LayoutTransform>
-                            <RotateTransform Angle="90" />
-                        </TextBlock.LayoutTransform>
-                    </TextBlock>
-                </Expander.Header>
-                <GroupBox Width="200"
-                          Margin="5"
-                          materialDesign:ShadowAssist.ShadowDepth="Depth2"
-                          BorderThickness="0"
+            <GroupBox Width="200"
+                          Margin="16"
+                          DockPanel.Dock="Left"
+                         BorderThickness="0"
                           Header="Progress"
-                          Style="{DynamicResource MaterialDesignGroupBox}">
+                          Style="{DynamicResource MaterialDesignCardGroupBox}">
 
-                    <DockPanel>
-                        <CheckBox Margin="10,0,0,0"
+                <DockPanel>
+                    <CheckBox Margin="10,0,0,0"
                                   HorizontalAlignment="Left"
                                   VerticalAlignment="Center"
                                   Content="Auto Scroll down"
@@ -262,36 +252,26 @@
                                                       Mode=TwoWay,
                                                       UpdateSourceTrigger=PropertyChanged}" />
 
-                        <ScrollViewer VerticalContentAlignment="Stretch"
+                    <ScrollViewer VerticalContentAlignment="Stretch"
                                       HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Visible">
-                            <ItemsControl ItemsSource="{Binding GameProgress}" />
+                        <ItemsControl ItemsSource="{Binding GameProgress}" />
 
-                            <i:Interaction.Behaviors>
-                                <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
-                            </i:Interaction.Behaviors>
-                        </ScrollViewer>
-                    </DockPanel>
+                        <i:Interaction.Behaviors>
+                            <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
+                        </i:Interaction.Behaviors>
+                    </ScrollViewer>
+                </DockPanel>
 
-                </GroupBox>
-            </Expander>
+            </GroupBox>
 
-            <Expander DockPanel.Dock="Right"
-                      ExpandDirection="Left"
-                      IsExpanded="False">
-                <Expander.Header>
-                    <TextBlock RenderTransformOrigin=".5,.5" Text="Debug">
-                        <TextBlock.LayoutTransform>
-                            <RotateTransform Angle="-90" />
-                        </TextBlock.LayoutTransform>
-                    </TextBlock>
-                </Expander.Header>
-                <GroupBox Width="350"
-                          Margin="5"
-                          materialDesign:ShadowAssist.ShadowDepth="Depth2"
+
+            <GroupBox Width="350"
+                          Margin="16"
+                          DockPanel.Dock="Right"
                           BorderThickness="0"
                           Header="Debug"
-                          Style="{DynamicResource MaterialDesignGroupBox}">
+                          Style="{DynamicResource MaterialDesignCardGroupBox}">
 
                     <Grid>
 
@@ -324,8 +304,7 @@
 
                 </GroupBox>
 
-            </Expander>
-
+      
             <Border Margin="5,0"
                     DockPanel.Dock="Top"
                     Padding="0">
@@ -345,6 +324,10 @@
                         <ColumnDefinition Width="40" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
+
+                    <materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" >
+                        
+                    </materialDesign:Card>
 
                     <views:BoardHorizontalLabelling Grid.Row="0"
                                                     Grid.Column="1"
