@@ -16,9 +16,12 @@ namespace Lib.FrameworkExtension
 			handler?.Invoke(sender, new PropertyChangedEventArgs(propertyName));
 		}
 
-		public static void Notify (this PropertyChangedEventHandler handler, object sender, string propertyName)
+		public static void Notify (this PropertyChangedEventHandler handler, object sender, params string[] propertyNames)
 		{
-			handler?.Invoke(sender, new PropertyChangedEventArgs(propertyName));
+			foreach (var propertyName in propertyNames)
+			{
+				handler?.Invoke(sender, new PropertyChangedEventArgs(propertyName));
+			}			
 		}
 	}
 }
