@@ -1,0 +1,175 @@
+﻿<UserControl x:Class="OQF.Visualization.Common.Pages.QuoridorRules"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="900"
+             d:DesignWidth="900"
+             mc:Ignorable="d">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+
+        <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="400" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Margin="16,0,0,0"
+                       FontSize="35"
+                       Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                <Run Text="Quoridor - Spielregeln" />
+            </TextBlock>
+
+            <StackPanel Grid.Row="1" Grid.Column="0">
+
+                <materialDesign:Card Margin="8,0,0,0"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                            <Run Text="Allgemein" />
+                        </TextBlock>
+                        <TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Quoridor ist ein abstraktes Strategiespiel für 2 oder 4 Spieler." />
+                            <Run Text="Im OpenQuoridorFramework wird nur das 2-Spieler-Spiel betrachtet, weswegen hier auch nur die Regeln für diese Variante aufgeführt werden." />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                            <Run Text="Spielaufbau" />
+                        </TextBlock>
+                        <TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Quoridor besteht aus einem Spielfeld mit 9x9 Feldern mit Zwischenräumen (Bild 1), zwei Spielfiguren, die auf den Feldern bewegt werden und 20 Wand-Elementen, die in den Zwischenräumen der Felder platziert werden können." />
+                            <Run Text="Jeder Spieler erhält eine Spielfigur und 10 Wand-Elemente." />
+                            <Run Text="Die Spielfiguren werden auf den Feldern e1 und e9 (siehe Quoridor-Notation) initial platziert." />
+                            <Run Text="Der Spieler mit der Figur auf e1 beginnt mit dem ersten Zug." />
+                        </TextBlock>
+
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"><Run Text="Ziel des Spiels" /></TextBlock>
+
+                        <TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Das Spiel endet sofort, wenn ein Spieler eines der 9 gegenüberliegenden Felder betritt. Dieser Spieler gewinnt." />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                            <Run Text="Ablauf" />
+
+                        </TextBlock>
+
+                        <TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Es wird abwechseld gezogen bis ein Gewinner ermittelt ist." />
+                            <Run Text="Ist ein Spieler an der Reihe muss er eine von 2 Aktionen ausführen. Entweder muss die Figur bewegt, oder ein Wand-Element platziert werden." />
+                            <Run Text="Hat der Spieler kein Wand-Element mehr übrig, muss er die Figur ziehen." />
+                            <Run Text="Eine Figur kann immer nur 1 Feld weit in eine Richtung (horizontal oder vertikal) bewegt werden." />
+                            <Run Text="Jedoch nicht diagonal, nicht über ein Wand-Element und auch nicht aus dem Spielfeld heraus." />
+                            <Run Text="Beim Setzen der Wand-Elemente ist zu beachten, dass sich diese immer zwischen den Feldern befinden müssen, sich nicht überschneiden dürfen, nicht aus dem Brett herausragen dürfen und dem Gegner immer ein Weg zu einem Zielfeld offen gehalten werden muss." />
+                        </TextBlock>
+
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                            <Run Text="Sonderregeln zur Bewegung" />
+                        </TextBlock>
+                        <TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Stehen die Figuren der Spieler in benachbarten Feldern, sodass der, der am Zug ist, auf das Feld des Anderen ziehen könnte (Bild 2), kann dieser den Gegner überspringen (Bild 3)." />
+                            <Run Text="Ist jedoch das Feld hinter der Figur nicht begehbar (weil es nicht existiert oder eine Wand im Weg ist), sind die Felder links und rechts des zu überspringenden Gegners potenzielle Zielfelder." />
+                            <Run Text="Aber auch diese sind nur erreichbar, wenn keine Wand-Elemente den Weg versperren." />
+                            <Run Text="Die Bilder 4 und 5 zeigen entsprechende Szenarien mit den jeweils möglichen Sprungpositionen." />
+
+                        </TextBlock>
+                    </StackPanel>
+
+                </materialDesign:Card>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1">
+
+                <materialDesign:Card Margin="20,0">
+                    <StackPanel>
+                        <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board1.png" />
+                        <TextBlock Margin="6"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Bild 1" />
+
+                        </TextBlock>
+                    </StackPanel>
+                </materialDesign:Card>
+
+                <StackPanel Margin="40,10" Orientation="Horizontal">
+
+                    <materialDesign:Card Width="150" Margin="0,0,0,0">
+                        <StackPanel>
+                            <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board2.png" />
+                            <TextBlock Margin="6"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                       TextWrapping="Wrap">
+                                <Run Text="Bild 2" />
+
+                            </TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Width="150" Margin="10,0,-10,0">
+                        <StackPanel>
+                            <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board3.png" />
+                            <TextBlock Margin="6"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                       TextWrapping="Wrap">
+                                <Run Text="Bild 3" />
+
+                            </TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                </StackPanel>
+
+                <StackPanel Margin="40,0" Orientation="Horizontal">
+
+                    <materialDesign:Card Width="150" Margin="0,0,0,0">
+                        <StackPanel>
+                            <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board4.png" />
+                            <TextBlock Margin="6"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                       TextWrapping="Wrap">
+                                <Run Text="Bild 4" />
+
+                            </TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Width="150" Margin="10,0,-10,0">
+                        <StackPanel>
+                            <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board5.png" />
+                            <TextBlock Margin="6"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                       TextWrapping="Wrap">
+                                <Run Text="Bild 5" />
+
+                            </TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                </StackPanel>
+
+
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>
+

@@ -9,11 +9,11 @@ using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
 using OQF.Contest.Contracts.GameElements;
-using OQF.Info.Enum;
-using OQF.Info.Service;
 using OQF.ReplayViewer.Services;
 using OQF.ReplayViewer.ViewModels.Board;
 using OQF.Utils;
+using OQF.Visualization.Common.Enum;
+using OQF.Visualization.Common.Service;
 
 namespace OQF.ReplayViewer.ViewModels.MainWindow
 {

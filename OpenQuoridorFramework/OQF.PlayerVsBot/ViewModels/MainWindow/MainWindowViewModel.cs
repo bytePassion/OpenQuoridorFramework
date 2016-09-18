@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
@@ -20,14 +19,14 @@ using OQF.Contest.Contracts.Coordination;
 using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Contracts;
-using OQF.Info.Enum;
-using OQF.Info.Service;
 using OQF.PlayerVsBot.Services;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
 using OQF.PlayerVsBot.Views;
 using OQF.Utils;
+using OQF.Visualization.Common.Enum;
+using OQF.Visualization.Common.Service;
 using OQF.Visualization.Resources;
 
 namespace OQF.PlayerVsBot.ViewModels.MainWindow

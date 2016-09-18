@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.PlayerVsBot", "OQF.PlayerVsBot\OQF.PlayerVsBot.csproj", "{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}"
 EndProject
@@ -43,7 +43,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Utils", "OQF.Utils\OQF.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.ReplayViewer", "OQF.ReplayViewer\OQF.ReplayViewer.csproj", "{BC482C0B-D6F1-42E4-BAEC-85FD819D86E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Info", "OQF.Info\OQF.Info.csproj", "{8F773744-6FE4-49C2-8651-E6F29EC828FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Visualization.Common", "OQF.Visualization.Common\OQF.Visualization.Common.csproj", "{8F773744-6FE4-49C2-8651-E6F29EC828FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Visualization.Resources", "OQF.Visualization.Resources\OQF.Visualization.Resources.csproj", "{03EE53DA-74C5-4883-98F0-BF2618EBDF93}"
 EndProject

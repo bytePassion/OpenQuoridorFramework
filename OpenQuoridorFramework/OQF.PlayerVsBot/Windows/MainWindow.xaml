@@ -99,7 +99,7 @@
 						<ComboBox.ItemTemplate>
 							<DataTemplate DataType="system:String">
 								<Image Width="40"
-                                       Height="25"
+                                       Height="25"									   
                                        Source="{Binding Converter={StaticResource GetFlagImageFromCountryCode}}" />
 
 							</DataTemplate>
