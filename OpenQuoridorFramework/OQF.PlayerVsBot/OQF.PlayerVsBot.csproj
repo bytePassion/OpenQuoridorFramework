@@ -80,11 +80,11 @@
     <Compile Include="Computation\ComputeWallWidth.cs" />
     <Compile Include="Computation\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
+    <Compile Include="Services\SettingsRepository\ApplicationSettingsRepository.cs" />
     <Compile Include="Services\BotLoader.cs" />
     <Compile Include="Services\GameService.cs" />
+    <Compile Include="Services\SettingsRepository\IApplicationSettingsRepository.cs" />
     <Compile Include="Services\IGameService.cs" />
-    <Compile Include="Services\ILastUsedBotService.cs" />
-    <Compile Include="Services\LastUsedBotService.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
     <Compile Include="ViewModels\BoardPlacement\IBoardPlacementViewModel.cs" />
