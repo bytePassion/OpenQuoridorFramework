@@ -79,10 +79,12 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			IsAutoScrollDebugMsgActive = true;
 			IsAutoScrollProgressActive = true;
 
-			BrowseDll = new Command(DoBrowseDll);
+			BrowseDll = new Command(DoBrowseDll,
+								    () => GameStatus != GameStatus.Active,
+									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
 			Start = new Command(DoStart,
-								() => GameStatus != GameStatus.Active,
-								new PropertyChangedCommandUpdater(this, nameof(GameStatus)));							
+								() => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
+								new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));							
 			Capitulate = new Command(DoCapitulate,
 									 IsMoveApplyable,
 									 new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
