@@ -264,7 +264,7 @@
 
 			<materialDesign:Card Grid.Row="2"
 								 Grid.Column="0"
-								 Margin="10,0,0,0"
+								 Margin="8,0,0,0"
 								 VerticalAlignment="Stretch">
 
 				<Expander ExpandDirection="Right"
@@ -312,7 +312,7 @@
 			<materialDesign:Card Grid.Row="2"
 								 Grid.Column="2"
 								 VerticalAlignment="Stretch"
-								 Margin="0,0,10,0">
+								 Margin="0,0,8,0">
 
 				<Expander DockPanel.Dock="Right"
                       ExpandDirection="Left"
