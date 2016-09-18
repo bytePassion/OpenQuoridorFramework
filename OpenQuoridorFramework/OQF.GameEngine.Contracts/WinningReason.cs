@@ -5,7 +5,7 @@
 		RegularQuoridorWin,
 		Capitulation,
 		InvalidMove,
-		AiThougtMoreThanAnMinute,
-		MaximumOfMovesExceded
+		ExceedanceOfThoughtTime,
+		ExceedanceOfMaxMoves
 	}
 }

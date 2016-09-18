@@ -25,11 +25,11 @@ namespace OQF.PlayerVsBot.ViewModels.WinningDialog
 	    {
 		    switch (winningReason)
 		    {
-			    case WinningReason.Capitulation: return Captions.WinningReason_Capitulation;
-				case WinningReason.AiThougtMoreThanAnMinute: return Captions.WinningReason_BotExceededThoughtTime;
-				case WinningReason.InvalidMove: return Captions.WinningReason_InvalidMode;
-				case WinningReason.MaximumOfMovesExceded: return Captions.WinningReason_ExceedanceOfMaxMoves;
-				case WinningReason.RegularQuoridorWin: return Captions.WinningReason_RegularQuoridorWin;			    
+			    case WinningReason.Capitulation:            return Captions.WinningReason_Capitulation;				
+				case WinningReason.InvalidMove:             return Captions.WinningReason_InvalidMode;
+				case WinningReason.ExceedanceOfMaxMoves:    return Captions.WinningReason_ExceedanceOfMaxMoves;
+				case WinningReason.ExceedanceOfThoughtTime: return Captions.WinningReason_ExceedanceOfThoughtTime;
+				case WinningReason.RegularQuoridorWin:      return Captions.WinningReason_RegularQuoridorWin;			    
 		    }
 
 		    return "";

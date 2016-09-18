@@ -214,15 +214,6 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The bot exceeded its thought-time.
-        /// </summary>
-        public static string WinningReason_BotExceededThoughtTime {
-            get {
-                return ResourceManager.GetString("WinningReason_BotExceededThoughtTime", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Capitulation.
         /// </summary>
         public static string WinningReason_Capitulation {
@@ -232,11 +223,20 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The maximum of allowed moved where exceeded.
+        ///   Looks up a localized string similar to The maximum of allowed moves was exceeded.
         /// </summary>
         public static string WinningReason_ExceedanceOfMaxMoves {
             get {
                 return ResourceManager.GetString("WinningReason_ExceedanceOfMaxMoves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum thought time was exceeded.
+        /// </summary>
+        public static string WinningReason_ExceedanceOfThoughtTime {
+            get {
+                return ResourceManager.GetString("WinningReason_ExceedanceOfThoughtTime", resourceCulture);
             }
         }
         

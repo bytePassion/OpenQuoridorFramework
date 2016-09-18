@@ -98,7 +98,7 @@ namespace OQF.GameEngine.Game
 			{
 				if (moveCounter >= gameConstraints.MaximalMovesPerPlayer)
 				{
-					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.MaximumOfMovesExceded);
+					WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.ExceedanceOfMaxMoves);
 				}
 
 				var nextBottomPlayerBotMove = GetBottomPlayerBotMove();
@@ -177,7 +177,7 @@ namespace OQF.GameEngine.Game
 
 			if (nextMove is BotsTimeOut)
 			{				
-				WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.AiThougtMoreThanAnMinute);
+				WinnerAvailable?.Invoke(currentBoardState.TopPlayer.Player, WinningReason.ExceedanceOfThoughtTime);
 				return null;
 			}
 				
@@ -199,7 +199,7 @@ namespace OQF.GameEngine.Game
 
 			if (nextMove is BotsTimeOut)
 			{
-				WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.AiThougtMoreThanAnMinute);
+				WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.ExceedanceOfThoughtTime);
 				return null;
 			}
 

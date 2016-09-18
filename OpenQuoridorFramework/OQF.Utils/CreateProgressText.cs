@@ -59,7 +59,7 @@ namespace OQF.Utils
 
 		    switch (winningReason)
 		    {
-				case WinningReason.AiThougtMoreThanAnMinute:
+				case WinningReason.ExceedanceOfThoughtTime:
 			    {
 				    sb.Append(" the oppenden bot exceeded its thinking time");
 				    break;
@@ -74,7 +74,7 @@ namespace OQF.Utils
 					sb.Append(" the oppenden player tryed to do an illegal move");
 					break;
 			    }
-				case WinningReason.MaximumOfMovesExceded:
+				case WinningReason.ExceedanceOfMaxMoves:
 			    {
 					sb.Append(" the oppenden player exceeds the maximal moves per player");
 					break;

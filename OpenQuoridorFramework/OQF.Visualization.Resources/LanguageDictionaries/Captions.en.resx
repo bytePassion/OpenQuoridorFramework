@@ -172,10 +172,10 @@
     <value>Invalid move</value>
   </data>
   <data name="WinningReason_ExceedanceOfMaxMoves" xml:space="preserve">
-    <value>The maximum of allowed moved where exceeded</value>
+    <value>The maximum of allowed moves was exceeded</value>
   </data>
-  <data name="WinningReason_BotExceededThoughtTime" xml:space="preserve">
-    <value>The bot exceeded its thought-time</value>
+  <data name="WinningReason_ExceedanceOfThoughtTime" xml:space="preserve">
+    <value>The maximum thought time was exceeded</value>
   </data>
   <data name="WD_LoosingMessage" xml:space="preserve">
     <value>Sry ... you got beaten by the bot</value>

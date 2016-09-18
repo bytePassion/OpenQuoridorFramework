@@ -81,7 +81,7 @@ namespace OQF.GameEngine.Game
 			{
 				if (moveCounter >= gameConstraints.MaximalMovesPerPlayer)
 				{
-					WinnerAvailable?.Invoke(computerPlayer, WinningReason.MaximumOfMovesExceded);
+					WinnerAvailable?.Invoke(computerPlayer, WinningReason.ExceedanceOfMaxMoves);
 				}
 
 				var nextHumanMove = PickHumanMove();
@@ -158,7 +158,7 @@ namespace OQF.GameEngine.Game
 
 			if (nextMove is BotsTimeOut)
 			{				
-				WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.AiThougtMoreThanAnMinute);
+				WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.ExceedanceOfThoughtTime);
 				return null;
 			}
 				

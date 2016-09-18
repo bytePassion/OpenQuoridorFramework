@@ -174,8 +174,8 @@
   <data name="WinningReason_ExceedanceOfMaxMoves" xml:space="preserve">
     <value>The maximum of allowed moved where exceeded</value>
   </data>
-  <data name="WinningReason_BotExceededThoughtTime" xml:space="preserve">
-    <value>Der Bot hat die maximale Bedenkzeit überschritten</value>
+  <data name="WinningReason_ExceedanceOfThoughtTime" xml:space="preserve">
+    <value>Die maximale Bedenkzeit wurde überschritten</value>
   </data>
   <data name="WD_LoosingMessage" xml:space="preserve">
     <value>Schade, du hast gegen den Bot verloren</value>
