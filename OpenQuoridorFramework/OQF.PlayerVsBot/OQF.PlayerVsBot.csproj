@@ -96,7 +96,9 @@
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
-    <Compile Include="ViewModels\MainWindow\WinningDialogViewModel.cs" />
+    <Compile Include="ViewModels\WinningDialog\IWinningDialogViewModel.cs" />
+    <Compile Include="ViewModels\WinningDialog\WinningDialogViewModel.cs" />
+    <Compile Include="ViewModels\WinningDialog\WinningDialogViewModelSampleData.cs" />
     <Compile Include="Views\Board.xaml.cs">
       <DependentUpon>Board.xaml</DependentUpon>
     </Compile>

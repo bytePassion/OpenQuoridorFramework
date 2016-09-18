@@ -23,7 +23,7 @@ using OQF.PlayerVsBot.Services;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
-using OQF.PlayerVsBot.Views;
+using OQF.PlayerVsBot.ViewModels.WinningDialog;
 using OQF.Utils;
 using OQF.Visualization.Common.Info;
 using OQF.Visualization.Resources;
@@ -111,7 +111,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 	    private async void ExecuteWinDialog(string winMessage, Player player, WinningReason winningReason)
 	    {
-	        var view = new WinningDialog
+	        var view = new Views.WinningDialog
 	        {
                 DataContext = new WinningDialogViewModel(winMessage)
 	        };
