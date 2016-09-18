@@ -295,7 +295,7 @@
 
 							<ScrollViewer VerticalContentAlignment="Stretch"
                                       HorizontalScrollBarVisibility="Auto"
-                                      VerticalScrollBarVisibility="Visible">
+                                      VerticalScrollBarVisibility="Auto">
 								<ItemsControl ItemsSource="{Binding GameProgress}" />
 
 								<i:Interaction.Behaviors>
@@ -349,7 +349,7 @@
 
 							<ScrollViewer Grid.Row="1"
                                       HorizontalScrollBarVisibility="Auto"
-                                      VerticalScrollBarVisibility="Visible">
+                                      VerticalScrollBarVisibility="Auto">
 								<ItemsControl ItemsSource="{Binding DebugMessages}" />
 
 								<i:Interaction.Behaviors>
