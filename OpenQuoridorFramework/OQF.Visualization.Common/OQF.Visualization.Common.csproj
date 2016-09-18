@@ -80,6 +80,7 @@
     <Compile Include="Info\Pages\TurnamentApplicationInfo.xaml.cs">
       <DependentUpon>TurnamentApplicationInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LanguageService\CultureManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Info\InfoWindowService.cs" />
     <Compile Include="Info\InfoWindow\ViewModel\Helper\SelectionButtonData.cs" />
