@@ -17,7 +17,7 @@ namespace SimpleWalkingBot
 	    public void Init(Player yourPlayer, GameConstraints gameConstraints)
 	    {
 		    myself = yourPlayer;
-		    myself.Name = "behindiBot";		   
+		    myself.Name = nameof(SimpleWalkingBot);		   
 	    }
 
 	    private static int counter = 0;
