@@ -122,7 +122,7 @@
 						<ColumnDefinition Width="70" />
 						<ColumnDefinition Width="150" />
 						<ColumnDefinition />
-						<ColumnDefinition Width="150" />
+						<ColumnDefinition Width="Auto" />
 					</Grid.ColumnDefinitions>
 
 					<Ellipse Grid.RowSpan="2"
@@ -150,8 +150,8 @@
 					<TextBlock Grid.Row="0"
                                Grid.RowSpan="2"
                                Grid.Column="3"
-                               Margin="30,0,0,0"
-                               HorizontalAlignment="Left"
+                               Margin="0,0,43,0"
+                               HorizontalAlignment="Right"
                                VerticalAlignment="Center"
                                FontSize="30">
 						
@@ -199,7 +199,7 @@
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="70" />
 						<ColumnDefinition />
-						<ColumnDefinition Width="150" />
+						<ColumnDefinition Width="Auto" />
 					</Grid.ColumnDefinitions>
 
 
@@ -211,8 +211,8 @@
 
 
 					<TextBlock Grid.Column="2"
-                               Margin="30,0,0,0"
-                               HorizontalAlignment="Left"
+                               Margin="0,0,46,0"
+                               HorizontalAlignment="Right"
                                VerticalAlignment="Center"
                                FontSize="30">
 						<Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}"/>:
@@ -230,7 +230,7 @@
 
 					<Button Grid.Row="0"
                             Grid.Column="1"
-                            Margin="7"
+                            Margin="20,7"
                             HorizontalAlignment="Right"
                             Command="{Binding Capitulate}"
                             Content="{Binding CapitulateButtonCaption}" />
@@ -279,7 +279,8 @@
 							<ScrollViewer VerticalContentAlignment="Stretch"
                                       HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Auto">
-								<ItemsControl ItemsSource="{Binding GameProgress}" />
+								<ItemsControl ItemsSource="{Binding GameProgress}" 
+											  Margin="0,20,0,0"/>
 
 								<i:Interaction.Behaviors>
 									<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
@@ -334,7 +335,8 @@
 							<ScrollViewer Grid.Row="1"
                                       HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Auto">
-								<ItemsControl ItemsSource="{Binding DebugMessages}" />
+								<ItemsControl ItemsSource="{Binding DebugMessages}" 
+											  Margin="0,20,0,0"/>
 
 								<i:Interaction.Behaviors>
 									<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
