@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.Common
+﻿namespace OQF.Visualization.Common.Info.InfoWindow
 {
 	public partial class InfoWindow 
 	{

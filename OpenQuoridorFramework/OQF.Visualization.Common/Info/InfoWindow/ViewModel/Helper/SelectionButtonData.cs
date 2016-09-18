@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.ViewModels.InfoWindow.Helper
+namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper
 {
 	internal class SelectionButtonData : INotifyPropertyChanged
 	{

@@ -2,11 +2,11 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using Lib.Wpf.Commands;
-using OQF.Visualization.Common.ViewModels.InfoWindow.Helper;
+using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.ViewModels.InfoWindow
+namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 {
 	internal class InfoWindowViewModelSampleData : IInfoWindowViewModel
 	{

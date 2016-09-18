@@ -1,8 +1,7 @@
 ﻿using System.Windows;
-using OQF.Visualization.Common.Enum;
-using OQF.Visualization.Common.ViewModels.InfoWindow;
+using OQF.Visualization.Common.Info.InfoWindow.ViewModel;
 
-namespace OQF.Visualization.Common.Service
+namespace OQF.Visualization.Common.Info
 {
 	public static class InfoWindowService
 	{
@@ -10,7 +9,7 @@ namespace OQF.Visualization.Common.Service
 		{
 			var infoWindowViewModel = new InfoWindowViewModel(visibleInfoPages);
 
-			var infoWindow = new InfoWindow
+			var infoWindow = new InfoWindow.InfoWindow
 			{
 				DataContext = infoWindowViewModel,
 				Owner  = Application.Current.MainWindow,

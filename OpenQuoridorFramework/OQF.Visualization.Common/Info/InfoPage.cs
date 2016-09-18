@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.Common.Enum
+﻿namespace OQF.Visualization.Common.Info
 {
 	public enum InfoPage
 	{

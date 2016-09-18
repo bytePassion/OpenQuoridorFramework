@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
-using OQF.Visualization.Common.ViewModels.InfoWindow.Helper;
+using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
 
-namespace OQF.Visualization.Common.ViewModels.InfoWindow
+namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 {
 	internal interface IInfoWindowViewModel : IViewModel
 	{

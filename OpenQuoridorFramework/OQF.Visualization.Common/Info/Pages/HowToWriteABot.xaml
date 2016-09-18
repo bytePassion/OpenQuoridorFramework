@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="OQF.Visualization.Common.Pages.ReplayViewerApplicationInfo"
+﻿<UserControl x:Class="OQF.Visualization.Common.Info.Pages.HowToWriteABot"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,7 +12,8 @@
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="30"
-                   Text="ReplayViewerApplicationInfo" />
+                   Text="How To Write A Bot" />
 
     </Grid>
 </UserControl>
+

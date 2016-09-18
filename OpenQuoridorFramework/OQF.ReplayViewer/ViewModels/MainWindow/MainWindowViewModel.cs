@@ -12,8 +12,7 @@ using OQF.Contest.Contracts.GameElements;
 using OQF.ReplayViewer.Services;
 using OQF.ReplayViewer.ViewModels.Board;
 using OQF.Utils;
-using OQF.Visualization.Common.Enum;
-using OQF.Visualization.Common.Service;
+using OQF.Visualization.Common.Info;
 
 namespace OQF.ReplayViewer.ViewModels.MainWindow
 {

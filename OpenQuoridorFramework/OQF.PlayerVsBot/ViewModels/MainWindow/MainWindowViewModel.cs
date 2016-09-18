@@ -25,8 +25,7 @@ using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
 using OQF.PlayerVsBot.Views;
 using OQF.Utils;
-using OQF.Visualization.Common.Enum;
-using OQF.Visualization.Common.Service;
+using OQF.Visualization.Common.Info;
 using OQF.Visualization.Resources;
 
 namespace OQF.PlayerVsBot.ViewModels.MainWindow

@@ -6,13 +6,11 @@ using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
-using Lib.Wpf.ViewModelBase;
-using OQF.Visualization.Common.Enum;
-using OQF.Visualization.Common.ViewModels.InfoWindow.Helper;
+using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
 
-namespace OQF.Visualization.Common.ViewModels.InfoWindow
+namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 {
-	internal class InfoWindowViewModel : ViewModel, IInfoWindowViewModel
+	internal class InfoWindowViewModel : Lib.Wpf.ViewModelBase.ViewModel, IInfoWindowViewModel
 	{
 		
 		private int selectedPage;
@@ -41,7 +39,7 @@ namespace OQF.Visualization.Common.ViewModels.InfoWindow
 		private void DoCloseWindow ()
 		{
 			Application.Current.Windows
-							   .OfType<Common.InfoWindow>()
+							   .OfType<InfoWindow>()
 							   .FirstOrDefault(window => ReferenceEquals(window.DataContext, this))
 							   ?.Close();			
 		}
