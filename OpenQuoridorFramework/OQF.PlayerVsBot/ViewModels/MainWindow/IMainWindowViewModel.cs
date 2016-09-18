@@ -36,6 +36,24 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		int TopPlayerWallCountLeft    { get; }
 		int BottomPlayerWallCountLeft { get; }
 		
-		string DllPathInput { get; set; }		
+		string DllPathInput { get; set; }
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////                                                                                                 ////////
+		////////                                          Captions                                               ////////
+		////////                                                                                                 ////////
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+		
+		string BrowseForBotButtonToolTipCaption { get; }
+		string StartGameButtonToolTipCaption    { get; }
+		string OpenInfoButtonToolTipCaption     { get; }
+		string BotNameLabelCaption              { get; }
+		string MaximalThinkingTimeLabelCaption  { get; }
+		string WallsLeftLabelCaption            { get; }
+		string ProgressCaption                  { get; }
+		string AutoScrollDownCheckBoxCaption    { get; }
+		string DebugCaption                     { get; }
+		string CapitulateButtonCaption          { get; }
+		string HeaderCaptionPlayer              { get; }
 	}
 }

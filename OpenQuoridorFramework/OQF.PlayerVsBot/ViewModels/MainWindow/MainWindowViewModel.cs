@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -26,7 +27,9 @@ using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
 using OQF.PlayerVsBot.ViewModels.WinningDialog;
 using OQF.Utils;
 using OQF.Visualization.Common.Info;
+using OQF.Visualization.Common.LanguageService;
 using OQF.Visualization.Resources;
+using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.PlayerVsBot.ViewModels.MainWindow
 {
@@ -47,12 +50,16 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private bool isAutoScrollDebugMsgActive;
 		private string topPlayerRestTime;
 		private bool isDisabledOverlayVisible;
+		private string selectedCountryCode;
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel, 
 									IBoardPlacementViewModel boardPlacementViewModel, 
 									IGameService gameService, 
 									ILastUsedBotService lastUsedBotService)
 		{
+
+			CultureManager.CultureChanged += RefreshCaptions;
+
 			this.gameService = gameService;
 			this.lastUsedBotService = lastUsedBotService;
 			BoardPlacementViewModel = boardPlacementViewModel;
@@ -228,7 +235,15 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		public ObservableCollection<string> AvailableCountryCodes { get; }
 
-		public string SelectedCountryCode { get; set; } // TODO;
+		public string SelectedCountryCode
+		{
+			get { return selectedCountryCode; }
+			set
+			{
+				CultureManager.CurrentCulture = new CultureInfo(value);
+				selectedCountryCode = value;
+			}
+		}
 
 		public bool IsAutoScrollProgressActive
 		{
@@ -289,7 +304,6 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			get { return dllPathInput; }
 			set { PropertyChanged.ChangeAndNotify(this, ref dllPathInput, value); }
 		}		
-
 
 		private void DoBrowseDll()
 		{
@@ -370,7 +384,47 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 														 gameService.CurrentBoardState.CurrentMover));
 		}
 
-		protected override void CleanUp() {	}
+
+
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////                                                                                                 ////////
+		////////                                          Captions                                               ////////
+		////////                                                                                                 ////////
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+
+
+		public string BrowseForBotButtonToolTipCaption => Captions.BrowseForBotButtonToolTipCaption;
+		public string StartGameButtonToolTipCaption    => Captions.StartGameButtonToolTipCaption;
+		public string OpenInfoButtonToolTipCaption     => Captions.OpenInfoButtonToolTipCaption;
+		public string BotNameLabelCaption              => Captions.BotNameLabelCaption;
+		public string MaximalThinkingTimeLabelCaption  => Captions.MaximalThinkingTimeLabelCaption;
+		public string WallsLeftLabelCaption            => Captions.WallsLeftLabelCaption;
+		public string ProgressCaption                  => Captions.ProgressCaption;
+		public string AutoScrollDownCheckBoxCaption    => Captions.AutoScrollDownCheckBoxCaption;
+		public string DebugCaption                     => Captions.DebugCaption;
+		public string CapitulateButtonCaption          => Captions.CapitulateButtonCaption;
+		public string HeaderCaptionPlayer              => Captions.HeaderCaptionPlayer;
+
+		private void RefreshCaptions()
+		{
+			PropertyChanged.Notify(this, nameof(BrowseForBotButtonToolTipCaption),
+										 nameof(StartGameButtonToolTipCaption),
+										 nameof(OpenInfoButtonToolTipCaption),
+										 nameof(BotNameLabelCaption),
+										 nameof(MaximalThinkingTimeLabelCaption),
+										 nameof(WallsLeftLabelCaption),
+										 nameof(ProgressCaption),
+										 nameof(AutoScrollDownCheckBoxCaption),
+										 nameof(DebugCaption),
+										 nameof(CapitulateButtonCaption),
+										 nameof(HeaderCaptionPlayer));
+		}
+
+		protected override void CleanUp()
+		{
+			CultureManager.CultureChanged -= RefreshCaptions;
+		}
 		public override event PropertyChangedEventHandler PropertyChanged;		
 	}
 }

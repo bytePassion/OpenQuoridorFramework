@@ -5,7 +5,6 @@ using System.Windows.Input;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
-using OQF.Visualization.Resources;
 
 #pragma warning disable 0067
 
@@ -55,6 +54,18 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			IsAutoScrollProgressActive = true;
 
 			IsDisabledOverlayVisible = true;
+
+			BrowseForBotButtonToolTipCaption = "bot dll laden";
+			StartGameButtonToolTipCaption    = "start";
+			OpenInfoButtonToolTipCaption     = "Info";
+			BotNameLabelCaption              = "BotName";
+			MaximalThinkingTimeLabelCaption  = "max. Rechenzeit";
+			WallsLeftLabelCaption            = "Walls";
+			ProgressCaption                  = "Spielverlauf";
+			AutoScrollDownCheckBoxCaption    = "Automatisch scrollen";
+			DebugCaption                     = "Debug";
+			CapitulateButtonCaption          = "Kapitulieren";
+			HeaderCaptionPlayer              = "Spieler";
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
@@ -84,7 +95,27 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public int TopPlayerWallCountLeft   { get; }
 		public int BottomPlayerWallCountLeft { get; }
 		
-		public string DllPathInput { get; set; }		
+		public string DllPathInput { get; set; }
+
+
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////                                                                                                 ////////
+		////////                                          Captions                                               ////////
+		////////                                                                                                 ////////
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+
+		public string BrowseForBotButtonToolTipCaption { get; }
+		public string StartGameButtonToolTipCaption    { get; }
+		public string OpenInfoButtonToolTipCaption     { get; }
+		public string BotNameLabelCaption              { get; }
+		public string MaximalThinkingTimeLabelCaption  { get; }
+		public string WallsLeftLabelCaption            { get; }
+		public string ProgressCaption                  { get; }
+		public string AutoScrollDownCheckBoxCaption    { get; }
+		public string DebugCaption                     { get; }
+		public string CapitulateButtonCaption          { get; }
+		public string HeaderCaptionPlayer              { get; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
