@@ -63,99 +63,198 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         /// <summary>
         ///   Looks up a localized string similar to Auto scroll down.
         /// </summary>
-        public static string AutoScrollDownCheckBoxCaption {
+        public static string PvB_AutoScrollDownCheckBoxCaption {
             get {
-                return ResourceManager.GetString("AutoScrollDownCheckBoxCaption", resourceCulture);
+                return ResourceManager.GetString("PvB_AutoScrollDownCheckBoxCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Bot Name.
         /// </summary>
-        public static string BotNameLabelCaption {
+        public static string PvB_BotNameLabelCaption {
             get {
-                return ResourceManager.GetString("BotNameLabelCaption", resourceCulture);
+                return ResourceManager.GetString("PvB_BotNameLabelCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Browse for Bot-DLL.
         /// </summary>
-        public static string BrowseForBotButtonToolTipCaption {
+        public static string PvB_BrowseForBotButtonToolTipCaption {
             get {
-                return ResourceManager.GetString("BrowseForBotButtonToolTipCaption", resourceCulture);
+                return ResourceManager.GetString("PvB_BrowseForBotButtonToolTipCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Capitulate.
         /// </summary>
-        public static string CapitulateButtonCaption {
+        public static string PvB_CapitulateButtonCaption {
             get {
-                return ResourceManager.GetString("CapitulateButtonCaption", resourceCulture);
+                return ResourceManager.GetString("PvB_CapitulateButtonCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Debug.
         /// </summary>
-        public static string DebugCaption {
+        public static string PvB_DebugCaption {
             get {
-                return ResourceManager.GetString("DebugCaption", resourceCulture);
+                return ResourceManager.GetString("PvB_DebugCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Player.
         /// </summary>
-        public static string HeaderCaptionPlayer {
+        public static string PvB_HeaderCaptionPlayer {
             get {
-                return ResourceManager.GetString("HeaderCaptionPlayer", resourceCulture);
+                return ResourceManager.GetString("PvB_HeaderCaptionPlayer", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Thinking-Time left.
         /// </summary>
-        public static string MaximalThinkingTimeLabelCaption {
+        public static string PvB_MaximalThinkingTimeLabelCaption {
             get {
-                return ResourceManager.GetString("MaximalThinkingTimeLabelCaption", resourceCulture);
+                return ResourceManager.GetString("PvB_MaximalThinkingTimeLabelCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Help and About.
         /// </summary>
-        public static string OpenInfoButtonToolTipCaption {
+        public static string PvB_OpenInfoButtonToolTipCaption {
             get {
-                return ResourceManager.GetString("OpenInfoButtonToolTipCaption", resourceCulture);
+                return ResourceManager.GetString("PvB_OpenInfoButtonToolTipCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Game Progress.
         /// </summary>
-        public static string ProgressCaption {
+        public static string PvB_ProgressCaption {
             get {
-                return ResourceManager.GetString("ProgressCaption", resourceCulture);
+                return ResourceManager.GetString("PvB_ProgressCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Start Game.
         /// </summary>
-        public static string StartGameButtonToolTipCaption {
+        public static string PvB_StartGameButtonToolTipCaption {
             get {
-                return ResourceManager.GetString("StartGameButtonToolTipCaption", resourceCulture);
+                return ResourceManager.GetString("PvB_StartGameButtonToolTipCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Walls.
         /// </summary>
-        public static string WallsLeftLabelCaption {
+        public static string PvB_WallsLeftLabelCaption {
             get {
-                return ResourceManager.GetString("WallsLeftLabelCaption", resourceCulture);
+                return ResourceManager.GetString("PvB_WallsLeftLabelCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sry ... you got beaten by the bot.
+        /// </summary>
+        public static string WD_LoosingMessage {
+            get {
+                return ResourceManager.GetString("WD_LoosingMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reason.
+        /// </summary>
+        public static string WD_Message_Reason {
+            get {
+                return ResourceManager.GetString("WD_Message_Reason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string WD_NoButtonCaption {
+            get {
+                return ResourceManager.GetString("WD_NoButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to save the Game?.
+        /// </summary>
+        public static string WD_SaveGameRequest {
+            get {
+                return ResourceManager.GetString("WD_SaveGameRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Congratulations! You beated the bot!.
+        /// </summary>
+        public static string WD_WinningMessage {
+            get {
+                return ResourceManager.GetString("WD_WinningMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string WD_YesButtonCaption {
+            get {
+                return ResourceManager.GetString("WD_YesButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The bot exceeded its thought-time.
+        /// </summary>
+        public static string WinningReason_BotExceededThoughtTime {
+            get {
+                return ResourceManager.GetString("WinningReason_BotExceededThoughtTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Capitulation.
+        /// </summary>
+        public static string WinningReason_Capitulation {
+            get {
+                return ResourceManager.GetString("WinningReason_Capitulation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum of allowed moved where exceeded.
+        /// </summary>
+        public static string WinningReason_ExceedanceOfMaxMoves {
+            get {
+                return ResourceManager.GetString("WinningReason_ExceedanceOfMaxMoves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid move.
+        /// </summary>
+        public static string WinningReason_InvalidMode {
+            get {
+                return ResourceManager.GetString("WinningReason_InvalidMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular win (first on the other side).
+        /// </summary>
+        public static string WinningReason_RegularQuoridorWin {
+            get {
+                return ResourceManager.GetString("WinningReason_RegularQuoridorWin", resourceCulture);
             }
         }
     }

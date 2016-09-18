@@ -9,9 +9,15 @@ namespace OQF.PlayerVsBot.ViewModels.WinningDialog
 		public WinningDialogViewModelSampleData()
 		{
 			Message = "dialog-Message";
+
+			YesButtonCaption = "Ja";
+			NoButtonCaption = "Nein";
 		}
 
 		public string Message { get; }
+
+		public string YesButtonCaption { get; }
+		public string NoButtonCaption  { get; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;

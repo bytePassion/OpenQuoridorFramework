@@ -17,33 +17,46 @@
     <Grid Margin="16">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+			<RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+		
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0"
+				   Grid.Column="0"
+				   Grid.ColumnSpan="2"
+				   FontSize="20"
                    Text="{Binding Message,
                                   Mode=OneWay}"
                    TextWrapping="Wrap" />
-        <StackPanel Grid.Row="1"
-                    Margin="0 16 0 0"
-                    Orientation="Horizontal">
-            <Button Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
-                    IsDefault="True"
-                    Style="{DynamicResource MaterialDesignFlatButton}">
-                <Button.CommandParameter>
-                    <system:Boolean>True</system:Boolean>
-                </Button.CommandParameter>
-                ACCEPT
-            </Button>
-            <Button Margin="8 0 0 0"
-                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
-                    IsCancel="True"
-                    Style="{DynamicResource MaterialDesignFlatButton}">
-                <Button.CommandParameter>
-                    <system:Boolean>False</system:Boolean>
-                </Button.CommandParameter>
-                CANCEL
-            </Button>
-        </StackPanel>
+
+		<Button Grid.Row="2"
+				Grid.Column="0"
+				Margin="5"
+				Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
+                IsDefault="True"               
+				Content="{Binding YesButtonCaption}">
+			
+			<Button.CommandParameter>
+				<system:Boolean>True</system:Boolean>
+			</Button.CommandParameter>
+		</Button>
+
+		<Button Grid.Row="2"
+				Grid.Column="1"
+			    Margin="5"
+                Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
+                IsCancel="True"               
+				Content="{Binding NoButtonCaption}">
+			
+			<Button.CommandParameter>
+				<system:Boolean>False</system:Boolean>
+			</Button.CommandParameter>
+		</Button>
+       
     </Grid>
 </UserControl>

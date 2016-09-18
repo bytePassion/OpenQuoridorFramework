@@ -123,11 +123,13 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			DebugMessages.Add(s);
 		}
 
-	    private async void ExecuteWinDialog(string winMessage, Player player, WinningReason winningReason)
+	    private async void ExecuteWinDialog(bool reportWinning, Player player, WinningReason winningReason)
 	    {
-	        var view = new Views.WinningDialog
+		    var winningDialogViewModel = new WinningDialogViewModel(reportWinning, winningReason);
+
+			var view = new Views.WinningDialog
 	        {
-                DataContext = new WinningDialogViewModel(winMessage)
+                DataContext = winningDialogViewModel
 	        };
 
 	        var dialogResult = await DialogHost.Show(view, "RootDialog");
@@ -159,23 +161,24 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
                     }
                 }
             }
-
-            GameStatus = GameStatus.Finished;
+            
+			winningDialogViewModel.Dispose();
         }
 
 		private void OnWinnerAvailable(Player player, WinningReason winningReason)
 		{
 			StopTimer();
 
-			var winOrLooseMsg = player.PlayerType == PlayerType.TopPlayer
-						? $"Sry ... the bot '{player.Name}' beated you\nReason: {winningReason}"
-						: $"congratulations! you beated the bot\nReason: {winningReason}";
+			var reportWinning = player.PlayerType == PlayerType.BottomPlayer;
+						
 
-			var completeMsg = winOrLooseMsg + "\n\nDo you want to Save the Game?";
 
-		    ExecuteWinDialog(completeMsg, player, winningReason);
-	
+			ExecuteWinDialog(reportWinning, player, winningReason);
+
+			GameStatus = GameStatus.Finished;
 		}
+
+		
 
 		private void OnNewBoardStateAvailable(BoardState boardState)
 		{			
@@ -419,17 +422,17 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
 
-		public string BrowseForBotButtonToolTipCaption => Captions.BrowseForBotButtonToolTipCaption;
-		public string StartGameButtonToolTipCaption    => Captions.StartGameButtonToolTipCaption;
-		public string OpenInfoButtonToolTipCaption     => Captions.OpenInfoButtonToolTipCaption;
-		public string BotNameLabelCaption              => Captions.BotNameLabelCaption;
-		public string MaximalThinkingTimeLabelCaption  => Captions.MaximalThinkingTimeLabelCaption;
-		public string WallsLeftLabelCaption            => Captions.WallsLeftLabelCaption;
-		public string ProgressCaption                  => Captions.ProgressCaption;
-		public string AutoScrollDownCheckBoxCaption    => Captions.AutoScrollDownCheckBoxCaption;
-		public string DebugCaption                     => Captions.DebugCaption;
-		public string CapitulateButtonCaption          => Captions.CapitulateButtonCaption;
-		public string HeaderCaptionPlayer              => Captions.HeaderCaptionPlayer;
+		public string BrowseForBotButtonToolTipCaption => Captions.PvB_BrowseForBotButtonToolTipCaption;
+		public string StartGameButtonToolTipCaption    => Captions.PvB_StartGameButtonToolTipCaption;
+		public string OpenInfoButtonToolTipCaption     => Captions.PvB_OpenInfoButtonToolTipCaption;
+		public string BotNameLabelCaption              => Captions.PvB_BotNameLabelCaption;
+		public string MaximalThinkingTimeLabelCaption  => Captions.PvB_MaximalThinkingTimeLabelCaption;
+		public string WallsLeftLabelCaption            => Captions.PvB_WallsLeftLabelCaption;
+		public string ProgressCaption                  => Captions.PvB_ProgressCaption;
+		public string AutoScrollDownCheckBoxCaption    => Captions.PvB_AutoScrollDownCheckBoxCaption;
+		public string DebugCaption                     => Captions.PvB_DebugCaption;
+		public string CapitulateButtonCaption          => Captions.PvB_CapitulateButtonCaption;
+		public string HeaderCaptionPlayer              => Captions.PvB_HeaderCaptionPlayer;
 
 		private void RefreshCaptions()
 		{

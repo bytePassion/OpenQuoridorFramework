@@ -117,37 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BrowseForBotButtonToolTipCaption" xml:space="preserve">
+  <data name="PvB_BrowseForBotButtonToolTipCaption" xml:space="preserve">
     <value>Durchsuchen nach Bot-DLL</value>
   </data>
-  <data name="StartGameButtonToolTipCaption" xml:space="preserve">
+  <data name="PvB_StartGameButtonToolTipCaption" xml:space="preserve">
     <value>Spiel Starten</value>
   </data>
-  <data name="OpenInfoButtonToolTipCaption" xml:space="preserve">
+  <data name="PvB_OpenInfoButtonToolTipCaption" xml:space="preserve">
     <value>Hilfe / Über</value>
   </data>
-  <data name="BotNameLabelCaption" xml:space="preserve">
+  <data name="PvB_BotNameLabelCaption" xml:space="preserve">
     <value>Bot Name</value>
   </data>
-  <data name="MaximalThinkingTimeLabelCaption" xml:space="preserve">
+  <data name="PvB_MaximalThinkingTimeLabelCaption" xml:space="preserve">
     <value>restliche Bot-Berechnungszeit</value>
   </data>
-  <data name="WallsLeftLabelCaption" xml:space="preserve">
+  <data name="PvB_WallsLeftLabelCaption" xml:space="preserve">
     <value>Wände</value>
   </data>
-  <data name="ProgressCaption" xml:space="preserve">
+  <data name="PvB_ProgressCaption" xml:space="preserve">
     <value>Spielfortschritt</value>
   </data>
-  <data name="AutoScrollDownCheckBoxCaption" xml:space="preserve">
+  <data name="PvB_AutoScrollDownCheckBoxCaption" xml:space="preserve">
     <value>Automatisch scrollen</value>
   </data>
-  <data name="DebugCaption" xml:space="preserve">
+  <data name="PvB_DebugCaption" xml:space="preserve">
     <value>Debug</value>
   </data>
-  <data name="CapitulateButtonCaption" xml:space="preserve">
+  <data name="PvB_CapitulateButtonCaption" xml:space="preserve">
     <value>Kapitulieren</value>
   </data>
-  <data name="HeaderCaptionPlayer" xml:space="preserve">
+  <data name="PvB_HeaderCaptionPlayer" xml:space="preserve">
     <value>Spieler</value>
+  </data>
+  <data name="WD_YesButtonCaption" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="WD_NoButtonCaption" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="WD_WinningMessage" xml:space="preserve">
+    <value>Glückwunsch! Du hast den Bot besiegt!</value>
+  </data>
+  <data name="WD_Message_Reason" xml:space="preserve">
+    <value>Grund</value>
+  </data>
+  <data name="WinningReason_RegularQuoridorWin" xml:space="preserve">
+    <value>Regulärer Sieg (erster auf der anderen Seite)</value>
+  </data>
+  <data name="WinningReason_Capitulation" xml:space="preserve">
+    <value>Kapitulation</value>
+  </data>
+  <data name="WinningReason_InvalidMode" xml:space="preserve">
+    <value>Ungültiger Zug</value>
+  </data>
+  <data name="WinningReason_ExceedanceOfMaxMoves" xml:space="preserve">
+    <value>The maximum of allowed moved where exceeded</value>
+  </data>
+  <data name="WinningReason_BotExceededThoughtTime" xml:space="preserve">
+    <value>Der Bot hat die maximale Bedenkzeit überschritten</value>
+  </data>
+  <data name="WD_LoosingMessage" xml:space="preserve">
+    <value>Schade, du hast gegen den Bot verloren</value>
+  </data>
+  <data name="WD_SaveGameRequest" xml:space="preserve">
+    <value>Willst du das Spiel speichern?</value>
   </data>
 </root>
