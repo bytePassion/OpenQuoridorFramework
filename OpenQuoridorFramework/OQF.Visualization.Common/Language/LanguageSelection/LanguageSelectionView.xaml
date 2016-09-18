@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="OQF.Visualization.Common.Language.LanguageSelection.LanguageSelectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
+             xmlns:viewModel="clr-namespace:OQF.Visualization.Common.Language.LanguageSelection.ViewModel"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:computations="clr-namespace:OQF.Visualization.Common.Language.LanguageSelection.Computations"
+             mc:Ignorable="d" 
+             d:DesignHeight="33" d:DesignWidth="50">
+	
+	<d:DesignData.DataContext>
+		<viewModel:LanguageSelectionViewModelSampleData/>
+	</d:DesignData.DataContext>
+
+	
+	<UserControl.Resources>
+		<computations:GetFlagImageFromCountryCode x:Key="GetFlagImageFromCountryCode" />
+	</UserControl.Resources>
+	
+	<ComboBox Margin="4,0"
+                              DockPanel.Dock="Right"
+                              ItemsSource="{Binding AvailableCountryCodes}"
+                              SelectedValue="{Binding SelectedCountryCode,
+                                                      Mode=TwoWay,
+                                                      UpdateSourceTrigger=PropertyChanged}">
+		<ComboBox.Style>
+			<Style BasedOn="{StaticResource MaterialDesignComboBoxBlank}" TargetType="{x:Type ComboBox}">
+				<Setter Property="BorderThickness" Value="0 0 0 0" />
+
+			</Style>
+		</ComboBox.Style>
+		<ComboBox.Resources>
+			<system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">0</system:Double>
+		</ComboBox.Resources>
+
+		<ComboBox.ItemTemplate>
+			<DataTemplate DataType="system:String">
+				<Image Width="40"
+                       Height="25"									   
+                       Source="{Binding Converter={StaticResource GetFlagImageFromCountryCode}}" />
+
+			</DataTemplate>
+		</ComboBox.ItemTemplate>
+
+
+	</ComboBox>
+</UserControl>

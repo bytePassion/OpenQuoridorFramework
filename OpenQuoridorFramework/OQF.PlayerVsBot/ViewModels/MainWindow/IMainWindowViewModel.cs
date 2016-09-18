@@ -4,6 +4,7 @@ using Lib.Wpf.ViewModelBase;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
+using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
 namespace OQF.PlayerVsBot.ViewModels.MainWindow
 {
@@ -11,6 +12,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 	{
 		IBoardViewModel BoardViewModel { get; }
 		IBoardPlacementViewModel BoardPlacementViewModel { get; }
+		ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
 		ICommand Start         { get; }		
 		ICommand ShowAboutHelp { get; }
@@ -18,10 +20,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		ICommand BrowseDll     { get; }
 
 		ObservableCollection<string> DebugMessages { get; } 
-		ObservableCollection<string> GameProgress  { get; }				
-
-		ObservableCollection<string> AvailableCountryCodes { get; }
-		string SelectedCountryCode { get; set; }
+		ObservableCollection<string> GameProgress  { get; }						
 
 		bool IsAutoScrollProgressActive { get; set; }
 		bool IsAutoScrollDebugMsgActive { get; set; }

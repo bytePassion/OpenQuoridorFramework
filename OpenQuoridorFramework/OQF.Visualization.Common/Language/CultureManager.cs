@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Threading;
 
-namespace OQF.Visualization.Common.LanguageService
+namespace OQF.Visualization.Common.Language
 {
 	public static class CultureManager
 	{
@@ -19,7 +19,7 @@ namespace OQF.Visualization.Common.LanguageService
 			get { return currentCulture; }
 			set
 			{
-				if (value != currentCulture)
+				if (!Equals(value, currentCulture))
 				{
 					currentCulture = value;
 

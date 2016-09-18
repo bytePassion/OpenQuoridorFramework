@@ -11,6 +11,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:views="clr-namespace:OQF.PlayerVsBot.Views"
+        xmlns:languageSelection="clr-namespace:OQF.Visualization.Common.Language.LanguageSelection;assembly=OQF.Visualization.Common"
         Title="MainWindow"
         Width="1200"
         Height="950"
@@ -28,10 +29,8 @@
 
     <Window.Resources>
         <computation:TopPlayerMarkerColor x:Key="TopPlayerMarkerColor" />
-        <computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
-        <computation:GetFlagImageFromCountryCode x:Key="GetFlagImageFromCountryCode" />
-        <converter:BoolToCollapsedVisibilityConverter x:Key="BoolToCollapsedVisibilityConverter" />
-    </Window.Resources>
+		<computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
+	</Window.Resources>
 
     <materialDesign:DialogHost Identifier="RootDialog">
 		
@@ -80,33 +79,10 @@
 						<materialDesign:PackIcon Kind="Help" />
 					</Button>
 
-					<ComboBox Margin="4,0"
-                              DockPanel.Dock="Right"
-                              ItemsSource="{Binding AvailableCountryCodes}"
-                              SelectedValue="{Binding SelectedCountryCode,
-                                                      Mode=TwoWay,
-                                                      UpdateSourceTrigger=PropertyChanged}">
-						<ComboBox.Style>
-							<Style BasedOn="{StaticResource MaterialDesignComboBoxBlank}" TargetType="{x:Type ComboBox}">
-								<Setter Property="BorderThickness" Value="0 0 0 0" />
+					<languageSelection:LanguageSelectionView Margin="4,0"
+															 DockPanel.Dock="Right"
+															 DataContext="{Binding LanguageSelectionViewModel}"/>
 
-							</Style>
-						</ComboBox.Style>
-						<ComboBox.Resources>
-							<system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">0</system:Double>
-						</ComboBox.Resources>
-
-						<ComboBox.ItemTemplate>
-							<DataTemplate DataType="system:String">
-								<Image Width="40"
-                                       Height="25"									   
-                                       Source="{Binding Converter={StaticResource GetFlagImageFromCountryCode}}" />
-
-							</DataTemplate>
-						</ComboBox.ItemTemplate>
-
-
-					</ComboBox>
 
 
 					<StackPanel HorizontalAlignment="Center"

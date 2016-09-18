@@ -6,6 +6,7 @@ using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow;
 using OQF.PlayerVsBot.Windows;
+using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
 namespace OQF.PlayerVsBot
 {
@@ -21,7 +22,13 @@ namespace OQF.PlayerVsBot
 
 			var boardViewModel = new BoardViewModel(gameService);
 			var boardPlacementViewModel = new BoardPlacementViewModel(gameService, gameFactory);
-			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, boardPlacementViewModel, gameService, lastUsedBotService);
+			var languageSelectionViewModel = new LanguageSelectionViewModel();
+
+			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, 
+															  boardPlacementViewModel, 
+															  languageSelectionViewModel,
+															  gameService, 
+															  lastUsedBotService);
 
 			var mainWindow = new MainWindow
 			{

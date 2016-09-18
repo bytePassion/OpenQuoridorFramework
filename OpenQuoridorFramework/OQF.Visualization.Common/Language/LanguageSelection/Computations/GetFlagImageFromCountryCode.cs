@@ -4,7 +4,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Lib.Wpf.ConverterBase;
 
-namespace OQF.PlayerVsBot.Computation
+namespace OQF.Visualization.Common.Language.LanguageSelection.Computations
 {
 	internal class GetFlagImageFromCountryCode : GenericValueConverter<string, ImageSource>
 	{
@@ -17,7 +17,11 @@ namespace OQF.PlayerVsBot.Computation
 			}
 			catch 
 			{				
-				flagIcon = new BitmapImage();
+				flagIcon = new BitmapImage
+				{
+					DecodePixelWidth = 46,
+					DecodePixelHeight = 33
+				};
 			}
 
 			return flagIcon;

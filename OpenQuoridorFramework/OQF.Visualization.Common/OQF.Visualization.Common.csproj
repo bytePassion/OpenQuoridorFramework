@@ -80,7 +80,14 @@
     <Compile Include="Info\Pages\TurnamentApplicationInfo.xaml.cs">
       <DependentUpon>TurnamentApplicationInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LanguageService\CultureManager.cs" />
+    <Compile Include="Language\CultureManager.cs" />
+    <Compile Include="Language\LanguageSelection\Computations\GetFlagImageFromCountryCode.cs" />
+    <Compile Include="Language\LanguageSelection\LanguageSelectionView.xaml.cs">
+      <DependentUpon>LanguageSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Language\LanguageSelection\ViewModel\ILanguageSelectionViewModel.cs" />
+    <Compile Include="Language\LanguageSelection\ViewModel\LanguageSelectionViewModel.cs" />
+    <Compile Include="Language\LanguageSelection\ViewModel\LanguageSelectionViewModelSampleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Info\InfoWindowService.cs" />
     <Compile Include="Info\InfoWindow\ViewModel\Helper\SelectionButtonData.cs" />
@@ -128,6 +135,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Language\LanguageSelection\LanguageSelectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
@@ -138,7 +149,12 @@
       <Project>{762ef986-e716-4d0b-a13b-360a0bf97086}</Project>
       <Name>Lib.Wpf</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Visualization.Resources.csproj">
+      <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
+      <Name>OQF.Visualization.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

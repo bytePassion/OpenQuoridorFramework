@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
@@ -27,8 +25,8 @@ using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
 using OQF.PlayerVsBot.ViewModels.WinningDialog;
 using OQF.Utils;
 using OQF.Visualization.Common.Info;
-using OQF.Visualization.Common.LanguageService;
-using OQF.Visualization.Resources;
+using OQF.Visualization.Common.Language;
+using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.PlayerVsBot.ViewModels.MainWindow
@@ -50,24 +48,25 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private bool isAutoScrollDebugMsgActive;
 		private string topPlayerRestTime;
 		private bool isDisabledOverlayVisible;
-		private string selectedCountryCode;
+		
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel, 
-									IBoardPlacementViewModel boardPlacementViewModel, 
+									IBoardPlacementViewModel boardPlacementViewModel,
+									ILanguageSelectionViewModel languageSelectionViewModel,
 									IGameService gameService, 
 									ILastUsedBotService lastUsedBotService)
 		{
-
 			CultureManager.CultureChanged += RefreshCaptions;
 
 			this.gameService = gameService;
 			this.lastUsedBotService = lastUsedBotService;
+
+			LanguageSelectionViewModel = languageSelectionViewModel;
 			BoardPlacementViewModel = boardPlacementViewModel;
 			BoardViewModel = boardViewModel;
+
 			DebugMessages  = new ObservableCollection<string>();
-			GameProgress   = new ObservableCollection<string>();
-			AvailableCountryCodes = new ObservableCollection<string>(Languages.AvailableCountryCodes());
-			SelectedCountryCode = AvailableCountryCodes.First();
+			GameProgress   = new ObservableCollection<string>();						
 
 			gameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameService.WinnerAvailable        += OnWinnerAvailable;
@@ -224,6 +223,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		public IBoardViewModel BoardViewModel { get; }
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
+		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
 		public ICommand Start         { get; }		
 		public ICommand ShowAboutHelp { get; }
@@ -233,18 +233,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public ObservableCollection<string> DebugMessages { get; }
 		public ObservableCollection<string> GameProgress  { get; }
 
-		public ObservableCollection<string> AvailableCountryCodes { get; }
-
-		public string SelectedCountryCode
-		{
-			get { return selectedCountryCode; }
-			set
-			{
-				CultureManager.CurrentCulture = new CultureInfo(value);
-				selectedCountryCode = value;
-			}
-		}
-
+		
 		public bool IsAutoScrollProgressActive
 		{
 			get { return isAutoScrollProgressActive; }
