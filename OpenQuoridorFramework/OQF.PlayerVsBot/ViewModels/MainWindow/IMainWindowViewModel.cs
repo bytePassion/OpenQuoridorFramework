@@ -25,6 +25,9 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		bool IsAutoScrollProgressActive { get; set; }
 		bool IsAutoScrollDebugMsgActive { get; set; }
 
+		bool IsProgressSectionExpanded { get; set; }
+		bool IsDebugSectionExpanded    { get; set; }
+
 		bool IsDisabledOverlayVisible { get; }
 
 		GameStatus GameStatus { get; }

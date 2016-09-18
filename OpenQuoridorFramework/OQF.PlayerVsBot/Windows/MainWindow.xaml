@@ -249,7 +249,9 @@
 								 VerticalAlignment="Stretch">
 
 				<Expander ExpandDirection="Right"
-                          IsExpanded="True">
+                          IsExpanded="{Binding IsProgressSectionExpanded, 
+											   Mode=TwoWay, 
+											   UpdateSourceTrigger=PropertyChanged}">
 					<Expander.Header>
 						<TextBlock RenderTransformOrigin=".5,.5" 
 								   Text="{Binding ProgressCaption}">
@@ -300,7 +302,9 @@
 
 				<Expander DockPanel.Dock="Right"
                           ExpandDirection="Left"
-                          IsExpanded="False">
+                          IsExpanded="{Binding IsDebugSectionExpanded, 
+											   Mode=TwoWay, 
+											   UpdateSourceTrigger=PropertyChanged}">
 					<Expander.Header>
 						<TextBlock RenderTransformOrigin=".5,.5" 
 								   Text="{Binding DebugCaption}">

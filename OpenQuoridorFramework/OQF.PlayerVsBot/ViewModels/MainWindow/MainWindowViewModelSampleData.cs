@@ -46,6 +46,9 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			IsAutoScrollDebugMsgActive = true;
 			IsAutoScrollProgressActive = true;
 
+			IsProgressSectionExpanded = true;
+			IsDebugSectionExpanded    = false;
+
 			IsDisabledOverlayVisible = true;
 
 			BrowseForBotButtonToolTipCaption = "bot dll laden";
@@ -75,6 +78,9 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		public bool IsAutoScrollProgressActive { get; set; }
 		public bool IsAutoScrollDebugMsgActive { get; set; }
+
+		public bool IsProgressSectionExpanded { get; set; }
+		public bool IsDebugSectionExpanded    { get; set; }
 
 		public bool IsDisabledOverlayVisible { get; }
 

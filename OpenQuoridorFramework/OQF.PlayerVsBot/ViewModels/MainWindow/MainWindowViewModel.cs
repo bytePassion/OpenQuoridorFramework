@@ -19,6 +19,7 @@ using OQF.Contest.Contracts.GameElements;
 using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Contracts;
 using OQF.PlayerVsBot.Services;
+using OQF.PlayerVsBot.Services.SettingsRepository;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
@@ -37,7 +38,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private DateTime startTime;
 
 		private readonly IGameService gameService;
-		private readonly ILastUsedBotService lastUsedBotService;
+		private readonly IApplicationSettingsRepository applicationSettingsRepository;
+
 
 		private string dllPathInput;		
 		private int bottomPlayerWallCountLeft;
@@ -48,18 +50,20 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private bool isAutoScrollDebugMsgActive;
 		private string topPlayerRestTime;
 		private bool isDisabledOverlayVisible;
-		
+		private bool isProgressSectionExpanded;
+		private bool isDebugSectionExpanded;
+
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel, 
 									IBoardPlacementViewModel boardPlacementViewModel,
 									ILanguageSelectionViewModel languageSelectionViewModel,
 									IGameService gameService, 
-									ILastUsedBotService lastUsedBotService)
+									IApplicationSettingsRepository applicationSettingsRepository)
 		{
 			CultureManager.CultureChanged += RefreshCaptions;
 
 			this.gameService = gameService;
-			this.lastUsedBotService = lastUsedBotService;
+			this.applicationSettingsRepository = applicationSettingsRepository;			
 
 			LanguageSelectionViewModel = languageSelectionViewModel;
 			BoardPlacementViewModel = boardPlacementViewModel;
@@ -86,7 +90,9 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 			GameStatus = GameStatus.Unloaded;
 
-			DllPathInput = lastUsedBotService.GetLastUsedBot();
+			DllPathInput              = applicationSettingsRepository.LastUsedBotPath;
+			IsDebugSectionExpanded    = applicationSettingsRepository.IsDebugSectionExpanded;
+			IsProgressSectionExpanded = applicationSettingsRepository.IsProgressSecionExpanded;
 
 			botCountDownTimer = new Timer(BotCountDownTimerOnTick, null,Timeout.Infinite, Timeout.Infinite);			
 		}		
@@ -246,6 +252,34 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			set { PropertyChanged.ChangeAndNotify(this, ref isAutoScrollDebugMsgActive, value); }
 		}
 
+		public bool IsProgressSectionExpanded
+		{
+			get { return isProgressSectionExpanded; }
+			set
+			{
+				if (value != isProgressSectionExpanded)
+				{
+					applicationSettingsRepository.IsProgressSecionExpanded = value;
+				}
+
+				PropertyChanged.ChangeAndNotify(this, ref isProgressSectionExpanded, value);
+			}
+		}
+
+		public bool IsDebugSectionExpanded
+		{
+			get { return isDebugSectionExpanded; }
+			set
+			{
+				if (value != isDebugSectionExpanded)
+				{
+					applicationSettingsRepository.IsDebugSectionExpanded = value;
+				}
+
+				PropertyChanged.ChangeAndNotify(this, ref isDebugSectionExpanded, value);
+			}
+		}
+
 		public bool IsDisabledOverlayVisible
 		{
 			get { return isDisabledOverlayVisible; }
@@ -352,7 +386,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 				return;
 			}
 
-			lastUsedBotService.SaveLastUsedBot(DllPathInput);									
+			applicationSettingsRepository.LastUsedBotPath = DllPathInput;									
 			gameService.CreateGame(uninitializedBot, new GameConstraints(TimeSpan.FromSeconds(60), 100));
 			
 			((Command)Capitulate).RaiseCanExecuteChanged();

@@ -1,11 +1,14 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
 using OQF.GameEngine.Contracts;
 using OQF.GameEngine.Game;
 using OQF.PlayerVsBot.Services;
+using OQF.PlayerVsBot.Services.SettingsRepository;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow;
 using OQF.PlayerVsBot.Windows;
+using OQF.Visualization.Common.Language;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
 namespace OQF.PlayerVsBot
@@ -18,7 +21,13 @@ namespace OQF.PlayerVsBot
 
 			IGameFactory gameFactory = new GameFactory();
 			IGameService gameService = new GameService(gameFactory);
-			ILastUsedBotService lastUsedBotService = new LastUsedBotService();
+			IApplicationSettingsRepository applicationSettingsRepository = new ApplicationSettingsRepository();
+
+			CultureManager.CurrentCulture = new CultureInfo(applicationSettingsRepository.SelectedLanguageCode);
+			CultureManager.CultureChanged += () =>
+											 {
+											 	applicationSettingsRepository.SelectedLanguageCode = CultureManager.CurrentCulture.ToString();
+											 };
 
 			var boardViewModel = new BoardViewModel(gameService);
 			var boardPlacementViewModel = new BoardPlacementViewModel(gameService, gameFactory);
@@ -28,7 +37,7 @@ namespace OQF.PlayerVsBot
 															  boardPlacementViewModel, 
 															  languageSelectionViewModel,
 															  gameService, 
-															  lastUsedBotService);
+															  applicationSettingsRepository);
 
 			var mainWindow = new MainWindow
 			{
@@ -37,7 +46,7 @@ namespace OQF.PlayerVsBot
 			
 			mainWindow.ShowDialog();
 
-			gameService.StopGame();
-		}
+			gameService.StopGame();			
+		}		
 	}
 }
