@@ -98,9 +98,7 @@ namespace OQF.PlayerVsBot.ViewModels.BoardPlacement
 		{
 			if (PotentialPlacedWall.Count > 0)
 			{
-				gameService.ReportHumanMove(new WallMove(gameService.CurrentBoardState,
-														 gameService.CurrentBoardState.CurrentMover,
-														 PotentialPlacedWall[0]));
+				gameService.ReportHumanMove(new WallMove(PotentialPlacedWall[0]));
 				return;
 			}
 
@@ -108,9 +106,7 @@ namespace OQF.PlayerVsBot.ViewModels.BoardPlacement
 
 			if (fieldToMove.HasValue)
 			{
-				gameService.ReportHumanMove(new FigureMove(gameService.CurrentBoardState,
-														   gameService.CurrentBoardState.CurrentMover,
-														   fieldToMove.Value));				
+				gameService.ReportHumanMove(new FigureMove(fieldToMove.Value));				
 			}
 		}
 

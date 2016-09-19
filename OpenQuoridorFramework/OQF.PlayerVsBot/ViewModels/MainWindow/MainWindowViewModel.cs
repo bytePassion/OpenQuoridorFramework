@@ -408,8 +408,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		private void DoCapitulate ()
 		{
-			gameService.ReportHumanMove(new Capitulation(gameService.CurrentBoardState,
-														 gameService.CurrentBoardState.CurrentMover));
+			gameService.ReportHumanMove(new Capitulation());
 		}
 
 

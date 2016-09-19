@@ -17,7 +17,7 @@ namespace OQF.Utils
 
 		    while (currentBoadState != null)
 		    {
-				if (currentBoadState.LastMove != null)
+				if (currentBoadState.LastBoardState != null)
 					moveList.Add(currentBoadState.LastMove);
 
 			    currentBoadState = currentBoadState.LastBoardState;

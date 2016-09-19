@@ -13,6 +13,7 @@ namespace OQF.GameEngine.Transitions
 								  PlayerTransitions.InitialPlayerStateCreation(topPlayer),
 								  PlayerTransitions.InitialPlayerStateCreation(bottomPlayer),
 								  bottomPlayer,
+								  null,
 								  null);
 		}
 
@@ -21,11 +22,11 @@ namespace OQF.GameEngine.Transitions
 			var wallMove = move as WallMove;
 			if (wallMove != null)
 			{				
-				var topPlayerState = currentBoardState.TopPlayer.Player == wallMove.PlayerAtMove 
+				var topPlayerState = currentBoardState.TopPlayer.Player == currentBoardState.CurrentMover 
 											? currentBoardState.TopPlayer.SpendWall()
 											: currentBoardState.TopPlayer;
 
-				var bottomPlayerState = currentBoardState.BottomPlayer.Player == wallMove.PlayerAtMove
+				var bottomPlayerState = currentBoardState.BottomPlayer.Player == currentBoardState.CurrentMover
 											? currentBoardState.BottomPlayer.SpendWall()
 											: currentBoardState.BottomPlayer;
 				
@@ -33,17 +34,18 @@ namespace OQF.GameEngine.Transitions
 									  topPlayerState,
 									  bottomPlayerState,
 									  currentBoardState.GetNextMover(),
+									  currentBoardState,
 									  move);
 			}
 			else if (move is FigureMove)
 			{
 				var fieldMove = (FigureMove) move;
 
-				var topPlayerState = currentBoardState.TopPlayer.Player == move.PlayerAtMove
+				var topPlayerState = currentBoardState.TopPlayer.Player == currentBoardState.CurrentMover
 					? currentBoardState.TopPlayer.MovePlayer(fieldMove.NewPosition)
 					: currentBoardState.TopPlayer;
 
-				var bottomPlayerState = currentBoardState.BottomPlayer.Player == move.PlayerAtMove
+				var bottomPlayerState = currentBoardState.BottomPlayer.Player == currentBoardState.CurrentMover
 					? currentBoardState.BottomPlayer.MovePlayer(fieldMove.NewPosition)
 					: currentBoardState.BottomPlayer;
 
@@ -51,12 +53,19 @@ namespace OQF.GameEngine.Transitions
 					topPlayerState,
 					bottomPlayerState,
 					currentBoardState.GetNextMover(),
+					currentBoardState,
 					move);
 			}
 			else
-			{									//
-				return currentBoardState;		//	Capitulation
-			}									//
+			{													
+				return new BoardState(currentBoardState.PlacedWalls,			//
+									  currentBoardState.TopPlayer,				//
+									  currentBoardState.BottomPlayer,			//	capitulation
+									  currentBoardState.GetNextMover(),			//
+									  currentBoardState,						//
+									  move);									//
+			}
+
 		}
 
 		private static Player GetNextMover(this BoardState currentBoardState)

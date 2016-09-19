@@ -63,7 +63,7 @@ namespace OQF.ReplayViewer.Services
 
 			foreach (var move in allMoves)
 			{
-				var nextMove = MoveParser.GetMove(move, boardState, playerAtMove);
+				var nextMove = MoveParser.GetMove(move);
 
 				boardState = boardState.ApplyMove(nextMove);
 				allReplayStates.Add(boardState);

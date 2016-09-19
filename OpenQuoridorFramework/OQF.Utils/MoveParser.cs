@@ -6,7 +6,7 @@ namespace OQF.Utils
 {
 	public static class MoveParser
 	{
-		public static Move GetMove (string s, BoardState stateBeforeMove, Player playerAtMove)
+		public static Move GetMove (string s)
 		{
 			var moveString = s.Trim();
 
@@ -18,16 +18,14 @@ namespace OQF.Utils
 					var yCoord = GetYCoord(moveString[1]);
 
 					if (xCoord.HasValue && yCoord.HasValue)
-						return new FigureMove(stateBeforeMove,
-											  playerAtMove,
-											  new FieldCoordinate(xCoord.Value, yCoord.Value));
+						return new FigureMove(new FieldCoordinate(xCoord.Value, yCoord.Value));
 
 					break;
 				}
 				case 3:
 				{
 					if (moveString.ToLower() == "cap")
-						return new Capitulation(stateBeforeMove, playerAtMove);
+						return new Capitulation();
 
 					var xCoord      = GetXCoord     (moveString[0]);
 					var yCoord      = GetYCoord     (moveString[1]);
@@ -35,9 +33,7 @@ namespace OQF.Utils
 
 					if (xCoord.HasValue && yCoord.HasValue && orientation.HasValue)
 						if (xCoord.Value < XField.I && yCoord.Value < YField.One)
-							return new WallMove(stateBeforeMove,
-												playerAtMove,
-												new Wall(new FieldCoordinate(xCoord.Value, yCoord.Value), orientation.Value));
+							return new WallMove(new Wall(new FieldCoordinate(xCoord.Value, yCoord.Value), orientation.Value));
 
 					break;
 				}				

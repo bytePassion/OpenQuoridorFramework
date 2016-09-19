@@ -5,8 +5,7 @@ namespace OQF.Contest.Contracts.Moves
 {
 	public class WallMove : Move
 	{
-		public WallMove(BoardState stateBeforeMove, Player playerAtMove, Wall placedWall)
-			: base(stateBeforeMove, playerAtMove)
+		public WallMove(Wall placedWall)			
 		{
 			PlacedWall = placedWall;
 		}

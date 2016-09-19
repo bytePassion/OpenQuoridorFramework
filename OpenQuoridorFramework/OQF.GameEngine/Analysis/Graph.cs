@@ -102,9 +102,9 @@ namespace OQF.GameEngine.Analysis
 				nodePair.Value.Visited = false;
 		}
 
-		private bool ValidateFigureMove (FigureMove move)
+		private bool ValidateFigureMove (FigureMove move, PlayerType playerType)
 		{
-			var sourceCoordinate = move.PlayerAtMove.PlayerType == PlayerType.BottomPlayer
+			var sourceCoordinate = playerType == PlayerType.BottomPlayer
 										? bottomPlayerPosition
 										: topPlayerPosition;
 
@@ -126,11 +126,11 @@ namespace OQF.GameEngine.Analysis
 			return TraverseGraph(GetNode(topPlayerPosition),    YField.One) &&
 				   TraverseGraph(GetNode(bottomPlayerPosition), YField.Nine);
 		}
-
-		public bool ValidateMove (Move move)
+		
+		public bool ValidateMove (Move move, PlayerType playerType)
 		{
 			if (move is FigureMove)
-				return ValidateFigureMove((FigureMove)move);
+				return ValidateFigureMove((FigureMove)move, playerType);
 
 			if (move is WallMove)
 				return ValidateWallMove((WallMove)move);

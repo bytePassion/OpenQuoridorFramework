@@ -13,8 +13,7 @@ namespace OQF.GameEngine.Game
 	public class GameLoopThreadBvB : IThread
 	{
 		private class BotsTimeOut : Move
-		{
-			public BotsTimeOut() : base(null, null) {}
+		{			
 			public override string ToString() => string.Empty;
 		}		
 

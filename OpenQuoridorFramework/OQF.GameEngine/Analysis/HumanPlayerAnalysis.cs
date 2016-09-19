@@ -24,48 +24,50 @@ namespace OQF.GameEngine.Analysis
 										 .Neighbours
 										 .Select(nodeNeigbour => nodeNeigbour.Coord);
 				
-				possibleWalls = GeneratePhysicalPossibleWalls2(boardState);				
+				possibleWalls = GeneratePhysicalPossibleWalls(boardState);				
 			}							
 		}
 
 		public IEnumerable<Wall>            GetPossibleWalls() => possibleWalls;		
 		public IEnumerable<FieldCoordinate> GetPossibleMoves() => possibleMoves;
 
-		private static IList<Wall> GeneratePhysicalPossibleWalls (BoardState boardState)
-		{
-			var resultList = new List<Wall>();
+//		First version
+//		
+//		private static IList<Wall> GeneratePhysicalPossibleWalls (BoardState boardState)
+//		{
+//			var resultList = new List<Wall>();
+//
+//			for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
+//			{
+//				for (var yCoord = YField.Nine; yCoord < YField.One; yCoord++)
+//				{
+//					var coord = new FieldCoordinate(xCoord, yCoord);
+//
+//					var placedWalls = boardState.PlacedWalls;
+//
+//					if (placedWalls.Any(wall => wall.TopLeft == coord))
+//						continue;
+//
+//					if (!placedWalls.Any(wall => wall.Orientation == WallOrientation.Horizontal &&
+//					                             (wall.TopLeft == new FieldCoordinate(coord.XCoord - 1, coord.YCoord) ||
+//					                              wall.TopLeft == new FieldCoordinate(coord.XCoord + 1, coord.YCoord))))
+//					{
+//						resultList.Add(new Wall(coord, WallOrientation.Horizontal));
+//					}
+//
+//					if (!placedWalls.Any(wall => wall.Orientation == WallOrientation.Vertical &&
+//												 (wall.TopLeft == new FieldCoordinate(coord.XCoord, coord.YCoord + 1) ||
+//												  wall.TopLeft == new FieldCoordinate(coord.XCoord, coord.YCoord - 1))))
+//					{
+//						resultList.Add(new Wall(coord, WallOrientation.Vertical));
+//					}					
+//				}
+//			}
+//
+//			return resultList;
+//		}
 
-			for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
-			{
-				for (var yCoord = YField.Nine; yCoord < YField.One; yCoord++)
-				{
-					var coord = new FieldCoordinate(xCoord, yCoord);
-
-					var placedWalls = boardState.PlacedWalls;
-
-					if (placedWalls.Any(wall => wall.TopLeft == coord))
-						continue;
-
-					if (!placedWalls.Any(wall => wall.Orientation == WallOrientation.Horizontal &&
-					                             (wall.TopLeft == new FieldCoordinate(coord.XCoord - 1, coord.YCoord) ||
-					                              wall.TopLeft == new FieldCoordinate(coord.XCoord + 1, coord.YCoord))))
-					{
-						resultList.Add(new Wall(coord, WallOrientation.Horizontal));
-					}
-
-					if (!placedWalls.Any(wall => wall.Orientation == WallOrientation.Vertical &&
-												 (wall.TopLeft == new FieldCoordinate(coord.XCoord, coord.YCoord + 1) ||
-												  wall.TopLeft == new FieldCoordinate(coord.XCoord, coord.YCoord - 1))))
-					{
-						resultList.Add(new Wall(coord, WallOrientation.Vertical));
-					}					
-				}
-			}
-
-			return resultList;
-		}
-
-		private static IEnumerable<Wall> GeneratePhysicalPossibleWalls2 (BoardState boardState)
+		private static IEnumerable<Wall> GeneratePhysicalPossibleWalls (BoardState boardState)
 		{
 			var allHorizontalWalls = new Dictionary<FieldCoordinate, Wall>();
 			var allVerticalWalls  = new Dictionary<FieldCoordinate, Wall>();			

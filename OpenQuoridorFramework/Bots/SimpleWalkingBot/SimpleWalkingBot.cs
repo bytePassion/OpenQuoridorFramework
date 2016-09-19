@@ -35,8 +35,8 @@ namespace SimpleWalkingBot
 		    var nextPosition = graph.GetNextPositionToMove(target);
 
 		    var nextMove = nextPosition.HasValue 
-								? (Move) new FigureMove  (currentState, myself, nextPosition.Value)
-								: (Move) new Capitulation(currentState, myself);
+								? (Move) new FigureMove  (nextPosition.Value)
+								: (Move) new Capitulation();
 
 			NextMoveAvailable?.Invoke(nextMove);							
 	    }

@@ -29,7 +29,7 @@ namespace OQF.GameEngine.Analysis
 
 			var gameGraph = new Graph(currentBoardState);
 
-			return gameGraph.ValidateMove(potentialNextMove);           		              
+			return gameGraph.ValidateMove(potentialNextMove, currentBoardState.CurrentMover.PlayerType);           		              
 		}
 
 		public static Player CheckWinningCondition(BoardState currentBoardState)

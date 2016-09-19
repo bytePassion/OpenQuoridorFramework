@@ -7,12 +7,14 @@ namespace OQF.Contest.Contracts.GameElements
 	{
 	    public BoardState(IEnumerable<Wall> placedWalls, 
 						  PlayerState topPlayer, PlayerState bottomPlayer, 
-						  Player currentMover, Move lastMove)
+						  Player currentMover, 
+						  BoardState lastBoardState, Move lastMove)
 		{
 			PlacedWalls = placedWalls;
 			TopPlayer = topPlayer;
 			BottomPlayer = bottomPlayer;
 			CurrentMover = currentMover;
+			LastBoardState = lastBoardState;
 			LastMove = lastMove;
 		}
 
@@ -22,8 +24,8 @@ namespace OQF.Contest.Contracts.GameElements
 		public PlayerState BottomPlayer { get; }
 
 		public Player CurrentMover { get; }
-
-		public Move       LastMove { get; }
-		public BoardState LastBoardState => LastMove?.StateBeforeMove;
+		
+		public BoardState LastBoardState { get; }
+		public Move       LastMove       { get; }
 	}
 }
