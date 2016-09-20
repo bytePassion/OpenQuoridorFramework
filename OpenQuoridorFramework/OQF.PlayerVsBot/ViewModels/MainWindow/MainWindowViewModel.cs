@@ -125,9 +125,9 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			DebugMessages.Add(s);
 		}
 
-	    private async void ExecuteWinDialog(bool reportWinning, Player player, WinningReason winningReason)
+	    private async void ExecuteWinDialog(bool reportWinning, Player player, WinningReason winningReason, Move invalidMove)
 	    {
-		    var winningDialogViewModel = new WinningDialogViewModel(reportWinning, winningReason);
+		    var winningDialogViewModel = new WinningDialogViewModel(reportWinning, winningReason, invalidMove);
 
 			var view = new Views.WinningDialog
 	        {
@@ -157,7 +157,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
                     if (result.Value)
                     {
                         var fileText = CreateProgressText.FromBoardState(gameService.CurrentBoardState)
-                                                         .AndAppendWinnerAndReason(player, winningReason);
+                                                         .AndAppendWinnerAndReason(player, winningReason, invalidMove);
 
                         File.WriteAllText(dialog.FileName, fileText);
                     }
@@ -167,7 +167,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			winningDialogViewModel.Dispose();
         }
 
-		private void OnWinnerAvailable(Player player, WinningReason winningReason)
+		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move invalidMove)
 		{
 			StopTimer();
 
@@ -175,7 +175,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 						
 
 
-			ExecuteWinDialog(reportWinning, player, winningReason);
+			ExecuteWinDialog(reportWinning, player, winningReason, invalidMove);
 
 			GameStatus = GameStatus.Finished;
 		}

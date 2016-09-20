@@ -19,7 +19,7 @@ namespace OQF.GameEngine.Game
 		}		
 
 		public event Action<BoardState>             NewBoardStateAvailable;
-		public event Action<Player, WinningReason>  WinnerAvailable;
+		public event Action<Player, WinningReason, Move>  WinnerAvailable;
 
 		private readonly Timer botTimer;
 
@@ -80,7 +80,7 @@ namespace OQF.GameEngine.Game
 			{
 				if (moveCounter >= gameConstraints.MaximalMovesPerPlayer)
 				{
-					WinnerAvailable?.Invoke(computerPlayer, WinningReason.ExceedanceOfMaxMoves);
+					WinnerAvailable?.Invoke(computerPlayer, WinningReason.ExceedanceOfMaxMoves, null);
 				}
 
 				var nextHumanMove = PickHumanMove();
@@ -90,7 +90,7 @@ namespace OQF.GameEngine.Game
 
 				if (!GameAnalysis.IsMoveLegal(currentBoardState, nextHumanMove))
 				{
-					WinnerAvailable?.Invoke(computerPlayer, WinningReason.InvalidMove);
+					WinnerAvailable?.Invoke(computerPlayer, WinningReason.InvalidMove, nextHumanMove);
 					break;
 				}								
 
@@ -99,13 +99,13 @@ namespace OQF.GameEngine.Game
 
 				if (nextHumanMove is Capitulation)
 				{
-					WinnerAvailable?.Invoke(computerPlayer, WinningReason.Capitulation);
+					WinnerAvailable?.Invoke(computerPlayer, WinningReason.Capitulation, null);
 				}
 
 				var winner = GameAnalysis.CheckWinningCondition(currentBoardState);
 				if (winner != null)
 				{
-					WinnerAvailable?.Invoke(winner, WinningReason.RegularQuoridorWin);
+					WinnerAvailable?.Invoke(winner, WinningReason.RegularQuoridorWin, null);
 					break;
 				}								
 				
@@ -116,7 +116,7 @@ namespace OQF.GameEngine.Game
 
 				if (!GameAnalysis.IsMoveLegal(currentBoardState, nextBotMove))
 				{
-					WinnerAvailable?.Invoke(humanPlayer, WinningReason.InvalidMove);
+					WinnerAvailable?.Invoke(humanPlayer, WinningReason.InvalidMove, nextBotMove);
 					break;
 				}
 
@@ -125,13 +125,13 @@ namespace OQF.GameEngine.Game
 
 				if (nextBotMove is Capitulation)
 				{
-					WinnerAvailable?.Invoke(humanPlayer, WinningReason.Capitulation);
+					WinnerAvailable?.Invoke(humanPlayer, WinningReason.Capitulation, null);
 				}
 				
 				var winner2 = GameAnalysis.CheckWinningCondition(currentBoardState);
 				if (winner2 != null)
 				{
-					WinnerAvailable?.Invoke(winner2, WinningReason.RegularQuoridorWin);
+					WinnerAvailable?.Invoke(winner2, WinningReason.RegularQuoridorWin, null);
 					break;
 				}
 
@@ -157,7 +157,7 @@ namespace OQF.GameEngine.Game
 
 			if (nextMove is BotsTimeOut)
 			{				
-				WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.ExceedanceOfThoughtTime);
+				WinnerAvailable?.Invoke(currentBoardState.BottomPlayer.Player, WinningReason.ExceedanceOfThoughtTime, null);
 				return null;
 			}
 				

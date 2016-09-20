@@ -39,7 +39,7 @@ namespace OQF.PlayerVsBot.ViewModels.BoardPlacement
 			PotentialPlacedWall = new ObservableCollection<Wall>();
 		}
 
-		private void OnWinnerAvailable(Player player, WinningReason winningReason)
+		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move illegalMove)
 		{
 			DisablePlacement();
 		}

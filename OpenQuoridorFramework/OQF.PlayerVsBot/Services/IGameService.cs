@@ -8,9 +8,9 @@ namespace OQF.PlayerVsBot.Services
 {
 	internal interface IGameService
 	{
-		event Action<BoardState>            NewBoardStateAvailable;
-		event Action<string>                NewDebugMsgAvailable;
-		event Action<Player, WinningReason> WinnerAvailable;
+		event Action<BoardState>                  NewBoardStateAvailable;
+		event Action<string>                      NewDebugMsgAvailable;
+		event Action<Player, WinningReason, Move> WinnerAvailable;
 
 		BoardState CurrentBoardState { get; }		
 		

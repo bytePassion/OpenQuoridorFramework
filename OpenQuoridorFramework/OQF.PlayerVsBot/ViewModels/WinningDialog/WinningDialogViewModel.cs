@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
+using System.Text;
 using Lib.Wpf.ViewModelBase;
+using OQF.Contest.Contracts.Moves;
 using OQF.GameEngine.Contracts;
 using OQF.Visualization.Resources.LanguageDictionaries;
 
@@ -7,13 +9,22 @@ namespace OQF.PlayerVsBot.ViewModels.WinningDialog
 {
 	internal class WinningDialogViewModel : ViewModel, IWinningDialogViewModel
     {
-	    public WinningDialogViewModel(bool reportWinning, WinningReason winningReason)
+	    public WinningDialogViewModel(bool reportWinning, WinningReason winningReason, Move invalidMove)
         {
-			var winOrLooseMsg = reportWinning
-									? $"{Captions.WD_WinningMessage}\n{Captions.WD_Message_Reason}: {WinningReasonToString(winningReason)}"
-									: $"{Captions.WD_LoosingMessage}\n{Captions.WD_Message_Reason}: {WinningReasonToString(winningReason)}";
+			var sb = new StringBuilder();
 
-	        Message = $"{winOrLooseMsg}\n\n{Captions.WD_SaveGameRequest}";			
+			if (reportWinning)
+				sb.Append($"{Captions.WD_WinningMessage}\n{Captions.WD_Message_Reason}: {WinningReasonToString(winningReason)}");
+
+			if (!reportWinning)
+				sb.Append($"{Captions.WD_LoosingMessage}\n{Captions.WD_Message_Reason}: {WinningReasonToString(winningReason)}");
+
+	        if (winningReason == WinningReason.InvalidMove)
+		        sb.Append($" [{invalidMove}]");
+
+			sb.Append($"\n\n{Captions.WD_SaveGameRequest}");
+
+	        Message = sb.ToString();
         }
 
         public string Message { get; }

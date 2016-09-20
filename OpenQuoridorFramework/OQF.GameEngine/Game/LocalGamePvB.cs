@@ -10,9 +10,9 @@ namespace OQF.GameEngine.Game
 {
 	public class LocalGamePvB : IPvBGame
 	{
-		public event Action<Player, WinningReason> WinnerAvailable;
-		public event Action<BoardState>            NextBoardstateAvailable;
-		public event Action<string>                DebugMessageAvailable;
+		public event Action<Player, WinningReason, Move> WinnerAvailable;
+		public event Action<BoardState>                  NextBoardstateAvailable;
+		public event Action<string>                      DebugMessageAvailable;
 
 		/*
 		 *	computer is topPlayer
@@ -43,10 +43,10 @@ namespace OQF.GameEngine.Game
 			DebugMessageAvailable?.Invoke(s);
 		}
 
-		private void OnWinnerAvailable(Player player, WinningReason winningReason)
+		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move invalidMove)
 		{
 			StopGame();
-			WinnerAvailable?.Invoke(player, winningReason);
+			WinnerAvailable?.Invoke(player, winningReason, invalidMove);
 		}
 
 		private void OnNewBoardStateAvailable(BoardState boardState)

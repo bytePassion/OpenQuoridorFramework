@@ -44,7 +44,7 @@ namespace OQF.Utils
 			return sb.ToString();
 	    }
 
-	    public static string AndAppendWinnerAndReason(this string progress, Player winner, WinningReason winningReason)
+	    public static string AndAppendWinnerAndReason(this string progress, Player winner, WinningReason winningReason, Move invalidMove)
 	    {
 		    var sb = new StringBuilder();
 
@@ -71,7 +71,7 @@ namespace OQF.Utils
 			    }
 				case WinningReason.InvalidMove:
 			    {
-					sb.Append(" the oppenden player tryed to do an illegal move");
+					sb.Append($" the oppenden player tryed to do an illegal move [{invalidMove}]");
 					break;
 			    }
 				case WinningReason.ExceedanceOfMaxMoves:

@@ -12,7 +12,7 @@ namespace OQF.PlayerVsBot.Services
 		private readonly IGameFactory gameFactory;
 		public event Action<BoardState> NewBoardStateAvailable;
 		public event Action<string> NewDebugMsgAvailable;
-		public event Action<Player, WinningReason> WinnerAvailable;
+		public event Action<Player, WinningReason, Move> WinnerAvailable;
 
 		private IPvBGame currentIpvBGame;		
 
@@ -40,11 +40,11 @@ namespace OQF.PlayerVsBot.Services
 			currentIpvBGame.WinnerAvailable         += OnWinnerAvailable;			
 		}
 
-		private void OnWinnerAvailable(Player player, WinningReason winningReason)
+		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move invalidMove)
 		{
 			Application.Current.Dispatcher.Invoke(() =>
 			{
-				WinnerAvailable?.Invoke(player, winningReason);
+				WinnerAvailable?.Invoke(player, winningReason, invalidMove);
 			});			
 		}
 
