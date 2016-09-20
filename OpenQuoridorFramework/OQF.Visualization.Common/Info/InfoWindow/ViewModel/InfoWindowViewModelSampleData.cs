@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
+using OQF.Visualization.Common.Info.Pages.PageViewModels;
 
 #pragma warning disable 0067
 
@@ -12,6 +13,8 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 	{
 		public InfoWindowViewModelSampleData()
 		{
+			QuoridorRulesPageViewModel = new QuoridorRulesPageViewModelSampleData();
+
 			SelectedPage = 2;
 
 			PageSelectionCommands = new ObservableCollection<SelectionButtonData>
@@ -22,8 +25,9 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 			};
 		}
 
-		public ICommand CloseWindow => null;
+		public IQuoridorRulesPageViewModel QuoridorRulesPageViewModel { get; }
 
+		public ICommand CloseWindow => null;
 		public int SelectedPage { get; }
 		public ObservableCollection<SelectionButtonData> PageSelectionCommands { get; }
 

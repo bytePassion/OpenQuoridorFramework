@@ -160,6 +160,150 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Game Flow.
+        /// </summary>
+        public static string QRP_GameFlowParagraphHeader {
+            get {
+                return ResourceManager.GetString("QRP_GameFlowParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string QRP_GameFlowParagraphText {
+            get {
+                return ResourceManager.GetString("QRP_GameFlowParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game Goal.
+        /// </summary>
+        public static string QRP_GameGoalParagraphHeader {
+            get {
+                return ResourceManager.GetString("QRP_GameGoalParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string QRP_GameGoalParagraphText {
+            get {
+                return ResourceManager.GetString("QRP_GameGoalParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game Setup.
+        /// </summary>
+        public static string QRP_GameSetupParagraphHeader {
+            get {
+                return ResourceManager.GetString("QRP_GameSetupParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string QRP_GameSetupParagraphText {
+            get {
+                return ResourceManager.GetString("QRP_GameSetupParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        public static string QRP_GeneralParagraphHeader {
+            get {
+                return ResourceManager.GetString("QRP_GeneralParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string QRP_GeneralParagraphText {
+            get {
+                return ResourceManager.GetString("QRP_GeneralParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quoridor - Rules.
+        /// </summary>
+        public static string QRP_PageHeader {
+            get {
+                return ResourceManager.GetString("QRP_PageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture 1.
+        /// </summary>
+        public static string QRP_Picture1Caption {
+            get {
+                return ResourceManager.GetString("QRP_Picture1Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture 2.
+        /// </summary>
+        public static string QRP_Picture2Caption {
+            get {
+                return ResourceManager.GetString("QRP_Picture2Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture 3.
+        /// </summary>
+        public static string QRP_Picture3Caption {
+            get {
+                return ResourceManager.GetString("QRP_Picture3Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture 4.
+        /// </summary>
+        public static string QRP_Picture4Caption {
+            get {
+                return ResourceManager.GetString("QRP_Picture4Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture 5.
+        /// </summary>
+        public static string QRP_Picture5Caption {
+            get {
+                return ResourceManager.GetString("QRP_Picture5Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Special moving rules.
+        /// </summary>
+        public static string QRP_SpecialMoveParagraphHeader {
+            get {
+                return ResourceManager.GetString("QRP_SpecialMoveParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string QRP_SpecialMoveParagraphText {
+            get {
+                return ResourceManager.GetString("QRP_SpecialMoveParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sry ... you got beaten by the bot.
         /// </summary>
         public static string WD_LoosingMessage {

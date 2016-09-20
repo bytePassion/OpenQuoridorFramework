@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
+using OQF.Visualization.Common.Info.Pages.PageViewModels;
 
 namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 {
@@ -15,8 +16,10 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 		
 		private int selectedPage;
 
-		public InfoWindowViewModel(IEnumerable<InfoPage> visibleInfoPages)
+		public InfoWindowViewModel(IEnumerable<InfoPage> visibleInfoPages, 
+								   IQuoridorRulesPageViewModel quoridorRulesPageViewModel)
 		{
+			QuoridorRulesPageViewModel = quoridorRulesPageViewModel;
 			CloseWindow = new Command(DoCloseWindow);
 			PageSelectionCommands = new ObservableCollection<SelectionButtonData>();
 
@@ -33,6 +36,8 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 
 			PageSelectionCommands.FirstOrDefault()?.Command.Execute(null);
 		}
+
+		public IQuoridorRulesPageViewModel QuoridorRulesPageViewModel { get; }
 
 		public ICommand CloseWindow { get; }
 

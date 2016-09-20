@@ -60,7 +60,7 @@
                           Grid.Column="1"
                           SelectedLayer="{Binding SelectedPage}">
 
-            <pages:QuoridorRules />
+            <pages:QuoridorRules  DataContext="{Binding QuoridorRulesPageViewModel}"/>
             <pages:QuoridorNotation />
             <pages:HowToWriteABot />
             <pages:ReplayViewerApplicationInfo />

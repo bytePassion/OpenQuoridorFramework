@@ -183,4 +183,52 @@
   <data name="WD_SaveGameRequest" xml:space="preserve">
     <value>Willst du das Spiel speichern?</value>
   </data>
+  <data name="QRP_PageHeader" xml:space="preserve">
+    <value>Quoridor - Spielregeln</value>
+  </data>
+  <data name="QRP_GeneralParagraphText" xml:space="preserve">
+    <value>Quoridor ist ein abstraktes Strategiespiel für 2 oder 4 Spieler. Im OpenQuoridorFramework wird nur das 2-Spieler-Spiel betrachtet, weswegen hier auch nur die Regeln für diese Variante aufgeführt werden.</value>
+  </data>
+  <data name="QRP_GeneralParagraphHeader" xml:space="preserve">
+    <value>Allgemein</value>
+  </data>
+  <data name="QRP_GameSetupParagraphHeader" xml:space="preserve">
+    <value>Spielaufbau</value>
+  </data>
+  <data name="QRP_GameSetupParagraphText" xml:space="preserve">
+    <value>Quoridor besteht aus einem Spielfeld mit 9x9 Feldern mit Zwischenräumen (Bild 1), zwei Spielfiguren, die auf den Feldern bewegt werden und 20 Wand-Elementen, die in den Zwischenräumen der Felder platziert werden können. Jeder Spieler erhält eine Spielfigur und 10 Wand-Elemente. Die Spielfiguren werden auf den Feldern e1 und e9 (siehe Quoridor-Notation) initial platziert. Der Spieler mit der Figur auf e1 beginnt mit dem ersten Zug.</value>
+  </data>
+  <data name="QRP_GameGoalParagraphHeader" xml:space="preserve">
+    <value>Spielziel</value>
+  </data>
+  <data name="QRP_GameGoalParagraphText" xml:space="preserve">
+    <value>Das Spiel endet sofort, wenn ein Spieler eines der 9 gegenüberliegenden Felder betritt. Dieser Spieler gewinnt.</value>
+  </data>
+  <data name="QRP_GameFlowParagraphHeader" xml:space="preserve">
+    <value>Spielablauf</value>
+  </data>
+  <data name="QRP_GameFlowParagraphText" xml:space="preserve">
+    <value>Es wird abwechseld gezogen bis ein Gewinner ermittelt ist. Ist ein Spieler an der Reihe muss er eine von 2 Aktionen ausführen. Entweder muss die Figur bewegt, oder ein Wand-Element platziert werden. Hat der Spieler kein Wand-Element mehr übrig, muss er die Figur ziehen. Eine Figur kann immer nur 1 Feld weit in eine Richtung (horizontal oder vertikal) bewegt werden. Jedoch nicht diagonal, nicht über ein Wand-Element und auch nicht aus dem Spielfeld heraus. Beim Setzen der Wand-Elemente ist zu beachten, dass sich diese immer zwischen den Feldern befinden müssen, sich nicht überschneiden dürfen, nicht aus dem Brett herausragen dürfen und dem Gegner immer ein Weg zu einem Zielfeld offen gehalten werden muss.</value>
+  </data>
+  <data name="QRP_SpecialMoveParagraphHeader" xml:space="preserve">
+    <value>Sonderregeln zur Bewegung</value>
+  </data>
+  <data name="QRP_SpecialMoveParagraphText" xml:space="preserve">
+    <value>Stehen die Figuren der Spieler in benachbarten Feldern, sodass der, der am Zug ist, auf das Feld des Anderen ziehen könnte (Bild 2), kann dieser den Gegner überspringen (Bild 3). Ist jedoch das Feld hinter der Figur nicht begehbar (weil es nicht existiert oder eine Wand im Weg ist), sind die Felder links und rechts des zu überspringenden Gegners potenzielle Zielfelder. Aber auch diese sind nur erreichbar, wenn keine Wand-Elemente den Weg versperren. Die Bilder 4 und 5 zeigen entsprechende Szenarien mit den jeweils möglichen Sprungpositionen.</value>
+  </data>
+  <data name="QRP_Picture1Caption" xml:space="preserve">
+    <value>Bild 1</value>
+  </data>
+  <data name="QRP_Picture2Caption" xml:space="preserve">
+    <value>Bild 2</value>
+  </data>
+  <data name="QRP_Picture3Caption" xml:space="preserve">
+    <value>Bild 3</value>
+  </data>
+  <data name="QRP_Picture4Caption" xml:space="preserve">
+    <value>Bild 4</value>
+  </data>
+  <data name="QRP_Picture5Caption" xml:space="preserve">
+    <value>Bild 5</value>
+  </data>
 </root>

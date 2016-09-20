@@ -163,4 +163,52 @@
   <data name="WD_SaveGameRequest" xml:space="preserve">
     <value>Do you want to save the Game?</value>
   </data>
+  <data name="QRP_PageHeader" xml:space="preserve">
+    <value>Quoridor - Rules</value>
+  </data>
+  <data name="QRP_GeneralParagraphHeader" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="QRP_GeneralParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="QRP_GameSetupParagraphHeader" xml:space="preserve">
+    <value>Game Setup</value>
+  </data>
+  <data name="QRP_GameSetupParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="QRP_GameGoalParagraphHeader" xml:space="preserve">
+    <value>Game Goal</value>
+  </data>
+  <data name="QRP_GameGoalParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="QRP_GameFlowParagraphHeader" xml:space="preserve">
+    <value>Game Flow</value>
+  </data>
+  <data name="QRP_GameFlowParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="QRP_SpecialMoveParagraphHeader" xml:space="preserve">
+    <value>Special moving rules</value>
+  </data>
+  <data name="QRP_SpecialMoveParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="QRP_Picture1Caption" xml:space="preserve">
+    <value>Picture 1</value>
+  </data>
+  <data name="QRP_Picture2Caption" xml:space="preserve">
+    <value>Picture 2</value>
+  </data>
+  <data name="QRP_Picture3Caption" xml:space="preserve">
+    <value>Picture 3</value>
+  </data>
+  <data name="QRP_Picture4Caption" xml:space="preserve">
+    <value>Picture 4</value>
+  </data>
+  <data name="QRP_Picture5Caption" xml:space="preserve">
+    <value>Picture 5</value>
+  </data>
 </root>

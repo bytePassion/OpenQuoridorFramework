@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel;
+using OQF.Visualization.Common.Info.Pages.PageViewModels;
 
 namespace OQF.Visualization.Common.Info
 {
@@ -7,7 +8,10 @@ namespace OQF.Visualization.Common.Info
 	{
 		public static void Show(params InfoPage[] visibleInfoPages)
 		{
-			var infoWindowViewModel = new InfoWindowViewModel(visibleInfoPages);
+			var quoridorRulesPageViewModel = new QuoridorRulesPageViewModel();
+
+			var infoWindowViewModel = new InfoWindowViewModel(visibleInfoPages,
+															  quoridorRulesPageViewModel);
 
 			var infoWindow = new InfoWindow.InfoWindow
 			{
@@ -19,6 +23,9 @@ namespace OQF.Visualization.Common.Info
 
 			infoWindow.ShowDialog();
 
+			// cleanup
+
+			quoridorRulesPageViewModel.Dispose();
 			infoWindowViewModel.Dispose();
 		}
 	}
