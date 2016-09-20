@@ -6,6 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:aboutPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:resources="clr-namespace:OQF.Visualization.Resources;assembly=OQF.Visualization.Resources"
              d:DesignHeight="900"
              d:DesignWidth="900"
              mc:Ignorable="d">
@@ -141,13 +142,13 @@
 									   Grid.Row="0"
 									   HorizontalAlignment="Left"
 									   Style="{StaticResource MaterialDesignBody1TextBlock}"
-									   Text="Mirko Marchesi"/>
+									   Text="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorInventor}"/>
 
 							<TextBlock Grid.Column="1"
 									   Grid.Row="1"
 									   HorizontalAlignment="Left"
 									   Style="{StaticResource MaterialDesignBody1TextBlock}"
-									   Text="Gigamic"/>
+									   Text="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorPublisher}"/>
 
 						</Grid>
 					</StackPanel>

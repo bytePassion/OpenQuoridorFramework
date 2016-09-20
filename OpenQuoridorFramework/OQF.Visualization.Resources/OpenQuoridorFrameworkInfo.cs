@@ -17,7 +17,10 @@ namespace OQF.Visualization.Resources
 		};
 		
 		public const string Licence = "Apache 2.0";
-	
+
+		public const string QuoridorInventor  = "Mirko Marchesi";
+		public const string QuoridorPublisher = "Gigamic";
+
 		public static class Applications
 		{
 			public static class PlayerVsBot
