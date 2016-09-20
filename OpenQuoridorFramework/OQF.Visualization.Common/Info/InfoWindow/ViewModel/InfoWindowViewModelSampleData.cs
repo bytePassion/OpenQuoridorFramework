@@ -4,6 +4,7 @@ using System.Windows.Input;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
 using OQF.Visualization.Common.Info.Pages.PageViewModels;
+using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
 #pragma warning disable 0067
 
@@ -14,6 +15,7 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 		public InfoWindowViewModelSampleData()
 		{
 			QuoridorRulesPageViewModel = new QuoridorRulesPageViewModelSampleData();
+			LanguageSelectionViewModel = new LanguageSelectionViewModelSampleData();
 
 			SelectedPage = 2;
 
@@ -26,6 +28,7 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 		}
 
 		public IQuoridorRulesPageViewModel QuoridorRulesPageViewModel { get; }
+		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
 		public ICommand CloseWindow => null;
 		public int SelectedPage { get; }

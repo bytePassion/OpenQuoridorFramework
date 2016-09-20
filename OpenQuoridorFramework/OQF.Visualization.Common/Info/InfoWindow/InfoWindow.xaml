@@ -7,6 +7,7 @@
         xmlns:viewModel="clr-namespace:OQF.Visualization.Common.Info.InfoWindow.ViewModel"
         xmlns:pages="clr-namespace:OQF.Visualization.Common.Info.Pages"
         xmlns:helper="clr-namespace:OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper"
+        xmlns:languageSelection="clr-namespace:OQF.Visualization.Common.Language.LanguageSelection"
         MinWidth="800"
         MinHeight="400"
         d:DesignHeight="700"
@@ -78,6 +79,12 @@
                 HorizontalAlignment="Right"
                 Command="{Binding CloseWindow}"
                 Content="Schließen" />
+		
+		<languageSelection:LanguageSelectionView Grid.Row="1"
+												 Grid.Column="0"
+												 HorizontalAlignment="Center"
+												 VerticalAlignment="Center"
+												 DataContext="{Binding LanguageSelectionViewModel}"/>
 
     </Grid>
 </Window>
