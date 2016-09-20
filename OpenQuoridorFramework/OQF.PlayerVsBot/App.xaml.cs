@@ -16,7 +16,7 @@ namespace OQF.PlayerVsBot
 	public partial class App
 	{
 		protected override void OnStartup(StartupEventArgs e)
-		{
+		{			
 			base.OnStartup(e);
 
 			IGameFactory gameFactory = new GameFactory();
