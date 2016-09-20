@@ -62,7 +62,7 @@
                           SelectedLayer="{Binding SelectedPage}">
 
             <pages:QuoridorRules  DataContext="{Binding QuoridorRulesPageViewModel}"/>
-            <pages:QuoridorNotation />
+            <pages:QuoridorNotation DataContext="{Binding QuoridorNotationPageViewModel}"/>
             <pages:HowToWriteABot />
             <pages:ReplayViewerApplicationInfo />
             <pages:PlayerVsBotApplicationInfo />

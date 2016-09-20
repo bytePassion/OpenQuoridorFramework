@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 using OQF.Visualization.Resources;
@@ -11,13 +12,15 @@ namespace OQF.Visualization.Common.Info
 	{
 		public static void Show(ApplicationInfo applicationInfo, params InfoPage[] visibleInfoPages)
 		{
-			var quoridorRulesPageViewModel = new QuoridorRulesPageViewModel();
-			var languageSelectionViewModel = new LanguageSelectionViewModel();
-			var aboutPageViewModel = new AboutPageViewModel(applicationInfo);
+			var quoridorRulesPageViewModel    = new QuoridorRulesPageViewModel();
+			var quoridorNotationPageViewModel = new QuoridorNotationPageViewModel();
+			var languageSelectionViewModel    = new LanguageSelectionViewModel();
+			var aboutPageViewModel            = new AboutPageViewModel(applicationInfo);
 
 			var infoWindowViewModel = new InfoWindowViewModel(visibleInfoPages,
 															  languageSelectionViewModel,
 															  quoridorRulesPageViewModel,
+															  quoridorNotationPageViewModel,
 															  aboutPageViewModel);
 
 			var infoWindow = new InfoWindow.InfoWindow

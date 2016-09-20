@@ -241,6 +241,123 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Example.
+        /// </summary>
+        public static string QNP_ExampleParagraphHeader {
+            get {
+                return ResourceManager.GetString("QNP_ExampleParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string QNP_ExampleParagraphText {
+            get {
+                return ResourceManager.GetString("QNP_ExampleParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move (Figure).
+        /// </summary>
+        public static string QNP_FigureMoveParagraphHeader {
+            get {
+                return ResourceManager.GetString("QNP_FigureMoveParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string QNP_FigureMoveParagraphText {
+            get {
+                return ResourceManager.GetString("QNP_FigureMoveParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        public static string QNP_GeneralParagraphHeader {
+            get {
+                return ResourceManager.GetString("QNP_GeneralParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string QNP_GeneralParagraphText {
+            get {
+                return ResourceManager.GetString("QNP_GeneralParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quoridor - Notation.
+        /// </summary>
+        public static string QNP_PageHeader {
+            get {
+                return ResourceManager.GetString("QNP_PageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture 1.
+        /// </summary>
+        public static string QNP_Picture1Caption {
+            get {
+                return ResourceManager.GetString("QNP_Picture1Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture 2.
+        /// </summary>
+        public static string QNP_Picture2Caption {
+            get {
+                return ResourceManager.GetString("QNP_Picture2Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Board.
+        /// </summary>
+        public static string QNP_TheBoardParagraphHeader {
+            get {
+                return ResourceManager.GetString("QNP_TheBoardParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string QNP_TheBoardParagraphText {
+            get {
+                return ResourceManager.GetString("QNP_TheBoardParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move (Wall).
+        /// </summary>
+        public static string QNP_WallMoveParagraphHeader {
+            get {
+                return ResourceManager.GetString("QNP_WallMoveParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string QNP_WallMoveParagraphText {
+            get {
+                return ResourceManager.GetString("QNP_WallMoveParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game Flow.
         /// </summary>
         public static string QRP_GameFlowParagraphHeader {

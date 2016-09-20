@@ -68,6 +68,9 @@
     <Compile Include="Info\Pages\PageViewModels\AboutPage\AboutPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\AboutPage\AboutPageViewModelSampleData.cs" />
     <Compile Include="Info\Pages\PageViewModels\AboutPage\IAboutPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\QuoridorNotationPage\IQuoridorNotationPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\QuoridorNotationPage\QuoridorNotationPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\QuoridorNotationPage\QuoridorNotationPageViewModelSampleData.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorRulesPage\IQuoridorRulesPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorRulesPage\QuoridorRulesPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorRulesPage\QuoridorRulesPageViewModelSampleData.cs" />

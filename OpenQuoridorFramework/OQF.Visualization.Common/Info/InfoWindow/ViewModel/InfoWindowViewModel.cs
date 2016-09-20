@@ -8,6 +8,7 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
@@ -20,11 +21,13 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 
 		public InfoWindowViewModel(IEnumerable<InfoPage> visibleInfoPages,
 								   ILanguageSelectionViewModel languageSelectionViewModel,
-								   IQuoridorRulesPageViewModel quoridorRulesPageViewModel, 
+								   IQuoridorRulesPageViewModel quoridorRulesPageViewModel,
+								   IQuoridorNotationPageViewModel quoridorNotationPageViewModel,
 								   IAboutPageViewModel aboutPageViewModel)
 		{
 			QuoridorRulesPageViewModel = quoridorRulesPageViewModel;
 			AboutPageViewModel = aboutPageViewModel;
+			QuoridorNotationPageViewModel = quoridorNotationPageViewModel;
 			LanguageSelectionViewModel = languageSelectionViewModel;
 			CloseWindow = new Command(DoCloseWindow);
 			PageSelectionCommands = new ObservableCollection<SelectionButtonData>();
@@ -43,9 +46,10 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 			PageSelectionCommands.FirstOrDefault()?.Command.Execute(null);
 		}
 
-		public IQuoridorRulesPageViewModel QuoridorRulesPageViewModel { get; }
-		public IAboutPageViewModel         AboutPageViewModel         { get; }
-		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
+		public IQuoridorRulesPageViewModel    QuoridorRulesPageViewModel    { get; }
+		public IQuoridorNotationPageViewModel QuoridorNotationPageViewModel { get; }
+		public IAboutPageViewModel            AboutPageViewModel            { get; }
+		public ILanguageSelectionViewModel    LanguageSelectionViewModel    { get; }
 
 		public ICommand CloseWindow { get; }
 

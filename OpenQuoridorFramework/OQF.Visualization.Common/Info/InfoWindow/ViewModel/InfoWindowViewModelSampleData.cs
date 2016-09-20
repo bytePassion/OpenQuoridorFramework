@@ -4,6 +4,7 @@ using System.Windows.Input;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
@@ -15,9 +16,10 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 	{
 		public InfoWindowViewModelSampleData()
 		{
-			QuoridorRulesPageViewModel = new QuoridorRulesPageViewModelSampleData();
-			AboutPageViewModel         = new AboutPageViewModelSampleData();
-			LanguageSelectionViewModel = new LanguageSelectionViewModelSampleData();
+			QuoridorRulesPageViewModel    = new QuoridorRulesPageViewModelSampleData();
+			QuoridorNotationPageViewModel = new QuoridorNotationPageViewModelSampleData();
+			AboutPageViewModel            = new AboutPageViewModelSampleData();
+			LanguageSelectionViewModel    = new LanguageSelectionViewModelSampleData();
 
 			SelectedPage = 2;
 
@@ -30,6 +32,7 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 		}
 
 		public IQuoridorRulesPageViewModel QuoridorRulesPageViewModel { get; }
+		public IQuoridorNotationPageViewModel QuoridorNotationPageViewModel { get; }
 		public IAboutPageViewModel AboutPageViewModel { get; }
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 

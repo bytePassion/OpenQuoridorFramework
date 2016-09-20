@@ -238,4 +238,43 @@
   <data name="AP_LicenceSectionHeader" xml:space="preserve">
     <value>Licence</value>
   </data>
+  <data name="QNP_PageHeader" xml:space="preserve">
+    <value>Quoridor - Notation</value>
+  </data>
+  <data name="QNP_GeneralParagraphHeader" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="QNP_GeneralParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="QNP_TheBoardParagraphHeader" xml:space="preserve">
+    <value>The Board</value>
+  </data>
+  <data name="QNP_TheBoardParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="QNP_FigureMoveParagraphHeader" xml:space="preserve">
+    <value>Move (Figure)</value>
+  </data>
+  <data name="QNP_FigureMoveParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="QNP_WallMoveParagraphHeader" xml:space="preserve">
+    <value>Move (Wall)</value>
+  </data>
+  <data name="QNP_WallMoveParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="QNP_ExampleParagraphHeader" xml:space="preserve">
+    <value>Example</value>
+  </data>
+  <data name="QNP_ExampleParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="QNP_Picture1Caption" xml:space="preserve">
+    <value>Picture 1</value>
+  </data>
+  <data name="QNP_Picture2Caption" xml:space="preserve">
+    <value>Picture 2</value>
+  </data>
 </root>

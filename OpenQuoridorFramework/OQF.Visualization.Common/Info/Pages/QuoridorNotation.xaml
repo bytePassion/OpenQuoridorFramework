@@ -4,10 +4,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:quoridorNotationPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage"
              d:DesignHeight="900"
              d:DesignWidth="900"
              mc:Ignorable="d">
 
+	<d:DesignData.DataContext>
+		<quoridorNotationPage:QuoridorNotationPageViewModelSampleData/>
+	</d:DesignData.DataContext>
+	
     <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
 
         <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
@@ -22,11 +27,10 @@
                 <ColumnDefinition Width="400" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Margin="16,0,0,0"
+			<TextBlock Margin="16,0,0,0"
                        FontSize="35"
-                       Style="{StaticResource MaterialDesignHeadlineTextBlock}">
-                <Run Text="Quoridor - Notation" />
-            </TextBlock>
+                       Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+					   Text="{Binding PageHeader}"/>
 
             <StackPanel Grid.Row="1" Grid.Column="0">
 
@@ -34,62 +38,37 @@
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="Allgemein" />
-                        </TextBlock>
-                        <TextBlock Margin="0,0,0,16"
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding GeneralParagraphHeader}"/>
+						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Da es keine offizielle Notation für Quoridor gibt, wurde für das OpenQuoridorFramework eine Notation entwickelt, die sich aus einigen zusammensetzt, die sich in wissenschaftlichen Arbeiten und den Internet-Communities finden lassen." />
-                        </TextBlock>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="Das Spielfeld" />
-                        </TextBlock>
-                        <TextBlock Margin="0,0,0,16"
+                                   TextWrapping="Wrap"
+								   Text="{Binding GeneralParagraphText}"/>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding TheBoadParagraphHeader}"/>
+						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Angelehnt an die Schach-übliche Notation werden die Spalten durch Buchstaben und die Reihen durch Zahlen eindeutig zugeordnet." />
-                            <Run Text="Wie in Bild 1 zu sehen ist, ergibt sich so ein Spielraum vom Feld a1 (links unten) bis zum Feld i9 (rechts oben)." />
-                        </TextBlock>
-
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="Spielzug (Figur)" />
-                        </TextBlock>
-
-                        <TextBlock Margin="0,0,0,16"
+                                   TextWrapping="Wrap"
+								   Text="{Binding TheBoadParagraphText}"/>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding FigureMoveParagraphHeader}"/>
+						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Ein Spielzug, bei dem die Figur bewegt wird, wird lediglich durch das Feld notiert, auf das der Spieler zieht." />
-                            <Run Text="Bewegt ein Spieler beispielsweise seine Figur von c3 nach c4 wird dieser Zug als 'c4' notiert." />
-                        </TextBlock>
-
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="Spielzug (Wand)" />
-
-                        </TextBlock>
-
-                        <TextBlock Margin="0,0,0,16"
+                                   TextWrapping="Wrap"
+								   Text="{Binding FigureMoveParagraphText}"/>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding WallMoveParagraphHeader}"/>
+						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Ein Spielzug, bei dem ein Wand-Element platziert wird, wird durch eine eindeutige Positionsangabe des neuen Wand-Elements festgehalten." />
-                            <Run Text="Eine Wand muss sich immer zwischen vier Feldern befinden. Folglich reicht es aus, eines dieser vier Felder und die Ausrichtung der Wand zu notieren." />
-                            <Run Text="Bei der hier festgelegten Notation wird dazu das Feld links oben verwendet." />
-                            <Run Text="Die Ausrichtungen werden durch ein 'h' für 'horizontal' und ein 'v' für 'vertikal' abgekürzt." />
-                        </TextBlock>
-
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="Beispiel" />
-
-                        </TextBlock>
-
-                        <TextBlock Margin="0,0,0,16"
+                                   TextWrapping="Wrap"
+								   Text="{Binding WallMoveParagraphText}"/>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding ExampleParagraphHeader}"/>
+						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Nach der oben beschriebenen Notation befinden sich die Figuren in Bild 2 auf den Positionen 'c3' und 'e8'." />
-                            <Run Text="Die beiden Wand-Elemente werden als 'd4h' und 'f8v' notiert." />
-                        </TextBlock>
-
-                    </StackPanel>
+                                   TextWrapping="Wrap"
+								   Text="{Binding ExampleParagraphText}"/>
+					</StackPanel>
 
                 </materialDesign:Card>
 
@@ -102,23 +81,19 @@
                         <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board0.png" />
                         <TextBlock Margin="6"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Bild 1" />
-
-                        </TextBlock>
+                                   TextWrapping="Wrap"
+								   Text="{Binding Picture1Caption}"/>
                     </StackPanel>
                 </materialDesign:Card>
 
                 <materialDesign:Card Margin="20,20,20,0">
                     <StackPanel>
                         <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board6.png" />
-                        <TextBlock Margin="6"
+						<TextBlock Margin="6"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Bild 2" />
-
-                        </TextBlock>
-                    </StackPanel>
+                                   TextWrapping="Wrap"
+								   Text="{Binding Picture2Caption}"/>
+					</StackPanel>
                 </materialDesign:Card>
 
 
