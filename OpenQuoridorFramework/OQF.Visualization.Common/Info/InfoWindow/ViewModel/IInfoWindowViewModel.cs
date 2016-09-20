@@ -18,6 +18,7 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 		ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
 		ICommand CloseWindow { get; }
+		string CloseButtonCaption { get; }
 		int SelectedPage { get; }
 		ObservableCollection<SelectionButtonData> PageSelectionCommands { get; }
 	}

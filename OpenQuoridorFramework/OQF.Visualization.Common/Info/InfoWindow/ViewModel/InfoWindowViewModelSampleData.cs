@@ -22,12 +22,13 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 			LanguageSelectionViewModel    = new LanguageSelectionViewModelSampleData();
 
 			SelectedPage = 2;
+			CloseButtonCaption = "Close";
 
 			PageSelectionCommands = new ObservableCollection<SelectionButtonData>
 			{
-				new SelectionButtonData(new Command(() => {}), "blubb1"),
-				new SelectionButtonData(new Command(() => {}), "blubb2"),
-				new SelectionButtonData(new Command(() => {}), "blubb3")
+				new SelectionButtonData(new Command(() => {}), InfoPage.About),
+				new SelectionButtonData(new Command(() => {}), InfoPage.BotVsBotApplicationInfo),
+				new SelectionButtonData(new Command(() => {}), InfoPage.HowToWriteABot)
 			};
 		}
 
@@ -37,6 +38,7 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
 		public ICommand CloseWindow => null;
+		public string CloseButtonCaption { get; }
 		public int SelectedPage { get; }
 		public ObservableCollection<SelectionButtonData> PageSelectionCommands { get; }
 

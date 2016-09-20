@@ -11,6 +11,7 @@ using OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
+using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 {
@@ -40,7 +41,7 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 					SelectedPage = pageNr;
 				});
 				
-				PageSelectionCommands.Add(new SelectionButtonData(command, page.ToString()));
+				PageSelectionCommands.Add(new SelectionButtonData(command, page));
 			}	
 
 			PageSelectionCommands.FirstOrDefault()?.Command.Execute(null);
@@ -52,6 +53,8 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 		public ILanguageSelectionViewModel    LanguageSelectionViewModel    { get; }
 
 		public ICommand CloseWindow { get; }
+
+		public string CloseButtonCaption => Captions.IP_CloseButtonCaption;
 
 		private void DoCloseWindow ()
 		{

@@ -21,8 +21,8 @@
         WindowStyle="ToolWindow"
         mc:Ignorable="d">
 
-    <d:DesignData.DataContext>
-        <viewModel:InfoWindowViewModelSampleData />
+	<d:DesignData.DataContext>
+		<viewModel:InfoWindowViewModelSampleData/>
     </d:DesignData.DataContext>
 
     <Grid Margin="0,30,0,0">
@@ -78,7 +78,7 @@
                 Margin="5"
                 HorizontalAlignment="Right"
                 Command="{Binding CloseWindow}"
-                Content="Schließen" />
+                Content="{Binding CloseButtonCaption}"/>
 		
 		<languageSelection:LanguageSelectionView Grid.Row="1"
 												 Grid.Column="0"

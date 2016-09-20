@@ -297,4 +297,31 @@
   <data name="QNP_ExampleParagraphHeader" xml:space="preserve">
     <value>Example</value>
   </data>
+  <data name="IP_QuoridorRulesButtonCaption" xml:space="preserve">
+    <value>Quoridor Rules</value>
+  </data>
+  <data name="IP_QuoridorNotationButtonCaption" xml:space="preserve">
+    <value>Quoridor Notation</value>
+  </data>
+  <data name="IP_HowToWriteABotButtonCaption" xml:space="preserve">
+    <value>How to write a bot</value>
+  </data>
+  <data name="IP_ReplayViewerInfoButtonCaption" xml:space="preserve">
+    <value>Application Help</value>
+  </data>
+  <data name="IP_PlayerVsBotInfoButtonCaption" xml:space="preserve">
+    <value>Application Help</value>
+  </data>
+  <data name="IP_BotVsBotIntoButtonCaption" xml:space="preserve">
+    <value>Application Help</value>
+  </data>
+  <data name="IP_TurnamentInfoButtonCaption" xml:space="preserve">
+    <value>Application Help</value>
+  </data>
+  <data name="IP_AboutButtonCaption" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="IP_CloseButtonCaption" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>

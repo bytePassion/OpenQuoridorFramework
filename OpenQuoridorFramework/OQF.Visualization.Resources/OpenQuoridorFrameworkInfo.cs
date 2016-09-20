@@ -29,7 +29,7 @@ namespace OQF.Visualization.Resources
 				private const string Version = "1.0.0.0";
 				private static readonly IEnumerable<string> ThirdPartyItems = new List<string>
 				{
-					"Flagicons from www.iconDrawer.com"
+					"Flag-Icons from www.iconDrawer.com"
 				};
 
 				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, Version, Licence, ActiveDevelopers, ThirdPartyItems);
@@ -41,7 +41,7 @@ namespace OQF.Visualization.Resources
 				public const string Version = "1.0.0.0";
 				public static readonly IEnumerable<string> ThirdPartyItems = new List<string>
 				{
-					"Flagicons from www.iconDrawer.com"
+					"Flag-Icons from www.iconDrawer.com"
 				};
 
 				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, Version, Licence, ActiveDevelopers, ThirdPartyItems);

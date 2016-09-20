@@ -142,6 +142,87 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string IP_AboutButtonCaption {
+            get {
+                return ResourceManager.GetString("IP_AboutButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Help.
+        /// </summary>
+        public static string IP_BotVsBotIntoButtonCaption {
+            get {
+                return ResourceManager.GetString("IP_BotVsBotIntoButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string IP_CloseButtonCaption {
+            get {
+                return ResourceManager.GetString("IP_CloseButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to write a bot.
+        /// </summary>
+        public static string IP_HowToWriteABotButtonCaption {
+            get {
+                return ResourceManager.GetString("IP_HowToWriteABotButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Help.
+        /// </summary>
+        public static string IP_PlayerVsBotInfoButtonCaption {
+            get {
+                return ResourceManager.GetString("IP_PlayerVsBotInfoButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quoridor Notation.
+        /// </summary>
+        public static string IP_QuoridorNotationButtonCaption {
+            get {
+                return ResourceManager.GetString("IP_QuoridorNotationButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quoridor Rules.
+        /// </summary>
+        public static string IP_QuoridorRulesButtonCaption {
+            get {
+                return ResourceManager.GetString("IP_QuoridorRulesButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Help.
+        /// </summary>
+        public static string IP_ReplayViewerInfoButtonCaption {
+            get {
+                return ResourceManager.GetString("IP_ReplayViewerInfoButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Help.
+        /// </summary>
+        public static string IP_TurnamentInfoButtonCaption {
+            get {
+                return ResourceManager.GetString("IP_TurnamentInfoButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Auto scroll down.
         /// </summary>
         public static string PvB_AutoScrollDownCheckBoxCaption {
