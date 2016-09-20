@@ -5,37 +5,57 @@ using System.Windows.Interactivity;
 
 namespace OQF.PlayerVsBot.Behaviors
 {
-	internal class AutoScrollDownBehavior : Behavior<ScrollViewer>
-	{
-		public static readonly DependencyProperty IsAutoScrollActiveProperty = 
-			DependencyProperty.Register(nameof(IsAutoScrollActive), 
-										typeof(bool), 
-										typeof(AutoScrollDownBehavior));
+    internal class AutoScrollDownBehavior : Behavior<ScrollViewer>
+    {
+        public static readonly DependencyProperty IsAutoScrollActiveProperty =
+            DependencyProperty.Register(nameof(IsAutoScrollActive),
+                typeof(bool),
+                typeof(AutoScrollDownBehavior));
 
-		public bool IsAutoScrollActive
-		{
-			get { return (bool) GetValue(IsAutoScrollActiveProperty); }
-			set { SetValue(IsAutoScrollActiveProperty, value); }
-		}
+        public bool IsAutoScrollActive
+        {
+            get { return (bool) GetValue(IsAutoScrollActiveProperty); }
+            set { SetValue(IsAutoScrollActiveProperty, value); }
+        }
 
-		protected override void OnAttached()
-		{
-			base.OnAttached();
+        protected override void OnAttached()
+        {
+            base.OnAttached();
 
-			AssociatedObject.LayoutUpdated += OnLayoutUpdated;			
-		}		
+            AssociatedObject.ScrollChanged += OnScrollChanged;
+        }
 
-		protected override void OnDetaching()
-		{
-			base.OnDetaching();
+        private void OnScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            ScrollViewer sv = sender as ScrollViewer;
+            if (IsAutoScrollActive)
+            {
+                bool AutoScrollToEnd = true;
+                if (sv.Tag != null)
+                {
+                    AutoScrollToEnd = (bool) sv.Tag;
+                }
+                if (e.ExtentHeightChange == 0) // user scroll
+                {
+                    AutoScrollToEnd = sv.ScrollableHeight == sv.VerticalOffset;
+                }
+                else
+                {
+                    if (AutoScrollToEnd)
+                    {
+                        sv.ScrollToEnd();
+                    }
+                }
+                sv.Tag = AutoScrollToEnd;
+            }
+        }
 
-			AssociatedObject.LayoutUpdated -= OnLayoutUpdated;
-		}
+        protected override void OnDetaching()
+        {
+            base.OnDetaching();
 
-		private void OnLayoutUpdated (object sender, EventArgs eventArgs)
-		{
-			if (IsAutoScrollActive)
-				AssociatedObject.ScrollToEnd();
-		}
-	}
+            AssociatedObject.ScrollChanged -= OnScrollChanged;
+        }
+
+    }
 }

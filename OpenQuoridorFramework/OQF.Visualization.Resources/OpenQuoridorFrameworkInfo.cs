@@ -13,7 +13,7 @@ namespace OQF.Visualization.Resources
 		public static readonly IEnumerable<string> ActiveDevelopers = new List<string>
 		{
 			"Matthias Drescher (matthias.drescher@bytePassion.de)",
-			"Alexander Horn (alex.horn@bytePassion.de)"
+			"Alexander Horn (alexander.horn@bytePassion.de)"
 		};
 		
 		public const string Licence = "Apache 2.0";
