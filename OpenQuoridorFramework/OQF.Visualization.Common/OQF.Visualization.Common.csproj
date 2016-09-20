@@ -68,12 +68,27 @@
     <Compile Include="Info\Pages\PageViewModels\AboutPage\AboutPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\AboutPage\AboutPageViewModelSampleData.cs" />
     <Compile Include="Info\Pages\PageViewModels\AboutPage\IAboutPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\BotVsBotInfoPage\BotVsBotInfoPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\BotVsBotInfoPage\BotVsBotInfoPageViewModelSampleData.cs" />
+    <Compile Include="Info\Pages\PageViewModels\BotVsBotInfoPage\IBotVsBotInfoPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\HowToWriteABotPage\HowToWriteABotPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\HowToWriteABotPage\HowToWriteABotPageViewModelSampleData.cs" />
+    <Compile Include="Info\Pages\PageViewModels\HowToWriteABotPage\IHowToWriteABotPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\PlayerVsBotInfoPage\IPlayerVsBotInfoPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\PlayerVsBotInfoPage\PlayerVsBotInfoPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\PlayerVsBotInfoPage\PlayerVsBotInfoPageViewModelSampleData.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorNotationPage\IQuoridorNotationPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorNotationPage\QuoridorNotationPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorNotationPage\QuoridorNotationPageViewModelSampleData.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorRulesPage\IQuoridorRulesPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorRulesPage\QuoridorRulesPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorRulesPage\QuoridorRulesPageViewModelSampleData.cs" />
+    <Compile Include="Info\Pages\PageViewModels\ReplayViewerInfoPage\IReplayViewerInfoPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\ReplayViewerInfoPage\ReplayViewerInfoPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\ReplayViewerInfoPage\ReplayViewerInfoPageViewModelSampleData.cs" />
+    <Compile Include="Info\Pages\PageViewModels\TurnamentInfoPage\ITurnamentInfoPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\TurnamentInfoPage\TurnamentInfoPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\TurnamentInfoPage\TurnamentInfoPageViewModelSampleData.cs" />
     <Compile Include="Info\Pages\PlayerVsBotApplicationInfo.xaml.cs">
       <DependentUpon>PlayerVsBotApplicationInfo.xaml</DependentUpon>
     </Compile>

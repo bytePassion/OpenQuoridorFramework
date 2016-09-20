@@ -4,8 +4,13 @@ using System.Windows.Input;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.BotVsBotInfoPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.ReplayViewerInfoPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.TurnamentInfoPage;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
 #pragma warning disable 0067
@@ -18,6 +23,11 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 		{
 			QuoridorRulesPageViewModel    = new QuoridorRulesPageViewModelSampleData();
 			QuoridorNotationPageViewModel = new QuoridorNotationPageViewModelSampleData();
+			HowToWriteABotPageViewModel   = new HowToWriteABotPageViewModelSampleData();
+			BotVsBotInfoPageViewModel     = new BotVsBotInfoPageViewModelSampleData();
+			PlayerVsBotInfoPageViewModel  = new PlayerVsBotInfoPageViewModelSampleData();
+			ReplayViewerInfoPageViewModel = new ReplayViewerInfoPageViewModelSampleData();
+			TurnamentInfoPageViewModel    = new TurnamentInfoPageViewModelSampleData();			
 			AboutPageViewModel            = new AboutPageViewModelSampleData();
 			LanguageSelectionViewModel    = new LanguageSelectionViewModelSampleData();
 
@@ -32,10 +42,15 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 			};
 		}
 
-		public IQuoridorRulesPageViewModel QuoridorRulesPageViewModel { get; }
+		public IQuoridorRulesPageViewModel    QuoridorRulesPageViewModel    { get; }
 		public IQuoridorNotationPageViewModel QuoridorNotationPageViewModel { get; }
-		public IAboutPageViewModel AboutPageViewModel { get; }
-		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
+		public IHowToWriteABotPageViewModel   HowToWriteABotPageViewModel   { get; }
+		public IBotVsBotInfoPageViewModel     BotVsBotInfoPageViewModel     { get; }
+		public IPlayerVsBotInfoPageViewModel  PlayerVsBotInfoPageViewModel  { get; }
+		public IReplayViewerInfoPageViewModel ReplayViewerInfoPageViewModel { get; }
+		public ITurnamentInfoPageViewModel    TurnamentInfoPageViewModel    { get; }
+		public IAboutPageViewModel            AboutPageViewModel            { get; }
+		public ILanguageSelectionViewModel    LanguageSelectionViewModel    { get; }
 
 		public ICommand CloseWindow => null;
 		public string CloseButtonCaption { get; }

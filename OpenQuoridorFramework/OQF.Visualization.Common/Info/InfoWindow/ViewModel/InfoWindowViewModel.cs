@@ -8,8 +8,13 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.BotVsBotInfoPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.ReplayViewerInfoPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.TurnamentInfoPage;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 using OQF.Visualization.Resources.LanguageDictionaries;
 
@@ -24,10 +29,20 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 								   ILanguageSelectionViewModel languageSelectionViewModel,
 								   IQuoridorRulesPageViewModel quoridorRulesPageViewModel,
 								   IQuoridorNotationPageViewModel quoridorNotationPageViewModel,
+								   IHowToWriteABotPageViewModel howToWriteABotPageViewModel, 
+								   IBotVsBotInfoPageViewModel botVsBotInfoPageViewModel, 
+								   IPlayerVsBotInfoPageViewModel playerVsBotInfoPageViewModel, 
+								   IReplayViewerInfoPageViewModel replayViewerInfoPageViewModel, 
+								   ITurnamentInfoPageViewModel turnamentInfoPageViewModel,
 								   IAboutPageViewModel aboutPageViewModel)
 		{
 			QuoridorRulesPageViewModel = quoridorRulesPageViewModel;
 			AboutPageViewModel = aboutPageViewModel;
+			HowToWriteABotPageViewModel = howToWriteABotPageViewModel;
+			BotVsBotInfoPageViewModel = botVsBotInfoPageViewModel;
+			PlayerVsBotInfoPageViewModel = playerVsBotInfoPageViewModel;
+			ReplayViewerInfoPageViewModel = replayViewerInfoPageViewModel;
+			TurnamentInfoPageViewModel = turnamentInfoPageViewModel;
 			QuoridorNotationPageViewModel = quoridorNotationPageViewModel;
 			LanguageSelectionViewModel = languageSelectionViewModel;
 			CloseWindow = new Command(DoCloseWindow);
@@ -49,6 +64,11 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 
 		public IQuoridorRulesPageViewModel    QuoridorRulesPageViewModel    { get; }
 		public IQuoridorNotationPageViewModel QuoridorNotationPageViewModel { get; }
+		public IHowToWriteABotPageViewModel   HowToWriteABotPageViewModel   { get; }
+		public IBotVsBotInfoPageViewModel     BotVsBotInfoPageViewModel     { get; }
+		public IPlayerVsBotInfoPageViewModel  PlayerVsBotInfoPageViewModel  { get; }
+		public IReplayViewerInfoPageViewModel ReplayViewerInfoPageViewModel { get; }
+		public ITurnamentInfoPageViewModel    TurnamentInfoPageViewModel    { get; }
 		public IAboutPageViewModel            AboutPageViewModel            { get; }
 		public ILanguageSelectionViewModel    LanguageSelectionViewModel    { get; }
 
