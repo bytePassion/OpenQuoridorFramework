@@ -3,15 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:behaviors="clr-namespace:OQF.PlayerVsBot.Behaviors"
         xmlns:computation="clr-namespace:OQF.PlayerVsBot.Computation"
-        xmlns:converter="clr-namespace:Lib.Wpf.Converter;assembly=Lib.Wpf"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:languageSelection="clr-namespace:OQF.Visualization.Common.Language.LanguageSelection;assembly=OQF.Visualization.Common"
         xmlns:mainWindow="clr-namespace:OQF.PlayerVsBot.ViewModels.MainWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:views="clr-namespace:OQF.PlayerVsBot.Views"
-        xmlns:languageSelection="clr-namespace:OQF.Visualization.Common.Language.LanguageSelection;assembly=OQF.Visualization.Common"
         Title="MainWindow"
         Width="1200"
         Height="950"
@@ -29,103 +27,104 @@
 
     <Window.Resources>
         <computation:TopPlayerMarkerColor x:Key="TopPlayerMarkerColor" />
-		<computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
-	</Window.Resources>
+        <computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
+    </Window.Resources>
 
     <materialDesign:DialogHost Identifier="RootDialog">
-		
-		<Grid>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto"/>
-				<RowDefinition Height="Auto"/>
-				<RowDefinition/>
-				<RowDefinition Height="Auto"/>
-			</Grid.RowDefinitions>
-			
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition/>
-				<ColumnDefinition Width="Auto"/>
-			</Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
 
-			<materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
+            <materialDesign:ColorZone Grid.Row="0"
                                       Grid.Column="0"
-									  Grid.ColumnSpan="3"
-									  Grid.Row="0"
+                                      Grid.ColumnSpan="3"
+                                      materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                       Mode="Dark"
                                       Padding="8">
-				<DockPanel>
-					<Button Margin="4,0"
+                <DockPanel>
+                    <Button Margin="4,0"
                             Command="{Binding BrowseDll}"
                             DockPanel.Dock="Left"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             ToolTip="{Binding BrowseForBotButtonToolTipCaption}">
-						<materialDesign:PackIcon Kind="OpenInNew" />
-					</Button>
-					<Button Margin="4,0"
+                        <materialDesign:PackIcon Kind="OpenInNew" />
+                    </Button>
+                    <Button Margin="4,0"
                             Command="{Binding Start}"
                             DockPanel.Dock="Left"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             ToolTip="{Binding StartGameButtonToolTipCaption}">
-						<materialDesign:PackIcon Kind="Play" />
-					</Button>
+                        <materialDesign:PackIcon Kind="Play" />
+                    </Button>
 
-					<Button Margin="4,0"
+                    <Button Margin="4,0"
                             Command="{Binding ShowAboutHelp}"
                             DockPanel.Dock="Right"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             ToolTip="{Binding OpenInfoButtonToolTipCaption}">
-						<materialDesign:PackIcon Kind="Help" />
-					</Button>
+                        <materialDesign:PackIcon Kind="Help" />
+                    </Button>
 
-					<languageSelection:LanguageSelectionView Margin="4,0"
-															 DockPanel.Dock="Right"
-															 DataContext="{Binding LanguageSelectionViewModel}"/>
+                    <languageSelection:LanguageSelectionView Margin="4,0"
+                                                             DataContext="{Binding LanguageSelectionViewModel}"
+                                                             DockPanel.Dock="Right" />
 
 
 
-					<StackPanel HorizontalAlignment="Center"
+                    <StackPanel HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 DockPanel.Dock="Left"
                                 Orientation="Horizontal">
-						<TextBlock Margin="20,0"
+                        <TextBlock Margin="20,0"
                                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                                   Text="{Binding HeaderCaptionPlayer, Mode=OneWay}" />
-						<TextBlock VerticalAlignment="Center"
+                                   Text="{Binding HeaderCaptionPlayer,
+                                                  Mode=OneWay}" />
+                        <TextBlock VerticalAlignment="Center"
                                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
                                    Text="vs." />
-						<TextBlock Margin="20,0"
+                        <TextBlock Margin="20,0"
                                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                                    Text="{Binding TopPlayerName,
                                                   Mode=OneWay,
                                                   UpdateSourceTrigger=PropertyChanged}" />
 
-					</StackPanel>
-				</DockPanel>
-			</materialDesign:ColorZone>
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
 
-			<materialDesign:Card Margin="8"
-                                 Grid.Row="1"
-								 Grid.Column="0"
-								 Grid.ColumnSpan="3"
+            <materialDesign:Card Grid.Row="1"
+                                 Grid.Column="0"
+                                 Grid.ColumnSpan="3"
+                                 Margin="8"
                                  Padding="8">
 
-				<Grid>
+                <Grid>
 
-					<Grid.RowDefinitions>
-						<RowDefinition />
-						<RowDefinition />
-					</Grid.RowDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
 
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="70" />
-						<ColumnDefinition Width="Auto" MinWidth="150"/>
-						<ColumnDefinition />
-						<ColumnDefinition Width="Auto" />
-					</Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="Auto" MinWidth="150" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
-					<Ellipse Grid.RowSpan="2"
+                    <Ellipse Grid.RowSpan="2"
                              Grid.Column="0"
                              Width="40"
                              Height="40"
@@ -133,32 +132,32 @@
                                             Converter={StaticResource TopPlayerMarkerColor}}" />
 
 
-					<TextBlock Grid.Row="0"
+                    <TextBlock Grid.Row="0"
                                Grid.Column="1"
                                Margin="0,0,10,0"
                                HorizontalAlignment="Right"
-                               VerticalAlignment="Center">						
-						<Run Text="{Binding BotNameLabelCaption, Mode=OneWay}"/>:												
-					</TextBlock>
+                               VerticalAlignment="Center">
+                        <Run Text="{Binding BotNameLabelCaption, Mode=OneWay}" />
+                        :</TextBlock>
 
-					<TextBlock Grid.Row="0"
+                    <TextBlock Grid.Row="0"
                                Grid.Column="2"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Text="{Binding TopPlayerName}" />
 
-					<TextBlock Grid.Row="0"
+                    <TextBlock Grid.Row="0"
                                Grid.RowSpan="2"
                                Grid.Column="3"
                                Margin="0,0,43,0"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
                                FontSize="30">
-						
-						<Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}"/>:
-					</TextBlock>
 
-					<TextBlock Grid.Row="0"
+                        <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />
+                        :</TextBlock>
+
+                    <TextBlock Grid.Row="0"
                                Grid.RowSpan="2"
                                Grid.Column="3"
                                Margin="0,0,5,0"
@@ -169,107 +168,49 @@
 
 
 
-					<TextBlock Grid.Row="1"
+                    <TextBlock Grid.Row="1"
                                Grid.Column="1"
                                Margin="0,0,10,0"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center">
-						<Run Text="{Binding MaximalThinkingTimeLabelCaption, Mode=OneWay}"/>:						
-					</TextBlock>
+                        <Run Text="{Binding MaximalThinkingTimeLabelCaption, Mode=OneWay}" />
+                        :</TextBlock>
 
-					<TextBlock Grid.Row="1"
+                    <TextBlock Grid.Row="1"
                                Grid.Column="2"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Text="{Binding TopPlayerRestTime}" />
 
 
-				</Grid>
+                </Grid>
 
-			</materialDesign:Card>
+            </materialDesign:Card>
 
-			<materialDesign:Card Margin="8"
-                                 Grid.Row="3"
-								 Grid.Column="0"
-								 Grid.ColumnSpan="3"
-                                 Padding="8">
+            <materialDesign:Card Grid.Row="2"
+                                 Grid.Column="0"
+                                 Margin="8,0,0,0"
+                                 VerticalAlignment="Stretch">
 
-				<Grid>
+                <Expander ExpandDirection="Right" IsExpanded="{Binding IsProgressSectionExpanded, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <Expander.Header>
+                        <TextBlock RenderTransformOrigin=".5,.5" Text="{Binding ProgressCaption}">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="90" />
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Expander.Header>
 
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="70" />
-						<ColumnDefinition />
-						<ColumnDefinition Width="Auto" />
-					</Grid.ColumnDefinitions>
-
-
-					<Ellipse Grid.Column="0"
-                             Width="40"
-                             Height="40"
-                             Fill="{Binding GameStatus,
-                                            Converter={StaticResource BottomPlayerMarkerColor}}" />
-
-
-					<TextBlock Grid.Column="2"
-                               Margin="0,0,46,0"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Center"
-                               FontSize="30">
-						<Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}"/>:
-					</TextBlock>
-
-
-					<TextBlock Grid.Column="2"
-                               Margin="0,0,5,0"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="{Binding BottomPlayerWallCountLeft}" />
-
-
-
-					<Button Grid.Row="0"
-                            Grid.Column="1"
-                            Margin="20,7"
-                            HorizontalAlignment="Right"
-                            Command="{Binding Capitulate}"
-                            Content="{Binding CapitulateButtonCaption}" />
-
-				</Grid>
-
-
-
-
-
-			</materialDesign:Card>
-
-			<materialDesign:Card Grid.Row="2"
-								 Grid.Column="0"
-								 Margin="8,0,0,0"
-								 VerticalAlignment="Stretch">
-
-				<Expander ExpandDirection="Right"
-                          IsExpanded="{Binding IsProgressSectionExpanded, 
-											   Mode=TwoWay, 
-											   UpdateSourceTrigger=PropertyChanged}">
-					<Expander.Header>
-						<TextBlock RenderTransformOrigin=".5,.5" 
-								   Text="{Binding ProgressCaption}">
-							<TextBlock.LayoutTransform>
-								<RotateTransform Angle="90" />
-							</TextBlock.LayoutTransform>
-						</TextBlock>
-					</Expander.Header>
-					
-					<GroupBox Width="200"
+                    <GroupBox Width="200"
                               Margin="5"
                               materialDesign:ShadowAssist.ShadowDepth="Depth2"
                               BorderThickness="0"
                               Header="{Binding ProgressCaption}"
                               Style="{DynamicResource MaterialDesignGroupBox}">
 
-						<DockPanel>
-							<CheckBox Margin="10,0,0,0"
+                        <DockPanel>
+                            <CheckBox x:Name="progressAutoScrollCheckBox"
+                                      Margin="10,0,0,0"
                                       HorizontalAlignment="Left"
                                       VerticalAlignment="Center"
                                       Content="{Binding AutoScrollDownCheckBoxCaption}"
@@ -278,56 +219,98 @@
                                                           Mode=TwoWay,
                                                           UpdateSourceTrigger=PropertyChanged}" />
 
-							<ScrollViewer VerticalContentAlignment="Stretch"
-                                      HorizontalScrollBarVisibility="Auto"
-                                      VerticalScrollBarVisibility="Auto">
-								<ItemsControl ItemsSource="{Binding GameProgress}" 
-											  Margin="0,20,0,0"/>
+                            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                                          VerticalScrollBarVisibility="Auto">
+                                <ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}" />
 
-								<i:Interaction.Behaviors>
-									<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
-								</i:Interaction.Behaviors>
-							</ScrollViewer>
-						</DockPanel>
+                                <i:Interaction.Behaviors>
+                                    <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsChecked, ElementName=progressAutoScrollCheckBox}" />
+                                </i:Interaction.Behaviors>
+                            </ScrollViewer>
+                        </DockPanel>
 
-					</GroupBox>
-				</Expander>
+                    </GroupBox>
+                </Expander>
 
-			</materialDesign:Card>
+            </materialDesign:Card>
 
-			<materialDesign:Card Grid.Row="2"
-								 Grid.Column="2"
-								 VerticalAlignment="Stretch"
-								 Margin="0,0,8,0">
+            <Border Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="5,0"
+                    Padding="0">
 
-				<Expander DockPanel.Dock="Right"
+                <Grid Margin="15">
+
+                    <i:Interaction.Behaviors>
+                        <behaviors:KeepQuadratic />
+                    </i:Interaction.Behaviors>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />
+
+                    <views:BoardHorizontalLabelling Grid.Row="0"
+                                                    Grid.Column="1"
+                                                    IsHitTestVisible="False" />
+
+                    <views:BoardVerticalLabelling Grid.Row="1"
+                                                  Grid.Column="0"
+                                                  IsHitTestVisible="False" />
+
+                    <views:Board Grid.Row="1"
+                                 Grid.Column="1"
+                                 DataContext="{Binding BoardViewModel}"
+                                 IsHitTestVisible="False"
+                                 Padding="0" />
+
+                    <views:BoardPlacement Grid.Row="1"
+                                          Grid.Column="1"
+                                          DataContext="{Binding BoardPlacementViewModel}"
+                                          Padding="0" />
+
+                </Grid>
+            </Border>
+
+            <materialDesign:Card Grid.Row="2"
+                                 Grid.Column="2"
+                                 Margin="0,0,8,0"
+                                 VerticalAlignment="Stretch">
+
+                <Expander DockPanel.Dock="Right"
                           ExpandDirection="Left"
-                          IsExpanded="{Binding IsDebugSectionExpanded, 
-											   Mode=TwoWay, 
-											   UpdateSourceTrigger=PropertyChanged}">
-					<Expander.Header>
-						<TextBlock RenderTransformOrigin=".5,.5" 
-								   Text="{Binding DebugCaption}">
-							<TextBlock.LayoutTransform>
-								<RotateTransform Angle="-90" />
-							</TextBlock.LayoutTransform>
-						</TextBlock>
-					</Expander.Header>
-					<GroupBox Width="350"
+                          IsExpanded="{Binding IsDebugSectionExpanded,
+                                               Mode=TwoWay,
+                                               UpdateSourceTrigger=PropertyChanged}">
+                    <Expander.Header>
+                        <TextBlock RenderTransformOrigin=".5,.5" Text="{Binding DebugCaption}">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90" />
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Expander.Header>
+                    <GroupBox Width="350"
                               Margin="5"
                               materialDesign:ShadowAssist.ShadowDepth="Depth2"
                               BorderThickness="0"
                               Header="{Binding DebugCaption}"
                               Style="{DynamicResource MaterialDesignGroupBox}">
 
-						<Grid>
+                        <Grid>
 
-							<Grid.RowDefinitions>
-								<RowDefinition Height="30" />
-								<RowDefinition />
-							</Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
 
-							<CheckBox Grid.Row="0"
+                            <CheckBox Grid.Row="0"
                                       Margin="10,0,0,0"
                                       HorizontalAlignment="Left"
                                       VerticalAlignment="Center"
@@ -336,74 +319,83 @@
                                                           Mode=TwoWay,
                                                           UpdateSourceTrigger=PropertyChanged}" />
 
-							<ScrollViewer Grid.Row="1"
-                                      HorizontalScrollBarVisibility="Auto"
-                                      VerticalScrollBarVisibility="Auto">
-								<ItemsControl ItemsSource="{Binding DebugMessages}" 
-											  Margin="0,20,0,0"/>
+                            <ScrollViewer Grid.Row="1"
+                                          HorizontalScrollBarVisibility="Auto"
+                                          VerticalScrollBarVisibility="Auto">
+                                <ItemsControl Margin="0,20,0,0" ItemsSource="{Binding DebugMessages}" />
 
-								<i:Interaction.Behaviors>
-									<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
-								</i:Interaction.Behaviors>
-							</ScrollViewer>
+                                <i:Interaction.Behaviors>
+                                    <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
+                                </i:Interaction.Behaviors>
+                            </ScrollViewer>
 
-						</Grid>
+                        </Grid>
 
 
-					</GroupBox>
+                    </GroupBox>
 
-				</Expander>
+                </Expander>
 
-			</materialDesign:Card>
+            </materialDesign:Card>
 
-			<Border Margin="5,0"
-                    Grid.Row="2"
-					Grid.Column="1"
-                    Padding="0">
+            <materialDesign:Card Grid.Row="3"
+                                 Grid.Column="0"
+                                 Grid.ColumnSpan="3"
+                                 Margin="8"
+                                 Padding="8">
 
-				<Grid Margin="15">
+                <Grid>
 
-					<i:Interaction.Behaviors>
-						<behaviors:KeepQuadratic />
-					</i:Interaction.Behaviors>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
-					<Grid.RowDefinitions>
-						<RowDefinition Height="40" />
-						<RowDefinition />
-					</Grid.RowDefinitions>
 
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="40" />
-						<ColumnDefinition />
-					</Grid.ColumnDefinitions>
+                    <Ellipse Grid.Column="0"
+                             Width="40"
+                             Height="40"
+                             Fill="{Binding GameStatus,
+                                            Converter={StaticResource BottomPlayerMarkerColor}}" />
 
-					<materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />
 
-					<views:BoardHorizontalLabelling Grid.Row="0"
-                                                    Grid.Column="1"
-                                                    IsHitTestVisible="False" />
+                    <TextBlock Grid.Column="2"
+                               Margin="0,0,46,0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               FontSize="30">
+                        <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />
+                        :</TextBlock>
 
-					<views:BoardVerticalLabelling Grid.Row="1"
-                                                  Grid.Column="0"
-                                                  IsHitTestVisible="False" />
 
-					<views:Board Grid.Row="1"
-                                 Grid.Column="1"
-                                 DataContext="{Binding BoardViewModel}"
-                                 IsHitTestVisible="False"
-                                 Padding="0" />
+                    <TextBlock Grid.Column="2"
+                               Margin="0,0,5,0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               FontSize="30"
+                               Text="{Binding BottomPlayerWallCountLeft}" />
 
-					<views:BoardPlacement Grid.Row="1"
-                                          Grid.Column="1"
-                                          DataContext="{Binding BoardPlacementViewModel}"
-                                          Padding="0" />
 
-				</Grid>
-			</Border>
 
-		</Grid>
-				        
+                    <Button Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="20,7"
+                            HorizontalAlignment="Right"
+                            Command="{Binding Capitulate}"
+                            Content="{Binding CapitulateButtonCaption}" />
+
+                </Grid>
+
+
+
+
+
+            </materialDesign:Card>
+
+        </Grid>
+
     </materialDesign:DialogHost>
 
-   
+
 </Window>
