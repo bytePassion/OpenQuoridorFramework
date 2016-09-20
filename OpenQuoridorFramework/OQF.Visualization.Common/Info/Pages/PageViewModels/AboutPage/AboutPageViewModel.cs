@@ -28,7 +28,7 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		public string DeveloperSectionHeader   => Captions.AP_DeveloperSectionHeader;
 		public string ThirdPartySectionHeader  => Captions.AP_ThirdPartySectionHeader;
 		public string QuoridorSectionHeader    => Captions.AP_QuoridorSectionHeader;
-		public string QuoridorInventerSubItem  => Captions.AP_QuoridorPublisherSubItem;
+		public string QuoridorInventerSubItem  => Captions.AP_QuoridorInventorSubItem;
 		public string QuoridorPublisherSubItem => Captions.AP_QuoridorPublisherSubItem;
 		public string LicenceSectionHeader     => Captions.AP_LicenceSectionHeader;
 		
