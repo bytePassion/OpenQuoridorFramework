@@ -13,6 +13,7 @@ using OQF.ReplayViewer.Services;
 using OQF.ReplayViewer.ViewModels.Board;
 using OQF.Utils;
 using OQF.Visualization.Common.Info;
+using OQF.Visualization.Resources;
 
 namespace OQF.ReplayViewer.ViewModels.MainWindow
 {
@@ -59,7 +60,8 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 
 		private void DoShowAboutHelp()
 		{
-			InfoWindowService.Show(InfoPage.About);
+			InfoWindowService.Show(OpenQuoridorFrameworkInfo.Applications.ReplayViewer.Info,
+								   InfoPage.About);
 		}
 
 		private void DoNextMove()

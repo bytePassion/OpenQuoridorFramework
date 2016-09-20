@@ -65,6 +65,9 @@
     <Compile Include="Info\Pages\HowToWriteABot.xaml.cs">
       <DependentUpon>HowToWriteABot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Info\Pages\PageViewModels\AboutPage\AboutPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\AboutPage\AboutPageViewModelSampleData.cs" />
+    <Compile Include="Info\Pages\PageViewModels\AboutPage\IAboutPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorRulesPage\IQuoridorRulesPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorRulesPage\QuoridorRulesPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\QuoridorRulesPage\QuoridorRulesPageViewModelSampleData.cs" />

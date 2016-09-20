@@ -16,7 +16,7 @@ namespace OQF.Visualization.Common.Language.LanguageSelection.ViewModel
 		{
 			CultureManager.CultureChanged += OnCultureChanged;
 
-			AvailableCountryCodes = new ObservableCollection<string>(Languages.AvailableCountryCodes());
+			AvailableCountryCodes = new ObservableCollection<string>(OpenQuoridorFrameworkInfo.AvailableLanguageCodes);
 
 			OnCultureChanged();
 		}

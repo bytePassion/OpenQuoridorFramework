@@ -4,11 +4,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:aboutPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              d:DesignHeight="900"
              d:DesignWidth="900"
              mc:Ignorable="d">
 
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+	<d:DesignData.DataContext>
+		<aboutPage:AboutPageViewModelSampleData/>
+	</d:DesignData.DataContext>
+	
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
+				  VerticalScrollBarVisibility="Auto">
 
         <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 
@@ -18,14 +25,10 @@
             </Grid.RowDefinitions>
 
 
-
             <TextBlock Margin="16,0,0,0"
                        FontSize="35"
-                       Style="{StaticResource MaterialDesignHeadlineTextBlock}">
-                <Run Text="About OpenQuoridorFramework" />
-            </TextBlock>
-
-
+                       Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+					   Text="{Binding PageHeader}"/>
 
             <StackPanel Grid.Row="1" Grid.Column="0">
 
@@ -33,14 +36,12 @@
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="Applikation" />
-                        </TextBlock>
-                        <TextBlock Margin="20,0,0,0"
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding ApplicationSectionHeader}"/>
+						<TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Player Vs. Bot" />
-                        </TextBlock>
+                                   TextWrapping="Wrap"
+								   Text="{Binding ApplicationName}"/>
                     </StackPanel>
 
                 </materialDesign:Card>
@@ -49,14 +50,12 @@
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="Version" />
-                        </TextBlock>
-                        <TextBlock Margin="20,0,0,0"
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding VersionSectionHeader}"/>
+						<TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="1.0.0.0" />
-                        </TextBlock>
+                                   TextWrapping="Wrap"
+								   Text="{Binding VersionIdentifier}"/>
                     </StackPanel>
 
                 </materialDesign:Card>
@@ -65,16 +64,20 @@
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="Autoren" />
-                        </TextBlock>
-                        <TextBlock Margin="20,0,0,0"
-                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Matthias Drescher&#x09;&#x09;[matthias.drescher@bytePassion.de]" />
-                            <LineBreak />
-                            <Run Text="Alexander Horn&#x09;&#x09;[alexander.horn@bytePassion.de]" />
-                        </TextBlock>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding DeveloperSectionHeader}"/>
+						
+						<ItemsControl Margin="20,0,0,0"
+									  ItemsSource="{Binding Developers}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate DataType="system:String">
+									<TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}"
+											   TextWrapping="Wrap"
+											   Text="{Binding}"/>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+						                        
                     </StackPanel>
 
                 </materialDesign:Card>
@@ -83,16 +86,20 @@
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="3rd Party" />
-                        </TextBlock>
-                        <TextBlock Margin="20,0,0,0"
-                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Flag-Icons from" />
-                            <Run Text="www.icondrawer.com" />
-                        </TextBlock>
-                    </StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding ThirdPartySectionHeader}"/>
+
+						<ItemsControl Margin="20,0,0,0"
+									  ItemsSource="{Binding ThridPartyItems}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate DataType="system:String">
+									<TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}"
+											   TextWrapping="Wrap"
+											   Text="{Binding}"/>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</StackPanel>
 
                 </materialDesign:Card>
 
@@ -100,17 +107,50 @@
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="Quoridor" />
-                        </TextBlock>
-                        <TextBlock Margin="20,0,0,0"
-                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Erfinder:&#x09;Mirko Marchesi" />
-                            <LineBreak />
-                            <Run Text="Verlag:&#x09;Gigamic" />
-                        </TextBlock>
-                    </StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding QuoridorSectionHeader}"/>
+
+						<Grid Margin="20,0,0,0">
+							<Grid.RowDefinitions>
+								<RowDefinition/>
+								<RowDefinition/>
+							</Grid.RowDefinitions>
+
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+
+							<TextBlock Grid.Column="0"
+									   Grid.Row="0"
+									   HorizontalAlignment="Right"
+									   Margin="0,0,10,0"
+									   Style="{StaticResource MaterialDesignBody1TextBlock}">
+								<Run Text="{Binding QuoridorInventerSubItem, Mode=OneWay}"/>:                            
+							</TextBlock>
+
+							<TextBlock Grid.Column="0"
+									   Grid.Row="1"
+									   HorizontalAlignment="Right"
+									   Margin="0,0,10,0"
+									   Style="{StaticResource MaterialDesignBody1TextBlock}">
+								<Run Text="{Binding QuoridorPublisherSubItem, Mode=OneWay}"/>:                          
+							</TextBlock>
+							
+							<TextBlock Grid.Column="1"
+									   Grid.Row="0"
+									   HorizontalAlignment="Left"
+									   Style="{StaticResource MaterialDesignBody1TextBlock}"
+									   Text="Mirko Marchesi"/>
+
+							<TextBlock Grid.Column="1"
+									   Grid.Row="1"
+									   HorizontalAlignment="Left"
+									   Style="{StaticResource MaterialDesignBody1TextBlock}"
+									   Text="Gigamic"/>
+
+						</Grid>
+					</StackPanel>
 
                 </materialDesign:Card>
 
@@ -118,20 +158,17 @@
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
-                            <Run Text="Lizenz" />
-                        </TextBlock>
-                        <TextBlock Margin="20,0,0,0"
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding LicenceSectionHeader}"/>
+						<TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Apache 2.0" />
-                        </TextBlock>
+                                   TextWrapping="Wrap"
+								   Text="{Binding Licence}"/>
                     </StackPanel>
 
                 </materialDesign:Card>
 
             </StackPanel>
-
 
         </Grid>
     </ScrollViewer>

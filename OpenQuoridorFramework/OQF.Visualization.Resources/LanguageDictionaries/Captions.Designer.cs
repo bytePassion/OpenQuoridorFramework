@@ -61,6 +61,87 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application.
+        /// </summary>
+        public static string AP_ApplicationSectionHeader {
+            get {
+                return ResourceManager.GetString("AP_ApplicationSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Developers.
+        /// </summary>
+        public static string AP_DeveloperSectionHeader {
+            get {
+                return ResourceManager.GetString("AP_DeveloperSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licence.
+        /// </summary>
+        public static string AP_LicenceSectionHeader {
+            get {
+                return ResourceManager.GetString("AP_LicenceSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About OpenQuoridorFramework.
+        /// </summary>
+        public static string AP_PageHeader {
+            get {
+                return ResourceManager.GetString("AP_PageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inventor.
+        /// </summary>
+        public static string AP_QuoridorInventorSubItem {
+            get {
+                return ResourceManager.GetString("AP_QuoridorInventorSubItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publisher.
+        /// </summary>
+        public static string AP_QuoridorPublisherSubItem {
+            get {
+                return ResourceManager.GetString("AP_QuoridorPublisherSubItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quoridor.
+        /// </summary>
+        public static string AP_QuoridorSectionHeader {
+            get {
+                return ResourceManager.GetString("AP_QuoridorSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3rd Party Usages.
+        /// </summary>
+        public static string AP_ThirdPartySectionHeader {
+            get {
+                return ResourceManager.GetString("AP_ThirdPartySectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string AP_VersionSectionHeader {
+            get {
+                return ResourceManager.GetString("AP_VersionSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Auto scroll down.
         /// </summary>
         public static string PvB_AutoScrollDownCheckBoxCaption {

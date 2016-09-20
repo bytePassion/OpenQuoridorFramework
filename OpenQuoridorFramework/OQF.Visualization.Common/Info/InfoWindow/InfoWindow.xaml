@@ -25,7 +25,7 @@
         <viewModel:InfoWindowViewModelSampleData />
     </d:DesignData.DataContext>
 
-    <Grid>
+    <Grid Margin="0,30,0,0">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250" />
@@ -68,7 +68,7 @@
             <pages:PlayerVsBotApplicationInfo />
             <pages:BotVsBotApplicationInfo />
             <pages:TurnamentApplicationInfo />
-            <pages:About />
+            <pages:About DataContext="{Binding AboutPageViewModel}"/>
 
         </panels:DeckPanel>
 

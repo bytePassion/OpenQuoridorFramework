@@ -28,6 +28,7 @@ using OQF.Utils;
 using OQF.Visualization.Common.Info;
 using OQF.Visualization.Common.Language;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
+using OQF.Visualization.Resources;
 using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.PlayerVsBot.ViewModels.MainWindow
@@ -111,7 +112,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		private void DoShowAboutHelp()
 		{
-			InfoWindowService.Show(InfoPage.PlayerVsBotApplicationInfo,
+			InfoWindowService.Show(OpenQuoridorFrameworkInfo.Applications.PlayerVsBot.Info,
+								   InfoPage.PlayerVsBotApplicationInfo,
 								   InfoPage.QuoridorRules, 
 								   InfoPage.QuoridorNotation,
 								   InfoPage.HowToWriteABot,

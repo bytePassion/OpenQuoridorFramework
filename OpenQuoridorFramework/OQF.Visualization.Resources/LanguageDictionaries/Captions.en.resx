@@ -231,4 +231,31 @@
   <data name="QRP_Picture5Caption" xml:space="preserve">
     <value>Picture 5</value>
   </data>
+  <data name="AP_PageHeader" xml:space="preserve">
+    <value>About OpenQuoridorFramework</value>
+  </data>
+  <data name="AP_ApplicationSectionHeader" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="AP_VersionSectionHeader" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="AP_DeveloperSectionHeader" xml:space="preserve">
+    <value>Developers</value>
+  </data>
+  <data name="AP_ThirdPartySectionHeader" xml:space="preserve">
+    <value>3rd Party Usages</value>
+  </data>
+  <data name="AP_QuoridorSectionHeader" xml:space="preserve">
+    <value>Quridor</value>
+  </data>
+  <data name="AP_QuoridorInventorSubItem" xml:space="preserve">
+    <value>Inventor</value>
+  </data>
+  <data name="AP_QuoridorPublisherSubItem" xml:space="preserve">
+    <value>Publisher</value>
+  </data>
+  <data name="AP_LicenceSectionHeader" xml:space="preserve">
+    <value>Licence</value>
+  </data>
 </root>
