@@ -1,12 +1,18 @@
 ﻿using System.ComponentModel;
+using Lib.FrameworkExtension;
+using Lib.Wpf.ViewModelBase;
+using OQF.Visualization.Common.Language;
 using OQF.Visualization.Resources.LanguageDictionaries;
 
-#pragma warning disable 0067
-
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels
+namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage
 {
-	internal class QuoridorRulesPageViewModelSampleData : IQuoridorRulesPageViewModel
+	internal class QuoridorRulesPageViewModel : ViewModel, IQuoridorRulesPageViewModel
 	{
+		public QuoridorRulesPageViewModel()
+		{
+			CultureManager.CultureChanged += RefreshCaptions;
+		}
+
 		public string PageHeader                 => Captions.QRP_PageHeader;
 		public string GeneralParagraphHeader     => Captions.QRP_GeneralParagraphHeader;
 		public string GeneralParagraphText       => Captions.QRP_GeneralParagraphText;
@@ -24,8 +30,31 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels
 		public string Picture3Caption => Captions.QRP_Picture3Caption;
 		public string Picture4Caption => Captions.QRP_Picture4Caption;
 		public string Picture5Caption => Captions.QRP_Picture5Caption;
-		
-		public void Dispose () { }
-		public event PropertyChangedEventHandler PropertyChanged;
+
+		private void RefreshCaptions()
+		{
+			PropertyChanged.Notify(this, nameof(PageHeader),
+										 nameof(GeneralParagraphHeader),
+										 nameof(GeneralParagraphText),
+										 nameof(GameSetupParagraphHeader),
+										 nameof(GameSetupParagrphText),
+										 nameof(GameGoalParagraphHeader),
+										 nameof(GameGoalParagraphText),
+										 nameof(GameFlowParagraphHeader),
+										 nameof(GameFlowParagraphText),
+										 nameof(SpecialMoveParagraphHeader),
+										 nameof(SpecialMoveParagraphText),
+										 nameof(Picture1Caption),
+										 nameof(Picture2Caption),
+										 nameof(Picture3Caption),
+										 nameof(Picture4Caption),
+										 nameof(Picture5Caption));
+		}
+
+		protected override void CleanUp()
+		{
+			CultureManager.CultureChanged += RefreshCaptions;
+		}
+		public override event PropertyChangedEventHandler PropertyChanged;
 	}
 }

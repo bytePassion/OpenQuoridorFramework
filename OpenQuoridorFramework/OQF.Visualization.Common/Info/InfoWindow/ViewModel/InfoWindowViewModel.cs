@@ -7,7 +7,7 @@ using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
-using OQF.Visualization.Common.Info.Pages.PageViewModels;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
 namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel

@@ -1,6 +1,6 @@
 ﻿using Lib.Wpf.ViewModelBase;
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels
+namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage
 {
 	internal interface IQuoridorRulesPageViewModel : IViewModel
 	{

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel;
-using OQF.Visualization.Common.Info.Pages.PageViewModels;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
 namespace OQF.Visualization.Common.Info
