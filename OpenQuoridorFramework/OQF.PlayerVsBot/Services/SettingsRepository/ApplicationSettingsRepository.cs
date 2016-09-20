@@ -1,14 +1,7 @@
-﻿using System.IO;
-using System.Linq;
-using System.Text;
-using OQF.Visualization.Resources;
-
-namespace OQF.PlayerVsBot.Services.SettingsRepository
+﻿namespace OQF.PlayerVsBot.Services.SettingsRepository
 {
 	internal class ApplicationSettingsRepository : IApplicationSettingsRepository
 	{
-		private const string FilePath = "ApplicationSettings.qor";
-
 		private bool isDebugSectionExpanded;
 		private bool isProgressSecionExpanded;
 		private string selectedLanguageCode;
@@ -16,64 +9,20 @@ namespace OQF.PlayerVsBot.Services.SettingsRepository
 
 		public ApplicationSettingsRepository()
 		{
-			LoadValues();
+			lastUsedBotPath          = Properties.Settings.Default.LastUsedBotPath;
+			selectedLanguageCode     = Properties.Settings.Default.SelectedLanguageCode;
+			isProgressSecionExpanded = Properties.Settings.Default.IsProgressSecionExpanded;
+			isDebugSectionExpanded   = Properties.Settings.Default.IsDebugSectionExpanded;
 		}
-
-		private void LoadValues()
-		{
-			if (!File.Exists(FilePath))
-			{
-				LoadDefaultValues();
-				return;
-			}
 				
-
-			var valueString = File.ReadAllText(FilePath);
-
-			var valueParts = valueString.Split('|');
-
-			if (valueParts.Length != 4)
-			{
-				LoadDefaultValues();
-				return;
-			}
-
-			LastUsedBotPath          =            valueParts[0];
-			SelectedLanguageCode     =            valueParts[1];
-			IsProgressSecionExpanded = bool.Parse(valueParts[2]);
-			IsDebugSectionExpanded   = bool.Parse(valueParts[3]);
-		}
-
-		private void LoadDefaultValues()
-		{
-			LastUsedBotPath = null;
-			SelectedLanguageCode = Languages.AvailableCountryCodes().FirstOrDefault();
-			IsDebugSectionExpanded = false;
-			IsProgressSecionExpanded = true;
-		}
-
-		private void SaveValues()
-		{
-			var sb = new StringBuilder();
-
-			sb.Append(LastUsedBotPath);
-			sb.Append('|');
-			sb.Append(SelectedLanguageCode);
-			sb.Append('|');
-			sb.Append(IsProgressSecionExpanded);
-			sb.Append('|');
-			sb.Append(IsDebugSectionExpanded);
-
-			File.WriteAllText(FilePath, sb.ToString());
-		}
-		
 		public string LastUsedBotPath
 		{
 			get { return lastUsedBotPath; }
 			set
 			{
 				lastUsedBotPath = value;
-				SaveValues();
+				Properties.Settings.Default.LastUsedBotPath = value;
+				Properties.Settings.Default.Save();				
 			}
 		}		
 
@@ -83,7 +32,8 @@ namespace OQF.PlayerVsBot.Services.SettingsRepository
 			set
 			{
 				selectedLanguageCode = value;
-				SaveValues();
+				Properties.Settings.Default.SelectedLanguageCode = value;
+				Properties.Settings.Default.Save();
 			}
 		}
 
@@ -93,7 +43,8 @@ namespace OQF.PlayerVsBot.Services.SettingsRepository
 			set
 			{
 				isProgressSecionExpanded = value;
-				SaveValues();
+				Properties.Settings.Default.IsProgressSecionExpanded = value;
+				Properties.Settings.Default.Save();
 			}
 		}
 
@@ -103,7 +54,8 @@ namespace OQF.PlayerVsBot.Services.SettingsRepository
 			set
 			{
 				isDebugSectionExpanded = value;
-				SaveValues();
+				Properties.Settings.Default.IsDebugSectionExpanded = value;
+				Properties.Settings.Default.Save();
 			}
 		}
 	}

@@ -22,5 +22,53 @@ namespace OQF.PlayerVsBot.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastUsedBotPath {
+            get {
+                return ((string)(this["LastUsedBotPath"]));
+            }
+            set {
+                this["LastUsedBotPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("de")]
+        public string SelectedLanguageCode {
+            get {
+                return ((string)(this["SelectedLanguageCode"]));
+            }
+            set {
+                this["SelectedLanguageCode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsProgressSecionExpanded {
+            get {
+                return ((bool)(this["IsProgressSecionExpanded"]));
+            }
+            set {
+                this["IsProgressSecionExpanded"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsDebugSectionExpanded {
+            get {
+                return ((bool)(this["IsDebugSectionExpanded"]));
+            }
+            set {
+                this["IsDebugSectionExpanded"] = value;
+            }
+        }
     }
 }
