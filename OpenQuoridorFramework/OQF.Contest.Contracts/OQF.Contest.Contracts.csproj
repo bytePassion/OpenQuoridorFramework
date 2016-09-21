@@ -57,12 +57,6 @@
     <Compile Include="Moves\WallMove.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
-      <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
-      <Name>Lib.FrameworkExtension</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

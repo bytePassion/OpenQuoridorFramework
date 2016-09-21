@@ -1,6 +1,4 @@
-﻿using Lib.FrameworkExtension;
-
-namespace OQF.Contest.Contracts.Coordination
+﻿namespace OQF.Contest.Contracts.Coordination
 {
 	public struct FieldCoordinate
 	{
@@ -17,9 +15,25 @@ namespace OQF.Contest.Contracts.Coordination
 		public XField XCoord { get; }
 		public YField YCoord { get; }
 
-		public override string ToString()         => XCoordToString(XCoord) + YCoordToString(YCoord);
-		public override bool   Equals(object obj) => this.Equals(obj, (c1, c2) => c1.XCoord == c2.XCoord && c1.YCoord == c2.YCoord);
-		public override int    GetHashCode()      => hashCode;
+		public override string ToString()
+		{
+			return XCoordToString(XCoord) + YCoordToString(YCoord);
+		}
+
+		public override bool Equals(object obj)
+		{			
+			if (GetType() != obj.GetType())
+				return false;
+
+			var objAsFieldCoord = (FieldCoordinate) obj;
+
+			return XCoord == objAsFieldCoord.XCoord && YCoord == objAsFieldCoord.YCoord;
+		}
+
+		public override int    GetHashCode()
+		{
+			return hashCode;
+		}
 
 		public static bool operator ==(FieldCoordinate c1, FieldCoordinate c2) =>  c1.Equals(c2);
 		public static bool operator !=(FieldCoordinate c1, FieldCoordinate c2) => !c1.Equals(c2);		
