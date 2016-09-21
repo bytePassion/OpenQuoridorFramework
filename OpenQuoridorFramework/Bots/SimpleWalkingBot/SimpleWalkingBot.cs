@@ -28,17 +28,22 @@ namespace SimpleWalkingBot
 								? YField.Nine
 								: YField.One;
 		  
-			DebugMessageAvailable?.Invoke($"bin am moooooven :) [{counter++}]");
-				
-			var graph = new XGraph(currentState, myself.PlayerType);
+			DebugMessageAvailable?.Invoke($"beginne Bewegungsberechnung [{counter++}]");
 
-		    var nextPosition = graph.GetNextPositionToMove(target);
-
-		    var nextMove = nextPosition.HasValue 
-								? (Move) new FigureMove  (nextPosition.Value)
-								: (Move) new Capitulation();
+		    var nextMove = ComputeNextMove(currentState, target);
 
 			NextMoveAvailable?.Invoke(nextMove);							
 	    }
+
+	    private Move ComputeNextMove(BoardState currentState, YField target)
+	    {
+			var graph = new XGraph(currentState, myself.PlayerType);
+
+			var nextPosition = graph.GetNextPositionToMove(target);
+
+			return nextPosition.HasValue
+						? (Move) new FigureMove  (nextPosition.Value)
+						: (Move) new Capitulation();
+		}
     }
 }
