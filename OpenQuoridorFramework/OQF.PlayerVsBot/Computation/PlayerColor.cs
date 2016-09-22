@@ -7,9 +7,9 @@ using OQF.PlayerVsBot.Global;
 
 namespace OQF.PlayerVsBot.Computation
 {
-	internal class PlayerColor : GenericValueConverter<PlayerState, SolidColorBrush>
+	internal class PlayerColor : GenericValueConverter<PlayerState, Brush>
 	{
-		protected override SolidColorBrush Convert(PlayerState value, CultureInfo culture)
+		protected override Brush Convert(PlayerState value, CultureInfo culture)
 		{
 			return value.Player.PlayerType == PlayerType.TopPlayer
 				? Constants.TopPlayerActiveColor

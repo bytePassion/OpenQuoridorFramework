@@ -6,9 +6,9 @@ using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
 
 namespace OQF.PlayerVsBot.Computation
 {
-	internal class TopPlayerMarkerColor : GenericValueConverter<GameStatus, SolidColorBrush>
+	internal class TopPlayerMarkerColor : GenericValueConverter<GameStatus, Brush>
 	{
-		protected override SolidColorBrush Convert(GameStatus gameStatus, CultureInfo culture)
+		protected override Brush Convert(GameStatus gameStatus, CultureInfo culture)
 		{
 			return gameStatus == GameStatus.Unloaded
 						? Constants.PlayerInactiveColor
