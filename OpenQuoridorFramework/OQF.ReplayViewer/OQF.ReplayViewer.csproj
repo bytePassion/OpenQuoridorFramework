@@ -151,7 +151,7 @@
       <Project>{6C27F04B-CFCC-4267-8720-4A44D7529A21}</Project>
       <Name>Lib.FrameworkExtension</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Contest.Contracts\OQF.Bot.Contracts.csproj">
+    <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
