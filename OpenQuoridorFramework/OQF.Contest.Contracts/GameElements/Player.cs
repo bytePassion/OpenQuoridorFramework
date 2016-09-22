@@ -10,7 +10,7 @@ namespace OQF.Bot.Contracts.GameElements
 			Name = name;
 		}
 		
-		public string Name { get; set; }
+		public string Name { get; }
 		public PlayerType PlayerType { get; }
 	}
 }

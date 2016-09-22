@@ -26,14 +26,14 @@ namespace OQF.PlayerVsBot.Services
 		public BoardState CurrentBoardState { get; private set; }
 		
 
-		public void CreateGame(IQuoridorBot uninitializedBot, GameConstraints gameConstraints)
+		public void CreateGame(IQuoridorBot uninitializedBot, string botName, GameConstraints gameConstraints)
 		{
 			if (currentIpvBGame != null)
 			{
 				StopGame();
 			}
 
-			currentIpvBGame = gameFactory.CreateNewGame(uninitializedBot, gameConstraints);
+			currentIpvBGame = gameFactory.CreateNewGame(uninitializedBot, botName, gameConstraints);
 
 			currentIpvBGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentIpvBGame.NextBoardstateAvailable += OnNextBoardstateAvailable;

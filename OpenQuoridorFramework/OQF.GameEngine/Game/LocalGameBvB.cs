@@ -27,11 +27,11 @@ namespace OQF.GameEngine.Game
 			var bottomPlayer = new Player(PlayerType.BottomPlayer);
 		
 			topPlayerBot = uninitializedTopPlayerBot;
-			topPlayerBot.Init(topPlayer, gameConstraints);
+			topPlayerBot.Init(topPlayer.PlayerType, gameConstraints);
 			topPlayerBot.DebugMessageAvailable += OnTopPlayerBotDebugMessageAvailable;
 
 			bottomPlayerBot = uninitializedBottomPlayerBot;
-			bottomPlayerBot.Init(bottomPlayer, gameConstraints);
+			bottomPlayerBot.Init(bottomPlayer.PlayerType, gameConstraints);
 			bottomPlayerBot.DebugMessageAvailable += OnBottomPlayerBotDebugMessageAvailable;		
 			
 			var initialBoadState = BoardStateTransition.CreateInitialBoadState(topPlayer, bottomPlayer);

@@ -7,9 +7,9 @@ namespace OQF.GameEngine.Game
 {
 	public class GameFactory : IGameFactory
 	{
-		public IPvBGame CreateNewGame(IQuoridorBot uninitializedBot, GameConstraints gameConstraints)
+		public IPvBGame CreateNewGame(IQuoridorBot uninitializedBot, string botName, GameConstraints gameConstraints)
 		{
-			return new LocalGamePvB(uninitializedBot, gameConstraints);
+			return new LocalGamePvB(uninitializedBot, botName, gameConstraints);
 		}
 
 		public IBvBGame CreateNewGame(IQuoridorBot uninitializedBottomPlayerBot, IQuoridorBot uninitializedTopPlayerBot,GameConstraints gameConstraints)

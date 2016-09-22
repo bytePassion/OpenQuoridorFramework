@@ -1,4 +1,5 @@
 ﻿using System;
+using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 
@@ -18,11 +19,11 @@ namespace OQF.Bot.Contracts
          
 		/// <summary>
 		/// This method is called before the game starts. You will be informed 
-		/// whether you are the bottom- or top player. You can choose a name
-		/// by setting the name property.
+		/// whether you are the bottom- or top player and you will be informed
+		/// about the contraints for the upcomming game. 
 		/// </summary>				
-		void Init (Player yourPlayer, GameConstraints gameConstraints);
-
+		void Init (PlayerType yourStartPosition, GameConstraints gameConstraints);
+		
 		/// <summary>
 		/// This method is called when it's your turn. To finish your turn
 		/// fire the NextMoveAvailable-event to report your next move.

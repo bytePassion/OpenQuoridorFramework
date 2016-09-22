@@ -385,16 +385,16 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 				return;
 			}
 
-			var uninitializedBot = BotLoader.LoadBot(dllToLoad);
+			var uninitializedBotAndBotName = BotLoader.LoadBot(dllToLoad);
 
-			if (uninitializedBot == null)
+			if (uninitializedBotAndBotName == null)
 			{
 				MessageBox.Show($"die Assemply {dllToLoad.FullName} kann nicht als IQuoridorBot instantiiert werden");
 				return;
 			}
 
 			applicationSettingsRepository.LastUsedBotPath = DllPathInput;									
-			gameService.CreateGame(uninitializedBot, new GameConstraints(TimeSpan.FromSeconds(60), 100));
+			gameService.CreateGame(uninitializedBotAndBotName.Item1, uninitializedBotAndBotName.Item2, new GameConstraints(TimeSpan.FromSeconds(60), 100));
 			
 			((Command)Capitulate).RaiseCanExecuteChanged();
 		}

@@ -24,6 +24,7 @@ namespace OQF.GameEngine.Game
 		private readonly Timer botTimer;
 
 		private readonly IQuoridorBot bot;
+		private readonly string botName;
 		private readonly TimeoutBlockingQueue<Move> humenMoves;
 		private readonly TimeoutBlockingQueue<Move> botMoves;
 		private readonly GameConstraints gameConstraints;
@@ -32,10 +33,12 @@ namespace OQF.GameEngine.Game
 
 				
 		public GameLoopThreadPvB (IQuoridorBot uninitializedBot, 
+								  string botName,
 							      TimeoutBlockingQueue<Move> humenMoves, 							      
 							      GameConstraints gameConstraints)
 		{
 			bot = uninitializedBot;
+			this.botName = botName;
 			this.humenMoves = humenMoves;
 
 			botMoves = new TimeoutBlockingQueue<Move>(200);
@@ -65,10 +68,10 @@ namespace OQF.GameEngine.Game
 		{
 			IsRunning = true;
 
-			var computerPlayer = new Player(PlayerType.TopPlayer);
+			var computerPlayer = new Player(PlayerType.TopPlayer, botName);
 			var humanPlayer    = new Player(PlayerType.BottomPlayer);
-
-			bot.Init(computerPlayer, gameConstraints);
+			
+			bot.Init(computerPlayer.PlayerType, gameConstraints);
 
 			var currentBoardState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
 

@@ -12,19 +12,19 @@ namespace SimpleWalkingBot
 	    public event Action<Move> NextMoveAvailable;
 	    public event Action<string> DebugMessageAvailable;
 
-	    private Player myself;	   
-
-	    public void Init(Player yourPlayer, GameConstraints gameConstraints)
-	    {
-		    myself = yourPlayer;
-		    myself.Name = nameof(SimpleWalkingBot);		   
-	    }
-
+	    
+	    private PlayerType startPosition; 
+	  
 	    private static int counter = 0;
+
+	    public void Init(PlayerType yourStartPosition, GameConstraints gameConstraints)
+	    {
+		    startPosition = yourStartPosition;
+	    }
 
 	    public void DoMove(BoardState currentState)
 	    {
-		    var target = myself.PlayerType == PlayerType.BottomPlayer 
+		    var target = startPosition == PlayerType.BottomPlayer 
 								? YField.Nine
 								: YField.One;
 		  
@@ -37,7 +37,7 @@ namespace SimpleWalkingBot
 
 	    private Move ComputeNextMove(BoardState currentState, YField target)
 	    {
-			var graph = new XGraph(currentState, myself.PlayerType);
+			var graph = new XGraph(currentState, startPosition);
 
 			var nextPosition = graph.GetNextPositionToMove(target);
 
