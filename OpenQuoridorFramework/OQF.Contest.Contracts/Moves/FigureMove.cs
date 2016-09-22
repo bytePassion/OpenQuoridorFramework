@@ -1,6 +1,6 @@
-﻿using OQF.Contest.Contracts.Coordination;
+﻿using OQF.Bot.Contracts.Coordination;
 
-namespace OQF.Contest.Contracts.Moves
+namespace OQF.Bot.Contracts.Moves
 {
 	public class FigureMove : Move
 	{

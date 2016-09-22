@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Text;
 using Lib.Wpf.ViewModelBase;
-using OQF.Contest.Contracts.Moves;
+using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts;
 using OQF.Visualization.Resources.LanguageDictionaries;
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using OQF.Contest.Contracts.Moves;
+using OQF.Bot.Contracts.Moves;
 
-namespace OQF.Contest.Contracts.GameElements
+namespace OQF.Bot.Contracts.GameElements
 {
 	public class BoardState
 	{

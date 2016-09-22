@@ -8,7 +8,7 @@ using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
-using OQF.Contest.Contracts.GameElements;
+using OQF.Bot.Contracts.GameElements;
 using OQF.ReplayViewer.Services;
 using OQF.ReplayViewer.ViewModels.Board;
 using OQF.Utils;

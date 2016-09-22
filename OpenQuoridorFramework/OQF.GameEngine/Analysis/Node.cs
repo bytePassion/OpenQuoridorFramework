@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using OQF.Contest.Contracts.Coordination;
+using OQF.Bot.Contracts.Coordination;
 
 namespace OQF.GameEngine.Analysis
 {

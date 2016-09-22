@@ -1,6 +1,6 @@
 using System;
-using OQF.Contest.Contracts.Coordination;
-using OQF.Contest.Contracts.GameElements;
+using OQF.Bot.Contracts.Coordination;
+using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.GameEngine.Contracts
 {

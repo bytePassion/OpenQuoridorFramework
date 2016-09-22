@@ -1,8 +1,8 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
-using OQF.Contest.Contracts.Coordination;
-using OQF.Contest.Contracts.GameElements;
+using OQF.Bot.Contracts.Coordination;
+using OQF.Bot.Contracts.GameElements;
 
 #pragma warning disable 0067
 

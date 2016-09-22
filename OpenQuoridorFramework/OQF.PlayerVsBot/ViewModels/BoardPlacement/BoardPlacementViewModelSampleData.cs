@@ -2,8 +2,8 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using Lib.SemanicTypes;
-using OQF.Contest.Contracts.Coordination;
-using OQF.Contest.Contracts.GameElements;
+using OQF.Bot.Contracts.Coordination;
+using OQF.Bot.Contracts.GameElements;
 using Size = System.Windows.Size;
 
 #pragma warning disable 0067

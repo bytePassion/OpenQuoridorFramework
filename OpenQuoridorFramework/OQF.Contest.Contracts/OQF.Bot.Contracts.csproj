@@ -7,8 +7,8 @@
     <ProjectGuid>{8692572D-4B60-407C-BB7B-80FC66E63904}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OQF.Contest.Contracts</RootNamespace>
-    <AssemblyName>OQF.Contest.Contracts</AssemblyName>
+    <RootNamespace>OQF.Bot.Contracts</RootNamespace>
+    <AssemblyName>OQF.Bot.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -1,4 +1,4 @@
-﻿namespace OQF.Contest.Contracts.Coordination
+﻿namespace OQF.Bot.Contracts.Coordination
 {
 	public enum WallOrientation
 	{

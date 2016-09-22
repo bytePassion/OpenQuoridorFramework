@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OQF.Contest.Contracts
+namespace OQF.Bot.Contracts
 {
 	public class GameConstraints
 	{

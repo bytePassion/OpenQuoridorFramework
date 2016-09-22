@@ -1,4 +1,4 @@
-﻿namespace OQF.Contest.Contracts.Moves
+﻿namespace OQF.Bot.Contracts.Moves
 {
 	public abstract class Move
 	{		

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using OQF.Contest.Contracts.GameElements;
-using OQF.Contest.Contracts.Moves;
+using OQF.Bot.Contracts.GameElements;
+using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts;
 
 namespace OQF.Utils

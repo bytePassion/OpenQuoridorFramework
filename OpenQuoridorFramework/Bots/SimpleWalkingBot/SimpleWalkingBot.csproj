@@ -48,9 +48,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OQF.Contest.Contracts\OQF.Contest.Contracts.csproj">
+    <ProjectReference Include="..\..\OQF.Contest.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
-      <Name>OQF.Contest.Contracts</Name>
+      <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

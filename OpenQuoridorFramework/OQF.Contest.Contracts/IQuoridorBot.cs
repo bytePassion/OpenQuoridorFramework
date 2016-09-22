@@ -1,8 +1,8 @@
 ﻿using System;
-using OQF.Contest.Contracts.GameElements;
-using OQF.Contest.Contracts.Moves;
+using OQF.Bot.Contracts.GameElements;
+using OQF.Bot.Contracts.Moves;
 
-namespace OQF.Contest.Contracts
+namespace OQF.Bot.Contracts
 {
 	public interface IQuoridorBot
 	{

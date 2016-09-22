@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using Lib.Concurrency;
-using OQF.Contest.Contracts;
-using OQF.Contest.Contracts.GameElements;
-using OQF.Contest.Contracts.Moves;
+using OQF.Bot.Contracts;
+using OQF.Bot.Contracts.GameElements;
+using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Analysis;
 using OQF.GameEngine.Contracts;
 using OQF.GameEngine.Transitions;

@@ -11,13 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.GameEngine.Contracts", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWalkingBot", "bots\SimpleWalkingBot\SimpleWalkingBot.csproj", "{4629A2D4-4146-4E1A-9520-57D12827CD57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Contest.Contracts", "OQF.Contest.Contracts\OQF.Contest.Contracts.csproj", "{8692572D-4B60-407C-BB7B-80FC66E63904}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Bot.Contracts", "OQF.Contest.Contracts\OQF.Bot.Contracts.csproj", "{8692572D-4B60-407C-BB7B-80FC66E63904}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bots", "Bots", "{5094A226-58A9-4B49-991F-9F3296EE4060}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualization", "Visualization", "{1133E98F-58A0-4FE7-9761-C7822EBA673A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contest", "Contest", "{C6F3B535-2B4C-43CB-A3C1-769C35CE299A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External.Contracts", "External.Contracts", "{C6F3B535-2B4C-43CB-A3C1-769C35CE299A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librarys", "Librarys", "{B119E130-6EA4-4AF7-B512-24B7797DB366}"
 EndProject

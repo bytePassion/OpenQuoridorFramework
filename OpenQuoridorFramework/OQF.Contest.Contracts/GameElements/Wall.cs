@@ -1,6 +1,6 @@
-﻿using OQF.Contest.Contracts.Coordination;
+﻿using OQF.Bot.Contracts.Coordination;
 
-namespace OQF.Contest.Contracts.GameElements
+namespace OQF.Bot.Contracts.GameElements
 {
 	public class Wall
 	{

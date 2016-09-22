@@ -46,9 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OQF.Contest.Contracts\OQF.Contest.Contracts.csproj">
+    <ProjectReference Include="..\OQF.Contest.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
-      <Name>OQF.Contest.Contracts</Name>
+      <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj">
       <Project>{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}</Project>

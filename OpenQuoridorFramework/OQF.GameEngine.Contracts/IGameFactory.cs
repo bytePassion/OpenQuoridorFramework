@@ -1,5 +1,5 @@
-﻿using OQF.Contest.Contracts;
-using OQF.Contest.Contracts.GameElements;
+﻿using OQF.Bot.Contracts;
+using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.GameEngine.Contracts
 {

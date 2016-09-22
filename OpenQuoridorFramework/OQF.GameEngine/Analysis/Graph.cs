@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using OQF.Contest.Contracts.Coordination;
-using OQF.Contest.Contracts.GameElements;
-using OQF.Contest.Contracts.Moves;
+using OQF.Bot.Contracts.Coordination;
+using OQF.Bot.Contracts.GameElements;
+using OQF.Bot.Contracts.Moves;
 
 namespace OQF.GameEngine.Analysis
 {

@@ -1,8 +1,8 @@
 using System.Globalization;
 using System.Windows.Media;
 using Lib.Wpf.ConverterBase;
-using OQF.Contest.Contracts.Coordination;
-using OQF.Contest.Contracts.GameElements;
+using OQF.Bot.Contracts.Coordination;
+using OQF.Bot.Contracts.GameElements;
 using OQF.ReplayViewer.Global;
 
 namespace OQF.ReplayViewer.Computation

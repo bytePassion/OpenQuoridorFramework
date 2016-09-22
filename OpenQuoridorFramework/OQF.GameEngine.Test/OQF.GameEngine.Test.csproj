@@ -76,9 +76,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OQF.Contest.Contracts\OQF.Contest.Contracts.csproj">
+    <ProjectReference Include="..\OQF.Contest.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
-      <Name>OQF.Contest.Contracts</Name>
+      <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj">
       <Project>{e257aa0a-7215-4cba-b17a-61dc7ec3345a}</Project>

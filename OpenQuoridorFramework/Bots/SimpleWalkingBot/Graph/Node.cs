@@ -1,4 +1,4 @@
-﻿using OQF.Contest.Contracts.Coordination;
+﻿using OQF.Bot.Contracts.Coordination;
 
 namespace SimpleWalkingBot.Graph
 {

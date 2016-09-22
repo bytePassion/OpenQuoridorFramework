@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using OQF.Contest.Contracts.GameElements;
+using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.ReplayViewer.Services
 {

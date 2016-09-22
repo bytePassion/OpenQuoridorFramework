@@ -1,7 +1,7 @@
-﻿using OQF.Contest.Contracts.Coordination;
-using OQF.Contest.Contracts.GameElements;
+﻿using OQF.Bot.Contracts.Coordination;
+using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.Contest.Contracts.Moves
+namespace OQF.Bot.Contracts.Moves
 {
 	public class WallMove : Move
 	{

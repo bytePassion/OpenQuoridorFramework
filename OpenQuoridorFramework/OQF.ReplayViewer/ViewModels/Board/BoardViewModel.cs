@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
-using OQF.Contest.Contracts.GameElements;
+using OQF.Bot.Contracts.GameElements;
 using OQF.ReplayViewer.Services;
 
 namespace OQF.ReplayViewer.ViewModels.Board

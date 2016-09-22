@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Reflection;
-using OQF.Contest.Contracts;
+using OQF.Bot.Contracts;
 
 namespace OQF.PlayerVsBot.Services
 {
