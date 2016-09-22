@@ -4,21 +4,132 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:howToWriteABotPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage"
-             d:DesignHeight="300"
-             d:DesignWidth="300"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="1600"
+             d:DesignWidth="900"
              mc:Ignorable="d">
 
 	<d:DesignData.DataContext>
 		<howToWriteABotPage:HowToWriteABotPageViewModelSampleData/>
 	</d:DesignData.DataContext>
-	
-    <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 
-        <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="30"
-                   Text="How To Write A Bot" />
+	<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
 
-    </Grid>
+		<Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="70" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+
+			
+			<TextBlock Margin="16,0,0,0"
+                       FontSize="35"
+                       Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+					   Text="Wie man einen Bot schreibt"/>
+
+			<StackPanel Grid.Row="1">
+
+				<materialDesign:Card Margin="8,0"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="Grundsätzliches Vorgehen"/>
+						<TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+							<Run Text="1. Neue Solution mit einem leeren Projekt (ClassLibrary) anlegen"/>
+							<LineBreak/>
+							<Run Text="2. OQF.Bot.Contracts.dll als Referenz zum Projekt hinzufügen"/>
+							<LineBreak/>
+							<Run Text="3. Bot-Klasse erstellen und von IQuoridorBot ableiten"/>
+							<LineBreak/>
+							<Run Text="4. IQuoridorBot-Interface implementieren"/>
+							<LineBreak/>
+							<Run Text="5. Applikation (z.B. PlayerVsBot) starten und Bot testen"/>
+						</TextBlock>
+						
+					</StackPanel>
+
+				</materialDesign:Card>
+
+				<materialDesign:Card Margin="8"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="Die wichtigsten Klassen/Enums/Structs in der OQF.Bot.Contracts.dll"/>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="FieldCoordinate"
+								   Margin="0,10,0,0"/>
+						<TextBlock Margin="0,10,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap"
+								   Text="Eine FieldCoordinate beschreibt eine Position auf dem Spieldfeld (siehe Quoridor-Notation). Die X- und Y-Koordinaten sind wiederum jeweils durch ein Enum representiert."/>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="Player und PlayerState"/>
+						<TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap"
+								   Text="Der Spieler (Player) wird durch die Player-Klasse definiert. In ihr ist der Name des Spielers, sowie die Startposition (PlayerType) festgehalten. Diese Werte ändern sich während eines Spiels niemals. Der aktuelle Zustand des Spielers, wird durch PlayerState representiert. Dieser besteht aus einer Referenz zum Spieler, der aktuellen position auf dem Brett, sowie der Anzahl an Wänden, die der Spieler noch platzieren darf."/>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="Wall"/>
+						<TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap"
+								   Text="Die Wand-Klasse und damit auch das Wand-Element definiert sich durch eine Position und Orientierung (siehe Quoridor-Notation). Erstere ist eine FieldCoordinate, letztere eine eigens für diesen Zweck erstelltes Enumeration."/>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="BoardState"/>
+						<TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap"
+								   Text="Der aktuelle Spielzustand wird durch BoardState dargestellt. Alle zu diesem Zeitpunkt relevanten Informationen sind darin zu finden: Alle platzierten Wände, die Status der beiden Spieler (PlayerState) und den Spieler, der am Zug ist. Zudem lässt sich über LastBoardState und LastMove, die komplette Spiel-Historie bis zu diesem Punkt rekonstruieren."/>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="Move(s)"/>
+						<TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap"
+								   Text="Von der abstrakten Oberklasse Move ausgehend gibt es 3 verschiedene Züge aus denen der Spieler/Bot bei jeder Runde auswählen muss. Der FigureMove, mit dessen Hilfe die Spielfigur bewegt werden kann, der WallMove, mit dem eine Wand platziert werden kann und der Capitulation, falls eine Lage gar zu aussichtslos ist."/>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="GameConstraints"/>
+						<TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap"
+								   Text="...."/>
+					</StackPanel>
+
+				</materialDesign:Card>
+
+				<materialDesign:Card Margin="8,0"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="Ablauf aus der Sicht eines Bots"/>
+						<TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+							<Run Text="1. ..."/>
+							<LineBreak/>
+							<Run Text="2. ..."/>
+							<LineBreak/>
+							<Run Text="3. ..."/>
+							<LineBreak/>
+							<Run Text="4. ..."/>
+							<LineBreak/>
+							<Run Text="5. ..."/>
+						</TextBlock>
+
+					</StackPanel>
+
+				</materialDesign:Card>
+
+			</StackPanel>
+		
+		</Grid>
+	</ScrollViewer>
 </UserControl>
+
+
 
