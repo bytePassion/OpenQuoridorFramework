@@ -6,35 +6,42 @@ namespace OQF.PlayerVsBot.Services
 {
 	public static class BotLoader
 	{
-		public static IQuoridorBot LoadBot(Assembly assembly)
+		public static Tuple<IQuoridorBot,string> LoadBot(Assembly assembly)
 		{
-			var allTypesInAssembly = assembly.GetTypes();
-
-			foreach (var type in allTypesInAssembly)
+			try
 			{
-				var interfaces = type.GetInterfaces();
+				var allTypesInAssembly = assembly.GetTypes();
 
-				foreach (var @interface in interfaces)
+				foreach (var type in allTypesInAssembly)
 				{
-					if (@interface.Name == nameof(IQuoridorBot))
+					var interfaces = type.GetInterfaces();
+
+					foreach (var @interface in interfaces)
 					{
-						var constructor = type.GetConstructor(Type.EmptyTypes);
-						if (constructor != null)
+						if (@interface.Name == nameof(IQuoridorBot))
 						{
-							try
+							var constructor = type.GetConstructor(Type.EmptyTypes);
+							if (constructor != null)
 							{
-								var instance = Activator.CreateInstance(type);
-								return (IQuoridorBot)instance;
-							}
-							catch
-							{
-								// ignored
+								try
+								{
+									var instance = Activator.CreateInstance(type);
+									return new Tuple<IQuoridorBot, string>((IQuoridorBot)instance, type.Name);
+								}
+								catch
+								{
+									// ignored
+								}
 							}
 						}
-			        }
-		        }
-	        }
-
+					}
+				}
+			}
+			catch
+			{
+				// ignored
+			}
+			
 	        return null;
         }
     }
