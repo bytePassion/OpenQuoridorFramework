@@ -5,6 +5,8 @@ using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts;
 using OQF.Visualization.Resources.LanguageDictionaries;
 
+#pragma warning disable 0067
+
 namespace OQF.PlayerVsBot.ViewModels.WinningDialog
 {
 	internal class WinningDialogViewModel : ViewModel, IWinningDialogViewModel
@@ -13,11 +15,11 @@ namespace OQF.PlayerVsBot.ViewModels.WinningDialog
         {
 			var sb = new StringBuilder();
 
-			if (reportWinning)
-				sb.Append($"{Captions.WD_WinningMessage}\n{Captions.WD_Message_Reason}: {WinningReasonToString(winningReason)}");
+	        sb.Append(reportWinning 
+							? $"{Captions.WD_WinningMessage}" 
+							: $"{Captions.WD_LoosingMessage}");
 
-			if (!reportWinning)
-				sb.Append($"{Captions.WD_LoosingMessage}\n{Captions.WD_Message_Reason}: {WinningReasonToString(winningReason)}");
+	        sb.Append($"\n{Captions.WD_Message_Reason}: {WinningReasonToString(winningReason)}");
 
 	        if (winningReason == WinningReason.InvalidMove)
 		        sb.Append($" [{invalidMove}]");

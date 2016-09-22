@@ -1,16 +1,15 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interactivity;
 
 namespace OQF.PlayerVsBot.Behaviors
 {
-    internal class AutoScrollDownBehavior : Behavior<ScrollViewer>
+	internal class AutoScrollDownBehavior : Behavior<ScrollViewer>
     {
         public static readonly DependencyProperty IsAutoScrollActiveProperty =
             DependencyProperty.Register(nameof(IsAutoScrollActive),
-                typeof(bool),
-                typeof(AutoScrollDownBehavior));
+										typeof(bool),
+										typeof(AutoScrollDownBehavior));
 
         public bool IsAutoScrollActive
         {
@@ -23,32 +22,7 @@ namespace OQF.PlayerVsBot.Behaviors
             base.OnAttached();
 
             AssociatedObject.ScrollChanged += OnScrollChanged;
-        }
-
-        private void OnScrollChanged(object sender, ScrollChangedEventArgs e)
-        {
-            ScrollViewer sv = sender as ScrollViewer;
-            if (IsAutoScrollActive)
-            {
-                bool AutoScrollToEnd = true;
-                if (sv.Tag != null)
-                {
-                    AutoScrollToEnd = (bool) sv.Tag;
-                }
-                if (e.ExtentHeightChange == 0) // user scroll
-                {
-                    AutoScrollToEnd = sv.ScrollableHeight == sv.VerticalOffset;
-                }
-                else
-                {
-                    if (AutoScrollToEnd)
-                    {
-                        sv.ScrollToEnd();
-                    }
-                }
-                sv.Tag = AutoScrollToEnd;
-            }
-        }
+        }        
 
         protected override void OnDetaching()
         {
@@ -57,5 +31,29 @@ namespace OQF.PlayerVsBot.Behaviors
             AssociatedObject.ScrollChanged -= OnScrollChanged;
         }
 
-    }
+		private void OnScrollChanged (object sender, ScrollChangedEventArgs e)
+		{
+			var sv = sender as ScrollViewer;
+			if (IsAutoScrollActive)
+			{
+				var autoScrollToEnd = true;
+				if (sv.Tag != null)
+				{
+					autoScrollToEnd = (bool)sv.Tag;
+				}
+				if (e.ExtentHeightChange == 0) // user scroll
+				{
+					autoScrollToEnd = sv.ScrollableHeight == sv.VerticalOffset;
+				}
+				else
+				{
+					if (autoScrollToEnd)
+					{
+						sv.ScrollToEnd();
+					}
+				}
+				sv.Tag = autoScrollToEnd;
+			}
+		}
+	}
 }
