@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Windows;
+using System.Windows.Media;
 
 namespace OQF.PlayerVsBot.Global
 {
@@ -13,5 +14,7 @@ namespace OQF.PlayerVsBot.Global
 		public static readonly SolidColorBrush WallColor                = new SolidColorBrush(Colors.AntiqueWhite);
 		public static readonly SolidColorBrush PossibleMoveFieldColor   = new SolidColorBrush(Colors.Orange);
 		public static readonly SolidColorBrush PotentialPlacedWallColor = new SolidColorBrush(Color.FromArgb(207, 255, 255, 255));
+		 
+		public static readonly Size SizeFallBackValue = new Size(300,300);
 	}
 }
