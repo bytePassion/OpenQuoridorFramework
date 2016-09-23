@@ -12,7 +12,7 @@ namespace OQF.PlayerVsBot.Global
 		public static readonly SolidColorBrush FieldColor               = new SolidColorBrush(Color.FromRgb(97, 64, 56));
 		public static readonly SolidColorBrush FrameColor		        = new SolidColorBrush(Colors.Black);
 		public static readonly SolidColorBrush WallColor                = new SolidColorBrush(Colors.AntiqueWhite);
-		public static readonly SolidColorBrush PossibleMoveFieldColor   = new SolidColorBrush(Color.FromArgb(255, 255, 206, 0));
+		public static readonly SolidColorBrush PossibleMoveFieldColor   = new SolidColorBrush(Color.FromArgb(96, 255, 249, 197));
 		public static readonly SolidColorBrush PotentialPlacedWallColor = new SolidColorBrush(Color.FromArgb(207, 255, 255, 255));
 
 	    public static readonly Brush TopPlayerActiveColor = new LinearGradientBrush()
