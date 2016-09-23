@@ -34,5 +34,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 		string GameFlowItem3           { get; }
 		string GameFlowItem4           { get; }
 		string GameFlowItem5           { get; }
+
+		string ExampleParagraphHeader { get; }
+		string ExampleParagraphText   { get; }
 	}
 }

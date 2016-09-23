@@ -37,6 +37,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 		public string GameFlowItem4           => "blubb";
 		public string GameFlowItem5           => "blubb";
 
+		public string ExampleParagraphHeader => "blubb";
+		public string ExampleParagraphText   => "blubb";
+
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		

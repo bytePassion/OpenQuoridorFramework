@@ -160,6 +160,24 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Examplary implementation.
+        /// </summary>
+        public static string HTWAB_ExampleParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_ExampleParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_ExampleParagraphText {
+            get {
+                return ResourceManager.GetString("HTWAB_ExampleParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FieldCoordinate.
         /// </summary>
         public static string HTWAB_FieldCoordinateParagraphHeader {
@@ -178,29 +196,20 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GameContraints.
+        /// </summary>
+        public static string HTWAB_GameConstraintsParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_GameConstraintsParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TODO.
         /// </summary>
         public static string HTWAB_GameConstraintsParagraphText {
             get {
                 return ResourceManager.GetString("HTWAB_GameConstraintsParagraphText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to GameContraints.
-        /// </summary>
-        public static string HTWAB_GameContraintsParagraphHeader {
-            get {
-                return ResourceManager.GetString("HTWAB_GameContraintsParagraphHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gameflow from the point of a bot.
-        /// </summary>
-        public static string HTWAB_GameFlotParagraphHeader {
-            get {
-                return ResourceManager.GetString("HTWAB_GameFlotParagraphHeader", resourceCulture);
             }
         }
         
@@ -246,6 +255,15 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         public static string HTWAB_GameFlowItem5 {
             get {
                 return ResourceManager.GetString("HTWAB_GameFlowItem5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gameflow from the point of a bot.
+        /// </summary>
+        public static string HTWAB_GameFlowParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_GameFlowParagraphHeader", resourceCulture);
             }
         }
         

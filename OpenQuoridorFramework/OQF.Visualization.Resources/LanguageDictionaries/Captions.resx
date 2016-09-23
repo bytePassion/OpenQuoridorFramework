@@ -361,13 +361,13 @@
   <data name="HTWAB_MovesParagraphText" xml:space="preserve">
     <value>TODO</value>
   </data>
-  <data name="HTWAB_GameContraintsParagraphHeader" xml:space="preserve">
+  <data name="HTWAB_GameConstraintsParagraphHeader" xml:space="preserve">
     <value>GameContraints</value>
   </data>
   <data name="HTWAB_GameConstraintsParagraphText" xml:space="preserve">
     <value>TODO</value>
   </data>
-  <data name="HTWAB_GameFlotParagraphHeader" xml:space="preserve">
+  <data name="HTWAB_GameFlowParagraphHeader" xml:space="preserve">
     <value>Gameflow from the point of a bot</value>
   </data>
   <data name="HTWAB_GameFlowItem1" xml:space="preserve">
@@ -383,6 +383,12 @@
     <value>TODO</value>
   </data>
   <data name="HTWAB_GameFlowItem5" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_ExampleParagraphHeader" xml:space="preserve">
+    <value>Examplary implementation</value>
+  </data>
+  <data name="HTWAB_ExampleParagraphText" xml:space="preserve">
     <value>TODO</value>
   </data>
 </root>

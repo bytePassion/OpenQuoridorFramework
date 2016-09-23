@@ -336,7 +336,7 @@
   <data name="HTWAB_MovesParagraphHeader" xml:space="preserve">
     <value>Move(s)</value>
   </data>
-  <data name="HTWAB_GameContraintsParagraphHeader" xml:space="preserve">
+  <data name="HTWAB_GameConstraintsParagraphHeader" xml:space="preserve">
     <value>GameContraints</value>
   </data>
   <data name="HTWAB_PageHeader" xml:space="preserve">
@@ -387,7 +387,7 @@
   <data name="HTWAB_GameConstraintsParagraphText" xml:space="preserve">
     <value>Die Klasse GameConstraints enthält die Rahmenbedingungen für das aktuelle Spiel. Dies ist die maximale Bedenkzeit (nur für Bots) und die maximale Anzahl an Zügen die möglich sind, bevor das Spiel abgebrochen wird.</value>
   </data>
-  <data name="HTWAB_GameFlotParagraphHeader" xml:space="preserve">
+  <data name="HTWAB_GameFlowParagraphHeader" xml:space="preserve">
     <value>Spielablauf aus der Sicht eines Bots</value>
   </data>
   <data name="HTWAB_GameFlowItem1" xml:space="preserve">
@@ -404,5 +404,11 @@
   </data>
   <data name="HTWAB_GameFlowItem5" xml:space="preserve">
     <value>5. Der Bot kann jederzeit durch das Feuern des DebugMessageAvailable-Events eine Text-Nachricht abschicken, welche anschließend auf der Oberfläche dargestellt wird.</value>
+  </data>
+  <data name="HTWAB_ExampleParagraphHeader" xml:space="preserve">
+    <value>Beispiel-Implementierung</value>
+  </data>
+  <data name="HTWAB_ExampleParagraphText" xml:space="preserve">
+    <value>Eine beispielhafte Bot-Implementierung ist der SimpleWalkingBot. Dieser findet sich im Git-Repository  des OpenQoridorFrameworks (siehe: Über) unter 'OpenQuoridorFramework/Bots/SimpleWalkingBot/SimpleWalkingBot.cs'.</value>
   </data>
 </root>

@@ -37,15 +37,18 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 		public string BoardStateParagraphText         => Captions.HTWAB_BoardStateParagraphText;
 		public string MovesParagraphHeader            => Captions.HTWAB_MovesParagraphHeader;
 		public string MovesParagraphText              => Captions.HTWAB_MovesParagraphText;
-		public string GameConstraintsParagraphHeader  => Captions.HTWAB_GameConstraintsParagraphText;
+		public string GameConstraintsParagraphHeader  => Captions.HTWAB_GameConstraintsParagraphHeader;
 		public string GameConstraintsParagraphText    => Captions.HTWAB_GameConstraintsParagraphText;
 
-		public string GameFlowParagraphHeader => Captions.QRP_GameFlowParagraphHeader;
+		public string GameFlowParagraphHeader => Captions.HTWAB_GameFlowParagraphHeader;
 		public string GameFlowItem1           => Captions.HTWAB_GameFlowItem1;
 		public string GameFlowItem2           => Captions.HTWAB_GameFlowItem2;
 		public string GameFlowItem3           => Captions.HTWAB_GameFlowItem3;
 		public string GameFlowItem4           => Captions.HTWAB_GameFlowItem4;
 		public string GameFlowItem5           => Captions.HTWAB_GameFlowItem5;
+
+		public string ExampleParagraphHeader => Captions.HTWAB_ExampleParagraphHeader;
+		public string ExampleParagraphText   => Captions.HTWAB_ExampleParagraphText;
 
 		private void RefreshCaptions ()
 		{
@@ -75,7 +78,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 										 nameof(GameFlowItem2),
 										 nameof(GameFlowItem3),
 										 nameof(GameFlowItem4),
-										 nameof(GameFlowItem5));
+										 nameof(GameFlowItem5),
+										 nameof(ExampleParagraphHeader),
+										 nameof(ExampleParagraphText));
 		}
 
 		protected override void CleanUp()
@@ -83,5 +88,5 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 			CultureManager.CultureChanged -= RefreshCaptions;
 		}
 		public override event PropertyChangedEventHandler PropertyChanged;
-	}
+	}	
 }
