@@ -397,4 +397,7 @@
   <data name="AP_SourceCodeSectionText" xml:space="preserve">
     <value>The sourceCode of the OpenQuoridorFramework can be found on gitHub (https://github.com/bytePassion/OpenQuoridorFramework.git).</value>
   </data>
+  <data name="PvB_DumpToFileButtonCaption" xml:space="preserve">
+    <value>Save Debug to file</value>
+  </data>
 </root>

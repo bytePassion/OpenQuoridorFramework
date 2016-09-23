@@ -47,7 +47,10 @@
             </Grid.ColumnDefinitions>
 
 
-            <materialDesign:ColorZone Grid.Row="0"
+			<GridSplitter Grid.Column="1" Grid.Row="2" Width="5" HorizontalAlignment="Left" />
+			<GridSplitter Grid.Column="2" Grid.Row="2" Width="5" HorizontalAlignment="Left" Margin="-5,0,0,0" />
+
+			<materialDesign:ColorZone Grid.Row="0"
                                       Grid.Column="0"
                                       Grid.ColumnSpan="3"
                                       materialDesign:ShadowAssist.ShadowDepth="Depth3"
@@ -306,7 +309,7 @@
                         <Grid>
 
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="30" />
+                                <RowDefinition Height="40" />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
 
@@ -319,7 +322,15 @@
                                                           Mode=TwoWay,
                                                           UpdateSourceTrigger=PropertyChanged}" />
 
-                            <ScrollViewer Grid.Row="1"
+							<Button Grid.Row="0"
+									Content="{Binding DumpToFileButtonCaption}"
+									Width="150"
+									Margin="0,2,-6,2"
+									VerticalAlignment="Center"
+									HorizontalAlignment="Right"
+									Command="{Binding DumpDebugToFile}"/>
+
+							<ScrollViewer Grid.Row="1"
                                           HorizontalScrollBarVisibility="Auto"
                                           VerticalScrollBarVisibility="Auto">
                                 <ItemsControl Margin="0,20,0,0" ItemsSource="{Binding DebugMessages}" />

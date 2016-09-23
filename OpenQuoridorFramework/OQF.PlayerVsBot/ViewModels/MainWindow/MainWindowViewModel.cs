@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
@@ -90,6 +91,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 									 IsMoveApplyable,
 									 new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
 			ShowAboutHelp = new Command(DoShowAboutHelp);
+			DumpDebugToFile = new Command(DoDumpDebugToFile);
 
 			GameStatus = GameStatus.Unloaded;
 
@@ -125,7 +127,43 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			DebugMessages.Add(s);
 		}
 
-	    private async void ExecuteWinDialog(bool reportWinning, Player player, WinningReason winningReason, Move invalidMove)
+		private void DoDumpDebugToFile ()
+		{
+			var dialog = new SaveFileDialog()
+			{
+				Filter = "textFiles |*.txt",
+				AddExtension = true,
+				CheckFileExists = false,
+				OverwritePrompt = true,
+				ValidateNames = true,
+				CheckPathExists = true,
+				CreatePrompt = false,
+				Title = "Save current Debug output"
+			};
+
+			var result = dialog.ShowDialog();
+
+			if (result.HasValue)
+			{
+				if (result.Value)
+				{
+					var sb = new StringBuilder();
+
+					for (int index = 0; index < DebugMessages.Count; index++)
+					{ 
+						var debugMessage = DebugMessages[index];
+						sb.Append(debugMessage);
+
+						if (index != DebugMessages.Count-1)
+							sb.Append(Environment.NewLine);
+					}				
+
+					File.WriteAllText(dialog.FileName, sb.ToString());
+				}
+			}
+		}
+
+		private async void ExecuteWinDialog(bool reportWinning, Player player, WinningReason winningReason, Move invalidMove)
 	    {
 		    var winningDialogViewModel = new WinningDialogViewModel(reportWinning, winningReason, invalidMove);
 
@@ -238,10 +276,11 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		public ICommand Start         { get; }		
-		public ICommand ShowAboutHelp { get; }
-		public ICommand Capitulate    { get; }		
-		public ICommand BrowseDll     { get; }
+		public ICommand Start           { get; }		
+		public ICommand ShowAboutHelp   { get; }
+		public ICommand Capitulate      { get; }		
+		public ICommand BrowseDll       { get; }
+		public ICommand DumpDebugToFile { get; }
 
 		public ObservableCollection<string> DebugMessages { get; }
 		public ObservableCollection<string> GameProgress  { get; }
@@ -434,6 +473,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public string DebugCaption                     => Captions.PvB_DebugCaption;
 		public string CapitulateButtonCaption          => Captions.PvB_CapitulateButtonCaption;
 		public string HeaderCaptionPlayer              => Captions.PvB_HeaderCaptionPlayer;
+		public string DumpToFileButtonCaption          => Captions.PvB_DumpToFileButtonCaption;
 
 		private void RefreshCaptions()
 		{
@@ -447,7 +487,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 										 nameof(AutoScrollDownCheckBoxCaption),
 										 nameof(DebugCaption),
 										 nameof(CapitulateButtonCaption),
-										 nameof(HeaderCaptionPlayer));
+										 nameof(HeaderCaptionPlayer),
+										 nameof(DumpToFileButtonCaption));
 		}
 
 		protected override void CleanUp()

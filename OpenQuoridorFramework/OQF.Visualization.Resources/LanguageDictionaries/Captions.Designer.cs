@@ -547,6 +547,15 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save Debug to file.
+        /// </summary>
+        public static string PvB_DumpToFileButtonCaption {
+            get {
+                return ResourceManager.GetString("PvB_DumpToFileButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Player.
         /// </summary>
         public static string PvB_HeaderCaptionPlayer {
