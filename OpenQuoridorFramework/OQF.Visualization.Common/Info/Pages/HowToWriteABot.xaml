@@ -14,7 +14,6 @@
 	</d:DesignData.DataContext>
 
 	<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-
 		<Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 
 			<Grid.RowDefinitions>
@@ -78,7 +77,7 @@
 						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
-								   Text="Die Wand-Klasse und damit auch das Wand-Element definiert sich durch eine Position und Orientierung (siehe Quoridor-Notation). Erstere ist eine FieldCoordinate, letztere eine eigens für diesen Zweck erstelltes Enumeration."/>
+								   Text="Die Wand-Klasse und damit auch das Wand-Element definiert sich durch eine Position und Orientierung (siehe Quoridor-Notation). Erstere ist eine FieldCoordinate, letztere eine eigens für diesen Zweck erstellte Enumeration."/>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   Text="BoardState"/>
 						<TextBlock Margin="0,0,0,16"
@@ -96,7 +95,7 @@
 						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
-								   Text="...."/>
+								   Text="Die Klasse GameConstraints enthält die Rahmenbedingungen für das aktuelle Spiel. Dies ist die maximale Bedenkzeit (nur für Bots) und die maximale Anzahl an Zügen die möglich sind, bevor das Spiel abgebrochen wird."/>
 					</StackPanel>
 
 				</materialDesign:Card>
@@ -106,19 +105,19 @@
                                      Padding="8">
 					<StackPanel>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="Ablauf aus der Sicht eines Bots"/>
+								   Text="Spielablauf aus der Sicht eines Bots"/>
 						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-							<Run Text="1. ..."/>
+							<Run Text="1. Die Methode Init(PlayerType, GameConstraints) wird aufgerufen. Hier wird dem Bot mitgeteilt, auf welcher Seite des Bretts er startet und wie die Rahmenbedingungen für das kommende Spiel aussehen."/>
 							<LineBreak/>
-							<Run Text="2. ..."/>
+							<Run Text="2. Nun wird das Spiel gestartet und jedes mal, wenn der Bot an der Reihe ist einen Zug auszuführen, wird die Methode DoMove(BoardState) aufgerufen. Im Argument wird dem Bot der aktuelle Spielstand mitgeteilt."/>
 							<LineBreak/>
-							<Run Text="3. ..."/>
+							<Run Text="3. Jetzt hat der Bot maximal die, in den GameConstraints angegebene Zeit um das Event NextMoveAvailable zu feuern, um seinen nächsten Zug auszuführen."/>
 							<LineBreak/>
-							<Run Text="4. ..."/>
+							<Run Text="4. Anschließend ist der Gegenspieler an der Reihe. Hat dieser auch seinen Zug ausgeführt, wird wieder die DoMove(BoardState)-Methode aufgerufen. Dies wiederholt sich, bis ein Sieger ermittelt ist."/>
 							<LineBreak/>
-							<Run Text="5. ..."/>
+							<Run Text="5. Der Bot kann jederzeit durch das Feuern des DebugMessageAvailable-Events eine Text-Nachricht abschicken, welche anschließend auf der Oberfläche dargestellt wird."/>
 						</TextBlock>
 
 					</StackPanel>
