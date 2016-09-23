@@ -59,9 +59,9 @@
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
                                     <Binding />
-                                    <Binding Path="DataContext.BoardSize" 
-											 RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" 
-											 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+                                    <Binding FallbackValue="{x:Static global:Constants.SizeFallBackValue}"
+                                             Path="DataContext.BoardSize"
+                                             RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" />
                                 </MultiBinding>
                             </Setter.Value>
                         </Setter>
@@ -70,9 +70,9 @@
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeFigureTopPosition}">
                                     <Binding />
-                                    <Binding Path="DataContext.BoardSize" 
-											 RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}"  
-											 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+                                    <Binding FallbackValue="{x:Static global:Constants.SizeFallBackValue}"
+                                             Path="DataContext.BoardSize"
+                                             RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" />
                                 </MultiBinding>
                             </Setter.Value>
                         </Setter>
@@ -81,23 +81,30 @@
                             <Setter.Value>
                                 <ControlTemplate>
 
-                                    <Ellipse Fill="{Binding Converter={StaticResource PlayerColor}}">
-
+                                    <Ellipse Fill="{Binding Converter={StaticResource PlayerColor}}" RenderTransformOrigin="0.5,0.5">
+                                        <Ellipse.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform />
+                                                <SkewTransform />
+                                                <RotateTransform Angle="-45" />
+                                                <TranslateTransform />
+                                            </TransformGroup>
+                                        </Ellipse.RenderTransform>
                                         <Ellipse.Width>
                                             <MultiBinding Converter="{StaticResource ComputeFigureWidth}">
                                                 <Binding />
-                                                <Binding Path="DataContext.BoardSize" 
-														 RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" 
-														 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+                                                <Binding FallbackValue="{x:Static global:Constants.SizeFallBackValue}"
+                                                         Path="DataContext.BoardSize"
+                                                         RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" />
                                             </MultiBinding>
                                         </Ellipse.Width>
 
                                         <Ellipse.Height>
                                             <MultiBinding Converter="{StaticResource ComputeFigureHeight}">
                                                 <Binding />
-                                                <Binding Path="DataContext.BoardSize" 
-														 RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}"  
-														 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+                                                <Binding FallbackValue="{x:Static global:Constants.SizeFallBackValue}"
+                                                         Path="DataContext.BoardSize"
+                                                         RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" />
                                             </MultiBinding>
                                         </Ellipse.Height>
 
@@ -132,9 +139,9 @@
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">
                                     <Binding />
-                                    <Binding Path="DataContext.BoardSize" 
-											 RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" 
-											 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+                                    <Binding FallbackValue="{x:Static global:Constants.SizeFallBackValue}"
+                                             Path="DataContext.BoardSize"
+                                             RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" />
                                 </MultiBinding>
                             </Setter.Value>
                         </Setter>
@@ -143,9 +150,9 @@
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeWallTopPosition}">
                                     <Binding />
-                                    <Binding Path="DataContext.BoardSize" 
-											 RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" 
-											 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+                                    <Binding FallbackValue="{x:Static global:Constants.SizeFallBackValue}"
+                                             Path="DataContext.BoardSize"
+                                             RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" />
                                 </MultiBinding>
                             </Setter.Value>
                         </Setter>
@@ -161,18 +168,18 @@
                                         <Rectangle.Width>
                                             <MultiBinding Converter="{StaticResource ComputeWallWidth}">
                                                 <Binding />
-                                                <Binding Path="DataContext.BoardSize" 
-														 RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" 
-														 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+                                                <Binding FallbackValue="{x:Static global:Constants.SizeFallBackValue}"
+                                                         Path="DataContext.BoardSize"
+                                                         RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" />
                                             </MultiBinding>
                                         </Rectangle.Width>
 
                                         <Rectangle.Height>
                                             <MultiBinding Converter="{StaticResource ComputeWallHeight}">
                                                 <Binding />
-                                                <Binding Path="DataContext.BoardSize" 
-														 RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}"  
-														 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+                                                <Binding FallbackValue="{x:Static global:Constants.SizeFallBackValue}"
+                                                         Path="DataContext.BoardSize"
+                                                         RelativeSource="{RelativeSource AncestorType={x:Type views:Board}}" />
                                             </MultiBinding>
                                         </Rectangle.Height>
 
