@@ -39,6 +39,15 @@ namespace OQF.PlayerVsBot
 															  gameService, 
 															  applicationSettingsRepository);
 
+			if (e.Args.Length == 1)
+			{
+				var dllPath = e.Args[0];				
+				mainWindowViewModel.DllPathInput = dllPath;
+
+				if (mainWindowViewModel.Start.CanExecute(null))
+					mainWindowViewModel.Start.Execute(null);
+			}
+
 			var mainWindow = new MainWindow
 			{
 				DataContext = mainWindowViewModel
