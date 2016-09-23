@@ -59,6 +59,10 @@
 					<StackPanel>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   Text="Die wichtigsten Klassen/Enums/Structs in der OQF.Bot.Contracts.dll"/>
+						<TextBlock Margin="0,10,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap"
+								   Text="Anmerkung: Alle Klassen und Structs sind als unveränderliche Immutables realisiert."/>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   Text="FieldCoordinate"
 								   Margin="0,10,0,0"/>
