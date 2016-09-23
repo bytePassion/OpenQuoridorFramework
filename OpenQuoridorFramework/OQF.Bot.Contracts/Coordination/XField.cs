@@ -1,5 +1,9 @@
 ﻿namespace OQF.Bot.Contracts.Coordination
 {
+	/// <summary>
+	/// This enum contains the nine columns of a Quoridor-Board
+	/// </summary>
+
 	public enum XField
 	{
 		A = 0,

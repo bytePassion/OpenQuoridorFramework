@@ -5,6 +5,10 @@ using OQF.Bot.Contracts.Moves;
 
 namespace OQF.Bot.Contracts
 {
+	/// <summary>
+	/// The IQuoridorBot-Interface is the Interface to load a bot within the OpenQuoridorFramework
+	/// </summary>
+
 	public interface IQuoridorBot
 	{
 		/// <summary>

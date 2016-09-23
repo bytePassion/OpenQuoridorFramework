@@ -1,5 +1,9 @@
 ﻿namespace OQF.Bot.Contracts.Coordination
 {
+	/// <summary>
+	/// This enum contains the nine rows of a Quoridor-Board
+	/// </summary>
+
 	public enum YField
 	{
 		Nine  = 0,

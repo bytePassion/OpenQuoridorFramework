@@ -3,6 +3,10 @@ using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.Bot.Contracts.Moves
 {
+	/// <summary>
+	/// With this move a player can place a wall-element on the board
+	/// </summary>
+
 	public class WallMove : Move
 	{
 		public WallMove(Wall placedWall)			

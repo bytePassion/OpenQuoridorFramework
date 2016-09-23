@@ -2,6 +2,10 @@
 
 namespace OQF.Bot.Contracts.GameElements
 {
+	/// <summary>
+	/// The PlayerState-class represents the state of a player at a specific moment in the game
+	/// </summary>
+
 	public class PlayerState
 	{
 	    public PlayerState(Player player, FieldCoordinate position, int wallsToPlace)

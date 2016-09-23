@@ -3,6 +3,10 @@ using OQF.Bot.Contracts.Moves;
 
 namespace OQF.Bot.Contracts.GameElements
 {
+	/// <summary>
+	/// A BoardState contains all relevant game-information for a specific moment during the game
+	/// </summary>
+
 	public class BoardState
 	{
 	    public BoardState(IEnumerable<Wall> placedWalls, 

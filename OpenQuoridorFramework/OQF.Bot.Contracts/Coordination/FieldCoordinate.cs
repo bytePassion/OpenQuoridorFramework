@@ -1,5 +1,10 @@
 ﻿namespace OQF.Bot.Contracts.Coordination
 {
+	/// <summary>
+	/// This struct represents a Position on the Quoridor-board
+	/// Note: There are 81 legal positions on the board
+	/// </summary>
+
 	public struct FieldCoordinate
 	{
 		private readonly int hashCode;
@@ -30,7 +35,7 @@
 			return XCoord == objAsFieldCoord.XCoord && YCoord == objAsFieldCoord.YCoord;
 		}
 
-		public override int    GetHashCode()
+		public override int GetHashCode()
 		{
 			return hashCode;
 		}
