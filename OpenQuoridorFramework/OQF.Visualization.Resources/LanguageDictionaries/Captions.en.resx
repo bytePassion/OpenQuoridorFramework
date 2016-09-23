@@ -324,4 +324,85 @@
   <data name="IP_CloseButtonCaption" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="HTWAB_GeneralProceedingParagraphHeader" xml:space="preserve">
+    <value>General Proceeding</value>
+  </data>
+  <data name="HTWAB_PageHeader" xml:space="preserve">
+    <value>How to write a bot</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingItem1" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingItem2" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingItem3" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingItem4" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingItem5" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_ImportantClassesParagraphNote" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_FieldCoordinateParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_PlayerAndStateParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_WallParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_BoardStateParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_MovesParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_GameConstraintsParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_GameFlowItem1" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_GameFlowItem2" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_GameFlowItem3" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_GameFlowItem4" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_GameFlowItem5" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_ImportantClassesParagraphHeader" xml:space="preserve">
+    <value>Important Classes/Enums/Structs at the OQF.Bot.Contracts.dll</value>
+  </data>
+  <data name="HTWAB_FieldCoordinateParagraphHeader" xml:space="preserve">
+    <value>FieldCoordinate</value>
+  </data>
+  <data name="HTWAB_PlayerAndStateParagraphHeader" xml:space="preserve">
+    <value>Player and PlayerState</value>
+  </data>
+  <data name="HTWAB_WallParagraphHeader" xml:space="preserve">
+    <value>Wall</value>
+  </data>
+  <data name="HTWAB_BoardStateParagraphHeader" xml:space="preserve">
+    <value>BoardState</value>
+  </data>
+  <data name="HTWAB_MovesParagraphHeader" xml:space="preserve">
+    <value>Move(s)</value>
+  </data>
+  <data name="HTWAB_GameContraintsParagraphHeader" xml:space="preserve">
+    <value>GameContraints</value>
+  </data>
+  <data name="HTWAB_GameFlotParagraphHeader" xml:space="preserve">
+    <value>Gameflow from the point of a bot</value>
+  </data>
 </root>

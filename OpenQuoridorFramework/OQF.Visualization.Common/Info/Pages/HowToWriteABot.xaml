@@ -13,7 +13,7 @@
 		<howToWriteABotPage:HowToWriteABotPageViewModelSampleData/>
 	</d:DesignData.DataContext>
 
-	<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+	<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Background="White">
 		<Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 
 			<Grid.RowDefinitions>
@@ -25,7 +25,7 @@
 			<TextBlock Margin="16,0,0,0"
                        FontSize="35"
                        Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-					   Text="Wie man einen Bot schreibt"/>
+					   Text="{Binding PageHeader}"/>
 
 			<StackPanel Grid.Row="1">
 
@@ -34,19 +34,19 @@
                                      Padding="8">
 					<StackPanel>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="Grundsätzliches Vorgehen"/>
+								   Text="{Binding GeneralProceedingParagraphHeader}"/>
 						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-							<Run Text="1. Neue Solution mit einem leeren Projekt (ClassLibrary) anlegen"/>
+							<Run Text="{Binding GeneralProceedingItem1, Mode=OneWay}"/>
 							<LineBreak/>
-							<Run Text="2. OQF.Bot.Contracts.dll als Referenz zum Projekt hinzufügen"/>
+							<Run Text="{Binding GeneralProceedingItem2, Mode=OneWay}"/>
 							<LineBreak/>
-							<Run Text="3. Bot-Klasse erstellen und von IQuoridorBot ableiten"/>
+							<Run Text="{Binding GeneralProceedingItem3, Mode=OneWay}"/>
 							<LineBreak/>
-							<Run Text="4. IQuoridorBot-Interface implementieren"/>
+							<Run Text="{Binding GeneralProceedingItem4, Mode=OneWay}"/>
 							<LineBreak/>
-							<Run Text="5. Applikation (z.B. PlayerVsBot) starten und Bot testen"/>
+							<Run Text="{Binding GeneralProceedingItem5, Mode=OneWay}"/>
 						</TextBlock>
 						
 					</StackPanel>
@@ -58,48 +58,48 @@
                                      Padding="8">
 					<StackPanel>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="Die wichtigsten Klassen/Enums/Structs in der OQF.Bot.Contracts.dll"/>
+								   Text="{Binding ImportantClassesParagraphHeader}"/>
 						<TextBlock Margin="0,10,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
-								   Text="Anmerkung: Alle Klassen und Structs sind als unveränderliche Immutables realisiert."/>
+								   Text="{Binding ImportantClassesParagraphNote}"/>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="FieldCoordinate"
+								   Text="{Binding FieldCoordinateParagraphHeader}"
 								   Margin="0,10,0,0"/>
 						<TextBlock Margin="0,10,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
-								   Text="Eine FieldCoordinate beschreibt eine Position auf dem Spieldfeld (siehe Quoridor-Notation). Die X- und Y-Koordinaten sind wiederum jeweils durch ein Enum representiert."/>
+								   Text="{Binding FieldCoordinateParagraphText}"/>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="Player und PlayerState"/>
+								   Text="{Binding PlayerAndStateParagraphHeader}"/>
 						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
-								   Text="Der Spieler (Player) wird durch die Player-Klasse definiert. In ihr ist der Name des Spielers, sowie die Startposition (PlayerType) festgehalten. Diese Werte ändern sich während eines Spiels niemals. Der aktuelle Zustand des Spielers, wird durch PlayerState representiert. Dieser besteht aus einer Referenz zum Spieler, der aktuellen position auf dem Brett, sowie der Anzahl an Wänden, die der Spieler noch platzieren darf."/>
+								   Text="{Binding PlayerAndStateParagraphText}"/>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="Wall"/>
+								   Text="{Binding WallParagraphHeader}"/>
 						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
-								   Text="Die Wand-Klasse und damit auch das Wand-Element definiert sich durch eine Position und Orientierung (siehe Quoridor-Notation). Erstere ist eine FieldCoordinate, letztere eine eigens für diesen Zweck erstellte Enumeration."/>
+								   Text="{Binding WallParagraphText}"/>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="BoardState"/>
+								   Text="{Binding BoardStateParagraphHeader}"/>
 						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
-								   Text="Der aktuelle Spielzustand wird durch BoardState dargestellt. Alle zu diesem Zeitpunkt relevanten Informationen sind darin zu finden: Alle platzierten Wände, die Status der beiden Spieler (PlayerState) und den Spieler, der am Zug ist. Zudem lässt sich über LastBoardState und LastMove, die komplette Spiel-Historie bis zu diesem Punkt rekonstruieren."/>
+								   Text="{Binding BoardStateParagraphText}"/>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="Move(s)"/>
+								   Text="{Binding MovesParagraphHeader}"/>
 						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
-								   Text="Von der abstrakten Oberklasse Move ausgehend gibt es 3 verschiedene Züge aus denen der Spieler/Bot bei jeder Runde auswählen muss. Der FigureMove, mit dessen Hilfe die Spielfigur bewegt werden kann, der WallMove, mit dem eine Wand platziert werden kann und der Capitulation, falls eine Lage gar zu aussichtslos ist."/>
+								   Text="{Binding MovesParagraphText}"/>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="GameConstraints"/>
+								   Text="{Binding GameConstraintsParagraphHeader}"/>
 						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
-								   Text="Die Klasse GameConstraints enthält die Rahmenbedingungen für das aktuelle Spiel. Dies ist die maximale Bedenkzeit (nur für Bots) und die maximale Anzahl an Zügen die möglich sind, bevor das Spiel abgebrochen wird."/>
+								   Text="{Binding GameConstraintsParagraphText}"/>
 					</StackPanel>
 
 				</materialDesign:Card>
@@ -109,19 +109,19 @@
                                      Padding="8">
 					<StackPanel>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="Spielablauf aus der Sicht eines Bots"/>
+								   Text="{Binding GameFlowParagraphHeader}"/>
 						<TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-							<Run Text="1. Die Methode Init(PlayerType, GameConstraints) wird aufgerufen. Hier wird dem Bot mitgeteilt, auf welcher Seite des Bretts er startet und wie die Rahmenbedingungen für das kommende Spiel aussehen."/>
+							<Run Text="{Binding GameFlowItem1, Mode=OneWay}"/>
 							<LineBreak/>
-							<Run Text="2. Nun wird das Spiel gestartet und jedes mal, wenn der Bot an der Reihe ist einen Zug auszuführen, wird die Methode DoMove(BoardState) aufgerufen. Im Argument wird dem Bot der aktuelle Spielstand mitgeteilt."/>
+							<Run Text="{Binding GameFlowItem2, Mode=OneWay}"/>
 							<LineBreak/>
-							<Run Text="3. Jetzt hat der Bot maximal die, in den GameConstraints angegebene Zeit um das Event NextMoveAvailable zu feuern, um seinen nächsten Zug auszuführen."/>
+							<Run Text="{Binding GameFlowItem3, Mode=OneWay}"/>
 							<LineBreak/>
-							<Run Text="4. Anschließend ist der Gegenspieler an der Reihe. Hat dieser auch seinen Zug ausgeführt, wird wieder die DoMove(BoardState)-Methode aufgerufen. Dies wiederholt sich, bis ein Sieger ermittelt ist."/>
+							<Run Text="{Binding GameFlowItem4, Mode=OneWay}"/>
 							<LineBreak/>
-							<Run Text="5. Der Bot kann jederzeit durch das Feuern des DebugMessageAvailable-Events eine Text-Nachricht abschicken, welche anschließend auf der Oberfläche dargestellt wird."/>
+							<Run Text="{Binding GameFlowItem5, Mode=OneWay}"/>
 						</TextBlock>
 
 					</StackPanel>

@@ -61,14 +61,14 @@
                           Grid.Column="1"
                           SelectedLayer="{Binding SelectedPage}">
 
-            <pages:QuoridorRules  DataContext="{Binding QuoridorRulesPageViewModel}"/>
-            <pages:QuoridorNotation DataContext="{Binding QuoridorNotationPageViewModel}"/>
-            <pages:HowToWriteABot />
-            <pages:ReplayViewerApplicationInfo />
-            <pages:PlayerVsBotApplicationInfo />
-            <pages:BotVsBotApplicationInfo />
-            <pages:TurnamentApplicationInfo />
-            <pages:About DataContext="{Binding AboutPageViewModel}"/>
+            <pages:QuoridorRules               DataContext="{Binding QuoridorRulesPageViewModel}"   />
+            <pages:QuoridorNotation            DataContext="{Binding QuoridorNotationPageViewModel}"/>
+            <pages:HowToWriteABot              DataContext="{Binding HowToWriteABotPageViewModel}"  />
+            <pages:ReplayViewerApplicationInfo DataContext="{Binding ReplayViewerInfoPageViewModel}"/>
+            <pages:PlayerVsBotApplicationInfo  DataContext="{Binding PlayerVsBotInfoPageViewModel}" />
+            <pages:BotVsBotApplicationInfo     DataContext="{Binding BotVsBotInfoPageViewModel}"    />
+            <pages:TurnamentApplicationInfo    DataContext="{Binding TurnamentInfoPageViewModel}"   />
+            <pages:About                       DataContext="{Binding AboutPageViewModel}"           />
 
         </panels:DeckPanel>
 

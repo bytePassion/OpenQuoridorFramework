@@ -142,6 +142,249 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BoardState.
+        /// </summary>
+        public static string HTWAB_BoardStateParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_BoardStateParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_BoardStateParagraphText {
+            get {
+                return ResourceManager.GetString("HTWAB_BoardStateParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FieldCoordinate.
+        /// </summary>
+        public static string HTWAB_FieldCoordinateParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_FieldCoordinateParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_FieldCoordinateParagraphText {
+            get {
+                return ResourceManager.GetString("HTWAB_FieldCoordinateParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GameConstraintsParagraphText {
+            get {
+                return ResourceManager.GetString("HTWAB_GameConstraintsParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GameContraints.
+        /// </summary>
+        public static string HTWAB_GameContraintsParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_GameContraintsParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gameflow from the point of a bot.
+        /// </summary>
+        public static string HTWAB_GameFlotParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_GameFlotParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GameFlowItem1 {
+            get {
+                return ResourceManager.GetString("HTWAB_GameFlowItem1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GameFlowItem2 {
+            get {
+                return ResourceManager.GetString("HTWAB_GameFlowItem2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GameFlowItem3 {
+            get {
+                return ResourceManager.GetString("HTWAB_GameFlowItem3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GameFlowItem4 {
+            get {
+                return ResourceManager.GetString("HTWAB_GameFlowItem4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GameFlowItem5 {
+            get {
+                return ResourceManager.GetString("HTWAB_GameFlowItem5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GeneralProceedingItem1 {
+            get {
+                return ResourceManager.GetString("HTWAB_GeneralProceedingItem1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GeneralProceedingItem2 {
+            get {
+                return ResourceManager.GetString("HTWAB_GeneralProceedingItem2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GeneralProceedingItem3 {
+            get {
+                return ResourceManager.GetString("HTWAB_GeneralProceedingItem3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GeneralProceedingItem4 {
+            get {
+                return ResourceManager.GetString("HTWAB_GeneralProceedingItem4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_GeneralProceedingItem5 {
+            get {
+                return ResourceManager.GetString("HTWAB_GeneralProceedingItem5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General Proceeding.
+        /// </summary>
+        public static string HTWAB_GeneralProceedingParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_GeneralProceedingParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Important Classes/Enums/Structs at the OQF.Bot.Contracts.dll.
+        /// </summary>
+        public static string HTWAB_ImportantClassesParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_ImportantClassesParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_ImportantClassesParagraphNote {
+            get {
+                return ResourceManager.GetString("HTWAB_ImportantClassesParagraphNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move(s).
+        /// </summary>
+        public static string HTWAB_MovesParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_MovesParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_MovesParagraphText {
+            get {
+                return ResourceManager.GetString("HTWAB_MovesParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to write a bot.
+        /// </summary>
+        public static string HTWAB_PageHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_PageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player and PlayerState.
+        /// </summary>
+        public static string HTWAB_PlayerAndStateParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_PlayerAndStateParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_PlayerAndStateParagraphText {
+            get {
+                return ResourceManager.GetString("HTWAB_PlayerAndStateParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wall.
+        /// </summary>
+        public static string HTWAB_WallParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_WallParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_WallParagraphText {
+            get {
+                return ResourceManager.GetString("HTWAB_WallParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string IP_AboutButtonCaption {

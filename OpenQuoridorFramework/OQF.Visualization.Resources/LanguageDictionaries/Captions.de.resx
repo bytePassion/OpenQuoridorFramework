@@ -324,4 +324,85 @@
   <data name="IP_CloseButtonCaption" xml:space="preserve">
     <value>Schließen</value>
   </data>
+  <data name="HTWAB_FieldCoordinateParagraphHeader" xml:space="preserve">
+    <value>FieldCoordinate</value>
+  </data>
+  <data name="HTWAB_WallParagraphHeader" xml:space="preserve">
+    <value>Wall</value>
+  </data>
+  <data name="HTWAB_BoardStateParagraphHeader" xml:space="preserve">
+    <value>BoardState</value>
+  </data>
+  <data name="HTWAB_MovesParagraphHeader" xml:space="preserve">
+    <value>Move(s)</value>
+  </data>
+  <data name="HTWAB_GameContraintsParagraphHeader" xml:space="preserve">
+    <value>GameContraints</value>
+  </data>
+  <data name="HTWAB_PageHeader" xml:space="preserve">
+    <value>Wie man einen Bot schreibt</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingParagraphHeader" xml:space="preserve">
+    <value>Grundsätzliches Vorgehen</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingItem1" xml:space="preserve">
+    <value>1. Neue Solution mit einem leeren Projekt (ClassLibrary) anlegen</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingItem2" xml:space="preserve">
+    <value>2. OQF.Bot.Contracts.dll als Referenz zum Projekt hinzufügen</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingItem3" xml:space="preserve">
+    <value>3. Bot-Klasse erstellen und von IQuoridorBot ableiten</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingItem4" xml:space="preserve">
+    <value>4. IQuoridorBot-Interface implementieren</value>
+  </data>
+  <data name="HTWAB_GeneralProceedingItem5" xml:space="preserve">
+    <value>5. Applikation (z.B. PlayerVsBot) starten und Bot testen</value>
+  </data>
+  <data name="HTWAB_ImportantClassesParagraphHeader" xml:space="preserve">
+    <value>Die wichtigsten Klassen/Enums/Structs in der OQF.Bot.Contracts.dll</value>
+  </data>
+  <data name="HTWAB_ImportantClassesParagraphNote" xml:space="preserve">
+    <value>Anmerkung: Alle Klassen und Structs sind als unveränderliche Immutables realisiert.</value>
+  </data>
+  <data name="HTWAB_FieldCoordinateParagraphText" xml:space="preserve">
+    <value>Eine FieldCoordinate beschreibt eine Position auf dem Spieldfeld (siehe Quoridor-Notation). Die X- und Y-Koordinaten sind wiederum jeweils durch ein Enum representiert.</value>
+  </data>
+  <data name="HTWAB_PlayerAndStateParagraphHeader" xml:space="preserve">
+    <value>Player und PlayerState</value>
+  </data>
+  <data name="HTWAB_PlayerAndStateParagraphText" xml:space="preserve">
+    <value>Der Spieler (Player) wird durch die Player-Klasse definiert. In ihr ist der Name des Spielers, sowie die Startposition (PlayerType) festgehalten. Diese Werte ändern sich während eines Spiels niemals. Der aktuelle Zustand des Spielers, wird durch PlayerState representiert. Dieser besteht aus einer Referenz zum Spieler, der aktuellen position auf dem Brett, sowie der Anzahl an Wänden, die der Spieler noch platzieren darf.</value>
+  </data>
+  <data name="HTWAB_WallParagraphText" xml:space="preserve">
+    <value>Die Wand-Klasse und damit auch das Wand-Element definiert sich durch eine Position und Orientierung (siehe Quoridor-Notation). Erstere ist eine FieldCoordinate, letztere eine eigens für diesen Zweck erstellte Enumeration.</value>
+  </data>
+  <data name="HTWAB_BoardStateParagraphText" xml:space="preserve">
+    <value>Der aktuelle Spielzustand wird durch BoardState dargestellt. Alle zu diesem Zeitpunkt relevanten Informationen sind darin zu finden: Alle platzierten Wände, die Status der beiden Spieler (PlayerState) und den Spieler, der am Zug ist. Zudem lässt sich über LastBoardState und LastMove, die komplette Spiel-Historie bis zu diesem Punkt rekonstruieren.</value>
+  </data>
+  <data name="HTWAB_MovesParagraphText" xml:space="preserve">
+    <value>Von der abstrakten Oberklasse Move ausgehend gibt es 3 verschiedene Züge aus denen der Spieler/Bot bei jeder Runde auswählen muss. Der FigureMove, mit dessen Hilfe die Spielfigur bewegt werden kann, der WallMove, mit dem eine Wand platziert werden kann und der Capitulation, falls eine Lage gar zu aussichtslos ist.</value>
+  </data>
+  <data name="HTWAB_GameConstraintsParagraphText" xml:space="preserve">
+    <value>Die Klasse GameConstraints enthält die Rahmenbedingungen für das aktuelle Spiel. Dies ist die maximale Bedenkzeit (nur für Bots) und die maximale Anzahl an Zügen die möglich sind, bevor das Spiel abgebrochen wird.</value>
+  </data>
+  <data name="HTWAB_GameFlotParagraphHeader" xml:space="preserve">
+    <value>Spielablauf aus der Sicht eines Bots</value>
+  </data>
+  <data name="HTWAB_GameFlowItem1" xml:space="preserve">
+    <value>1. Die Methode Init(PlayerType, GameConstraints) wird aufgerufen. Hier wird dem Bot mitgeteilt, auf welcher Seite des Bretts er startet und wie die Rahmenbedingungen für das kommende Spiel aussehen.</value>
+  </data>
+  <data name="HTWAB_GameFlowItem2" xml:space="preserve">
+    <value>2. Nun wird das Spiel gestartet und jedes mal, wenn der Bot an der Reihe ist einen Zug auszuführen, wird die Methode DoMove(BoardState) aufgerufen. Im Argument wird dem Bot der aktuelle Spielstand mitgeteilt.</value>
+  </data>
+  <data name="HTWAB_GameFlowItem3" xml:space="preserve">
+    <value>3. Jetzt hat der Bot maximal die, in den GameConstraints angegebene Zeit um das Event NextMoveAvailable zu feuern, um seinen nächsten Zug auszuführen.</value>
+  </data>
+  <data name="HTWAB_GameFlowItem4" xml:space="preserve">
+    <value>4. Anschließend ist der Gegenspieler an der Reihe. Hat dieser auch seinen Zug ausgeführt, wird wieder die DoMove(BoardState)-Methode aufgerufen. Dies wiederholt sich, bis ein Sieger ermittelt ist.</value>
+  </data>
+  <data name="HTWAB_GameFlowItem5" xml:space="preserve">
+    <value>5. Der Bot kann jederzeit durch das Feuern des DebugMessageAvailable-Events eine Text-Nachricht abschicken, welche anschließend auf der Oberfläche dargestellt wird.</value>
+  </data>
 </root>
