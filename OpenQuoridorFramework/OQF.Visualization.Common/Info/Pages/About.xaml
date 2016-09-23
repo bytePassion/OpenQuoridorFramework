@@ -83,7 +83,22 @@
 
                 </materialDesign:Card>
 
-                <materialDesign:Card Margin="8,0"
+				<materialDesign:Card Margin="8,0"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding SourceCodeSectionHeader}"/>
+
+						<TextBlock Margin="20,0,0,0"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap"
+								   Text="{Binding SourceCodeSectionText}"/>
+					</StackPanel>
+
+				</materialDesign:Card>
+
+				<materialDesign:Card Margin="8"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
@@ -104,7 +119,7 @@
 
                 </materialDesign:Card>
 
-                <materialDesign:Card Margin="8"
+                <materialDesign:Card Margin="8,0"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
@@ -155,7 +170,7 @@
 
                 </materialDesign:Card>
 
-                <materialDesign:Card Margin="8,0"
+                <materialDesign:Card Margin="8"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>

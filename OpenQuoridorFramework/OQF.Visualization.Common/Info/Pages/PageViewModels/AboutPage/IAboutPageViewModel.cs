@@ -8,7 +8,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		string PageHeader               { get; }
 		string ApplicationSectionHeader { get; }		
 		string VersionSectionHeader     { get; }		
-		string DeveloperSectionHeader   { get; }		
+		string DeveloperSectionHeader   { get; }
+		string SourceCodeSectionHeader  { get; }		
+		string SourceCodeSectionText    { get; }
 		string ThirdPartySectionHeader  { get; }		
 		string QuoridorSectionHeader    { get; }
 		string QuoridorInventerSubItem  { get; }

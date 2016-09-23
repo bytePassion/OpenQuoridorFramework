@@ -26,6 +26,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		public string ApplicationSectionHeader => Captions.AP_ApplicationSectionHeader;
 		public string VersionSectionHeader     => Captions.AP_VersionSectionHeader;
 		public string DeveloperSectionHeader   => Captions.AP_DeveloperSectionHeader;
+		public string SourceCodeSectionHeader  => Captions.AP_SourceCodeSectionHeader;
+		public string SourceCodeSectionText    => Captions.AP_SourceCodeSectionText;
 		public string ThirdPartySectionHeader  => Captions.AP_ThirdPartySectionHeader;
 		public string QuoridorSectionHeader    => Captions.AP_QuoridorSectionHeader;
 		public string QuoridorInventerSubItem  => Captions.AP_QuoridorInventorSubItem;
@@ -49,7 +51,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 										 nameof(QuoridorSectionHeader),
 										 nameof(QuoridorInventerSubItem),
 										 nameof(QuoridorPublisherSubItem),
-										 nameof(LicenceSectionHeader));
+										 nameof(LicenceSectionHeader),
+										 nameof(SourceCodeSectionHeader),
+										 nameof(SourceCodeSectionText));
 		}
 
 		protected override void CleanUp()

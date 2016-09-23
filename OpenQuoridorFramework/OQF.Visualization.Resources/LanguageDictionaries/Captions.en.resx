@@ -411,4 +411,10 @@
   <data name="HTWAB_ExampleParagraphText" xml:space="preserve">
     <value>TODO</value>
   </data>
+  <data name="AP_SourceCodeSectionHeader" xml:space="preserve">
+    <value>SourceCode</value>
+  </data>
+  <data name="AP_SourceCodeSectionText" xml:space="preserve">
+    <value>The sourceCode of the OpenQuoridorFramework can be found on gitHub (https://github.com/bytePassion/OpenQuoridorFramework.git).</value>
+  </data>
 </root>

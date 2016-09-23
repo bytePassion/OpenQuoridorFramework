@@ -24,7 +24,6 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 		public string GeneralProceedingItem4           => Captions.HTWAB_GeneralProceedingItem4;
 		public string GeneralProceedingItem5           => Captions.HTWAB_GeneralProceedingItem5;
 
-
 		public string ImportantClassesParagraphHeader => Captions.HTWAB_ImportantClassesParagraphHeader;
 		public string ImportantClassesParagraphNote   => Captions.HTWAB_ImportantClassesParagraphNote;
 		public string FieldCoordinateParagraphHeader  => Captions.HTWAB_FieldCoordinateParagraphHeader;

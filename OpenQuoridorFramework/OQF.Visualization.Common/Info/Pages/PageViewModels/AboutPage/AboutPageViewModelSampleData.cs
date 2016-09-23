@@ -23,6 +23,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		public string ApplicationSectionHeader => "blablubb";
 		public string VersionSectionHeader     => "blablubb";
 		public string DeveloperSectionHeader   => "blablubb";
+		public string SourceCodeSectionHeader  => "blablubb";
+		public string SourceCodeSectionText    => "blablubb";
 		public string ThirdPartySectionHeader  => "blablubb";
 		public string QuoridorSectionHeader    => "blablubb";
 		public string QuoridorInventerSubItem  => "blablubb";

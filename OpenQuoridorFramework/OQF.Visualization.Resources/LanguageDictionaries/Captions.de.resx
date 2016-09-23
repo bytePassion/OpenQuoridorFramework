@@ -411,4 +411,10 @@
   <data name="HTWAB_ExampleParagraphText" xml:space="preserve">
     <value>Eine beispielhafte Bot-Implementierung ist der SimpleWalkingBot. Dieser findet sich im Git-Repository  des OpenQoridorFrameworks (siehe: Über) unter 'OpenQuoridorFramework/Bots/SimpleWalkingBot/SimpleWalkingBot.cs'.</value>
   </data>
+  <data name="AP_SourceCodeSectionHeader" xml:space="preserve">
+    <value>SourceCode</value>
+  </data>
+  <data name="AP_SourceCodeSectionText" xml:space="preserve">
+    <value>Der SourceCode des OpenQuoridorFrameworks befindet sich in einem Git-Repository, das unter 'https://github.com/bytePassion/OpenQuoridorFramework.git' auf GitHub zu finden.</value>
+  </data>
 </root>

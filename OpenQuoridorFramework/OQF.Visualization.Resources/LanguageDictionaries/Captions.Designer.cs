@@ -124,6 +124,24 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SourceCode.
+        /// </summary>
+        public static string AP_SourceCodeSectionHeader {
+            get {
+                return ResourceManager.GetString("AP_SourceCodeSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The sourceCode of the OpenQuoridorFramework can be found on gitHub (https://github.com/bytePassion/OpenQuoridorFramework.git)..
+        /// </summary>
+        public static string AP_SourceCodeSectionText {
+            get {
+                return ResourceManager.GetString("AP_SourceCodeSectionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 3rd Party Usages.
         /// </summary>
         public static string AP_ThirdPartySectionHeader {
