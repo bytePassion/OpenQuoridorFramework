@@ -112,11 +112,6 @@
 
                 <Grid>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70" />
                         <ColumnDefinition Width="Auto" MinWidth="150" />
@@ -132,33 +127,16 @@
                                             Converter={StaticResource TopPlayerMarkerColor}}" />
 
 
-                    <TextBlock Grid.Row="0"
-                               Grid.Column="1"
-                               Margin="0,0,10,0"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Center">
-                        <Run Text="{Binding BotNameLabelCaption, Mode=OneWay}" />
-                        :</TextBlock>
-
-                    <TextBlock Grid.Row="0"
-                               Grid.Column="2"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               Text="{Binding TopPlayerName}" />
-
-                    <TextBlock Grid.Row="0"
-                               Grid.RowSpan="2"
+					<TextBlock Grid.Row="0"                              
                                Grid.Column="3"
                                Margin="0,0,43,0"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
                                FontSize="30">
+                        <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}"/>:
+					</TextBlock>
 
-                        <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />
-                        :</TextBlock>
-
-                    <TextBlock Grid.Row="0"
-                               Grid.RowSpan="2"
+                    <TextBlock Grid.Row="0"                               
                                Grid.Column="3"
                                Margin="0,0,5,0"
                                HorizontalAlignment="Right"
@@ -168,18 +146,18 @@
 
 
 
-                    <TextBlock Grid.Row="1"
-                               Grid.Column="1"
-                               Margin="0,0,10,0"
+                    <TextBlock Grid.Column="1"
+                               Margin="80,0,10,0"
                                HorizontalAlignment="Right"
-                               VerticalAlignment="Center">
-                        <Run Text="{Binding MaximalThinkingTimeLabelCaption, Mode=OneWay}" />
-                        :</TextBlock>
+                               VerticalAlignment="Center"
+							   FontSize="20">
+                        <Run Text="{Binding MaximalThinkingTimeLabelCaption, Mode=OneWay}"/>:
+					</TextBlock>
 
-                    <TextBlock Grid.Row="1"
-                               Grid.Column="2"
+                    <TextBlock Grid.Column="2"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
+							   FontSize="20"
                                Text="{Binding TopPlayerRestTime}" />
 
 
@@ -383,8 +361,8 @@
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
                                FontSize="30">
-                        <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />
-                        :</TextBlock>
+                        <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}"/>:
+					</TextBlock>
 
 
                     <TextBlock Grid.Column="2"

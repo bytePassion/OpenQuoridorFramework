@@ -99,7 +99,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			IsDebugSectionExpanded    = applicationSettingsRepository.IsDebugSectionExpanded;
 			IsProgressSectionExpanded = applicationSettingsRepository.IsProgressSecionExpanded;
 
-			botCountDownTimer = new Timer(BotCountDownTimerOnTick, null,Timeout.Infinite, Timeout.Infinite);			
+			botCountDownTimer = new Timer(BotCountDownTimerOnTick, null,Timeout.Infinite, Timeout.Infinite);		
+			StopTimer();	
 		}		
 
 		private void BotCountDownTimerOnTick(object sender)
