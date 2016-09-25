@@ -565,6 +565,15 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string PvB_DumpDebugToFileButtonCaption {
+            get {
+                return ResourceManager.GetString("PvB_DumpDebugToFileButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save current Progress.
         /// </summary>
         public static string PvB_DumpProgressFileDialogTitle {
@@ -579,15 +588,6 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         public static string PvB_DumpProgressToFileButtonCaption {
             get {
                 return ResourceManager.GetString("PvB_DumpProgressToFileButtonCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save.
-        /// </summary>
-        public static string PvB_DumpToFileButtonCaption {
-            get {
-                return ResourceManager.GetString("PvB_DumpToFileButtonCaption", resourceCulture);
             }
         }
         

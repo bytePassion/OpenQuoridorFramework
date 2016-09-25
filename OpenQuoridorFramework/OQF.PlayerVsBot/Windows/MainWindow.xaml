@@ -200,7 +200,7 @@
                                                           UpdateSourceTrigger=PropertyChanged}" />
 
 							<Button Grid.Row="0"
-									Content="{Binding DumpToFileButtonCaption}"
+									Content="{Binding DumpProgressToFileButtonCaption}"
 									Width="95"
 									Height="25"									
 									VerticalAlignment="Center"
@@ -308,7 +308,7 @@
                                                           UpdateSourceTrigger=PropertyChanged}" />
 
 							<Button Grid.Row="0"
-									Content="{Binding DumpToFileButtonCaption}"
+									Content="{Binding DumpDebugToFileButtonCaption}"
 									Width="95"
 									Height="25"									
 									VerticalAlignment="Center"

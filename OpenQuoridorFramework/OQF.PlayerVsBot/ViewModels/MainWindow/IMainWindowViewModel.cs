@@ -59,7 +59,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		string DebugCaption                     { get; }
 		string CapitulateButtonCaption          { get; }
 		string HeaderCaptionPlayer              { get; }
-		string DumpToFileButtonCaption          { get; }
+		string DumpDebugToFileButtonCaption     { get; }
 		string DumpProgressToFileButtonCaption  { get; }
 	}
 }

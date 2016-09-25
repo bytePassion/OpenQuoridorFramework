@@ -508,7 +508,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public string DebugCaption                     => Captions.PvB_DebugCaption;
 		public string CapitulateButtonCaption          => Captions.PvB_CapitulateButtonCaption;
 		public string HeaderCaptionPlayer              => Captions.PvB_HeaderCaptionPlayer;
-		public string DumpToFileButtonCaption          => Captions.PvB_DumpToFileButtonCaption;
+		public string DumpDebugToFileButtonCaption     => Captions.PvB_DumpDebugToFileButtonCaption;
 		public string DumpProgressToFileButtonCaption  => Captions.PvB_DumpProgressToFileButtonCaption;
 
 		private void RefreshCaptions()
@@ -524,7 +524,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 										 nameof(DebugCaption),
 										 nameof(CapitulateButtonCaption),
 										 nameof(HeaderCaptionPlayer),
-										 nameof(DumpToFileButtonCaption),
+										 nameof(DumpDebugToFileButtonCaption),
 										 nameof(DumpProgressToFileButtonCaption));
 		}
 

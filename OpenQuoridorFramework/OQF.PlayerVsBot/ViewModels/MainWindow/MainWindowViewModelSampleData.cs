@@ -62,7 +62,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			DebugCaption                     = "Debug";
 			CapitulateButtonCaption          = "Kapitulieren";
 			HeaderCaptionPlayer              = "Spieler";
-			DumpToFileButtonCaption          = "Speichern";
+			DumpDebugToFileButtonCaption     = "Speichern";
 			DumpProgressToFileButtonCaption  = "Speichern";
 		}
 
@@ -117,7 +117,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public string DebugCaption                     { get; }
 		public string CapitulateButtonCaption          { get; }
 		public string HeaderCaptionPlayer              { get; }
-		public string DumpToFileButtonCaption          { get; }
+		public string DumpDebugToFileButtonCaption     { get; }
 		public string DumpProgressToFileButtonCaption  { get; }
 
 		public void Dispose () { }
