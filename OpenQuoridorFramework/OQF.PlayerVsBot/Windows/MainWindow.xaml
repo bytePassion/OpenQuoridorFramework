@@ -10,6 +10,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:OQF.PlayerVsBot.Views"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         Title="MainWindow"
         Width="1200"
         Height="950"
@@ -321,16 +322,26 @@
 							<Button Grid.Row="0"
 									Content="{Binding DumpToFileButtonCaption}"
 									Width="150"
-									Margin="0,2,-6,2"
+									Height="25"
+									Margin="0,0,-6,0"
 									VerticalAlignment="Center"
 									HorizontalAlignment="Right"
 									Command="{Binding DumpDebugToFile}"/>
 
 							<ScrollViewer Grid.Row="1"
-                                          HorizontalScrollBarVisibility="Auto"
+                                          HorizontalScrollBarVisibility="Disabled"
                                           VerticalScrollBarVisibility="Auto">
-                                <ItemsControl Margin="0,20,0,0" ItemsSource="{Binding DebugMessages}" />
-
+                                <ItemsControl Margin="0,20,0,0" ItemsSource="{Binding DebugMessages}">
+									
+									<ItemsControl.ItemTemplate>
+										<DataTemplate DataType="system:String">
+											<TextBlock Text="{Binding}"
+													   TextWrapping="Wrap"/>
+										</DataTemplate>
+									</ItemsControl.ItemTemplate>
+									
+								</ItemsControl>
+																
                                 <i:Interaction.Behaviors>
                                     <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
                                 </i:Interaction.Behaviors>
