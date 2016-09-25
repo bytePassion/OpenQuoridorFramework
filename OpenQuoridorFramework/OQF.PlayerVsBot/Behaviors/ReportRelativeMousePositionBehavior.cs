@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interactivity;
 using Lib.SemanicTypes;
@@ -23,15 +24,23 @@ namespace OQF.PlayerVsBot.Behaviors
 		protected override void OnAttached ()
 		{
 			base.OnAttached();
-			AssociatedObject.MouseMove += OnMouseMove;
-		}		
+			AssociatedObject.MouseMove  += OnMouseMove;
+			AssociatedObject.MouseLeave += OnMouseLeave;
+		}
 
 		protected override void OnDetaching ()
 		{
 			base.OnDetaching();
-			AssociatedObject.MouseMove -= OnMouseMove;
+			AssociatedObject.MouseMove  -= OnMouseMove;
+			AssociatedObject.MouseLeave -= OnMouseLeave;
 		}
 
+		private void OnMouseLeave(object sender, MouseEventArgs mouseEventArgs)
+		{
+			MousePosition = new Point(new XCoord(-1), new YCoord(-1));
+		}
+
+		
 		private void OnMouseMove (object sender, MouseEventArgs mouseEventArgs)
 		{
 			var position = mouseEventArgs.GetPosition(AssociatedObject);
