@@ -418,7 +418,7 @@
     <value>The sourceCode of the OpenQuoridorFramework can be found on gitHub (https://github.com/bytePassion/OpenQuoridorFramework.git).</value>
   </data>
   <data name="PvB_DumpToFileButtonCaption" xml:space="preserve">
-    <value>Save Debug to file</value>
+    <value>Save</value>
   </data>
   <data name="PvBH_Explanation01" xml:space="preserve">
     <value>TODO</value>
@@ -500,5 +500,11 @@
   </data>
   <data name="ND_OkButtonCaption" xml:space="preserve">
     <value>Ok</value>
+  </data>
+  <data name="PvB_DumpProgressToFileButtonCaption" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="PvB_DumpProgressFileDialogTitle" xml:space="preserve">
+    <value>Save current Progress</value>
   </data>
 </root>

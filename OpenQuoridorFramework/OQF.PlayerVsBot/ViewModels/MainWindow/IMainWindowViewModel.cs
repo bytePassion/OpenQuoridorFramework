@@ -14,11 +14,12 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		ICommand Start           { get; }		
-		ICommand ShowAboutHelp   { get; }
-		ICommand Capitulate      { get; }		
-		ICommand BrowseDll       { get; }
-		ICommand DumpDebugToFile { get; }
+		ICommand Start              { get; }		
+		ICommand ShowAboutHelp      { get; }
+		ICommand Capitulate         { get; }		
+		ICommand BrowseDll          { get; }
+		ICommand DumpDebugToFile    { get; }
+		ICommand DumpProgressToFile { get; }
 
 		ObservableCollection<string> DebugMessages { get; } 
 		ObservableCollection<string> GameProgress  { get; }						
@@ -59,5 +60,6 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		string CapitulateButtonCaption          { get; }
 		string HeaderCaptionPlayer              { get; }
 		string DumpToFileButtonCaption          { get; }
+		string DumpProgressToFileButtonCaption  { get; }
 	}
 }

@@ -62,18 +62,20 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			DebugCaption                     = "Debug";
 			CapitulateButtonCaption          = "Kapitulieren";
 			HeaderCaptionPlayer              = "Spieler";
-			DumpToFileButtonCaption          = "Save To File";
+			DumpToFileButtonCaption          = "Speichern";
+			DumpProgressToFileButtonCaption  = "Speichern";
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		public ICommand Start           => null;		
-		public ICommand ShowAboutHelp   => null;
-		public ICommand Capitulate      => null;		
-		public ICommand BrowseDll       => null;
-		public ICommand DumpDebugToFile => null;
+		public ICommand Start              => null;		
+		public ICommand ShowAboutHelp      => null;
+		public ICommand Capitulate         => null;		
+		public ICommand BrowseDll          => null;
+		public ICommand DumpDebugToFile    => null;
+		public ICommand DumpProgressToFile => null;
 
 		public ObservableCollection<string> DebugMessages  { get; }
 		public ObservableCollection<string> GameProgress   { get; }		
@@ -116,6 +118,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public string CapitulateButtonCaption          { get; }
 		public string HeaderCaptionPlayer              { get; }
 		public string DumpToFileButtonCaption          { get; }
+		public string DumpProgressToFileButtonCaption  { get; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		

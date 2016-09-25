@@ -95,6 +95,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 									 new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
 			ShowAboutHelp = new Command(DoShowAboutHelp);
 			DumpDebugToFile = new Command(DoDumpDebugToFile);
+			DumpProgressToFile = new Command(DoDumpProgressToFile);
 
 			GameStatus = GameStatus.Unloaded;
 
@@ -129,6 +130,32 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private void OnNewDebugMsgAvailable(string s)
 		{
 			DebugMessages.Add(s);
+		}
+
+		private void DoDumpProgressToFile ()
+		{
+			var dialog = new SaveFileDialog()
+			{
+				Filter = "textFiles |*.txt",
+				AddExtension = true,
+				CheckFileExists = false,
+				OverwritePrompt = true,
+				ValidateNames = true,
+				CheckPathExists = true,
+				CreatePrompt = false,
+				Title = Captions.PvB_DumpProgressFileDialogTitle
+			};
+
+			var result = dialog.ShowDialog();
+
+			if (result.HasValue)
+			{
+				if (result.Value)
+				{
+					var fileText = CreateProgressText.FromBoardState(gameService.CurrentBoardState);														 
+					File.WriteAllText(dialog.FileName, fileText);
+				}
+			}
 		}
 
 		private void DoDumpDebugToFile ()
@@ -280,11 +307,12 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		public ICommand Start           { get; }		
-		public ICommand ShowAboutHelp   { get; }
-		public ICommand Capitulate      { get; }		
-		public ICommand BrowseDll       { get; }
-		public ICommand DumpDebugToFile { get; }
+		public ICommand Start              { get; }		
+		public ICommand ShowAboutHelp      { get; }
+		public ICommand Capitulate         { get; }		
+		public ICommand BrowseDll          { get; }
+		public ICommand DumpDebugToFile    { get; }
+		public ICommand DumpProgressToFile { get; }
 
 		public ObservableCollection<string> DebugMessages { get; }
 		public ObservableCollection<string> GameProgress  { get; }
@@ -480,7 +508,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public string DebugCaption                     => Captions.PvB_DebugCaption;
 		public string CapitulateButtonCaption          => Captions.PvB_CapitulateButtonCaption;
 		public string HeaderCaptionPlayer              => Captions.PvB_HeaderCaptionPlayer;
-		public string DumpToFileButtonCaption          => Captions.PvB_DumpToFileButtonCaption;		
+		public string DumpToFileButtonCaption          => Captions.PvB_DumpToFileButtonCaption;
+		public string DumpProgressToFileButtonCaption  => Captions.PvB_DumpProgressToFileButtonCaption;
 
 		private void RefreshCaptions()
 		{
@@ -495,7 +524,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 										 nameof(DebugCaption),
 										 nameof(CapitulateButtonCaption),
 										 nameof(HeaderCaptionPlayer),
-										 nameof(DumpToFileButtonCaption));
+										 nameof(DumpToFileButtonCaption),
+										 nameof(DumpProgressToFileButtonCaption));
 		}
 
 		protected override void CleanUp()

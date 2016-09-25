@@ -178,34 +178,46 @@
                         </TextBlock>
                     </Expander.Header>
 
-                    <GroupBox Width="200"
+                    <GroupBox Width="250"
                               Margin="5"
                               materialDesign:ShadowAssist.ShadowDepth="Depth2"
                               BorderThickness="0"
                               Header="{Binding ProgressCaption}"
                               Style="{DynamicResource MaterialDesignGroupBox}">
 
-                        <DockPanel>
-                            <CheckBox x:Name="progressAutoScrollCheckBox"
-                                      Margin="10,0,0,0"
-                                      HorizontalAlignment="Left"
+						
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="40" />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+
+							<CheckBox HorizontalAlignment="Right"
                                       VerticalAlignment="Center"
-                                      Content="{Binding AutoScrollDownCheckBoxCaption}"
-                                      DockPanel.Dock="Top"
+                                      Content="{Binding AutoScrollDownCheckBoxCaption}"                                      
                                       IsChecked="{Binding IsAutoScrollProgressActive,
                                                           Mode=TwoWay,
                                                           UpdateSourceTrigger=PropertyChanged}" />
 
-                            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+							<Button Grid.Row="0"
+									Content="{Binding DumpToFileButtonCaption}"
+									Width="95"
+									Height="25"									
+									VerticalAlignment="Center"
+									HorizontalAlignment="Left"
+									Command="{Binding DumpProgressToFile}"/>
+
+							<ScrollViewer Grid.Row="1"
+										  HorizontalScrollBarVisibility="Auto"
                                           VerticalScrollBarVisibility="Auto">
-                                <ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}" />
+								<ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}" />
 
-                                <i:Interaction.Behaviors>
-                                    <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsChecked, ElementName=progressAutoScrollCheckBox}" />
-                                </i:Interaction.Behaviors>
-                            </ScrollViewer>
-                        </DockPanel>
-
+								<i:Interaction.Behaviors>
+									<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
+								</i:Interaction.Behaviors>
+							</ScrollViewer>
+						</Grid>
+						                      
                     </GroupBox>
                 </Expander>
 
@@ -287,9 +299,8 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
 
-                            <CheckBox Grid.Row="0"
-                                      Margin="10,0,0,0"
-                                      HorizontalAlignment="Left"
+                            <CheckBox Grid.Row="0"                                      
+                                      HorizontalAlignment="Right"
                                       VerticalAlignment="Center"
                                       Content="{Binding AutoScrollDownCheckBoxCaption}"
                                       IsChecked="{Binding IsAutoScrollDebugMsgActive,
@@ -298,11 +309,10 @@
 
 							<Button Grid.Row="0"
 									Content="{Binding DumpToFileButtonCaption}"
-									Width="150"
-									Height="25"
-									Margin="0,0,-6,0"
+									Width="95"
+									Height="25"									
 									VerticalAlignment="Center"
-									HorizontalAlignment="Right"
+									HorizontalAlignment="Left"
 									Command="{Binding DumpDebugToFile}"/>
 
 							<ScrollViewer Grid.Row="1"
