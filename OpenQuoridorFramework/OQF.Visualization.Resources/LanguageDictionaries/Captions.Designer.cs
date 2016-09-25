@@ -502,6 +502,15 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        public static string ND_OkButtonCaption {
+            get {
+                return ResourceManager.GetString("ND_OkButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Auto scroll down.
         /// </summary>
         public static string PvB_AutoScrollDownCheckBoxCaption {

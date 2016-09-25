@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
@@ -84,7 +85,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			BrowseDll = new Command(DoBrowseDll,
 								    () => GameStatus != GameStatus.Active,
 									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
-			Start = new Command(DoStart,
+			Start = new Command(async () => await DoStart(),
 								() => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
 								new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));							
 			Capitulate = new Command(DoCapitulate,
@@ -389,7 +390,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 					DllPathInput = dialog.FileName;
         }
 
-		private void DoStart()
+		private async Task DoStart()
 		{
 			if (GameStatus == GameStatus.Finished)
 			{
@@ -403,13 +404,14 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 			if (string.IsNullOrWhiteSpace(DllPathInput))
 			{
-				MessageBox.Show(Captions.PvB_ErrorMsg_NoDllPath);
+				await NotificationService.Show(Captions.PvB_ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);				
 				return;
 			}
 
 			if (!File.Exists(DllPathInput))
-			{
-				MessageBox.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]");
+			{				
+				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]", 
+											   Captions.ND_OkButtonCaption);
 				return;
 			}
 
@@ -421,7 +423,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			}
 			catch
 			{
-				MessageBox.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]");
+				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]",
+											   Captions.ND_OkButtonCaption);				
 				return;
 			}
 
@@ -429,7 +432,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 			if (uninitializedBotAndBotName == null)
 			{
-				MessageBox.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]");
+				await NotificationService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
+											   Captions.ND_OkButtonCaption);				
 				return;
 			}
 

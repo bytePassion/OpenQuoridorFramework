@@ -478,4 +478,7 @@
   <data name="PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly" xml:space="preserve">
     <value>Bot cannot be loaded as assembly</value>
   </data>
+  <data name="ND_OkButtonCaption" xml:space="preserve">
+    <value>Ok</value>
+  </data>
 </root>

@@ -80,6 +80,7 @@
     <Compile Include="Computation\ComputeWallWidth.cs" />
     <Compile Include="Computation\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\SettingsRepository\ApplicationSettingsRepository.cs" />
     <Compile Include="Services\BotLoader.cs" />
     <Compile Include="Services\GameService.cs" />
@@ -95,6 +96,9 @@
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
+    <Compile Include="ViewModels\NotificationDialog\INotificationDialogViewModel.cs" />
+    <Compile Include="ViewModels\NotificationDialog\NotificationDialogViewModel.cs" />
+    <Compile Include="ViewModels\NotificationDialog\NotificationDialogViewModelSampleData.cs" />
     <Compile Include="ViewModels\WinningDialog\IWinningDialogViewModel.cs" />
     <Compile Include="ViewModels\WinningDialog\WinningDialogViewModel.cs" />
     <Compile Include="ViewModels\WinningDialog\WinningDialogViewModelSampleData.cs" />
@@ -117,6 +121,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NotificationDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WinningDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +136,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\NotificationDialog.xaml.cs">
+      <DependentUpon>NotificationDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WinningDialog.xaml.cs">
       <DependentUpon>WinningDialog.xaml</DependentUpon>
