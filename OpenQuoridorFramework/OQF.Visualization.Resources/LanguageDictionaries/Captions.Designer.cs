@@ -547,11 +547,56 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save current Debug output.
+        /// </summary>
+        public static string PvB_DumpDebugFileDialogTitle {
+            get {
+                return ResourceManager.GetString("PvB_DumpDebugFileDialogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save Debug to file.
         /// </summary>
         public static string PvB_DumpToFileButtonCaption {
             get {
                 return ResourceManager.GetString("PvB_DumpToFileButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bot cannot be loaded as assembly.
+        /// </summary>
+        public static string PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly {
+            get {
+                return ResourceManager.GetString("PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File does not exist.
+        /// </summary>
+        public static string PvB_ErrorMsg_FileDoesNotExist {
+            get {
+                return ResourceManager.GetString("PvB_ErrorMsg_FileDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File is no valid assembly.
+        /// </summary>
+        public static string PvB_ErrorMsg_FileIsNoAssembly {
+            get {
+                return ResourceManager.GetString("PvB_ErrorMsg_FileIsNoAssembly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have to choose a Bot-DLL before Starting a game.
+        /// </summary>
+        public static string PvB_ErrorMsg_NoDllPath {
+            get {
+                return ResourceManager.GetString("PvB_ErrorMsg_NoDllPath", resourceCulture);
             }
         }
         
@@ -588,6 +633,15 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         public static string PvB_ProgressCaption {
             get {
                 return ResourceManager.GetString("PvB_ProgressCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Game Progress of currently ended game.
+        /// </summary>
+        public static string PvB_SaveGameProgressFileDialogTitle {
+            get {
+                return ResourceManager.GetString("PvB_SaveGameProgressFileDialogTitle", resourceCulture);
             }
         }
         

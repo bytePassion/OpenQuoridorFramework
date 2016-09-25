@@ -160,7 +160,6 @@
 							   FontSize="20"
                                Text="{Binding TopPlayerRestTime}" />
 
-
                 </Grid>
 
             </materialDesign:Card>

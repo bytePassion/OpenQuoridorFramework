@@ -424,10 +424,10 @@
     <value>Übersicht zu 'Player vs Bot'</value>
   </data>
   <data name="PvBH_Explanation01" xml:space="preserve">
-    <value>1. Schaltfläche um eine Bot-DLL von der Festplatte zu suchen</value>
+    <value>1. Bot-DLL von der Festplatte suchen</value>
   </data>
   <data name="PvBH_Explanation02" xml:space="preserve">
-    <value>2. Schaltfläche um ein Spiel zu starten (sofern vorher ein Bot gewählt wurde)</value>
+    <value>2. Spiel starten (sofern vorher ein Bot gewählt wurde)</value>
   </data>
   <data name="PvBH_Explanation03" xml:space="preserve">
     <value>3. Name des Bots gegen den gespielt wird</value>
@@ -479,5 +479,23 @@
   </data>
   <data name="PvBH_Note" xml:space="preserve">
     <value>Hinweis: Um einen Zug zu machen, muss direkt auf das Spielfeld geklickt werden. Sowohl für die Wand-Elemente, wie auch für eine Figurebewegung steht eine Vorschau zur verfügung.</value>
+  </data>
+  <data name="PvB_DumpDebugFileDialogTitle" xml:space="preserve">
+    <value>Speichere Debug-Nachrichten</value>
+  </data>
+  <data name="PvB_SaveGameProgressFileDialogTitle" xml:space="preserve">
+    <value>Speichere Spielfortschritt von beendetem Spiel</value>
+  </data>
+  <data name="PvB_ErrorMsg_NoDllPath" xml:space="preserve">
+    <value>Bevor das Spiel gestartet werden kann muss eine bot-Dll ausgewählt werden</value>
+  </data>
+  <data name="PvB_ErrorMsg_FileDoesNotExist" xml:space="preserve">
+    <value>Die Datei existiert nicht</value>
+  </data>
+  <data name="PvB_ErrorMsg_FileIsNoAssembly" xml:space="preserve">
+    <value>Die Datei ist keine gültige Assembly</value>
+  </data>
+  <data name="PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly" xml:space="preserve">
+    <value>Aus der Datei kann kein Bot geladen werden</value>
   </data>
 </root>

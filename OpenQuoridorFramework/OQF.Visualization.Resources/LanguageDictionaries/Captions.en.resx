@@ -480,4 +480,22 @@
   <data name="PvBH_Note" xml:space="preserve">
     <value>TODO</value>
   </data>
+  <data name="PvB_DumpDebugFileDialogTitle" xml:space="preserve">
+    <value>Save current Debug output</value>
+  </data>
+  <data name="PvB_SaveGameProgressFileDialogTitle" xml:space="preserve">
+    <value>Save Game Progress of currently ended game</value>
+  </data>
+  <data name="PvB_ErrorMsg_NoDllPath" xml:space="preserve">
+    <value>You have to choose a Bot-DLL before Starting a game</value>
+  </data>
+  <data name="PvB_ErrorMsg_FileDoesNotExist" xml:space="preserve">
+    <value>File does not exist</value>
+  </data>
+  <data name="PvB_ErrorMsg_FileIsNoAssembly" xml:space="preserve">
+    <value>File is no valid assembly</value>
+  </data>
+  <data name="PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly" xml:space="preserve">
+    <value>Bot cannot be loaded as assembly</value>
+  </data>
 </root>

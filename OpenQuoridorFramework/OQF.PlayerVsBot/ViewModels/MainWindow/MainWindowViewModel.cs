@@ -139,7 +139,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 				ValidateNames = true,
 				CheckPathExists = true,
 				CreatePrompt = false,
-				Title = "Save current Debug output"
+				Title = Captions.PvB_DumpDebugFileDialogTitle
 			};
 
 			var result = dialog.ShowDialog();
@@ -186,7 +186,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
                     ValidateNames = true,
                     CheckPathExists = true,
                     CreatePrompt = false,
-                    Title = "Save Game Progress of currently ended game"
+                    Title = Captions.PvB_SaveGameProgressFileDialogTitle
                 };
 
                 var result = dialog.ShowDialog();
@@ -403,13 +403,13 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 			if (string.IsNullOrWhiteSpace(DllPathInput))
 			{
-				MessageBox.Show("bevor das Spiel gestartet werden kann muss eine bot-Dll ausgewählt werden");
+				MessageBox.Show(Captions.PvB_ErrorMsg_NoDllPath);
 				return;
 			}
 
 			if (!File.Exists(DllPathInput))
 			{
-				MessageBox.Show($"die datei {DllPathInput} existiert nicht");
+				MessageBox.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]");
 				return;
 			}
 
@@ -421,7 +421,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			}
 			catch
 			{
-				MessageBox.Show($"die datei {DllPathInput} kann nicht als Assembly geladen werden");
+				MessageBox.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]");
 				return;
 			}
 
@@ -429,7 +429,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 			if (uninitializedBotAndBotName == null)
 			{
-				MessageBox.Show($"die Assemply {dllToLoad.FullName} kann nicht als IQuoridorBot instantiiert werden");
+				MessageBox.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]");
 				return;
 			}
 
@@ -474,7 +474,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public string DebugCaption                     => Captions.PvB_DebugCaption;
 		public string CapitulateButtonCaption          => Captions.PvB_CapitulateButtonCaption;
 		public string HeaderCaptionPlayer              => Captions.PvB_HeaderCaptionPlayer;
-		public string DumpToFileButtonCaption          => Captions.PvB_DumpToFileButtonCaption;
+		public string DumpToFileButtonCaption          => Captions.PvB_DumpToFileButtonCaption;		
 
 		private void RefreshCaptions()
 		{
