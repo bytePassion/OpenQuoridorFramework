@@ -28,15 +28,28 @@
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 
-		<TextBlock Grid.Column=" 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="A" />
-		<TextBlock Grid.Column=" 2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="B" />
-		<TextBlock Grid.Column=" 4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="C" />
-		<TextBlock Grid.Column=" 6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="D" />
-		<TextBlock Grid.Column=" 8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="E" />
-		<TextBlock Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="F" />
-		<TextBlock Grid.Column="12" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="G" />
-		<TextBlock Grid.Column="14" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="H" />
-		<TextBlock Grid.Column="16" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="I" />
+
+		<Grid.Resources>
+			<Style TargetType="Border">
+				<Setter Property="BorderThickness" Value="1,1,1,0"/>
+				<Setter Property="BorderBrush" Value="Black"/>
+			</Style>
+			<Style TargetType="TextBlock">
+				<Setter Property="HorizontalAlignment" Value="Center"/>
+				<Setter Property="VerticalAlignment" Value="Center"/>
+				<Setter Property="FontSize" Value="30"/>
+			</Style>
+		</Grid.Resources>
+		
+		<Border Grid.Column=" 0"> <TextBlock Text="A"/> </Border>
+		<Border Grid.Column=" 2"> <TextBlock Text="B"/> </Border>
+		<Border Grid.Column=" 4"> <TextBlock Text="C"/> </Border>
+		<Border Grid.Column=" 6"> <TextBlock Text="D"/> </Border>
+		<Border Grid.Column=" 8"> <TextBlock Text="E"/> </Border>
+		<Border Grid.Column="10"> <TextBlock Text="F"/> </Border>
+		<Border Grid.Column="12"> <TextBlock Text="G"/> </Border>
+		<Border Grid.Column="14"> <TextBlock Text="H"/> </Border>
+		<Border Grid.Column="16"> <TextBlock Text="I"/> </Border>
 
 	</Grid>
 </UserControl>

@@ -27,14 +27,27 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 
-		<TextBlock Grid.Row=" 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="9" />
-		<TextBlock Grid.Row=" 2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="8" />
-		<TextBlock Grid.Row=" 4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="7" />
-		<TextBlock Grid.Row=" 6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="6" />
-		<TextBlock Grid.Row=" 8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="5" />
-		<TextBlock Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="4" />
-		<TextBlock Grid.Row="12" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="3" />
-		<TextBlock Grid.Row="14" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="2" />
-		<TextBlock Grid.Row="16" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="1" />
+
+		<Grid.Resources>
+			<Style TargetType="Border">
+				<Setter Property="BorderThickness" Value="1,1,0,1"/>
+				<Setter Property="BorderBrush" Value="Black"/>
+			</Style>
+			<Style TargetType="TextBlock">
+				<Setter Property="HorizontalAlignment" Value="Center"/>
+				<Setter Property="VerticalAlignment" Value="Center"/>
+				<Setter Property="FontSize" Value="30"/>
+			</Style>
+		</Grid.Resources>
+
+		<Border Grid.Row=" 0"> <TextBlock Text="9" /> </Border>
+		<Border Grid.Row=" 2"> <TextBlock Text="8" /> </Border>
+		<Border Grid.Row=" 4"> <TextBlock Text="7" /> </Border>
+		<Border Grid.Row=" 6"> <TextBlock Text="6" /> </Border>
+		<Border Grid.Row=" 8"> <TextBlock Text="5" /> </Border>
+		<Border Grid.Row="10"> <TextBlock Text="4" /> </Border>
+		<Border Grid.Row="12"> <TextBlock Text="3" /> </Border>
+		<Border Grid.Row="14"> <TextBlock Text="2" /> </Border>
+		<Border Grid.Row="16"> <TextBlock Text="1" /> </Border>
 	</Grid>
 </UserControl>
