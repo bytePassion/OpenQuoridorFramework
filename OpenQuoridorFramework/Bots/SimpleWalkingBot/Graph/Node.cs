@@ -18,6 +18,11 @@ namespace SimpleWalkingBot.Graph
 		public Node Left;
 		public Node Top;
 		public Node Right;
-		public Node Bottom;	
+		public Node Bottom;
+
+		public override string ToString()
+		{
+			return $"{Coord}; {MinConst}";
+		}
 	}
 }
