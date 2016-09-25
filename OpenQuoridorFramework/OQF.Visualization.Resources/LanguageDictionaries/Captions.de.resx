@@ -420,4 +420,64 @@
   <data name="PvB_DumpToFileButtonCaption" xml:space="preserve">
     <value>Debug Speichern</value>
   </data>
+  <data name="PvBH_PageHeader" xml:space="preserve">
+    <value>Übersicht zu 'Player vs Bot'</value>
+  </data>
+  <data name="PvBH_Explanation01" xml:space="preserve">
+    <value>1. Schaltfläche um eine Bot-DLL von der Festplatte zu suchen</value>
+  </data>
+  <data name="PvBH_Explanation02" xml:space="preserve">
+    <value>2. Schaltfläche um ein Spiel zu starten (sofern vorher ein Bot gewählt wurde)</value>
+  </data>
+  <data name="PvBH_Explanation03" xml:space="preserve">
+    <value>3. Name des Bots gegen den gespielt wird</value>
+  </data>
+  <data name="PvBH_Explanation04" xml:space="preserve">
+    <value>4. Anzeigesprache wählen</value>
+  </data>
+  <data name="PvBH_Explanation05" xml:space="preserve">
+    <value>5. Anzahl an Wand-Elementen, die der Bot noch platzieren kann</value>
+  </data>
+  <data name="PvBH_Explanation06" xml:space="preserve">
+    <value>6. Spielfortschritt ein- und ausklappen</value>
+  </data>
+  <data name="PvBH_Explanation07" xml:space="preserve">
+    <value>7. Automatisches herunterscrollen des Spielfortschritts aktivieren/deaktivieren</value>
+  </data>
+  <data name="PvBH_Explanation08" xml:space="preserve">
+    <value>8. Spielfortschritt des aktuellen Spiels (siehe: Quoridor-Notation)</value>
+  </data>
+  <data name="PvBH_Explanation09" xml:space="preserve">
+    <value>9. Platziertes Wand-Element auf dem Spielfeld</value>
+  </data>
+  <data name="PvBH_Explanation10" xml:space="preserve">
+    <value>10. Spielfigur des Spielers</value>
+  </data>
+  <data name="PvBH_Explanation11" xml:space="preserve">
+    <value>11. Mögliches Zugfeld für den Spieler</value>
+  </data>
+  <data name="PvBH_Explanation12" xml:space="preserve">
+    <value>12. Spielfigur des Bots</value>
+  </data>
+  <data name="PvBH_Explanation13" xml:space="preserve">
+    <value>13. Automatisches herunterscrollen der Debug-Nachrichten aktivieren/deaktivieren</value>
+  </data>
+  <data name="PvBH_Explanation14" xml:space="preserve">
+    <value>14. Aktuell dargestellte Debug-Nachtichten in Text-Datei speichern</value>
+  </data>
+  <data name="PvBH_Explanation15" xml:space="preserve">
+    <value>15. Debug-Nachrichten-Bereich ein- und ausklappen</value>
+  </data>
+  <data name="PvBH_Explanation16" xml:space="preserve">
+    <value>16. Debug-Nachrichten des aktuellen Spiels</value>
+  </data>
+  <data name="PvBH_Explanation17" xml:space="preserve">
+    <value>17. Das Spiel aufgeben -&gt; der Bot gewinnt</value>
+  </data>
+  <data name="PvBH_Explanation18" xml:space="preserve">
+    <value>18. Anzahl der Wand-Elemente, die der Spieler noch platzieren kann</value>
+  </data>
+  <data name="PvBH_Note" xml:space="preserve">
+    <value>Hinweis: Um einen Zug zu machen, muss direkt auf das Spielfeld geklickt werden. Sowohl für die Wand-Elemente, wie auch für eine Figurebewegung steht eine Vorschau zur verfügung.</value>
+  </data>
 </root>

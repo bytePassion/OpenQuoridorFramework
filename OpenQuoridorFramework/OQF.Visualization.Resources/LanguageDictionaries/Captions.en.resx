@@ -420,4 +420,64 @@
   <data name="PvB_DumpToFileButtonCaption" xml:space="preserve">
     <value>Save Debug to file</value>
   </data>
+  <data name="PvBH_Explanation01" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation02" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation03" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation04" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation05" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation06" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation07" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation08" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation09" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation10" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation11" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation12" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation13" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation14" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation15" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation16" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation17" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation18" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_PageHeader" xml:space="preserve">
+    <value>Overview to 'Player vs Bot'</value>
+  </data>
+  <data name="PvBH_Note" xml:space="preserve">
+    <value>TODO</value>
+  </data>
 </root>

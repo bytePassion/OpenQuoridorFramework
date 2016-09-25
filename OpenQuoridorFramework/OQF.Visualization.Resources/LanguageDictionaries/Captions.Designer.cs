@@ -610,6 +610,186 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation01 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation02 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation03 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation04 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation04", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation05 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation05", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation06 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation06", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation07 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation08 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation08", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation09 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation09", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation10 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation11 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation12 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation13 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation14 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation15 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation16 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation17 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation18 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation18", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Note {
+            get {
+                return ResourceManager.GetString("PvBH_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overview to &apos;Player vs Bot&apos;.
+        /// </summary>
+        public static string PvBH_PageHeader {
+            get {
+                return ResourceManager.GetString("PvBH_PageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Example.
         /// </summary>
         public static string QNP_ExampleParagraphHeader {
