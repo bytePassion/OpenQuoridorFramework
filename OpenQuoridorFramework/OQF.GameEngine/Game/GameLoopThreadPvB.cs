@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using Lib.Concurrency;
 using OQF.Bot.Contracts;
@@ -8,6 +9,7 @@ using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Analysis;
 using OQF.GameEngine.Contracts;
 using OQF.GameEngine.Transitions;
+using OQF.Utils;
 
 namespace OQF.GameEngine.Game
 {
@@ -28,14 +30,20 @@ namespace OQF.GameEngine.Game
 		private readonly TimeoutBlockingQueue<Move> humenMoves;
 		private readonly TimeoutBlockingQueue<Move> botMoves;
 		private readonly GameConstraints gameConstraints;
+		private readonly string initialProgress;
 
 		private volatile bool stopRunning;
 
-				
+
+		private BoardState currentBoardState;
+		private Player humanPlayer;
+		private Player computerPlayer;
+
 		public GameLoopThreadPvB (IQuoridorBot uninitializedBot, 
 								  string botName,
 							      TimeoutBlockingQueue<Move> humenMoves, 							      
-							      GameConstraints gameConstraints)
+							      GameConstraints gameConstraints,
+								  string initialProgress)
 		{
 			bot = uninitializedBot;
 			this.botName = botName;
@@ -45,7 +53,8 @@ namespace OQF.GameEngine.Game
 
 			bot.NextMoveAvailable += OnNextBotMoveAvailable;
 			
-			this.gameConstraints = gameConstraints;			
+			this.gameConstraints = gameConstraints;
+			this.initialProgress = initialProgress;
 
 			stopRunning = false;
 			IsRunning = false;
@@ -68,14 +77,37 @@ namespace OQF.GameEngine.Game
 		{
 			IsRunning = true;
 
-			var computerPlayer = new Player(PlayerType.TopPlayer, botName);
-			var humanPlayer    = new Player(PlayerType.BottomPlayer);
+			computerPlayer = new Player(PlayerType.TopPlayer, botName);
+			humanPlayer    = new Player(PlayerType.BottomPlayer);
 			
 			bot.Init(computerPlayer.PlayerType, gameConstraints);
 
-			var currentBoardState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
-
+			currentBoardState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
 			NewBoardStateAvailable?.Invoke(currentBoardState);
+
+			if (initialProgress != null)
+			{
+				var moves = ParseProcessText.FromFileText(initialProgress)
+											.Select(MoveParser.GetMove);				
+
+				foreach (var move in moves)
+				{
+					currentBoardState = currentBoardState.ApplyMove(move);
+					NewBoardStateAvailable?.Invoke(currentBoardState);
+				}
+
+				if (moves.Count()%2 == 1)
+				{
+					var succeedGame = DoBotMove();
+
+					if (!succeedGame)
+					{
+						IsRunning = false;
+						bot.NextMoveAvailable -= OnNextBotMoveAvailable;
+						return;
+					}
+				}
+			}			
 
 			var moveCounter = 0;
 
@@ -86,63 +118,84 @@ namespace OQF.GameEngine.Game
 					WinnerAvailable?.Invoke(computerPlayer, WinningReason.ExceedanceOfMaxMoves, null);
 				}
 
-				var nextHumanMove = PickHumanMove();
+				bool succeedGame;
 
-				if (nextHumanMove == null)
+				succeedGame = DoHumanMove();
+				if (!succeedGame)
 					break;
 
-				if (!GameAnalysis.IsMoveLegal(currentBoardState, nextHumanMove))
-				{
-					WinnerAvailable?.Invoke(computerPlayer, WinningReason.InvalidMove, nextHumanMove);
+
+				succeedGame = DoBotMove();
+				if (!succeedGame)
 					break;
-				}								
-
-				currentBoardState = currentBoardState.ApplyMove(nextHumanMove);
-				NewBoardStateAvailable?.Invoke(currentBoardState);
-
-				if (nextHumanMove is Capitulation)
-				{
-					WinnerAvailable?.Invoke(computerPlayer, WinningReason.Capitulation, null);
-				}
-
-				var winner = GameAnalysis.CheckWinningCondition(currentBoardState);
-				if (winner != null)
-				{
-					WinnerAvailable?.Invoke(winner, WinningReason.RegularQuoridorWin, null);
-					break;
-				}								
-				
-				var nextBotMove = GetBotMove(currentBoardState);
-
-				if (nextBotMove == null)
-					break;
-
-				if (!GameAnalysis.IsMoveLegal(currentBoardState, nextBotMove))
-				{
-					WinnerAvailable?.Invoke(humanPlayer, WinningReason.InvalidMove, nextBotMove);
-					break;
-				}
-
-				currentBoardState = currentBoardState.ApplyMove(nextBotMove);
-				NewBoardStateAvailable?.Invoke(currentBoardState);
-
-				if (nextBotMove is Capitulation)
-				{
-					WinnerAvailable?.Invoke(humanPlayer, WinningReason.Capitulation, null);
-				}
-				
-				var winner2 = GameAnalysis.CheckWinningCondition(currentBoardState);
-				if (winner2 != null)
-				{
-					WinnerAvailable?.Invoke(winner2, WinningReason.RegularQuoridorWin, null);
-					break;
-				}
 
 				moveCounter++;
 			}
 
 			IsRunning = false;
 			bot.NextMoveAvailable -= OnNextBotMoveAvailable;
+		}
+
+		private bool DoBotMove()
+		{
+			var nextBotMove = GetBotMove(currentBoardState);
+
+			if (nextBotMove == null)
+				return false;
+
+			if (!GameAnalysis.IsMoveLegal(currentBoardState, nextBotMove))
+			{
+				WinnerAvailable?.Invoke(humanPlayer, WinningReason.InvalidMove, nextBotMove);
+				return false; 
+			}
+
+			currentBoardState = currentBoardState.ApplyMove(nextBotMove);
+			NewBoardStateAvailable?.Invoke(currentBoardState);
+
+			if (nextBotMove is Capitulation)
+			{
+				WinnerAvailable?.Invoke(humanPlayer, WinningReason.Capitulation, null);
+			}
+
+			var winner2 = GameAnalysis.CheckWinningCondition(currentBoardState);
+			if (winner2 != null)
+			{
+				WinnerAvailable?.Invoke(winner2, WinningReason.RegularQuoridorWin, null);
+				return false;
+			}
+
+			return true;
+		}
+
+		private bool DoHumanMove()
+		{
+			var nextHumanMove = PickHumanMove();
+
+			if (nextHumanMove == null)
+				return false;
+
+			if (!GameAnalysis.IsMoveLegal(currentBoardState, nextHumanMove))
+			{
+				WinnerAvailable?.Invoke(computerPlayer, WinningReason.InvalidMove, nextHumanMove);
+				return false;
+			}
+
+			currentBoardState = currentBoardState.ApplyMove(nextHumanMove);
+			NewBoardStateAvailable?.Invoke(currentBoardState);
+
+			if (nextHumanMove is Capitulation)
+			{
+				WinnerAvailable?.Invoke(computerPlayer, WinningReason.Capitulation, null);
+			}
+
+			var winner = GameAnalysis.CheckWinningCondition(currentBoardState);
+			if (winner != null)
+			{
+				WinnerAvailable?.Invoke(winner, WinningReason.RegularQuoridorWin, null);
+				return false;
+			}
+
+			return true;
 		}
 
 		private Move GetBotMove(BoardState currentBoardState)

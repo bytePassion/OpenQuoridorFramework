@@ -70,7 +70,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		public ICommand Start              => null;		
+		public ICommand Start              => null;
+		public ICommand StartWithProgress  => null;
 		public ICommand ShowAboutHelp      => null;
 		public ICommand Capitulate         => null;		
 		public ICommand BrowseDll          => null;

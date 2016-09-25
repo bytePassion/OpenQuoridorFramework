@@ -89,7 +89,10 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
 			Start = new Command(async () => await DoStart(),
 								() => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
-								new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));							
+								new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));
+			StartWithProgress = new Command(async () => await DoStartWithProgress(),
+								() => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
+								new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));
 			Capitulate = new Command(DoCapitulate,
 									 IsMoveApplyable,
 									 new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
@@ -307,7 +310,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		public ICommand Start              { get; }		
+		public ICommand Start              { get; }
+		public ICommand StartWithProgress  { get; }
 		public ICommand ShowAboutHelp      { get; }
 		public ICommand Capitulate         { get; }		
 		public ICommand BrowseDll          { get; }
@@ -472,7 +476,73 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			
 			((Command)Capitulate).RaiseCanExecuteChanged();
 		}
-				
+
+		private async Task DoStartWithProgress ()
+		{
+			if (GameStatus == GameStatus.Finished)
+			{
+				gameService.StopGame();
+
+				GameProgress.Clear();
+				DebugMessages.Clear();
+			}
+
+			GameStatus = GameStatus.Unloaded;
+
+			if (string.IsNullOrWhiteSpace(DllPathInput))
+			{
+				await NotificationService.Show(Captions.PvB_ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);
+				return;
+			}
+
+			if (!File.Exists(DllPathInput))
+			{
+				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]",
+											   Captions.ND_OkButtonCaption);
+				return;
+			}
+
+			Assembly dllToLoad;
+
+			try
+			{
+				dllToLoad = Assembly.LoadFile(DllPathInput);
+			}
+			catch
+			{
+				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]",
+											   Captions.ND_OkButtonCaption);
+				return;
+			}
+
+			var uninitializedBotAndBotName = BotLoader.LoadBot(dllToLoad);
+
+			if (uninitializedBotAndBotName == null)
+			{
+				await NotificationService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
+											   Captions.ND_OkButtonCaption);
+				return;
+			}
+
+
+			var dialog = new OpenFileDialog
+			{
+				Filter = "text-file|*.txt"
+			};
+
+			var result = dialog.ShowDialog();
+
+			if (result.HasValue)
+				if (result.Value)   
+				{
+					var progressText = File.ReadAllText(dialog.FileName);
+					applicationSettingsRepository.LastUsedBotPath = DllPathInput;
+					gameService.CreateGame(uninitializedBotAndBotName.Item1, uninitializedBotAndBotName.Item2, new GameConstraints(TimeSpan.FromSeconds(60), 100), progressText);
+
+					((Command)Capitulate).RaiseCanExecuteChanged();
+				}			
+		}
+
 		private bool IsMoveApplyable ()
 		{
 			if (GameStatus != GameStatus.Active)

@@ -68,8 +68,15 @@
                             ToolTip="{Binding StartGameButtonToolTipCaption}">
                         <materialDesign:PackIcon Kind="Play" />
                     </Button>
+					<Button Margin="4,0"
+                            Command="{Binding StartWithProgress}"
+                            DockPanel.Dock="Left"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            ToolTip="{Binding StartGameButtonToolTipCaption}">
+						<materialDesign:PackIcon Kind="Play" />
+					</Button>
 
-                    <Button Margin="4,0"
+					<Button Margin="4,0"
                             Command="{Binding ShowAboutHelp}"
                             DockPanel.Dock="Right"
                             Style="{StaticResource MaterialDesignRaisedButton}"

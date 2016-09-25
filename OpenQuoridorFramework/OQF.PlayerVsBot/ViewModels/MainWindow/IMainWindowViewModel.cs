@@ -14,7 +14,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		ICommand Start              { get; }		
+		ICommand Start              { get; }	
+		ICommand StartWithProgress  { get; }	
 		ICommand ShowAboutHelp      { get; }
 		ICommand Capitulate         { get; }		
 		ICommand BrowseDll          { get; }
