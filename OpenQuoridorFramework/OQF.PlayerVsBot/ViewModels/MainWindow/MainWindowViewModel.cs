@@ -82,6 +82,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			IsAutoScrollDebugMsgActive = true;
 			IsAutoScrollProgressActive = true;
 
+			TopPlayerName = "- - - - -";
+
 			BrowseDll = new Command(DoBrowseDll,
 								    () => GameStatus != GameStatus.Active,
 									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
@@ -230,7 +232,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			{
 				GameStatus = GameStatus.Unloaded;
 
-				TopPlayerName = string.Empty;
+				TopPlayerName = "- - - - -";
 				TopPlayerWallCountLeft = 10;
 				BottomPlayerWallCountLeft = 10;
 
