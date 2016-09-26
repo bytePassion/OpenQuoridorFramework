@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\FileVerificationResult.cs" />
     <Compile Include="Games\IBvBGame.cs" />
     <Compile Include="Analysis\IHumanPlayerAnalysis.cs" />
     <Compile Include="Factories\IGameFactory.cs" />

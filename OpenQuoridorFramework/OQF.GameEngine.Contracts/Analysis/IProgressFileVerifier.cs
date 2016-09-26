@@ -1,7 +1,9 @@
-﻿namespace OQF.GameEngine.Contracts.Analysis
+﻿using OQF.GameEngine.Contracts.Enums;
+
+namespace OQF.GameEngine.Contracts.Analysis
 {
 	public interface IProgressFileVerifier
 	{
-		bool Verify(string progressText);
+		FileVerificationResult Verify(string progressText);
 	}
 }
