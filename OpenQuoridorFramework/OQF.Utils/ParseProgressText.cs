@@ -15,6 +15,8 @@ namespace OQF.Utils
 
 			var currentLineNumber = 0;
 
+			bool moreLinesAllowed = true;
+
 			foreach (var line in lines)
 			{
 				var lineParts = line.Split(' ')
@@ -39,6 +41,9 @@ namespace OQF.Utils
 
 				if (lineParts.Count == 3)
 				{
+					if (!moreLinesAllowed)
+						return new List<string>();
+
 					if (MoveValidator.IsValidMove(lineParts[1]) &&
 					    MoveValidator.IsValidMove(lineParts[2]))
 					{
@@ -54,9 +59,13 @@ namespace OQF.Utils
 
 				if (lineParts.Count == 2)
 				{
+					if (!moreLinesAllowed)
+						return new List<string>();
+
 					if (MoveValidator.IsValidMove(lineParts[1]))
 					{
 						result.Add(lineParts[1]);
+						moreLinesAllowed = false;
 					}
 					else
 					{
