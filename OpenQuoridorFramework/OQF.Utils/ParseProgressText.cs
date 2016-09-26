@@ -10,7 +10,8 @@ namespace OQF.Utils
 			var result = new List<string>();
 
 			var lines = fileText.Split('\n')
-								.Select(element => element.Trim());
+								.Select(element => element.Trim())
+								.Where(line => !line.StartsWith("#"));
 
 			var currentLineNumber = 0;
 
