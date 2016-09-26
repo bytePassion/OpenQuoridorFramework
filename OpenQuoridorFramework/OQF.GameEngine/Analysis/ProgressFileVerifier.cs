@@ -1,7 +1,10 @@
-﻿using OQF.Bot.Contracts.Coordination;
+﻿using System.Linq;
+using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.GameEngine.Contracts.Analysis;
 using OQF.GameEngine.Contracts.Enums;
+using OQF.GameEngine.Transitions;
+using OQF.Utils;
 
 namespace OQF.GameEngine.Analysis
 {
@@ -9,10 +12,29 @@ namespace OQF.GameEngine.Analysis
 	{
 		public FileVerificationResult Verify(string progressText)
 		{
+			var movesAsString = ParseProgressText.FromFileText(progressText);
+
+			if (!movesAsString.Any())
+				return FileVerificationResult.EmptyOrInvalidFile;
+
+			var moves = movesAsString.Select(MoveParser.GetMove);
+
 			var topPlayer    = new Player(PlayerType.TopPlayer);
 			var bottomPlayer = new Player(PlayerType.BottomPlayer);
 
-			
+			var boardState = BoardStateTransition.CreateInitialBoadState(topPlayer, bottomPlayer);
+
+			foreach (var move in moves)
+			{
+				if (!GameAnalysis.IsMoveLegal(boardState, move))
+					return FileVerificationResult.FileContainsInvalidMove;
+
+				boardState = boardState.ApplyMove(move);
+
+				var winner = GameAnalysis.CheckWinningCondition(boardState);
+				if (winner != null)
+					return FileVerificationResult.FileContainsTerminatedGame;
+			}
 
 			return FileVerificationResult.ValidFile;
 		}
