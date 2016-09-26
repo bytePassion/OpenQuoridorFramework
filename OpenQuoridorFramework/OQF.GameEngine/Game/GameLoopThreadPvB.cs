@@ -87,7 +87,7 @@ namespace OQF.GameEngine.Game
 
 			if (initialProgress != null)
 			{
-				var moves = ParseProcessText.FromFileText(initialProgress)
+				var moves = ParseProgressText.FromFileText(initialProgress)
 											.Select(MoveParser.GetMove);				
 
 				foreach (var move in moves)

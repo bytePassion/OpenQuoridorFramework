@@ -160,7 +160,7 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 				return;
 			}
 
-			var splittedMoves = ParseProcessText.FromFileText(fileText);
+			var splittedMoves = ParseProgressText.FromFileText(fileText);
 
 			if (!splittedMoves.Any())
 			{

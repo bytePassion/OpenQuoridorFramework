@@ -43,7 +43,7 @@
     <Compile Include="CreateProgressText.cs" />
     <Compile Include="MoveParser.cs" />
     <Compile Include="MoveValidator.cs" />
-    <Compile Include="ParseProcessText.cs" />
+    <Compile Include="ParseProgressText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

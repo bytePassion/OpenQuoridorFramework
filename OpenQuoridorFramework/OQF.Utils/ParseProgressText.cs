@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace OQF.Utils
 {
-	public static class ParseProcessText
+	public static class ParseProgressText
 	{
 		public static IEnumerable<string> FromFileText(string fileText)
 		{
