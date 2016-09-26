@@ -51,19 +51,20 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 			IsDisabledOverlayVisible = true;
 
-			BrowseForBotButtonToolTipCaption = "bot dll laden";
-			StartGameButtonToolTipCaption    = "start";
-			OpenInfoButtonToolTipCaption     = "Info";
-			BotNameLabelCaption              = "BotName";
-			MaximalThinkingTimeLabelCaption  = "max. Rechenzeit";
-			WallsLeftLabelCaption            = "Walls";
-			ProgressCaption                  = "Spielverlauf";
-			AutoScrollDownCheckBoxCaption    = "Automatisch scrollen";
-			DebugCaption                     = "Debug";
-			CapitulateButtonCaption          = "Kapitulieren";
-			HeaderCaptionPlayer              = "Spieler";
-			DumpDebugToFileButtonCaption     = "Speichern";
-			DumpProgressToFileButtonCaption  = "Speichern";
+			BrowseForBotButtonToolTipCaption          = "bot dll laden";
+			StartGameButtonToolTipCaption             = "start";
+			StartWithProgressGameButtonToolTipCaption = "start";
+			OpenInfoButtonToolTipCaption              = "Info";
+			BotNameLabelCaption                       = "BotName";
+			MaximalThinkingTimeLabelCaption           = "max. Rechenzeit";
+			WallsLeftLabelCaption                     = "Walls";
+			ProgressCaption                           = "Spielverlauf";
+			AutoScrollDownCheckBoxCaption             = "Automatisch scrollen";
+			DebugCaption                              = "Debug";
+			CapitulateButtonCaption                   = "Kapitulieren";
+			HeaderCaptionPlayer                       = "Spieler";
+			DumpDebugToFileButtonCaption              = "Speichern";
+			DumpProgressToFileButtonCaption           = "Speichern";
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
@@ -107,19 +108,20 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		////////                                                                                                 ////////
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
-		public string BrowseForBotButtonToolTipCaption { get; }
-		public string StartGameButtonToolTipCaption    { get; }
-		public string OpenInfoButtonToolTipCaption     { get; }
-		public string BotNameLabelCaption              { get; }
-		public string MaximalThinkingTimeLabelCaption  { get; }
-		public string WallsLeftLabelCaption            { get; }
-		public string ProgressCaption                  { get; }
-		public string AutoScrollDownCheckBoxCaption    { get; }
-		public string DebugCaption                     { get; }
-		public string CapitulateButtonCaption          { get; }
-		public string HeaderCaptionPlayer              { get; }
-		public string DumpDebugToFileButtonCaption     { get; }
-		public string DumpProgressToFileButtonCaption  { get; }
+		public string BrowseForBotButtonToolTipCaption          { get; }
+		public string StartGameButtonToolTipCaption             { get; }
+		public string StartWithProgressGameButtonToolTipCaption { get; }
+		public string OpenInfoButtonToolTipCaption              { get; }
+		public string BotNameLabelCaption                       { get; }
+		public string MaximalThinkingTimeLabelCaption           { get; }
+		public string WallsLeftLabelCaption                     { get; }
+		public string ProgressCaption                           { get; }
+		public string AutoScrollDownCheckBoxCaption             { get; }
+		public string DebugCaption                              { get; }
+		public string CapitulateButtonCaption                   { get; }
+		public string HeaderCaptionPlayer                       { get; }
+		public string DumpDebugToFileButtonCaption              { get; }
+		public string DumpProgressToFileButtonCaption           { get; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		

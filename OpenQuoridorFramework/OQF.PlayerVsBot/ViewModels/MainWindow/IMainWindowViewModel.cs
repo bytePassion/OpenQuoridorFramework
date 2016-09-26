@@ -49,18 +49,19 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		////////                                                                                                 ////////
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
 		
-		string BrowseForBotButtonToolTipCaption { get; }
-		string StartGameButtonToolTipCaption    { get; }
-		string OpenInfoButtonToolTipCaption     { get; }
-		string BotNameLabelCaption              { get; }
-		string MaximalThinkingTimeLabelCaption  { get; }
-		string WallsLeftLabelCaption            { get; }
-		string ProgressCaption                  { get; }
-		string AutoScrollDownCheckBoxCaption    { get; }
-		string DebugCaption                     { get; }
-		string CapitulateButtonCaption          { get; }
-		string HeaderCaptionPlayer              { get; }
-		string DumpDebugToFileButtonCaption     { get; }
-		string DumpProgressToFileButtonCaption  { get; }
+		string BrowseForBotButtonToolTipCaption          { get; }
+		string StartGameButtonToolTipCaption             { get; }
+		string StartWithProgressGameButtonToolTipCaption { get; }
+		string OpenInfoButtonToolTipCaption              { get; }
+		string BotNameLabelCaption                       { get; }
+		string MaximalThinkingTimeLabelCaption           { get; }
+		string WallsLeftLabelCaption                     { get; }
+		string ProgressCaption                           { get; }
+		string AutoScrollDownCheckBoxCaption             { get; }
+		string DebugCaption                              { get; }
+		string CapitulateButtonCaption                   { get; }
+		string HeaderCaptionPlayer                       { get; }
+		string DumpDebugToFileButtonCaption              { get; }
+		string DumpProgressToFileButtonCaption           { get; }
 	}
 }

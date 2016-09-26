@@ -507,4 +507,7 @@
   <data name="PvB_DumpProgressFileDialogTitle" xml:space="preserve">
     <value>Speichere aktuellen Spielstand</value>
   </data>
+  <data name="PvB_StartWithProgressGameButtonToolTipCaption" xml:space="preserve">
+    <value>Spiel mit Verlaufsdatei starten</value>
+  </data>
 </root>

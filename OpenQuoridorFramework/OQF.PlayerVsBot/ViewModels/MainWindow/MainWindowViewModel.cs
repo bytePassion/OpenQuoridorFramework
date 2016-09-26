@@ -567,24 +567,26 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
 
-		public string BrowseForBotButtonToolTipCaption => Captions.PvB_BrowseForBotButtonToolTipCaption;
-		public string StartGameButtonToolTipCaption    => Captions.PvB_StartGameButtonToolTipCaption;
-		public string OpenInfoButtonToolTipCaption     => Captions.PvB_OpenInfoButtonToolTipCaption;
-		public string BotNameLabelCaption              => Captions.PvB_BotNameLabelCaption;
-		public string MaximalThinkingTimeLabelCaption  => Captions.PvB_MaximalThinkingTimeLabelCaption;
-		public string WallsLeftLabelCaption            => Captions.PvB_WallsLeftLabelCaption;
-		public string ProgressCaption                  => Captions.PvB_ProgressCaption;
-		public string AutoScrollDownCheckBoxCaption    => Captions.PvB_AutoScrollDownCheckBoxCaption;
-		public string DebugCaption                     => Captions.PvB_DebugCaption;
-		public string CapitulateButtonCaption          => Captions.PvB_CapitulateButtonCaption;
-		public string HeaderCaptionPlayer              => Captions.PvB_HeaderCaptionPlayer;
-		public string DumpDebugToFileButtonCaption     => Captions.PvB_DumpDebugToFileButtonCaption;
-		public string DumpProgressToFileButtonCaption  => Captions.PvB_DumpProgressToFileButtonCaption;
+		public string BrowseForBotButtonToolTipCaption          => Captions.PvB_BrowseForBotButtonToolTipCaption;
+		public string StartGameButtonToolTipCaption             => Captions.PvB_StartGameButtonToolTipCaption;
+		public string StartWithProgressGameButtonToolTipCaption => Captions.PvB_StartWithProgressGameButtonToolTipCaption;
+		public string OpenInfoButtonToolTipCaption              => Captions.PvB_OpenInfoButtonToolTipCaption;
+		public string BotNameLabelCaption                       => Captions.PvB_BotNameLabelCaption;
+		public string MaximalThinkingTimeLabelCaption           => Captions.PvB_MaximalThinkingTimeLabelCaption;
+		public string WallsLeftLabelCaption                     => Captions.PvB_WallsLeftLabelCaption;
+		public string ProgressCaption                           => Captions.PvB_ProgressCaption;
+		public string AutoScrollDownCheckBoxCaption             => Captions.PvB_AutoScrollDownCheckBoxCaption;
+		public string DebugCaption                              => Captions.PvB_DebugCaption;
+		public string CapitulateButtonCaption                   => Captions.PvB_CapitulateButtonCaption;
+		public string HeaderCaptionPlayer                       => Captions.PvB_HeaderCaptionPlayer;
+		public string DumpDebugToFileButtonCaption              => Captions.PvB_DumpDebugToFileButtonCaption;
+		public string DumpProgressToFileButtonCaption           => Captions.PvB_DumpProgressToFileButtonCaption;
 
 		private void RefreshCaptions()
 		{
 			PropertyChanged.Notify(this, nameof(BrowseForBotButtonToolTipCaption),
 										 nameof(StartGameButtonToolTipCaption),
+										 nameof(StartWithProgressGameButtonToolTipCaption),
 										 nameof(OpenInfoButtonToolTipCaption),
 										 nameof(BotNameLabelCaption),
 										 nameof(MaximalThinkingTimeLabelCaption),

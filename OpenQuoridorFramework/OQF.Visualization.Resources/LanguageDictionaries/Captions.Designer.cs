@@ -682,6 +682,15 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start Game from Progress-File.
+        /// </summary>
+        public static string PvB_StartWithProgressGameButtonToolTipCaption {
+            get {
+                return ResourceManager.GetString("PvB_StartWithProgressGameButtonToolTipCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Walls.
         /// </summary>
         public static string PvB_WallsLeftLabelCaption {

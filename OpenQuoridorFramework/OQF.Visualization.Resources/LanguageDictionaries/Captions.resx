@@ -487,4 +487,7 @@
   <data name="PvB_DumpProgressFileDialogTitle" xml:space="preserve">
     <value>Save current Progress</value>
   </data>
+  <data name="PvB_StartWithProgressGameButtonToolTipCaption" xml:space="preserve">
+    <value>Start Game from Progress-File</value>
+  </data>
 </root>
