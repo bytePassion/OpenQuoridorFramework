@@ -520,7 +520,7 @@
     <value>Die Datei beinhaltet ein Spiel, das bereits beendet ist</value>
   </data>
   <data name="PvB_ErrorMsg_ProgressFileCannotBeLoaded" xml:space="preserve">
-    <value>Die Textdatei kann nicht als Spielfotschrittsdatei geladen werden</value>
+    <value>Die Textdatei kann nicht als Spielfortschrittsdatei geladen werden</value>
   </data>
   <data name="PvB_ErrorMsg_Reason" xml:space="preserve">
     <value>Grund</value>
