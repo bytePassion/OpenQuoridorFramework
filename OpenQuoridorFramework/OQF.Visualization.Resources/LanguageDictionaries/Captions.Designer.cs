@@ -160,6 +160,33 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The file is empty or invalid.
+        /// </summary>
+        public static string FVR_EmptyOrInvalidFile {
+            get {
+                return ResourceManager.GetString("FVR_EmptyOrInvalidFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The file contains an invalid move.
+        /// </summary>
+        public static string FVR_FileContainsInvalidMove {
+            get {
+                return ResourceManager.GetString("FVR_FileContainsInvalidMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The file contains a game which already ended.
+        /// </summary>
+        public static string FVR_FileContainsTerminatedGame {
+            get {
+                return ResourceManager.GetString("FVR_FileContainsTerminatedGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BoardState.
         /// </summary>
         public static string HTWAB_BoardStateParagraphHeader {
@@ -624,6 +651,24 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         public static string PvB_ErrorMsg_NoDllPath {
             get {
                 return ResourceManager.GetString("PvB_ErrorMsg_NoDllPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The text-file connot be loaded as progress-file.
+        /// </summary>
+        public static string PvB_ErrorMsg_ProgressFileCannotBeLoaded {
+            get {
+                return ResourceManager.GetString("PvB_ErrorMsg_ProgressFileCannotBeLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reason.
+        /// </summary>
+        public static string PvB_ErrorMsg_Reason {
+            get {
+                return ResourceManager.GetString("PvB_ErrorMsg_Reason", resourceCulture);
             }
         }
         

@@ -510,4 +510,19 @@
   <data name="PvB_StartWithProgressGameButtonToolTipCaption" xml:space="preserve">
     <value>Spiel mit Verlaufsdatei starten</value>
   </data>
+  <data name="FVR_EmptyOrInvalidFile" xml:space="preserve">
+    <value>Die Datei ist leer oder ungültig</value>
+  </data>
+  <data name="FVR_FileContainsInvalidMove" xml:space="preserve">
+    <value>Die Datei beinhaltet einen ungültigen Zug</value>
+  </data>
+  <data name="FVR_FileContainsTerminatedGame" xml:space="preserve">
+    <value>Die Datei beinhaltet ein Spiel, das bereits beendet ist</value>
+  </data>
+  <data name="PvB_ErrorMsg_ProgressFileCannotBeLoaded" xml:space="preserve">
+    <value>Die Textdatei kann nicht als Spielfotschrittsdatei geladen werden</value>
+  </data>
+  <data name="PvB_ErrorMsg_Reason" xml:space="preserve">
+    <value>Grund</value>
+  </data>
 </root>

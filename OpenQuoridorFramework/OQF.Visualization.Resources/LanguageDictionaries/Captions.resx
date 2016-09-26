@@ -490,4 +490,19 @@
   <data name="PvB_StartWithProgressGameButtonToolTipCaption" xml:space="preserve">
     <value>Start Game from Progress-File</value>
   </data>
+  <data name="FVR_EmptyOrInvalidFile" xml:space="preserve">
+    <value>The file is empty or invalid</value>
+  </data>
+  <data name="FVR_FileContainsInvalidMove" xml:space="preserve">
+    <value>The file contains an invalid move</value>
+  </data>
+  <data name="FVR_FileContainsTerminatedGame" xml:space="preserve">
+    <value>The file contains a game which already ended</value>
+  </data>
+  <data name="PvB_ErrorMsg_ProgressFileCannotBeLoaded" xml:space="preserve">
+    <value>The text-file connot be loaded as progress-file</value>
+  </data>
+  <data name="PvB_ErrorMsg_Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
 </root>

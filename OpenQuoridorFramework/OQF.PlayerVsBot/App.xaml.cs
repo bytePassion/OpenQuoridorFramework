@@ -32,12 +32,14 @@ namespace OQF.PlayerVsBot
 			var boardViewModel = new BoardViewModel(gameService);
 			var boardPlacementViewModel = new BoardPlacementViewModel(gameService, gameFactory);
 			var languageSelectionViewModel = new LanguageSelectionViewModel();
+			var progressFileVerifierFactory = new ProgressFileVerifierFactory();
 
 			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, 
 															  boardPlacementViewModel, 
 															  languageSelectionViewModel,
 															  gameService, 
-															  applicationSettingsRepository);
+															  applicationSettingsRepository,
+															  progressFileVerifierFactory);
 
 			if (e.Args.Length == 1)
 			{

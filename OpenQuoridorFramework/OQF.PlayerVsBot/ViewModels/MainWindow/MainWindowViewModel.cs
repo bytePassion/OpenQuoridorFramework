@@ -20,6 +20,7 @@ using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
+using OQF.GameEngine.Contracts.Factories;
 using OQF.PlayerVsBot.Services;
 using OQF.PlayerVsBot.Services.SettingsRepository;
 using OQF.PlayerVsBot.ViewModels.Board;
@@ -42,6 +43,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		private readonly IGameService gameService;
 		private readonly IApplicationSettingsRepository applicationSettingsRepository;
+		private readonly IProgressFileVerifierFactory progressFileVerifierFactory;
 
 
 		private string dllPathInput;		
@@ -61,12 +63,14 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 									IBoardPlacementViewModel boardPlacementViewModel,
 									ILanguageSelectionViewModel languageSelectionViewModel,
 									IGameService gameService, 
-									IApplicationSettingsRepository applicationSettingsRepository)
+									IApplicationSettingsRepository applicationSettingsRepository,
+									IProgressFileVerifierFactory progressFileVerifierFactory)
 		{
 			CultureManager.CultureChanged += RefreshCaptions;
 
 			this.gameService = gameService;
-			this.applicationSettingsRepository = applicationSettingsRepository;			
+			this.applicationSettingsRepository = applicationSettingsRepository;
+			this.progressFileVerifierFactory = progressFileVerifierFactory;
 
 			LanguageSelectionViewModel = languageSelectionViewModel;
 			BoardPlacementViewModel = boardPlacementViewModel;
@@ -533,14 +537,52 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			var result = dialog.ShowDialog();
 
 			if (result.HasValue)
+			{							
 				if (result.Value)   
 				{
 					var progressText = File.ReadAllText(dialog.FileName);
-					applicationSettingsRepository.LastUsedBotPath = DllPathInput;
-					gameService.CreateGame(uninitializedBotAndBotName.Item1, uninitializedBotAndBotName.Item2, new GameConstraints(TimeSpan.FromSeconds(60), 100), progressText);
 
-					((Command)Capitulate).RaiseCanExecuteChanged();
-				}			
+					var fileVerifier = progressFileVerifierFactory.CreateVerifier();
+
+					var verificationResult = fileVerifier.Verify(progressText);
+
+					switch (verificationResult)
+					{
+						case FileVerificationResult.EmptyOrInvalidFile:
+						{
+							await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{dialog.FileName}]" + 
+								                           $"\n\n{Captions.PvB_ErrorMsg_Reason}:" + 
+														   $"\n{Captions.FVR_EmptyOrInvalidFile}",
+														   Captions.ND_OkButtonCaption);
+							return;
+						}
+						case FileVerificationResult.FileContainsInvalidMove:
+						{
+							await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{dialog.FileName}]" +
+														   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+														   $"\n{Captions.FVR_FileContainsInvalidMove}",
+														   Captions.ND_OkButtonCaption);
+							return;
+						}
+						case FileVerificationResult.FileContainsTerminatedGame:
+						{
+							await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{dialog.FileName}]" +
+														   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+														   $"\n{Captions.FVR_FileContainsTerminatedGame}",
+														   Captions.ND_OkButtonCaption);
+							return;
+						}
+						case FileVerificationResult.ValidFile:
+						{
+							applicationSettingsRepository.LastUsedBotPath = DllPathInput;
+							gameService.CreateGame(uninitializedBotAndBotName.Item1, uninitializedBotAndBotName.Item2, new GameConstraints(TimeSpan.FromSeconds(60), 100), progressText);
+
+							((Command)Capitulate).RaiseCanExecuteChanged();
+							return;
+						}
+					}					
+				}	
+			}		
 		}
 
 		private bool IsMoveApplyable ()
