@@ -18,7 +18,13 @@ namespace OQF.Utils
 					var yCoord = GetYCoord(moveString[1]);
 
 					if (xCoord.HasValue && yCoord.HasValue)
-						return new FigureMove(new FieldCoordinate(xCoord.Value, yCoord.Value));
+					{
+						var figurePosition = new FieldCoordinate(xCoord.Value, yCoord.Value);
+						if (IsValidFigurePosition(figurePosition))
+						{
+							return new FigureMove(figurePosition);
+						}
+					}
 
 					break;
 				}
@@ -32,14 +38,43 @@ namespace OQF.Utils
 					var orientation = GetOrientation(moveString[2]);
 
 					if (xCoord.HasValue && yCoord.HasValue && orientation.HasValue)
-						if (xCoord.Value < XField.I && yCoord.Value < YField.One)
-							return new WallMove(new Wall(new FieldCoordinate(xCoord.Value, yCoord.Value), orientation.Value));
+					{
+						var wallPosition = new FieldCoordinate(xCoord.Value, yCoord.Value);
 
+						if (IsValidWallPosition(wallPosition) &&
+							IsValidWallOrientation(orientation.Value))
+						{
+							return new WallMove(new Wall(wallPosition, orientation.Value));
+						}							
+					}
+						
 					break;
 				}				
 			}
 
 			return null;
+		}
+
+		private static bool IsValidFigurePosition(FieldCoordinate coord)
+		{
+			return coord.XCoord >= XField.A &&
+			       coord.XCoord <= XField.I &&
+				   coord.YCoord >= YField.Nine &&
+			       coord.YCoord <= YField.One;
+		}
+
+		private static bool IsValidWallPosition(FieldCoordinate coord)
+		{
+			return coord.XCoord >= XField.A &&
+			       coord.XCoord <= XField.H &&
+			       coord.YCoord >= YField.Nine &&
+			       coord.YCoord <= YField.Two;
+		}
+
+		private static bool IsValidWallOrientation(WallOrientation orientation)
+		{
+			return orientation == WallOrientation.Horizontal ||
+				   orientation == WallOrientation.Vertical;
 		}
 
 		private static WallOrientation? GetOrientation (char s)
