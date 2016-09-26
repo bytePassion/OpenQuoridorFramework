@@ -48,7 +48,8 @@ namespace OQF.Utils
 					    MoveValidator.IsValidMove(lineParts[2]))
 					{
 						result.Add(lineParts[1]);
-						result.Add(lineParts[2]);						
+						result.Add(lineParts[2]);	
+						continue;					
 					}
 					else
 					{
@@ -66,12 +67,15 @@ namespace OQF.Utils
 					{
 						result.Add(lineParts[1]);
 						moreLinesAllowed = false;
+						continue;
 					}
 					else
 					{
 						return new List<string>();
 					}					
 				}
+
+				return new List<string>();
 			}
 
 			return result;
