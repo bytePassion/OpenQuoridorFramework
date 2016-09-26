@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using OQF.Bot.Contracts.Coordination;
 
-namespace OQF.GameEngine.Analysis
+namespace OQF.GameEngine.Analysis.AnalysisGraph
 {
 	public class Node
 	{

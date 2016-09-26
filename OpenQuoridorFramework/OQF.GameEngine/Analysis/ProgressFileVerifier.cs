@@ -1,6 +1,6 @@
 ﻿using OQF.GameEngine.Contracts.Analysis;
 
-namespace OQF.GameEngine.Verifier
+namespace OQF.GameEngine.Analysis
 {
 	internal class ProgressFileVerifier : IProgressFileVerifier
 	{

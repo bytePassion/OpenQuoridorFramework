@@ -1,6 +1,7 @@
 ﻿using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
+using OQF.GameEngine.Analysis.AnalysisGraph;
 
 namespace OQF.GameEngine.Analysis
 {

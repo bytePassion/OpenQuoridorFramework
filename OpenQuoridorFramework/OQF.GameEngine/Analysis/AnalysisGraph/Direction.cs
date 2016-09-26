@@ -1,4 +1,4 @@
-﻿namespace OQF.GameEngine.Analysis
+﻿namespace OQF.GameEngine.Analysis.AnalysisGraph
 {
 	internal enum Direction
 	{

@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using OQF.GameEngine.Analysis;
+using OQF.GameEngine.Analysis.AnalysisGraph;
 using Xunit;
 
 namespace OQF.GameEngine.Test
