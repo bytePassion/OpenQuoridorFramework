@@ -1,5 +1,6 @@
 ﻿using OQF.GameEngine.Contracts.Analysis;
 using OQF.GameEngine.Contracts.Factories;
+using OQF.GameEngine.Verifier;
 
 namespace OQF.GameEngine.Factories
 {
@@ -7,7 +8,7 @@ namespace OQF.GameEngine.Factories
 	{
 		public IProgressFileVerifier CreateVerifier()
 		{
-			
+			return new ProgressFileVerifier();
 		}
 	}
 }
