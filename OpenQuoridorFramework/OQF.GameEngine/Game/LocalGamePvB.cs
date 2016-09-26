@@ -4,7 +4,8 @@ using Lib.Concurrency;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts;
+using OQF.GameEngine.Contracts.Enums;
+using OQF.GameEngine.Contracts.Games;
 
 namespace OQF.GameEngine.Game
 {

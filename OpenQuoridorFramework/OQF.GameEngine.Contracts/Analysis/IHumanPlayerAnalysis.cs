@@ -2,7 +2,7 @@
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.GameEngine.Contracts
+namespace OQF.GameEngine.Contracts.Analysis
 {
 	public interface IHumanPlayerAnalysis
 	{

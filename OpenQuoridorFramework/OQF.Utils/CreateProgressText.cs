@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts;
+using OQF.GameEngine.Contracts.Enums;
 
 namespace OQF.Utils
 {

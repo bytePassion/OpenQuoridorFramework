@@ -7,7 +7,7 @@ using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Analysis;
-using OQF.GameEngine.Contracts;
+using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Transitions;
 using OQF.Utils;
 

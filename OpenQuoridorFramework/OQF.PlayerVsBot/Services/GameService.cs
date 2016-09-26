@@ -3,7 +3,9 @@ using System.Windows;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts;
+using OQF.GameEngine.Contracts.Enums;
+using OQF.GameEngine.Contracts.Factories;
+using OQF.GameEngine.Contracts.Games;
 
 namespace OQF.PlayerVsBot.Services
 {

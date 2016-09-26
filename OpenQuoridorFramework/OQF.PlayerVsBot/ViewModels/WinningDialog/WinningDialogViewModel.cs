@@ -2,7 +2,7 @@
 using System.Text;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts;
+using OQF.GameEngine.Contracts.Enums;
 using OQF.Visualization.Resources.LanguageDictionaries;
 
 #pragma warning disable 0067

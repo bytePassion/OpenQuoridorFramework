@@ -1,7 +1,9 @@
 ﻿using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
+using OQF.GameEngine.Contracts.Analysis;
+using OQF.GameEngine.Contracts.Games;
 
-namespace OQF.GameEngine.Contracts
+namespace OQF.GameEngine.Contracts.Factories
 {
 	public interface IGameFactory
 	{

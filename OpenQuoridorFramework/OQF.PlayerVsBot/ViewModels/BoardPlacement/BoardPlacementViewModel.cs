@@ -10,7 +10,8 @@ using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts;
+using OQF.GameEngine.Contracts.Enums;
+using OQF.GameEngine.Contracts.Factories;
 using OQF.PlayerVsBot.Services;
 using Size = System.Windows.Size;
 

@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
-using OQF.GameEngine.Contracts;
-using OQF.GameEngine.Game;
+using OQF.GameEngine.Contracts.Factories;
+using OQF.GameEngine.Factories;
 using OQF.PlayerVsBot.Services;
 using OQF.PlayerVsBot.Services.SettingsRepository;
 using OQF.PlayerVsBot.ViewModels.Board;

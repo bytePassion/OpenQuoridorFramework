@@ -2,7 +2,7 @@
 using System.Linq;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
-using OQF.GameEngine.Contracts;
+using OQF.GameEngine.Contracts.Analysis;
 
 namespace OQF.GameEngine.Analysis
 {

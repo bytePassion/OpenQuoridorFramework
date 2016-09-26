@@ -3,7 +3,8 @@ using System.Threading;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
-using OQF.GameEngine.Contracts;
+using OQF.GameEngine.Contracts.Enums;
+using OQF.GameEngine.Contracts.Games;
 using OQF.GameEngine.Transitions;
 
 namespace OQF.GameEngine.Game

@@ -40,12 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBvBGame.cs" />
-    <Compile Include="IHumanPlayerAnalysis.cs" />
-    <Compile Include="IGameFactory.cs" />
-    <Compile Include="IPvBGame.cs" />
+    <Compile Include="Games\IBvBGame.cs" />
+    <Compile Include="Analysis\IHumanPlayerAnalysis.cs" />
+    <Compile Include="Factories\IGameFactory.cs" />
+    <Compile Include="Factories\IProgressFileVerifierFactory.cs" />
+    <Compile Include="Analysis\IProgressFileVerifier.cs" />
+    <Compile Include="Games\IPvBGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WinningReason.cs" />
+    <Compile Include="Enums\WinningReason.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
