@@ -64,7 +64,10 @@ namespace OQF.GameEngine.Game
 
 		private void TimerTick(object state)
 		{
+
+#if !DEBUG
 			botMoves.Put(new BotsTimeOut());
+#endif
 		}
 
 		private void OnNextBotMoveAvailable(Move move)
