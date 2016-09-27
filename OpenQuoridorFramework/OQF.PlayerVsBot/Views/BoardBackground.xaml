@@ -8,7 +8,7 @@
              d:DesignWidth="300"
              mc:Ignorable="d">
 
-    <Grid Background="{x:Static global:Constants.FieldBackgroundColor}" IsHitTestVisible="False">
+    <Grid Background="{x:Static global:Constants+Brushes.FieldBackgroundColor}" IsHitTestVisible="False">
 
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -52,7 +52,7 @@
 
         <Grid.Resources>
             <Style TargetType="Rectangle">
-                <Setter Property="Fill" Value="{x:Static global:Constants.FieldColor}" />
+                <Setter Property="Fill" Value="{x:Static global:Constants+Brushes.FieldColor}" />
             </Style>
         </Grid.Resources>
 
@@ -148,3 +148,4 @@
 
     </Grid>
 </UserControl>
+

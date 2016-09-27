@@ -22,7 +22,7 @@ namespace OQF.PlayerVsBot.Computation
 		public object Convert (object[] values, Type targetType, object parameter, CultureInfo culture)
 		{
 			var currentPlayerState = (PlayerState) values[0];
-			var currentBoardSize = values[1] as Size? ?? Constants.SizeFallBackValue;
+			var currentBoardSize = values[1] as Size? ?? Constants.FallBacks.SizeFallBackValue;
 
 			var cellWidth = currentBoardSize.Width / 11.4;
 

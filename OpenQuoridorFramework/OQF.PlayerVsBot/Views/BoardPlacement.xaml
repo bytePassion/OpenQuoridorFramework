@@ -84,7 +84,7 @@
 							<Setter.Value>
 								<ControlTemplate>
 
-									<Ellipse Fill="{x:Static global:Constants.PossibleMoveFieldColor}" >
+									<Ellipse Fill="{x:Static global:Constants+Brushes.PossibleMoveFieldColor}" >
 
 										<Ellipse.Width>
 											<MultiBinding Converter="{StaticResource ComputeFigureWidth}">
@@ -154,7 +154,7 @@
 							<Setter.Value>
 								<ControlTemplate>
 
-									<Rectangle Fill="{x:Static global:Constants.PotentialPlacedWallColor}">
+									<Rectangle Fill="{x:Static global:Constants+Brushes.PotentialPlacedWallColor}">
 
 										<Rectangle.Width>
 											<MultiBinding Converter="{StaticResource ComputeWallWidth}">
@@ -187,3 +187,6 @@
 
 	</Border>
 </UserControl>
+
+
+

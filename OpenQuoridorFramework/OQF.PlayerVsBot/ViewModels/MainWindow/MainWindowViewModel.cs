@@ -352,7 +352,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private void StartTimer()
 		{
 			startTime = DateTime.Now;
-			TopPlayerRestTime = Constants.BotThinkingTimeSeconds.ToString();
+			TopPlayerRestTime = Constants.GameContraint.BotThinkingTimeSeconds.ToString();
 			botCountDownTimer.Change(TimeSpan.Zero, TimeSpan.FromMilliseconds(200));
 		}
 
@@ -538,12 +538,12 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 				return;
 			}
 
-			MovesLeft = (Constants.MaximalMovesPerGame + 1).ToString();
+			MovesLeft = (Constants.GameContraint.MaximalMovesPerGame + 1).ToString();
 			applicationSettingsRepository.LastUsedBotPath = DllPathInput;									
 			gameService.CreateGame(uninitializedBotAndBotName.Item1, 
 								   uninitializedBotAndBotName.Item2, 
-								   new GameConstraints(TimeSpan.FromSeconds(Constants.BotThinkingTimeSeconds), 
-													   Constants.MaximalMovesPerGame));
+								   new GameConstraints(TimeSpan.FromSeconds(Constants.GameContraint.BotThinkingTimeSeconds), 
+													   Constants.GameContraint.MaximalMovesPerGame));
 			
 			((Command)Capitulate).RaiseCanExecuteChanged();
 		}
@@ -611,7 +611,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 					var fileVerifier = progressFileVerifierFactory.CreateVerifier();
 
-					var verificationResult = fileVerifier.Verify(progressText, Constants.MaximalMovesPerGame);
+					var verificationResult = fileVerifier.Verify(progressText, Constants.GameContraint.MaximalMovesPerGame);
 
 					switch (verificationResult)
 					{
@@ -650,11 +650,11 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 						case FileVerificationResult.ValidFile:
 						{
 							applicationSettingsRepository.LastUsedBotPath = DllPathInput;
-							MovesLeft = (Constants.MaximalMovesPerGame + 1).ToString();
+							MovesLeft = (Constants.GameContraint.MaximalMovesPerGame + 1).ToString();
 							gameService.CreateGame(uninitializedBotAndBotName.Item1, 
 												   uninitializedBotAndBotName.Item2, 
-												   new GameConstraints(TimeSpan.FromSeconds(Constants.BotThinkingTimeSeconds), 
-												                       Constants.MaximalMovesPerGame), progressText);
+												   new GameConstraints(TimeSpan.FromSeconds(Constants.GameContraint.BotThinkingTimeSeconds), 
+												                       Constants.GameContraint.MaximalMovesPerGame), progressText);
 
 							((Command)Capitulate).RaiseCanExecuteChanged();
 							return;

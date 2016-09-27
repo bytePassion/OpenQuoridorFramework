@@ -155,8 +155,8 @@
                             <Setter.Value>
                                 <ControlTemplate>
 
-                                    <Rectangle Fill="{x:Static global:Constants.WallColor}"
-                                               Stroke="{x:Static global:Constants.FrameColor}"
+                                    <Rectangle Fill="{x:Static global:Constants+Brushes.WallColor}"
+                                               Stroke="{x:Static global:Constants+Brushes.FrameColor}"
                                                StrokeThickness="1">
 
                                         <Rectangle.Width>

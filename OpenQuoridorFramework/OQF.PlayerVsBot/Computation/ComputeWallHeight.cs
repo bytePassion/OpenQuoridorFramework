@@ -25,7 +25,7 @@ namespace OQF.PlayerVsBot.Computation
 		public object Convert (object[] values, Type targetType, object parameter, CultureInfo culture)
 		{
 			var wall = (Wall) values[0];
-			var currentBoardSize = values[1] as Size? ?? Constants.SizeFallBackValue;
+			var currentBoardSize = values[1] as Size? ?? Constants.FallBacks.SizeFallBackValue;
 
 			var cellHeight = currentBoardSize.Height / 11.4;
 

@@ -12,8 +12,8 @@ namespace OQF.PlayerVsBot.Computation
 		protected override Brush Convert(PlayerState value, CultureInfo culture)
 		{
 			return value.Player.PlayerType == PlayerType.TopPlayer
-				? Constants.TopPlayerActiveColor
-				: Constants.BottomPlayerActiveColor;
+				? Constants.Brushes.TopPlayerActiveColor
+				: Constants.Brushes.BottomPlayerActiveColor;
 		}
 	}
 }
