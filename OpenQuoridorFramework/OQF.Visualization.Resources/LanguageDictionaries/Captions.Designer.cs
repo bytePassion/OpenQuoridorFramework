@@ -160,6 +160,15 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want exit during a ongoing game?.
+        /// </summary>
+        public static string ClosingDialogMessage {
+            get {
+                return ResourceManager.GetString("ClosingDialogMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The file is empty or invalid.
         /// </summary>
         public static string FVR_EmptyOrInvalidFile {
@@ -1227,6 +1236,15 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         public static string QRP_SpecialMoveParagraphText {
             get {
                 return ResourceManager.GetString("QRP_SpecialMoveParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to save the current game progress?.
+        /// </summary>
+        public static string SavingDialogMessage {
+            get {
+                return ResourceManager.GetString("SavingDialogMessage", resourceCulture);
             }
         }
         

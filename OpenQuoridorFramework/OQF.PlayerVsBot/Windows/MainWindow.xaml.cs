@@ -2,6 +2,7 @@
 using MaterialDesignThemes.Wpf;
 using OQF.PlayerVsBot.ViewModels.MainWindow;
 using OQF.PlayerVsBot.ViewModels.YesNoDialog;
+using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.PlayerVsBot.Windows
 {
@@ -20,7 +21,7 @@ namespace OQF.PlayerVsBot.Windows
 			{
 				e.Cancel = true;
 
-				var closingDialogViewModel = new YesNoDialogViewModel("schließen?");
+				var closingDialogViewModel = new YesNoDialogViewModel(Captions.ClosingDialogMessage);
 				var closingDialog = new Views.YesNoDialog
 				{
 					DataContext = closingDialogViewModel
@@ -30,7 +31,7 @@ namespace OQF.PlayerVsBot.Windows
 
 				if ((bool) closingDialogResult)
 				{
-					var savingDialogViewModel = new YesNoDialogViewModel("speichern?");
+					var savingDialogViewModel = new YesNoDialogViewModel(Captions.SavingDialogMessage);
 					var savingDialog = new Views.YesNoDialog
 					{
 						DataContext = savingDialogViewModel

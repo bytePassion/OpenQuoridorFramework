@@ -520,4 +520,10 @@
   <data name="PvBH_Explanation21" xml:space="preserve">
     <value>TODO</value>
   </data>
+  <data name="ClosingDialogMessage" xml:space="preserve">
+    <value>Do you want exit during a ongoing game?</value>
+  </data>
+  <data name="SavingDialogMessage" xml:space="preserve">
+    <value>Do you want to save the current game progress?</value>
+  </data>
 </root>

@@ -540,4 +540,10 @@
   <data name="PvBH_Explanation21" xml:space="preserve">
     <value>21. Anzahl der Wand-Elemente, die der Spieler noch platzieren kann</value>
   </data>
+  <data name="ClosingDialogMessage" xml:space="preserve">
+    <value>Programm während eines laufenden Spiels beenden?</value>
+  </data>
+  <data name="SavingDialogMessage" xml:space="preserve">
+    <value>Aktuellen Spielfortschritt speichern?</value>
+  </data>
 </root>
