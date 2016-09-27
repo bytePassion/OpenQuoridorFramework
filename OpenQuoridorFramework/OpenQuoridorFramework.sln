@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.PlayerVsBot", "OQF.PlayerVsBot\OQF.PlayerVsBot.csproj", "{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}"
 EndProject
@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bots", "Bots", "{5094A226-5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualization", "Visualization", "{1133E98F-58A0-4FE7-9761-C7822EBA673A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External.Contracts", "External.Contracts", "{C6F3B535-2B4C-43CB-A3C1-769C35CE299A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bot.Contracts", "Bot.Contracts", "{C6F3B535-2B4C-43CB-A3C1-769C35CE299A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librarys", "Librarys", "{B119E130-6EA4-4AF7-B512-24B7797DB366}"
 EndProject
