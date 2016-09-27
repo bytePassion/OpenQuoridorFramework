@@ -43,6 +43,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		
 		string DllPathInput { get; set; }
 
+		bool PreventWindowClosingToAskUser { get; }
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////                                                                                                 ////////
 		////////                                          Captions                                               ////////

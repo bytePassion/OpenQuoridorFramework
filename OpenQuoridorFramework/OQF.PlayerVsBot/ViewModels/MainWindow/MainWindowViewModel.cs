@@ -86,6 +86,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			IsAutoScrollDebugMsgActive = true;
 			IsAutoScrollProgressActive = true;
 
+			PreventWindowClosingToAskUser = false;
+
 			TopPlayerName = "- - - - -";
 
 			BrowseDll = new Command(DoBrowseDll,
@@ -377,7 +379,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			get { return gameStatus; }
 			private set
 			{
-				IsDisabledOverlayVisible = value != GameStatus.Active;
+				IsDisabledOverlayVisible      = value != GameStatus.Active;
+				PreventWindowClosingToAskUser = value == GameStatus.Active;
 
 				PropertyChanged.ChangeAndNotify(this, ref gameStatus, value);
 			}
@@ -412,7 +415,9 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		{
 			get { return dllPathInput; }
 			set { PropertyChanged.ChangeAndNotify(this, ref dllPathInput, value); }
-		}		
+		}
+
+		public bool PreventWindowClosingToAskUser { get; private set; }
 
 		private void DoBrowseDll()
 		{
@@ -607,8 +612,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		////////                                          Captions                                               ////////
 		////////                                                                                                 ////////
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
-
-
+		
 		public string BrowseForBotButtonToolTipCaption          => Captions.PvB_BrowseForBotButtonToolTipCaption;
 		public string StartGameButtonToolTipCaption             => Captions.PvB_StartGameButtonToolTipCaption;
 		public string StartWithProgressGameButtonToolTipCaption => Captions.PvB_StartWithProgressGameButtonToolTipCaption;

@@ -50,6 +50,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			IsDebugSectionExpanded    = false;
 
 			IsDisabledOverlayVisible = true;
+			PreventWindowClosingToAskUser = false;
 
 			BrowseForBotButtonToolTipCaption          = "bot dll laden";
 			StartGameButtonToolTipCaption             = "start";
@@ -100,6 +101,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		
 		public string DllPathInput { get; set; }
 
+		public bool PreventWindowClosingToAskUser { get; }
 
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
