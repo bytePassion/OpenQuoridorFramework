@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using Lib.Communication.State;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage;
@@ -36,9 +37,9 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 
 			PageSelectionCommands = new ObservableCollection<SelectionButtonData>
 			{
-				new SelectionButtonData(new Command(() => {}), InfoPage.About),
-				new SelectionButtonData(new Command(() => {}), InfoPage.BotVsBotApplicationInfo),
-				new SelectionButtonData(new Command(() => {}), InfoPage.HowToWriteABot)
+				new SelectionButtonData(new Command(() => {}), InfoPage.About,                   new SharedState<InfoPage>()),
+				new SelectionButtonData(new Command(() => {}), InfoPage.BotVsBotApplicationInfo, new SharedState<InfoPage>()),
+				new SelectionButtonData(new Command(() => {}), InfoPage.HowToWriteABot,          new SharedState<InfoPage>())
 			};
 		}
 

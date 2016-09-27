@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using Lib.Communication.State;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
@@ -25,6 +26,8 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 		
 		private int selectedPage;
 
+		private readonly SharedState<InfoPage> selectedPageVariable;
+
 		public InfoWindowViewModel(IEnumerable<InfoPage> visibleInfoPages,
 								   ILanguageSelectionViewModel languageSelectionViewModel,
 								   IQuoridorRulesPageViewModel quoridorRulesPageViewModel,
@@ -45,6 +48,9 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 			TurnamentInfoPageViewModel = turnamentInfoPageViewModel;
 			QuoridorNotationPageViewModel = quoridorNotationPageViewModel;
 			LanguageSelectionViewModel = languageSelectionViewModel;
+
+			selectedPageVariable = new SharedState<InfoPage>();
+
 			CloseWindow = new Command(DoCloseWindow);
 			PageSelectionCommands = new ObservableCollection<SelectionButtonData>();
 
@@ -56,10 +62,14 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 					SelectedPage = pageNr;
 				});
 				
-				PageSelectionCommands.Add(new SelectionButtonData(command, page));
-			}	
+				PageSelectionCommands.Add(new SelectionButtonData(command, page, selectedPageVariable));
+			}
 
-			PageSelectionCommands.FirstOrDefault()?.Command.Execute(null);
+			var firstPage = PageSelectionCommands.FirstOrDefault();
+			if (firstPage != null)
+			{
+				firstPage.IsChecked = true;
+			}
 		}
 
 		public IQuoridorRulesPageViewModel    QuoridorRulesPageViewModel    { get; }
@@ -87,7 +97,11 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 		public int SelectedPage
 		{
 			get { return selectedPage; }
-			private set { PropertyChanged.ChangeAndNotify(this, ref selectedPage, value); }
+			private set
+			{
+				selectedPageVariable.Value = (InfoPage) value;
+				PropertyChanged.ChangeAndNotify(this, ref selectedPage, value);
+			}
 		}
 
 		public ObservableCollection<SelectionButtonData> PageSelectionCommands { get; }

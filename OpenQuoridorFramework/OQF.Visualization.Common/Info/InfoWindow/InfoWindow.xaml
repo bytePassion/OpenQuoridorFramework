@@ -41,6 +41,12 @@
                       Grid.Column="0"
                       ItemsSource="{Binding PageSelectionCommands}">
 
+			<ItemsControl.Resources>
+				<Style TargetType="ToggleButton">
+					
+				</Style>
+			</ItemsControl.Resources>
+			
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical" />
@@ -49,8 +55,8 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="helper:SelectionButtonData">
-                    <Button Margin="5"
-                            Command="{Binding Command}"
+                    <ToggleButton Margin="5"
+                            IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             Content="{Binding ButtonCaption}" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

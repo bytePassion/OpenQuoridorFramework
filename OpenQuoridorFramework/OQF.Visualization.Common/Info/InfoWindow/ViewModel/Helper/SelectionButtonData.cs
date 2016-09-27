@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
+using Lib.Communication.State;
 using Lib.FrameworkExtension;
 using OQF.Visualization.Common.Language;
 using OQF.Visualization.Resources.LanguageDictionaries;
@@ -8,17 +9,42 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper
 {
 	internal class SelectionButtonData : DisposingObject, INotifyPropertyChanged
 	{
+		private readonly ICommand command;
 		private readonly InfoPage pageType;
+		private readonly ISharedStateReadOnly<InfoPage> selectedPage;
+		private bool isChecked;
 
-		public SelectionButtonData(ICommand command, InfoPage pageType)
+		public SelectionButtonData(ICommand command, InfoPage pageType, ISharedStateReadOnly<InfoPage> selectedPage)
 		{
+			this.command = command;
 			this.pageType = pageType;
-			Command = command;
+			this.selectedPage = selectedPage;
 
+			selectedPage.StateChanged += OnSelectedPageChanged;
 			CultureManager.CultureChanged += RefreshCaption;
-		}		
+		}
 
-		public ICommand Command { get; }
+		private void OnSelectedPageChanged(InfoPage infoPage)
+		{
+			if (infoPage != pageType)
+			{
+				IsChecked = false;
+			}
+		}
+
+		public bool IsChecked
+		{
+			get { return isChecked; }
+			set
+			{
+				if (value != isChecked)				
+					if (value)
+						if (command.CanExecute(null))
+							command.Execute(null);
+				
+				PropertyChanged.ChangeAndNotify(this, ref isChecked, value);
+			}
+		}
 
 		public string ButtonCaption
 		{
@@ -48,6 +74,7 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper
 		protected override void CleanUp()
 		{
 			CultureManager.CultureChanged -= RefreshCaption;
+			selectedPage.StateChanged -= OnSelectedPageChanged;
 		}
 		public event PropertyChangedEventHandler PropertyChanged;
 	}
