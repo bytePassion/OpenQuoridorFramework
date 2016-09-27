@@ -66,6 +66,7 @@
     </ApplicationDefinition>
     <Compile Include="Behaviors\KeepQuadratic.cs" />
     <Compile Include="Behaviors\AutoScrollDownBehavior.cs" />
+    <Compile Include="Behaviors\MainWindowClosingBehavior.cs" />
     <Compile Include="Behaviors\ReportRelativeMousePositionBehavior.cs" />
     <Compile Include="Behaviors\SizeReportingBehavior.cs" />
     <Compile Include="Computation\BottomPlayerMarkerColor.cs" />

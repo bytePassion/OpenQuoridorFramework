@@ -19,9 +19,12 @@
         TextElement.FontSize="12"
         TextElement.FontWeight="Medium"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        WindowStartupLocation="CenterScreen"
-		Closing="MainWindow_OnClosing"
+        WindowStartupLocation="CenterScreen"		
         mc:Ignorable="d">
+	
+	<i:Interaction.Behaviors>
+		<behaviors:MainWindowClosingBehavior/>
+	</i:Interaction.Behaviors>
 
     <d:DesignData.DataContext>
         <mainWindow:MainWindowViewModelSampleData />
