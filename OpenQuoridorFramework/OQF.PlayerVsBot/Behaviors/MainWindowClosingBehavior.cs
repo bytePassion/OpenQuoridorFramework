@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Interactivity;
 using MaterialDesignThemes.Wpf;
 using OQF.PlayerVsBot.ViewModels.MainWindow;
+using OQF.PlayerVsBot.ViewModels.YesNoDialog;
 using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.PlayerVsBot.Behaviors
