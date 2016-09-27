@@ -34,6 +34,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 		public string Explanation16 => Captions.PvBH_Explanation16;
 		public string Explanation17 => Captions.PvBH_Explanation17;
 		public string Explanation18 => Captions.PvBH_Explanation18;
+		public string Explanation19 => Captions.PvBH_Explanation19;
+		public string Explanation20 => Captions.PvBH_Explanation20;
+		public string Explanation21 => Captions.PvBH_Explanation21;
 
 		private void RefreshCaptions ()
 		{
@@ -56,7 +59,10 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 										 nameof(Explanation15),
 										 nameof(Explanation16),
 										 nameof(Explanation17),
-										 nameof(Explanation18));
+										 nameof(Explanation18),
+										 nameof(Explanation19),
+										 nameof(Explanation20),
+										 nameof(Explanation21));
 		}
 
 		protected override void CleanUp()

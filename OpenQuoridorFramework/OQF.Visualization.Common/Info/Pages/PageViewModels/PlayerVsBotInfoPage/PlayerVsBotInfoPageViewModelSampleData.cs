@@ -25,8 +25,11 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 		public string Explanation15 => "15 blubb";
 		public string Explanation16 => "16 blubb";
 		public string Explanation17 => "17 blubb";
-		public string Explanation18 => "18 blubb";		
-		
+		public string Explanation18 => "18 blubb";
+		public string Explanation19 => "19 blubb";
+		public string Explanation20 => "20 blubb";
+		public string Explanation21 => "21 blubb";
+
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
 	}

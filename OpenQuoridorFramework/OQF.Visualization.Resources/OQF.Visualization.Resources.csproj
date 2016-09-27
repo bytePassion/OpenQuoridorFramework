@@ -77,10 +77,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="InfoImages\help_german.png" />
+    <Resource Include="InfoImages\botStartHelp.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="InfoImages\botStartHelp.png" />
+    <Resource Include="InfoImages\playerVsBot_help_german.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

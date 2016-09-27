@@ -33,9 +33,9 @@
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
 					<StackPanel>
-						<Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/help_german.png" 							   
+						<Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/playerVsBot_help_german.png" 							   
 							   Stretch="Uniform"
-							   MaxWidth="1300"/>
+							   MaxWidth="1112"/>
 						<TextBlock Margin="0,15,0,0"
 							       Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   TextWrapping="Wrap"
@@ -60,7 +60,10 @@
 							<Run Text="{Binding Explanation15, Mode=OneWay}"/> <LineBreak/>
 							<Run Text="{Binding Explanation16, Mode=OneWay}"/> <LineBreak/>
 							<Run Text="{Binding Explanation17, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation18, Mode=OneWay}"/> 
+							<Run Text="{Binding Explanation18, Mode=OneWay}"/> <LineBreak/>
+							<Run Text="{Binding Explanation19, Mode=OneWay}"/> <LineBreak/>
+							<Run Text="{Binding Explanation20, Mode=OneWay}"/> <LineBreak/>
+							<Run Text="{Binding Explanation21, Mode=OneWay}"/> 
 						</TextBlock>
 
 					</StackPanel>

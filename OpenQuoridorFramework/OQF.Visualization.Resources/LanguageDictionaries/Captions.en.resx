@@ -531,4 +531,13 @@
   <data name="HTWAB_HintParagraphHeader" xml:space="preserve">
     <value>Hint</value>
   </data>
+  <data name="PvBH_Explanation19" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation20" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="PvBH_Explanation21" xml:space="preserve">
+    <value>TODO</value>
+  </data>
 </root>

@@ -927,6 +927,33 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         /// <summary>
         ///   Looks up a localized string similar to TODO.
         /// </summary>
+        public static string PvBH_Explanation19 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation20 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string PvBH_Explanation21 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation21", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
         public static string PvBH_Note {
             get {
                 return ResourceManager.GetString("PvBH_Note", resourceCulture);
