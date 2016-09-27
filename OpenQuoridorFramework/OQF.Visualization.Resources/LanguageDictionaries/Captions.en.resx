@@ -525,4 +525,10 @@
   <data name="PvB_ErrorMsg_Reason" xml:space="preserve">
     <value>Reason</value>
   </data>
+  <data name="HTWAB_HintParagraphText" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="HTWAB_HintParagraphHeader" xml:space="preserve">
+    <value>Hint</value>
+  </data>
 </root>

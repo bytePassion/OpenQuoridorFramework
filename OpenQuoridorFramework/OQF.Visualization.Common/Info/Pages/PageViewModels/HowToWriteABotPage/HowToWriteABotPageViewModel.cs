@@ -49,6 +49,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 		public string ExampleParagraphHeader => Captions.HTWAB_ExampleParagraphHeader;
 		public string ExampleParagraphText   => Captions.HTWAB_ExampleParagraphText;
 
+		public string HintParagrapHeader => Captions.HTWAB_HintParagraphHeader;
+		public string HintParagrapText   => Captions.HTWAB_HintParagraphText;
+
 		private void RefreshCaptions ()
 		{
 			PropertyChanged.Notify(this, nameof(PageHeader),
@@ -79,7 +82,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 										 nameof(GameFlowItem4),
 										 nameof(GameFlowItem5),
 										 nameof(ExampleParagraphHeader),
-										 nameof(ExampleParagraphText));
+										 nameof(ExampleParagraphText),
+										 nameof(HintParagrapHeader),
+										 nameof(HintParagrapText));
 		}
 
 		protected override void CleanUp()

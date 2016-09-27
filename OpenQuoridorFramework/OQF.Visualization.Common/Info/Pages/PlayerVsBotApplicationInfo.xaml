@@ -34,7 +34,8 @@
                                      Padding="8">
 					<StackPanel>
 						<Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/help_german.png" 							   
-							   Stretch="Uniform"/>
+							   Stretch="Uniform"
+							   MaxWidth="1300"/>
 						<TextBlock Margin="0,15,0,0"
 							       Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   TextWrapping="Wrap"

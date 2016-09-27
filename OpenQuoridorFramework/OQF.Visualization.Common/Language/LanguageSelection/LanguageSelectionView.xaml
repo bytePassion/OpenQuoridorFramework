@@ -18,12 +18,11 @@
 		<computations:GetFlagImageFromCountryCode x:Key="GetFlagImageFromCountryCode" />
 	</UserControl.Resources>
 	
-	<ComboBox Margin="4,0"
-                              DockPanel.Dock="Right"
-                              ItemsSource="{Binding AvailableCountryCodes}"
-                              SelectedValue="{Binding SelectedCountryCode,
-                                                      Mode=TwoWay,
-                                                      UpdateSourceTrigger=PropertyChanged}">
+	<ComboBox Margin="4,0"              
+              ItemsSource="{Binding AvailableCountryCodes}"
+              SelectedValue="{Binding SelectedCountryCode,
+                                      Mode=TwoWay,
+                                      UpdateSourceTrigger=PropertyChanged}">
 		<ComboBox.Style>
 			<Style BasedOn="{StaticResource MaterialDesignComboBoxBlank}" TargetType="{x:Type ComboBox}">
 				<Setter Property="BorderThickness" Value="0 0 0 0" />
@@ -37,12 +36,11 @@
 		<ComboBox.ItemTemplate>
 			<DataTemplate DataType="system:String">
 				<Image Width="40"
-                       Height="25"									   
+                       Height="25"						   
                        Source="{Binding Converter={StaticResource GetFlagImageFromCountryCode}}" />
 
 			</DataTemplate>
 		</ComboBox.ItemTemplate>
-
 
 	</ComboBox>
 </UserControl>

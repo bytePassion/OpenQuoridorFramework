@@ -143,6 +143,25 @@
 
 				</materialDesign:Card>
 
+				<materialDesign:Card Margin="8,8,8,0"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding HintParagrapHeader}"/>
+						<Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/botStartHelp.png" 							   
+							   Stretch="Uniform"
+							   MaxWidth="680"/>
+						
+						<TextBlock Margin="0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap"
+								   Text="{Binding HintParagrapText}"/>
+
+					</StackPanel>
+
+				</materialDesign:Card>
+
 			</StackPanel>
 		
 		</Grid>

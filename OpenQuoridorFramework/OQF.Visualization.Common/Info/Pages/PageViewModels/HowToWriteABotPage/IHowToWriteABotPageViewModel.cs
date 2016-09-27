@@ -37,5 +37,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 
 		string ExampleParagraphHeader { get; }
 		string ExampleParagraphText   { get; }
+
+		string HintParagrapHeader { get; }
+		string HintParagrapText   { get; }
 	}
 }

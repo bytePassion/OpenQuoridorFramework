@@ -367,6 +367,24 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hint.
+        /// </summary>
+        public static string HTWAB_HintParagraphHeader {
+            get {
+                return ResourceManager.GetString("HTWAB_HintParagraphHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string HTWAB_HintParagraphText {
+            get {
+                return ResourceManager.GetString("HTWAB_HintParagraphText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Important Classes/Enums/Structs at the OQF.Bot.Contracts.dll.
         /// </summary>
         public static string HTWAB_ImportantClassesParagraphHeader {

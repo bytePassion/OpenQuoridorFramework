@@ -40,6 +40,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 		public string ExampleParagraphHeader => "blubb";
 		public string ExampleParagraphText   => "blubb";
 
+		public string HintParagrapHeader => "blubb";
+		public string HintParagrapText   => "blubb";
+
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
