@@ -549,4 +549,7 @@
   <data name="PvB_MovesLeftLabelCaption" xml:space="preserve">
     <value>Übrige Züge</value>
   </data>
+  <data name="FVR_FileContainsMoreMovesThanAllowed" xml:space="preserve">
+    <value>Die Datei beinhaltet mehr Züge als im zu startenden Spiel erlaubt sind</value>
+  </data>
 </root>

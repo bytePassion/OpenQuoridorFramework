@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.GameEngine.Contracts.Analysis;
@@ -10,7 +11,7 @@ namespace OQF.GameEngine.Analysis
 {
 	internal class ProgressFileVerifier : IProgressFileVerifier
 	{
-		public FileVerificationResult Verify(string progressText)
+		public FileVerificationResult Verify(string progressText, int maxMoves)
 		{
 			var movesAsString = ParseProgressText.FromFileText(progressText);
 
@@ -18,6 +19,11 @@ namespace OQF.GameEngine.Analysis
 				return FileVerificationResult.EmptyOrInvalidFile;
 
 			var moves = movesAsString.Select(MoveParser.GetMove);
+
+			if ((int)Math.Ceiling(moves.Count() / 2.0) >= maxMoves)
+			{
+				return FileVerificationResult.FileContainsMoreMovesThanAllowed;
+			}
 
 			var topPlayer    = new Player(PlayerType.TopPlayer);
 			var bottomPlayer = new Player(PlayerType.BottomPlayer);

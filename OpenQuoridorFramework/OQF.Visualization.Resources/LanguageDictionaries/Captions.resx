@@ -529,4 +529,7 @@
   <data name="PvB_MovesLeftLabelCaption" xml:space="preserve">
     <value>Moves left</value>
   </data>
+  <data name="FVR_FileContainsMoreMovesThanAllowed" xml:space="preserve">
+    <value>The file contains more moves than allowed in the upcomming game</value>
+  </data>
 </root>

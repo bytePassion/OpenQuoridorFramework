@@ -611,7 +611,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 					var fileVerifier = progressFileVerifierFactory.CreateVerifier();
 
-					var verificationResult = fileVerifier.Verify(progressText);
+					var verificationResult = fileVerifier.Verify(progressText, Constants.MaximalMovesPerGame);
 
 					switch (verificationResult)
 					{
@@ -636,6 +636,14 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 							await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{dialog.FileName}]" +
 														   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
 														   $"\n{Captions.FVR_FileContainsTerminatedGame}",
+														   Captions.ND_OkButtonCaption);
+							return;
+						}
+						case FileVerificationResult.FileContainsMoreMovesThanAllowed:
+						{
+							await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{dialog.FileName}]" +
+														   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+														   $"\n{Captions.FVR_FileContainsMoreMovesThanAllowed}",
 														   Captions.ND_OkButtonCaption);
 							return;
 						}

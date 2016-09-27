@@ -187,6 +187,15 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The file contains more moves than allowed in the upcomming game.
+        /// </summary>
+        public static string FVR_FileContainsMoreMovesThanAllowed {
+            get {
+                return ResourceManager.GetString("FVR_FileContainsMoreMovesThanAllowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The file contains a game which already ended.
         /// </summary>
         public static string FVR_FileContainsTerminatedGame {

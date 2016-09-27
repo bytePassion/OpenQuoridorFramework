@@ -88,6 +88,8 @@ namespace OQF.GameEngine.Game
 			currentBoardState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
 			NewBoardStateAvailable?.Invoke(currentBoardState);
 
+			var moveCounter = 0;
+
 			if (initialProgress != null)
 			{
 				var moves = ParseProgressText.FromFileText(initialProgress)
@@ -110,9 +112,9 @@ namespace OQF.GameEngine.Game
 						return;
 					}
 				}
-			}			
 
-			var moveCounter = 0;
+				moveCounter = (int) Math.Ceiling(moves.Count() / 2.0);
+			}						
 
 			while (!stopRunning)
 			{

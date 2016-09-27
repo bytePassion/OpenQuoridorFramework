@@ -5,6 +5,7 @@
 		ValidFile,
 		EmptyOrInvalidFile,
 		FileContainsInvalidMove,
-		FileContainsTerminatedGame
+		FileContainsTerminatedGame,
+		FileContainsMoreMovesThanAllowed
 	}
 }

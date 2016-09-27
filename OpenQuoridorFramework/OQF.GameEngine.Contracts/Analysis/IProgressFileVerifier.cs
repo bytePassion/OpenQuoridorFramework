@@ -4,6 +4,6 @@ namespace OQF.GameEngine.Contracts.Analysis
 {
 	public interface IProgressFileVerifier
 	{
-		FileVerificationResult Verify(string progressText);
+		FileVerificationResult Verify(string progressText, int maxMoves);
 	}
 }
