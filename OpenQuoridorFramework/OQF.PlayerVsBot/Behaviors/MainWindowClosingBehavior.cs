@@ -1,6 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
+using MaterialDesignThemes.Wpf;
+using OQF.PlayerVsBot.ViewModels.MainWindow;
+using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.PlayerVsBot.Behaviors
 {
@@ -12,7 +15,7 @@ namespace OQF.PlayerVsBot.Behaviors
 			AssociatedObject.Closing += OnClosing;
 		}		
 
-		protected override void OnDetaching()
+		protected override void OnDetaching() 
 		{
 			base.OnDetaching();
 			AssociatedObject.Closing -= OnClosing;
