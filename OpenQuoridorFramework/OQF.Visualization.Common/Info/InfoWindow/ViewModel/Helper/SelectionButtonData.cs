@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
+using Lib.FrameworkExtension;
+using OQF.Visualization.Common.Language;
 using OQF.Visualization.Resources.LanguageDictionaries;
-
-#pragma warning disable 0067
 
 namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper
 {
-	internal class SelectionButtonData : INotifyPropertyChanged
+	internal class SelectionButtonData : DisposingObject, INotifyPropertyChanged
 	{
 		private readonly InfoPage pageType;
 
@@ -14,7 +14,9 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper
 		{
 			this.pageType = pageType;
 			Command = command;
-		}
+
+			CultureManager.CultureChanged += RefreshCaption;
+		}		
 
 		public ICommand Command { get; }
 
@@ -37,7 +39,16 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper
 				return "error";
 			}
 		}
+
+		private void RefreshCaption ()
+		{
+			PropertyChanged.Notify(this, nameof(ButtonCaption));
+		}
 		
-		public event PropertyChangedEventHandler PropertyChanged;		
+		protected override void CleanUp()
+		{
+			CultureManager.CultureChanged -= RefreshCaption;
+		}
+		public event PropertyChangedEventHandler PropertyChanged;
 	}
 }

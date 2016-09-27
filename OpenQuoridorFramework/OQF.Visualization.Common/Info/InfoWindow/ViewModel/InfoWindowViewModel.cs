@@ -92,7 +92,13 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 
 		public ObservableCollection<SelectionButtonData> PageSelectionCommands { get; }
 
-		protected override void CleanUp() {	}
+		protected override void CleanUp()
+		{
+			foreach (var pageSelectionCommand in PageSelectionCommands)
+			{
+				pageSelectionCommand.Dispose();
+			}
+		}
 		public override event PropertyChangedEventHandler PropertyChanged;
 		
 	}

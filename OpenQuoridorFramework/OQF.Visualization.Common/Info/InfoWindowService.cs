@@ -59,6 +59,7 @@ namespace OQF.Visualization.Common.Info
 			turnamentInfoPageViewModel.Dispose();
 			aboutPageViewModel.Dispose();
 			languageSelectionViewModel.Dispose();
+
 			infoWindowViewModel.Dispose();
 		}
 	}
