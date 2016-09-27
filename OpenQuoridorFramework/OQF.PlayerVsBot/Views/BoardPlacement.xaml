@@ -65,8 +65,7 @@
 								<MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
 									<Binding />
 									<Binding Path="DataContext.BoardSize" 
-											 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}"  
-											 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+											 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}"/>
 								</MultiBinding>
 							</Setter.Value>
 						</Setter>
@@ -76,8 +75,7 @@
 								<MultiBinding Converter="{StaticResource ComputeFigureTopPosition}">
 									<Binding />
 									<Binding Path="DataContext.BoardSize" 
-											 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" 
-											 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+											 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}"/>
 								</MultiBinding>
 							</Setter.Value>
 						</Setter>
@@ -92,8 +90,7 @@
 											<MultiBinding Converter="{StaticResource ComputeFigureWidth}">
 												<Binding />
 												<Binding Path="DataContext.BoardSize" 
-														 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" 
-														 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+														 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}"/>
 											</MultiBinding>
 										</Ellipse.Width>
 
@@ -101,8 +98,7 @@
 											<MultiBinding Converter="{StaticResource ComputeFigureHeight}">
 												<Binding />
 												<Binding Path="DataContext.BoardSize" 
-														 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}"  
-														 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+														 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}"/>
 											</MultiBinding>
 										</Ellipse.Height>
 
@@ -139,8 +135,7 @@
 								<MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">
 									<Binding />
 									<Binding Path="DataContext.BoardSize" 
-											 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" 
-											 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+											 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}"/>
 								</MultiBinding>
 							</Setter.Value>
 						</Setter>
@@ -150,8 +145,7 @@
 								<MultiBinding Converter="{StaticResource ComputeWallTopPosition}">
 									<Binding />
 									<Binding Path="DataContext.BoardSize" 
-											 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" 
-											 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+											 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}"/>
 								</MultiBinding>
 							</Setter.Value>
 						</Setter>
@@ -166,8 +160,7 @@
 											<MultiBinding Converter="{StaticResource ComputeWallWidth}">
 												<Binding />
 												<Binding Path="DataContext.BoardSize" 
-														 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" 
-														 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+														 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}"/>
 											</MultiBinding>
 										</Rectangle.Width>
 
@@ -175,8 +168,7 @@
 											<MultiBinding Converter="{StaticResource ComputeWallHeight}">
 												<Binding />
 												<Binding Path="DataContext.BoardSize" 
-														 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" 
-														 FallbackValue="{x:Static global:Constants.SizeFallBackValue}"/>
+														 RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}"/>
 											</MultiBinding>
 										</Rectangle.Height>
 

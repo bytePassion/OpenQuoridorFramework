@@ -4,9 +4,7 @@ using System.Windows.Media;
 namespace OQF.PlayerVsBot.Global
 {
 	internal static class Constants
-	{
-		//public static readonly SolidColorBrush TopPlayerActiveColor     = new SolidColorBrush(Colors.Red);
-		//public static readonly SolidColorBrush BottomPlayerActiveColor  = new SolidColorBrush(Colors.GreenYellow);
+	{		
 		public static readonly SolidColorBrush PlayerInactiveColor      = new SolidColorBrush(Colors.DarkGray);
 		public static readonly SolidColorBrush FieldBackgroundColor     = new SolidColorBrush(Color.FromRgb(121, 93, 86));
 		public static readonly SolidColorBrush FieldColor               = new SolidColorBrush(Color.FromRgb(97, 64, 56));
