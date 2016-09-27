@@ -1,8 +1,8 @@
 ﻿namespace OQF.PlayerVsBot.Views
 {
-	public partial class WinningDialog
+	public partial class YesNoDialog
     {
-        public WinningDialog()
+        public YesNoDialog()
         {
             InitializeComponent();
         }

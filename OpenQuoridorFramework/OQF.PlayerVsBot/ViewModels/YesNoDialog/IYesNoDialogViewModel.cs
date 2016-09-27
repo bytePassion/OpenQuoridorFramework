@@ -1,8 +1,8 @@
 ﻿using Lib.Wpf.ViewModelBase;
 
-namespace OQF.PlayerVsBot.ViewModels.WinningDialog
+namespace OQF.PlayerVsBot.ViewModels.YesNoDialog
 {
-	internal interface IWinningDialogViewModel : IViewModel
+	internal interface IYesNoDialogViewModel : IViewModel
 	{
 		string Message { get; }
 

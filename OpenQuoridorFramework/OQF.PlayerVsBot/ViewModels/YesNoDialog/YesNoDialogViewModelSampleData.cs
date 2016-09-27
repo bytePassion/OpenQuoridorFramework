@@ -2,18 +2,18 @@
 
 #pragma warning disable 0067
 
-namespace OQF.PlayerVsBot.ViewModels.WinningDialog
+namespace OQF.PlayerVsBot.ViewModels.YesNoDialog
 {
-	internal class WinningDialogViewModelSampleData : IWinningDialogViewModel
+	internal class YesNoDialogViewModelSampleData : IYesNoDialogViewModel
 	{
-		public WinningDialogViewModelSampleData()
+		public YesNoDialogViewModelSampleData()
 		{
 			Message = "dialog-Message";
 
 			YesButtonCaption = "Ja";
 			NoButtonCaption = "Nein";
 		}
-
+		
 		public string Message { get; }
 
 		public string YesButtonCaption { get; }
