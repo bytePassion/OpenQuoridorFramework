@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
+using MaterialDesignThemes.Wpf;
 using OQF.PlayerVsBot.ViewModels.MainWindow;
+using OQF.PlayerVsBot.ViewModels.YesNoDialog;
 
 namespace OQF.PlayerVsBot.Windows
 {
@@ -7,44 +9,45 @@ namespace OQF.PlayerVsBot.Windows
 	{
 		public MainWindow ()
 		{
-			InitializeComponent();
-		}
+			InitializeComponent();			
+		}		
 
 		private async void MainWindow_OnClosing (object sender, CancelEventArgs e)
-		{
-			var viewModel = DataContext as IMainWindowViewModel;
+		{			
+			var mainWindowViewModel = DataContext as IMainWindowViewModel;
 
-			if (viewModel.PreventWindowClosingToAskUser)
+			if (mainWindowViewModel.PreventWindowClosingToAskUser)
 			{
 				e.Cancel = true;
 
+				var closingDialogViewModel = new YesNoDialogViewModel("schließen?");
+				var closingDialog = new Views.YesNoDialog
+				{
+					DataContext = closingDialogViewModel
+				};
 
-//				var winningDialogViewModel = new WinningDialogViewModel();
-//
-//				var view = new Views.WinningDialog
-//				{
-//					DataContext = winningDialogViewModel
-//				};
-//
-//				var dialogResult = await DialogHost.Show(view, "RootDialog");
-//
-//				if ((bool)dialogResult)
-//				{
-//					
-//				}
-//
-//				winningDialogViewModel.Dispose();
+				var closingDialogResult = await DialogHost.Show(closingDialog, "RootDialog");
 
+				if ((bool) closingDialogResult)
+				{
+					var savingDialogViewModel = new YesNoDialogViewModel("speichern?");
+					var savingDialog = new Views.YesNoDialog
+					{
+						DataContext = savingDialogViewModel
+					};
 
-				//				var dialog = new UserDialogBox("Programm beenden.", "Wollen Sie das Programm wirklich beenden?",
-				//				MessageBoxButton.OKCancel);
-				//
-				//				var result = await dialog.ShowMahAppsDialog();
-				//
-				//				if (result == MessageDialogResult.Affirmative)
-				//				{
-				//					viewModel.CloseWindow.Execute(null);
-				//				}
+					var savingDialogResult = await DialogHost.Show(savingDialog, "RootDialog");
+
+					if ((bool) savingDialogResult)
+					{
+						if (mainWindowViewModel.DumpProgressToFile.CanExecute(null))
+							mainWindowViewModel.DumpProgressToFile.Execute(null);
+					}
+
+					mainWindowViewModel.CloseWindow.Execute(null);
+				}
+				
+				closingDialogViewModel.Dispose();				
 			}
 		}
 	}

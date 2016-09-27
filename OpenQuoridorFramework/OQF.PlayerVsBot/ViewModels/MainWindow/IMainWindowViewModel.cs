@@ -21,6 +21,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		ICommand BrowseDll          { get; }
 		ICommand DumpDebugToFile    { get; }
 		ICommand DumpProgressToFile { get; }
+		ICommand CloseWindow        { get; }
 
 		ObservableCollection<string> DebugMessages { get; } 
 		ObservableCollection<string> GameProgress  { get; }						

@@ -79,6 +79,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public ICommand BrowseDll          => null;
 		public ICommand DumpDebugToFile    => null;
 		public ICommand DumpProgressToFile => null;
+		public ICommand CloseWindow        => null;
 
 		public ObservableCollection<string> DebugMessages  { get; }
 		public ObservableCollection<string> GameProgress   { get; }		

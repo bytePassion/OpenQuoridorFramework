@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -26,7 +27,7 @@ using OQF.PlayerVsBot.Services.SettingsRepository;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
-using OQF.PlayerVsBot.ViewModels.WinningDialog;
+using OQF.PlayerVsBot.ViewModels.YesNoDialog;
 using OQF.Utils;
 using OQF.Visualization.Common.Info;
 using OQF.Visualization.Common.Language;
@@ -105,6 +106,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			ShowAboutHelp = new Command(DoShowAboutHelp);
 			DumpDebugToFile = new Command(DoDumpDebugToFile);
 			DumpProgressToFile = new Command(DoDumpProgressToFile);
+			CloseWindow = new Command(DoCloseWindow);
 
 			GameStatus = GameStatus.Unloaded;
 
@@ -114,7 +116,16 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 			botCountDownTimer = new Timer(BotCountDownTimerOnTick, null,Timeout.Infinite, Timeout.Infinite);		
 			StopTimer();	
-		}		
+		}
+
+		private void DoCloseWindow()
+		{
+			PreventWindowClosingToAskUser = false;
+			Application.Current.Windows
+							   .OfType<Windows.MainWindow>()
+							   .FirstOrDefault(window => ReferenceEquals(window.DataContext, this))
+							   ?.Close();
+		}
 
 		private void BotCountDownTimerOnTick(object sender)
 		{
@@ -203,16 +214,48 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			}
 		}
 
+		private static string GetWinningOrLoosingMessage(bool reportWinning, WinningReason winningReason, Move invalidMove)
+		{
+			var sb = new StringBuilder();
+
+			sb.Append(reportWinning
+							? $"{Captions.WD_WinningMessage}"
+							: $"{Captions.WD_LoosingMessage}");
+
+			sb.Append($"\n{Captions.WD_Message_Reason}: {WinningReasonToString(winningReason)}");
+
+			if (winningReason == WinningReason.InvalidMove)
+				sb.Append($" [{invalidMove}]");
+
+			sb.Append($"\n\n{Captions.WD_SaveGameRequest}");
+
+			return sb.ToString();
+		}
+
+		private static string WinningReasonToString(WinningReason winningReason)
+	    {
+		    switch (winningReason)
+		    {
+			    case WinningReason.Capitulation:            return Captions.WinningReason_Capitulation;				
+				case WinningReason.InvalidMove:             return Captions.WinningReason_InvalidMode;
+				case WinningReason.ExceedanceOfMaxMoves:    return Captions.WinningReason_ExceedanceOfMaxMoves;
+				case WinningReason.ExceedanceOfThoughtTime: return Captions.WinningReason_ExceedanceOfThoughtTime;
+				case WinningReason.RegularQuoridorWin:      return Captions.WinningReason_RegularQuoridorWin;			    
+		    }
+
+		    return "";
+	    }
+
 		private async void ExecuteWinDialog(bool reportWinning, Player player, WinningReason winningReason, Move invalidMove)
 	    {
-		    var winningDialogViewModel = new WinningDialogViewModel(reportWinning, winningReason, invalidMove);
+		    var yesNoDialogViewModel = new YesNoDialogViewModel(GetWinningOrLoosingMessage(reportWinning, winningReason, invalidMove));
 
-			var view = new Views.WinningDialog
+			var winningDialog = new Views.YesNoDialog
 	        {
-                DataContext = winningDialogViewModel
+                DataContext = yesNoDialogViewModel
 	        };
-
-	        var dialogResult = await DialogHost.Show(view, "RootDialog");
+			
+	        var dialogResult = await DialogHost.Show(winningDialog, "RootDialog");
 
             if ((bool)dialogResult)
             {
@@ -242,7 +285,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
                 }
             }
             
-			winningDialogViewModel.Dispose();
+			yesNoDialogViewModel.Dispose();
         }
 
 		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move invalidMove)
@@ -323,6 +366,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public ICommand BrowseDll          { get; }
 		public ICommand DumpDebugToFile    { get; }
 		public ICommand DumpProgressToFile { get; }
+		public ICommand CloseWindow        { get; }
 
 		public ObservableCollection<string> DebugMessages { get; }
 		public ObservableCollection<string> GameProgress  { get; }
