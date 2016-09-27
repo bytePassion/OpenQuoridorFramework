@@ -1,10 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
-using MaterialDesignThemes.Wpf;
-using OQF.PlayerVsBot.ViewModels.MainWindow;
-using OQF.PlayerVsBot.ViewModels.YesNoDialog;
-using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.PlayerVsBot.Behaviors
 {
@@ -24,6 +20,7 @@ namespace OQF.PlayerVsBot.Behaviors
 
 		private async void OnClosing (object sender, CancelEventArgs cancelEventArgs)
 		{
+#if !DEBUG
 			var mainWindowViewModel = AssociatedObject.DataContext as IMainWindowViewModel;
 
 			if (mainWindowViewModel.PreventWindowClosingToAskUser)
@@ -58,7 +55,9 @@ namespace OQF.PlayerVsBot.Behaviors
 				}
 
 				closingDialogViewModel.Dispose();
+
 			}
+#endif
 		}
 	}
 }
