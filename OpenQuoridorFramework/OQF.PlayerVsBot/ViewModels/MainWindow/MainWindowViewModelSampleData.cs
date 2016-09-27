@@ -38,6 +38,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 			TopPlayerWallCountLeft    = 10;
 			BottomPlayerWallCountLeft = 9;
+			MovesLeft = "97";
 			
 			DllPathInput = "blubb.dll";			
 
@@ -53,8 +54,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			PreventWindowClosingToAskUser = false;
 
 			BrowseForBotButtonToolTipCaption          = "bot dll laden";
-			StartGameButtonToolTipCaption             = "start";
-			StartWithProgressGameButtonToolTipCaption = "start";
+			StartGameButtonToolTipCaption             = "Start";
+			StartWithProgressGameButtonToolTipCaption = "Start";
 			OpenInfoButtonToolTipCaption              = "Info";
 			BotNameLabelCaption                       = "BotName";
 			MaximalThinkingTimeLabelCaption           = "max. Rechenzeit";
@@ -66,6 +67,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			HeaderCaptionPlayer                       = "Spieler";
 			DumpDebugToFileButtonCaption              = "Speichern";
 			DumpProgressToFileButtonCaption           = "Speichern";
+			MovesLeftLabelCaption                     = "Verfügbare Züge";
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
@@ -99,7 +101,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		public int TopPlayerWallCountLeft   { get; }
 		public int BottomPlayerWallCountLeft { get; }
-		
+		public string MovesLeft { get; }
+
 		public string DllPathInput { get; set; }
 
 		public bool PreventWindowClosingToAskUser { get; }
@@ -125,6 +128,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public string HeaderCaptionPlayer                       { get; }
 		public string DumpDebugToFileButtonCaption              { get; }
 		public string DumpProgressToFileButtonCaption           { get; }
+		public string MovesLeftLabelCaption                     { get; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		

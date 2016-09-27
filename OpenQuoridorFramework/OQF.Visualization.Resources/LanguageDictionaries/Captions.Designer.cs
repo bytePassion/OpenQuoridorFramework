@@ -718,6 +718,15 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Moves left.
+        /// </summary>
+        public static string PvB_MovesLeftLabelCaption {
+            get {
+                return ResourceManager.GetString("PvB_MovesLeftLabelCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help and About.
         /// </summary>
         public static string PvB_OpenInfoButtonToolTipCaption {

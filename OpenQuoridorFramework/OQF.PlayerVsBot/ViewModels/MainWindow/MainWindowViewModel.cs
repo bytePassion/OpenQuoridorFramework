@@ -22,6 +22,7 @@ using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
+using OQF.PlayerVsBot.Global;
 using OQF.PlayerVsBot.Services;
 using OQF.PlayerVsBot.Services.SettingsRepository;
 using OQF.PlayerVsBot.ViewModels.Board;
@@ -58,6 +59,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private bool isDisabledOverlayVisible;
 		private bool isProgressSectionExpanded;
 		private bool isDebugSectionExpanded;
+		private string movesLeft;
 
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel, 
@@ -90,6 +92,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			PreventWindowClosingToAskUser = false;
 
 			TopPlayerName = "- - - - -";
+			MovesLeft = "--";
 
 			BrowseDll = new Command(DoBrowseDll,
 								    () => GameStatus != GameStatus.Active,
@@ -314,6 +317,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 				TopPlayerName = "- - - - -";
 				TopPlayerWallCountLeft = 10;
 				BottomPlayerWallCountLeft = 10;
+				MovesLeft = "--";
+				TopPlayerRestTime = "--";
 
 				GameProgress.Clear();
 			}
@@ -331,6 +336,9 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 					if (GameProgress.Count > 0)
 						GameProgress[GameProgress.Count - 1] = GameProgress[GameProgress.Count - 1] + $" {boardState.LastMove}";
 
+					var currentMovesLeft = int.Parse(MovesLeft);
+					MovesLeft = (currentMovesLeft - 1).ToString();
+
 					StopTimer();
 				}
 				else
@@ -344,7 +352,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private void StartTimer()
 		{
 			startTime = DateTime.Now;
-			TopPlayerRestTime = "60";
+			TopPlayerRestTime = Constants.BotThinkingTimeSeconds.ToString();
 			botCountDownTimer.Change(TimeSpan.Zero, TimeSpan.FromMilliseconds(200));
 		}
 
@@ -454,7 +462,13 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			get { return bottomPlayerWallCountLeft; }
 			private set { PropertyChanged.ChangeAndNotify(this, ref bottomPlayerWallCountLeft, value); }
 		}
-		
+
+		public string MovesLeft
+		{
+			get { return movesLeft; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref movesLeft, value); }
+		}
+
 		public string DllPathInput
 		{
 			get { return dllPathInput; }
@@ -524,8 +538,12 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 				return;
 			}
 
+			MovesLeft = (Constants.MaximalMovesPerGame + 1).ToString();
 			applicationSettingsRepository.LastUsedBotPath = DllPathInput;									
-			gameService.CreateGame(uninitializedBotAndBotName.Item1, uninitializedBotAndBotName.Item2, new GameConstraints(TimeSpan.FromSeconds(60), 100));
+			gameService.CreateGame(uninitializedBotAndBotName.Item1, 
+								   uninitializedBotAndBotName.Item2, 
+								   new GameConstraints(TimeSpan.FromSeconds(Constants.BotThinkingTimeSeconds), 
+													   Constants.MaximalMovesPerGame));
 			
 			((Command)Capitulate).RaiseCanExecuteChanged();
 		}
@@ -624,7 +642,11 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 						case FileVerificationResult.ValidFile:
 						{
 							applicationSettingsRepository.LastUsedBotPath = DllPathInput;
-							gameService.CreateGame(uninitializedBotAndBotName.Item1, uninitializedBotAndBotName.Item2, new GameConstraints(TimeSpan.FromSeconds(60), 100), progressText);
+							MovesLeft = (Constants.MaximalMovesPerGame + 1).ToString();
+							gameService.CreateGame(uninitializedBotAndBotName.Item1, 
+												   uninitializedBotAndBotName.Item2, 
+												   new GameConstraints(TimeSpan.FromSeconds(Constants.BotThinkingTimeSeconds), 
+												                       Constants.MaximalMovesPerGame), progressText);
 
 							((Command)Capitulate).RaiseCanExecuteChanged();
 							return;
@@ -671,6 +693,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		public string HeaderCaptionPlayer                       => Captions.PvB_HeaderCaptionPlayer;
 		public string DumpDebugToFileButtonCaption              => Captions.PvB_DumpDebugToFileButtonCaption;
 		public string DumpProgressToFileButtonCaption           => Captions.PvB_DumpProgressToFileButtonCaption;
+		public string MovesLeftLabelCaption                     => Captions.PvB_MovesLeftLabelCaption;
 
 		private void RefreshCaptions()
 		{
@@ -687,7 +710,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 										 nameof(CapitulateButtonCaption),
 										 nameof(HeaderCaptionPlayer),
 										 nameof(DumpDebugToFileButtonCaption),
-										 nameof(DumpProgressToFileButtonCaption));
+										 nameof(DumpProgressToFileButtonCaption),
+										 nameof(MovesLeftLabelCaption));
 		}
 
 		protected override void CleanUp()

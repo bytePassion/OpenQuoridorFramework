@@ -546,4 +546,7 @@
   <data name="SavingDialogMessage" xml:space="preserve">
     <value>Aktuellen Spielfortschritt speichern?</value>
   </data>
+  <data name="PvB_MovesLeftLabelCaption" xml:space="preserve">
+    <value>Übrige Züge</value>
+  </data>
 </root>

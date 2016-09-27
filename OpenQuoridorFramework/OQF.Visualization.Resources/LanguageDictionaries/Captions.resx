@@ -526,4 +526,7 @@
   <data name="SavingDialogMessage" xml:space="preserve">
     <value>Do you want to save the current game progress?</value>
   </data>
+  <data name="PvB_MovesLeftLabelCaption" xml:space="preserve">
+    <value>Moves left</value>
+  </data>
 </root>

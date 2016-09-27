@@ -40,5 +40,8 @@ namespace OQF.PlayerVsBot.Global
         };
 
         public static readonly Size SizeFallBackValue = new Size(300,300);
+
+		public const int BotThinkingTimeSeconds = 60;
+		public const int MaximalMovesPerGame    = 100;
 	}
 }

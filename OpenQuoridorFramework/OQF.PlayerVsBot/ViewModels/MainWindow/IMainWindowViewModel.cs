@@ -41,7 +41,8 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 		int TopPlayerWallCountLeft    { get; }
 		int BottomPlayerWallCountLeft { get; }
-		
+		string MovesLeft { get; }
+
 		string DllPathInput { get; set; }
 
 		bool PreventWindowClosingToAskUser { get; }
@@ -66,5 +67,6 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		string HeaderCaptionPlayer                       { get; }
 		string DumpDebugToFileButtonCaption              { get; }
 		string DumpProgressToFileButtonCaption           { get; }
+		string MovesLeftLabelCaption                     { get; }
 	}
 }

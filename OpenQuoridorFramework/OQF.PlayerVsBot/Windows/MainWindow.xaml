@@ -382,10 +382,12 @@
                 <Grid>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+						<ColumnDefinition Width="70" />
+						<ColumnDefinition Width="Auto" MinWidth="150" />
+						<ColumnDefinition />
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
 
 
                     <Ellipse Grid.Column="0"
@@ -395,7 +397,21 @@
                                             Converter={StaticResource BottomPlayerMarkerColor}}" />
 
 
-                    <TextBlock Grid.Column="2"
+					<TextBlock Grid.Column="1"
+                               Margin="80,0,10,0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+							   FontSize="20">
+                        <Run Text="{Binding MovesLeftLabelCaption, Mode=OneWay}"/>:
+					</TextBlock>
+
+					<TextBlock Grid.Column="2"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+							   FontSize="20"
+                               Text="{Binding MovesLeft}" />
+
+					<TextBlock Grid.Column="4"
                                Margin="0,0,46,0"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
@@ -404,7 +420,7 @@
 					</TextBlock>
 
 
-                    <TextBlock Grid.Column="2"
+                    <TextBlock Grid.Column="4"
                                Margin="0,0,5,0"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
@@ -414,7 +430,7 @@
 
 
                     <Button Grid.Row="0"
-                            Grid.Column="1"
+                            Grid.Column="3"
                             Margin="20,7"
                             HorizontalAlignment="Right"
                             Command="{Binding Capitulate}"
