@@ -11,7 +11,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:OQF.PlayerVsBot.Views"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-        Title="MainWindow"
+        Title="OpenQuoridorFramework - Player vs. Bot"
         Width="1200"
         Height="950"
         Background="{DynamicResource MaterialDesignFlatButtonClick}"
