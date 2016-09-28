@@ -361,7 +361,7 @@
     <value>The current situation on the board is represented by the BoardState-class. All game-relevant informations are stored in it: all placed walls, the states of both players and the player who's turn it is. Additional to that can the complete game-history be reviewed by looking at LastBoardState and LastMove.</value>
   </data>
   <data name="HTWAB_MovesParagraphText" xml:space="preserve">
-    <value>Based on the abstract superclass Move, there are 3 different moves to choose each turn. The FigureMove, to move the Pawn, the WallMove, to place a wall on the board, and the Capitulation, if you think there is no chance of winning any more.</value>
+    <value>Based on the abstract superclass Move, there are 3 different moves to choose from each turn. The FigureMove, to move the Pawn, the WallMove, to place a wall on the board, and the Capitulation, if you think there is no chance of winning any more.</value>
   </data>
   <data name="HTWAB_GameConstraintsParagraphText" xml:space="preserve">
     <value>The GameConstraints-class contains the two restrictions for a bot for a game. One is the maximal timespan a bot can take to think about its next move. The other is the maximum of total moves each player can make in this game, before it is aborted.</value>

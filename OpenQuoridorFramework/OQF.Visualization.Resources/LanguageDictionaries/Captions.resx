@@ -359,7 +359,7 @@
     <value>Move(s)</value>
   </data>
   <data name="HTWAB_MovesParagraphText" xml:space="preserve">
-    <value>Based on the abstract superclass Move, there are 3 different moves to choose each turn. The FigureMove, to move the Pawn, the WallMove, to place a wall on the board, and the Capitulation, if you think there is no chance of winning any more.</value>
+    <value>Based on the abstract superclass Move, there are 3 different moves to choose from each turn. The FigureMove, to move the Pawn, the WallMove, to place a wall on the board, and the Capitulation, if you think there is no chance of winning any more.</value>
   </data>
   <data name="HTWAB_GameConstraintsParagraphHeader" xml:space="preserve">
     <value>GameContraints</value>

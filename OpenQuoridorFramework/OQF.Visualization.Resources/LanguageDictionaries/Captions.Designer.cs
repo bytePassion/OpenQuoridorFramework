@@ -430,7 +430,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Based on the abstract superclass Move, there are 3 different moves to choose each turn. The FigureMove, to move the Pawn, the WallMove, to place a wall on the board, and the Capitulation, if you think there is no chance of winning any more..
+        ///   Looks up a localized string similar to Based on the abstract superclass Move, there are 3 different moves to choose from each turn. The FigureMove, to move the Pawn, the WallMove, to place a wall on the board, and the Capitulation, if you think there is no chance of winning any more..
         /// </summary>
         public static string HTWAB_MovesParagraphText {
             get {
