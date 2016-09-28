@@ -190,22 +190,22 @@
     <value>General</value>
   </data>
   <data name="QRP_GeneralParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>Quoridor is an abstract strategy game for 2 or 4 Player. The OpenQuoridorFramework only considers the 2-player-game. Therefor only those rules are presented here.</value>
   </data>
   <data name="QRP_GameSetupParagraphHeader" xml:space="preserve">
     <value>Game Setup</value>
   </data>
   <data name="QRP_GameSetupParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>Quoridor is played on a board with 9 by 9 fields with spaces between these fields (picture 1). On the Board are two pawns, which are moved from field to field and there are 20 Walls that can be placed between the fields. On startup the pawns are placed on the fields e1 and e9 (see Quoridor-Notation). The player who controls the pawn on field e1 starts first.</value>
   </data>
   <data name="QRP_GameGoalParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>The game ends immediately when one pawn reaches on field of the most opposite row. This player wins.</value>
   </data>
   <data name="QRP_GameFlowParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>Both players move alternating until a winner is determined. When it is one player's turn, he have to choose between two different kinds of moves. Ether he has to move his pawn by one space or he has to place a wall on the board. If a player has no walls left, he has to move. The figure can only be moved by one space horizontal oder vertical, but not diagonal, not over a wall and not off the board. If the decides to place a wall, it is important to place a wall only between four fields, but not overlapping with another wall and not half off the board. It is also important that the opponend player always has a possible path to one of his goal-fields.</value>
   </data>
   <data name="QRP_SpecialMoveParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>If two pawns are in adjecent fields, so that one could step on the other (picture 1), this pawn can jump over the other pawn (picture 3). If the jumping pawn cannot reach the field behind the other pawn (because there is a wall or the end of the board), he can jump diagonal to the left or right of the pawn. Of course in this scenario the fields to jump on have to be reachable. The pictures 4 and 5 show two of these situations with the possible moves.</value>
   </data>
   <data name="QRP_GameGoalParagraphHeader" xml:space="preserve">
     <value>Game Goal</value>
@@ -265,19 +265,19 @@
     <value>General</value>
   </data>
   <data name="QNP_GeneralParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>Because there is no offical Quoridor-notation, one for was created for the OpenQuoridorFramework. It is derived from several notations used across the quoridor-community.</value>
   </data>
   <data name="QNP_TheBoardParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>To address a field uniquely all rows are coded by the numbers 1 to 9 and all columns are coded by the letters 'a' to 'i' (picture 1). This results in a game-space of 81 fields from a1 in the lower left corner to i9 in the upper right corner.</value>
   </data>
   <data name="QNP_FigureMoveParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>A move, where the pawn is relocated is noted by the field he is stepping on. If, for example, a player moves from c3 to c4, this move is written down as 'c4'.</value>
   </data>
   <data name="QNP_WallMoveParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>When a wall is placed on the board this move gets notates by the unique position of this wall. A wall have to be placed between four field. Therefore it is sufficent to store one of these four fields. This notation uses the upper left field for this purpose. Additional the orientation has to be noted. If the wall is placed vertically this is denoted by an 'v'. Or an 'h' for horizontal placed walls.</value>
   </data>
   <data name="QNP_ExampleParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>In this notation the pawn on picture 2 are on 'c3' and 'e8'. The positions of the walls would be denoted as 'd4h' and 'f8v'.</value>
   </data>
   <data name="QNP_Picture1Caption" xml:space="preserve">
     <value>Picture 1</value>
@@ -331,55 +331,55 @@
     <value>How to write a bot</value>
   </data>
   <data name="HTWAB_GeneralProceedingItem1" xml:space="preserve">
-    <value>TODO</value>
+    <value>1. Create new solution with an empty project (of type ClassLibrary)</value>
   </data>
   <data name="HTWAB_GeneralProceedingItem2" xml:space="preserve">
-    <value>TODO</value>
+    <value>2. Add OQF.Bot.Contracts.dll as reference to the project</value>
   </data>
   <data name="HTWAB_GeneralProceedingItem3" xml:space="preserve">
-    <value>TODO</value>
+    <value>3. Create a bot-class and derive it from IQuoridorBot</value>
   </data>
   <data name="HTWAB_GeneralProceedingItem4" xml:space="preserve">
-    <value>TODO</value>
+    <value>4. Implement the IQuoridor-interface</value>
   </data>
   <data name="HTWAB_GeneralProceedingItem5" xml:space="preserve">
-    <value>TODO</value>
+    <value>5. Start an test-application (e.g. PlayerVsBot) and test your bot</value>
   </data>
   <data name="HTWAB_ImportantClassesParagraphNote" xml:space="preserve">
-    <value>TODO</value>
+    <value>Note: All classes and structs are designed and implemented as immutables.</value>
   </data>
   <data name="HTWAB_FieldCoordinateParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>A FieldCoordinate defines a unique position on the board (see Quoridor-notation). The X- and Y-coordinate are implemented as enumerations.</value>
   </data>
   <data name="HTWAB_PlayerAndStateParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>The Player-class defines the invariant values of a player. These are the name of player and his starting position (PlayerType) on the board. The current status of a player is represented by the PlayerState-class. There you can find a reference to the player, the current position of the player on the board and number of wall the has left to spend.</value>
   </data>
   <data name="HTWAB_WallParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>The Wall-Class defines a wall on the board by its position and orientation (see Quoridor-notation). The position is FieldCoordinate and the orientation is defined by another enumeration.</value>
   </data>
   <data name="HTWAB_BoardStateParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>The current situation on the board is represented by the BoardState-class. All game-relevant informations are stored in it: all placed walls, the states of both players and the player who's turn it is. Additional to that can the complete game-history be reviewed by looking at LastBoardState and LastMove.</value>
   </data>
   <data name="HTWAB_MovesParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>Based on the abstract superclass Move, there are 3 different moves to choose each turn. The FigureMove, to move the Pawn, the WallMove, to place a wall on the board, and the Capitulation, if you think there is no chance of winning any more.</value>
   </data>
   <data name="HTWAB_GameConstraintsParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>The GameConstraints-class contains the two restrictions for a bot for a game. One is the maximal timespan a bot can take to think about its next move. The other is the maximum of total moves each player can make in this game, before it is aborted.</value>
   </data>
   <data name="HTWAB_GameFlowItem1" xml:space="preserve">
-    <value>TODO</value>
+    <value>1. The method Init(PlayerType, GameConstraints) is called. Thereby the bot is told on which side of the board he is starting and how the constraints for the upcomming game are.</value>
   </data>
   <data name="HTWAB_GameFlowItem2" xml:space="preserve">
-    <value>TODO</value>
+    <value>2. Now the game is started. Every time when its the turn of the bot, the method DoMove(BoardState) is called. The argument tells how the current situation of the board is.</value>
   </data>
   <data name="HTWAB_GameFlowItem3" xml:space="preserve">
-    <value>TODO</value>
+    <value>3. Now the bot has so much time, as the GameConstraints told him, to fire the NextMoveAvailable-Event to submit his next move.</value>
   </data>
   <data name="HTWAB_GameFlowItem4" xml:space="preserve">
-    <value>TODO</value>
+    <value>4. Then it is the opponend players turn. When he has finished moving and it is your turn again, the DoMove(BoardState)-method is called again. This will be repeated until there is a winner.</value>
   </data>
   <data name="HTWAB_GameFlowItem5" xml:space="preserve">
-    <value>TODO</value>
+    <value>5. A bot can always submit a debug-message to the UI by fireing the DebugMessageAvailable-Event.</value>
   </data>
   <data name="HTWAB_ImportantClassesParagraphHeader" xml:space="preserve">
     <value>Important Classes/Enums/Structs at the OQF.Bot.Contracts.dll</value>
@@ -409,7 +409,7 @@
     <value>Examplary implementation</value>
   </data>
   <data name="HTWAB_ExampleParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>The SimpleWalking bot is an examplary bot-implementation. You find it within the OpenQoridorFramework at 'OpenQuoridorFramework/Bots/SimpleWalkingBot/SimpleWalkingBot.cs' within the Git-repository (see About).</value>
   </data>
   <data name="AP_SourceCodeSectionHeader" xml:space="preserve">
     <value>SourceCode</value>
@@ -421,64 +421,64 @@
     <value>Save</value>
   </data>
   <data name="PvBH_Explanation01" xml:space="preserve">
-    <value>TODO</value>
+    <value>1. Browse for a bot-dll on the hard-drive and load it</value>
   </data>
   <data name="PvBH_Explanation02" xml:space="preserve">
-    <value>TODO</value>
+    <value>2. Start a game (if a bot was loaded)</value>
   </data>
   <data name="PvBH_Explanation03" xml:space="preserve">
-    <value>TODO</value>
+    <value>3. Start a game from progress-file (if a bot was loaded)</value>
   </data>
   <data name="PvBH_Explanation04" xml:space="preserve">
-    <value>TODO</value>
+    <value>4. Name of the bot you are playing against</value>
   </data>
   <data name="PvBH_Explanation05" xml:space="preserve">
-    <value>TODO</value>
+    <value>5. Choose language</value>
   </data>
   <data name="PvBH_Explanation06" xml:space="preserve">
-    <value>TODO</value>
+    <value>6. Open Help</value>
   </data>
   <data name="PvBH_Explanation07" xml:space="preserve">
-    <value>TODO</value>
+    <value>7. Expand or collapse the game-progress</value>
   </data>
   <data name="PvBH_Explanation08" xml:space="preserve">
-    <value>TODO</value>
+    <value>8. Save current game-progress to a text-file</value>
   </data>
   <data name="PvBH_Explanation09" xml:space="preserve">
-    <value>TODO</value>
+    <value>9. Activate/deactivate auto-scroll-down of the game-progress</value>
   </data>
   <data name="PvBH_Explanation10" xml:space="preserve">
-    <value>TODO</value>
+    <value>10. The progress of the ongoing game</value>
   </data>
   <data name="PvBH_Explanation11" xml:space="preserve">
-    <value>TODO</value>
+    <value>11. Number of walls, which the bot has left to spend</value>
   </data>
   <data name="PvBH_Explanation12" xml:space="preserve">
-    <value>TODO</value>
+    <value>12. Save current debug-output to a text-file</value>
   </data>
   <data name="PvBH_Explanation13" xml:space="preserve">
-    <value>TODO</value>
+    <value>13. Activate/deactivate auto-scroll-down of the debug-output</value>
   </data>
   <data name="PvBH_Explanation14" xml:space="preserve">
-    <value>TODO</value>
+    <value>14. Expand or collapse the debug-output</value>
   </data>
   <data name="PvBH_Explanation15" xml:space="preserve">
-    <value>TODO</value>
+    <value>15. Debug-output of the ongoing game</value>
   </data>
   <data name="PvBH_Explanation16" xml:space="preserve">
-    <value>TODO</value>
+    <value>16. Placed walls on the boad</value>
   </data>
   <data name="PvBH_Explanation17" xml:space="preserve">
-    <value>TODO</value>
+    <value>17. Pawn of the bot (white)</value>
   </data>
   <data name="PvBH_Explanation18" xml:space="preserve">
-    <value>TODO</value>
+    <value>18. Pawn of the player (black)</value>
   </data>
   <data name="PvBH_PageHeader" xml:space="preserve">
     <value>Overview to 'Player vs Bot'</value>
   </data>
   <data name="PvBH_Note" xml:space="preserve">
-    <value>TODO</value>
+    <value>Note: To submit a move just click on the board on the UI. You get a preview for wall-placement as well as for moving the pawn.</value>
   </data>
   <data name="PvB_DumpDebugFileDialogTitle" xml:space="preserve">
     <value>Save current Debug output</value>
@@ -526,19 +526,19 @@
     <value>Reason</value>
   </data>
   <data name="HTWAB_HintParagraphText" xml:space="preserve">
-    <value>TODO</value>
+    <value>You can simplify your debugging-process by modifying the properties of your bot-project in a way that the test-application PlayerVsBot is started automaticly with the bot loaded every time you start debugging. To do so (an example is shown in the picture above) you have to adjust the StartAction to launch the PlayerVsBot-application. In addition to that you have to add the result of the build-process (your bot-dll) as command-line-parameter for the test-application. Don't forget the quotation marks!</value>
   </data>
   <data name="HTWAB_HintParagraphHeader" xml:space="preserve">
     <value>Hint</value>
   </data>
   <data name="PvBH_Explanation19" xml:space="preserve">
-    <value>TODO</value>
+    <value>19. Possible moving-field for your pawn</value>
   </data>
   <data name="PvBH_Explanation20" xml:space="preserve">
-    <value>TODO</value>
+    <value>20. Resign from the game -&gt; the bot wins</value>
   </data>
   <data name="PvBH_Explanation21" xml:space="preserve">
-    <value>TODO</value>
+    <value>21. Number of walls, which you have left to spend</value>
   </data>
   <data name="ClosingDialogMessage" xml:space="preserve">
     <value>Do you want exit during a ongoing game?</value>

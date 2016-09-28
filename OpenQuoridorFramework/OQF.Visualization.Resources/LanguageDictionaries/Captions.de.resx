@@ -478,7 +478,7 @@
     <value>Das Debugging kann noch vereinfacht werden, wenn man das Bot-Projekt so verändert, dass beim Start des Debugging automatisch die PlayerVsBot-Applikation mit dem aktuellen Bot geladen wird. Hierzu muss, wie im Bild beispielhaft gezeigt, die 'Start Action' in den Project-Properties so angepasst werden, dass die PlayerVsBot-Applikation und nicht das eigentliche Projekt gestartet wird. Außerdem muss die aktuell gebaute DLL als Command-Line-Argument übergeben werden. Hier die Anführungszeigen nicht vergessen!</value>
   </data>
   <data name="PvBH_Explanation01" xml:space="preserve">
-    <value>1. Bot-DLL von der Festplatte suchen</value>
+    <value>1. Bot-DLL von der Festplatte suchen und laden</value>
   </data>
   <data name="PvBH_Explanation02" xml:space="preserve">
     <value>2. Spiel starten (sofern vorher ein Bot gewählt wurde)</value>

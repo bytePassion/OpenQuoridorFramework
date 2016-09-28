@@ -214,7 +214,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to The current situation on the board is represented by the BoardState-class. All game-relevant informations are stored in it: all placed walls, the states of both players and the player who&apos;s turn it is. Additional to that can the complete game-history be reviewed by looking at LastBoardState and LastMove..
         /// </summary>
         public static string HTWAB_BoardStateParagraphText {
             get {
@@ -232,7 +232,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to The SimpleWalking bot is an examplary bot-implementation. You find it within the OpenQoridorFramework at &apos;OpenQuoridorFramework/Bots/SimpleWalkingBot/SimpleWalkingBot.cs&apos; within the Git-repository (see About)..
         /// </summary>
         public static string HTWAB_ExampleParagraphText {
             get {
@@ -250,7 +250,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to A FieldCoordinate defines a unique position on the board (see Quoridor-notation). The X- and Y-coordinate are implemented as enumerations..
         /// </summary>
         public static string HTWAB_FieldCoordinateParagraphText {
             get {
@@ -268,7 +268,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to The GameConstraints-class contains the two restrictions for a bot for a game. One is the maximal timespan a bot can take to think about its next move. The other is the maximum of total moves each player can make in this game, before it is aborted..
         /// </summary>
         public static string HTWAB_GameConstraintsParagraphText {
             get {
@@ -277,7 +277,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 1. The method Init(PlayerType, GameConstraints) is called. Thereby the bot is told on which side of the board he is starting and how the constraints for the upcomming game are..
         /// </summary>
         public static string HTWAB_GameFlowItem1 {
             get {
@@ -286,7 +286,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 2. Now the game is started. Every time when its the turn of the bot, the method DoMove(BoardState) is called. The argument tells how the current situation of the board is..
         /// </summary>
         public static string HTWAB_GameFlowItem2 {
             get {
@@ -295,7 +295,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 3. Now the bot has so much time, as the GameConstraints told him, to fire the NextMoveAvailable-Event to submit his next move..
         /// </summary>
         public static string HTWAB_GameFlowItem3 {
             get {
@@ -304,7 +304,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 4. Then it is the opponend players turn. When he has finished moving and it is your turn again, the DoMove(BoardState)-method is called again. This will be repeated until there is a winner..
         /// </summary>
         public static string HTWAB_GameFlowItem4 {
             get {
@@ -313,7 +313,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 5. A bot can always submit a debug-message to the UI by fireing the DebugMessageAvailable-Event..
         /// </summary>
         public static string HTWAB_GameFlowItem5 {
             get {
@@ -331,7 +331,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 1. Create new solution with an empty project (of type ClassLibrary).
         /// </summary>
         public static string HTWAB_GeneralProceedingItem1 {
             get {
@@ -340,7 +340,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 2. Add OQF.Bot.Contracts.dll as reference to the project.
         /// </summary>
         public static string HTWAB_GeneralProceedingItem2 {
             get {
@@ -349,7 +349,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 3. Create a bot-class and derive it from IQuoridorBot.
         /// </summary>
         public static string HTWAB_GeneralProceedingItem3 {
             get {
@@ -358,7 +358,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 4. Implement the IQuoridor-interface.
         /// </summary>
         public static string HTWAB_GeneralProceedingItem4 {
             get {
@@ -367,7 +367,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 5. Start an test-application (e.g. PlayerVsBot) and test your bot.
         /// </summary>
         public static string HTWAB_GeneralProceedingItem5 {
             get {
@@ -394,7 +394,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to You can simplify your debugging-process by modifying the properties of your bot-project in a way that the test-application PlayerVsBot is started automaticly with the bot loaded every time you start debugging. To do so (an example is shown in the picture above) you have to adjust the StartAction to launch the PlayerVsBot-application. In addition to that you have to add the result of the build-process (your bot-dll) as command-line-parameter for the test-application. Don&apos;t forget the quotation marks!.
         /// </summary>
         public static string HTWAB_HintParagraphText {
             get {
@@ -412,7 +412,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to Note: All classes and structs are designed and implemented as immutables..
         /// </summary>
         public static string HTWAB_ImportantClassesParagraphNote {
             get {
@@ -430,7 +430,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to Based on the abstract superclass Move, there are 3 different moves to choose each turn. The FigureMove, to move the Pawn, the WallMove, to place a wall on the board, and the Capitulation, if you think there is no chance of winning any more..
         /// </summary>
         public static string HTWAB_MovesParagraphText {
             get {
@@ -457,7 +457,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to The Player-class defines the invariant values of a player. These are the name of player and his starting position (PlayerType) on the board. The current status of a player is represented by the PlayerState-class. There you can find a reference to the player, the current position of the player on the board and number of wall the has left to spend..
         /// </summary>
         public static string HTWAB_PlayerAndStateParagraphText {
             get {
@@ -475,7 +475,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to The Wall-Class defines a wall on the board by its position and orientation (see Quoridor-notation). The position is FieldCoordinate and the orientation is defined by another enumeration..
         /// </summary>
         public static string HTWAB_WallParagraphText {
             get {
@@ -790,7 +790,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 1. Browse for a bot-dll on the hard-drive and load it.
         /// </summary>
         public static string PvBH_Explanation01 {
             get {
@@ -799,7 +799,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 2. Start a game (if a bot was loaded).
         /// </summary>
         public static string PvBH_Explanation02 {
             get {
@@ -808,7 +808,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 3. Start a game from progress-file (if a bot was loaded).
         /// </summary>
         public static string PvBH_Explanation03 {
             get {
@@ -817,7 +817,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 4. Name of the bot you are playing against.
         /// </summary>
         public static string PvBH_Explanation04 {
             get {
@@ -826,7 +826,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 5. Choose language.
         /// </summary>
         public static string PvBH_Explanation05 {
             get {
@@ -835,7 +835,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 6. Open Help.
         /// </summary>
         public static string PvBH_Explanation06 {
             get {
@@ -844,7 +844,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 7. Expand or collapse the game-progress.
         /// </summary>
         public static string PvBH_Explanation07 {
             get {
@@ -853,7 +853,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 8. Save current game-progress to a text-file.
         /// </summary>
         public static string PvBH_Explanation08 {
             get {
@@ -862,7 +862,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 9. Activate/deactivate auto-scroll-down of the game-progress.
         /// </summary>
         public static string PvBH_Explanation09 {
             get {
@@ -871,7 +871,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 10. The progress of the ongoing game.
         /// </summary>
         public static string PvBH_Explanation10 {
             get {
@@ -880,7 +880,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 11. Number of walls, which the bot has left to spend.
         /// </summary>
         public static string PvBH_Explanation11 {
             get {
@@ -889,7 +889,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 12. Save current debug-output to a text-file.
         /// </summary>
         public static string PvBH_Explanation12 {
             get {
@@ -898,7 +898,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 13. Activate/deactivate auto-scroll-down of the debug-output.
         /// </summary>
         public static string PvBH_Explanation13 {
             get {
@@ -907,7 +907,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 14. Expand or collapse the debug-output.
         /// </summary>
         public static string PvBH_Explanation14 {
             get {
@@ -916,7 +916,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 15. Debug-output of the ongoing game.
         /// </summary>
         public static string PvBH_Explanation15 {
             get {
@@ -925,7 +925,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 16. Placed walls on the boad.
         /// </summary>
         public static string PvBH_Explanation16 {
             get {
@@ -934,7 +934,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 17. Pawn of the bot (white).
         /// </summary>
         public static string PvBH_Explanation17 {
             get {
@@ -943,7 +943,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 18. Pawn of the player (black).
         /// </summary>
         public static string PvBH_Explanation18 {
             get {
@@ -952,7 +952,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 19. Possible moving-field for your pawn.
         /// </summary>
         public static string PvBH_Explanation19 {
             get {
@@ -961,7 +961,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 20. Resign from the game -&gt; the bot wins.
         /// </summary>
         public static string PvBH_Explanation20 {
             get {
@@ -970,7 +970,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to 21. Number of walls, which you have left to spend.
         /// </summary>
         public static string PvBH_Explanation21 {
             get {
@@ -979,7 +979,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to Note: To submit a move just click on the board on the UI. You get a preview for wall-placement as well as for moving the pawn..
         /// </summary>
         public static string PvBH_Note {
             get {
@@ -1006,7 +1006,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to In this notation the pawn on picture 2 are on &apos;c3&apos; and &apos;e8&apos;. The positions of the walls would be denoted as &apos;d4h&apos; and &apos;f8v&apos;..
         /// </summary>
         public static string QNP_ExampleParagraphText {
             get {
@@ -1024,7 +1024,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to A move, where the pawn is relocated is noted by the field he is stepping on. If, for example, a player moves from c3 to c4, this move is written down as &apos;c4&apos;..
         /// </summary>
         public static string QNP_FigureMoveParagraphText {
             get {
@@ -1042,7 +1042,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to Because there is no offical Quoridor-notation, one for was created for the OpenQuoridorFramework. It is derived from several notations used across the quoridor-community..
         /// </summary>
         public static string QNP_GeneralParagraphText {
             get {
@@ -1087,7 +1087,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to To address a field uniquely all rows are coded by the numbers 1 to 9 and all columns are coded by the letters &apos;a&apos; to &apos;i&apos; (picture 1). This results in a game-space of 81 fields from a1 in the lower left corner to i9 in the upper right corner..
         /// </summary>
         public static string QNP_TheBoardParagraphText {
             get {
@@ -1105,7 +1105,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to When a wall is placed on the board this move gets notates by the unique position of this wall. A wall have to be placed between four field. Therefore it is sufficent to store one of these four fields. This notation uses the upper left field for this purpose. Additional the orientation has to be noted. If the wall is placed vertically this is denoted by an &apos;v&apos;. Or an &apos;h&apos; for horizontal placed walls..
         /// </summary>
         public static string QNP_WallMoveParagraphText {
             get {
@@ -1123,7 +1123,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to Both players move alternating until a winner is determined. When it is one player&apos;s turn, he have to choose between two different kinds of moves. Ether he has to move his pawn by one space or he has to place a wall on the board. If a player has no walls left, he has to move. The figure can only be moved by one space horizontal oder vertical, but not diagonal, not over a wall and not off the board. If the decides to place a wall, it is important to place a wall only between four fields, but not overlapping w [rest of string was truncated]&quot;;.
         /// </summary>
         public static string QRP_GameFlowParagraphText {
             get {
@@ -1141,7 +1141,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to The game ends immediately when one pawn reaches on field of the most opposite row. This player wins..
         /// </summary>
         public static string QRP_GameGoalParagraphText {
             get {
@@ -1159,7 +1159,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to Quoridor is played on a board with 9 by 9 fields with spaces between these fields (picture 1). On the Board are two pawns, which are moved from field to field and there are 20 Walls that can be placed between the fields. On startup the pawns are placed on the fields e1 and e9 (see Quoridor-Notation). The player who controls the pawn on field e1 starts first..
         /// </summary>
         public static string QRP_GameSetupParagraphText {
             get {
@@ -1177,7 +1177,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to Quoridor is an abstract strategy game for 2 or 4 Player. The OpenQuoridorFramework only considers the 2-player-game. Therefor only those rules are presented here..
         /// </summary>
         public static string QRP_GeneralParagraphText {
             get {
@@ -1249,7 +1249,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TODO.
+        ///   Looks up a localized string similar to If two pawns are in adjecent fields, so that one could step on the other (picture 1), this pawn can jump over the other pawn (picture 3). If the jumping pawn cannot reach the field behind the other pawn (because there is a wall or the end of the board), he can jump diagonal to the left or right of the pawn. Of course in this scenario the fields to jump on have to be reachable. The pictures 4 and 5 show two of these situations with the possible moves. .
         /// </summary>
         public static string QRP_SpecialMoveParagraphText {
             get {
