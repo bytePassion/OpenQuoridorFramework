@@ -1123,7 +1123,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Both players move alternating until a winner is determined. When it is one player&apos;s turn, he have to choose between two different kinds of moves. Ether he has to move his pawn by one space or he has to place a wall on the board. If a player has no walls left, he has to move. The figure can only be moved by one space horizontal oder vertical, but not diagonal, not over a wall and not off the board. If the decides to place a wall, it is important to place a wall only between four fields, but not overlapping w [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Both players move alternating until a winner is determined. When it is one player&apos;s turn, he have to choose between two different kinds of moves. Ether he has to move his pawn by one space or he has to place a wall on the board. If a player has no walls left, he has to move. The figure can only be moved by one space horizontal oder vertical, but not diagonal, not over a wall and not off the board. If the decides to place a wall, it is important to place this wall only between four fields, but not overlappin [rest of string was truncated]&quot;;.
         /// </summary>
         public static string QRP_GameFlowParagraphText {
             get {
@@ -1249,7 +1249,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If two pawns are in adjecent fields, so that one could step on the other (picture 1), this pawn can jump over the other pawn (picture 3). If the jumping pawn cannot reach the field behind the other pawn (because there is a wall or the end of the board), he can jump diagonal to the left or right of the pawn. Of course in this scenario the fields to jump on have to be reachable. The pictures 4 and 5 show two of these situations with the possible moves. .
+        ///   Looks up a localized string similar to If two pawns are in adjecent fields, so that one could step on the other (picture 2), this pawn can jump over the other pawn (picture 3). If the jumping pawn cannot reach the field behind the other pawn (because there is a wall or the end of the board), he can jump diagonal to the left or right of the pawn. Of course in this scenario the fields to jump on have to be reachable. The pictures 4 and 5 show two of these situations with the possible moves. .
         /// </summary>
         public static string QRP_SpecialMoveParagraphText {
             get {
