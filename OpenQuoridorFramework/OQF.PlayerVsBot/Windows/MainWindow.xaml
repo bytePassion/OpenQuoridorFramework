@@ -33,6 +33,9 @@
     <Window.Resources>
         <computation:TopPlayerMarkerColor x:Key="TopPlayerMarkerColor" />
         <computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
+		<computation:GetBottomPlayerMoveFromString x:Key="GetBottomPlayerMoveFromString"/>
+		<computation:GetTopPlayerMoveFromString x:Key="GetTopPlayerMoveFromString"/>
+		<computation:GetProgressNrFromString x:Key="GetProgressNrFromString"/>
     </Window.Resources>
 
     <materialDesign:DialogHost Identifier="RootDialog">
@@ -240,7 +243,37 @@
 							<ScrollViewer Grid.Row="1"
 										  HorizontalScrollBarVisibility="Auto"
                                           VerticalScrollBarVisibility="Auto">
-								<ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}" />
+								
+								<ItemsControl Margin="0,20,0,0" 
+											  ItemsSource="{Binding GameProgress}">
+									
+									<ItemsControl.ItemTemplate>
+										<DataTemplate DataType="system:String">
+											<Grid>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition Width="30" />
+													<ColumnDefinition Width="30"/>
+													<ColumnDefinition Width="30"/>
+												</Grid.ColumnDefinitions>
+
+												<TextBlock Grid.Column="0" 
+														   HorizontalAlignment="Right"
+														   Margin="0,0,10,0"
+														   Text="{Binding Converter={StaticResource GetProgressNrFromString}}"/>
+												
+												<TextBlock Grid.Column="1" 
+														   HorizontalAlignment="Left" 
+														   Text="{Binding Converter={StaticResource GetBottomPlayerMoveFromString}}"/>
+												
+												<TextBlock Grid.Column="2" 
+														   HorizontalAlignment="Left" 
+														   Text="{Binding Converter={StaticResource GetTopPlayerMoveFromString}}"/>
+												
+											</Grid>
+										</DataTemplate>
+									</ItemsControl.ItemTemplate>
+									
+								</ItemsControl>
 
 								<i:Interaction.Behaviors>
 									<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />

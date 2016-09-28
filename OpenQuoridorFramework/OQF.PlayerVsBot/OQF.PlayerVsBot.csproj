@@ -77,6 +77,9 @@
     <Compile Include="Computation\ComputeWallHeight.cs" />
     <Compile Include="Computation\ComputeWallLeftPosition.cs" />
     <Compile Include="Computation\ComputeWallTopPosition.cs" />
+    <Compile Include="Computation\GetBottomPlayerMoveFromString.cs" />
+    <Compile Include="Computation\GetProgressNrFromString.cs" />
+    <Compile Include="Computation\GetTopPlayerMoveFromString.cs" />
     <Compile Include="Computation\PlayerColor.cs" />
     <Compile Include="Computation\ComputeWallWidth.cs" />
     <Compile Include="Computation\TopPlayerMarkerColor.cs" />

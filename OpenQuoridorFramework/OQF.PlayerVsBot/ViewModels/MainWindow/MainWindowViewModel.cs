@@ -334,7 +334,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 				if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 				{
 					if (GameProgress.Count > 0)
-						GameProgress[GameProgress.Count - 1] = GameProgress[GameProgress.Count - 1] + $"\t{boardState.LastMove}";
+						GameProgress[GameProgress.Count - 1] = GameProgress[GameProgress.Count - 1] + $" {boardState.LastMove}";
 
 					var currentMovesLeft = int.Parse(MovesLeft);
 					MovesLeft = (currentMovesLeft - 1).ToString();
@@ -343,7 +343,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 				}
 				else
 				{
-                    GameProgress.Add($"{GameProgress.Count}:\t" + $"{boardState.LastMove}");
+                    GameProgress.Add($"{GameProgress.Count}: " + $"{boardState.LastMove}");
 					StartTimer();
 				}
 			}			
