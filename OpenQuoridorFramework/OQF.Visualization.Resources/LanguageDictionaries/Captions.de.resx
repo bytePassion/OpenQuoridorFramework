@@ -424,7 +424,7 @@
     <value>Übersicht zu 'Player vs Bot'</value>
   </data>
   <data name="PvBH_Note" xml:space="preserve">
-    <value>Hinweis: Um einen Zug zu machen, muss direkt auf das Spielfeld geklickt werden. Sowohl für die Wand-Elemente, wie auch für eine Figurebewegung steht eine Vorschau zur verfügung.</value>
+    <value>Hinweis: Um einen Zug zu machen, muss direkt auf das Spielfeld geklickt werden. Sowohl für die Wand-Elemente, wie auch für eine Figurbewegung steht eine Vorschau zur verfügung.</value>
   </data>
   <data name="PvB_DumpDebugFileDialogTitle" xml:space="preserve">
     <value>Speichere Debug-Nachrichten</value>
