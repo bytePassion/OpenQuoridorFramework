@@ -322,7 +322,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gameflow from the point of a bot.
+        ///   Looks up a localized string similar to The bot&apos;s view of the Gameflow.
         /// </summary>
         public static string HTWAB_GameFlowParagraphHeader {
             get {

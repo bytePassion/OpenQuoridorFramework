@@ -403,7 +403,7 @@
     <value>GameContraints</value>
   </data>
   <data name="HTWAB_GameFlowParagraphHeader" xml:space="preserve">
-    <value>Gameflow from the point of a bot</value>
+    <value>The bot's view of the Gameflow</value>
   </data>
   <data name="HTWAB_ExampleParagraphHeader" xml:space="preserve">
     <value>Examplary implementation</value>

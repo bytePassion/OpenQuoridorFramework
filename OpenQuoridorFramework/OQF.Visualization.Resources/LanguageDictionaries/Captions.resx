@@ -368,7 +368,7 @@
     <value>The GameConstraints-class contains the two restrictions for a bot for a game. One is the maximal timespan a bot can take to think about its next move. The other is the maximum of total moves each player can make in this game, before it is aborted.</value>
   </data>
   <data name="HTWAB_GameFlowParagraphHeader" xml:space="preserve">
-    <value>Gameflow from the point of a bot</value>
+    <value>The bot's view of the Gameflow</value>
   </data>
   <data name="HTWAB_GameFlowItem1" xml:space="preserve">
     <value>1. The method Init(PlayerType, GameConstraints) is called. Thereby the bot is told on which side of the board he is starting and how the constraints for the upcomming game are.</value>
