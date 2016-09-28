@@ -343,7 +343,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 				}
 				else
 				{
-                    GameProgress.Add($"{GameProgress.Count}: " + $"{boardState.LastMove}");
+                    GameProgress.Add($"{GameProgress.Count + 1}: " + $"{boardState.LastMove}");
 					StartTimer();
 				}
 			}			
