@@ -27,49 +27,46 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-
             <TextBlock Margin="16,0,0,0"
                        FontSize="35"
                        Style="{StaticResource MaterialDesignHeadlineTextBlock}"
 					   Text="{Binding PageHeader}"/>
 
-            <StackPanel Grid.Row="1" Grid.Column="0">
-
-                <materialDesign:Card Margin="8"
+			<StackPanel Grid.Row="1" 
+						Grid.Column="0">
+				<materialDesign:Card Margin="8"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-                    <StackPanel>
+					<StackPanel>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   Text="{Binding ApplicationSectionHeader}"/>
 						<TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
 								   Text="{Binding ApplicationName}"/>
-                    </StackPanel>
+					</StackPanel>
+				</materialDesign:Card>
 
-                </materialDesign:Card>
-
-                <materialDesign:Card Margin="8,0"
+				<materialDesign:Card Margin="8,0"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-                    <StackPanel>
+					<StackPanel>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   Text="{Binding VersionSectionHeader}"/>
 						<TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap"
 								   Text="{Binding VersionIdentifier}"/>
-                    </StackPanel>
+					</StackPanel>
+				</materialDesign:Card>
 
-                </materialDesign:Card>
-
-                <materialDesign:Card Margin="8"
+				<materialDesign:Card Margin="8"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-                    <StackPanel>
+					<StackPanel>
 						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   Text="{Binding DeveloperSectionHeader}"/>
-						
+
 						<ItemsControl Margin="20,0,0,0"
 									  ItemsSource="{Binding Developers}">
 							<ItemsControl.ItemTemplate>
@@ -80,10 +77,8 @@
 								</DataTemplate>
 							</ItemsControl.ItemTemplate>
 						</ItemsControl>
-						                        
-                    </StackPanel>
-
-                </materialDesign:Card>
+					</StackPanel>
+				</materialDesign:Card>
 
 				<materialDesign:Card Margin="8,0"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
@@ -109,16 +104,14 @@
 								</i:Interaction.Behaviors>
 							</Hyperlink>
 						</TextBlock>
-						
 					</StackPanel>
-
 				</materialDesign:Card>
 
 				<materialDesign:Card Margin="8"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   Text="{Binding ThirdPartySectionHeader}"/>
 
 						<ItemsControl Margin="20,0,0,0"
@@ -137,19 +130,18 @@
 													<behaviors:UrlNavigationBehavior/>
 												</i:Interaction.Behaviors>
 											</Hyperlink>																								
-									</TextBlock>																			
+									</TextBlock>
 								</DataTemplate>
 							</ItemsControl.ItemTemplate>
 						</ItemsControl>
 					</StackPanel>
+				</materialDesign:Card>
 
-                </materialDesign:Card>
-
-                <materialDesign:Card Margin="8,0"
+				<materialDesign:Card Margin="8,0"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   Text="{Binding QuoridorSectionHeader}"/>
 
 						<Grid Margin="20,0,0,0">
@@ -168,7 +160,7 @@
 									   HorizontalAlignment="Right"
 									   Margin="0,0,10,0"
 									   Style="{StaticResource MaterialDesignBody1TextBlock}">
-								<Run Text="{Binding QuoridorInventerSubItem, Mode=OneWay}"/>:                            
+								<Run Text="{Binding QuoridorInventerSubItem, Mode=OneWay}"/>:
 							</TextBlock>
 
 							<TextBlock Grid.Column="0"
@@ -176,17 +168,15 @@
 									   HorizontalAlignment="Right"
 									   Margin="0,0,10,0"
 									   Style="{StaticResource MaterialDesignBody1TextBlock}">
-								<Run Text="{Binding QuoridorPublisherSubItem, Mode=OneWay}"/>:                          
+								<Run Text="{Binding QuoridorPublisherSubItem, Mode=OneWay}"/>:
 							</TextBlock>
-							
+
 							<TextBlock Grid.Column="1"
 									   Grid.Row="0"
 									   HorizontalAlignment="Left"
 									   Style="{StaticResource MaterialDesignBody1TextBlock}"
 									   Text="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorInventor}"/>
 
-							
-							
 							<TextBlock Grid.Column="1"
 									   Grid.Row="1"
 									   HorizontalAlignment="Left"
@@ -206,13 +196,13 @@
 						</Grid>
 					</StackPanel>
 
-                </materialDesign:Card>
+				</materialDesign:Card>
 
-                <materialDesign:Card Margin="8"
+				<materialDesign:Card Margin="8"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
 								   Text="{Binding LicenceSectionHeader}"/>
 						<TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
@@ -228,12 +218,10 @@
 							</Hyperlink>
 							
 						</TextBlock>
-                    </StackPanel>
+					</StackPanel>
+				</materialDesign:Card>
 
-                </materialDesign:Card>
-
-            </StackPanel>
-
-        </Grid>
+			</StackPanel>
+		</Grid>
     </ScrollViewer>
 </UserControl>
