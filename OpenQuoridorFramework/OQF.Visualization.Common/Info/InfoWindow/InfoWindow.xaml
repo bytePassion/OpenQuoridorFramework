@@ -56,8 +56,9 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="helper:SelectionButtonData">
                     <ToggleButton Margin="5"
-                            IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            Content="{Binding ButtonCaption}" />
+								  Height="30"
+								  IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+								  Content="{Binding ButtonCaption}" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 
