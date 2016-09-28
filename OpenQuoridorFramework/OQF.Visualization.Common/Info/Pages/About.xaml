@@ -7,6 +7,8 @@
              xmlns:aboutPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:resources="clr-namespace:OQF.Visualization.Resources;assembly=OQF.Visualization.Resources"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:behaviors="clr-namespace:OQF.Visualization.Common.Info.Pages.Behaviors"
              d:DesignHeight="900"
              d:DesignWidth="900"
              mc:Ignorable="d">
@@ -92,8 +94,22 @@
 
 						<TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding SourceCodeSectionText}"/>
+                                   TextWrapping="Wrap">
+							<Run Text="{Binding SourceCodeSectionText, Mode=OneWay}"/>:
+						</TextBlock>
+						<TextBlock Margin="20,0,0,0"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   TextWrapping="Wrap">
+							<Hyperlink NavigateUri="{x:Static resources:OpenQuoridorFrameworkInfo.GitHubUri}">
+								<TextBlock Text="{x:Static resources:OpenQuoridorFrameworkInfo.GitHubUriText}"
+										   Foreground="#FF0066CC"/>
+								
+								<i:Interaction.Behaviors>
+									<behaviors:UrlNavigationBehavior/>
+								</i:Interaction.Behaviors>
+							</Hyperlink>
+						</TextBlock>
+						
 					</StackPanel>
 
 				</materialDesign:Card>
@@ -108,10 +124,20 @@
 						<ItemsControl Margin="20,0,0,0"
 									  ItemsSource="{Binding ThridPartyItems}">
 							<ItemsControl.ItemTemplate>
-								<DataTemplate DataType="system:String">
+								<DataTemplate DataType="resources:ThirdPartyItem">
 									<TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}"
-											   TextWrapping="Wrap"
-											   Text="{Binding}"/>
+											   TextWrapping="Wrap">
+											
+										<Run Text="{Binding ItemText, Mode=OneWay}"/> 
+										<Hyperlink NavigateUri="{Binding ItemUri}">
+											<TextBlock Text="{Binding ItemUriText}"
+													   Foreground="#FF0066CC"/>
+								
+												<i:Interaction.Behaviors>
+													<behaviors:UrlNavigationBehavior/>
+												</i:Interaction.Behaviors>
+											</Hyperlink>																								
+									</TextBlock>																			
 								</DataTemplate>
 							</ItemsControl.ItemTemplate>
 						</ItemsControl>
@@ -159,11 +185,23 @@
 									   Style="{StaticResource MaterialDesignBody1TextBlock}"
 									   Text="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorInventor}"/>
 
+							
+							
 							<TextBlock Grid.Column="1"
 									   Grid.Row="1"
 									   HorizontalAlignment="Left"
-									   Style="{StaticResource MaterialDesignBody1TextBlock}"
-									   Text="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorPublisher}"/>
+									   Style="{StaticResource MaterialDesignBody1TextBlock}">
+								
+								<Hyperlink NavigateUri="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorPublisherUri}">
+									<TextBlock Text="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorPublisher}"
+											   Foreground="#FF0066CC"/>
+								
+									<i:Interaction.Behaviors>
+										<behaviors:UrlNavigationBehavior/>
+									</i:Interaction.Behaviors>
+								</Hyperlink>
+								
+							</TextBlock>
 
 						</Grid>
 					</StackPanel>
@@ -178,8 +216,18 @@
 								   Text="{Binding LicenceSectionHeader}"/>
 						<TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding Licence}"/>
+                                   TextWrapping="Wrap">
+							
+							<Hyperlink NavigateUri="{Binding LicenceUri}">
+								<TextBlock Text="{Binding LicenceName}"
+										   Foreground="#FF0066CC"/>
+								
+								<i:Interaction.Behaviors>
+									<behaviors:UrlNavigationBehavior/>
+								</i:Interaction.Behaviors>
+							</Hyperlink>
+							
+						</TextBlock>
                     </StackPanel>
 
                 </materialDesign:Card>

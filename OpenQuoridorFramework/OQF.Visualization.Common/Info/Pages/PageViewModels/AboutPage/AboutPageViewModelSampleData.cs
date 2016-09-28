@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using OQF.Visualization.Resources;
 
@@ -7,18 +8,7 @@ using OQF.Visualization.Resources;
 namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 {
 	internal class AboutPageViewModelSampleData : IAboutPageViewModel
-	{
-		public AboutPageViewModelSampleData()
-		{
-			var applicationInfo = OpenQuoridorFrameworkInfo.Applications.PlayerVsBot.Info;
-
-			Developers        = applicationInfo.Developers;
-			ThridPartyItems   = applicationInfo.ThirdPartyItems;
-			ApplicationName   = applicationInfo.Name;
-			VersionIdentifier = applicationInfo.Version;
-			Licence           = applicationInfo.Licence;			
-		}
-
+	{		
 		public string PageHeader               => "blablubb";
 		public string ApplicationSectionHeader => "blablubb";
 		public string VersionSectionHeader     => "blablubb";
@@ -30,13 +20,14 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		public string QuoridorInventerSubItem  => "blablubb";
 		public string QuoridorPublisherSubItem => "blablubb";
 		public string LicenceSectionHeader     => "blablubb";
-		
-		public IEnumerable<string> Developers      { get; }
-		public IEnumerable<string> ThridPartyItems { get; }
-		public string ApplicationName   { get; }
-		public string VersionIdentifier { get; }
-		public string Licence           { get; }
+		public string ApplicationName          => "blablubb";
+		public string VersionIdentifier        => "blablubb";
+		public string LicenceName              => "blablubb";
+		public Uri LicenceUri                  => new Uri("blablubb");
 
+		public IEnumerable<string>         Developers      { get; }
+		public IEnumerable<ThirdPartyItem> ThridPartyItems { get; }
+				
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
 	}

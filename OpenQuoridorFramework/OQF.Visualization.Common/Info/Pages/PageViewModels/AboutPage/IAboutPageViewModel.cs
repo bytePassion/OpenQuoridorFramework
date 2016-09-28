@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Lib.Wpf.ViewModelBase;
+using OQF.Visualization.Resources;
 
 namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 {
@@ -17,10 +19,13 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		string QuoridorPublisherSubItem { get; }
 		string LicenceSectionHeader     { get; }
 		
-		IEnumerable<string> Developers      { get; }
-		IEnumerable<string> ThridPartyItems { get; }
+		IEnumerable<string>         Developers      { get; }
+		IEnumerable<ThirdPartyItem> ThridPartyItems { get; }
+
 		string ApplicationName   { get; }
 		string VersionIdentifier { get; }
-		string Licence           { get; }
+		string LicenceName       { get; }
+		Uri    LicenceUri        { get; }
+		
 	}
 }

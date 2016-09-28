@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
@@ -16,7 +17,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 			ThridPartyItems   = applicationInfo.ThirdPartyItems;
 			ApplicationName   = applicationInfo.Name;
 			VersionIdentifier = applicationInfo.Version;
-			Licence           = applicationInfo.Licence;
+			LicenceName       = applicationInfo.LicenceName;
+			LicenceUri        = applicationInfo.LicenceUri;
 
 			CultureManager.CultureChanged += RefreshCaptions;
 		}
@@ -34,12 +36,13 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		public string QuoridorPublisherSubItem => Captions.AP_QuoridorPublisherSubItem;
 		public string LicenceSectionHeader     => Captions.AP_LicenceSectionHeader;
 		
-		public IEnumerable<string> Developers      { get; }
-		public IEnumerable<string> ThridPartyItems { get; }
+		public IEnumerable<string>         Developers      { get; }
+		public IEnumerable<ThirdPartyItem> ThridPartyItems { get; }
+		
 		public string ApplicationName   { get; }
 		public string VersionIdentifier { get; }
-		public string Licence           { get; }
-
+		public string LicenceName       { get; }
+		public Uri    LicenceUri        { get; }		
 
 		private void RefreshCaptions()
 		{

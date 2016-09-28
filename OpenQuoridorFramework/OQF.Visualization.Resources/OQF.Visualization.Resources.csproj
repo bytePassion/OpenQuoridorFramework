@@ -48,6 +48,7 @@
     </Compile>
     <Compile Include="OpenQuoridorFrameworkInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThirdPartyItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FlagIcons\de.png" />

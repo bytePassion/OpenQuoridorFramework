@@ -1,24 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace OQF.Visualization.Resources
 {
 	public class ApplicationInfo
 	{
-		public ApplicationInfo(string name, string version, string licence, 
-							   IEnumerable<string> developers, IEnumerable<string> thirdPartyItems)
+		public ApplicationInfo(string name, string version, string licenceName, Uri licenceUri,
+							   IEnumerable<string> developers, IEnumerable<ThirdPartyItem> thirdPartyItems)
 		{
 			Name = name;
 			Version = version;
-			Licence = licence;
+			LicenceName = licenceName;
+			LicenceUri = licenceUri;
 			Developers = developers;
 			ThirdPartyItems = thirdPartyItems;
 		}
 
-		public IEnumerable<string> Developers { get; }
-		public IEnumerable<string> ThirdPartyItems { get; }
+		public IEnumerable<string>         Developers      { get; }
+		public IEnumerable<ThirdPartyItem> ThirdPartyItems { get; }
 
-		public string Name    { get; }
-		public string Version { get; }
-		public string Licence { get; }
+		public string Name        { get; }
+		public string Version     { get; }
+		public string LicenceName { get; }
+		public Uri    LicenceUri  { get; }
 	}
 }

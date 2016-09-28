@@ -133,7 +133,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The sourceCode of the OpenQuoridorFramework can be found on gitHub (https://github.com/bytePassion/OpenQuoridorFramework.git)..
+        ///   Looks up a localized string similar to The sourceCode of the OpenQuoridorFramework can be found on gitHub.
         /// </summary>
         public static string AP_SourceCodeSectionText {
             get {
