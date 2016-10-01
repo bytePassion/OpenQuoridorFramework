@@ -2,7 +2,6 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:behaviors="clr-namespace:OQF.PlayerVsBot.Behaviors"
-        xmlns:computation="clr-namespace:OQF.PlayerVsBot.Computation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:languageSelection="clr-namespace:OQF.Visualization.Common.Language.LanguageSelection;assembly=OQF.Visualization.Common"
@@ -13,6 +12,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:views1="clr-namespace:OQF.Visualization.Common.Board.Views;assembly=OQF.Visualization.Common"
         xmlns:libBehaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
+        xmlns:computations="clr-namespace:OQF.PlayerVsBot.Computations"
         Title="OpenQuoridorFramework - Player vs. Bot"
         Width="1200"
         Height="950"
@@ -33,11 +33,11 @@
     </d:DesignData.DataContext>
 
     <Window.Resources>
-        <computation:TopPlayerMarkerColor x:Key="TopPlayerMarkerColor" />
-        <computation:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
-		<computation:GetBottomPlayerMoveFromString x:Key="GetBottomPlayerMoveFromString"/>
-		<computation:GetTopPlayerMoveFromString x:Key="GetTopPlayerMoveFromString"/>
-		<computation:GetProgressNrFromString x:Key="GetProgressNrFromString"/>
+        <computations:TopPlayerMarkerColor x:Key="TopPlayerMarkerColor" />
+        <computations:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
+		<computations:GetBottomPlayerMoveFromString x:Key="GetBottomPlayerMoveFromString"/>
+		<computations:GetTopPlayerMoveFromString x:Key="GetTopPlayerMoveFromString"/>
+		<computations:GetProgressNrFromString x:Key="GetProgressNrFromString"/>
     </Window.Resources>
 
     <materialDesign:DialogHost Identifier="RootDialog">

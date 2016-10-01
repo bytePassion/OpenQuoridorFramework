@@ -3,17 +3,15 @@ using System.Windows.Media;
 using Lib.Wpf.ConverterBase;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
 
-namespace OQF.PlayerVsBot.Computation
+namespace OQF.PlayerVsBot.Computations
 {
 	internal class BottomPlayerMarkerColor : GenericValueConverter<GameStatus, Brush>
 	{
 		protected override Brush Convert (GameStatus gameStatus, CultureInfo culture)
 		{
-//			return gameStatus == GameStatus.Unloaded
-//						?  BoardColors.Brushes.PlayerInactiveColor
-//						: Constants.Brushes.BottomPlayerActiveColor;
-
-			return null;
+			return gameStatus == GameStatus.Unloaded
+						?  Visualization.Common.Board.BoardColors.Brushes.PlayerInactiveColor
+						:  Visualization.Common.Board.BoardColors.Brushes.BottomPlayerActiveColor;			
 		}
 	}
 }

@@ -10,7 +10,7 @@ using OQF.Visualization.Resources.LanguageDictionaries;
 namespace OQF.PlayerVsBot.Behaviors
 {
 	internal class MainWindowClosingBehavior: Behavior<Window>
-	{
+	{		
 		protected override void OnAttached()
 		{
 			base.OnAttached();
