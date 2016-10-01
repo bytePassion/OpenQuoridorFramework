@@ -9,11 +9,18 @@
              d:DesignWidth="900"
              mc:Ignorable="d">
 
-	<d:DesignData.DataContext>
-		<quoridorNotationPage:QuoridorNotationPageViewModelSampleData/>
-	</d:DesignData.DataContext>
-	
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+    <d:DesignData.DataContext>
+        <quoridorNotationPage:QuoridorNotationPageViewModelSampleData />
+    </d:DesignData.DataContext>
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Common;component/Info/InfoWindow/CustomMaterialScrollBar.xaml" />
+
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                  Style="{StaticResource CustomMaterialDesignScrollViewer}"
+                  VerticalScrollBarVisibility="Auto">
 
         <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 
@@ -27,10 +34,10 @@
                 <ColumnDefinition Width="400" />
             </Grid.ColumnDefinitions>
 
-			<TextBlock Margin="16,0,0,0"
+            <TextBlock Margin="16,0,0,0"
                        FontSize="35"
                        Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-					   Text="{Binding PageHeader}"/>
+                       Text="{Binding PageHeader}" />
 
             <StackPanel Grid.Row="1" Grid.Column="0">
 
@@ -38,37 +45,32 @@
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding GeneralParagraphHeader}"/>
-						<TextBlock Margin="0,0,0,16"
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding GeneralParagraphHeader}" />
+                        <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding GeneralParagraphText}"/>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding TheBoadParagraphHeader}"/>
-						<TextBlock Margin="0,0,0,16"
+                                   Text="{Binding GeneralParagraphText}"
+                                   TextWrapping="Wrap" />
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding TheBoadParagraphHeader}" />
+                        <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding TheBoadParagraphText}"/>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding FigureMoveParagraphHeader}"/>
-						<TextBlock Margin="0,0,0,16"
+                                   Text="{Binding TheBoadParagraphText}"
+                                   TextWrapping="Wrap" />
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding FigureMoveParagraphHeader}" />
+                        <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding FigureMoveParagraphText}"/>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding WallMoveParagraphHeader}"/>
-						<TextBlock Margin="0,0,0,16"
+                                   Text="{Binding FigureMoveParagraphText}"
+                                   TextWrapping="Wrap" />
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding WallMoveParagraphHeader}" />
+                        <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding WallMoveParagraphText}"/>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding ExampleParagraphHeader}"/>
-						<TextBlock Margin="0,0,0,16"
+                                   Text="{Binding WallMoveParagraphText}"
+                                   TextWrapping="Wrap" />
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding ExampleParagraphHeader}" />
+                        <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding ExampleParagraphText}"/>
-					</StackPanel>
+                                   Text="{Binding ExampleParagraphText}"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
 
                 </materialDesign:Card>
 
@@ -81,19 +83,19 @@
                         <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board0.png" />
                         <TextBlock Margin="6"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding Picture1Caption}"/>
+                                   Text="{Binding Picture1Caption}"
+                                   TextWrapping="Wrap" />
                     </StackPanel>
                 </materialDesign:Card>
 
                 <materialDesign:Card Margin="20,20,20,0">
                     <StackPanel>
                         <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board6.png" />
-						<TextBlock Margin="6"
+                        <TextBlock Margin="6"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding Picture2Caption}"/>
-					</StackPanel>
+                                   Text="{Binding Picture2Caption}"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
                 </materialDesign:Card>
 
 

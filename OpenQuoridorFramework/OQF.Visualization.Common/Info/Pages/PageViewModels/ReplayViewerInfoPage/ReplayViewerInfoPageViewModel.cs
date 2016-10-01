@@ -9,5 +9,7 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.ReplayViewerInfoPag
 	{
 		protected override void CleanUp(){	}
 		public override event PropertyChangedEventHandler PropertyChanged;
-	}
+        public string DisplayName => "ReplayInfo";
+
+    }
 }

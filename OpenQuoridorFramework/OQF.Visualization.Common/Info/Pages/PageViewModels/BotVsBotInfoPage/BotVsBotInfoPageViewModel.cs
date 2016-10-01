@@ -9,5 +9,7 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.BotVsBotInfoPage
 	{
 		protected override void CleanUp() {	}
 		public override event PropertyChangedEventHandler PropertyChanged;
-	}
+        public string DisplayName => "BotVsBot";
+
+    }
 }

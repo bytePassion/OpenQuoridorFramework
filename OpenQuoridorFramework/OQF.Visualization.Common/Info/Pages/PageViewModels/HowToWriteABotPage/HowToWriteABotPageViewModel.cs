@@ -51,8 +51,10 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 
 		public string HintParagrapHeader => Captions.HTWAB_HintParagraphHeader;
 		public string HintParagrapText   => Captions.HTWAB_HintParagraphText;
+        public string DisplayName => "HowTo";
 
-		private void RefreshCaptions ()
+
+        private void RefreshCaptions ()
 		{
 			PropertyChanged.Notify(this, nameof(PageHeader),
 										 nameof(GeneralProceedingParagraphHeader),

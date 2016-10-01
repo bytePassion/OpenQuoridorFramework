@@ -3,17 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sampleData="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage"
              d:DesignHeight="900"
              d:DesignWidth="900"
              mc:Ignorable="d">
 
-	<d:DesignData.DataContext>
-		<sampleData:QuoridorRulesPageViewModelSampleData/>
-	</d:DesignData.DataContext>
-	
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+    <d:DesignData.DataContext>
+        <sampleData:QuoridorRulesPageViewModelSampleData />
+    </d:DesignData.DataContext>
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Common;component/Info/InfoWindow/CustomMaterialScrollBar.xaml" />
+
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                  Style="{StaticResource CustomMaterialDesignScrollViewer}"
+                  VerticalScrollBarVisibility="Auto">
 
         <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 
@@ -27,10 +34,10 @@
                 <ColumnDefinition Width="400" />
             </Grid.ColumnDefinitions>
 
-			<TextBlock Margin="16,0,0,0"
+            <TextBlock Margin="16,0,0,0"
                        FontSize="35"
                        Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-					   Text="{Binding PageHeader}"/>
+                       Text="{Binding PageHeader}" />
 
             <StackPanel Grid.Row="1" Grid.Column="0">
 
@@ -38,36 +45,31 @@
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
                     <StackPanel>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding GeneralParagraphHeader}"/>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding GeneralParagraphHeader}" />
                         <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding GeneralParagraphText}"/>
-                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding GameSetupParagraphHeader}"/>
-						<TextBlock Margin="0,0,0,16"
-                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding GameSetupParagrphText}"/>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding GameGoalParagraphHeader}"/>
-						<TextBlock Margin="0,0,0,16"
-                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding GameGoalParagraphText}"/>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding GameFlowParagraphHeader}"/>
-						<TextBlock Margin="0,0,0,16"
-                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding GameFlowParagraphText}"/>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding SpecialMoveParagraphHeader}"/>
+                                   Text="{Binding GeneralParagraphText}"
+                                   TextWrapping="Wrap" />
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding GameSetupParagraphHeader}" />
                         <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding SpecialMoveParagraphText}"/>
+                                   Text="{Binding GameSetupParagrphText}"
+                                   TextWrapping="Wrap" />
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding GameGoalParagraphHeader}" />
+                        <TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   Text="{Binding GameGoalParagraphText}"
+                                   TextWrapping="Wrap" />
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding GameFlowParagraphHeader}" />
+                        <TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   Text="{Binding GameFlowParagraphText}"
+                                   TextWrapping="Wrap" />
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding SpecialMoveParagraphHeader}" />
+                        <TextBlock Margin="0,0,0,16"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                   Text="{Binding SpecialMoveParagraphText}"
+                                   TextWrapping="Wrap" />
                     </StackPanel>
 
                 </materialDesign:Card>
@@ -81,8 +83,8 @@
                         <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board1.png" />
                         <TextBlock Margin="6"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding Picture1Caption}"/>
+                                   Text="{Binding Picture1Caption}"
+                                   TextWrapping="Wrap" />
                     </StackPanel>
                 </materialDesign:Card>
 
@@ -93,8 +95,8 @@
                             <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board2.png" />
                             <TextBlock Margin="6"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                       TextWrapping="Wrap"
-								   Text="{Binding Picture2Caption}"/>
+                                       Text="{Binding Picture2Caption}"
+                                       TextWrapping="Wrap" />
                         </StackPanel>
                     </materialDesign:Card>
 
@@ -103,8 +105,8 @@
                             <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board3.png" />
                             <TextBlock Margin="6"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                       TextWrapping="Wrap"
-									   Text="{Binding Picture3Caption}"/>
+                                       Text="{Binding Picture3Caption}"
+                                       TextWrapping="Wrap" />
                         </StackPanel>
                     </materialDesign:Card>
 
@@ -117,8 +119,8 @@
                             <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board4.png" />
                             <TextBlock Margin="6"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                       TextWrapping="Wrap"
-									   Text="{Binding Picture4Caption}"/>
+                                       Text="{Binding Picture4Caption}"
+                                       TextWrapping="Wrap" />
                         </StackPanel>
                     </materialDesign:Card>
 
@@ -127,8 +129,8 @@
                             <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board5.png" />
                             <TextBlock Margin="6"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                       TextWrapping="Wrap"
-									   Text="{Binding Picture5Caption}"/>
+                                       Text="{Binding Picture5Caption}"
+                                       TextWrapping="Wrap" />
                         </StackPanel>
                     </materialDesign:Card>
 

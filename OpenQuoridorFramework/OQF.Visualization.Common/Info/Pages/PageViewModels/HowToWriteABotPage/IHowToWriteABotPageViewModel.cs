@@ -2,7 +2,7 @@
 
 namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 {
-	internal interface IHowToWriteABotPageViewModel : IViewModel
+	internal interface IHowToWriteABotPageViewModel : IViewModel, IPage
 	{
 		string PageHeader { get; }
 

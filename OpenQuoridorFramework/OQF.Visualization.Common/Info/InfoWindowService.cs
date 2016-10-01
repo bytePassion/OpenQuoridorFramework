@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using OQF.Visualization.Common.Info.InfoWindow.ViewModel;
+using OQF.Visualization.Common.Info.Pages.PageViewModels;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.BotVsBotInfoPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage;
@@ -27,16 +29,46 @@ namespace OQF.Visualization.Common.Info
 			var languageSelectionViewModel    = new LanguageSelectionViewModel();
 			var aboutPageViewModel            = new AboutPageViewModel(applicationInfo);
 
-			var infoWindowViewModel = new InfoWindowViewModel(visibleInfoPages,
-															  languageSelectionViewModel,
-															  quoridorRulesPageViewModel,
-															  quoridorNotationPageViewModel,
-															  howToWriteABotPageViewModel,
-															  botVsBotInfoPageViewModel,
-															  playerVsBotInfoPageViewModel,
-															  replayViewerInfoPageViewModel,
-															  turnamentInfoPageViewModel,
-															  aboutPageViewModel);
+
+		    var viewModels = new ObservableCollection<IPage>();
+
+		    foreach (var visibleInfoPage in visibleInfoPages)
+		    {
+		        switch (visibleInfoPage)
+		        {
+		             case InfoPage.About:
+                        viewModels.Add( aboutPageViewModel);
+                        break;
+                    case InfoPage.BotVsBotApplicationInfo:
+                        viewModels.Add(botVsBotInfoPageViewModel);
+                        break;
+                    case InfoPage.HowToWriteABot:
+                        viewModels.Add(howToWriteABotPageViewModel);
+                        break;
+                    case InfoPage.PlayerVsBotApplicationInfo:
+                        viewModels.Add(playerVsBotInfoPageViewModel);
+                        break;
+                    case InfoPage.QuoridorNotation:
+                        viewModels.Add(quoridorNotationPageViewModel);
+                        break;
+                    case InfoPage.QuoridorRules:
+                        viewModels.Add(quoridorRulesPageViewModel);
+                        break;
+                    case InfoPage.ReplayViewerApplicationInfo:
+                        viewModels.Add(replayViewerInfoPageViewModel);
+                        break;
+                    case InfoPage.TurnamentApplicationInfo:
+                        viewModels.Add(turnamentInfoPageViewModel);
+                        break;
+                    default:
+                        break;
+		        }
+		    }
+
+
+
+			var infoWindowViewModel = new InfoWindowViewModel(viewModels,
+															  languageSelectionViewModel);
 
 			var infoWindow = new InfoWindow.InfoWindow
 			{

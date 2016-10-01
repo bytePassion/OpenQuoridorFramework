@@ -45,6 +45,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 
 
 		public void Dispose () { }
-		public event PropertyChangedEventHandler PropertyChanged;		
-	}
+		public event PropertyChangedEventHandler PropertyChanged;
+        public string DisplayName => "HowTo";
+
+    }
 }

@@ -2,7 +2,7 @@
 
 namespace OQF.Visualization.Common.Info.Pages.PageViewModels.BotVsBotInfoPage
 {
-	internal interface IBotVsBotInfoPageViewModel : IViewModel
+	internal interface IBotVsBotInfoPageViewModel : IViewModel, IPage
 	{
 		
 	}

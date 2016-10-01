@@ -29,6 +29,7 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		public IEnumerable<ThirdPartyItem> ThridPartyItems { get; }
 				
 		public void Dispose () { }
-		public event PropertyChangedEventHandler PropertyChanged;		
+		public event PropertyChangedEventHandler PropertyChanged;
+	    public string DisplayName => "About";
 	}
 }

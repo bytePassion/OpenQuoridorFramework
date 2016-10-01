@@ -56,5 +56,6 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage
 			CultureManager.CultureChanged += RefreshCaptions;
 		}
 		public override event PropertyChangedEventHandler PropertyChanged;
+	    public string DisplayName { get { return "Regeln"; } }
 	}
 }

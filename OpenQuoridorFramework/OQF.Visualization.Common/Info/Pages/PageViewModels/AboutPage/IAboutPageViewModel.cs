@@ -5,7 +5,7 @@ using OQF.Visualization.Resources;
 
 namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 {
-	internal interface IAboutPageViewModel : IViewModel
+	internal interface IAboutPageViewModel : IViewModel, IPage
 	{
 		string PageHeader               { get; }
 		string ApplicationSectionHeader { get; }		

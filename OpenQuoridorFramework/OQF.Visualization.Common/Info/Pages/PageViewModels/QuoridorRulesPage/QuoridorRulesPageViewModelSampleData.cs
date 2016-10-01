@@ -26,5 +26,6 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage
 		
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;
-	}
+	    public string DisplayName => "blaBlubb";
+        }
 }

@@ -76,6 +76,7 @@
     <Compile Include="Info\Pages\PageViewModels\HowToWriteABotPage\HowToWriteABotPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\HowToWriteABotPage\HowToWriteABotPageViewModelSampleData.cs" />
     <Compile Include="Info\Pages\PageViewModels\HowToWriteABotPage\IHowToWriteABotPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\IPage.cs" />
     <Compile Include="Info\Pages\PageViewModels\PlayerVsBotInfoPage\IPlayerVsBotInfoPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\PlayerVsBotInfoPage\PlayerVsBotInfoPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\PlayerVsBotInfoPage\PlayerVsBotInfoPageViewModelSampleData.cs" />
@@ -125,6 +126,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Info\InfoWindow\CustomMaterialScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Info\InfoWindow\InfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

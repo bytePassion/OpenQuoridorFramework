@@ -8,5 +8,6 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.TurnamentInfoPage
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 		public void Dispose() {	}
+	    public string DisplayName => "Turnier";
 	}
 }

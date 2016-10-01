@@ -19,8 +19,10 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPag
 		public string ExampleParagraphText      => "blubb";												   
 		public string Picture1Caption           => "blubb";
 		public string Picture2Caption           => "blubb";
+        public string DisplayName => "test";
 
-		public void Dispose () { }
+
+        public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
 	}
 }

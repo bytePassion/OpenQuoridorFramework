@@ -2,7 +2,7 @@
 
 namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage
 {
-	internal interface IQuoridorRulesPageViewModel : IViewModel
+	internal interface IQuoridorRulesPageViewModel : IViewModel, IPage
 	{
 		string PageHeader                 { get; }
 		string GeneralParagraphHeader     { get; }

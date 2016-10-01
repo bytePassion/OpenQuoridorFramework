@@ -2,7 +2,7 @@
 
 namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage
 {
-	internal interface IQuoridorNotationPageViewModel : IViewModel
+	internal interface IQuoridorNotationPageViewModel : IViewModel, IPage
 	{
 		string PageHeader                { get; }
 		string GeneralParagraphHeader    { get; }		

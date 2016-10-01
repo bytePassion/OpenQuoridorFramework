@@ -1,24 +1,29 @@
 ﻿<UserControl x:Class="OQF.Visualization.Common.Info.Pages.About"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:aboutPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage"
+             xmlns:behaviors="clr-namespace:OQF.Visualization.Common.Info.Pages.Behaviors"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:aboutPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:resources="clr-namespace:OQF.Visualization.Resources;assembly=OQF.Visualization.Resources"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:behaviors="clr-namespace:OQF.Visualization.Common.Info.Pages.Behaviors"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              d:DesignHeight="900"
              d:DesignWidth="900"
              mc:Ignorable="d">
 
-	<d:DesignData.DataContext>
-		<aboutPage:AboutPageViewModelSampleData/>
-	</d:DesignData.DataContext>
-	
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
-				  VerticalScrollBarVisibility="Auto">
+    <d:DesignData.DataContext>
+        <aboutPage:AboutPageViewModelSampleData />
+    </d:DesignData.DataContext>
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Common;component/Info/InfoWindow/CustomMaterialScrollBar.xaml" />
+
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto" Style="{StaticResource CustomMaterialDesignScrollViewer}">
 
         <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 
@@ -30,198 +35,183 @@
             <TextBlock Margin="16,0,0,0"
                        FontSize="35"
                        Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-					   Text="{Binding PageHeader}"/>
+                       Text="{Binding PageHeader}" />
 
-			<StackPanel Grid.Row="1" 
-						Grid.Column="0">
-				<materialDesign:Card Margin="8"
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <materialDesign:Card Margin="8"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-					<StackPanel>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding ApplicationSectionHeader}"/>
-						<TextBlock Margin="20,0,0,0"
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding ApplicationSectionHeader}" />
+                        <TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding ApplicationName}"/>
-					</StackPanel>
-				</materialDesign:Card>
+                                   Text="{Binding ApplicationName}"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                </materialDesign:Card>
 
-				<materialDesign:Card Margin="8,0"
+                <materialDesign:Card Margin="8,0"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-					<StackPanel>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding VersionSectionHeader}"/>
-						<TextBlock Margin="20,0,0,0"
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding VersionSectionHeader}" />
+                        <TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   TextWrapping="Wrap"
-								   Text="{Binding VersionIdentifier}"/>
-					</StackPanel>
-				</materialDesign:Card>
+                                   Text="{Binding VersionIdentifier}"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                </materialDesign:Card>
 
-				<materialDesign:Card Margin="8"
+                <materialDesign:Card Margin="8"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-					<StackPanel>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding DeveloperSectionHeader}"/>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding DeveloperSectionHeader}" />
 
-						<ItemsControl Margin="20,0,0,0"
-									  ItemsSource="{Binding Developers}">
-							<ItemsControl.ItemTemplate>
-								<DataTemplate DataType="system:String">
-									<TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}"
-											   TextWrapping="Wrap"
-											   Text="{Binding}"/>
-								</DataTemplate>
-							</ItemsControl.ItemTemplate>
-						</ItemsControl>
-					</StackPanel>
-				</materialDesign:Card>
+                        <ItemsControl Margin="20,0,0,0" ItemsSource="{Binding Developers}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="system:String">
+                                    <TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                               Text="{Binding}"
+                                               TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </materialDesign:Card>
 
-				<materialDesign:Card Margin="8,0"
+                <materialDesign:Card Margin="8,0"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-					<StackPanel>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding SourceCodeSectionHeader}"/>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding SourceCodeSectionHeader}" />
 
-						<TextBlock Margin="20,0,0,0"
+                        <TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-							<Run Text="{Binding SourceCodeSectionText, Mode=OneWay}"/>:
-						</TextBlock>
-						<TextBlock Margin="20,0,0,0"
+                            <Run Text="{Binding SourceCodeSectionText, Mode=OneWay}" />
+                            :</TextBlock>
+                        <TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-							<Hyperlink NavigateUri="{x:Static resources:OpenQuoridorFrameworkInfo.GitHubUri}">
-								<TextBlock Text="{x:Static resources:OpenQuoridorFrameworkInfo.GitHubUriText}"
-										   Foreground="#FF0066CC"/>
-								
-								<i:Interaction.Behaviors>
-									<behaviors:UrlNavigationBehavior/>
-								</i:Interaction.Behaviors>
-							</Hyperlink>
-						</TextBlock>
-					</StackPanel>
-				</materialDesign:Card>
+                            <Hyperlink NavigateUri="{x:Static resources:OpenQuoridorFrameworkInfo.GitHubUri}">
+                                <TextBlock Foreground="#FF0066CC" Text="{x:Static resources:OpenQuoridorFrameworkInfo.GitHubUriText}" />
 
-				<materialDesign:Card Margin="8"
+                                <i:Interaction.Behaviors>
+                                    <behaviors:UrlNavigationBehavior />
+                                </i:Interaction.Behaviors>
+                            </Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                </materialDesign:Card>
+
+                <materialDesign:Card Margin="8"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-					<StackPanel>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding ThirdPartySectionHeader}"/>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding ThirdPartySectionHeader}" />
 
-						<ItemsControl Margin="20,0,0,0"
-									  ItemsSource="{Binding ThridPartyItems}">
-							<ItemsControl.ItemTemplate>
-								<DataTemplate DataType="resources:ThirdPartyItem">
-									<TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}"
-											   TextWrapping="Wrap">
-											
-										<Run Text="{Binding ItemText, Mode=OneWay}"/> 
-										<Hyperlink NavigateUri="{Binding ItemUri}">
-											<TextBlock Text="{Binding ItemUriText}"
-													   Foreground="#FF0066CC"/>
-								
-												<i:Interaction.Behaviors>
-													<behaviors:UrlNavigationBehavior/>
-												</i:Interaction.Behaviors>
-											</Hyperlink>																								
-									</TextBlock>
-								</DataTemplate>
-							</ItemsControl.ItemTemplate>
-						</ItemsControl>
-					</StackPanel>
-				</materialDesign:Card>
+                        <ItemsControl Margin="20,0,0,0" ItemsSource="{Binding ThridPartyItems}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="resources:ThirdPartyItem">
+                                    <TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}" TextWrapping="Wrap">
 
-				<materialDesign:Card Margin="8,0"
+                                        <Run Text="{Binding ItemText, Mode=OneWay}" />
+                                        <Hyperlink NavigateUri="{Binding ItemUri}">
+                                            <TextBlock Foreground="#FF0066CC" Text="{Binding ItemUriText}" />
+
+                                            <i:Interaction.Behaviors>
+                                                <behaviors:UrlNavigationBehavior />
+                                            </i:Interaction.Behaviors>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </materialDesign:Card>
+
+                <materialDesign:Card Margin="8,0"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-					<StackPanel>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding QuoridorSectionHeader}"/>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding QuoridorSectionHeader}" />
 
-						<Grid Margin="20,0,0,0">
-							<Grid.RowDefinitions>
-								<RowDefinition/>
-								<RowDefinition/>
-							</Grid.RowDefinitions>
+                        <Grid Margin="20,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
 
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition/>
-							</Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
 
-							<TextBlock Grid.Column="0"
-									   Grid.Row="0"
-									   HorizontalAlignment="Right"
-									   Margin="0,0,10,0"
-									   Style="{StaticResource MaterialDesignBody1TextBlock}">
-								<Run Text="{Binding QuoridorInventerSubItem, Mode=OneWay}"/>:
-							</TextBlock>
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Margin="0,0,10,0"
+                                       HorizontalAlignment="Right"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}">
+                                <Run Text="{Binding QuoridorInventerSubItem, Mode=OneWay}" />
+                                :</TextBlock>
 
-							<TextBlock Grid.Column="0"
-									   Grid.Row="1"
-									   HorizontalAlignment="Right"
-									   Margin="0,0,10,0"
-									   Style="{StaticResource MaterialDesignBody1TextBlock}">
-								<Run Text="{Binding QuoridorPublisherSubItem, Mode=OneWay}"/>:
-							</TextBlock>
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Left"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                       Text="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorInventor}" />
 
-							<TextBlock Grid.Column="1"
-									   Grid.Row="0"
-									   HorizontalAlignment="Left"
-									   Style="{StaticResource MaterialDesignBody1TextBlock}"
-									   Text="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorInventor}"/>
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="0,0,10,0"
+                                       HorizontalAlignment="Right"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}">
+                                <Run Text="{Binding QuoridorPublisherSubItem, Mode=OneWay}" />
+                                :</TextBlock>
 
-							<TextBlock Grid.Column="1"
-									   Grid.Row="1"
-									   HorizontalAlignment="Left"
-									   Style="{StaticResource MaterialDesignBody1TextBlock}">
-								
-								<Hyperlink NavigateUri="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorPublisherUri}">
-									<TextBlock Text="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorPublisher}"
-											   Foreground="#FF0066CC"/>
-								
-									<i:Interaction.Behaviors>
-										<behaviors:UrlNavigationBehavior/>
-									</i:Interaction.Behaviors>
-								</Hyperlink>
-								
-							</TextBlock>
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Left"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}">
 
-						</Grid>
-					</StackPanel>
+                                <Hyperlink NavigateUri="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorPublisherUri}">
+                                    <TextBlock Foreground="#FF0066CC" Text="{x:Static resources:OpenQuoridorFrameworkInfo.QuoridorPublisher}" />
 
-				</materialDesign:Card>
+                                    <i:Interaction.Behaviors>
+                                        <behaviors:UrlNavigationBehavior />
+                                    </i:Interaction.Behaviors>
+                                </Hyperlink>
 
-				<materialDesign:Card Margin="8"
+                            </TextBlock>
+
+                        </Grid>
+                    </StackPanel>
+
+                </materialDesign:Card>
+
+                <materialDesign:Card Margin="8"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-					<StackPanel>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   Text="{Binding LicenceSectionHeader}"/>
-						<TextBlock Margin="20,0,0,0"
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding LicenceSectionHeader}" />
+                        <TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-							
-							<Hyperlink NavigateUri="{Binding LicenceUri}">
-								<TextBlock Text="{Binding LicenceName}"
-										   Foreground="#FF0066CC"/>
-								
-								<i:Interaction.Behaviors>
-									<behaviors:UrlNavigationBehavior/>
-								</i:Interaction.Behaviors>
-							</Hyperlink>
-							
-						</TextBlock>
-					</StackPanel>
-				</materialDesign:Card>
 
-			</StackPanel>
-		</Grid>
+                            <Hyperlink NavigateUri="{Binding LicenceUri}">
+                                <TextBlock Foreground="#FF0066CC" Text="{Binding LicenceName}" />
+
+                                <i:Interaction.Behaviors>
+                                    <behaviors:UrlNavigationBehavior />
+                                </i:Interaction.Behaviors>
+                            </Hyperlink>
+
+                        </TextBlock>
+                    </StackPanel>
+                </materialDesign:Card>
+
+            </StackPanel>
+        </Grid>
     </ScrollViewer>
 </UserControl>

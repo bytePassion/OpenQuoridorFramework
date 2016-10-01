@@ -2,78 +2,106 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:playerVsBotInfoPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DesignHeight="1400"
              d:DesignWidth="1000"
              mc:Ignorable="d">
 
-	<d:DesignData.DataContext>
-		<playerVsBotInfoPage:PlayerVsBotInfoPageViewModelSampleData/>
-	</d:DesignData.DataContext>
+    <d:DesignData.DataContext>
+        <playerVsBotInfoPage:PlayerVsBotInfoPageViewModelSampleData />
+    </d:DesignData.DataContext>
 
-	<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Background="White">
-		<Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Common;component/Info/InfoWindow/CustomMaterialScrollBar.xaml" />
 
-			<Grid.RowDefinitions>
-				<RowDefinition Height="70" />
-				<RowDefinition />
-			</Grid.RowDefinitions>
+    </UserControl.Resources>
+
+    <ScrollViewer Background="White"
+                  HorizontalScrollBarVisibility="Disabled"
+                  Style="{StaticResource CustomMaterialDesignScrollViewer}"
+                  VerticalScrollBarVisibility="Auto">
+        <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
 
-			<TextBlock Margin="16,0,0,0"
+            <TextBlock Margin="16,0,0,0"
                        FontSize="35"
                        Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-					   Text="{Binding PageHeader}"/>
+                       Text="{Binding PageHeader}" />
 
-			<StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1">
 
-				<materialDesign:Card Margin="8,0"
+                <materialDesign:Card Margin="8,0"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-					<StackPanel>
-						<Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/playerVsBot_help_german.png" 							   
-							   Stretch="Uniform"
-							   MaxWidth="1112"/>
-						<TextBlock Margin="0,15,0,0"
-							       Style="{StaticResource MaterialDesignTitleTextBlock}"
-								   TextWrapping="Wrap"
-								   Text="{Binding Note}"/>
-						<TextBlock Margin="0,20,0,16"
+                    <StackPanel>
+                        <Image MaxWidth="1112"
+                               Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/playerVsBot_help_german.png"
+                               Stretch="Uniform" />
+                        <TextBlock Margin="0,15,0,0"
+                                   Style="{StaticResource MaterialDesignTitleTextBlock}"
+                                   Text="{Binding Note}"
+                                   TextWrapping="Wrap" />
+                        <TextBlock Margin="0,20,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-							<Run Text="{Binding Explanation01, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation02, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation03, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation04, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation05, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation06, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation07, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation08, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation09, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation10, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation11, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation12, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation13, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation14, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation15, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation16, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation17, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation18, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation19, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation20, Mode=OneWay}"/> <LineBreak/>
-							<Run Text="{Binding Explanation21, Mode=OneWay}"/> 
-						</TextBlock>
+                            <Run Text="{Binding Explanation01, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation02, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation03, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation04, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation05, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation06, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation07, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation08, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation09, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation10, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation11, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation12, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation13, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation14, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation15, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation16, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation17, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation18, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation19, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation20, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run Text="{Binding Explanation21, Mode=OneWay}" />
+                        </TextBlock>
 
-					</StackPanel>
+                    </StackPanel>
 
-				</materialDesign:Card>
-				
-			</StackPanel>
+                </materialDesign:Card>
 
-		</Grid>
-	</ScrollViewer>
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
 </UserControl>
 
 
