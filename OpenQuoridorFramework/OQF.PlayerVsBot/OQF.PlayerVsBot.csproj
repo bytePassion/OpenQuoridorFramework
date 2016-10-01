@@ -64,24 +64,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Behaviors\KeepQuadratic.cs" />
     <Compile Include="Behaviors\AutoScrollDownBehavior.cs" />
     <Compile Include="Behaviors\MainWindowClosingBehavior.cs" />
     <Compile Include="Behaviors\ReportRelativeMousePositionBehavior.cs" />
-    <Compile Include="Behaviors\SizeReportingBehavior.cs" />
     <Compile Include="Computation\BottomPlayerMarkerColor.cs" />
-    <Compile Include="Computation\ComputeFigureHeight.cs" />
-    <Compile Include="Computation\ComputeFigureLeftPosition.cs" />
-    <Compile Include="Computation\ComputeFigureTopPosition.cs" />
-    <Compile Include="Computation\ComputeFigureWidth.cs" />
-    <Compile Include="Computation\ComputeWallHeight.cs" />
-    <Compile Include="Computation\ComputeWallLeftPosition.cs" />
-    <Compile Include="Computation\ComputeWallTopPosition.cs" />
     <Compile Include="Computation\GetBottomPlayerMoveFromString.cs" />
     <Compile Include="Computation\GetProgressNrFromString.cs" />
     <Compile Include="Computation\GetTopPlayerMoveFromString.cs" />
-    <Compile Include="Computation\PlayerColor.cs" />
-    <Compile Include="Computation\ComputeWallWidth.cs" />
     <Compile Include="Computation\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
     <Compile Include="Services\NotificationService.cs" />
@@ -106,20 +95,8 @@
     <Compile Include="ViewModels\YesNoDialog\IYesNoDialogViewModel.cs" />
     <Compile Include="ViewModels\YesNoDialog\YesNoDialogViewModel.cs" />
     <Compile Include="ViewModels\YesNoDialog\YesNoDialogViewModelSampleData.cs" />
-    <Compile Include="Views\Board.xaml.cs">
-      <DependentUpon>Board.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BoardBackground.xaml.cs">
-      <DependentUpon>BoardBackground.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BoardHorizontalLabelling.xaml.cs">
-      <DependentUpon>BoardHorizontalLabelling.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\BoardPlacement.xaml.cs">
       <DependentUpon>BoardPlacement.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BoardVerticalLabelling.xaml.cs">
-      <DependentUpon>BoardVerticalLabelling.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\BoardPlacement.xaml">
       <SubType>Designer</SubType>
@@ -151,22 +128,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Board.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\BoardBackground.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\BoardHorizontalLabelling.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\BoardVerticalLabelling.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

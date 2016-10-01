@@ -75,18 +75,6 @@
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
-    <Compile Include="Views\Board.xaml.cs">
-      <DependentUpon>Board.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BoardBackground.xaml.cs">
-      <DependentUpon>BoardBackground.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BoardHorizontalLabelling.xaml.cs">
-      <DependentUpon>BoardHorizontalLabelling.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BoardVerticalLabelling.xaml.cs">
-      <DependentUpon>BoardVerticalLabelling.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -94,34 +82,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Behaviors\KeepQuadratic.cs" />
-    <Compile Include="Behaviors\SizeReportingBehavior.cs" />
-    <Compile Include="Computation\ComputeFigureHeight.cs" />
-    <Compile Include="Computation\ComputeFigureLeftPosition.cs" />
-    <Compile Include="Computation\ComputeFigureTopPosition.cs" />
-    <Compile Include="Computation\ComputeFigureWidth.cs" />
-    <Compile Include="Computation\ComputeWallHeight.cs" />
-    <Compile Include="Computation\ComputeWallLeftPosition.cs" />
-    <Compile Include="Computation\ComputeWallTopPosition.cs" />
-    <Compile Include="Computation\ComputeWallWidth.cs" />
-    <Compile Include="Computation\PlayerColor.cs" />
-    <Compile Include="Global\Constants.cs" />
-    <Page Include="Views\Board.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\BoardBackground.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\BoardHorizontalLabelling.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\BoardVerticalLabelling.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

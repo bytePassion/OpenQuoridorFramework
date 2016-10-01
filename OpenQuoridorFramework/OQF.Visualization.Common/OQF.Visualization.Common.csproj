@@ -53,6 +53,30 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\KeepQuadratic.cs" />
+    <Compile Include="Behaviors\SizeReportingBehavior.cs" />
+    <Compile Include="Board\Board.xaml.cs">
+      <DependentUpon>Board.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Board\BoardBackground.xaml.cs">
+      <DependentUpon>BoardBackground.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Board\BoardHorizontalLabelling.xaml.cs">
+      <DependentUpon>BoardHorizontalLabelling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Board\BoardVerticalLabelling.xaml.cs">
+      <DependentUpon>BoardVerticalLabelling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Computation\ComputeFigureHeight.cs" />
+    <Compile Include="Computation\ComputeFigureLeftPosition.cs" />
+    <Compile Include="Computation\ComputeFigureTopPosition.cs" />
+    <Compile Include="Computation\ComputeFigureWidth.cs" />
+    <Compile Include="Computation\ComputeWallHeight.cs" />
+    <Compile Include="Computation\ComputeWallLeftPosition.cs" />
+    <Compile Include="Computation\ComputeWallTopPosition.cs" />
+    <Compile Include="Computation\ComputeWallWidth.cs" />
+    <Compile Include="Computation\PlayerColor.cs" />
+    <Compile Include="Global\Constants.cs" />
     <Compile Include="Info\InfoPage.cs" />
     <Compile Include="Info\InfoWindow\InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
@@ -126,6 +150,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Board\Board.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Board\BoardBackground.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Board\BoardHorizontalLabelling.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Board\BoardVerticalLabelling.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Info\InfoWindow\CustomMaterialScrollBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -183,6 +223,10 @@
     <ProjectReference Include="..\Lib.Wpf\Lib.Wpf.csproj">
       <Project>{762ef986-e716-4d0b-a13b-360a0bf97086}</Project>
       <Name>Lib.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
+      <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
+      <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Visualization.Resources.csproj">
       <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
