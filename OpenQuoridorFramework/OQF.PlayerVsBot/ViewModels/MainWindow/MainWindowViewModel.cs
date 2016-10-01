@@ -25,11 +25,11 @@ using OQF.GameEngine.Contracts.Factories;
 using OQF.PlayerVsBot.Global;
 using OQF.PlayerVsBot.Services;
 using OQF.PlayerVsBot.Services.SettingsRepository;
-using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
 using OQF.PlayerVsBot.ViewModels.YesNoDialog;
 using OQF.Utils;
+using OQF.Visualization.Common.Board.BoardViewModelBase;
 using OQF.Visualization.Common.Info;
 using OQF.Visualization.Common.Language;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
@@ -46,7 +46,6 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private readonly IGameService gameService;
 		private readonly IApplicationSettingsRepository applicationSettingsRepository;
 		private readonly IProgressFileVerifierFactory progressFileVerifierFactory;
-
 
 		private string dllPathInput;		
 		private int bottomPlayerWallCountLeft;

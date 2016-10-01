@@ -64,7 +64,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Behaviors\AutoScrollDownBehavior.cs" />
     <Compile Include="Behaviors\MainWindowClosingBehavior.cs" />
     <Compile Include="Behaviors\ReportRelativeMousePositionBehavior.cs" />
     <Compile Include="Computation\BottomPlayerMarkerColor.cs" />
@@ -83,8 +82,6 @@
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
     <Compile Include="ViewModels\BoardPlacement\IBoardPlacementViewModel.cs" />
     <Compile Include="ViewModels\Board\BoardViewModel.cs" />
-    <Compile Include="ViewModels\Board\BoardViewModelSampleData.cs" />
-    <Compile Include="ViewModels\Board\IBoardViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\Helper\GameStatus.cs" />
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />

@@ -5,6 +5,7 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 using OQF.PlayerVsBot.Services;
+using OQF.Visualization.Common.Board.BoardViewModelBase;
 
 namespace OQF.PlayerVsBot.ViewModels.Board
 {

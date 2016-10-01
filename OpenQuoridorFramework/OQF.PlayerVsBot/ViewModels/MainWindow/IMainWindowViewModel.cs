@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
-using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
+using OQF.Visualization.Common.Board.BoardViewModelBase;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
 namespace OQF.PlayerVsBot.ViewModels.MainWindow

@@ -278,7 +278,7 @@
 								</ItemsControl>
 
 								<i:Interaction.Behaviors>
-									<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
+									<libBehaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
 								</i:Interaction.Behaviors>
 							</ScrollViewer>
 						</Grid>
@@ -395,7 +395,7 @@
 								</ItemsControl>
 																
                                 <i:Interaction.Behaviors>
-                                    <behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
+                                    <libBehaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
                                 </i:Interaction.Behaviors>
                             </ScrollViewer>
 

@@ -54,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board\BoardColors\Brushes.cs" />
+    <Compile Include="Board\BoardViewModelBase\BoardViewModelSampleData.cs" />
+    <Compile Include="Board\BoardViewModelBase\IBoardViewModel.cs" />
     <Compile Include="Board\Views\Board.xaml.cs">
       <DependentUpon>Board.xaml</DependentUpon>
     </Compile>

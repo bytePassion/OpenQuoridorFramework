@@ -41,32 +41,14 @@
             </Style>
         </Grid.Resources>
 
-        <Border Grid.Row=" 0"> 
-            <TextBlock Text="9" /> 
-        </Border>
-        <Border Grid.Row=" 2"> 
-            <TextBlock Text="8" /> 
-        </Border>
-        <Border Grid.Row=" 4"> 
-            <TextBlock Text="7" /> 
-        </Border>
-        <Border Grid.Row=" 6"> 
-            <TextBlock Text="6" /> 
-        </Border>
-        <Border Grid.Row=" 8"> 
-            <TextBlock Text="5" /> 
-        </Border>
-        <Border Grid.Row="10"> 
-            <TextBlock Text="4" /> 
-        </Border>
-        <Border Grid.Row="12"> 
-            <TextBlock Text="3" /> 
-        </Border>
-        <Border Grid.Row="14"> 
-            <TextBlock Text="2" /> 
-        </Border>
-        <Border Grid.Row="16"> 
-            <TextBlock Text="1" /> 
-        </Border>
+        <Border Grid.Row=" 0"> <TextBlock Text="9" /> </Border>
+        <Border Grid.Row=" 2"> <TextBlock Text="8" /> </Border>
+        <Border Grid.Row=" 4"> <TextBlock Text="7" /> </Border>
+        <Border Grid.Row=" 6"> <TextBlock Text="6" /> </Border>
+        <Border Grid.Row=" 8"> <TextBlock Text="5" /> </Border>
+        <Border Grid.Row="10"> <TextBlock Text="4" /> </Border>
+        <Border Grid.Row="12"> <TextBlock Text="3" /> </Border>
+        <Border Grid.Row="14"> <TextBlock Text="2" /> </Border>
+        <Border Grid.Row="16"> <TextBlock Text="1" /> </Border>
     </Grid>
 </UserControl>

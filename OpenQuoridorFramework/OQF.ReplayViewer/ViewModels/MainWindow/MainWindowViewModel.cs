@@ -10,8 +10,8 @@ using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
 using OQF.Bot.Contracts.GameElements;
 using OQF.ReplayViewer.Services;
-using OQF.ReplayViewer.ViewModels.Board;
 using OQF.Utils;
+using OQF.Visualization.Common.Board.BoardViewModelBase;
 using OQF.Visualization.Common.Info;
 using OQF.Visualization.Resources;
 

@@ -3,9 +3,9 @@ using System.Windows;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.PlayerVsBot.ViewModels.Board
+namespace OQF.Visualization.Common.Board.BoardViewModelBase
 {
-	internal interface IBoardViewModel : IViewModel
+	public interface IBoardViewModel : IViewModel
 	{
 		ObservableCollection<Wall>        VisibleWalls   { get; }
 		ObservableCollection<PlayerState> VisiblePlayers { get; }		

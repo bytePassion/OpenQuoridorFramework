@@ -2,9 +2,9 @@
 using System.Windows.Controls;
 using System.Windows.Interactivity;
 
-namespace OQF.PlayerVsBot.Behaviors
+namespace Lib.Wpf.Behaviors
 {
-	internal class AutoScrollDownBehavior : Behavior<ScrollViewer>
+	public class AutoScrollDownBehavior : Behavior<ScrollViewer>
     {
         public static readonly DependencyProperty IsAutoScrollActiveProperty =
             DependencyProperty.Register(nameof(IsAutoScrollActive),

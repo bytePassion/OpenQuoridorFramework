@@ -1,13 +1,12 @@
 ﻿<UserControl x:Class="OQF.Visualization.Common.Board.Views.Board"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:board1="clr-namespace:OQF.Visualization.Common.Board"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"             
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:computations="clr-namespace:OQF.Visualization.Common.Board.Computations"
              xmlns:views="clr-namespace:OQF.Visualization.Common.Board.Views"
-             xmlns:Colors="clr-namespace:OQF.Visualization.Common.Board.BoardColors"
+             xmlns:boardColors="clr-namespace:OQF.Visualization.Common.Board.BoardColors"
              xmlns:behaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
              d:DesignHeight="300"
              d:DesignWidth="300"
@@ -145,8 +144,8 @@
                             <Setter.Value>
                                 <ControlTemplate>
 
-                                    <Rectangle Fill="{x:Static Colors:Brushes.WallColor}"
-                                               Stroke="{x:Static Colors:Brushes.FrameColor}"
+                                    <Rectangle Fill="{x:Static boardColors:Brushes.WallColor}"
+                                               Stroke="{x:Static boardColors:Brushes.FrameColor}"
                                                StrokeThickness="1">
 
                                         <Rectangle.Width>

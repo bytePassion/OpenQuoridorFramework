@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using System.Windows.Input;
-using OQF.ReplayViewer.ViewModels.Board;
+using OQF.Visualization.Common.Board.BoardViewModelBase;
 
 #pragma warning disable 0067
 

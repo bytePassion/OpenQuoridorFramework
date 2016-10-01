@@ -1,6 +1,6 @@
 ﻿namespace OQF.Visualization.Common.Info.Pages.PageViewModels
 {
-    interface IPage
+	internal interface IPage
     {
         string DisplayName { get; }
     }

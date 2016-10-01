@@ -42,33 +42,15 @@
             </Style>
         </Grid.Resources>
 
-        <Border Grid.Column=" 0"> 
-            <TextBlock Text="A" /> 
-        </Border>
-        <Border Grid.Column=" 2"> 
-            <TextBlock Text="B" /> 
-        </Border>
-        <Border Grid.Column=" 4"> 
-            <TextBlock Text="C" /> 
-        </Border>
-        <Border Grid.Column=" 6"> 
-            <TextBlock Text="D" /> 
-        </Border>
-        <Border Grid.Column=" 8"> 
-            <TextBlock Text="E" /> 
-        </Border>
-        <Border Grid.Column="10"> 
-            <TextBlock Text="F" /> 
-        </Border>
-        <Border Grid.Column="12"> 
-            <TextBlock Text="G" /> 
-        </Border>
-        <Border Grid.Column="14"> 
-            <TextBlock Text="H" /> 
-        </Border>
-        <Border Grid.Column="16"> 
-            <TextBlock Text="I" /> 
-        </Border>
+        <Border Grid.Column=" 0"> <TextBlock Text="A" /> </Border>
+        <Border Grid.Column=" 2"> <TextBlock Text="B" /> </Border>
+        <Border Grid.Column=" 4"> <TextBlock Text="C" /> </Border>
+        <Border Grid.Column=" 6"> <TextBlock Text="D" /> </Border>
+        <Border Grid.Column=" 8"> <TextBlock Text="E" /> </Border>
+        <Border Grid.Column="10"> <TextBlock Text="F" /> </Border>
+        <Border Grid.Column="12"> <TextBlock Text="G" /> </Border>
+        <Border Grid.Column="14"> <TextBlock Text="H" /> </Border>
+        <Border Grid.Column="16"> <TextBlock Text="I" /> </Border>
 
     </Grid>
 </UserControl>
