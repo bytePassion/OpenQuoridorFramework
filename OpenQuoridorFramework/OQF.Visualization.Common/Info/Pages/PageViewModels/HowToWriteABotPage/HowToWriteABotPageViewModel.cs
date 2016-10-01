@@ -86,7 +86,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 										 nameof(ExampleParagraphHeader),
 										 nameof(ExampleParagraphText),
 										 nameof(HintParagrapHeader),
-										 nameof(HintParagrapText));
+										 nameof(HintParagrapText),
+										 nameof(DisplayName));
 		}
 
 		protected override void CleanUp()

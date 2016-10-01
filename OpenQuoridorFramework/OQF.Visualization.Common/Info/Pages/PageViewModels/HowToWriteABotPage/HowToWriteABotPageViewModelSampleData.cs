@@ -43,10 +43,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 		public string HintParagrapHeader => "blubb";
 		public string HintParagrapText   => "blubb";
 
+		public string DisplayName => "HowTo";
 
 		public void Dispose () { }
-		public event PropertyChangedEventHandler PropertyChanged;
-        public string DisplayName => "HowTo";
-
+		public event PropertyChangedEventHandler PropertyChanged;        
     }
 }

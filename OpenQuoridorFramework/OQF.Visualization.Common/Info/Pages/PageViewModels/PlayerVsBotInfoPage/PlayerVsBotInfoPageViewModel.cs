@@ -39,7 +39,6 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 		public string Explanation21 => Captions.PvBH_Explanation21;
         public string DisplayName   => Captions.IP_AboutButtonCaption;
 
-
         private void RefreshCaptions ()
 		{
 			PropertyChanged.Notify(this, nameof(PageHeader),
@@ -64,7 +63,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 										 nameof(Explanation18),
 										 nameof(Explanation19),
 										 nameof(Explanation20),
-										 nameof(Explanation21));
+										 nameof(Explanation21),
+										 nameof(DisplayName));
 		}
 
 		protected override void CleanUp()

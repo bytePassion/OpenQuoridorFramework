@@ -8,9 +8,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.ReplayViewerInfoPag
 {
 	internal class ReplayViewerInfoPageViewModel : ViewModel , IReplayViewerInfoPageViewModel 
 	{
-		protected override void CleanUp(){	}
-		public override event PropertyChangedEventHandler PropertyChanged;
-        public string DisplayName => Captions.IP_ReplayViewerInfoButtonCaption;
+		public string DisplayName => Captions.IP_ReplayViewerInfoButtonCaption;
 
+		protected override void CleanUp(){	}
+		public override event PropertyChangedEventHandler PropertyChanged;        
     }
 }

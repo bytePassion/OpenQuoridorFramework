@@ -23,13 +23,13 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		public string ApplicationName          => "blablubb";
 		public string VersionIdentifier        => "blablubb";
 		public string LicenceName              => "blablubb";
+		public string DisplayName              => "About";
 		public Uri LicenceUri                  => new Uri("blablubb");
 
 		public IEnumerable<string>         Developers      { get; }
 		public IEnumerable<ThirdPartyItem> ThridPartyItems { get; }
 				
 		public void Dispose () { }
-		public event PropertyChangedEventHandler PropertyChanged;
-	    public string DisplayName => "About";
+		public event PropertyChangedEventHandler PropertyChanged;	    
 	}
 }

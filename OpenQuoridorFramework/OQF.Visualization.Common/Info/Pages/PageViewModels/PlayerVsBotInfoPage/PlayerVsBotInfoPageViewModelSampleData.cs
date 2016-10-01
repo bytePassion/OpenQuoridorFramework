@@ -29,7 +29,7 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 		public string Explanation19 => "19 blubb";
 		public string Explanation20 => "20 blubb";
 		public string Explanation21 => "21 blubb";
-        public string DisplayName => "PlayerVsBot";
+        public string DisplayName   => "PlayerVsBot";
 
 
         public void Dispose () { }

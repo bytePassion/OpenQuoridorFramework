@@ -50,7 +50,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage
 										 nameof(Picture2Caption),
 										 nameof(Picture3Caption),
 										 nameof(Picture4Caption),
-										 nameof(Picture5Caption));
+										 nameof(Picture5Caption),
+										 nameof(DisplayName));
 		}
 
 		protected override void CleanUp()

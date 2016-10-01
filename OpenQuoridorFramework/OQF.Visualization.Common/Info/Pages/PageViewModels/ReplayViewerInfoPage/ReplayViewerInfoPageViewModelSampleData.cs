@@ -6,9 +6,9 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.ReplayViewerInfoPag
 {
 	internal class ReplayViewerInfoPageViewModelSampleData : IReplayViewerInfoPageViewModel
 	{
-		public void Dispose () { }
-		public event PropertyChangedEventHandler PropertyChanged;
-        public string DisplayName => "Info";
+		public string DisplayName => "Info";
 
+		public void Dispose () { }
+		public event PropertyChangedEventHandler PropertyChanged;        
     }
 }

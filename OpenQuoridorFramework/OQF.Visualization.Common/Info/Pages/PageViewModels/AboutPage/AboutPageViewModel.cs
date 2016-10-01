@@ -35,7 +35,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		public string QuoridorInventerSubItem  => Captions.AP_QuoridorInventorSubItem;
 		public string QuoridorPublisherSubItem => Captions.AP_QuoridorPublisherSubItem;
 		public string LicenceSectionHeader     => Captions.AP_LicenceSectionHeader;
-		
+		public string DisplayName              => Captions.IP_AboutButtonCaption;
+
 		public IEnumerable<string>         Developers      { get; }
 		public IEnumerable<ThirdPartyItem> ThridPartyItems { get; }
 		
@@ -56,7 +57,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 										 nameof(QuoridorPublisherSubItem),
 										 nameof(LicenceSectionHeader),
 										 nameof(SourceCodeSectionHeader),
-										 nameof(SourceCodeSectionText));
+										 nameof(SourceCodeSectionText),
+										 nameof(DisplayName));
 		}
 
 		protected override void CleanUp()
@@ -64,7 +66,6 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 			CultureManager.CultureChanged += RefreshCaptions;
 		}
 
-		public override event PropertyChangedEventHandler PropertyChanged;
-	    public string DisplayName => Captions.IP_AboutButtonCaption;
+		public override event PropertyChangedEventHandler PropertyChanged;	    
     }
 }

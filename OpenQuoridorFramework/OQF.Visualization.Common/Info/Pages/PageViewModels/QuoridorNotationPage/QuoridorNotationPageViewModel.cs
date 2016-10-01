@@ -44,7 +44,8 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPag
 										 nameof(ExampleParagraphHeader),
 										 nameof(ExampleParagraphText),
 										 nameof(Picture1Caption),
-										 nameof(Picture2Caption));
+										 nameof(Picture2Caption),
+										 nameof(DisplayName));
 		}
 
 		protected override void CleanUp()
