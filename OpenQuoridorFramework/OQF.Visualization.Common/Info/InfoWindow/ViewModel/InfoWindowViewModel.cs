@@ -3,28 +3,22 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using Lib.Communication.State;
 using Lib.Wpf.Commands;
 using OQF.Visualization.Common.Info.Pages.PageViewModels;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 using OQF.Visualization.Resources.LanguageDictionaries;
 
+#pragma warning disable 0067
+
 namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 {
 	internal class InfoWindowViewModel : Lib.Wpf.ViewModelBase.ViewModel, IInfoWindowViewModel
-	{
-		
-		private int selectedPage;
-
-		private readonly SharedState<InfoPage> selectedPageVariable;
-
+	{				
 		public InfoWindowViewModel(IEnumerable<IPage> visibleInfoPages,
 								   ILanguageSelectionViewModel languageSelectionViewModel)
 		{
 
-			LanguageSelectionViewModel = languageSelectionViewModel;
-
-			selectedPageVariable = new SharedState<InfoPage>();
+			LanguageSelectionViewModel = languageSelectionViewModel;			
 
 			CloseWindow = new Command(DoCloseWindow);
 		    Pages = visibleInfoPages;
@@ -50,10 +44,7 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 
         public IEnumerable<IPage> Pages { get; }
 
-		protected override void CleanUp()
-		{
-
-		}
+		protected override void CleanUp() {}
 		public override event PropertyChangedEventHandler PropertyChanged;
 		
 	}

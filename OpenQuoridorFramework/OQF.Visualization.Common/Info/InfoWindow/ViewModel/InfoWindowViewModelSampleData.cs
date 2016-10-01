@@ -1,9 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
-using Lib.Communication.State;
-using Lib.Wpf.Commands;
-using OQF.Visualization.Common.Info.InfoWindow.ViewModel.Helper;
+using OQF.Visualization.Common.Info.Pages.PageViewModels;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.BotVsBotInfoPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage;
@@ -22,41 +20,30 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 	{
 		public InfoWindowViewModelSampleData()
 		{
-			QuoridorRulesPageViewModel    = new QuoridorRulesPageViewModelSampleData();
-			QuoridorNotationPageViewModel = new QuoridorNotationPageViewModelSampleData();
-			HowToWriteABotPageViewModel   = new HowToWriteABotPageViewModelSampleData();
-			BotVsBotInfoPageViewModel     = new BotVsBotInfoPageViewModelSampleData();
-			PlayerVsBotInfoPageViewModel  = new PlayerVsBotInfoPageViewModelSampleData();
-			ReplayViewerInfoPageViewModel = new ReplayViewerInfoPageViewModelSampleData();
-			TurnamentInfoPageViewModel    = new TurnamentInfoPageViewModelSampleData();			
-			AboutPageViewModel            = new AboutPageViewModelSampleData();
 			LanguageSelectionViewModel    = new LanguageSelectionViewModelSampleData();
 
-			SelectedPage = 2;
-			CloseButtonCaption = "Close";
-
-			PageSelectionCommands = new ObservableCollection<SelectionButtonData>
+			Pages = new List<IPage>
 			{
-				new SelectionButtonData(new Command(() => {}), InfoPage.About,                   new SharedState<InfoPage>()),
-				new SelectionButtonData(new Command(() => {}), InfoPage.BotVsBotApplicationInfo, new SharedState<InfoPage>()),
-				new SelectionButtonData(new Command(() => {}), InfoPage.HowToWriteABot,          new SharedState<InfoPage>())
+				new QuoridorRulesPageViewModelSampleData(),
+				new QuoridorNotationPageViewModelSampleData(),
+				new HowToWriteABotPageViewModelSampleData(),
+				new BotVsBotInfoPageViewModelSampleData(),
+				new PlayerVsBotInfoPageViewModelSampleData(),
+				new ReplayViewerInfoPageViewModelSampleData(),
+				new TurnamentInfoPageViewModelSampleData(),
+				new AboutPageViewModelSampleData(),
+
 			};
+			
+			CloseButtonCaption = "Close";			
 		}
 
-		public IQuoridorRulesPageViewModel    QuoridorRulesPageViewModel    { get; }
-		public IQuoridorNotationPageViewModel QuoridorNotationPageViewModel { get; }
-		public IHowToWriteABotPageViewModel   HowToWriteABotPageViewModel   { get; }
-		public IBotVsBotInfoPageViewModel     BotVsBotInfoPageViewModel     { get; }
-		public IPlayerVsBotInfoPageViewModel  PlayerVsBotInfoPageViewModel  { get; }
-		public IReplayViewerInfoPageViewModel ReplayViewerInfoPageViewModel { get; }
-		public ITurnamentInfoPageViewModel    TurnamentInfoPageViewModel    { get; }
-		public IAboutPageViewModel            AboutPageViewModel            { get; }
-		public ILanguageSelectionViewModel    LanguageSelectionViewModel    { get; }
+		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
+
+		public IEnumerable<IPage> Pages { get; }
 
 		public ICommand CloseWindow => null;
-		public string CloseButtonCaption { get; }
-		public int SelectedPage { get; }
-		public ObservableCollection<SelectionButtonData> PageSelectionCommands { get; }
+		public string CloseButtonCaption { get; }				
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
