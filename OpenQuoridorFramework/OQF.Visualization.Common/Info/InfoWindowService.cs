@@ -57,7 +57,7 @@ namespace OQF.Visualization.Common.Info
                     case InfoPage.ReplayViewerApplicationInfo:
                         viewModels.Add(replayViewerInfoPageViewModel);
                         break;
-                    case InfoPage.TurnamentApplicationInfo:
+                    case InfoPage.TournamentApplicationInfo:
                         viewModels.Add(turnamentInfoPageViewModel);
                         break;
                     default:

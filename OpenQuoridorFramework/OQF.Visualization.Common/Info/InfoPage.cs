@@ -8,7 +8,7 @@
 		ReplayViewerApplicationInfo,
 		PlayerVsBotApplicationInfo,
 		BotVsBotApplicationInfo,
-		TurnamentApplicationInfo,
+		TournamentApplicationInfo,
 		About
 	}
 }
