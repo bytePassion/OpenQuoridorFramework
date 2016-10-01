@@ -47,6 +47,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private readonly IGameService gameService;
 		private readonly IApplicationSettingsRepository applicationSettingsRepository;
 		private readonly IProgressFileVerifierFactory progressFileVerifierFactory;
+		private readonly bool disableClosingDialog;
 
 		private string dllPathInput;		
 		private int bottomPlayerWallCountLeft;
@@ -67,13 +68,15 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 									ILanguageSelectionViewModel languageSelectionViewModel,
 									IGameService gameService, 
 									IApplicationSettingsRepository applicationSettingsRepository,
-									IProgressFileVerifierFactory progressFileVerifierFactory)
+									IProgressFileVerifierFactory progressFileVerifierFactory,
+									bool disableClosingDialog)
 		{
 			CultureManager.CultureChanged += RefreshCaptions;
 
 			this.gameService = gameService;
 			this.applicationSettingsRepository = applicationSettingsRepository;
 			this.progressFileVerifierFactory = progressFileVerifierFactory;
+			this.disableClosingDialog = disableClosingDialog;
 
 			LanguageSelectionViewModel = languageSelectionViewModel;
 			BoardPlacementViewModel = boardPlacementViewModel;
@@ -89,7 +92,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			IsAutoScrollDebugMsgActive = true;
 			IsAutoScrollProgressActive = true;
 
-			PreventWindowClosingToAskUser = false;
+			PreventWindowClosingToAskUser = !disableClosingDialog;
 
 			TopPlayerName = "- - - - -";
 			MovesLeft = "--";
@@ -432,7 +435,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 			private set
 			{
 				IsDisabledOverlayVisible      = value != GameStatus.Active;
-				PreventWindowClosingToAskUser = value == GameStatus.Active;
+				PreventWindowClosingToAskUser = !disableClosingDialog && value == GameStatus.Active;
 
 				PropertyChanged.ChangeAndNotify(this, ref gameStatus, value);
 			}

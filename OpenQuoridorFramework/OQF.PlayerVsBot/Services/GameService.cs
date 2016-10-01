@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
@@ -12,15 +13,17 @@ namespace OQF.PlayerVsBot.Services
 	internal class GameService : IGameService
 	{
 		private readonly IGameFactory gameFactory;
+		private readonly bool disableBotTimeout;
 		public event Action<BoardState> NewBoardStateAvailable;
 		public event Action<string> NewDebugMsgAvailable;
 		public event Action<Player, WinningReason, Move> WinnerAvailable;
 
 		private IPvBGame currentIpvBGame;		
 
-		public GameService(IGameFactory gameFactory)
+		public GameService(IGameFactory gameFactory, bool disableBotTimeout)
 		{
 			this.gameFactory = gameFactory;
+			this.disableBotTimeout = disableBotTimeout;
 			currentIpvBGame = null;
 			CurrentBoardState = null;			
 		}
@@ -35,7 +38,16 @@ namespace OQF.PlayerVsBot.Services
 				StopGame();
 			}
 
-			currentIpvBGame = gameFactory.CreateNewGame(uninitializedBot, botName, gameConstraints, initialProgress);
+			currentIpvBGame = disableBotTimeout 
+									? gameFactory.CreateNewGame(uninitializedBot, 
+																botName, 
+																new GameConstraints(Timeout.InfiniteTimeSpan, 
+																gameConstraints.MaximalMovesPerPlayer), 
+																initialProgress)
+									: gameFactory.CreateNewGame(uninitializedBot, 
+																botName, 
+																gameConstraints, 
+																initialProgress);
 
 			currentIpvBGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentIpvBGame.NextBoardstateAvailable += OnNextBoardstateAvailable;

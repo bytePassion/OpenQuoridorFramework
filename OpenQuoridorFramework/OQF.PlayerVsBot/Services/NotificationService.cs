@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System.Windows;
 using MaterialDesignThemes.Wpf;
 using OQF.Visualization.Common.Dialogs.Notification;
 using OQF.Visualization.Common.Dialogs.Notification.ViewModel;
@@ -9,16 +10,23 @@ namespace OQF.PlayerVsBot.Services
 	{
 		public static async Task Show(string message, string buttonCaption)
 		{
-			var winningDialogViewModel = new NotificationDialogViewModel(message, buttonCaption);
-
-			var view = new NotificationDialog
+			try
 			{
-				DataContext = winningDialogViewModel
-			};
+				var winningDialogViewModel = new NotificationDialogViewModel(message, buttonCaption);
 
-			await DialogHost.Show(view, "RootDialog");
-			
-			winningDialogViewModel.Dispose();
+				var view = new NotificationDialog
+				{
+					DataContext = winningDialogViewModel
+				};
+
+				await DialogHost.Show(view, "RootDialog");
+
+				winningDialogViewModel.Dispose();
+			}
+			catch
+			{
+				MessageBox.Show(message);
+			}			
 		}
 	}
 }

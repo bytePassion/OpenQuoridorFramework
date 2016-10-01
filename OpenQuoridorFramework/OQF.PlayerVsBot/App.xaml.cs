@@ -19,8 +19,10 @@ namespace OQF.PlayerVsBot
 		{			
 			base.OnStartup(e);
 
+			var commandLineArguments = CommandLine.Parse(e.Args);
+
 			IGameFactory gameFactory = new GameFactory();
-			IGameService gameService = new GameService(gameFactory);
+			IGameService gameService = new GameService(gameFactory, commandLineArguments.DisableBotTimeout);
 			IApplicationSettingsRepository applicationSettingsRepository = new ApplicationSettingsRepository();
 
 			CultureManager.CurrentCulture = new CultureInfo(applicationSettingsRepository.SelectedLanguageCode);
@@ -39,13 +41,12 @@ namespace OQF.PlayerVsBot
 															  languageSelectionViewModel,
 															  gameService, 
 															  applicationSettingsRepository,
-															  progressFileVerifierFactory);
-
-			var commandLineArguments = CommandLine.Parse(e.Args);
+															  progressFileVerifierFactory,
+															  commandLineArguments.DisableClosingDialogs);			
 
 			if (!string.IsNullOrWhiteSpace(commandLineArguments.BotPath))
 			{
-				var dllPath = e.Args[0];
+				var dllPath = commandLineArguments.BotPath;
 				mainWindowViewModel.DllPathInput = dllPath;
 
 				if (mainWindowViewModel.Start.CanExecute(null))
