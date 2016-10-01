@@ -1,6 +1,11 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
+using MaterialDesignThemes.Wpf;
+using OQF.PlayerVsBot.ViewModels.MainWindow;
+using OQF.Visualization.Common.Dialogs.YesNo;
+using OQF.Visualization.Common.Dialogs.YesNo.ViewModel;
+using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.PlayerVsBot.Behaviors
 {
@@ -20,7 +25,6 @@ namespace OQF.PlayerVsBot.Behaviors
 
 		private async void OnClosing (object sender, CancelEventArgs cancelEventArgs)
 		{
-#if !DEBUG
 			var mainWindowViewModel = AssociatedObject.DataContext as IMainWindowViewModel;
 
 			if (mainWindowViewModel.PreventWindowClosingToAskUser)
@@ -28,7 +32,7 @@ namespace OQF.PlayerVsBot.Behaviors
 				cancelEventArgs.Cancel = true;
 
 				var closingDialogViewModel = new YesNoDialogViewModel(Captions.ClosingDialogMessage);
-				var closingDialog = new Views.YesNoDialog
+				var closingDialog = new YesNoDialog
 				{
 					DataContext = closingDialogViewModel
 				};
@@ -38,7 +42,7 @@ namespace OQF.PlayerVsBot.Behaviors
 				if ((bool)closingDialogResult)
 				{
 					var savingDialogViewModel = new YesNoDialogViewModel(Captions.SavingDialogMessage);
-					var savingDialog = new Views.YesNoDialog
+					var savingDialog = new YesNoDialog
 					{
 						DataContext = savingDialogViewModel
 					};
@@ -57,7 +61,6 @@ namespace OQF.PlayerVsBot.Behaviors
 				closingDialogViewModel.Dispose();
 
 			}
-#endif
 		}
 	}
 }
