@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Interactivity;
 
-namespace OQF.Visualization.Common.Behaviors
+namespace Lib.Wpf.Behaviors
 {
 	public class KeepQuadratic : Behavior<FrameworkElement>
 	{

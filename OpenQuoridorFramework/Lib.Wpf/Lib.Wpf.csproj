@@ -45,6 +45,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\KeepQuadratic.cs" />
+    <Compile Include="Behaviors\SizeReportingBehavior.cs" />
     <Compile Include="CommandExecutingBehaviors\ExecuteCommandOnClickBehavior.cs" />
     <Compile Include="CommandExecutingBehaviors\ExecuteCommandOnDoubleClickBehavior.cs" />
     <Compile Include="CommandExecutingBehaviors\ExecuteCommandOnEnter.cs" />

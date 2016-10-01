@@ -1,14 +1,14 @@
-﻿<UserControl x:Class="OQF.Visualization.Common.Board.BoardBackground"
+﻿<UserControl x:Class="OQF.Visualization.Common.Board.Views.BoardBackground"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:global="clr-namespace:OQF.Visualization.Common.Global"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
+             xmlns:colors="clr-namespace:OQF.Visualization.Common.Board.BoardColors"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
 
-    <Grid Background="{x:Static global:Constants+Brushes.FieldBackgroundColor}" IsHitTestVisible="False">
+    <Grid Background="{x:Static colors:Brushes.FieldBackgroundColor}" IsHitTestVisible="False">
 
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -52,7 +52,7 @@
 
         <Grid.Resources>
             <Style TargetType="Rectangle">
-                <Setter Property="Fill" Value="{x:Static global:Constants+Brushes.FieldColor}" />
+                <Setter Property="Fill" Value="{x:Static colors:Brushes.FieldColor}" />
             </Style>
         </Grid.Resources>
 

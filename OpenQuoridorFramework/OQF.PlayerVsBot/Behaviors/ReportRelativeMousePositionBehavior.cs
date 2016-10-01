@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interactivity;
 using Lib.SemanicTypes;
@@ -39,7 +38,6 @@ namespace OQF.PlayerVsBot.Behaviors
 		{
 			MousePosition = new Point(new XCoord(-1), new YCoord(-1));
 		}
-
 		
 		private void OnMouseMove (object sender, MouseEventArgs mouseEventArgs)
 		{

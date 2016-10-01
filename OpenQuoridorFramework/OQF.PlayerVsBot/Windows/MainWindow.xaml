@@ -11,8 +11,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:OQF.PlayerVsBot.Views"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-        xmlns:behaviors1="clr-namespace:OQF.Visualization.Common.Behaviors;assembly=OQF.Visualization.Common"
-        xmlns:board="clr-namespace:OQF.Visualization.Common.Board;assembly=OQF.Visualization.Common"
+        xmlns:views1="clr-namespace:OQF.Visualization.Common.Board.Views;assembly=OQF.Visualization.Common"
+        xmlns:libBehaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
         Title="OpenQuoridorFramework - Player vs. Bot"
         Width="1200"
         Height="950"
@@ -296,7 +296,7 @@
                 <Grid Margin="15">
 
                     <i:Interaction.Behaviors>
-                        <behaviors1:KeepQuadratic />
+                        <libBehaviors:KeepQuadratic />
                     </i:Interaction.Behaviors>
 
                     <Grid.RowDefinitions>
@@ -311,15 +311,15 @@
 
                     <materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />
 
-                    <board:BoardHorizontalLabelling Grid.Row="0"
+                    <views1:BoardHorizontalLabelling Grid.Row="0"
                                                     Grid.Column="1"
                                                     IsHitTestVisible="False" />
 
-                    <board:BoardVerticalLabelling Grid.Row="1"
+                    <views1:BoardVerticalLabelling Grid.Row="1"
                                                   Grid.Column="0"
                                                   IsHitTestVisible="False" />
 
-                    <board:Board Grid.Row="1"
+                    <views1:Board Grid.Row="1"
                                  Grid.Column="1"
                                  DataContext="{Binding BoardViewModel}"
                                  IsHitTestVisible="False"

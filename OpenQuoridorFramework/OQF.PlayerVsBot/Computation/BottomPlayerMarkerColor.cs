@@ -1,7 +1,6 @@
 using System.Globalization;
 using System.Windows.Media;
 using Lib.Wpf.ConverterBase;
-using OQF.PlayerVsBot.Global;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
 
 namespace OQF.PlayerVsBot.Computation
@@ -10,9 +9,11 @@ namespace OQF.PlayerVsBot.Computation
 	{
 		protected override Brush Convert (GameStatus gameStatus, CultureInfo culture)
 		{
-			return gameStatus == GameStatus.Unloaded
-						? Constants.Brushes.PlayerInactiveColor
-						: Constants.Brushes.BottomPlayerActiveColor;
+//			return gameStatus == GameStatus.Unloaded
+//						?  BoardColors.Brushes.PlayerInactiveColor
+//						: Constants.Brushes.BottomPlayerActiveColor;
+
+			return null;
 		}
 	}
 }

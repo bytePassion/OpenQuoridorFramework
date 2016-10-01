@@ -1,8 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Interactivity;
 
-namespace OQF.Visualization.Common.Behaviors
+namespace Lib.Wpf.Behaviors
 {
+	// TODO: change to semantic-types-size
+
 	public class SizeReportingBehavior : Behavior<FrameworkElement>
 	{
 		
