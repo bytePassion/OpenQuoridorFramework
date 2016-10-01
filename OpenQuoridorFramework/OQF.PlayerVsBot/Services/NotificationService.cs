@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MaterialDesignThemes.Wpf;
-using OQF.PlayerVsBot.ViewModels.NotificationDialog;
+using OQF.Visualization.Common.Dialogs.Notification;
+using OQF.Visualization.Common.Dialogs.Notification.ViewModel;
 
 namespace OQF.PlayerVsBot.Services
 {
@@ -10,7 +11,7 @@ namespace OQF.PlayerVsBot.Services
 		{
 			var winningDialogViewModel = new NotificationDialogViewModel(message, buttonCaption);
 
-			var view = new Views.NotificationDialog
+			var view = new NotificationDialog
 			{
 				DataContext = winningDialogViewModel
 			};

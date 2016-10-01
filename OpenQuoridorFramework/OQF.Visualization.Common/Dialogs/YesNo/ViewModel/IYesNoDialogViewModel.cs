@@ -1,6 +1,6 @@
 ﻿using Lib.Wpf.ViewModelBase;
 
-namespace OQF.PlayerVsBot.ViewModels.YesNoDialog
+namespace OQF.Visualization.Common.Dialogs.YesNo.ViewModel
 {
 	internal interface IYesNoDialogViewModel : IViewModel
 	{

@@ -77,6 +77,18 @@
     <Compile Include="Board\Computations\ComputeWallTopPosition.cs" />
     <Compile Include="Board\Computations\ComputeWallWidth.cs" />
     <Compile Include="Board\Computations\PlayerColor.cs" />
+    <Compile Include="Dialogs\Notification\NotificationDialog.xaml.cs">
+      <DependentUpon>NotificationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Notification\ViewModel\INotificationDialogViewModel.cs" />
+    <Compile Include="Dialogs\Notification\ViewModel\NotificationDialogViewModel.cs" />
+    <Compile Include="Dialogs\Notification\ViewModel\NotificationDialogViewModelSampleData.cs" />
+    <Compile Include="Dialogs\YesNo\ViewModel\IYesNoDialogViewModel.cs" />
+    <Compile Include="Dialogs\YesNo\ViewModel\YesNoDialogViewModel.cs" />
+    <Compile Include="Dialogs\YesNo\ViewModel\YesNoDialogViewModelSampleData.cs" />
+    <Compile Include="Dialogs\YesNo\YesNoDialog.xaml.cs">
+      <DependentUpon>YesNoDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Info\InfoPage.cs" />
     <Compile Include="Info\InfoWindow\InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
@@ -163,6 +175,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Board\Views\BoardVerticalLabelling.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Notification\NotificationDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\YesNo\YesNoDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

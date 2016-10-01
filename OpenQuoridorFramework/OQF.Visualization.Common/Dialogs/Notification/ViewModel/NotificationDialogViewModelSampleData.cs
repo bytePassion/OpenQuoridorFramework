@@ -2,7 +2,7 @@
 
 #pragma warning disable 0067
 
-namespace OQF.PlayerVsBot.ViewModels.NotificationDialog
+namespace OQF.Visualization.Common.Dialogs.Notification.ViewModel
 {
 	internal class NotificationDialogViewModelSampleData : INotificationDialogViewModel
 	{

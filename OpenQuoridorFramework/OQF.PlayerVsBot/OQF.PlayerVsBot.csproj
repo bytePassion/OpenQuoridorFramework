@@ -86,24 +86,10 @@
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
-    <Compile Include="ViewModels\NotificationDialog\INotificationDialogViewModel.cs" />
-    <Compile Include="ViewModels\NotificationDialog\NotificationDialogViewModel.cs" />
-    <Compile Include="ViewModels\NotificationDialog\NotificationDialogViewModelSampleData.cs" />
-    <Compile Include="ViewModels\YesNoDialog\IYesNoDialogViewModel.cs" />
-    <Compile Include="ViewModels\YesNoDialog\YesNoDialogViewModel.cs" />
-    <Compile Include="ViewModels\YesNoDialog\YesNoDialogViewModelSampleData.cs" />
     <Compile Include="Views\BoardPlacement.xaml.cs">
       <DependentUpon>BoardPlacement.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\BoardPlacement.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NotificationDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\YesNoDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,12 +100,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Views\NotificationDialog.xaml.cs">
-      <DependentUpon>NotificationDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\YesNoDialog.xaml.cs">
-      <DependentUpon>YesNoDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

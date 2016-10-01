@@ -1,4 +1,4 @@
-﻿namespace OQF.PlayerVsBot.Views
+﻿namespace OQF.Visualization.Common.Dialogs.YesNo
 {
 	public partial class YesNoDialog
     {

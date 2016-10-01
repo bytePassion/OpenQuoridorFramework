@@ -27,9 +27,10 @@ using OQF.PlayerVsBot.Services;
 using OQF.PlayerVsBot.Services.SettingsRepository;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow.Helper;
-using OQF.PlayerVsBot.ViewModels.YesNoDialog;
 using OQF.Utils;
 using OQF.Visualization.Common.Board.BoardViewModelBase;
+using OQF.Visualization.Common.Dialogs.YesNo;
+using OQF.Visualization.Common.Dialogs.YesNo.ViewModel;
 using OQF.Visualization.Common.Info;
 using OQF.Visualization.Common.Language;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
@@ -252,7 +253,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 	    {
 		    var yesNoDialogViewModel = new YesNoDialogViewModel(GetWinningOrLoosingMessage(reportWinning, winningReason, invalidMove));
 
-			var winningDialog = new Views.YesNoDialog
+			var winningDialog = new YesNoDialog
 	        {
                 DataContext = yesNoDialogViewModel
 	        };

@@ -1,6 +1,6 @@
 ﻿using Lib.Wpf.ViewModelBase;
 
-namespace OQF.PlayerVsBot.ViewModels.NotificationDialog
+namespace OQF.Visualization.Common.Dialogs.Notification.ViewModel
 {
 	internal interface INotificationDialogViewModel : IViewModel
 	{		

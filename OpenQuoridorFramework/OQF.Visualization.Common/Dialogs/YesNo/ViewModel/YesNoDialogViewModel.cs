@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel;
-using Lib.Wpf.ViewModelBase;
 using OQF.Visualization.Resources.LanguageDictionaries;
 
 #pragma warning disable 0067
 
-namespace OQF.PlayerVsBot.ViewModels.YesNoDialog
+namespace OQF.Visualization.Common.Dialogs.YesNo.ViewModel
 {
-	internal class YesNoDialogViewModel : ViewModel, IYesNoDialogViewModel
+	public class YesNoDialogViewModel : Lib.Wpf.ViewModelBase.ViewModel, IYesNoDialogViewModel
     {
 	    public YesNoDialogViewModel(string message)
 	    {
