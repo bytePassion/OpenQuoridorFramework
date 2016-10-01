@@ -140,7 +140,7 @@ namespace OQF.GameEngine.Game
 
 		private bool DoBotMove()
 		{
-			var nextBotMove = GetBotMove(currentBoardState);
+			var nextBotMove = GetBotMove();
 
 			if (nextBotMove == null)
 				return false;
@@ -200,7 +200,7 @@ namespace OQF.GameEngine.Game
 			return true;
 		}
 
-		private Move GetBotMove(BoardState currentBoardState)
+		private Move GetBotMove()
 		{
 			botMoves.Clear();
 			botTimer.Change(gameConstraints.MaximalComputingTimePerMove, TimeSpan.Zero);
