@@ -2,9 +2,9 @@
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.TurnamentInfoPage
+namespace OQF.Visualization.Common.Info.Pages.PageViewModels.TournamentInfoPage
 {
-	internal class TurnamentInfoPageViewModelSampleData : ITurnamentInfoPageViewModel
+	internal class TournamentInfoPageViewModelSampleData : ITournamentInfoPageViewModel
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 		public void Dispose() {	}

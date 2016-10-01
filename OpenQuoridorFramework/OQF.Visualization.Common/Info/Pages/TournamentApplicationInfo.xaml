@@ -1,23 +1,23 @@
-﻿<UserControl x:Class="OQF.Visualization.Common.Info.Pages.TurnamentApplicationInfo"
+﻿<UserControl x:Class="OQF.Visualization.Common.Info.Pages.TournamentApplicationInfo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:turnamentInfoPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.TurnamentInfoPage"
+             xmlns:tournamentInfoPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.TournamentInfoPage"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
 
-	<d:DesignData.DataContext>
-		<turnamentInfoPage:TurnamentInfoPageViewModelSampleData/>
-	</d:DesignData.DataContext>
-	
+    <d:DesignData.DataContext>
+        <tournamentInfoPage:TournamentInfoPageViewModelSampleData />
+    </d:DesignData.DataContext>
+
     <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="30"
-                   Text="TurnamentApplicationInfo" />
+                   Text="TournamentApplicationInfo" />
 
     </Grid>
 </UserControl>

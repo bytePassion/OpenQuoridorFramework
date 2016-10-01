@@ -9,7 +9,7 @@ using OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.ReplayViewerInfoPage;
-using OQF.Visualization.Common.Info.Pages.PageViewModels.TurnamentInfoPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.TournamentInfoPage;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
 #pragma warning disable 0067
@@ -30,7 +30,7 @@ namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
 				new BotVsBotInfoPageViewModelSampleData(),
 				new PlayerVsBotInfoPageViewModelSampleData(),
 				new ReplayViewerInfoPageViewModelSampleData(),
-				new TurnamentInfoPageViewModelSampleData(),
+				new TournamentInfoPageViewModelSampleData(),
 				new AboutPageViewModelSampleData(),
 
 			};

@@ -125,9 +125,9 @@
     <Compile Include="Info\Pages\PageViewModels\ReplayViewerInfoPage\IReplayViewerInfoPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\ReplayViewerInfoPage\ReplayViewerInfoPageViewModel.cs" />
     <Compile Include="Info\Pages\PageViewModels\ReplayViewerInfoPage\ReplayViewerInfoPageViewModelSampleData.cs" />
-    <Compile Include="Info\Pages\PageViewModels\TurnamentInfoPage\ITurnamentInfoPageViewModel.cs" />
-    <Compile Include="Info\Pages\PageViewModels\TurnamentInfoPage\TurnamentInfoPageViewModel.cs" />
-    <Compile Include="Info\Pages\PageViewModels\TurnamentInfoPage\TurnamentInfoPageViewModelSampleData.cs" />
+    <Compile Include="Info\Pages\PageViewModels\TournamentInfoPage\ITournamentInfoPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\TournamentInfoPage\TournamentInfoPageViewModel.cs" />
+    <Compile Include="Info\Pages\PageViewModels\TournamentInfoPage\TournamentInfoPageViewModelSampleData.cs" />
     <Compile Include="Info\Pages\PlayerVsBotApplicationInfo.xaml.cs">
       <DependentUpon>PlayerVsBotApplicationInfo.xaml</DependentUpon>
     </Compile>
@@ -140,8 +140,8 @@
     <Compile Include="Info\Pages\ReplayViewerApplicationInfo.xaml.cs">
       <DependentUpon>ReplayViewerApplicationInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Info\Pages\TurnamentApplicationInfo.xaml.cs">
-      <DependentUpon>TurnamentApplicationInfo.xaml</DependentUpon>
+    <Compile Include="Info\Pages\TournamentApplicationInfo.xaml.cs">
+      <DependentUpon>TournamentApplicationInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Language\CultureManager.cs" />
     <Compile Include="Language\LanguageSelection\Computations\GetFlagImageFromCountryCode.cs" />
@@ -153,7 +153,6 @@
     <Compile Include="Language\LanguageSelection\ViewModel\LanguageSelectionViewModelSampleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Info\InfoWindowService.cs" />
-    <Compile Include="Info\InfoWindow\ViewModel\Helper\SelectionButtonData.cs" />
     <Compile Include="Info\InfoWindow\ViewModel\IInfoWindowViewModel.cs" />
     <Compile Include="Info\InfoWindow\ViewModel\InfoWindowViewModel.cs" />
     <Compile Include="Info\InfoWindow\ViewModel\InfoWindowViewModelSampleData.cs" />
@@ -222,7 +221,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Info\Pages\TurnamentApplicationInfo.xaml">
+    <Page Include="Info\Pages\TournamentApplicationInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

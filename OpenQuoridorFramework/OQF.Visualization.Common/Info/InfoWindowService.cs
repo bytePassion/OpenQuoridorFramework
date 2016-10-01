@@ -9,7 +9,7 @@ using OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
 using OQF.Visualization.Common.Info.Pages.PageViewModels.ReplayViewerInfoPage;
-using OQF.Visualization.Common.Info.Pages.PageViewModels.TurnamentInfoPage;
+using OQF.Visualization.Common.Info.Pages.PageViewModels.TournamentInfoPage;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 using OQF.Visualization.Resources;
 
@@ -25,7 +25,7 @@ namespace OQF.Visualization.Common.Info
 			var botVsBotInfoPageViewModel     = new BotVsBotInfoPageViewModel();
 			var playerVsBotInfoPageViewModel  = new PlayerVsBotInfoPageViewModel();
 			var replayViewerInfoPageViewModel = new ReplayViewerInfoPageViewModel();
-			var turnamentInfoPageViewModel    = new TurnamentInfoPageViewModel();
+			var turnamentInfoPageViewModel    = new TournamentInfoPageViewModel();
 			var languageSelectionViewModel    = new LanguageSelectionViewModel();
 			var aboutPageViewModel            = new AboutPageViewModel(applicationInfo);
 

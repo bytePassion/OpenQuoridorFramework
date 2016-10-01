@@ -1,8 +1,8 @@
 ﻿namespace OQF.Visualization.Common.Info.Pages
 {
-	public partial class TurnamentApplicationInfo
+	public partial class TournamentApplicationInfo
 	{
-		public TurnamentApplicationInfo ()
+		public TournamentApplicationInfo ()
 		{
 			InitializeComponent();
 		}

@@ -4,13 +4,12 @@ using OQF.Visualization.Resources.LanguageDictionaries;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.BotVsBotInfoPage
+namespace OQF.Visualization.Common.Info.Pages.PageViewModels.TournamentInfoPage
 {
-	internal class BotVsBotInfoPageViewModel : ViewModel, IBotVsBotInfoPageViewModel
+	internal class TournamentInfoPageViewModel : ViewModel, ITournamentInfoPageViewModel
 	{
 		protected override void CleanUp() {	}
 		public override event PropertyChangedEventHandler PropertyChanged;
-        public string DisplayName => Captions.IP_AboutButtonCaption;
-
-    }
+	    public string DisplayName => Captions.IP_TournamentInfoButtonCaption;
+	}
 }

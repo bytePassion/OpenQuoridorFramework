@@ -65,6 +65,6 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
 		}
 
 		public override event PropertyChangedEventHandler PropertyChanged;
-	    public string DisplayName => "über";
+	    public string DisplayName => Captions.IP_AboutButtonCaption;
     }
 }

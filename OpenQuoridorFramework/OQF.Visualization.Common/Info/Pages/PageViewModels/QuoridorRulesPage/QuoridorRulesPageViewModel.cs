@@ -24,8 +24,10 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage
 		public string GameFlowParagraphText      => Captions.QRP_GameFlowParagraphText;
 		public string SpecialMoveParagraphHeader => Captions.QRP_SpecialMoveParagraphHeader;
 		public string SpecialMoveParagraphText   => Captions.QRP_SpecialMoveParagraphText;
+	    public string DisplayName                => Captions.IP_QuoridorRulesButtonCaption;
 
-		public string Picture1Caption => Captions.QRP_Picture1Caption;
+
+        public string Picture1Caption => Captions.QRP_Picture1Caption;
 		public string Picture2Caption => Captions.QRP_Picture2Caption;
 		public string Picture3Caption => Captions.QRP_Picture3Caption;
 		public string Picture4Caption => Captions.QRP_Picture4Caption;
@@ -56,6 +58,5 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage
 			CultureManager.CultureChanged += RefreshCaptions;
 		}
 		public override event PropertyChangedEventHandler PropertyChanged;
-	    public string DisplayName { get { return "Regeln"; } }
 	}
 }

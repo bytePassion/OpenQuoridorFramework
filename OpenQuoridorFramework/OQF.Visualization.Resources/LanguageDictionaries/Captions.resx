@@ -295,7 +295,7 @@
   <data name="IP_BotVsBotIntoButtonCaption" xml:space="preserve">
     <value>Application Help</value>
   </data>
-  <data name="IP_TurnamentInfoButtonCaption" xml:space="preserve">
+  <data name="IP_TournamentInfoButtonCaption" xml:space="preserve">
     <value>Application Help</value>
   </data>
   <data name="IP_AboutButtonCaption" xml:space="preserve">

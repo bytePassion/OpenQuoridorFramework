@@ -318,7 +318,7 @@
   <data name="IP_BotVsBotIntoButtonCaption" xml:space="preserve">
     <value>Hilfe zur Anwendung </value>
   </data>
-  <data name="IP_TurnamentInfoButtonCaption" xml:space="preserve">
+  <data name="IP_TournamentInfoButtonCaption" xml:space="preserve">
     <value>Hilfe zur Anwendung </value>
   </data>
   <data name="IP_CloseButtonCaption" xml:space="preserve">

@@ -27,7 +27,7 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPag
 		
 		public string Picture1Caption           => Captions.QNP_Picture1Caption;
 		public string Picture2Caption           => Captions.QNP_Picture2Caption;
-        public string DisplayName => "Notation";
+        public string DisplayName               => Captions.IP_QuoridorNotationButtonCaption;
 
 
         private void RefreshCaptions()

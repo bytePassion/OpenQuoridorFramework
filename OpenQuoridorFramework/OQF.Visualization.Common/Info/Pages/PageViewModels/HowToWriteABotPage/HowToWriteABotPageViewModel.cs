@@ -51,7 +51,7 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
 
 		public string HintParagrapHeader => Captions.HTWAB_HintParagraphHeader;
 		public string HintParagrapText   => Captions.HTWAB_HintParagraphText;
-        public string DisplayName => "HowTo";
+        public string DisplayName        => Captions.IP_HowToWriteABotButtonCaption;
 
 
         private void RefreshCaptions ()

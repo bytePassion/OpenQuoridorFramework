@@ -37,7 +37,7 @@ namespace OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 		public string Explanation19 => Captions.PvBH_Explanation19;
 		public string Explanation20 => Captions.PvBH_Explanation20;
 		public string Explanation21 => Captions.PvBH_Explanation21;
-        public string DisplayName => "PlayerVsBot";
+        public string DisplayName   => Captions.IP_AboutButtonCaption;
 
 
         private void RefreshCaptions ()
