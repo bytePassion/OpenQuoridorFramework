@@ -66,12 +66,14 @@
     </ApplicationDefinition>
     <Compile Include="Behaviors\MainWindowClosingBehavior.cs" />
     <Compile Include="Behaviors\ReportRelativeMousePositionBehavior.cs" />
+    <Compile Include="CommandLineArguments.cs" />
     <Compile Include="Computation\BottomPlayerMarkerColor.cs" />
     <Compile Include="Computation\GetBottomPlayerMoveFromString.cs" />
     <Compile Include="Computation\GetProgressNrFromString.cs" />
     <Compile Include="Computation\GetTopPlayerMoveFromString.cs" />
     <Compile Include="Computation\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
+    <Compile Include="Services\CommandLineParser.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\SettingsRepository\ApplicationSettingsRepository.cs" />
     <Compile Include="Services\BotLoader.cs" />
