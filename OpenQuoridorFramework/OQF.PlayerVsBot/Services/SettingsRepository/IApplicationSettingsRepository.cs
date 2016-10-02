@@ -1,6 +1,6 @@
 ﻿namespace OQF.PlayerVsBot.Services.SettingsRepository
 {
-	internal interface IApplicationSettingsRepository
+	public interface IApplicationSettingsRepository
 	{		
 		string LastUsedBotPath      { get; set; }
 		string SelectedLanguageCode { get; set; }

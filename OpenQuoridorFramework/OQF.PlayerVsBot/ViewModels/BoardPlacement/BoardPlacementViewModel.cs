@@ -17,7 +17,7 @@ using Size = System.Windows.Size;
 
 namespace OQF.PlayerVsBot.ViewModels.BoardPlacement
 {
-	internal class BoardPlacementViewModel : ViewModel, IBoardPlacementViewModel
+	public class BoardPlacementViewModel : ViewModel, IBoardPlacementViewModel
 	{
 		private readonly IGameService gameService;
 		private readonly IGameFactory gameFactory;

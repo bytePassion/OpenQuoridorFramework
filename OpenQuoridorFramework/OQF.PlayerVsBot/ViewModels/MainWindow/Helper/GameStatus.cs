@@ -1,6 +1,6 @@
 ﻿namespace OQF.PlayerVsBot.ViewModels.MainWindow.Helper
 {
-	internal enum GameStatus
+	public enum GameStatus
 	{
 		Unloaded,
 		Active,

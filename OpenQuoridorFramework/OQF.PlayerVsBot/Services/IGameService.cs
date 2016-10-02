@@ -6,7 +6,7 @@ using OQF.GameEngine.Contracts.Enums;
 
 namespace OQF.PlayerVsBot.Services
 {
-	internal interface IGameService
+	public interface IGameService
 	{
 		event Action<BoardState>                  NewBoardStateAvailable;
 		event Action<string>                      NewDebugMsgAvailable;

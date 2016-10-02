@@ -10,7 +10,7 @@ using OQF.GameEngine.Contracts.Games;
 
 namespace OQF.PlayerVsBot.Services
 {
-	internal class GameService : IGameService
+	public class GameService : IGameService
 	{
 		private readonly IGameFactory gameFactory;
 		private readonly bool disableBotTimeout;

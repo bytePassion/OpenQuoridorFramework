@@ -39,7 +39,7 @@ using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.PlayerVsBot.ViewModels.MainWindow
 {
-	internal class MainWindowViewModel : ViewModel, IMainWindowViewModel
+	public class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
 		private readonly Timer botCountDownTimer;
 		private DateTime startTime;

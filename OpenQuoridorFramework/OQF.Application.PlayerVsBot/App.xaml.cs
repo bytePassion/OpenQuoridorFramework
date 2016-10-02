@@ -11,12 +11,12 @@ using OQF.PlayerVsBot.Windows;
 using OQF.Visualization.Common.Language;
 using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 
-namespace OQF.PlayerVsBot
+namespace OQF.Application.PlayerVsBot
 {
 	public partial class App
 	{
-		protected override void OnStartup(StartupEventArgs e)
-		{			
+		protected override void OnStartup (StartupEventArgs e)
+		{
 			base.OnStartup(e);
 
 			var commandLineArguments = CommandLine.Parse(e.Args);
@@ -27,22 +27,22 @@ namespace OQF.PlayerVsBot
 
 			CultureManager.CurrentCulture = new CultureInfo(applicationSettingsRepository.SelectedLanguageCode);
 			CultureManager.CultureChanged += () =>
-											 {
-											 	applicationSettingsRepository.SelectedLanguageCode = CultureManager.CurrentCulture.ToString();
-											 };
+			{
+				applicationSettingsRepository.SelectedLanguageCode = CultureManager.CurrentCulture.ToString();
+			};
 
 			var boardViewModel = new BoardViewModel(gameService);
 			var boardPlacementViewModel = new BoardPlacementViewModel(gameService, gameFactory);
 			var languageSelectionViewModel = new LanguageSelectionViewModel();
 			var progressFileVerifierFactory = new ProgressFileVerifierFactory();
 
-			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, 
-															  boardPlacementViewModel, 
+			var mainWindowViewModel = new MainWindowViewModel(boardViewModel,
+															  boardPlacementViewModel,
 															  languageSelectionViewModel,
-															  gameService, 
+															  gameService,
 															  applicationSettingsRepository,
 															  progressFileVerifierFactory,
-															  commandLineArguments.DisableClosingDialogs);			
+															  commandLineArguments.DisableClosingDialogs);
 
 			if (!string.IsNullOrWhiteSpace(commandLineArguments.BotPath))
 			{
@@ -51,16 +51,16 @@ namespace OQF.PlayerVsBot
 
 				if (mainWindowViewModel.Start.CanExecute(null))
 					mainWindowViewModel.Start.Execute(null);
-			}			
+			}
 
 			var mainWindow = new MainWindow
 			{
 				DataContext = mainWindowViewModel
 			};
-			
+
 			mainWindow.ShowDialog();
 
-			gameService.StopGame();			
-		}		
+			gameService.StopGame();
+		}
 	}
 }

@@ -7,7 +7,7 @@ using Size = System.Windows.Size;
 
 namespace OQF.PlayerVsBot.ViewModels.BoardPlacement
 {
-	internal interface IBoardPlacementViewModel : IViewModel
+	public interface IBoardPlacementViewModel : IViewModel
 	{
 		ICommand BoardClick { get; }
 		
