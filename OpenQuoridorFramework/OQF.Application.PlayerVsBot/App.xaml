@@ -413,10 +413,10 @@
 					<Trigger Property="IsEditable" Value="true">
 						<Setter Property="IsTabStop" Value="false" />
 						<!--  designer prefers hard bool  -->
-						<Setter Property="materialDesign:ComboBoxAssist.ShowSelectedItem" Value="{StaticResource TrueValue}" />
+						<Setter Property="materialDesign:ComboBoxAssist.ShowSelectedItem" Value="True" />
 					</Trigger>
 					<!--  designer prefers hard bool  -->
-					<Trigger Property="materialDesign:ComboBoxAssist.ShowSelectedItem" Value="{StaticResource TrueValue}">
+					<Trigger Property="materialDesign:ComboBoxAssist.ShowSelectedItem" Value="True">
 						<Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignComboBoxItemStyleBlank}" />
 					</Trigger>
 				</Style.Triggers>
