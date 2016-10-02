@@ -11,7 +11,7 @@ namespace OQF.Visualization.Common.Language
 
 		static CultureManager()
 		{
-			currentCulture = new CultureInfo("de");
+			CurrentCulture = new CultureInfo("de");
 		}
 				
 		public static CultureInfo CurrentCulture
