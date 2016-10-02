@@ -17,6 +17,13 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 			MoveIndex = 5;
 			MaxMoveIndex = 15;
 			IsReplayLoaded = true;
+
+			ProgressRows = new ObservableCollection<ProgressRow>
+			{
+				new ProgressRow("1. e2 e8"),
+				new ProgressRow("1. e3 e7"),
+				new ProgressRow("1. e4 e6")
+			};
 		}
 
 		public IBoardViewModel BoardViewModel { get; }

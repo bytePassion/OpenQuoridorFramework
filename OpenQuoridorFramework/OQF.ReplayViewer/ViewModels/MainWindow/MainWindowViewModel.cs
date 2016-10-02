@@ -54,6 +54,8 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 										new PropertyChangedCommandUpdater(this, nameof(IsReplayLoaded), 
 																				nameof(MoveIndex)));
 			ShowAboutHelp = new Command(DoShowAboutHelp);
+
+			ProgressRows = new ObservableCollection<ProgressRow>();
 		}
 
 		private void OnNewBoardStateAvailable(BoardState boardState)
@@ -139,8 +141,6 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 
 		private void DoLoadGame()
 		{
-
-
 			if (string.IsNullOrWhiteSpace(ProgressFilePath))
 			{
 				MessageBox.Show("bevor das Replay gestartet werden kann muss eine Replay-Datei ausgewählt werden");
@@ -176,14 +176,22 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 
 			lastPlayedReplayService.SaveLastReplay(ProgressFilePath);
 
+			ProgressRows.Clear();
+
+			CreateProgressText.FromMoveList(splittedMoves.ToList())
+				              .Select(line => new ProgressRow(line))
+							  .Do(ProgressRows.Add);
+
 			var moveCount = replayService.NewReplay(splittedMoves);
 
 			MaxMoveIndex = moveCount - 1;
 		}
-				
-		
 
-		protected override void CleanUp() {	}
+		protected override void CleanUp()
+		{
+			replayService.NewBoardStateAvailable -= OnNewBoardStateAvailable;
+		}
+
 		public override event PropertyChangedEventHandler PropertyChanged;		
 	}
 }

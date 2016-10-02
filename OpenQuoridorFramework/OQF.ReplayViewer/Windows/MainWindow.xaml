@@ -9,6 +9,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         xmlns:views="clr-namespace:OQF.Visualization.Common.Board.Views;assembly=OQF.Visualization.Common"        
         xmlns:libBehaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:helper="clr-namespace:OQF.ReplayViewer.ViewModels.MainWindow.Helper"
         Title="MainWindow"
         Width="1200"
         Height="950"
@@ -122,9 +124,40 @@
                 <ScrollViewer Grid.Row="1"
                               HorizontalScrollBarVisibility="Auto"
                               VerticalScrollBarVisibility="Visible">
-                    <!--					<ItemsControl ItemsSource="{Binding GameProgress}" />-->
 
-                </ScrollViewer>
+
+					<ItemsControl Margin="0,20,0,0" 
+								  ItemsSource="{Binding ProgressRows}">
+
+						<ItemsControl.ItemTemplate>
+							<DataTemplate DataType="helper:ProgressRow">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="30" />
+										<ColumnDefinition Width="30"/>
+										<ColumnDefinition Width="30"/>
+									</Grid.ColumnDefinitions>
+
+									<TextBlock Grid.Column="0" 
+											   HorizontalAlignment="Right"
+											   Margin="0,0,10,0"
+											   Text="{Binding LineNumber}"/>
+
+									<TextBlock Grid.Column="1" 
+											   HorizontalAlignment="Left" 
+											   Text="{Binding BottomPlayerMove}"/>
+
+									<TextBlock Grid.Column="2" 
+											   HorizontalAlignment="Left" 
+											   Text="{Binding TopPlayerMove}"/>
+
+								</Grid>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+
+					</ItemsControl>
+
+				</ScrollViewer>
 
 
             </GroupBox>

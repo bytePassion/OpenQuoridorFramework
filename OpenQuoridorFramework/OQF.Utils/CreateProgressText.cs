@@ -44,6 +44,24 @@ namespace OQF.Utils
 			return sb.ToString();
 	    }
 
+		public static IEnumerable<string> FromMoveList(IList<string> moves)
+		{
+			var resultList = new List<string>();
+
+			for (int i = 0; i < moves.Count; i+=2)
+			{
+				var sb = new StringBuilder();
+				sb.Append($"{i / 2 + 1}. {moves[i]}");				
+
+				if (i + 1 < moves.Count)
+					sb.Append($" {moves[i + 1]}");
+
+				resultList.Add(sb.ToString());
+			}
+
+			return resultList;
+		}
+
 	    public static string AndAppendWinnerAndReason(this string progress, Player winner, WinningReason winningReason, Move invalidMove)
 	    {
 		    var sb = new StringBuilder();
