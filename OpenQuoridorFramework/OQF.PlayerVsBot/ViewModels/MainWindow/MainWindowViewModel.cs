@@ -138,6 +138,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 
 			System.Windows.Application.Current?.Dispatcher.Invoke(() =>
 			{
+				// TODO .. nicht 60 hard coden
 				TopPlayerRestTime = GeometryLibUtils.DoubleFormat(60.0 - timeDiff.TotalSeconds, 2);
 			});			
 		}
