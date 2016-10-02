@@ -4,7 +4,7 @@ using System.Windows;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
-using OQF.ReplayViewer.Services;
+using OQF.GameEngine.Contracts.Replay;
 using OQF.Visualization.Common.Board.BoardViewModelBase;
 
 namespace OQF.ReplayViewer.ViewModels.Board

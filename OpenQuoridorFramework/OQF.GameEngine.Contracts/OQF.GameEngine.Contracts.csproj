@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\FileVerificationResult.cs" />
+    <Compile Include="Factories\IReplayServiceFactory.cs" />
     <Compile Include="Games\IBvBGame.cs" />
     <Compile Include="Analysis\IHumanPlayerAnalysis.cs" />
     <Compile Include="Factories\IGameFactory.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="Games\IPvBGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\WinningReason.cs" />
+    <Compile Include="Replay\IReplayService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
