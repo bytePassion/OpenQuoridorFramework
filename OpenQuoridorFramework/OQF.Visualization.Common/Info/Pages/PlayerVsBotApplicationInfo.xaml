@@ -14,7 +14,8 @@
     </d:DesignData.DataContext>
 
     <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Common;component/Info/InfoWindow/CustomMaterialScrollBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Resources;component/Styles/AdditionalStyles.xaml" />
+
 
     </UserControl.Resources>
 

@@ -1,4 +1,796 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:converters1="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <converters1:TextFieldHintVisibilityConverter x:Key="TextFieldHintVisibilityConverter" IsNotEmptyValue="Collapsed" />
+    <converters1:MathConverter x:Key="MathAddConverter" Operation="Add" />
+    <converters1:BrushRoundConverter x:Key="BrushRoundConverter" />
+
+    <system:Double x:Key="PopupContentPresenterExtend">4</system:Double>
+    <system:Double x:Key="PopupTopBottomMargin">8</system:Double>
+    <system:Double x:Key="PopupLeftRightMargin">16</system:Double>
+    <system:Boolean x:Key="TrueValue">True</system:Boolean>
+
+
+    <Style x:Key="FocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="2 2 2 2"
+                                       SnapsToDevicePixels="true"
+                                       Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                       StrokeDashArray="1 2"
+                                       StrokeThickness="1" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="MaterialDesignFloatingHintComboBoxTemplateBlank" TargetType="{x:Type ComboBox}">
+        <Grid x:Name="templateRoot"
+                      Background="{TemplateBinding Background}"
+                      SnapsToDevicePixels="True">
+            <Grid x:Name="InnerRoot">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="0" MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" />
+                </Grid.ColumnDefinitions>
+                <ToggleButton x:Name="toggleButton"
+                                      Grid.ColumnSpan="2"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      IsChecked="{Binding IsDropDownOpen,
+                                                          Mode=TwoWay,
+                                                          RelativeSource={RelativeSource TemplatedParent}}"
+                                      Style="{StaticResource MaterialDesignComboBoxToggleButton}" />
+                <Grid Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                              UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                    <Grid x:Name="InputRoot" HorizontalAlignment="Left">
+                        <ContentPresenter x:Name="contentPresenter"
+                                                  Content="{TemplateBinding SelectionBoxItem}"
+                                                  ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}"
+                                                  ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                  ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                                  IsHitTestVisible="False" />
+                        <TextBox x:Name="PART_EditableTextBox"
+                                         HorizontalAlignment="Left"
+                                         HorizontalContentAlignment="Stretch"
+                                         CaretBrush="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                              Path=BorderBrush}"
+                                         IsReadOnly="{Binding IsReadOnly,
+                                                              RelativeSource={RelativeSource TemplatedParent}}"
+                                         Style="{StaticResource MaterialDesignComboBoxEditableTextBox}"
+                                         Visibility="Collapsed" />
+
+                        <materialDesign:SmartHint x:Name="Hint"
+                                                          FontSize="{TemplateBinding FontSize}"
+                                                          Hint="{TemplateBinding materialDesign:HintAssist.Hint}"
+                                                          HintOpacity="{Binding Path=(materialDesign:HintAssist.HintOpacity),
+                                                                                RelativeSource={RelativeSource TemplatedParent}}"
+                                                          HintProxy="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                                              Converter={x:Static converters1:HintProxyFabricConverter.Instance}}"
+                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                          UseFloating="{Binding Path=(materialDesign:HintAssist.IsFloating),
+                                                                                RelativeSource={RelativeSource TemplatedParent}}"
+                                                          UseLayoutRounding="{TemplateBinding UseLayoutRounding}" />
+                    </Grid>
+                </Grid>
+                <materialDesign:Underline x:Name="Underline"
+                                                  Grid.ColumnSpan="2"
+                                                  IsActive="{Binding ElementName=PART_EditableTextBox,
+                                                                     Path=IsKeyboardFocused}"
+                                                  Visibility="{Binding Path=(materialDesign:TextFieldAssist.DecorationVisibility),
+                                                                       RelativeSource={RelativeSource TemplatedParent}}" />
+
+                <materialDesign:ComboBoxPopup x:Name="PART_Popup"
+                                                      AllowsTransparency="true"
+                                                      DefaultContentTemplate="{StaticResource PopupContentDefaultTemplate}"
+                                                      DefaultVerticalOffset="5"
+                                                      DownContentTemplate="{StaticResource PopupContentDownTemplate}"
+                                                      DownVerticalOffset="-15.5"
+                                                      Focusable="False"
+                                                      HorizontalOffset="-11.5"
+                                                      IsOpen="{Binding IsDropDownOpen,
+                                                                       Mode=TwoWay,
+                                                                       RelativeSource={RelativeSource TemplatedParent}}"
+                                                      Placement="Custom"
+                                                      PlacementTarget="{Binding ElementName=templateRoot}"
+                                                      PopupAnimation="Fade"
+                                                      SnapsToDevicePixels="True"
+                                                      UpContentTemplate="{StaticResource PopupContentUpTemplate}"
+                                                      UpVerticalOffset="15"
+                                                      UseLayoutRounding="True"
+                                                      VerticalOffset="0">
+                    <ContentControl>
+                        <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}" Background="{Binding Background, ElementName=PART_Popup}">
+                            <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" />
+                        </ScrollViewer>
+                    </ContentControl>
+                </materialDesign:ComboBoxPopup>
+            </Grid>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="templateRoot" Property="Opacity" Value="0.56" />
+            </Trigger>
+            <Trigger Property="IsEditable" Value="True">
+                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible" />
+                <Setter TargetName="Underline" Property="Visibility" Value="{Binding Path=(materialDesign:TextFieldAssist.DecorationVisibility), RelativeSource={RelativeSource TemplatedParent}}" />
+                <Setter TargetName="contentPresenter" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="materialDesign:HintAssist.IsFloating" Value="True">
+                <Setter TargetName="InnerRoot" Property="Margin" Value="0 11.5 0 0" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEditable" Value="False" />
+                    <Condition Property="IsDropDownOpen" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Underline" Property="Visibility" Value="Hidden" />
+                <Setter TargetName="toggleButton" Property="Visibility" Value="Hidden" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition SourceName="Hint" Property="IsContentNullOrEmpty" Value="False" />
+                    <Condition Property="IsKeyboardFocused" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Hint" Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter TargetName="Hint" Property="HintOpacity" Value="1" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition SourceName="Hint" Property="IsContentNullOrEmpty" Value="False" />
+                    <Condition SourceName="PART_EditableTextBox" Property="IsKeyboardFocused" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Hint" Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter TargetName="Hint" Property="HintOpacity" Value="1" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition SourceName="Hint" Property="IsContentNullOrEmpty" Value="False" />
+                    <Condition Property="IsDropDownOpen" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Hint" Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter TargetName="Hint" Property="HintOpacity" Value="1" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsGrouping" Value="true" />
+                    <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false" />
+                </MultiTrigger.Conditions>
+                <Setter Property="ScrollViewer.CanContentScroll" Value="false" />
+            </MultiTrigger>
+            <Trigger Property="IsKeyboardFocused" Value="true">
+                <Setter TargetName="Underline" Property="IsActive" Value="True" />
+            </Trigger>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="BorderBrush" Value="{DynamicResource ValidationErrorBrush}" />
+                <Setter TargetName="Underline" Property="Background" Value="{DynamicResource ValidationErrorBrush}" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="true" />
+                    <Condition Property="Validation.HasError" Value="true" />
+                </MultiTrigger.Conditions>
+                <Setter Property="BorderBrush" Value="{DynamicResource ValidationErrorBrush}" />
+                <Setter TargetName="Underline" Property="Background" Value="{DynamicResource ValidationErrorBrush}" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="true" />
+                    <Condition Property="Validation.HasError" Value="false" />
+                </MultiTrigger.Conditions>
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter TargetName="Underline" Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+            </MultiTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+
+
+    <ControlTemplate x:Key="PopupContentDefaultTemplate" TargetType="ContentControl">
+        <Grid MinWidth="{Binding ElementName=templateRoot, Path=ActualWidth, Converter={StaticResource MathAddConverter}, ConverterParameter=32}" Margin="6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Border Background="Transparent"
+                            BorderBrush="{DynamicResource MaterialDesignShadowBrush}"
+                            BorderThickness="1"
+                            CornerRadius="2">
+                <Border.Effect>
+                    <BlurEffect Radius="6" />
+                </Border.Effect>
+            </Border>
+            <Grid Margin="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"
+                                Height="{StaticResource PopupTopBottomMargin}"
+                                Background="{Binding ElementName=PART_Popup,
+                                                     Path=Background}"
+                                CornerRadius="2 2 0 0" />
+
+                <ContentPresenter Grid.Row="1" />
+
+                <Border Grid.Row="2"
+                                Height="{StaticResource PopupTopBottomMargin}"
+                                Background="{Binding ElementName=PART_Popup,
+                                                     Path=Background}"
+                                CornerRadius="0 0 2 2" />
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
+
+
+
+
+
+    <ControlTemplate x:Key="MaterialDesignComboBoxItemTemplateBlank" TargetType="{x:Type ComboBoxItem}">
+        <Grid x:Name="GridWrapper">
+            <Border x:Name="BackBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="true" />
+
+            <Border x:Name="MouseOverBorder"
+                            Background="{TemplateBinding Foreground,
+                                                         Converter={StaticResource BrushRoundConverter}}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Opacity="0"
+                            SnapsToDevicePixels="true" />
+            <materialDesign:Ripple HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                           Content="{TemplateBinding Content}"
+                                           ContentTemplate="{TemplateBinding ContentTemplate}"
+                                           ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                           Feedback="{TemplateBinding Foreground,
+                                                                      Converter={StaticResource BrushRoundConverter}}"
+                                           Focusable="False"
+                                           Padding="{TemplateBinding Padding}"
+                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup Name="CommonStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition GeneratedDuration="0:0:0.3" To="Normal">
+                            <VisualTransition.GeneratedEasingFunction>
+                                <CircleEase EasingMode="EaseOut" />
+                            </VisualTransition.GeneratedEasingFunction>
+                        </VisualTransition>
+                    </VisualStateGroup.Transitions>
+                    <VisualState Name="Normal" />
+                    <VisualState Name="MouseOver">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0"
+                                                     Storyboard.TargetName="MouseOverBorder"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     To="0.1" />
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+
+                <VisualStateGroup Name="FocusStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition GeneratedDuration="0:0:0.3" To="Unfocused" />
+                    </VisualStateGroup.Transitions>
+                    <VisualState Name="Focused">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0"
+                                                     Storyboard.TargetName="MouseOverBorder"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     To="0.1" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState Name="Unfocused" />
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="GridWrapper" Property="Opacity" Value="0.56" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Tag" Value="1.0" />
+                    <Condition Property="IsSelected" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Height" Value="0" />
+            </MultiTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="MaterialDesignComboBoxItemStyleBlank" TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="16 8" />
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Setter Property="Template" Value="{StaticResource MaterialDesignComboBoxItemTemplateBlank}" />
+    </Style>
+
+    <Style x:Key="MaterialDesignComboBoxItemSelectedCollapsedStyleBlank"
+                   BasedOn="{StaticResource MaterialDesignComboBoxItemStyleBlank}"
+                   TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="Tag" Value="1.0" />
+    </Style>
+
+    <Style x:Key="MaterialDesignComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="ClickMode" Value="Press" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Border x:Name="ToggleTemplateRoot"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                            <Border x:Name="splitBorder"
+                                            Margin="0"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="0" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true" />
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false" />
+                            </MultiDataTrigger.Conditions>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true" />
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false" />
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="ToggleTemplateRoot" Property="BorderBrush" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false" />
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="ToggleTemplateRoot" Property="BorderBrush" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+                            <Setter TargetName="splitBorder" Property="BorderBrush" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+                        </MultiDataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MaterialDesignComboBoxBlank" TargetType="{x:Type ComboBox}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignComboBoxItemSelectedCollapsedStyleBlank}" />
+        <Setter Property="Template" Value="{StaticResource MaterialDesignFloatingHintComboBoxTemplateBlank}" />
+        <Style.Triggers>
+            <Trigger Property="IsKeyboardFocused" Value="true">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+            </Trigger>
+            <Trigger Property="IsEditable" Value="true">
+                <Setter Property="IsTabStop" Value="false" />
+                <!--  designer prefers hard bool  -->
+                <Setter Property="materialDesign:ComboBoxAssist.ShowSelectedItem" Value="{StaticResource TrueValue}" />
+            </Trigger>
+            <!--  designer prefers hard bool  -->
+            <Trigger Property="materialDesign:ComboBoxAssist.ShowSelectedItem" Value="{StaticResource TrueValue}">
+                <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignComboBoxItemStyleBlank}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MaterialDesignFloatingHintComboBox"
+                   BasedOn="{StaticResource MaterialDesignComboBoxBlank}"
+                   TargetType="{x:Type ComboBox}">
+        <Setter Property="materialDesign:HintAssist.IsFloating" Value="True" />
+    </Style>
+
+    <Style x:Key="CustomMaterialDesignScrollBarButton" TargetType="{x:Type RepeatButton}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignSelection}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignSelection}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="1" />
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1"
+                            SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Focusable="False"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="contentPresenter" Property="Opacity" Value="0.56" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="CustomMaterialDesignRepeatButtonTransparent" TargetType="{x:Type RepeatButton}">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Rectangle Width="{TemplateBinding Width}"
+                               Height="{TemplateBinding Height}"
+                               Fill="{TemplateBinding Background}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="CustomMaterialDesignScrollBarThumbVertical" TargetType="{x:Type Thumb}">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Rectangle x:Name="rectangle"
+                               Width="{TemplateBinding Width}"
+                               Height="{TemplateBinding Height}"
+                               Fill="{DynamicResource PrimaryHueMidBrush}"
+                               SnapsToDevicePixels="True" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="rectangle" Property="Fill" Value="{DynamicResource PrimaryHueDarkBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsDragging" Value="true">
+                            <Setter TargetName="rectangle" Property="Fill" Value="{DynamicResource PrimaryHueDarkBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="CustomMaterialDesignScrollBarThumbHorizontal" TargetType="{x:Type Thumb}">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Rectangle x:Name="rectangle"
+                               Width="{TemplateBinding Width}"
+                               Height="{TemplateBinding Height}"
+                               Fill="{DynamicResource PrimaryHueMidBrush}"
+                               SnapsToDevicePixels="True" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="rectangle" Property="Fill" Value="{DynamicResource MaterialDesignDivider}" />
+                        </Trigger>
+                        <Trigger Property="IsDragging" Value="true">
+                            <Setter TargetName="rectangle" Property="Fill" Value="{DynamicResource MaterialDesignDivider}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="CustomMaterialDesignScrollBar" TargetType="{x:Type ScrollBar}">
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignSelection}" />
+        <Setter Property="BorderThickness" Value="1,0" />
+        <Setter Property="Width" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" />
+        <Setter Property="MinWidth" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                    <Grid x:Name="Bg" SnapsToDevicePixels="true">
+                        <Grid.RowDefinitions>
+                            <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}" />
+                            <RowDefinition Height="0.00001*" />
+                            <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}" />
+                        </Grid.RowDefinitions>
+                        <RepeatButton x:Name="PART_LineUpButton"
+                                      Command="{x:Static ScrollBar.LineUpCommand}"
+                                      IsEnabled="{TemplateBinding IsMouseOver}"
+                                      Style="{StaticResource CustomMaterialDesignScrollBarButton}">
+                            <Viewbox Width="12"
+                                     Height="12"
+                                     Margin="3">
+                                <Canvas Width="24" Height="24">
+                                    <Path x:Name="ArrowTop"
+                                          Data="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"
+                                          Fill="{DynamicResource MaterialDesignBody}"
+                                          Stretch="Uniform" />
+                                </Canvas>
+                            </Viewbox>
+                        </RepeatButton>
+                        <Border Grid.Row="1"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+                        <Track x:Name="PART_Track"
+                               Grid.Row="1"
+                               IsDirectionReversed="true"
+                               IsEnabled="{TemplateBinding IsMouseOver}">
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource CustomMaterialDesignRepeatButtonTransparent}" />
+                            </Track.DecreaseRepeatButton>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" Style="{StaticResource CustomMaterialDesignRepeatButtonTransparent}" />
+                            </Track.IncreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Style="{StaticResource CustomMaterialDesignScrollBarThumbVertical}" />
+                            </Track.Thumb>
+                        </Track>
+                        <RepeatButton x:Name="PART_LineDownButton"
+                                      Grid.Row="2"
+                                      Command="{x:Static ScrollBar.LineDownCommand}"
+                                      IsEnabled="{TemplateBinding IsMouseOver}"
+                                      Style="{StaticResource CustomMaterialDesignScrollBarButton}">
+                            <Viewbox Width="12"
+                                     Height="12"
+                                     Margin="3">
+                                <Canvas Width="24" Height="24">
+                                    <Path x:Name="ArrowBottom"
+                                          Data="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"
+                                          Fill="{DynamicResource MaterialDesignBody}"
+                                          Stretch="Uniform" />
+                                </Canvas>
+                            </Viewbox>
+                        </RepeatButton>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".56" />
+            </Trigger>
+            <Trigger Property="Orientation" Value="Horizontal">
+                <Setter Property="Width" Value="Auto" />
+                <Setter Property="MinWidth" Value="0" />
+                <Setter Property="Height" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}" />
+                <Setter Property="MinHeight" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}" />
+                <Setter Property="BorderThickness" Value="0,1" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                            <Grid x:Name="Bg" SnapsToDevicePixels="true">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}" />
+                                    <ColumnDefinition Width="0.00001*" />
+                                    <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}" />
+                                </Grid.ColumnDefinitions>
+                                <RepeatButton x:Name="PART_LineLeftButton"
+                                              Command="{x:Static ScrollBar.LineLeftCommand}"
+                                              IsEnabled="{TemplateBinding IsMouseOver}"
+                                              Style="{StaticResource CustomMaterialDesignScrollBarButton}">
+                                    <Viewbox Width="12"
+                                             Height="12"
+                                             Margin="3">
+                                        <Canvas Width="24" Height="24">
+                                            <Path x:Name="ArrowLeft"
+                                                  Data="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+                                                  Fill="{DynamicResource MaterialDesignBody}"
+                                                  Stretch="Uniform" />
+                                        </Canvas>
+                                    </Viewbox>
+                                </RepeatButton>
+                                <Border Grid.Column="1"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}" />
+                                <Track x:Name="PART_Track"
+                                       Grid.Column="1"
+                                       IsEnabled="{TemplateBinding IsMouseOver}">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}" Style="{StaticResource CustomMaterialDesignRepeatButtonTransparent}" />
+                                    </Track.DecreaseRepeatButton>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Style="{StaticResource CustomMaterialDesignRepeatButtonTransparent}" />
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.Thumb>
+                                        <Thumb Style="{StaticResource CustomMaterialDesignScrollBarThumbHorizontal}" />
+                                    </Track.Thumb>
+                                </Track>
+                                <RepeatButton x:Name="PART_LineRightButton"
+                                              Grid.Column="2"
+                                              Command="{x:Static ScrollBar.LineRightCommand}"
+                                              IsEnabled="{TemplateBinding IsMouseOver}"
+                                              Style="{StaticResource CustomMaterialDesignScrollBarButton}">
+                                    <Viewbox Width="12"
+                                             Height="12"
+                                             Margin="3">
+                                        <Canvas Width="24" Height="24">
+                                            <Path x:Name="ArrowRight"
+                                                  Data="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                                                  Fill="{DynamicResource MaterialDesignBody}"
+                                                  Stretch="Uniform" />
+                                        </Canvas>
+                                    </Viewbox>
+                                </RepeatButton>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsMouseOver, ElementName=PART_LineRightButton}" Value="true" />
+                                        <Condition Binding="{Binding IsPressed, ElementName=PART_LineRightButton}" Value="true" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ArrowRight" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsMouseOver, ElementName=PART_LineLeftButton}" Value="true" />
+                                        <Condition Binding="{Binding IsPressed, ElementName=PART_LineLeftButton}" Value="true" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ArrowLeft" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsMouseOver, ElementName=PART_LineRightButton}" Value="true" />
+                                        <Condition Binding="{Binding IsPressed, ElementName=PART_LineRightButton}" Value="false" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ArrowRight" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsMouseOver, ElementName=PART_LineLeftButton}" Value="true" />
+                                        <Condition Binding="{Binding IsPressed, ElementName=PART_LineLeftButton}" Value="false" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ArrowLeft" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                </MultiDataTrigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter TargetName="ArrowLeft" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                    <Setter TargetName="ArrowRight" Property="Fill" Value="{DynamicResource MaterialDesignBody}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <ControlTemplate x:Key="CustomMaterialDesignScrollViewerTemplate" TargetType="{x:Type ScrollViewer}">
+        <ControlTemplate.Resources>
+            <Storyboard x:Key="MouseEnter">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0.56" />
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1" />
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0.56" />
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="MouseExit">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0.56" />
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.56" />
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.56" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </ControlTemplate.Resources>
+        <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Margin="{TemplateBinding Padding}"
+                                    CanContentScroll="{TemplateBinding CanContentScroll}"
+                                    CanHorizontallyScroll="False"
+                                    CanVerticallyScroll="False"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}" />
+            <ScrollBar x:Name="PART_VerticalScrollBar"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       AutomationProperties.AutomationId="VerticalScrollBar"
+                       Cursor="Arrow"
+                       Maximum="{TemplateBinding ScrollableHeight}"
+                       Minimum="0"
+                       Opacity=".56"
+                       Style="{DynamicResource CustomMaterialDesignScrollBar}"
+                       ViewportSize="{TemplateBinding ViewportHeight}"
+                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                       Value="{Binding VerticalOffset,
+                                       Mode=OneWay,
+                                       RelativeSource={RelativeSource TemplatedParent}}" />
+            <ScrollBar x:Name="PART_HorizontalScrollBar"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       AutomationProperties.AutomationId="HorizontalScrollBar"
+                       Cursor="Arrow"
+                       Maximum="{TemplateBinding ScrollableWidth}"
+                       Minimum="0"
+                       Opacity=".56"
+                       Orientation="Horizontal"
+                       Style="{DynamicResource CustomMaterialDesignScrollBar}"
+                       ViewportSize="{TemplateBinding ViewportWidth}"
+                       Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                       Value="{Binding HorizontalOffset,
+                                       Mode=OneWay,
+                                       RelativeSource={RelativeSource TemplatedParent}}" />
+            <Rectangle x:Name="Corner"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       Fill="{DynamicResource MaterialDesignSelection}" />
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.ExitActions>
+                    <BeginStoryboard x:Name="MouseExit_BeginStoryboard" Storyboard="{StaticResource MouseExit}" />
+                </Trigger.ExitActions>
+                <Trigger.EnterActions>
+                    <BeginStoryboard x:Name="MouseEnter_BeginStoryboard" Storyboard="{StaticResource MouseEnter}" />
+                </Trigger.EnterActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="CustomMaterialDesignScrollViewer" TargetType="ScrollViewer">
+        <Setter Property="Template" Value="{StaticResource CustomMaterialDesignScrollViewerTemplate}" />
+    </Style>
 </ResourceDictionary>
