@@ -9,7 +9,7 @@ using OQF.Visualization.Common.Board.BoardViewModelBase;
 
 namespace OQF.ReplayViewer.ViewModels.Board
 {
-	internal class BoardViewModel : ViewModel, IBoardViewModel
+	public class BoardViewModel : ViewModel, IBoardViewModel
 	{
 		private readonly IReplayService replayService;
 				

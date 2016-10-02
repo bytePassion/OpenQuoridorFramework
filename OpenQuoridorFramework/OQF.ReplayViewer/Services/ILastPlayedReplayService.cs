@@ -1,6 +1,6 @@
 ﻿namespace OQF.ReplayViewer.Services
 {
-	internal interface ILastPlayedReplayService
+	public interface ILastPlayedReplayService
 	{
 		string GetLastReplay();
 		void SaveLastReplay(string botPath);

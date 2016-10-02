@@ -17,7 +17,7 @@ using OQF.Visualization.Resources;
 
 namespace OQF.ReplayViewer.ViewModels.MainWindow
 {
-	internal class MainWindowViewModel : ViewModel, IMainWindowViewModel
+	public class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
 		private readonly IReplayService replayService;
 		private readonly ILastPlayedReplayService lastPlayedReplayService;

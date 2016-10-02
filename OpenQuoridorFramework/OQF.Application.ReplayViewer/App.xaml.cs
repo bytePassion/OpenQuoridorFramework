@@ -4,18 +4,18 @@ using OQF.ReplayViewer.ViewModels.Board;
 using OQF.ReplayViewer.ViewModels.MainWindow;
 using OQF.ReplayViewer.Windows;
 
-namespace OQF.ReplayViewer
+namespace OQF.Application.ReplayViewer
 {
-	public partial class App
+	public partial class App 
 	{
 		protected override void OnStartup (StartupEventArgs e)
 		{
 			base.OnStartup(e);
-			
+
 			IReplayService replayService = new ReplayService();
 			ILastPlayedReplayService lastPlayedReplayService = new LastPlayedReplayService();
 
-			var boardViewModel = new BoardViewModel(replayService);			
+			var boardViewModel = new BoardViewModel(replayService);
 			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, replayService, lastPlayedReplayService);
 
 			var mainWindow = new MainWindow
@@ -23,7 +23,7 @@ namespace OQF.ReplayViewer
 				DataContext = mainWindowViewModel
 			};
 
-			mainWindow.ShowDialog();			
+			mainWindow.ShowDialog();
 		}
 	}
 }

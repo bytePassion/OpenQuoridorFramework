@@ -7,7 +7,7 @@ using OQF.Utils;
 
 namespace OQF.ReplayViewer.Services
 {
-	internal class ReplayService : IReplayService
+	public class ReplayService : IReplayService
 	{
 		public event Action<BoardState> NewBoardStateAvailable;
 

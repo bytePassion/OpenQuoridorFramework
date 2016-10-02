@@ -2,7 +2,7 @@
 
 namespace OQF.ReplayViewer.Services
 {
-	internal class LastPlayedReplayService : ILastPlayedReplayService
+	public class LastPlayedReplayService : ILastPlayedReplayService
 	{
 		private const string FilePath = "LastReplay.qor";
 

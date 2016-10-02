@@ -4,7 +4,7 @@ using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.ReplayViewer.Services
 {
-	internal interface IReplayService
+	public interface IReplayService
 	{
 		event Action<BoardState> NewBoardStateAvailable;
 

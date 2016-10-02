@@ -49,6 +49,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Application.PlayerVsBot", "OQF.Application.PlayerVsBot\OQF.Application.PlayerVsBot.csproj", "{56EE4A7F-F53E-4339-816E-382A740C7D77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Application.ReplayViewer", "OQF.Application.ReplayViewer\OQF.Application.ReplayViewer.csproj", "{8C4F70AD-AC5C-4071-8380-DDAD3AF123D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{56EE4A7F-F53E-4339-816E-382A740C7D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56EE4A7F-F53E-4339-816E-382A740C7D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56EE4A7F-F53E-4339-816E-382A740C7D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4F70AD-AC5C-4071-8380-DDAD3AF123D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4F70AD-AC5C-4071-8380-DDAD3AF123D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4F70AD-AC5C-4071-8380-DDAD3AF123D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4F70AD-AC5C-4071-8380-DDAD3AF123D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -145,5 +151,6 @@ Global
 		{8F773744-6FE4-49C2-8651-E6F29EC828FA} = {1133E98F-58A0-4FE7-9761-C7822EBA673A}
 		{03EE53DA-74C5-4883-98F0-BF2618EBDF93} = {1133E98F-58A0-4FE7-9761-C7822EBA673A}
 		{56EE4A7F-F53E-4339-816E-382A740C7D77} = {4EADBE11-04E1-44FD-B0A3-F0CF22B1EAE4}
+		{8C4F70AD-AC5C-4071-8380-DDAD3AF123D0} = {4EADBE11-04E1-44FD-B0A3-F0CF22B1EAE4}
 	EndGlobalSection
 EndGlobal
