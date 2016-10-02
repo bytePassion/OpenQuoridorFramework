@@ -126,7 +126,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		private void DoCloseWindow()
 		{
 			PreventWindowClosingToAskUser = false;
-			Application.Current.Windows
+			System.Windows.Application.Current.Windows
 							   .OfType<Windows.MainWindow>()
 							   .FirstOrDefault(window => ReferenceEquals(window.DataContext, this))
 							   ?.Close();
@@ -136,7 +136,7 @@ namespace OQF.PlayerVsBot.ViewModels.MainWindow
 		{
 			var timeDiff = DateTime.Now - startTime;
 
-			Application.Current?.Dispatcher.Invoke(() =>
+			System.Windows.Application.Current?.Dispatcher.Invoke(() =>
 			{
 				TopPlayerRestTime = GeometryLibUtils.DoubleFormat(60.0 - timeDiff.TotalSeconds, 2);
 			});			

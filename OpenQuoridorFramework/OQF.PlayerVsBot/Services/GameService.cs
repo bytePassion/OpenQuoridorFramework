@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using System.Windows;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
@@ -56,7 +55,7 @@ namespace OQF.PlayerVsBot.Services
 
 		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move invalidMove)
 		{
-			Application.Current.Dispatcher.Invoke(() =>
+			System.Windows.Application.Current.Dispatcher.Invoke(() =>
 			{
 				WinnerAvailable?.Invoke(player, winningReason, invalidMove);
 			});			
@@ -64,7 +63,7 @@ namespace OQF.PlayerVsBot.Services
 
 		private void OnNextBoardstateAvailable(BoardState boardState)
 		{
-			Application.Current.Dispatcher.Invoke(() =>
+			System.Windows.Application.Current.Dispatcher.Invoke(() =>
 			{
 				CurrentBoardState = boardState;
 				NewBoardStateAvailable?.Invoke(boardState);
@@ -73,7 +72,7 @@ namespace OQF.PlayerVsBot.Services
 
 		private void OnDebugMessageAvailable(string s)
 		{
-			Application.Current.Dispatcher.Invoke(() =>
+			System.Windows.Application.Current.Dispatcher.Invoke(() =>
 			{
 				NewDebugMsgAvailable?.Invoke(s);
 			});			
