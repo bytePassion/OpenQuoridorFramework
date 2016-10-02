@@ -1,9 +1,9 @@
 ﻿using System.Globalization;
 using System.Windows;
+using OQF.Application.PlayerVsBot.Contracts.Settings;
 using OQF.GameEngine.Contracts.Factories;
 using OQF.GameEngine.Factories;
 using OQF.PlayerVsBot.Services;
-using OQF.PlayerVsBot.Services.SettingsRepository;
 using OQF.PlayerVsBot.ViewModels.Board;
 using OQF.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.ViewModels.MainWindow;

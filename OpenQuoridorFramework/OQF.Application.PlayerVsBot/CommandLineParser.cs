@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OQF.PlayerVsBot.Services
+namespace OQF.Application.PlayerVsBot
 {
 	internal static class CommandLine
 	{

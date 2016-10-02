@@ -1,4 +1,6 @@
-﻿namespace OQF.PlayerVsBot.Services.SettingsRepository
+﻿using OQF.Application.PlayerVsBot.Contracts.Settings;
+
+namespace OQF.Application.PlayerVsBot
 {
 	public class ApplicationSettingsRepository : IApplicationSettingsRepository
 	{

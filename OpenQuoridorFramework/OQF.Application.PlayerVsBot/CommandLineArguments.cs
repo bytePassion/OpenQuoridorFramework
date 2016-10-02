@@ -1,4 +1,4 @@
-﻿namespace OQF.PlayerVsBot
+﻿namespace OQF.Application.PlayerVsBot
 {
 	internal class CommandLineArguments
 	{

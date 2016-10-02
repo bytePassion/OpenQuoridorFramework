@@ -2,7 +2,7 @@
 using System.Reflection;
 using OQF.Bot.Contracts;
 
-namespace OQF.PlayerVsBot.Services
+namespace OQF.Utils
 {
 	public static class BotLoader
 	{
