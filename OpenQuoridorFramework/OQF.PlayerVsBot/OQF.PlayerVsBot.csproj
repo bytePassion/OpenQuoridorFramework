@@ -123,10 +123,6 @@
       <Project>{e257aa0a-7215-4cba-b17a-61dc7ec3345a}</Project>
       <Name>OQF.GameEngine.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.GameEngine\OQF.GameEngine.csproj">
-      <Project>{26e530f7-814e-4b05-8d4a-9b10bf659cf1}</Project>
-      <Name>OQF.GameEngine</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OQF.Visualization.Common\OQF.Visualization.Common.csproj">
       <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
       <Name>OQF.Visualization.Common</Name>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.ReplayViewer.Services
+namespace OQF.GameEngine.Contracts.Replay
 {
 	public interface IReplayService
 	{

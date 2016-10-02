@@ -51,8 +51,10 @@
     <Compile Include="Analysis\AnalysisGraph\Node.cs" />
     <Compile Include="Factories\GameFactory.cs" />
     <Compile Include="Factories\ProgressFileVerifierFactory.cs" />
+    <Compile Include="Factories\ReplayServiceFactory.cs" />
     <Compile Include="Game\GameLoopThreadBvB.cs" />
     <Compile Include="Game\LocalGameBvB.cs" />
+    <Compile Include="Replay\ReplayService.cs" />
     <Compile Include="Transitions\BoardStateTransition.cs" />
     <Compile Include="Analysis\GameAnalysis.cs" />
     <Compile Include="Game\GameLoopThreadPvB.cs" />

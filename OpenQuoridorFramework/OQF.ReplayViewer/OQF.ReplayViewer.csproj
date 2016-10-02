@@ -64,9 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\ILastPlayedReplayService.cs" />
-    <Compile Include="Services\IReplayService.cs" />
     <Compile Include="Services\LastPlayedReplayService.cs" />
-    <Compile Include="Services\ReplayService.cs" />
     <Compile Include="ViewModels\Board\BoardViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
@@ -107,10 +105,6 @@
     <ProjectReference Include="..\OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj">
       <Project>{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}</Project>
       <Name>OQF.GameEngine.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OQF.GameEngine\OQF.GameEngine.csproj">
-      <Project>{26E530F7-814E-4B05-8D4A-9B10BF659CF1}</Project>
-      <Name>OQF.GameEngine</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Visualization.Common\OQF.Visualization.Common.csproj">
       <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
