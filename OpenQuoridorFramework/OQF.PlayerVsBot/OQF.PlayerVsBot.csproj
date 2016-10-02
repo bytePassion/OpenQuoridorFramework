@@ -72,10 +72,8 @@
     <Compile Include="Computations\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
     <Compile Include="Services\NotificationService.cs" />
-    <Compile Include="Services\SettingsRepository\ApplicationSettingsRepository.cs" />
     <Compile Include="Services\BotLoader.cs" />
     <Compile Include="Services\GameService.cs" />
-    <Compile Include="Services\SettingsRepository\IApplicationSettingsRepository.cs" />
     <Compile Include="Services\IGameService.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
@@ -113,6 +111,10 @@
     <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
       <Project>{6C27F04B-CFCC-4267-8720-4A44D7529A21}</Project>
       <Name>Lib.FrameworkExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Application.PlayerVsBot.Contracts\OQF.Application.PlayerVsBot.Contracts.csproj">
+      <Project>{019F752C-6C3C-4EB5-B450-CAAB3BB1EF1D}</Project>
+      <Name>OQF.Application.PlayerVsBot.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
