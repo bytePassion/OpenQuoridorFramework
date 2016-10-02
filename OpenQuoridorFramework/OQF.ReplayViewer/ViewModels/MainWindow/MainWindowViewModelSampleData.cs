@@ -1,5 +1,7 @@
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using OQF.ReplayViewer.ViewModels.MainWindow.Helper;
 using OQF.Visualization.Common.Board.BoardViewModelBase;
 
 #pragma warning disable 0067
@@ -28,6 +30,7 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 		public int MoveIndex { get; set; }
 		public int MaxMoveIndex { get; }
 		public bool IsReplayLoaded { get; }
+		public ObservableCollection<ProgressRow> ProgressRows { get; }
 		public string ProgressFilePath { get; set; }		
 
 		public void Dispose () { }

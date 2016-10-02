@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -11,6 +12,7 @@ using Microsoft.Win32;
 using OQF.Bot.Contracts.GameElements;
 using OQF.GameEngine.Contracts.Replay;
 using OQF.ReplayViewer.Services;
+using OQF.ReplayViewer.ViewModels.MainWindow.Helper;
 using OQF.Utils;
 using OQF.Visualization.Common.Board.BoardViewModelBase;
 using OQF.Visualization.Common.Info;
@@ -112,6 +114,8 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 			get { return isReplayLoaded; }
 			private set { PropertyChanged.ChangeAndNotify(this, ref isReplayLoaded, value); }
 		}
+
+		public ObservableCollection<ProgressRow> ProgressRows { get; }
 
 		public string ProgressFilePath
 		{

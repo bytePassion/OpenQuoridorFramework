@@ -1,5 +1,7 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
+using OQF.ReplayViewer.ViewModels.MainWindow.Helper;
 using OQF.Visualization.Common.Board.BoardViewModelBase;
 
 namespace OQF.ReplayViewer.ViewModels.MainWindow
@@ -19,6 +21,8 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 										
 		bool IsReplayLoaded { get; }
 						
+		ObservableCollection<ProgressRow> ProgressRows { get; }
+
 		string ProgressFilePath { get; set; }		
 	}
 }
