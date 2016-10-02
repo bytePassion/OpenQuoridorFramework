@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotLoader.cs" />
     <Compile Include="CreateProgressText.cs" />
     <Compile Include="MoveParser.cs" />
     <Compile Include="MoveValidator.cs" />
