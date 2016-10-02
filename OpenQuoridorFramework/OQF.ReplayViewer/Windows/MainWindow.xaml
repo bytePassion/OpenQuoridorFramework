@@ -11,6 +11,7 @@
         xmlns:libBehaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:helper="clr-namespace:OQF.ReplayViewer.ViewModels.MainWindow.Helper"
+        xmlns:computations="clr-namespace:OQF.ReplayViewer.Computations"
         Title="MainWindow"
         Width="1200"
         Height="950"
@@ -25,6 +26,10 @@
         <mainWindow:MainWindowViewModelSampleData />
     </d:DesignData.DataContext>
 
+	<Window.Resources>
+		<computations:BoolToBackgroundBrush x:Key="BoolToBackgroundBrush"/>
+	</Window.Resources>
+	
     <Grid>
 
         <Grid.RowDefinitions>
@@ -145,11 +150,13 @@
 
 									<TextBlock Grid.Column="1" 
 											   HorizontalAlignment="Left" 
-											   Text="{Binding BottomPlayerMove}"/>
+											   Text="{Binding BottomPlayerMove}"
+											   Background="{Binding HighlightBottomPlayerMove, Converter={StaticResource BoolToBackgroundBrush}}"/>
 
 									<TextBlock Grid.Column="2" 
 											   HorizontalAlignment="Left" 
-											   Text="{Binding TopPlayerMove}"/>
+											   Text="{Binding TopPlayerMove}"
+											   Background="{Binding HighlightTopPlayerMove, Converter={StaticResource BoolToBackgroundBrush}}"/>
 
 								</Grid>
 							</DataTemplate>

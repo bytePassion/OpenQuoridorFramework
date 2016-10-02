@@ -63,6 +63,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Computations\BoolToBackgroundBrush.cs" />
     <Compile Include="Services\ILastPlayedReplayService.cs" />
     <Compile Include="Services\LastPlayedReplayService.cs" />
     <Compile Include="ViewModels\Board\BoardViewModel.cs" />

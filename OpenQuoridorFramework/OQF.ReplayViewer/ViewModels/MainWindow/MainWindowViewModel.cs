@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
@@ -71,15 +72,23 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 
 		private void DoNextMove()
 		{
+			if (MoveIndex >= MaxMoveIndex)
+				return;
+
 			replayService.NextMove();
 			moveIndex++;
+			SetHighlightning(MoveIndex-1);
 			PropertyChanged.Notify(this, nameof(MoveIndex));
 		}
 
 		private void DoPreviousMove()
 		{
+			if (MoveIndex <= 0)
+				return;
+
 			replayService.PreviousMove();
 			moveIndex--;
+			SetHighlightning(MoveIndex-1);
 			PropertyChanged.Notify(this, nameof(MoveIndex));
 		}
 	
@@ -98,6 +107,7 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 			{
 				if (moveIndex != value)
 				{
+					SetHighlightning(value-1);
 					replayService.JumpToMove(value);
 				}
 
@@ -181,10 +191,36 @@ namespace OQF.ReplayViewer.ViewModels.MainWindow
 			CreateProgressText.FromMoveList(splittedMoves.ToList())
 				              .Select(line => new ProgressRow(line))
 							  .Do(ProgressRows.Add);
-
+		
 			var moveCount = replayService.NewReplay(splittedMoves);
 
 			MaxMoveIndex = moveCount - 1;
+		}
+
+		private void ClearHightning()
+		{
+			foreach (var progressRow in ProgressRows)
+			{
+				progressRow.HighlightBottomPlayerMove = false;
+				progressRow.HighlightTopPlayerMove    = false;
+			}
+		}
+
+		private void SetHighlightning(int index)
+		{
+			ClearHightning();
+
+			if (index == -1)
+				return;
+
+			var rowIndex = (int)Math.Floor(index/2.0);
+			var progressRow = ProgressRows[rowIndex];
+
+			if ((index)%2 == 0)		
+				progressRow.HighlightBottomPlayerMove = true;			
+			else			
+				progressRow.HighlightTopPlayerMove = true;
+			
 		}
 
 		protected override void CleanUp()
