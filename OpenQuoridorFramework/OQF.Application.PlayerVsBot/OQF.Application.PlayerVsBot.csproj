@@ -131,9 +131,9 @@
       <Project>{26E530F7-814E-4B05-8D4A-9B10BF659CF1}</Project>
       <Name>OQF.GameEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.PlayerVsBot\OQF.PlayerVsBot.csproj">
+    <ProjectReference Include="..\OQF.PlayerVsBot\OQF.Visualization.PlayerVsBot.csproj">
       <Project>{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}</Project>
-      <Name>OQF.PlayerVsBot</Name>
+      <Name>OQF.Visualization.PlayerVsBot</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Utils\OQF.Utils.csproj">
       <Project>{2f71f7f9-f40a-45e3-9401-5a40933db8c7}</Project>

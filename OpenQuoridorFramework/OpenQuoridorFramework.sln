@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.PlayerVsBot", "OQF.PlayerVsBot\OQF.PlayerVsBot.csproj", "{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Visualization.PlayerVsBot", "OQF.Visualization.PlayerVsBot\OQF.Visualization.PlayerVsBot.csproj", "{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.GameEngine", "OQF.GameEngine\OQF.GameEngine.csproj", "{26E530F7-814E-4B05-8D4A-9B10BF659CF1}"
 EndProject
@@ -39,7 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.Wpf", "Lib.Wpf\Lib.Wpf.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Utils", "OQF.Utils\OQF.Utils.csproj", "{2F71F7F9-F40A-45E3-9401-5A40933DB8C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.ReplayViewer", "OQF.ReplayViewer\OQF.ReplayViewer.csproj", "{BC482C0B-D6F1-42E4-BAEC-85FD819D86E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Visualization.ReplayViewer", "OQF.Visualization.ReplayViewer\OQF.Visualization.ReplayViewer.csproj", "{BC482C0B-D6F1-42E4-BAEC-85FD819D86E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Visualization.Common", "OQF.Visualization.Common\OQF.Visualization.Common.csproj", "{8F773744-6FE4-49C2-8651-E6F29EC828FA}"
 EndProject
