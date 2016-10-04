@@ -11,6 +11,7 @@ using OQF.Visualization.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.Visualization.PlayerVsBot.ViewModels.MainWindow;
 using OQF.Visualization.PlayerVsBot.Windows;
 
+
 namespace OQF.Application.PlayerVsBot
 {
 	public partial class App

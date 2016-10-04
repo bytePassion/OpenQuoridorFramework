@@ -3,36 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="MainWindow">
+        Title="MainWindow"
+        mc:Ignorable="d">
     <Grid Margin="16">
-        
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
+
         <StackPanel Grid.Column="0">
-            <GroupBox Header="Turniermodus" Margin="0,16,16,16"></GroupBox>
-            <GroupBox Header="Optionen" Margin="0,16,16,16"></GroupBox>
+            <GroupBox Margin="0,16,16,16" Header="Turniermodus" />
+            <GroupBox Margin="0,16,16,16" Header="Optionen" />
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <Button Content="+" Width="48"></Button>
-            <ListView VerticalAlignment="Stretch"></ListView>
+            <Button Width="48" Content="+" />
+            <ListBox VerticalAlignment="Stretch"
+                     DisplayMemberPath="Name"
+                     ItemsSource="{Binding TournamentBots}" />
             <StackPanel Orientation="Horizontal">
-                <Button Content="Start" Margin="0,8,8,0"></Button>
-                <Button Content="Abbruch" Margin="0,8,8,0"></Button>
+                <Button Margin="0,8,8,0"
+                        Command="{Binding StartTournament}"
+                        Content="Start" />
+                <Button Margin="0,8,8,0" Content="Abbruch" />
             </StackPanel>
         </StackPanel>
         <DockPanel Grid.Column="2">
             <TextBlock DockPanel.Dock="Top">Output</TextBlock>
             <StackPanel DockPanel.Dock="Right">
-                <CheckBox Content="Filter 1"></CheckBox>
-                <CheckBox Content="Filter 2"></CheckBox>
-                <CheckBox Content="Filter 3"></CheckBox>
+                <CheckBox Content="Filter 1" />
+                <CheckBox Content="Filter 2" />
+                <CheckBox Content="Filter 3" />
             </StackPanel>
-            <ListView></ListView>
+            <ListView />
         </DockPanel>
     </Grid>
 </Window>

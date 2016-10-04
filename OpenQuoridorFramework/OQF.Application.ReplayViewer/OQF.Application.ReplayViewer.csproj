@@ -120,7 +120,7 @@
       <Project>{26E530F7-814E-4B05-8D4A-9B10BF659CF1}</Project>
       <Name>OQF.GameEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.ReplayViewer\OQF.Visualization.ReplayViewer.csproj">
+    <ProjectReference Include="..\OQF.Visualization.ReplayViewer\OQF.Visualization.ReplayViewer.csproj">
       <Project>{BC482C0B-D6F1-42E4-BAEC-85FD819D86E1}</Project>
       <Name>OQF.Visualization.ReplayViewer</Name>
     </ProjectReference>
