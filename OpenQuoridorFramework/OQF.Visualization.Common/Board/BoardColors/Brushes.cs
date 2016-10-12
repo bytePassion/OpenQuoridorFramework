@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace OQF.Visualization.Common.Board.BoardColors
+namespace OQF.CommonUiElements.Board.BoardColors
 {
 	public static class Brushes
 	{

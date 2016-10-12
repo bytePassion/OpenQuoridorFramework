@@ -1,6 +1,6 @@
 ﻿using Lib.Wpf.ViewModelBase;
 
-namespace OQF.Visualization.Common.Dialogs.Notification.ViewModel
+namespace OQF.CommonUiElements.Dialogs.Notification.ViewModel
 {
 	internal interface INotificationDialogViewModel : IViewModel
 	{		

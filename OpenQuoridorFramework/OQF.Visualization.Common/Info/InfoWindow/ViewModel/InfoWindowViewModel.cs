@@ -4,13 +4,13 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using Lib.Wpf.Commands;
-using OQF.Visualization.Common.Info.Pages.PageViewModels;
-using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
-using OQF.Visualization.Resources.LanguageDictionaries;
+using OQF.CommonUiElements.Info.Pages.PageViewModels;
+using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
+using OQF.Resources.LanguageDictionaries;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
+namespace OQF.CommonUiElements.Info.InfoWindow.ViewModel
 {
 	internal class InfoWindowViewModel : Lib.Wpf.ViewModelBase.ViewModel, IInfoWindowViewModel
 	{				

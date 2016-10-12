@@ -1,6 +1,6 @@
 ﻿using Lib.Wpf.ViewModelBase;
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.QuoridorNotationPage
 {
 	internal interface IQuoridorNotationPageViewModel : IViewModel, IPage
 	{

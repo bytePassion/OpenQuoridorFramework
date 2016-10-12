@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="OQF.Visualization.Common.Language.LanguageSelection.LanguageSelectionView"
+﻿<UserControl x:Class="OQF.CommonUiElements.Language.LanguageSelection.LanguageSelectionView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
-             xmlns:viewModel="clr-namespace:OQF.Visualization.Common.Language.LanguageSelection.ViewModel"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             xmlns:computations="clr-namespace:OQF.Visualization.Common.Language.LanguageSelection.Computations"
+             xmlns:viewModel="clr-namespace:OQF.CommonUiElements.Language.LanguageSelection.ViewModel"
+             xmlns:computations="clr-namespace:OQF.CommonUiElements.Language.LanguageSelection.Computations"
              mc:Ignorable="d" 
              d:DesignHeight="33" d:DesignWidth="50">
 	

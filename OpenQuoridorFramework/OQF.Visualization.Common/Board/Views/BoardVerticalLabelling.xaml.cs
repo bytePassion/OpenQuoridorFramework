@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.Common.Board.Views
+﻿namespace OQF.CommonUiElements.Board.Views
 {
 	public partial class BoardVerticalLabelling
 	{

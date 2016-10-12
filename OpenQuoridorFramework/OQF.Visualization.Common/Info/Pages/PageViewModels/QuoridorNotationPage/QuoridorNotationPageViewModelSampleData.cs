@@ -2,7 +2,7 @@
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.QuoridorNotationPage
 {
 	internal class QuoridorNotationPageViewModelSampleData : IQuoridorNotationPageViewModel
 	{

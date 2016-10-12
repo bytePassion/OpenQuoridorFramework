@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
-using OQF.Visualization.Common.Language;
-using OQF.Visualization.Resources;
-using OQF.Visualization.Resources.LanguageDictionaries;
+using OQF.CommonUiElements.Language;
+using OQF.Resources;
+using OQF.Resources.LanguageDictionaries;
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 {
 	internal class AboutPageViewModel : ViewModel, IAboutPageViewModel
 	{

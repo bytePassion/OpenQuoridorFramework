@@ -2,7 +2,7 @@
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Dialogs.YesNo.ViewModel
+namespace OQF.CommonUiElements.Dialogs.YesNo.ViewModel
 {
 	internal class YesNoDialogViewModelSampleData : IYesNoDialogViewModel
 	{

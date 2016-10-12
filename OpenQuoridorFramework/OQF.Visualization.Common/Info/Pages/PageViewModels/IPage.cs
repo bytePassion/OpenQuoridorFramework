@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.Common.Info.Pages.PageViewModels
+﻿namespace OQF.CommonUiElements.Info.Pages.PageViewModels
 {
 	internal interface IPage
     {

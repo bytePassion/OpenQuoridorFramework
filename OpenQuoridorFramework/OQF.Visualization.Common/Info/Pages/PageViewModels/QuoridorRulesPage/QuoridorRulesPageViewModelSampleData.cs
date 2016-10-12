@@ -2,7 +2,7 @@
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.QuoridorRulesPage
 {
 	internal class QuoridorRulesPageViewModelSampleData : IQuoridorRulesPageViewModel
 	{

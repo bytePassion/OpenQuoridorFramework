@@ -1,6 +1,6 @@
 ﻿using OQF.Application.PlayerVsBot.Contracts.Settings;
 
-namespace OQF.Application.PlayerVsBot
+namespace OQF.PlayerVsBot.Application
 {
 	public class ApplicationSettingsRepository : IApplicationSettingsRepository
 	{

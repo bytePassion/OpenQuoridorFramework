@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OQF.Application.PlayerVsBot.Properties {
+namespace OQF.PlayerVsBot.Application.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

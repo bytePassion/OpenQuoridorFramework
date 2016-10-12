@@ -10,8 +10,8 @@ namespace OQF.Visualization.PlayerVsBot.Computations
 		protected override Brush Convert (GameStatus gameStatus, CultureInfo culture)
 		{
 			return gameStatus == GameStatus.Unloaded
-						?  Visualization.Common.Board.BoardColors.Brushes.PlayerInactiveColor
-						:  Visualization.Common.Board.BoardColors.Brushes.BottomPlayerActiveColor;			
+						? CommonUiElements.Board.BoardColors.Brushes.PlayerInactiveColor
+						: CommonUiElements.Board.BoardColors.Brushes.BottomPlayerActiveColor;			
 		}
 	}
 }

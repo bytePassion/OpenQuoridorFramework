@@ -43,6 +43,9 @@
       <HintPath>..\packages\MaterialDesignThemes.2.2.0-ci695\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="OQF.Visualization.Common">
+      <HintPath>..\OQF.Visualization.Common\bin\Debug\OQF.Visualization.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -128,13 +131,13 @@
       <Project>{2f71f7f9-f40a-45e3-9401-5a40933db8c7}</Project>
       <Name>OQF.Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Common\OQF.Visualization.Common.csproj">
+    <ProjectReference Include="..\OQF.Visualization.Common\OQF.CommonUiElements.csproj">
       <Project>{8f773744-6fe4-49c2-8651-e6f29ec828fa}</Project>
-      <Name>OQF.Visualization.Common</Name>
+      <Name>OQF.CommonUiElements</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Visualization.Resources.csproj">
+    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Resources.csproj">
       <Project>{03ee53da-74c5-4883-98f0-bf2618ebdf93}</Project>
-      <Name>OQF.Visualization.Resources</Name>
+      <Name>OQF.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OQF.Visualization.Resources.LanguageDictionaries {
+namespace OQF.Resources.LanguageDictionaries {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace OQF.Visualization.Resources.LanguageDictionaries {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OQF.Visualization.Resources.LanguageDictionaries.Captions", typeof(Captions).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OQF.Resources.LanguageDictionaries.Captions", typeof(Captions).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using MaterialDesignThemes.Wpf;
-using OQF.Visualization.Common.Dialogs.Notification;
-using OQF.Visualization.Common.Dialogs.Notification.ViewModel;
+using OQF.CommonUiElements.Dialogs.Notification;
+using OQF.CommonUiElements.Dialogs.Notification.ViewModel;
 
 namespace OQF.Visualization.PlayerVsBot.Services
 {

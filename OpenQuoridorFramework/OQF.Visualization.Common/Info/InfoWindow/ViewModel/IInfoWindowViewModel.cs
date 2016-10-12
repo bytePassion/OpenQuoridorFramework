@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
-using OQF.Visualization.Common.Info.Pages.PageViewModels;
-using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
+using OQF.CommonUiElements.Info.Pages.PageViewModels;
+using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 
-namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
+namespace OQF.CommonUiElements.Info.InfoWindow.ViewModel
 {
 	internal interface IInfoWindowViewModel : IViewModel
     {

@@ -2,7 +2,7 @@
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.HowToWriteABotPage
 {
 	internal class HowToWriteABotPageViewModelSampleData : IHowToWriteABotPageViewModel
 	{

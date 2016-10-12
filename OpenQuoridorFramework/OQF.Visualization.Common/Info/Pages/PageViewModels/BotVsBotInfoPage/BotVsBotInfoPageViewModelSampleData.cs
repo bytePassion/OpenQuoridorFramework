@@ -2,7 +2,7 @@
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.BotVsBotInfoPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.BotVsBotInfoPage
 {
 	internal class BotVsBotInfoPageViewModelSampleData : IBotVsBotInfoPageViewModel
 	{

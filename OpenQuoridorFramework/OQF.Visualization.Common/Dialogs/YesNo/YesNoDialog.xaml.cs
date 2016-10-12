@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.Common.Dialogs.YesNo
+﻿namespace OQF.CommonUiElements.Dialogs.YesNo
 {
 	public partial class YesNoDialog
     {

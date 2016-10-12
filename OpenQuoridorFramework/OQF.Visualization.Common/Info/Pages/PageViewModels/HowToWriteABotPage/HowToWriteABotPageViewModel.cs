@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
-using OQF.Visualization.Common.Language;
-using OQF.Visualization.Resources.LanguageDictionaries;
+using OQF.CommonUiElements.Language;
+using OQF.Resources.LanguageDictionaries;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.HowToWriteABotPage
 {
 	internal class HowToWriteABotPageViewModel : ViewModel, IHowToWriteABotPageViewModel
 	{

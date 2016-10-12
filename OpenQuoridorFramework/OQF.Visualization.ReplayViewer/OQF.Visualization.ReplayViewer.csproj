@@ -108,7 +108,7 @@
       <Project>{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}</Project>
       <Name>OQF.GameEngine.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Common\OQF.Visualization.Common.csproj">
+    <ProjectReference Include="..\OQF.Visualization.Common\OQF.CommonUiElements.csproj">
       <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
       <Name>OQF.Visualization.Common</Name>
     </ProjectReference>
@@ -128,7 +128,7 @@
       <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
       <Name>Lib.Wpf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Visualization.Resources.csproj">
+    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Resources.csproj">
       <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
       <Name>OQF.Visualization.Resources</Name>
     </ProjectReference>

@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using Lib.FrameworkExtension;
-using OQF.Visualization.Resources;
+using OQF.Resources;
 
-namespace OQF.Visualization.Common.Language.LanguageSelection.ViewModel
+namespace OQF.CommonUiElements.Language.LanguageSelection.ViewModel
 {
 	public class LanguageSelectionViewModel : Lib.Wpf.ViewModelBase.ViewModel, ILanguageSelectionViewModel 
 	{

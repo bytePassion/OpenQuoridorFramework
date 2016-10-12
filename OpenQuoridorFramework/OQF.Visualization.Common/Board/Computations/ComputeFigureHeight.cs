@@ -3,7 +3,7 @@ using System.Windows;
 using Lib.Wpf.ConverterBase;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.Visualization.Common.Board.Computations
+namespace OQF.CommonUiElements.Board.Computations
 {
 	public class ComputeFigureHeight : GenericTwoToOneValueConverter<PlayerState, Size, double>
 	{

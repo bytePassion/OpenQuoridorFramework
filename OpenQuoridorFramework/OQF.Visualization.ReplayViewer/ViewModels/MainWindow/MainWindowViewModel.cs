@@ -11,13 +11,13 @@ using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
 using OQF.Bot.Contracts.GameElements;
+using OQF.CommonUiElements.Board.BoardViewModelBase;
+using OQF.CommonUiElements.Info;
 using OQF.GameEngine.Contracts.Replay;
+using OQF.Resources;
 using OQF.Utils;
-using OQF.Visualization.Common.Board.BoardViewModelBase;
-using OQF.Visualization.Common.Info;
 using OQF.Visualization.ReplayViewer.Services;
 using OQF.Visualization.ReplayViewer.ViewModels.MainWindow.Helper;
-using OQF.Visualization.Resources;
 
 namespace OQF.Visualization.ReplayViewer.ViewModels.MainWindow
 {

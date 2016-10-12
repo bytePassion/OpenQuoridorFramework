@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace OQF.Visualization.Common.Language.LanguageSelection
+﻿namespace OQF.CommonUiElements.Language.LanguageSelection
 {
 	/// <summary>
 	/// Interaction logic for LanguageSelectionView.xaml

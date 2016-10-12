@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Threading;
 
-namespace OQF.Visualization.Common.Language
+namespace OQF.CommonUiElements.Language
 {
 	public static class CultureManager
 	{

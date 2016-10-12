@@ -2,7 +2,7 @@
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 {
 	internal class PlayerVsBotInfoPageViewModelSampleData : IPlayerVsBotInfoPageViewModel
 	{

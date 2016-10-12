@@ -4,7 +4,7 @@ using System.Windows;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
-using OQF.Visualization.Common.Board.BoardViewModelBase;
+using OQF.CommonUiElements.Board.BoardViewModelBase;
 using OQF.Visualization.PlayerVsBot.Services;
 
 namespace OQF.Visualization.PlayerVsBot.ViewModels.Board

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OQF.Visualization.Resources
+namespace OQF.Resources
 {
 	public static class OpenQuoridorFrameworkInfo
 	{

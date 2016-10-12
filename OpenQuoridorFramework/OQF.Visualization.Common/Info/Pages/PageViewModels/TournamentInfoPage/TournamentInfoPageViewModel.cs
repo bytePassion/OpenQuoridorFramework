@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using Lib.Wpf.ViewModelBase;
-using OQF.Visualization.Resources.LanguageDictionaries;
+using OQF.Resources.LanguageDictionaries;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.TournamentInfoPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.TournamentInfoPage
 {
 	internal class TournamentInfoPageViewModel : ViewModel, ITournamentInfoPageViewModel
 	{

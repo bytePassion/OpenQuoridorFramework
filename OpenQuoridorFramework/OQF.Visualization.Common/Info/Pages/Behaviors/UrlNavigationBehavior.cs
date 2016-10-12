@@ -3,7 +3,7 @@ using System.Windows.Documents;
 using System.Windows.Interactivity;
 using System.Windows.Navigation;
 
-namespace OQF.Visualization.Common.Info.Pages.Behaviors
+namespace OQF.CommonUiElements.Info.Pages.Behaviors
 {
 	internal class UrlNavigationBehavior : Behavior<Hyperlink>
 	{

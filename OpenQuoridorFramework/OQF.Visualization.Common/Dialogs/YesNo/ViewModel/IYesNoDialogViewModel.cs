@@ -1,6 +1,6 @@
 ﻿using Lib.Wpf.ViewModelBase;
 
-namespace OQF.Visualization.Common.Dialogs.YesNo.ViewModel
+namespace OQF.CommonUiElements.Dialogs.YesNo.ViewModel
 {
 	internal interface IYesNoDialogViewModel : IViewModel
 	{

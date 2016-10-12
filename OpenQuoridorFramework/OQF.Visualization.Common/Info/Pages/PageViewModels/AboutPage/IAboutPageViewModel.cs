@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Lib.Wpf.ViewModelBase;
-using OQF.Visualization.Resources;
+using OQF.Resources;
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 {
 	internal interface IAboutPageViewModel : IViewModel, IPage
 	{

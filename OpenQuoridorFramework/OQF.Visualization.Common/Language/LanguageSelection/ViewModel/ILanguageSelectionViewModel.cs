@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using Lib.Wpf.ViewModelBase;
 
-namespace OQF.Visualization.Common.Language.LanguageSelection.ViewModel
+namespace OQF.CommonUiElements.Language.LanguageSelection.ViewModel
 {
 	public interface ILanguageSelectionViewModel : IViewModel
 	{

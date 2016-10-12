@@ -2,7 +2,7 @@
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Dialogs.Notification.ViewModel
+namespace OQF.CommonUiElements.Dialogs.Notification.ViewModel
 {
 	public class NotificationDialogViewModel : Lib.Wpf.ViewModelBase.ViewModel, INotificationDialogViewModel
 	{

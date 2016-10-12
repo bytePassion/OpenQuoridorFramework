@@ -2,10 +2,10 @@
 using System.Windows;
 using System.Windows.Interactivity;
 using MaterialDesignThemes.Wpf;
-using OQF.Visualization.Common.Dialogs.YesNo;
-using OQF.Visualization.Common.Dialogs.YesNo.ViewModel;
+using OQF.CommonUiElements.Dialogs.YesNo;
+using OQF.CommonUiElements.Dialogs.YesNo.ViewModel;
+using OQF.Resources.LanguageDictionaries;
 using OQF.Visualization.PlayerVsBot.ViewModels.MainWindow;
-using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.Visualization.PlayerVsBot.Behaviors
 {

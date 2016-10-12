@@ -2,7 +2,7 @@
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.ReplayViewerInfoPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.ReplayViewerInfoPage
 {
 	internal class ReplayViewerInfoPageViewModelSampleData : IReplayViewerInfoPageViewModel
 	{

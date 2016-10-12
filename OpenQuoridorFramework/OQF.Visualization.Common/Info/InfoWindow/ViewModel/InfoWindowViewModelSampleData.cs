@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
-using OQF.Visualization.Common.Info.Pages.PageViewModels;
-using OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage;
-using OQF.Visualization.Common.Info.Pages.PageViewModels.BotVsBotInfoPage;
-using OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage;
-using OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage;
-using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorNotationPage;
-using OQF.Visualization.Common.Info.Pages.PageViewModels.QuoridorRulesPage;
-using OQF.Visualization.Common.Info.Pages.PageViewModels.ReplayViewerInfoPage;
-using OQF.Visualization.Common.Info.Pages.PageViewModels.TournamentInfoPage;
-using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
+using OQF.CommonUiElements.Info.Pages.PageViewModels;
+using OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage;
+using OQF.CommonUiElements.Info.Pages.PageViewModels.BotVsBotInfoPage;
+using OQF.CommonUiElements.Info.Pages.PageViewModels.HowToWriteABotPage;
+using OQF.CommonUiElements.Info.Pages.PageViewModels.PlayerVsBotInfoPage;
+using OQF.CommonUiElements.Info.Pages.PageViewModels.QuoridorNotationPage;
+using OQF.CommonUiElements.Info.Pages.PageViewModels.QuoridorRulesPage;
+using OQF.CommonUiElements.Info.Pages.PageViewModels.ReplayViewerInfoPage;
+using OQF.CommonUiElements.Info.Pages.PageViewModels.TournamentInfoPage;
+using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.InfoWindow.ViewModel
+namespace OQF.CommonUiElements.Info.InfoWindow.ViewModel
 {
 	internal class InfoWindowViewModelSampleData : IInfoWindowViewModel
 	{

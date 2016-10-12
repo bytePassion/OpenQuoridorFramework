@@ -4,7 +4,7 @@ using Lib.Wpf.ConverterBase;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.Visualization.Common.Board.Computations
+namespace OQF.CommonUiElements.Board.Computations
 {
 	public class PlayerColor : GenericValueConverter<PlayerState, Brush>
 	{

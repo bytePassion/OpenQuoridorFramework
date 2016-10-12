@@ -39,13 +39,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Utils", "OQF.Utils\OQF.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Visualization.ReplayViewer", "OQF.Visualization.ReplayViewer\OQF.Visualization.ReplayViewer.csproj", "{BC482C0B-D6F1-42E4-BAEC-85FD819D86E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Visualization.Common", "OQF.Visualization.Common\OQF.Visualization.Common.csproj", "{8F773744-6FE4-49C2-8651-E6F29EC828FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.CommonUiElements", "OQF.Visualization.Common\OQF.CommonUiElements.csproj", "{8F773744-6FE4-49C2-8651-E6F29EC828FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Visualization.Resources", "OQF.Visualization.Resources\OQF.Visualization.Resources.csproj", "{03EE53DA-74C5-4883-98F0-BF2618EBDF93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Resources", "OQF.Visualization.Resources\OQF.Resources.csproj", "{03EE53DA-74C5-4883-98F0-BF2618EBDF93}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{4EADBE11-04E1-44FD-B0A3-F0CF22B1EAE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Application.PlayerVsBot", "OQF.Application.PlayerVsBot\OQF.Application.PlayerVsBot.csproj", "{56EE4A7F-F53E-4339-816E-382A740C7D77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.PlayerVsBot.Application", "OQF.Application.PlayerVsBot\OQF.PlayerVsBot.Application.csproj", "{56EE4A7F-F53E-4339-816E-382A740C7D77}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Application.ReplayViewer", "OQF.Application.ReplayViewer\OQF.Application.ReplayViewer.csproj", "{8C4F70AD-AC5C-4071-8380-DDAD3AF123D0}"
 EndProject

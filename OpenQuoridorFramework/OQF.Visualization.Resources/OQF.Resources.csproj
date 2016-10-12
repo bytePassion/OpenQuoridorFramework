@@ -7,8 +7,8 @@
     <ProjectGuid>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OQF.Visualization.Resources</RootNamespace>
-    <AssemblyName>OQF.Visualization.Resources</AssemblyName>
+    <RootNamespace>OQF.Resources</RootNamespace>
+    <AssemblyName>OQF.Resources</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

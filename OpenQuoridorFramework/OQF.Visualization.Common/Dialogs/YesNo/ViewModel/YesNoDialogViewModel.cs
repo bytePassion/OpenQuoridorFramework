@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
-using OQF.Visualization.Resources.LanguageDictionaries;
+using OQF.Resources.LanguageDictionaries;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Dialogs.YesNo.ViewModel
+namespace OQF.CommonUiElements.Dialogs.YesNo.ViewModel
 {
 	public class YesNoDialogViewModel : Lib.Wpf.ViewModelBase.ViewModel, IYesNoDialogViewModel
     {

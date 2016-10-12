@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="OQF.Visualization.Common.Info.Pages.BotVsBotApplicationInfo"
+﻿<UserControl x:Class="OQF.CommonUiElements.Info.Pages.BotVsBotApplicationInfo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:botVsBotInfoPage="clr-namespace:OQF.Visualization.Common.Info.Pages.PageViewModels.BotVsBotInfoPage"
+             xmlns:botVsBotInfoPage="clr-namespace:OQF.CommonUiElements.Info.Pages.PageViewModels.BotVsBotInfoPage"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">

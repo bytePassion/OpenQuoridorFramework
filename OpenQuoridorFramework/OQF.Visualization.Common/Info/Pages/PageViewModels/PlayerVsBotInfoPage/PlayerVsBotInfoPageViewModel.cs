@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
-using OQF.Visualization.Common.Language;
-using OQF.Visualization.Resources.LanguageDictionaries;
+using OQF.CommonUiElements.Language;
+using OQF.Resources.LanguageDictionaries;
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.PlayerVsBotInfoPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 {
 	internal class PlayerVsBotInfoPageViewModel : ViewModel, IPlayerVsBotInfoPageViewModel
 	{

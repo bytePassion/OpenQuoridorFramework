@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using OQF.Visualization.Resources;
+using OQF.Resources;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.AboutPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 {
 	internal class AboutPageViewModelSampleData : IAboutPageViewModel
 	{		

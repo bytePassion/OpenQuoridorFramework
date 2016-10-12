@@ -7,8 +7,8 @@
     <ProjectGuid>{56EE4A7F-F53E-4339-816E-382A740C7D77}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OQF.Application.PlayerVsBot</RootNamespace>
-    <AssemblyName>OQF.Application.PlayerVsBot</AssemblyName>
+    <RootNamespace>OQF.PlayerVsBot.Application</RootNamespace>
+    <AssemblyName>OQF.PlayerVsBot.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -42,6 +42,10 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.2.0.695, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.2.0-ci695\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="OQF.Visualization.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OQF.Visualization.Common\bin\Debug\OQF.Visualization.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -139,13 +143,13 @@
       <Project>{2f71f7f9-f40a-45e3-9401-5a40933db8c7}</Project>
       <Name>OQF.Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Common\OQF.Visualization.Common.csproj">
+    <ProjectReference Include="..\OQF.Visualization.Common\OQF.CommonUiElements.csproj">
       <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
-      <Name>OQF.Visualization.Common</Name>
+      <Name>OQF.CommonUiElements</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Visualization.Resources.csproj">
+    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Resources.csproj">
       <Project>{03ee53da-74c5-4883-98f0-bf2618ebdf93}</Project>
-      <Name>OQF.Visualization.Resources</Name>
+      <Name>OQF.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

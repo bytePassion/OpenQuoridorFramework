@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace OQF.Visualization.Common.Dialogs.Notification
+namespace OQF.CommonUiElements.Dialogs.Notification
 {
 	/// <summary>
 	/// Interaction logic for NotificationDialog.xaml

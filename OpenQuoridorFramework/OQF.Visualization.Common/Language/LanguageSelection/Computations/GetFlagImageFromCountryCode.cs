@@ -4,7 +4,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Lib.Wpf.ConverterBase;
 
-namespace OQF.Visualization.Common.Language.LanguageSelection.Computations
+namespace OQF.CommonUiElements.Language.LanguageSelection.Computations
 {
 	internal class GetFlagImageFromCountryCode : GenericValueConverter<string, ImageSource>
 	{

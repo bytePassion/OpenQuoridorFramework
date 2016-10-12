@@ -3,7 +3,7 @@ using System.Windows;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.Visualization.Common.Board.BoardViewModelBase
+namespace OQF.CommonUiElements.Board.BoardViewModelBase
 {
 	public interface IBoardViewModel : IViewModel
 	{

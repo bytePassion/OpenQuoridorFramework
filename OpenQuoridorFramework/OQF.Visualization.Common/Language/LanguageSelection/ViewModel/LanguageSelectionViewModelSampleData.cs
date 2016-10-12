@@ -4,7 +4,7 @@ using System.Linq;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.Common.Language.LanguageSelection.ViewModel
+namespace OQF.CommonUiElements.Language.LanguageSelection.ViewModel
 {
 	public class LanguageSelectionViewModelSampleData : ILanguageSelectionViewModel
 	{

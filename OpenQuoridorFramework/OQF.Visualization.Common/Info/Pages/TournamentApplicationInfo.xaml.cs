@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.Common.Info.Pages
+﻿namespace OQF.CommonUiElements.Info.Pages
 {
 	public partial class TournamentApplicationInfo
 	{

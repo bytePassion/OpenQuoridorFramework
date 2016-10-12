@@ -20,21 +20,21 @@ using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
+using OQF.CommonUiElements.Board.BoardViewModelBase;
+using OQF.CommonUiElements.Dialogs.YesNo;
+using OQF.CommonUiElements.Dialogs.YesNo.ViewModel;
+using OQF.CommonUiElements.Info;
+using OQF.CommonUiElements.Language;
+using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
+using OQF.Resources;
+using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
-using OQF.Visualization.Common.Board.BoardViewModelBase;
-using OQF.Visualization.Common.Dialogs.YesNo;
-using OQF.Visualization.Common.Dialogs.YesNo.ViewModel;
-using OQF.Visualization.Common.Info;
-using OQF.Visualization.Common.Language;
-using OQF.Visualization.Common.Language.LanguageSelection.ViewModel;
 using OQF.Visualization.PlayerVsBot.Global;
 using OQF.Visualization.PlayerVsBot.Services;
 using OQF.Visualization.PlayerVsBot.ViewModels.BoardPlacement;
 using OQF.Visualization.PlayerVsBot.ViewModels.MainWindow.Helper;
-using OQF.Visualization.Resources;
-using OQF.Visualization.Resources.LanguageDictionaries;
 
 namespace OQF.Visualization.PlayerVsBot.ViewModels.MainWindow
 {

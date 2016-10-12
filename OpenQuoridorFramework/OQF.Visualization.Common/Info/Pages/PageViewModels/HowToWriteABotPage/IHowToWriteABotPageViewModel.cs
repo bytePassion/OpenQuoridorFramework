@@ -1,6 +1,6 @@
 ﻿using Lib.Wpf.ViewModelBase;
 
-namespace OQF.Visualization.Common.Info.Pages.PageViewModels.HowToWriteABotPage
+namespace OQF.CommonUiElements.Info.Pages.PageViewModels.HowToWriteABotPage
 {
 	internal interface IHowToWriteABotPageViewModel : IViewModel, IPage
 	{

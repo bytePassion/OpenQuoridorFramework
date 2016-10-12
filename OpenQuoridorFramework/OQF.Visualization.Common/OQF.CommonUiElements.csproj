@@ -7,8 +7,8 @@
     <ProjectGuid>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OQF.Visualization.Common</RootNamespace>
-    <AssemblyName>OQF.Visualization.Common</AssemblyName>
+    <RootNamespace>OQF.CommonUiElements</RootNamespace>
+    <AssemblyName>OQF.CommonUiElements</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -247,7 +247,7 @@
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Visualization.Resources.csproj">
+    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Resources.csproj">
       <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
       <Name>OQF.Visualization.Resources</Name>
     </ProjectReference>
