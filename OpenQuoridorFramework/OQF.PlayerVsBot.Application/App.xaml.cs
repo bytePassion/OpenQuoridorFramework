@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Windows;
-using OQF.CommonUiElements.Language;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.GameEngine.Contracts.Factories;
 using OQF.GameEngine.Factories;
@@ -10,6 +9,7 @@ using OQF.PlayerVsBot.Visualization.ViewModels.Board;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow;
 using OQF.PlayerVsBot.Visualization.Windows;
+using OQF.Utils;
 
 namespace OQF.PlayerVsBot.Application
 {

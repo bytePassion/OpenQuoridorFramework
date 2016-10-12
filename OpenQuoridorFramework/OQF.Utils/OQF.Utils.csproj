@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BotLoader.cs" />
     <Compile Include="CreateProgressText.cs" />
+    <Compile Include="CultureManager.cs" />
     <Compile Include="MoveParser.cs" />
     <Compile Include="MoveValidator.cs" />
     <Compile Include="ParseProgressText.cs" />

@@ -3,6 +3,7 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Language;
 using OQF.Resources.LanguageDictionaries;
+using OQF.Utils;
 
 namespace OQF.CommonUiElements.Info.Pages.PageViewModels.QuoridorRulesPage
 {

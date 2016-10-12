@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
-using OQF.CommonUiElements.Language;
 using OQF.Resources.LanguageDictionaries;
+using OQF.Utils;
 
 #pragma warning disable 0067
 

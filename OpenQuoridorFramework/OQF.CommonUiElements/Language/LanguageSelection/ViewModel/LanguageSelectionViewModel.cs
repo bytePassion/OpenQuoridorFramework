@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using Lib.FrameworkExtension;
 using OQF.Resources;
+using OQF.Utils;
 
 namespace OQF.CommonUiElements.Language.LanguageSelection.ViewModel
 {

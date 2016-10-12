@@ -9,6 +9,7 @@
         xmlns:views1="clr-namespace:OQF.CommonUiElements.Board.Views;assembly=OQF.CommonUiElements"
         xmlns:mainWindow="clr-namespace:OQF.ReplayViewer.Visualization.ViewModels.MainWindow"
         xmlns:computations="clr-namespace:OQF.ReplayViewer.Visualization.Computations"
+        xmlns:helper="clr-namespace:OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper"
         Title="MainWindow"
         Width="1200"
         Height="950"
