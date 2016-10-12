@@ -7,7 +7,7 @@ using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
 using OQF.GameEngine.Contracts.Games;
 
-namespace OQF.Visualization.PlayerVsBot.Services
+namespace OQF.PlayerVsBot.Visualization.Services
 {
 	public class GameService : IGameService
 	{

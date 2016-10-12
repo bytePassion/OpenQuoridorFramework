@@ -8,7 +8,7 @@ using Size = System.Windows.Size;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.PlayerVsBot.ViewModels.BoardPlacement
+namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 {
 	internal class BoardPlacementViewModelSampleData : IBoardPlacementViewModel
 	{

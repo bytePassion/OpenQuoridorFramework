@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.PlayerVsBot.Windows
+﻿namespace OQF.PlayerVsBot.Visualization.Windows
 {
 	public partial class MainWindow
 	{

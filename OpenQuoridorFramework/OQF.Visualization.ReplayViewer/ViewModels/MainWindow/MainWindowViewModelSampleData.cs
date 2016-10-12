@@ -2,11 +2,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
-using OQF.Visualization.ReplayViewer.ViewModels.MainWindow.Helper;
+using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 
 #pragma warning disable 0067
 
-namespace OQF.Visualization.ReplayViewer.ViewModels.MainWindow
+namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 {
 	internal class MainWindowViewModelSampleData : IMainWindowViewModel
 	{

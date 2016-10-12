@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{8C4F70AD-AC5C-4071-8380-DDAD3AF123D0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OQF.Visualization.PlayerVsBot</RootNamespace>
-    <AssemblyName>OQF.Visualization.PlayerVsBot</AssemblyName>
+    <RootNamespace>OQF.ReplayViewer.Application</RootNamespace>
+    <AssemblyName>OQF.ReplayViewer.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,9 +34,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
@@ -46,9 +43,11 @@
       <HintPath>..\packages\MaterialDesignThemes.2.2.0-ci695\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="OQF.Visualization.Common">
+      <HintPath>..\OQF.Visualization.Common\bin\Debug\OQF.Visualization.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,38 +62,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Behaviors\MainWindowClosingBehavior.cs" />
-    <Compile Include="Behaviors\ReportRelativeMousePositionBehavior.cs" />
-    <Compile Include="Computations\BottomPlayerMarkerColor.cs" />
-    <Compile Include="Computations\GetBottomPlayerMoveFromString.cs" />
-    <Compile Include="Computations\GetProgressNrFromString.cs" />
-    <Compile Include="Computations\GetTopPlayerMoveFromString.cs" />
-    <Compile Include="Computations\TopPlayerMarkerColor.cs" />
-    <Compile Include="Global\Constants.cs" />
-    <Compile Include="Services\NotificationService.cs" />
-    <Compile Include="Services\GameService.cs" />
-    <Compile Include="Services\IGameService.cs" />
-    <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />
-    <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
-    <Compile Include="ViewModels\BoardPlacement\IBoardPlacementViewModel.cs" />
-    <Compile Include="ViewModels\Board\BoardViewModel.cs" />
-    <Compile Include="ViewModels\MainWindow\Helper\GameStatus.cs" />
-    <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
-    <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
-    <Compile Include="Views\BoardPlacement.xaml.cs">
-      <DependentUpon>BoardPlacement.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Views\BoardPlacement.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\MainWindow.xaml">
+    <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="Windows\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -102,53 +75,71 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <None Include="app.config" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib.Communication\Lib.Communication.csproj">
+      <Project>{a7ca266b-b1a3-4ed5-b0be-ee5ee80a48fc}</Project>
+      <Name>Lib.Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib.Concurrency\Lib.Concurrency.csproj">
+      <Project>{623d4b55-9687-4c7c-9b23-5c1403a110d1}</Project>
+      <Name>Lib.Concurrency</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
-      <Project>{6C27F04B-CFCC-4267-8720-4A44D7529A21}</Project>
+      <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
       <Name>Lib.FrameworkExtension</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OQF.Application.PlayerVsBot.Contracts\OQF.Application.PlayerVsBot.Contracts.csproj">
-      <Project>{019F752C-6C3C-4EB5-B450-CAAB3BB1EF1D}</Project>
-      <Name>OQF.Application.PlayerVsBot.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
-      <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
-      <Name>OQF.Bot.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj">
-      <Project>{e257aa0a-7215-4cba-b17a-61dc7ec3345a}</Project>
-      <Name>OQF.GameEngine.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Common\OQF.CommonUiElements.csproj">
-      <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
-      <Name>OQF.Visualization.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OQF.Utils\OQF.Utils.csproj">
-      <Project>{2F71F7F9-F40A-45E3-9401-5A40933DB8C7}</Project>
-      <Name>OQF.Utils</Name>
     </ProjectReference>
     <ProjectReference Include="..\Lib.SemanicTypes\Lib.SemanicTypes.csproj">
       <Project>{8fe851fb-dd9c-4c93-bced-5098235d44e9}</Project>
       <Name>Lib.SemanicTypes</Name>
     </ProjectReference>
     <ProjectReference Include="..\Lib.Utils\Lib.Utils.csproj">
-      <Project>{0363FA52-24D4-4B73-BA27-B9ADC8989DBC}</Project>
+      <Project>{0363fa52-24d4-4b73-ba27-b9adc8989dbc}</Project>
       <Name>Lib.Utils</Name>
     </ProjectReference>
     <ProjectReference Include="..\Lib.Wpf\Lib.Wpf.csproj">
-      <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
+      <Project>{762ef986-e716-4d0b-a13b-360a0bf97086}</Project>
       <Name>Lib.Wpf</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj">
+      <Project>{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}</Project>
+      <Name>OQF.GameEngine.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.GameEngine\OQF.GameEngine.csproj">
+      <Project>{26E530F7-814E-4B05-8D4A-9B10BF659CF1}</Project>
+      <Name>OQF.GameEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Visualization.ReplayViewer\OQF.ReplayViewer.Visualization.csproj">
+      <Project>{BC482C0B-D6F1-42E4-BAEC-85FD819D86E1}</Project>
+      <Name>OQF.ReplayViewer.Visualization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Utils\OQF.Utils.csproj">
+      <Project>{2f71f7f9-f40a-45e3-9401-5a40933db8c7}</Project>
+      <Name>OQF.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Visualization.Common\OQF.CommonUiElements.csproj">
+      <Project>{8f773744-6fe4-49c2-8651-e6f29ec828fa}</Project>
+      <Name>OQF.CommonUiElements</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Resources.csproj">
-      <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
-      <Name>OQF.Visualization.Resources</Name>
+      <Project>{03ee53da-74c5-4883-98f0-bf2618ebdf93}</Project>
+      <Name>OQF.Resources</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

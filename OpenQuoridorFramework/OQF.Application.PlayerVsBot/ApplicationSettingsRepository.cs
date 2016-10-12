@@ -1,4 +1,4 @@
-﻿using OQF.Application.PlayerVsBot.Contracts.Settings;
+﻿using OQF.PlayerVsBot.Contracts.Settings;
 
 namespace OQF.PlayerVsBot.Application
 {

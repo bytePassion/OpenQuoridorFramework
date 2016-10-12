@@ -1,12 +1,12 @@
 ﻿using System.Windows;
 using OQF.GameEngine.Contracts.Replay;
 using OQF.GameEngine.Replay;
-using OQF.Visualization.ReplayViewer.Services;
-using OQF.Visualization.ReplayViewer.ViewModels.Board;
-using OQF.Visualization.ReplayViewer.ViewModels.MainWindow;
-using OQF.Visualization.ReplayViewer.Windows;
+using OQF.ReplayViewer.Visualization.Services;
+using OQF.ReplayViewer.Visualization.ViewModels.Board;
+using OQF.ReplayViewer.Visualization.ViewModels.MainWindow;
+using OQF.ReplayViewer.Visualization.Windows;
 
-namespace OQF.Application.ReplayViewer
+namespace OQF.ReplayViewer.Application
 {
 	public partial class App 
 	{

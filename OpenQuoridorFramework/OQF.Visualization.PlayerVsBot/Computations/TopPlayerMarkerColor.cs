@@ -1,9 +1,9 @@
 ﻿using System.Globalization;
 using System.Windows.Media;
 using Lib.Wpf.ConverterBase;
-using OQF.Visualization.PlayerVsBot.ViewModels.MainWindow.Helper;
+using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 
-namespace OQF.Visualization.PlayerVsBot.Computations
+namespace OQF.PlayerVsBot.Visualization.Computations
 {
 	internal class TopPlayerMarkerColor : GenericValueConverter<GameStatus, Brush>
 	{

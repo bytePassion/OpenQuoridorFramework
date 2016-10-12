@@ -5,7 +5,7 @@ using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 using Size = System.Windows.Size;
 
-namespace OQF.Visualization.PlayerVsBot.ViewModels.BoardPlacement
+namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 {
 	public interface IBoardPlacementViewModel : IViewModel
 	{

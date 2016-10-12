@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OQF.Visualization.ReplayViewer.Properties {
+namespace OQF.ReplayViewer.Visualization.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

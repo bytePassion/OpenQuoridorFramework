@@ -2,9 +2,9 @@
 using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
-using OQF.Visualization.ReplayViewer.ViewModels.MainWindow.Helper;
+using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 
-namespace OQF.Visualization.ReplayViewer.ViewModels.MainWindow
+namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 {
 	internal interface IMainWindowViewModel : IViewModel
 	{

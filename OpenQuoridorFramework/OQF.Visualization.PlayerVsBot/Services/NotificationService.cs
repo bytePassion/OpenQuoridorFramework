@@ -4,7 +4,7 @@ using MaterialDesignThemes.Wpf;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Dialogs.Notification.ViewModel;
 
-namespace OQF.Visualization.PlayerVsBot.Services
+namespace OQF.PlayerVsBot.Visualization.Services
 {
 	internal static class NotificationService
 	{

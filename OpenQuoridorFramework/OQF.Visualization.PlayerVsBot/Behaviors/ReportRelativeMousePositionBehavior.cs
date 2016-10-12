@@ -4,7 +4,7 @@ using System.Windows.Interactivity;
 using Lib.SemanicTypes;
 using Point = Lib.SemanicTypes.Point;
 
-namespace OQF.Visualization.PlayerVsBot.Behaviors
+namespace OQF.PlayerVsBot.Visualization.Behaviors
 {
 	public class ReportRelativeMousePositionBehavior : Behavior<FrameworkElement>
 	{

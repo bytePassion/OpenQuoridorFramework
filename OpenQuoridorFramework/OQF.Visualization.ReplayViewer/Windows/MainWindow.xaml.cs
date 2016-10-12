@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.ReplayViewer.Windows
+﻿namespace OQF.ReplayViewer.Visualization.Windows
 {
 	public partial class MainWindow
 	{

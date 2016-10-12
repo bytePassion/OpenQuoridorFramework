@@ -15,7 +15,6 @@ using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
-using OQF.Application.PlayerVsBot.Contracts.Settings;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
@@ -28,15 +27,16 @@ using OQF.CommonUiElements.Language;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
+using OQF.PlayerVsBot.Contracts.Settings;
+using OQF.PlayerVsBot.Visualization.Global;
+using OQF.PlayerVsBot.Visualization.Services;
+using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
+using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
-using OQF.Visualization.PlayerVsBot.Global;
-using OQF.Visualization.PlayerVsBot.Services;
-using OQF.Visualization.PlayerVsBot.ViewModels.BoardPlacement;
-using OQF.Visualization.PlayerVsBot.ViewModels.MainWindow.Helper;
 
-namespace OQF.Visualization.PlayerVsBot.ViewModels.MainWindow
+namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 {
 	public class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{

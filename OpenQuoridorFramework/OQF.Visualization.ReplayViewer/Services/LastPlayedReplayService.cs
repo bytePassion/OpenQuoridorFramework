@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace OQF.Visualization.ReplayViewer.Services
+namespace OQF.ReplayViewer.Visualization.Services
 {
 	public class LastPlayedReplayService : ILastPlayedReplayService
 	{

@@ -119,9 +119,9 @@
       <Project>{762ef986-e716-4d0b-a13b-360a0bf97086}</Project>
       <Name>Lib.Wpf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Application.PlayerVsBot.Contracts\OQF.Application.PlayerVsBot.Contracts.csproj">
+    <ProjectReference Include="..\OQF.Application.PlayerVsBot.Contracts\OQF.PlayerVsBot.Contracts.csproj">
       <Project>{019F752C-6C3C-4EB5-B450-CAAB3BB1EF1D}</Project>
-      <Name>OQF.Application.PlayerVsBot.Contracts</Name>
+      <Name>OQF.PlayerVsBot.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
@@ -135,9 +135,9 @@
       <Project>{26E530F7-814E-4B05-8D4A-9B10BF659CF1}</Project>
       <Name>OQF.GameEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.PlayerVsBot\OQF.Visualization.PlayerVsBot.csproj">
+    <ProjectReference Include="..\OQF.Visualization.PlayerVsBot\OQF.PlayerVsBot.Visualization.csproj">
       <Project>{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}</Project>
-      <Name>OQF.Visualization.PlayerVsBot</Name>
+      <Name>OQF.PlayerVsBot.Visualization</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Utils\OQF.Utils.csproj">
       <Project>{2f71f7f9-f40a-45e3-9401-5a40933db8c7}</Project>

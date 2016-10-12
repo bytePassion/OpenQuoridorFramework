@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using Lib.FrameworkExtension;
 
-namespace OQF.Visualization.ReplayViewer.ViewModels.MainWindow.Helper
+namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper
 {
 	public class ProgressRow : INotifyPropertyChanged
 	{

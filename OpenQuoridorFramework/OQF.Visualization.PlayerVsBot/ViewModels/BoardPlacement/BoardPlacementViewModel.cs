@@ -12,10 +12,10 @@ using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
-using OQF.Visualization.PlayerVsBot.Services;
+using OQF.PlayerVsBot.Visualization.Services;
 using Size = System.Windows.Size;
 
-namespace OQF.Visualization.PlayerVsBot.ViewModels.BoardPlacement
+namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 {
 	public class BoardPlacementViewModel : ViewModel, IBoardPlacementViewModel
 	{

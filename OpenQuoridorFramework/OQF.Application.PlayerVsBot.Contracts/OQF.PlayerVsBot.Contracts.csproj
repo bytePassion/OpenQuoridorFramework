@@ -7,8 +7,8 @@
     <ProjectGuid>{019F752C-6C3C-4EB5-B450-CAAB3BB1EF1D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OQF.Application.PlayerVsBot.Contracts</RootNamespace>
-    <AssemblyName>OQF.Application.PlayerVsBot.Contracts</AssemblyName>
+    <RootNamespace>OQF.PlayerVsBot.Contracts</RootNamespace>
+    <AssemblyName>OQF.PlayerVsBot.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

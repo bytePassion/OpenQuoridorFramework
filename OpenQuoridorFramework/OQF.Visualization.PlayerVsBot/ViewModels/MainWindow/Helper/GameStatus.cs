@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.PlayerVsBot.ViewModels.MainWindow.Helper
+﻿namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper
 {
 	public enum GameStatus
 	{

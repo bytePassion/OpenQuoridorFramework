@@ -7,7 +7,7 @@ using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
 using OQF.GameEngine.Contracts.Replay;
 
-namespace OQF.Visualization.ReplayViewer.ViewModels.Board
+namespace OQF.ReplayViewer.Visualization.ViewModels.Board
 {
 	public class BoardViewModel : ViewModel, IBoardViewModel
 	{

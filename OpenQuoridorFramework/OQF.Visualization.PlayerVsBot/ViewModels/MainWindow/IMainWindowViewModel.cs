@@ -3,10 +3,10 @@ using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
-using OQF.Visualization.PlayerVsBot.ViewModels.BoardPlacement;
-using OQF.Visualization.PlayerVsBot.ViewModels.MainWindow.Helper;
+using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
+using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 
-namespace OQF.Visualization.PlayerVsBot.ViewModels.MainWindow
+namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 {
 	internal interface IMainWindowViewModel : IViewModel
 	{

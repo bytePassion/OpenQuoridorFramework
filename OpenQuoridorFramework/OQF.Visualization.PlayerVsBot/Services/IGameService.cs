@@ -4,7 +4,7 @@ using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
 
-namespace OQF.Visualization.PlayerVsBot.Services
+namespace OQF.PlayerVsBot.Visualization.Services
 {
 	public interface IGameService
 	{

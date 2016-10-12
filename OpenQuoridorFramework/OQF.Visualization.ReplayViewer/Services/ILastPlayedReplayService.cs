@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.ReplayViewer.Services
+﻿namespace OQF.ReplayViewer.Visualization.Services
 {
 	public interface ILastPlayedReplayService
 	{

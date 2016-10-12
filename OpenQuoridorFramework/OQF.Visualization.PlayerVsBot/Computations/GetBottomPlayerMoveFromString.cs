@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using Lib.Wpf.ConverterBase;
 
-namespace OQF.Visualization.PlayerVsBot.Computations
+namespace OQF.PlayerVsBot.Visualization.Computations
 {
 	internal class GetBottomPlayerMoveFromString : GenericValueConverter<string, string>
 	{

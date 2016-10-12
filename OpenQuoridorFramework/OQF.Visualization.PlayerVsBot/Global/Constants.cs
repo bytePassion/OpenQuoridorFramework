@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.PlayerVsBot.Global
+﻿namespace OQF.PlayerVsBot.Visualization.Global
 {
 	internal static class Constants
 	{		

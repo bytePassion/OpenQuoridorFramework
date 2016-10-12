@@ -14,12 +14,12 @@ using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
 using OQF.CommonUiElements.Info;
 using OQF.GameEngine.Contracts.Replay;
+using OQF.ReplayViewer.Visualization.Services;
+using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
 using OQF.Utils;
-using OQF.Visualization.ReplayViewer.Services;
-using OQF.Visualization.ReplayViewer.ViewModels.MainWindow.Helper;
 
-namespace OQF.Visualization.ReplayViewer.ViewModels.MainWindow
+namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 {
 	public class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{

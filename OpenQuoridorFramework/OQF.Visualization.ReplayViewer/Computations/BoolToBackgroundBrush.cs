@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using Lib.Wpf.ConverterBase;
 
-namespace OQF.Visualization.ReplayViewer.Computations
+namespace OQF.ReplayViewer.Visualization.Computations
 {
 	internal class BoolToBackgroundBrush : GenericValueConverter<bool, Brush>
 	{

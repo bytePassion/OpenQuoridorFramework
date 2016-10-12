@@ -1,4 +1,4 @@
-﻿namespace OQF.Visualization.PlayerVsBot.Views
+﻿namespace OQF.PlayerVsBot.Visualization.Views
 {
 	public partial class BoardPlacement
 	{

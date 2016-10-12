@@ -1,15 +1,15 @@
 ﻿using System.Globalization;
 using System.Windows;
-using OQF.Application.PlayerVsBot.Contracts.Settings;
 using OQF.CommonUiElements.Language;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.GameEngine.Contracts.Factories;
 using OQF.GameEngine.Factories;
-using OQF.Visualization.PlayerVsBot.Services;
-using OQF.Visualization.PlayerVsBot.ViewModels.Board;
-using OQF.Visualization.PlayerVsBot.ViewModels.BoardPlacement;
-using OQF.Visualization.PlayerVsBot.ViewModels.MainWindow;
-using OQF.Visualization.PlayerVsBot.Windows;
+using OQF.PlayerVsBot.Contracts.Settings;
+using OQF.PlayerVsBot.Visualization.Services;
+using OQF.PlayerVsBot.Visualization.ViewModels.Board;
+using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
+using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow;
+using OQF.PlayerVsBot.Visualization.Windows;
 
 namespace OQF.PlayerVsBot.Application
 {

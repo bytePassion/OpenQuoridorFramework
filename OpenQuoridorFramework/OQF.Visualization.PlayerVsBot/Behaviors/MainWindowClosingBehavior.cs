@@ -4,10 +4,10 @@ using System.Windows.Interactivity;
 using MaterialDesignThemes.Wpf;
 using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.CommonUiElements.Dialogs.YesNo.ViewModel;
+using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow;
 using OQF.Resources.LanguageDictionaries;
-using OQF.Visualization.PlayerVsBot.ViewModels.MainWindow;
 
-namespace OQF.Visualization.PlayerVsBot.Behaviors
+namespace OQF.PlayerVsBot.Visualization.Behaviors
 {
 	internal class MainWindowClosingBehavior: Behavior<Window>
 	{		
