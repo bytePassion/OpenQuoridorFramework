@@ -249,7 +249,7 @@
     </ProjectReference>
     <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Resources.csproj">
       <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
-      <Name>OQF.Visualization.Resources</Name>
+      <Name>OQF.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

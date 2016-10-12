@@ -14,7 +14,7 @@
     </d:DesignData.DataContext>
 
     <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Resources;component/Styles/AdditionalStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
 
 
     </UserControl.Resources>
@@ -43,7 +43,7 @@
                                      Padding="8">
                     <StackPanel>
                         <Image MaxWidth="1112"
-                               Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/playerVsBot_help_german.png"
+                               Source="pack://application:,,,/OQF.Resources;Component/InfoImages/playerVsBot_help_german.png"
                                Stretch="Uniform" />
                         <TextBlock Margin="0,15,0,0"
                                    Style="{StaticResource MaterialDesignTitleTextBlock}"

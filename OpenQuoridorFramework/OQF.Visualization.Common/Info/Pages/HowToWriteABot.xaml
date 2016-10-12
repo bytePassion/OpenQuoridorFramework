@@ -13,7 +13,7 @@
         <howToWriteABotPage:HowToWriteABotPageViewModelSampleData />
     </d:DesignData.DataContext>
     <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Resources;component/Styles/AdditionalStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
 
     </UserControl.Resources>
 
@@ -147,7 +147,7 @@
                     <StackPanel>
                         <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding HintParagrapHeader}" />
                         <Image MaxWidth="680"
-                               Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/botStartHelp.png"
+                               Source="pack://application:,,,/OQF.Resources;Component/InfoImages/botStartHelp.png"
                                Stretch="Uniform" />
 
                         <TextBlock Margin="0,16"

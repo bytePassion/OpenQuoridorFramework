@@ -14,7 +14,7 @@
     </d:DesignData.DataContext>
 
     <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Resources;component/Styles/AdditionalStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
 
     </UserControl.Resources>
 
@@ -80,7 +80,7 @@
 
                 <materialDesign:Card Margin="20,0">
                     <StackPanel>
-                        <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board1.png" />
+                        <Image Source="pack://application:,,,/OQF.Resources;Component/InfoImages/Board1.png" />
                         <TextBlock Margin="6"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    Text="{Binding Picture1Caption}"
@@ -92,7 +92,7 @@
 
                     <materialDesign:Card Width="150" Margin="0,0,0,0">
                         <StackPanel>
-                            <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board2.png" />
+                            <Image Source="pack://application:,,,/OQF.Resources;Component/InfoImages/Board2.png" />
                             <TextBlock Margin="6"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}"
                                        Text="{Binding Picture2Caption}"
@@ -102,7 +102,7 @@
 
                     <materialDesign:Card Width="150" Margin="10,0,-10,0">
                         <StackPanel>
-                            <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board3.png" />
+                            <Image Source="pack://application:,,,/OQF.Resources;Component/InfoImages/Board3.png" />
                             <TextBlock Margin="6"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}"
                                        Text="{Binding Picture3Caption}"
@@ -126,7 +126,7 @@
 
                     <materialDesign:Card Width="150" Margin="10,0,-10,0">
                         <StackPanel>
-                            <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board5.png" />
+                            <Image Source="pack://application:,,,/OQF.Resources;Component/InfoImages/Board5.png" />
                             <TextBlock Margin="6"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}"
                                        Text="{Binding Picture5Caption}"

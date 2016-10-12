@@ -15,166 +15,166 @@
              d:DesignWidth="300"
              mc:Ignorable="d">
 
-    <d:DesignData.DataContext>
-        <boardPlacement:BoardPlacementViewModelSampleData />
-    </d:DesignData.DataContext>
-
-    <UserControl.Resources>
-        <computations:ComputeFigureLeftPosition x:Key="ComputeFigureLeftPosition" />
-        <computations:ComputeFigureTopPosition x:Key="ComputeFigureTopPosition" />
-        <computations:ComputeFigureHeight x:Key="ComputeFigureHeight" />
-        <computations:ComputeFigureWidth x:Key="ComputeFigureWidth" />
-        <computations:ComputeWallLeftPosition x:Key="ComputeWallLeftPosition" />
-        <computations:ComputeWallTopPosition x:Key="ComputeWallTopPosition" />
-        <computations:ComputeWallHeight x:Key="ComputeWallHeight" />
-        <computations:ComputeWallWidth x:Key="ComputeWallWidth" />
-    </UserControl.Resources>
-
-    <Border Background="Transparent">
-
-        <i:Interaction.Behaviors>
-			<behaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
-			<behaviors1:ReportRelativeMousePositionBehavior MousePosition="{Binding MousePosition, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
-
-            <commandExecutingBehaviors:ExecuteCommandOnClickBehavior Command="{Binding BoardClick}" />
-        </i:Interaction.Behaviors>
-
-        <Grid>
-
-            <ListBox Background="Transparent"
-                     IsHitTestVisible="False"
-                     ItemsSource="{Binding PossibleMoves}"
-                     Padding="-1">
-
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Canvas />
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-
-                <!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="Padding" Value="0" />
-                        <Setter Property="Margin" Value="2,2,0,0" />
-                        <Setter Property="Canvas.Left">
-                            <Setter.Value>
-                                <MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
-                                    <Binding />
-                                    <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />
-                                </MultiBinding>
-                            </Setter.Value>
-                        </Setter>
-
-                        <Setter Property="Canvas.Top">
-                            <Setter.Value>
-                                <MultiBinding Converter="{StaticResource ComputeFigureTopPosition}">
-                                    <Binding />
-                                    <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />
-                                </MultiBinding>
-                            </Setter.Value>
-                        </Setter>
-
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate>
-
-                                    <Ellipse Fill="{x:Static boardColors:Brushes.PossibleMoveFieldColor}">
-
-										<Ellipse.Width>
-											<MultiBinding Converter="{StaticResource ComputeFigureWidth}">
-                                                <Binding />
-                                                <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />
-                                            </MultiBinding>
-                                        </Ellipse.Width>
-
-                                        <Ellipse.Height>
-                                            <MultiBinding Converter="{StaticResource ComputeFigureHeight}">
-                                                <Binding />
-                                                <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />
-                                            </MultiBinding>
-                                        </Ellipse.Height>
-
-                                    </Ellipse>
-
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-
-                    </Style>
-                </ListBox.ItemContainerStyle>
-                <!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
-
-            </ListBox>
-
-            <ListBox Background="Transparent"
-                     BorderThickness="0"
-                     IsHitTestVisible="False"
-                     ItemsSource="{Binding PotentialPlacedWall}"
-                     Padding="-1">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Canvas />
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-
-                <!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="Padding" Value="0" />
-                        <Setter Property="Margin" Value="1,1,0,0" />
-                        <Setter Property="Canvas.Left">
-                            <Setter.Value>
-                                <MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">
-                                    <Binding />
-                                    <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />
-                                </MultiBinding>
-                            </Setter.Value>
-                        </Setter>
-
-                        <Setter Property="Canvas.Top">
-                            <Setter.Value>
-                                <MultiBinding Converter="{StaticResource ComputeWallTopPosition}">
-                                    <Binding />
-                                    <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />
-                                </MultiBinding>
-                            </Setter.Value>
-                        </Setter>
-
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate>
-
-                                    <Rectangle Fill="{x:Static boardColors:Brushes.PotentialPlacedWallColor}">
-
-                                        <Rectangle.Width>
-                                            <MultiBinding Converter="{StaticResource ComputeWallWidth}">
-                                                <Binding />
-                                                <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />
-                                            </MultiBinding>
-                                        </Rectangle.Width>
-
-                                        <Rectangle.Height>
-                                            <MultiBinding Converter="{StaticResource ComputeWallHeight}">
-                                                <Binding />
-                                                <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />
-                                            </MultiBinding>
-                                        </Rectangle.Height>
-
-                                    </Rectangle>
-
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-
-                    </Style>
-                </ListBox.ItemContainerStyle>
-                <!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
-
-            </ListBox>
-        </Grid>
-
-    </Border>
+<!--    <d:DesignData.DataContext>-->
+<!--        <boardPlacement:BoardPlacementViewModelSampleData />-->
+<!--    </d:DesignData.DataContext>-->
+<!---->
+<!--    <UserControl.Resources>-->
+<!--        <computations:ComputeFigureLeftPosition x:Key="ComputeFigureLeftPosition" />-->
+<!--        <computations:ComputeFigureTopPosition x:Key="ComputeFigureTopPosition" />-->
+<!--        <computations:ComputeFigureHeight x:Key="ComputeFigureHeight" />-->
+<!--        <computations:ComputeFigureWidth x:Key="ComputeFigureWidth" />-->
+<!--        <computations:ComputeWallLeftPosition x:Key="ComputeWallLeftPosition" />-->
+<!--        <computations:ComputeWallTopPosition x:Key="ComputeWallTopPosition" />-->
+<!--        <computations:ComputeWallHeight x:Key="ComputeWallHeight" />-->
+<!--        <computations:ComputeWallWidth x:Key="ComputeWallWidth" />-->
+<!--    </UserControl.Resources>-->
+<!---->
+<!--    <Border Background="Transparent">-->
+<!---->
+<!--        <i:Interaction.Behaviors>-->
+<!--			<behaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />-->
+<!--			<behaviors1:ReportRelativeMousePositionBehavior MousePosition="{Binding MousePosition, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />-->
+<!---->
+<!--            <commandExecutingBehaviors:ExecuteCommandOnClickBehavior Command="{Binding BoardClick}" />-->
+<!--        </i:Interaction.Behaviors>-->
+<!---->
+<!--        <Grid>-->
+<!---->
+<!--            <ListBox Background="Transparent"-->
+<!--                     IsHitTestVisible="False"-->
+<!--                     ItemsSource="{Binding PossibleMoves}"-->
+<!--                     Padding="-1">-->
+<!---->
+<!--                <ListBox.ItemsPanel>-->
+<!--                    <ItemsPanelTemplate>-->
+<!--                        <Canvas />-->
+<!--                    </ItemsPanelTemplate>-->
+<!--                </ListBox.ItemsPanel>-->
+<!---->
+<!--                ~1~  ReSharper disable Xaml.BindingWithContextNotResolved  @1@-->
+<!--                <ListBox.ItemContainerStyle>-->
+<!--                    <Style TargetType="ListBoxItem">-->
+<!--                        <Setter Property="Padding" Value="0" />-->
+<!--                        <Setter Property="Margin" Value="2,2,0,0" />-->
+<!--                        <Setter Property="Canvas.Left">-->
+<!--                            <Setter.Value>-->
+<!--                                <MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">-->
+<!--                                    <Binding />-->
+<!--                                    <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />-->
+<!--                                </MultiBinding>-->
+<!--                            </Setter.Value>-->
+<!--                        </Setter>-->
+<!---->
+<!--                        <Setter Property="Canvas.Top">-->
+<!--                            <Setter.Value>-->
+<!--                                <MultiBinding Converter="{StaticResource ComputeFigureTopPosition}">-->
+<!--                                    <Binding />-->
+<!--                                    <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />-->
+<!--                                </MultiBinding>-->
+<!--                            </Setter.Value>-->
+<!--                        </Setter>-->
+<!---->
+<!--                        <Setter Property="Template">-->
+<!--                            <Setter.Value>-->
+<!--                                <ControlTemplate>-->
+<!---->
+<!--                                    <Ellipse Fill="{x:Static boardColors:Brushes.PossibleMoveFieldColor}">-->
+<!---->
+<!--										<Ellipse.Width>-->
+<!--											<MultiBinding Converter="{StaticResource ComputeFigureWidth}">-->
+<!--                                                <Binding />-->
+<!--                                                <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />-->
+<!--                                            </MultiBinding>-->
+<!--                                        </Ellipse.Width>-->
+<!---->
+<!--                                        <Ellipse.Height>-->
+<!--                                            <MultiBinding Converter="{StaticResource ComputeFigureHeight}">-->
+<!--                                                <Binding />-->
+<!--                                                <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />-->
+<!--                                            </MultiBinding>-->
+<!--                                        </Ellipse.Height>-->
+<!---->
+<!--                                    </Ellipse>-->
+<!---->
+<!--                                </ControlTemplate>-->
+<!--                            </Setter.Value>-->
+<!--                        </Setter>-->
+<!---->
+<!--                    </Style>-->
+<!--                </ListBox.ItemContainerStyle>-->
+<!--                ~1~  ReSharper restore Xaml.BindingWithContextNotResolved  @1@-->
+<!---->
+<!--            </ListBox>-->
+<!---->
+<!--            <ListBox Background="Transparent"-->
+<!--                     BorderThickness="0"-->
+<!--                     IsHitTestVisible="False"-->
+<!--                     ItemsSource="{Binding PotentialPlacedWall}"-->
+<!--                     Padding="-1">-->
+<!--                <ListBox.ItemsPanel>-->
+<!--                    <ItemsPanelTemplate>-->
+<!--                        <Canvas />-->
+<!--                    </ItemsPanelTemplate>-->
+<!--                </ListBox.ItemsPanel>-->
+<!---->
+<!--                ~1~  ReSharper disable Xaml.BindingWithContextNotResolved  @1@-->
+<!--                <ListBox.ItemContainerStyle>-->
+<!--                    <Style TargetType="ListBoxItem">-->
+<!--                        <Setter Property="Padding" Value="0" />-->
+<!--                        <Setter Property="Margin" Value="1,1,0,0" />-->
+<!--                        <Setter Property="Canvas.Left">-->
+<!--                            <Setter.Value>-->
+<!--                                <MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">-->
+<!--                                    <Binding />-->
+<!--                                    <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />-->
+<!--                                </MultiBinding>-->
+<!--                            </Setter.Value>-->
+<!--                        </Setter>-->
+<!---->
+<!--                        <Setter Property="Canvas.Top">-->
+<!--                            <Setter.Value>-->
+<!--                                <MultiBinding Converter="{StaticResource ComputeWallTopPosition}">-->
+<!--                                    <Binding />-->
+<!--                                    <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />-->
+<!--                                </MultiBinding>-->
+<!--                            </Setter.Value>-->
+<!--                        </Setter>-->
+<!---->
+<!--                        <Setter Property="Template">-->
+<!--                            <Setter.Value>-->
+<!--                                <ControlTemplate>-->
+<!---->
+<!--                                    <Rectangle Fill="{x:Static boardColors:Brushes.PotentialPlacedWallColor}">-->
+<!---->
+<!--                                        <Rectangle.Width>-->
+<!--                                            <MultiBinding Converter="{StaticResource ComputeWallWidth}">-->
+<!--                                                <Binding />-->
+<!--                                                <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />-->
+<!--                                            </MultiBinding>-->
+<!--                                        </Rectangle.Width>-->
+<!---->
+<!--                                        <Rectangle.Height>-->
+<!--                                            <MultiBinding Converter="{StaticResource ComputeWallHeight}">-->
+<!--                                                <Binding />-->
+<!--                                                <Binding Path="DataContext.BoardSize" RelativeSource="{RelativeSource AncestorType={x:Type local:BoardPlacement}}" />-->
+<!--                                            </MultiBinding>-->
+<!--                                        </Rectangle.Height>-->
+<!---->
+<!--                                    </Rectangle>-->
+<!---->
+<!--                                </ControlTemplate>-->
+<!--                            </Setter.Value>-->
+<!--                        </Setter>-->
+<!---->
+<!--                    </Style>-->
+<!--                </ListBox.ItemContainerStyle>-->
+<!--                ~1~  ReSharper restore Xaml.BindingWithContextNotResolved  @1@-->
+<!---->
+<!--            </ListBox>-->
+<!--        </Grid>-->
+<!---->
+<!--    </Border>-->
 </UserControl>
 
 

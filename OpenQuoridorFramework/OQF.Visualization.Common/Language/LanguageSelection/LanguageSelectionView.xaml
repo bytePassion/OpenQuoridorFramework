@@ -17,7 +17,7 @@
 	<UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Resources;component/Styles/AdditionalStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <computations:GetFlagImageFromCountryCode x:Key="GetFlagImageFromCountryCode" />

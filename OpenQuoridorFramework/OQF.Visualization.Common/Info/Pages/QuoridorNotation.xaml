@@ -14,7 +14,7 @@
     </d:DesignData.DataContext>
 
     <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/OQF.Visualization.Resources;component/Styles/AdditionalStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
 
     </UserControl.Resources>
 
@@ -80,7 +80,7 @@
 
                 <materialDesign:Card Margin="20,0">
                     <StackPanel>
-                        <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board0.png" />
+                        <Image Source="pack://application:,,,/OQF.Resources;Component/InfoImages/Board0.png" />
                         <TextBlock Margin="6"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    Text="{Binding Picture1Caption}"
@@ -90,7 +90,7 @@
 
                 <materialDesign:Card Margin="20,20,20,0">
                     <StackPanel>
-                        <Image Source="pack://application:,,,/OQF.Visualization.Resources;Component/InfoImages/Board6.png" />
+                        <Image Source="pack://application:,,,/OQF.Resources;Component/InfoImages/Board6.png" />
                         <TextBlock Margin="6"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    Text="{Binding Picture2Caption}"

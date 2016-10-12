@@ -13,7 +13,7 @@ namespace OQF.CommonUiElements.Language.LanguageSelection.Computations
 			ImageSource flagIcon;
 			try
 			{
-				flagIcon = new BitmapImage(new Uri($"pack://application:,,,/OQF.Visualization.Resources;Component/FlagIcons/{value}.png"));
+				flagIcon = new BitmapImage(new Uri($"pack://application:,,,/OQF.Resources;Component/FlagIcons/{value}.png"));
 			}
 			catch 
 			{				
