@@ -10,7 +10,6 @@ using OQF.CommonUiElements.Info.Pages.PageViewModels.QuoridorNotationPage;
 using OQF.CommonUiElements.Info.Pages.PageViewModels.QuoridorRulesPage;
 using OQF.CommonUiElements.Info.Pages.PageViewModels.ReplayViewerInfoPage;
 using OQF.CommonUiElements.Info.Pages.PageViewModels.TournamentInfoPage;
-using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 
 #pragma warning disable 0067
 
@@ -20,8 +19,6 @@ namespace OQF.CommonUiElements.Info.InfoWindow.ViewModel
 	{
 		public InfoWindowViewModelSampleData()
 		{
-			LanguageSelectionViewModel    = new LanguageSelectionViewModelSampleData();
-
 			Pages = new List<IPage>
 			{
 				new QuoridorRulesPageViewModelSampleData(),
@@ -37,8 +34,6 @@ namespace OQF.CommonUiElements.Info.InfoWindow.ViewModel
 			
 			CloseButtonCaption = "Close";			
 		}
-
-		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
 		public IEnumerable<IPage> Pages { get; }
 

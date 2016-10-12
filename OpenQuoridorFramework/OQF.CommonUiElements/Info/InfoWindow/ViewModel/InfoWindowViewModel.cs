@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Input;
 using Lib.Wpf.Commands;
 using OQF.CommonUiElements.Info.Pages.PageViewModels;
-using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.Resources.LanguageDictionaries;
 
 #pragma warning disable 0067
@@ -14,19 +13,11 @@ namespace OQF.CommonUiElements.Info.InfoWindow.ViewModel
 {
 	internal class InfoWindowViewModel : Lib.Wpf.ViewModelBase.ViewModel, IInfoWindowViewModel
 	{				
-		public InfoWindowViewModel(IEnumerable<IPage> visibleInfoPages,
-								   ILanguageSelectionViewModel languageSelectionViewModel)
-		{
-
-			LanguageSelectionViewModel = languageSelectionViewModel;			
-
+		public InfoWindowViewModel(IEnumerable<IPage> visibleInfoPages)
+		{					
 			CloseWindow = new Command(DoCloseWindow);
-		    Pages = visibleInfoPages;
-
-		
-		}
-
-		public ILanguageSelectionViewModel    LanguageSelectionViewModel    { get; }
+		    Pages = visibleInfoPages;		
+		}		
 
 		public ICommand CloseWindow { get; }
 
