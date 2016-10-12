@@ -247,7 +247,7 @@
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Resources.csproj">
+    <ProjectReference Include="..\OQF.Resources\OQF.Resources.csproj">
       <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
       <Name>OQF.Resources</Name>
     </ProjectReference>

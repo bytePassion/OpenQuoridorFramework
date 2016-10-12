@@ -123,7 +123,7 @@
       <Project>{26E530F7-814E-4B05-8D4A-9B10BF659CF1}</Project>
       <Name>OQF.GameEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.ReplayViewer\OQF.ReplayViewer.Visualization.csproj">
+    <ProjectReference Include="..\OQF.ReplayViewer.Visualization\OQF.ReplayViewer.Visualization.csproj">
       <Project>{BC482C0B-D6F1-42E4-BAEC-85FD819D86E1}</Project>
       <Name>OQF.ReplayViewer.Visualization</Name>
     </ProjectReference>
@@ -131,11 +131,11 @@
       <Project>{2f71f7f9-f40a-45e3-9401-5a40933db8c7}</Project>
       <Name>OQF.Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Common\OQF.CommonUiElements.csproj">
+    <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
       <Project>{8f773744-6fe4-49c2-8651-e6f29ec828fa}</Project>
       <Name>OQF.CommonUiElements</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.Visualization.Resources\OQF.Resources.csproj">
+    <ProjectReference Include="..\OQF.Resources\OQF.Resources.csproj">
       <Project>{03ee53da-74c5-4883-98f0-bf2618ebdf93}</Project>
       <Name>OQF.Resources</Name>
     </ProjectReference>
