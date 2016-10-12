@@ -137,9 +137,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			var timeDiff = DateTime.Now - startTime;
 
 			System.Windows.Application.Current?.Dispatcher.Invoke(() =>
-			{
-				// TODO .. nicht 60 hard coden
-				TopPlayerRestTime = GeometryLibUtils.DoubleFormat(60.0 - timeDiff.TotalSeconds, 2);
+			{				
+				TopPlayerRestTime = GeometryLibUtils.DoubleFormat(Constants.GameConstraint.BotThinkingTimeSeconds - timeDiff.TotalSeconds, 2);
 			});			
 		}
 
