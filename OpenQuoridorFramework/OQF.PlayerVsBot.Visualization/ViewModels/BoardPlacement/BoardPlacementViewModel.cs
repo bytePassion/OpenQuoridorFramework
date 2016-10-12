@@ -13,7 +13,6 @@ using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
 using OQF.PlayerVsBot.Visualization.Services;
-using Size = System.Windows.Size;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 {
@@ -88,7 +87,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 				}				
 			}
 		}
-
+		
 		public Size BoardSize
 		{
 			get { return boardSize; }

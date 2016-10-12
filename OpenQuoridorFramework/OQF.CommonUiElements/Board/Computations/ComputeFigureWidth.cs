@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using System.Windows;
+using Lib.SemanicTypes;
 using Lib.Wpf.ConverterBase;
 using OQF.Bot.Contracts.GameElements;
 

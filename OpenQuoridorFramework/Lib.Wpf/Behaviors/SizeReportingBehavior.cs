@@ -1,21 +1,20 @@
 ﻿using System.Windows;
 using System.Windows.Interactivity;
+using Lib.SemanicTypes;
 
 namespace Lib.Wpf.Behaviors
 {
-	// TODO: change to semantic-types-size
-
 	public class SizeReportingBehavior : Behavior<FrameworkElement>
 	{
 		
 		public static readonly DependencyProperty ReportedSizeProperty = 
 			DependencyProperty.Register(nameof(ReportedSize), 
-										typeof (Size), 
+										typeof (SemanicTypes.Size), 
 										typeof (SizeReportingBehavior));
 
-		public Size ReportedSize
+		public SemanicTypes.Size ReportedSize
 		{
-			get { return (Size) GetValue(ReportedSizeProperty); }
+			get { return (SemanicTypes.Size) GetValue(ReportedSizeProperty); }
 			set { SetValue(ReportedSizeProperty, value); }
 		}
 				
@@ -45,7 +44,8 @@ namespace Lib.Wpf.Behaviors
 
 		private void ReportSize(FrameworkElement sender)
 		{
-			ReportedSize = sender.RenderSize;
+			ReportedSize = new SemanicTypes.Size(new Width(sender.RenderSize.Width), 
+												 new Height(sender.RenderSize.Height)); 
 		}
 	}
 }

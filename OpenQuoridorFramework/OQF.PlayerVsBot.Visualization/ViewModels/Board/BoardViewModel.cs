@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows;
 using Lib.FrameworkExtension;
+using Lib.SemanicTypes;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
@@ -25,7 +25,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.Board
 			gameService.NewBoardStateAvailable += OnDisplayedBoardStateVariableChanged;
 			OnDisplayedBoardStateVariableChanged(gameService.CurrentBoardState);
 									
-			BoardSize = new Size(100,100);			
+			BoardSize = new Size(new Width(100), new Height(100));			
 		}
 		
 		private void OnDisplayedBoardStateVariableChanged(BoardState newBoardState)

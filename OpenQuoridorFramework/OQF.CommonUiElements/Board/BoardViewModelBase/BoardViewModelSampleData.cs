@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows;
+using Lib.SemanicTypes;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 
@@ -26,7 +26,7 @@ namespace OQF.CommonUiElements.Board.BoardViewModelBase
 				new Wall(new FieldCoordinate(XField.F, YField.Four),  WallOrientation.Vertical)
 			};
 			
-			BoardSize = new Size(300, 300);
+			BoardSize = new Size(new Width(300), new Height(300));
 		}
 
 		public ObservableCollection<Wall>        VisibleWalls   { get; }

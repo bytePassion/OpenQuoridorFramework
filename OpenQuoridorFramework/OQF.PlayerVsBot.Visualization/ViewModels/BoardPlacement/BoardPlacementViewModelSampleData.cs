@@ -4,7 +4,6 @@ using System.Windows.Input;
 using Lib.SemanicTypes;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
-using Size = System.Windows.Size;
 
 #pragma warning disable 0067
 
@@ -26,7 +25,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 				new Wall(new FieldCoordinate(XField.C, YField.Five), WallOrientation.Horizontal)
 			};
 
-			BoardSize = new Size(300,300);
+			BoardSize = new Size(new Width(300), new Height(300));
 		}
 
 		public ICommand BoardClick => null;

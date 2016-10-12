@@ -3,7 +3,6 @@ using System.Windows.Input;
 using Lib.SemanicTypes;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
-using Size = System.Windows.Size;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 {

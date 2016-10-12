@@ -8,10 +8,15 @@
              xmlns:computations="clr-namespace:OQF.CommonUiElements.Board.Computations"
              xmlns:views="clr-namespace:OQF.CommonUiElements.Board.Views"
              xmlns:boardColors="clr-namespace:OQF.CommonUiElements.Board.BoardColors"
+             xmlns:boardViewModelBase="clr-namespace:OQF.CommonUiElements.Board.BoardViewModelBase"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
 
+	<d:DesignData.DataContext>
+		<boardViewModelBase:BoardViewModelSampleData/>
+	</d:DesignData.DataContext>
+	
     <UserControl.Resources>
         <computations:ComputeFigureLeftPosition x:Key="ComputeFigureLeftPosition" />
         <computations:ComputeFigureTopPosition x:Key="ComputeFigureTopPosition" />
