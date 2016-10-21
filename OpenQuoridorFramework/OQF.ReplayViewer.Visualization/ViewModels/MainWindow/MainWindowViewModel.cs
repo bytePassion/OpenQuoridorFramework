@@ -194,7 +194,10 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 		
 			var moveCount = replayService.NewReplay(splittedMoves);
 
+			moveIndex = 0;
 			MaxMoveIndex = moveCount - 1;
+
+			PropertyChanged.Notify(this, nameof(MoveIndex));
 		}
 
 		private void ClearHightning()
