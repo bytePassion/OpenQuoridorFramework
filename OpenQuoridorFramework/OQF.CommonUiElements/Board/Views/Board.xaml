@@ -56,6 +56,8 @@
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Padding" Value="0,0,0,0" />
                         <Setter Property="Margin" Value="2,2,0,0" />
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
                         <Setter Property="Canvas.Left">
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
@@ -130,6 +132,8 @@
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Padding" Value="0" />
                         <Setter Property="Margin" Value="1,1,0,0" />
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
                         <Setter Property="Canvas.Left">
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">

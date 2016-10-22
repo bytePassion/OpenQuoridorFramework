@@ -59,6 +59,8 @@
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Padding" Value="0" />
                         <Setter Property="Margin" Value="2,2,0,0" />
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
                         <Setter Property="Canvas.Left">
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
@@ -86,7 +88,7 @@
                                         <Ellipse.Width>
                                             <MultiBinding Converter="{StaticResource ComputeFigureWidth}">
                                                 <Binding />
-                                               <Binding ElementName="PossibleMovesBox" Path="DataContext.BoardSize" />
+                                                <Binding ElementName="PossibleMovesBox" Path="DataContext.BoardSize" />
                                             </MultiBinding>
                                         </Ellipse.Width>
 
@@ -109,10 +111,10 @@
 
             </ListBox>
 
-            <ListBox Background="Transparent"
+            <ListBox Name="PotentialWallBox"
+                     Background="Transparent"
                      BorderThickness="0"
                      IsHitTestVisible="False"
-                     Name="PotentialWallBox"
                      ItemsSource="{Binding PotentialPlacedWall}"
                      Padding="-1">
                 <ListBox.ItemsPanel>
@@ -126,6 +128,8 @@
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Padding" Value="0" />
                         <Setter Property="Margin" Value="1,1,0,0" />
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
                         <Setter Property="Canvas.Left">
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">
@@ -139,7 +143,7 @@
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeWallTopPosition}">
                                     <Binding />
-                                   <Binding ElementName="PotentialWallBox" Path="DataContext.BoardSize" />
+                                    <Binding ElementName="PotentialWallBox" Path="DataContext.BoardSize" />
                                 </MultiBinding>
                             </Setter.Value>
                         </Setter>
