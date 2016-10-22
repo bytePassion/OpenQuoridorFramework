@@ -116,9 +116,38 @@ namespace OQF.GameEngine.Analysis.AnalysisGraph
 			return sourceNode.Neighbours.Contains(targetNode);
 		}
 
+		private bool IsWallApplyable(WallMove wallMove)
+		{
+			var wall = wallMove.PlacedWall;
+
+			var topleft     = wall.TopLeft;
+			var bottomLeft  = topleft.GetBottom();
+			var topRight    = topleft.GetRight();
+			var bottomRight = topRight.GetBottom();
+
+			if (wall.Orientation == WallOrientation.Horizontal)
+			{
+				return Nodes[topleft].Bottom  != null &&
+				       Nodes[bottomLeft].Top  != null &&
+					   Nodes[topRight].Bottom != null &&
+				       Nodes[bottomRight].Top != null;
+			}
+			else
+			{
+				return Nodes[topleft].Right    != null &&
+					   Nodes[bottomLeft].Right != null &&
+					   Nodes[topRight].Left    != null &&
+					   Nodes[bottomRight].Left != null;
+			}			
+		}
+
 		private bool ValidateWallMove (WallMove wallMove)
 		{
 			UndoSpecialEdges();
+
+			if (!IsWallApplyable(wallMove))
+				return false;
+
 			ApplyWall(wallMove.PlacedWall);
 
 			AddSpecialEdges();
