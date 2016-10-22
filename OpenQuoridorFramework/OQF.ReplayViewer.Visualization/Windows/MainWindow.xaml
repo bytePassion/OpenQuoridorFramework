@@ -58,7 +58,7 @@
             <Button Grid.Column="0"
                     Margin="10"
                     Command="{Binding LoadGame}"
-                    Content="starten" />
+                    Content="start" />
 
             <TextBlock Grid.Column="1"
                        HorizontalAlignment="Center"
@@ -79,7 +79,7 @@
             <Button Grid.Column="4"
                     Margin="10"
                     Command="{Binding ShowAboutHelp}"
-                    Content="about - Hilfe" />
+                    Content="about" />
 
         </Grid>
 
