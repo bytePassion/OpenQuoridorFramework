@@ -15,7 +15,7 @@ namespace Lib.Wpf.Behaviors
 		public SemanicTypes.Size ReportedSize
 		{
 			get { return (SemanicTypes.Size) GetValue(ReportedSizeProperty); }
-			set { SetValue(ReportedSizeProperty, value); }
+			set { SetCurrentValue(ReportedSizeProperty, value); }
 		}
 				
 		protected override void OnAttached()
