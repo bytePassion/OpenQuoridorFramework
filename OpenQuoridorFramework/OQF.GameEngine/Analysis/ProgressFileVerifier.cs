@@ -2,6 +2,7 @@
 using System.Linq;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
+using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Analysis;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Transitions;
@@ -32,6 +33,11 @@ namespace OQF.GameEngine.Analysis
 
 			foreach (var move in moves)
 			{
+				if (move is Capitulation)
+				{
+					return FileVerificationResult.FileContainsTerminatedGame;
+				}
+
 				if (!GameAnalysis.IsMoveLegal(boardState, move))
 					return FileVerificationResult.FileContainsInvalidMove;
 
