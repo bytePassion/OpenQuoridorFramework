@@ -23,7 +23,6 @@ using OQF.CommonUiElements.Board.BoardViewModelBase;
 using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.CommonUiElements.Dialogs.YesNo.ViewModel;
 using OQF.CommonUiElements.Info;
-using OQF.CommonUiElements.Language;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
@@ -99,19 +98,22 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			BrowseDll = new Command(DoBrowseDll,
 								    () => GameStatus != GameStatus.Active,
 									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
+
 			Start = new Command(async () => await DoStart(),
 								() => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
 								new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));
-			StartWithProgress = new Command(async () => await DoStartWithProgress(),
-								() => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
-								new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));
+
+			StartWithProgress = new ParameterrizedCommand<string>(async filePath => await DoStartWithProgress(filePath),
+																  _ => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
+																  new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));
 			Capitulate = new Command(DoCapitulate,
 									 IsMoveApplyable,
 									 new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
-			ShowAboutHelp = new Command(DoShowAboutHelp);
-			DumpDebugToFile = new Command(DoDumpDebugToFile);
+
+			ShowAboutHelp      = new Command(DoShowAboutHelp);
+			DumpDebugToFile    = new Command(DoDumpDebugToFile);
 			DumpProgressToFile = new Command(DoDumpProgressToFile);
-			CloseWindow = new Command(DoCloseWindow);
+			CloseWindow        = new Command(DoCloseWindow);
 
 			GameStatus = GameStatus.Unloaded;
 
@@ -550,7 +552,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			((Command)Capitulate).RaiseCanExecuteChanged();
 		}
 
-		private async Task DoStartWithProgress ()
+		private async Task DoStartWithProgress (string filePath)
 		{
 			if (GameStatus == GameStatus.Finished)
 			{
@@ -595,75 +597,85 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				await NotificationService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
 											   Captions.ND_OkButtonCaption);
 				return;
-			}
+			}			
 
+			var progressFilePath = string.Empty;
 
-			var dialog = new OpenFileDialog
+			if (string.IsNullOrWhiteSpace(filePath))
 			{
-				Filter = "text-file|*.txt"
-			};
-
-			var result = dialog.ShowDialog();
-
-			if (result.HasValue)
-			{							
-				if (result.Value)   
+				var dialog = new OpenFileDialog
 				{
-					var progressText = File.ReadAllText(dialog.FileName);
+					Filter = "text-file|*.txt"
+				};
 
-					var fileVerifier = progressFileVerifierFactory.CreateVerifier();
+				var result = dialog.ShowDialog();
 
-					var verificationResult = fileVerifier.Verify(progressText, Constants.GameConstraint.MaximalMovesPerGame);
-
-					switch (verificationResult)
+				if (result.HasValue)
+				{
+					if (result.Value)
 					{
-						case FileVerificationResult.EmptyOrInvalidFile:
-						{
-							await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{dialog.FileName}]" + 
-								                           $"\n\n{Captions.PvB_ErrorMsg_Reason}:" + 
-														   $"\n{Captions.FVR_EmptyOrInvalidFile}",
-														   Captions.ND_OkButtonCaption);
-							return;
-						}
-						case FileVerificationResult.FileContainsInvalidMove:
-						{
-							await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{dialog.FileName}]" +
-														   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-														   $"\n{Captions.FVR_FileContainsInvalidMove}",
-														   Captions.ND_OkButtonCaption);
-							return;
-						}
-						case FileVerificationResult.FileContainsTerminatedGame:
-						{
-							await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{dialog.FileName}]" +
-														   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-														   $"\n{Captions.FVR_FileContainsTerminatedGame}",
-														   Captions.ND_OkButtonCaption);
-							return;
-						}
-						case FileVerificationResult.FileContainsMoreMovesThanAllowed:
-						{
-							await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{dialog.FileName}]" +
-														   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-														   $"\n{Captions.FVR_FileContainsMoreMovesThanAllowed}",
-														   Captions.ND_OkButtonCaption);
-							return;
-						}
-						case FileVerificationResult.ValidFile:
-						{
-							applicationSettingsRepository.LastUsedBotPath = DllPathInput;
-							MovesLeft = (Constants.GameConstraint.MaximalMovesPerGame + 1).ToString();
-							gameService.CreateGame(uninitializedBotAndBotName.Item1, 
-												   uninitializedBotAndBotName.Item2, 
-												   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds), 
-												                       Constants.GameConstraint.MaximalMovesPerGame), progressText);
+						progressFilePath = dialog.FileName;
+					}
+				}
+			}
+			else
+			{
+				progressFilePath = filePath;
+			}
+			
+			var progressText = File.ReadAllText(progressFilePath);
 
-							((Command)Capitulate).RaiseCanExecuteChanged();
-							return;
-						}
-					}					
-				}	
-			}		
+			var fileVerifier = progressFileVerifierFactory.CreateVerifier();
+
+			var verificationResult = fileVerifier.Verify(progressText, Constants.GameConstraint.MaximalMovesPerGame);
+
+			switch (verificationResult)
+			{
+				case FileVerificationResult.EmptyOrInvalidFile:
+				{
+					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
+												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+												   $"\n{Captions.FVR_EmptyOrInvalidFile}",
+												   Captions.ND_OkButtonCaption);
+					return;
+				}
+				case FileVerificationResult.FileContainsInvalidMove:
+				{
+					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
+												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+												   $"\n{Captions.FVR_FileContainsInvalidMove}",
+												   Captions.ND_OkButtonCaption);
+					return;
+				}
+				case FileVerificationResult.FileContainsTerminatedGame:
+				{
+					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
+												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+												   $"\n{Captions.FVR_FileContainsTerminatedGame}",
+												   Captions.ND_OkButtonCaption);
+					return;
+				}
+				case FileVerificationResult.FileContainsMoreMovesThanAllowed:
+				{
+					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
+												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+												   $"\n{Captions.FVR_FileContainsMoreMovesThanAllowed}",
+												   Captions.ND_OkButtonCaption);
+					return;
+				}
+				case FileVerificationResult.ValidFile:
+				{
+					applicationSettingsRepository.LastUsedBotPath = DllPathInput;
+					MovesLeft = (Constants.GameConstraint.MaximalMovesPerGame + 1).ToString();
+					gameService.CreateGame(uninitializedBotAndBotName.Item1,
+										   uninitializedBotAndBotName.Item2,
+										   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
+															   Constants.GameConstraint.MaximalMovesPerGame), progressText);
+
+					((Command)Capitulate).RaiseCanExecuteChanged();
+					return;
+				}
+			}
 		}
 
 		private bool IsMoveApplyable ()

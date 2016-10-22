@@ -49,8 +49,26 @@ namespace OQF.PlayerVsBot.Application
 				var dllPath = commandLineArguments.BotPath;
 				mainWindowViewModel.DllPathInput = dllPath;
 
-				if (mainWindowViewModel.Start.CanExecute(null))
-					mainWindowViewModel.Start.Execute(null);
+				if (string.IsNullOrWhiteSpace(commandLineArguments.ProgressFilePath))
+				{
+					if (mainWindowViewModel.Start.CanExecute(null))
+						mainWindowViewModel.Start.Execute(null);
+					else
+					{
+						MessageBox.Show("startup-error");
+						return;
+					}
+				}
+				else
+				{					
+					if (mainWindowViewModel.StartWithProgress.CanExecute(commandLineArguments.ProgressFilePath))
+						mainWindowViewModel.StartWithProgress.Execute(commandLineArguments.ProgressFilePath);
+					else
+					{
+						MessageBox.Show("startup-error");
+						return;
+					}
+				}				
 			}
 
 			var mainWindow = new MainWindow

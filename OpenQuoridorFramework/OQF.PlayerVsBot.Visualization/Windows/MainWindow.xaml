@@ -17,7 +17,7 @@
         Width="1200"
         Height="950"
         MinWidth="800"
-        MinHeight="600"
+        MinHeight="600"		
         Background="{DynamicResource MaterialDesignFlatButtonClick}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         TextElement.FontSize="12"
@@ -39,8 +39,8 @@
         <computations:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
         <computations:GetBottomPlayerMoveFromString x:Key="GetBottomPlayerMoveFromString" />
         <computations:GetTopPlayerMoveFromString x:Key="GetTopPlayerMoveFromString" />
-        <computations:GetProgressNrFromString x:Key="GetProgressNrFromString" />
-    </Window.Resources>
+		<computations:GetProgressNrFromString x:Key="GetProgressNrFromString" />
+	</Window.Resources>
 
     <materialDesign:DialogHost Identifier="RootDialog">
 
@@ -84,6 +84,7 @@
                     <Button Width="60"
                             Margin="4,0"
                             Command="{Binding StartWithProgress}"
+							CommandParameter="{x:Static system:String.Empty}"
                             DockPanel.Dock="Left"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             ToolTip="{Binding StartWithProgressGameButtonToolTipCaption}">
