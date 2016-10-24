@@ -1,0 +1,23 @@
+﻿using System.ComponentModel;
+using System.Windows.Input;
+
+namespace ProgressCodingTest.ViewModels.MainWindow
+{
+	internal class MainWindowViewModelSampleData : IMailWindowViewModel
+	{
+		public MainWindowViewModelSampleData()
+		{
+			Progress = "1. e2 e8\n2. e3 e7";
+			ProgressAsString = "rH6Q";
+		}
+
+		public ICommand ConvertProgressToString => null;
+		public ICommand ConvertStringToProgress => null;
+
+		public string Progress { get; set; }
+		public string ProgressAsString { get; set; }
+
+		public void Dispose () { }
+		public event PropertyChangedEventHandler PropertyChanged;				
+	}
+}

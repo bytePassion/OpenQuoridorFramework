@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.PlayerVsBot.Visualization", "OQF.PlayerVsBot.Visualization\OQF.PlayerVsBot.Visualization.csproj", "{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}"
 EndProject
@@ -62,6 +62,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReplayViewer", "ReplayViewer", "{89EE142F-0C86-4A0A-B982-EA369F2D2CC6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tournament", "Tournament", "{E058B64A-D082-4E88-9F64-DEB9BC7B2E59}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Experiments", "Experiments", "{509B0DF8-6EEB-464C-B87A-0E1B42A15CBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressCodingTest", "ProgressCodingTest\ProgressCodingTest.csproj", "{CBB88048-908E-4F72-B38C-CC1119126D2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +157,10 @@ Global
 		{5E85ED27-BB5F-49DF-A080-7E1DF44C6173}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E85ED27-BB5F-49DF-A080-7E1DF44C6173}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E85ED27-BB5F-49DF-A080-7E1DF44C6173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB88048-908E-4F72-B38C-CC1119126D2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB88048-908E-4F72-B38C-CC1119126D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB88048-908E-4F72-B38C-CC1119126D2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB88048-908E-4F72-B38C-CC1119126D2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -183,5 +191,7 @@ Global
 		{8B363327-22CA-4F4C-9688-F3FE164324FE} = {4EADBE11-04E1-44FD-B0A3-F0CF22B1EAE4}
 		{89EE142F-0C86-4A0A-B982-EA369F2D2CC6} = {4EADBE11-04E1-44FD-B0A3-F0CF22B1EAE4}
 		{E058B64A-D082-4E88-9F64-DEB9BC7B2E59} = {4EADBE11-04E1-44FD-B0A3-F0CF22B1EAE4}
+		{509B0DF8-6EEB-464C-B87A-0E1B42A15CBD} = {4EADBE11-04E1-44FD-B0A3-F0CF22B1EAE4}
+		{CBB88048-908E-4F72-B38C-CC1119126D2D} = {509B0DF8-6EEB-464C-B87A-0E1B42A15CBD}
 	EndGlobalSection
 EndGlobal
