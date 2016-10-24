@@ -58,7 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Coding\Base64Coding.cs" />
     <Compile Include="Coding\ProgressCoding.cs" />
-    <Compile Include="ViewModels\MainWindow\IMailWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
     <Page Include="MainWindow.xaml">

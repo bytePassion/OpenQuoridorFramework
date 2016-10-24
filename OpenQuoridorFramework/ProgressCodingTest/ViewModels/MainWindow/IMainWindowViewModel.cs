@@ -3,7 +3,7 @@ using Lib.Wpf.ViewModelBase;
 
 namespace ProgressCodingTest.ViewModels.MainWindow
 {
-	internal interface IMailWindowViewModel : IViewModel
+	internal interface IMainWindowViewModel : IViewModel
 	{
 		ICommand ConvertProgressToString { get; }
 		ICommand ConvertStringToProgress { get; }

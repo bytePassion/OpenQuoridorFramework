@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace ProgressCodingTest.ViewModels.MainWindow
 {
-	internal class MainWindowViewModelSampleData : IMailWindowViewModel
+	internal class MainWindowViewModelSampleData : IMainWindowViewModel
 	{
 		public MainWindowViewModelSampleData()
 		{

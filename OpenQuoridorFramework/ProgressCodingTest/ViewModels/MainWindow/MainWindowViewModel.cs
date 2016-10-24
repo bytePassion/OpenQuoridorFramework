@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
@@ -11,7 +10,7 @@ using ProgressCodingTest.Coding;
 
 namespace ProgressCodingTest.ViewModels.MainWindow
 {
-	internal class MainWindowViewModel : ViewModel, IMailWindowViewModel
+	internal class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
 		private string progress;
 		private string progressAsString;
