@@ -74,6 +74,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ApplicationLifeCycle.cs" />
     <Compile Include="ApplicationSettingsRepository.cs" />
     <Compile Include="CommandLineArguments.cs" />
     <Compile Include="CommandLineParser.cs" />
