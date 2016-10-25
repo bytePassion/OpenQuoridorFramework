@@ -1,31 +1,24 @@
 ﻿using System.Windows;
-using OQF.GameEngine.Contracts.Replay;
-using OQF.GameEngine.Replay;
-using OQF.ReplayViewer.Visualization.Services;
-using OQF.ReplayViewer.Visualization.ViewModels.Board;
-using OQF.ReplayViewer.Visualization.ViewModels.MainWindow;
-using OQF.ReplayViewer.Visualization.Windows;
+using Lib.Wpf;
 
 namespace OQF.ReplayViewer.Application
 {
 	public partial class App 
 	{
+		private IApplicationLifeCycle applicationLifeCycle;
+
+		protected override void OnExit (ExitEventArgs e)
+		{
+			base.OnExit(e);
+			applicationLifeCycle.CleanUp(e);
+		}
+
 		protected override void OnStartup (StartupEventArgs e)
 		{
 			base.OnStartup(e);
 
-			IReplayService replayService = new ReplayService();
-			ILastPlayedReplayService lastPlayedReplayService = new LastPlayedReplayService();
-
-			var boardViewModel = new BoardViewModel(replayService);
-			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, replayService, lastPlayedReplayService);
-
-			var mainWindow = new MainWindow
-			{
-				DataContext = mainWindowViewModel
-			};
-
-			mainWindow.ShowDialog();
+			applicationLifeCycle = new ApplicationLifeCycle();
+			applicationLifeCycle.BuildAndStart(e);
 		}
 	}
 }
