@@ -1,192 +1,173 @@
 ﻿<UserControl x:Class="OQF.PlayerVsBot.Visualization.Views.BoardPlacement"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:behaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
-             xmlns:behaviors1="clr-namespace:OQF.PlayerVsBot.Visualization.Behaviors"
+             xmlns:libBehaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
+             xmlns:behaviors="clr-namespace:OQF.PlayerVsBot.Visualization.Behaviors"
              xmlns:boardColors="clr-namespace:OQF.CommonUiElements.Board.BoardColors;assembly=OQF.CommonUiElements"
              xmlns:boardPlacement="clr-namespace:OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement"
              xmlns:commandExecutingBehaviors="clr-namespace:Lib.Wpf.CommandExecutingBehaviors;assembly=Lib.Wpf"
              xmlns:computations="clr-namespace:OQF.CommonUiElements.Board.Computations;assembly=OQF.CommonUiElements"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:diagnostics="clr-namespace:System.Diagnostics;assembly=WindowsBase"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:local="clr-namespace:OQF.PlayerVsBot.Visualization.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"             
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:gameElements="clr-namespace:OQF.Bot.Contracts.GameElements;assembly=OQF.Bot.Contracts"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
 
-    <d:DesignData.DataContext>
-        <boardPlacement:BoardPlacementViewModelSampleData />
-    </d:DesignData.DataContext>
+	<d:DesignData.DataContext>
+		<boardPlacement:BoardPlacementViewModelSampleData />
+	</d:DesignData.DataContext>
 
-    <UserControl.Resources>
-        <computations:ComputeFigureLeftPosition x:Key="ComputeFigureLeftPosition" />
-        <computations:ComputeFigureTopPosition x:Key="ComputeFigureTopPosition" />
-        <computations:ComputeFigureHeight x:Key="ComputeFigureHeight" />
-        <computations:ComputeFigureWidth x:Key="ComputeFigureWidth" />
-        <computations:ComputeWallLeftPosition x:Key="ComputeWallLeftPosition" />
-        <computations:ComputeWallTopPosition x:Key="ComputeWallTopPosition" />
-        <computations:ComputeWallHeight x:Key="ComputeWallHeight" />
-        <computations:ComputeWallWidth x:Key="ComputeWallWidth" />
-    </UserControl.Resources>
+	<UserControl.Resources>
+		<computations:ComputeFigureLeftPosition x:Key="ComputeFigureLeftPosition" />
+		<computations:ComputeFigureTopPosition x:Key="ComputeFigureTopPosition" />
+		<computations:ComputeFigureHeight x:Key="ComputeFigureHeight" />
+		<computations:ComputeFigureWidth x:Key="ComputeFigureWidth" />
+		<computations:ComputeWallLeftPosition x:Key="ComputeWallLeftPosition" />
+		<computations:ComputeWallTopPosition x:Key="ComputeWallTopPosition" />
+		<computations:ComputeWallHeight x:Key="ComputeWallHeight" />
+		<computations:ComputeWallWidth x:Key="ComputeWallWidth" />
+	</UserControl.Resources>
 
-    <Border Background="Transparent">
+	<Border Background="Transparent">
 
-        <i:Interaction.Behaviors>
-            <behaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
-            <behaviors1:ReportRelativeMousePositionBehavior MousePosition="{Binding MousePosition, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
+		<i:Interaction.Behaviors>
+			<libBehaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
+			<behaviors:ReportRelativeMousePositionBehavior MousePosition="{Binding MousePosition, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+			<commandExecutingBehaviors:ExecuteCommandOnClickBehavior Command="{Binding BoardClick}" />
+		</i:Interaction.Behaviors>
 
-            <commandExecutingBehaviors:ExecuteCommandOnClickBehavior Command="{Binding BoardClick}" />
-        </i:Interaction.Behaviors>
+		<Grid>
 
-        <Grid>
+			<ItemsControl Name="PossibleMovesBox"
+						  Background="Transparent"
+						  IsHitTestVisible="False"
+						  ItemsSource="{Binding PossibleMoves}">
 
-            <ListBox Name="PossibleMovesBox"
-                     Background="Transparent"
-                     IsHitTestVisible="False"
-                     ItemsSource="{Binding PossibleMoves}"
-                     Padding="-1">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<Canvas />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
 
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Canvas />
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
+				<!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
+				<ItemsControl.ItemContainerStyle>
+					<Style TargetType="ContentPresenter">
+						<Setter Property="Margin" Value="2,2,0,0" />
+						<Setter Property="Canvas.Left">
+							<Setter.Value>
+								<MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
+									<Binding />
+									<Binding ElementName="PossibleMovesBox" Path="DataContext.BoardSize" />
+								</MultiBinding>
+							</Setter.Value>
+						</Setter>
 
-                <!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="Padding" Value="0" />
-                        <Setter Property="Margin" Value="2,2,0,0" />
-                        <Setter Property="HorizontalContentAlignment" Value="Left" />
-                        <Setter Property="VerticalContentAlignment" Value="Center" />
-                        <Setter Property="Canvas.Left">
-                            <Setter.Value>
-                                <MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
-                                    <Binding Path="." />
-                                    <Binding ElementName="PossibleMovesBox" Path="DataContext.BoardSize" />
-                                </MultiBinding>
-                            </Setter.Value>
-                        </Setter>
+						<Setter Property="Canvas.Top">
+							<Setter.Value>
+								<MultiBinding Converter="{StaticResource ComputeFigureTopPosition}">
+									<Binding />
+									<Binding ElementName="PossibleMovesBox" Path="DataContext.BoardSize" />
+								</MultiBinding>
+							</Setter.Value>
+						</Setter>
 
-                        <Setter Property="Canvas.Top">
-                            <Setter.Value>
-                                <MultiBinding Converter="{StaticResource ComputeFigureTopPosition}">
-                                    <Binding />
-                                    <Binding ElementName="PossibleMovesBox" Path="DataContext.BoardSize" />
-                                </MultiBinding>
-                            </Setter.Value>
-                        </Setter>
+						<Setter Property="ContentTemplate">
+							<Setter.Value>
+								<DataTemplate DataType="gameElements:PlayerState">
 
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate>
+									<Ellipse Fill="{x:Static boardColors:Brushes.PossibleMoveFieldColor}">
 
-                                    <Ellipse Fill="{x:Static boardColors:Brushes.PossibleMoveFieldColor}">
+										<Ellipse.Width>
+											<MultiBinding Converter="{StaticResource ComputeFigureWidth}">
+												<Binding />
+												<Binding ElementName="PossibleMovesBox" Path="DataContext.BoardSize" />
+											</MultiBinding>
+										</Ellipse.Width>
 
-                                        <Ellipse.Width>
-                                            <MultiBinding Converter="{StaticResource ComputeFigureWidth}">
-                                                <Binding />
-                                                <Binding ElementName="PossibleMovesBox" Path="DataContext.BoardSize" />
-                                            </MultiBinding>
-                                        </Ellipse.Width>
+										<Ellipse.Height>
+											<MultiBinding Converter="{StaticResource ComputeFigureHeight}">
+												<Binding />
+												<Binding ElementName="PossibleMovesBox" Path="DataContext.BoardSize" />
+											</MultiBinding>
+										</Ellipse.Height>
 
-                                        <Ellipse.Height>
-                                            <MultiBinding Converter="{StaticResource ComputeFigureHeight}">
-                                                <Binding />
-                                                <Binding ElementName="PossibleMovesBox" Path="DataContext.BoardSize" />
-                                            </MultiBinding>
-                                        </Ellipse.Height>
+									</Ellipse>
 
-                                    </Ellipse>
+								</DataTemplate>
+							</Setter.Value>
+						</Setter>
 
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
+					</Style>
+				</ItemsControl.ItemContainerStyle>
+				<!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
 
-                    </Style>
-                </ListBox.ItemContainerStyle>
-                <!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
+			</ItemsControl>
 
-            </ListBox>
+			<ItemsControl Name="PotentialWallBox"
+                          Background="Transparent"                          
+                          IsHitTestVisible="False"
+                          ItemsSource="{Binding PotentialPlacedWall}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<Canvas />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
 
-            <ListBox Name="PotentialWallBox"
-                     Background="Transparent"
-                     BorderThickness="0"
-                     IsHitTestVisible="False"
-                     ItemsSource="{Binding PotentialPlacedWall}"
-                     Padding="-1">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Canvas />
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
+				<!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
+				<ItemsControl.ItemContainerStyle>
+					<Style TargetType="ContentPresenter">
+						<Setter Property="Canvas.Left">
+							<Setter.Value>
+								<MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">
+									<Binding />
+									<Binding ElementName="PotentialWallBox" Path="DataContext.BoardSize" />
+								</MultiBinding>
+							</Setter.Value>
+						</Setter>
 
-                <!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="Padding" Value="0" />
-                        <Setter Property="Margin" Value="1,1,0,0" />
-                        <Setter Property="HorizontalContentAlignment" Value="Left" />
-                        <Setter Property="VerticalContentAlignment" Value="Center" />
-                        <Setter Property="Canvas.Left">
-                            <Setter.Value>
-                                <MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">
-                                    <Binding />
-                                    <Binding ElementName="PotentialWallBox" Path="DataContext.BoardSize" />
-                                </MultiBinding>
-                            </Setter.Value>
-                        </Setter>
+						<Setter Property="Canvas.Top">
+							<Setter.Value>
+								<MultiBinding Converter="{StaticResource ComputeWallTopPosition}">
+									<Binding />
+									<Binding ElementName="PotentialWallBox" Path="DataContext.BoardSize" />
+								</MultiBinding>
+							</Setter.Value>
+						</Setter>
 
-                        <Setter Property="Canvas.Top">
-                            <Setter.Value>
-                                <MultiBinding Converter="{StaticResource ComputeWallTopPosition}">
-                                    <Binding />
-                                    <Binding ElementName="PotentialWallBox" Path="DataContext.BoardSize" />
-                                </MultiBinding>
-                            </Setter.Value>
-                        </Setter>
+						<Setter Property="ContentTemplate">
+							<Setter.Value>
+								<DataTemplate DataType="gameElements:Wall">
 
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate>
+									<Rectangle Fill="{x:Static boardColors:Brushes.PotentialPlacedWallColor}">
 
-                                    <Rectangle Fill="{x:Static boardColors:Brushes.PotentialPlacedWallColor}">
+										<Rectangle.Width>
+											<MultiBinding Converter="{StaticResource ComputeWallWidth}">
+												<Binding />
+												<Binding ElementName="PotentialWallBox" Path="DataContext.BoardSize" />
+											</MultiBinding>
+										</Rectangle.Width>
 
-                                        <Rectangle.Width>
-                                            <MultiBinding Converter="{StaticResource ComputeWallWidth}">
-                                                <Binding />
-                                                <Binding ElementName="PotentialWallBox" Path="DataContext.BoardSize" />
-                                            </MultiBinding>
-                                        </Rectangle.Width>
+										<Rectangle.Height>
+											<MultiBinding Converter="{StaticResource ComputeWallHeight}">
+												<Binding />
+												<Binding ElementName="PotentialWallBox" Path="DataContext.BoardSize" />
+											</MultiBinding>
+										</Rectangle.Height>
 
-                                        <Rectangle.Height>
-                                            <MultiBinding Converter="{StaticResource ComputeWallHeight}">
-                                                <Binding />
-                                                <Binding ElementName="PotentialWallBox" Path="DataContext.BoardSize" />
-                                            </MultiBinding>
-                                        </Rectangle.Height>
+									</Rectangle>
 
-                                    </Rectangle>
+								</DataTemplate>
+							</Setter.Value>
+						</Setter>
 
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
+					</Style>
+				</ItemsControl.ItemContainerStyle>
+				<!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
 
-                    </Style>
-                </ListBox.ItemContainerStyle>
-                <!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
+			</ItemsControl>
+		</Grid>
 
-            </ListBox>
-        </Grid>
-
-    </Border>
+	</Border>
 </UserControl>
-
-
-
-
-
-
-
