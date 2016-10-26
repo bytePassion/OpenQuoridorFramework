@@ -27,12 +27,14 @@ namespace OQF.Resources
 		public static readonly Uri GitHubUri = new Uri(GitHubUriText);
 		public const string GitHubUriText = @"https://github.com/bytePassion/OpenQuoridorFramework.git";
 
+		public const string FrameworkVersion = "2.0";
+
 		public static class Applications
 		{
 			public static class PlayerVsBot
 			{
 				private const string Name    = "Player vs. Bot";
-				private const string Version = "1.0.0.0";
+				private const string Version = "1.0";
 
 				private static readonly IEnumerable<ThirdPartyItem> ThirdPartyItems = new List<ThirdPartyItem>
 				{
@@ -45,7 +47,7 @@ namespace OQF.Resources
 			public static class ReplayViewer
 			{
 				public const string Name = "Replay Viewer";
-				public const string Version = "0.1.0.0";
+				public const string Version = "1.0";
 
 				private static readonly IEnumerable<ThirdPartyItem> ThirdPartyItems = new List<ThirdPartyItem>
 				{
