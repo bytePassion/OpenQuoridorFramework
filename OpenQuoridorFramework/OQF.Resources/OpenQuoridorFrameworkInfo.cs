@@ -62,6 +62,20 @@ namespace OQF.Resources
 																				  LicenceUri, 
 																				  ActiveDevelopers, 
 																				  ThirdPartyItems);
+			}
+
+			public static class Tournament
+			{
+				public const string Name               = "Tournament";
+				public const string ApplicationVersion = "0.1";
+
+				public static readonly ApplicationInfo Info = new ApplicationInfo(Name,
+																				  ApplicationVersion,
+																				  FrameworkVersion,
+																				  Licence,
+																				  LicenceUri,
+																				  ActiveDevelopers,
+																				  ThirdPartyItems);
 			}			
 		}
 	}
