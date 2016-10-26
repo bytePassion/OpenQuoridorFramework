@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
-using OQF.CommonUiElements.Language;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
 
@@ -38,7 +37,7 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 		public string Explanation19 => Captions.PvBH_Explanation19;
 		public string Explanation20 => Captions.PvBH_Explanation20;
 		public string Explanation21 => Captions.PvBH_Explanation21;
-        public string DisplayName   => Captions.IP_AboutButtonCaption;
+        public string DisplayName   => Captions.IP_PlayerVsBotInfoButtonCaption;
 
         private void RefreshCaptions ()
 		{
