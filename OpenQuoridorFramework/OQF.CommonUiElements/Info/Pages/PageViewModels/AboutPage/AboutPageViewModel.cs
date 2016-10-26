@@ -11,14 +11,13 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 {
 	internal class AboutPageViewModel : ViewModel, IAboutPageViewModel
 	{
-		public AboutPageViewModel(ApplicationInfo applicationInfo, string frameworkVersion)
+		public AboutPageViewModel(ApplicationInfo applicationInfo)
 		{
-			FrameworkVersion  = frameworkVersion;
-
+			FrameworkVersion  = applicationInfo.FrameworkVersion;
 			Developers        = applicationInfo.Developers;
 			ThridPartyItems   = applicationInfo.ThirdPartyItems;
 			ApplicationName   = applicationInfo.Name;
-			VersionIdentifier = applicationInfo.Version;
+			VersionIdentifier = applicationInfo.ApplicationVersion;
 			LicenceName       = applicationInfo.LicenceName;
 			LicenceUri        = applicationInfo.LicenceUri;
 

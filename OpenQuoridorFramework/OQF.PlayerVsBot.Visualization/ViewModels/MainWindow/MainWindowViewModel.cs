@@ -146,8 +146,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 		private void DoShowAboutHelp()
 		{
-			InfoWindowService.Show(OpenQuoridorFrameworkInfo.Applications.PlayerVsBot.Info,
-								   OpenQuoridorFrameworkInfo.FrameworkVersion,
+			InfoWindowService.Show(OpenQuoridorFrameworkInfo.Applications.PlayerVsBot.Info,								   
 								   InfoPage.PlayerVsBotApplicationInfo,
 								   InfoPage.QuoridorRules, 
 								   InfoPage.QuoridorNotation,

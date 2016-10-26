@@ -16,7 +16,12 @@ namespace OQF.Resources
 			"Matthias Drescher (matthias.drescher@bytePassion.de)",
 			"Alexander Horn (alexander.horn@bytePassion.de)"
 		};
-		
+
+		public static readonly IEnumerable<ThirdPartyItem> ThirdPartyItems = new List<ThirdPartyItem>
+		{
+			new ThirdPartyItem("Flag-Icons from", "www.iconDrawer.com", new Uri(@"http://www.icondrawer.com/"))
+		};
+
 		public const string Licence = "Apache 2.0";
 		public static readonly Uri LicenceUri = new Uri(@"http://www.apache.org/licenses/LICENSE-2.0");
 
@@ -33,28 +38,30 @@ namespace OQF.Resources
 		{
 			public static class PlayerVsBot
 			{
-				private const string Name    = "Player vs. Bot";
-				private const string Version = "1.0";
-
-				private static readonly IEnumerable<ThirdPartyItem> ThirdPartyItems = new List<ThirdPartyItem>
-				{
-					new ThirdPartyItem("Flag-Icons from", "www.iconDrawer.com", new Uri(@"http://www.icondrawer.com/"))
-				};
-
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, Version, Licence, LicenceUri, ActiveDevelopers, ThirdPartyItems);
+				private const string Name               = "Player vs. Bot";
+				private const string ApplicationVersion = "1.0";
+				
+				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, 
+																				  ApplicationVersion,
+																				  FrameworkVersion, 
+																				  Licence, 
+																				  LicenceUri, 
+																				  ActiveDevelopers, 
+																				  ThirdPartyItems);
 			}
 
 			public static class ReplayViewer
 			{
-				public const string Name = "Replay Viewer";
-				public const string Version = "1.0";
-
-				private static readonly IEnumerable<ThirdPartyItem> ThirdPartyItems = new List<ThirdPartyItem>
-				{
-					new ThirdPartyItem("Flag-Icons from", "www.iconDrawer.com", new Uri(@"http://www.icondrawer.com/"))
-				};
-
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, Version, Licence, LicenceUri, ActiveDevelopers, ThirdPartyItems);
+				public const string Name               = "Replay Viewer";
+				public const string ApplicationVersion = "1.0";
+				
+				public static readonly ApplicationInfo Info = new ApplicationInfo(Name,
+																				  ApplicationVersion,
+																				  FrameworkVersion,
+																				  Licence, 
+																				  LicenceUri, 
+																				  ActiveDevelopers, 
+																				  ThirdPartyItems);
 			}			
 		}
 	}
