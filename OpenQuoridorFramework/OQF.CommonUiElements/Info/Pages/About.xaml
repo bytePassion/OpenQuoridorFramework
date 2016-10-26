@@ -43,11 +43,47 @@
                                      Padding="8">
                     <StackPanel>
                         <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding ApplicationSectionHeader}" />
-                        <TextBlock Margin="20,0,0,0"
-                                   Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   Text="{Binding ApplicationName}"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
+						<Grid Margin="20,0,0,0">
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+
+							<TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Margin="0,0,10,0"
+                                       HorizontalAlignment="Right"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}">
+                                <Run Text="{Binding ApplicationNameSubItem, Mode=OneWay}"/>:
+							</TextBlock>
+
+							<TextBlock Grid.Row="0"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Left"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                       Text="{Binding ApplicationName}" />
+
+							<TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="0,0,10,0"
+                                       HorizontalAlignment="Right"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}">
+                                <Run Text="{Binding ApplicationVersionSubItem, Mode=OneWay}"/>:
+							</TextBlock>
+
+							<TextBlock Grid.Row="1"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Left"
+                                       Style="{StaticResource MaterialDesignBody1TextBlock}"
+									   Text="{Binding VersionIdentifier}"/>
+
+						</Grid>
+					</StackPanel>
                 </materialDesign:Card>
 
                 <materialDesign:Card Margin="8,0"
@@ -57,7 +93,7 @@
                         <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding VersionSectionHeader}" />
                         <TextBlock Margin="20,0,0,0"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                   Text="{Binding VersionIdentifier}"
+                                   Text="{Binding FrameworkVersion}"
                                    TextWrapping="Wrap" />
                     </StackPanel>
                 </materialDesign:Card>
@@ -153,8 +189,8 @@
                                        Margin="0,0,10,0"
                                        HorizontalAlignment="Right"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}">
-                                <Run Text="{Binding QuoridorInventerSubItem, Mode=OneWay}" />
-                                :</TextBlock>
+                                <Run Text="{Binding QuoridorInventerSubItem, Mode=OneWay}" />:
+							</TextBlock>
 
                             <TextBlock Grid.Row="0"
                                        Grid.Column="1"
@@ -167,8 +203,8 @@
                                        Margin="0,0,10,0"
                                        HorizontalAlignment="Right"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}">
-                                <Run Text="{Binding QuoridorPublisherSubItem, Mode=OneWay}" />
-                                :</TextBlock>
+                                <Run Text="{Binding QuoridorPublisherSubItem, Mode=OneWay}" />:
+							</TextBlock>
 
                             <TextBlock Grid.Row="1"
                                        Grid.Column="1"

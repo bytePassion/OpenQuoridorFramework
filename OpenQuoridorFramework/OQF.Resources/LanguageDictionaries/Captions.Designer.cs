@@ -61,11 +61,29 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string AP_ApplicationNameSubItem {
+            get {
+                return ResourceManager.GetString("AP_ApplicationNameSubItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Application.
         /// </summary>
         public static string AP_ApplicationSectionHeader {
             get {
                 return ResourceManager.GetString("AP_ApplicationSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string AP_ApplicationVersionSubItem {
+            get {
+                return ResourceManager.GetString("AP_ApplicationVersionSubItem", resourceCulture);
             }
         }
         

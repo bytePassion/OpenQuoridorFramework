@@ -552,4 +552,10 @@
   <data name="FVR_FileContainsMoreMovesThanAllowed" xml:space="preserve">
     <value>The file contains more moves than allowed in the upcomming game</value>
   </data>
+  <data name="AP_ApplicationNameSubItem" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AP_ApplicationVersionSubItem" xml:space="preserve">
+    <value>Version</value>
+  </data>
 </root>

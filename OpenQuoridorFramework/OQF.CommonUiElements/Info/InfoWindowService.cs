@@ -16,7 +16,8 @@ namespace OQF.CommonUiElements.Info
 {
 	public static class InfoWindowService
 	{
-		public static void Show(ApplicationInfo applicationInfo, params InfoPage[] visibleInfoPages)
+		public static void Show(ApplicationInfo applicationInfo, string frameworkVersion, 
+								params InfoPage[] visibleInfoPages)
 		{
 			var quoridorRulesPageViewModel    = new QuoridorRulesPageViewModel();
 			var quoridorNotationPageViewModel = new QuoridorNotationPageViewModel();
@@ -25,7 +26,7 @@ namespace OQF.CommonUiElements.Info
 			var playerVsBotInfoPageViewModel  = new PlayerVsBotInfoPageViewModel();
 			var replayViewerInfoPageViewModel = new ReplayViewerInfoPageViewModel();
 			var turnamentInfoPageViewModel    = new TournamentInfoPageViewModel();			
-			var aboutPageViewModel            = new AboutPageViewModel(applicationInfo);
+			var aboutPageViewModel            = new AboutPageViewModel(applicationInfo, frameworkVersion);
 
 		    var viewModels = new ObservableCollection<IPage>();
 
