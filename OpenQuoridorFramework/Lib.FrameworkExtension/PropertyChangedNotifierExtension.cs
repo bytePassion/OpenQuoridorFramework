@@ -7,7 +7,7 @@ namespace Lib.FrameworkExtension
 	public static class PropertyChangedNotifierExtension
 	{
 		public static void ChangeAndNotify<T> (this PropertyChangedEventHandler handler, object sender,
-								   ref T field, T value, [CallerMemberName] string propertyName = null)
+								               ref T field, T value, [CallerMemberName] string propertyName = null)
 		{
 			if (EqualityComparer<T>.Default.Equals(field, value)) return;
 

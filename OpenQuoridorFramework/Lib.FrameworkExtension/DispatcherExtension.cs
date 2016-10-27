@@ -7,7 +7,7 @@ namespace Lib.FrameworkExtension
 	{
 		public static void DelayInvoke(this Dispatcher dispatcher, Action action, TimeSpan delay)
 		{
-			var timer = new DispatcherTimer()
+			var timer = new DispatcherTimer
 			            {
 				            Interval = delay
 			            };

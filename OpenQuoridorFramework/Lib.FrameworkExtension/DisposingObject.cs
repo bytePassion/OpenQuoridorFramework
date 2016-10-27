@@ -22,9 +22,8 @@ namespace Lib.FrameworkExtension
 
 		private void Dispose (bool disposing)
 		{
-			if (!disposed)
-				if (disposing)
-					CleanUp();
+			if (!disposed && disposing)
+				CleanUp();
 
 			disposed = true;
 		}

@@ -28,9 +28,9 @@ namespace Lib.FrameworkExtension
 	    }
 
 
-	    public static IEnumerable<TSource> Without<TSource>(this IEnumerable<TSource> items, TSource itemToLeafOut)
+	    public static IEnumerable<TSource> Without<TSource>(this IEnumerable<TSource> items, TSource itemToLeaveOut)
 	    {
-		    return items.Where(item => !item.Equals(itemToLeafOut));
+		    return items.Where(item => !item.Equals(itemToLeaveOut));
 	    } 
     }
 }
