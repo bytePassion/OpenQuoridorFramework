@@ -1,6 +1,5 @@
 OpenQuoridorFramework (2.0)
---------------------------
+--------------------------------------------------------------------------------
 Initial-Release
     - PlayerVsBot  (1.0)
-    - ReplayViewer (1.0)
-    - Tournament   (under Construction)
+    - ReplayViewer (1.0)   
