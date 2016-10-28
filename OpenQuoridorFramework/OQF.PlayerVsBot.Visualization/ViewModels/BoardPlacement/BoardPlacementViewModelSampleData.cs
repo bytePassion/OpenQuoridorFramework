@@ -32,6 +32,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 
 		public ICommand BoardClick => null;
 
+
 		public ObservableCollection<PlayerState> PossibleMoves       { get; }
 		public ObservableCollection<Wall>        PotentialPlacedWall { get; }
 
