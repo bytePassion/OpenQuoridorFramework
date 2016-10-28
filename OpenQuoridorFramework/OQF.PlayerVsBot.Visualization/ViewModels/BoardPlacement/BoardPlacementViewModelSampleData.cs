@@ -13,11 +13,13 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 	{
 		public BoardPlacementViewModelSampleData()
 		{
+			var player = new Player(PlayerType.BottomPlayer);
+
 			PossibleMoves = new ObservableCollection<PlayerState>
 			{
-				new PlayerState(null, new FieldCoordinate(XField.D, YField.One), -1),
-				new PlayerState(null, new FieldCoordinate(XField.E, YField.Two), -1),
-				new PlayerState(null, new FieldCoordinate(XField.F, YField.One), -1),
+				new PlayerState(player, new FieldCoordinate(XField.D, YField.One), 10),
+				new PlayerState(player, new FieldCoordinate(XField.E, YField.Two), 10),
+				new PlayerState(player, new FieldCoordinate(XField.F, YField.One), 10),
 			};
 
 			PotentialPlacedWall = new ObservableCollection<Wall>

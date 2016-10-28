@@ -33,8 +33,14 @@
 	<Border Background="Transparent">
 
 		<i:Interaction.Behaviors>
-			<libBehaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
-			<behaviors:ReportRelativeMousePositionBehavior MousePosition="{Binding MousePosition, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+			<libBehaviors:SizeReportingBehavior ReportedSize="{Binding BoardSize, 
+																	   Mode=OneWayToSource, 
+																	   UpdateSourceTrigger=PropertyChanged}" />
+			
+			<behaviors:ReportRelativeMousePositionBehavior MousePosition="{Binding MousePosition, 
+																				   Mode=OneWayToSource, 
+																				   UpdateSourceTrigger=PropertyChanged}"/>
+			
 			<commandExecutingBehaviors:ExecuteCommandOnClickBehavior Command="{Binding BoardClick}" />
 		</i:Interaction.Behaviors>
 
