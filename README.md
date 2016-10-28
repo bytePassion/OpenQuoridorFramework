@@ -3,8 +3,8 @@
 OpenQuoridorFramework is a set of libraries and applications to create bots for Quoridor, play against them and do a lot more cool stuff around Quoridor.
 
 In this Version the OQF comes with two applications:
-1. PlayerVsBot:  An application to play (as human) against an OQF-Bot
-2. ReplayViewer: An application to analize (review) a past game
+- PlayerVsBot:  An application to play (as human) against an OQF-Bot
+- ReplayViewer: An application to analize (review) a past game
 
 ---
 
