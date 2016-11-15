@@ -20,7 +20,7 @@ Lead-Developers:
 - Matthias Drescher [[matthias.drescher@bytePassion.de](matthias.drescher@bytePassion.de)]
 - Alexander Horn [[alexander.horn@bytePassion.de](alexander.horn@bytePassion.de)]
 
-If you want to contribute to the OQF, contact a developer
+If you want to contribute to the OQF, contact a developer via E-Mail or Gitter-Chat
 
 ---
 
@@ -34,6 +34,14 @@ Planned applications:
 The OpenQuoridorFramework is under [Apache-2.0-licence](http://www.apache.org/licenses/LICENSE-2.0).
 
 The SourceCode of the OpenQuoridorFramework can be found at [https://github.com/bytePassion/OpenQuoridorFramework.git](https://github.com/bytePassion/OpenQuoridorFramework.git)
+
+---
+
+Latest Release ChangeLog Entry:
+
+Initial-Release
+ - PlayerVsBot  (1.0)
+ - ReplayViewer (1.0)   
 
 ---
 The boardgame Quoridor was created by Mirko Marchesi and is published by [Gigamic](http://en.gigamic.com/).
