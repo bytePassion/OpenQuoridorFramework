@@ -3,6 +3,7 @@ OpenQuoridorFramework (2.1)
 1116-Release
     - PlayerVsBot (1.1)
         - Minor bug fixes
+        - Progress can be viewed and copyed as compressed string
     - ReplayViewer (1.0)
 
 OpenQuoridorFramework (2.0)
