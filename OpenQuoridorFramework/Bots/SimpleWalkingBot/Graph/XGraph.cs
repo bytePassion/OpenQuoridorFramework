@@ -96,7 +96,8 @@ namespace SimpleWalkingBot.Graph
 
 			foreach (var keyValuePair in targets)
 			{
-				if (minCostNode.MinConst == -1 || keyValuePair.Value.MinConst < minCostNode.MinConst)
+				if (minCostNode.MinConst == -1 || (keyValuePair.Value.MinConst < minCostNode.MinConst && 
+												   keyValuePair.Value.MinConst >= 0))
 					minCostNode = keyValuePair.Value;
 			}
 
