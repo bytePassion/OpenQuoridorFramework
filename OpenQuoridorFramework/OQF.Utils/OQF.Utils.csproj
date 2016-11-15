@@ -47,7 +47,7 @@
     <Compile Include="MoveParser.cs" />
     <Compile Include="MoveValidator.cs" />
     <Compile Include="ParseProgressText.cs" />
-    <Compile Include="ProgressCodingUtils\Base64Coding.cs" />
+    <Compile Include="ProgressCodingUtils\BaseCoding.cs" />
     <Compile Include="ProgressCodingUtils\MoveListCoding.cs" />
     <Compile Include="ProgressCodingUtils\ProgressCoding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
