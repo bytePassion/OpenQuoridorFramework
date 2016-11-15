@@ -628,6 +628,24 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Compressed progress-string.
+        /// </summary>
+        public static string PvB_CompressedProgressCaption {
+            get {
+                return ResourceManager.GetString("PvB_CompressedProgressCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy compressed progress to clipboad.
+        /// </summary>
+        public static string PvB_CopyToClipboardButtonToolTipCpation {
+            get {
+                return ResourceManager.GetString("PvB_CopyToClipboardButtonToolTipCpation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Debug.
         /// </summary>
         public static string PvB_DebugCaption {

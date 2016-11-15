@@ -734,6 +734,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		public string MaximalThinkingTimeLabelCaption           => Captions.PvB_MaximalThinkingTimeLabelCaption;
 		public string WallsLeftLabelCaption                     => Captions.PvB_WallsLeftLabelCaption;
 		public string ProgressCaption                           => Captions.PvB_ProgressCaption;
+		public string CompressedProgressCaption                 => Captions.PvB_CompressedProgressCaption;
+		public string CopyToClipboardButtonToolTipCpation       => Captions.PvB_CopyToClipboardButtonToolTipCpation;
 		public string AutoScrollDownCheckBoxCaption             => Captions.PvB_AutoScrollDownCheckBoxCaption;
 		public string DebugCaption                              => Captions.PvB_DebugCaption;
 		public string CapitulateButtonCaption                   => Captions.PvB_CapitulateButtonCaption;
@@ -754,6 +756,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 										 nameof(ProgressCaption),
 										 nameof(AutoScrollDownCheckBoxCaption),
 										 nameof(DebugCaption),
+										 nameof(CompressedProgressCaption),
+										 nameof(CopyToClipboardButtonToolTipCpation),
 										 nameof(CapitulateButtonCaption),
 										 nameof(HeaderCaptionPlayer),
 										 nameof(DumpDebugToFileButtonCaption),

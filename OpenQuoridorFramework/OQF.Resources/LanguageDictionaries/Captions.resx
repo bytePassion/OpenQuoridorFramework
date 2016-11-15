@@ -538,4 +538,10 @@
   <data name="AP_ApplicationVersionSubItem" xml:space="preserve">
     <value>Version</value>
   </data>
+  <data name="PvB_CompressedProgressCaption" xml:space="preserve">
+    <value>Compressed progress-string</value>
+  </data>
+  <data name="PvB_CopyToClipboardButtonToolTipCpation" xml:space="preserve">
+    <value>Copy compressed progress to clipboad</value>
+  </data>
 </root>

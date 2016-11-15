@@ -64,6 +64,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		string MaximalThinkingTimeLabelCaption           { get; }
 		string WallsLeftLabelCaption                     { get; }
 		string ProgressCaption                           { get; }
+		string CompressedProgressCaption                 { get; }
+		string CopyToClipboardButtonToolTipCpation       { get; }
 		string AutoScrollDownCheckBoxCaption             { get; }
 		string DebugCaption                              { get; }
 		string CapitulateButtonCaption                   { get; }

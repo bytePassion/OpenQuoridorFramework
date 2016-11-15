@@ -225,7 +225,7 @@
                                   Margin="5"								  
                                   materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                   BorderThickness="0"
-                                  Header="Kompremierter Spielverlauf"
+                                  Header="{Binding CompressedProgressCaption}"
                                   Style="{DynamicResource MaterialDesignGroupBox}">
 							
 							<Grid>
@@ -244,7 +244,7 @@
 								
 								<Button Grid.Column="1"
 										Margin="5"
-										ToolTip="CopyToClipboard"
+										ToolTip="{Binding CopyToClipboardButtonToolTipCpation}"
 										Command="{Binding CopyCompressedProgressToClipBoard}">
 
 									<Viewbox Width="18" Height="18">

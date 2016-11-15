@@ -558,4 +558,10 @@
   <data name="AP_ApplicationVersionSubItem" xml:space="preserve">
     <value>Version</value>
   </data>
+  <data name="PvB_CompressedProgressCaption" xml:space="preserve">
+    <value>Kompremierter Spielfortschritt</value>
+  </data>
+  <data name="PvB_CopyToClipboardButtonToolTipCpation" xml:space="preserve">
+    <value>Kopremierten Spielforschritt in Zwischenablage kopieren</value>
+  </data>
 </root>

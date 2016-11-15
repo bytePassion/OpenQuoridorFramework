@@ -70,6 +70,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			DumpDebugToFileButtonCaption              = "Speichern";
 			DumpProgressToFileButtonCaption           = "Speichern";
 			MovesLeftLabelCaption                     = "Verfügbare Züge";
+			CompressedProgressCaption                 = "Kompremierter Spielfortschritt";
+			CopyToClipboardButtonToolTipCpation       = "In Zwischenablage kopieren";
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
@@ -127,6 +129,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		public string MaximalThinkingTimeLabelCaption           { get; }
 		public string WallsLeftLabelCaption                     { get; }
 		public string ProgressCaption                           { get; }
+		public string CompressedProgressCaption                 { get; }
+		public string CopyToClipboardButtonToolTipCpation       { get; }
 		public string AutoScrollDownCheckBoxCaption             { get; }
 		public string DebugCaption                              { get; }
 		public string CapitulateButtonCaption                   { get; }
