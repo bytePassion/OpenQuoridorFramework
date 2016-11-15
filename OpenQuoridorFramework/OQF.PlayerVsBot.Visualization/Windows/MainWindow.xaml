@@ -206,7 +206,10 @@
                                  Margin="8,0,0,0"
                                  VerticalAlignment="Stretch">
 
-                <Expander ExpandDirection="Right" IsExpanded="{Binding IsProgressSectionExpanded, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <Expander ExpandDirection="Right" 
+						  IsExpanded="{Binding IsProgressSectionExpanded, 
+											   Mode=TwoWay, 
+											   UpdateSourceTrigger=PropertyChanged}">
                     <Expander.Header>
                         <TextBlock RenderTransformOrigin=".5,.5" Text="{Binding ProgressCaption}">
                             <TextBlock.LayoutTransform>
@@ -215,28 +218,70 @@
                         </TextBlock>
                     </Expander.Header>
 
-                    <GroupBox Width="250"
-                              Margin="5"
-                              materialDesign:ShadowAssist.ShadowDepth="Depth2"
-                              BorderThickness="0"
-                              Header="{Binding ProgressCaption}"
-                              Style="{DynamicResource MaterialDesignGroupBox}">
+					<DockPanel VerticalAlignment="Stretch">
+
+						<GroupBox DockPanel.Dock="Bottom"
+								  Width="250"
+                                  Margin="5"								  
+                                  materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                  BorderThickness="0"
+                                  Header="Kompremierter Spielverlauf"
+                                  Style="{DynamicResource MaterialDesignGroupBox}">
+							
+							<Grid>
+								
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition/>
+									<ColumnDefinition Width="60"/>
+								</Grid.ColumnDefinitions>
+								
+								<TextBox Grid.Column="0"
+										 Margin="5"
+										 IsReadOnly="True"
+										 TextWrapping="Wrap"
+										 Text="sdflkelnkn4lkfsldknw4634lklfwekrlwk55634llrkterltkwl4k6lwkfeclwke554kwelfkwer5l4ktrwelrkw"/>
+								
+								<Button Grid.Column="1"
+										Margin="5"
+										ToolTip="CopyToClipboard">
+
+									<Viewbox Width="18" Height="18">
+										<Canvas Width="24" Height="24">
+											<Path Data="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 
+												        21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" 
+												  Fill="White" />
+										</Canvas>
+									</Viewbox>
+
+								</Button>
+								
+							</Grid>
+							
+						</GroupBox>
+						
+						<GroupBox DockPanel.Dock="Top"
+								  Width="250"
+                                  Margin="5"								  
+                                  materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                  BorderThickness="0"
+                                  Header="{Binding ProgressCaption}"
+                                  Style="{DynamicResource MaterialDesignGroupBox}">
 
 
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="40" />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="40" />
+									<RowDefinition />
+								</Grid.RowDefinitions>
 
-                            <CheckBox HorizontalAlignment="Right"
+								<CheckBox HorizontalAlignment="Right"
                                       VerticalAlignment="Center"
                                       Content="{Binding AutoScrollDownCheckBoxCaption}"
                                       IsChecked="{Binding IsAutoScrollProgressActive,
                                                           Mode=TwoWay,
                                                           UpdateSourceTrigger=PropertyChanged}" />
 
-                            <Button Grid.Row="0"
+								<Button Grid.Row="0"
                                     Width="95"
                                     Height="25"
                                     HorizontalAlignment="Left"
@@ -244,95 +289,99 @@
                                     Command="{Binding DumpProgressToFile}"
                                     Content="{Binding DumpProgressToFileButtonCaption}" />
 
-                            <ScrollViewer Grid.Row="1"
+								<ScrollViewer Grid.Row="1"
                                           HorizontalScrollBarVisibility="Auto"
                                           VerticalScrollBarVisibility="Auto">
 
-                                <ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}">
+									<ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}">
 
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate DataType="system:String">
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="30" />
-                                                    <ColumnDefinition Width="30" />
-                                                    <ColumnDefinition Width="30" />
-                                                </Grid.ColumnDefinitions>
+										<ItemsControl.ItemTemplate>
+											<DataTemplate DataType="system:String">
+												<Grid>
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition Width="30" />
+														<ColumnDefinition Width="30" />
+														<ColumnDefinition Width="30" />
+													</Grid.ColumnDefinitions>
 
-                                                <TextBlock Grid.Column="0"
+													<TextBlock Grid.Column="0"
                                                            Margin="0,0,10,0"
                                                            HorizontalAlignment="Right"
                                                            Text="{Binding Converter={StaticResource GetProgressNrFromString}}" />
 
-                                                <TextBlock Grid.Column="1"
+													<TextBlock Grid.Column="1"
                                                            HorizontalAlignment="Left"
                                                            Text="{Binding Converter={StaticResource GetBottomPlayerMoveFromString}}" />
 
-                                                <TextBlock Grid.Column="2"
+													<TextBlock Grid.Column="2"
                                                            HorizontalAlignment="Left"
                                                            Text="{Binding Converter={StaticResource GetTopPlayerMoveFromString}}" />
 
-                                            </Grid>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
+												</Grid>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
 
-                                </ItemsControl>
+									</ItemsControl>
 
-                                <i:Interaction.Behaviors>
-                                    <libBehaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
-                                </i:Interaction.Behaviors>
-                            </ScrollViewer>
-                        </Grid>
+									<i:Interaction.Behaviors>
+										<libBehaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
+									</i:Interaction.Behaviors>
+								</ScrollViewer>
+							</Grid>
 
-                    </GroupBox>
+						</GroupBox>
+
+					</DockPanel>
+					
+                    
                 </Expander>
 
             </materialDesign:Card>
 
-            <Border Grid.Row="2"
-                    Grid.Column="1"
-                    Margin="5,0"
-                    Padding="0">
-
-                <Grid Margin="15">
-
-                    <i:Interaction.Behaviors>
-                        <libBehaviors:KeepQuadratic />
-                    </i:Interaction.Behaviors>
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-
-                    <materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />
-
-                    <views1:BoardHorizontalLabelling Grid.Row="0"
-                                                     Grid.Column="1"
-                                                     IsHitTestVisible="False" />
-
-                    <views1:BoardVerticalLabelling Grid.Row="1"
-                                                   Grid.Column="0"
-                                                   IsHitTestVisible="False" />
-
-                    <views1:Board Grid.Row="1"
-                                  Grid.Column="1"
-                                  DataContext="{Binding BoardViewModel}"
-                                  IsHitTestVisible="False"
-                                  Padding="0" />
-
-                    <views:BoardPlacement Grid.Row="1"
-                                          Grid.Column="1"
-                                          DataContext="{Binding BoardPlacementViewModel}"
-                                          Padding="0" />
-
-                </Grid>
-            </Border>
+<!--            <Border Grid.Row="2"-->
+<!--                    Grid.Column="1"-->
+<!--                    Margin="5,0"-->
+<!--                    Padding="0">-->
+<!---->
+<!--                <Grid Margin="15">-->
+<!---->
+<!--                    <i:Interaction.Behaviors>-->
+<!--                        <libBehaviors:KeepQuadratic />-->
+<!--                    </i:Interaction.Behaviors>-->
+<!---->
+<!--                    <Grid.RowDefinitions>-->
+<!--                        <RowDefinition Height="40" />-->
+<!--                        <RowDefinition />-->
+<!--                    </Grid.RowDefinitions>-->
+<!---->
+<!--                    <Grid.ColumnDefinitions>-->
+<!--                        <ColumnDefinition Width="40" />-->
+<!--                        <ColumnDefinition />-->
+<!--                    </Grid.ColumnDefinitions>-->
+<!---->
+<!--                    <materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />-->
+<!---->
+<!--                    <views1:BoardHorizontalLabelling Grid.Row="0"-->
+<!--                                                     Grid.Column="1"-->
+<!--                                                     IsHitTestVisible="False" />-->
+<!---->
+<!--                    <views1:BoardVerticalLabelling Grid.Row="1"-->
+<!--                                                   Grid.Column="0"-->
+<!--                                                   IsHitTestVisible="False" />-->
+<!---->
+<!--                    <views1:Board Grid.Row="1"-->
+<!--                                  Grid.Column="1"-->
+<!--                                  DataContext="{Binding BoardViewModel}"-->
+<!--                                  IsHitTestVisible="False"-->
+<!--                                  Padding="0" />-->
+<!---->
+<!--                    <views:BoardPlacement Grid.Row="1"-->
+<!--                                          Grid.Column="1"-->
+<!--                                          DataContext="{Binding BoardPlacementViewModel}"-->
+<!--                                          Padding="0" />-->
+<!---->
+<!--                </Grid>-->
+<!--            </Border>-->
 
             <materialDesign:Card Grid.Row="2"
                                  Grid.Column="2"
