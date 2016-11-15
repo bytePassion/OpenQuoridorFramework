@@ -1,3 +1,10 @@
+OpenQuoridorFramework (2.1)
+--------------------------------------------------------------------------------
+1116-Release
+    - PlayerVsBot (1.1)
+        - Minor bug fixes
+    - ReplayViewer (1.0)
+
 OpenQuoridorFramework (2.0)
 --------------------------------------------------------------------------------
 Initial-Release
