@@ -31,7 +31,9 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			{
 				"1. e2 e8",
 				"2. e3 e7"
-			};			
+			};
+
+			CompressedProgress = "sdflkjDlT46Ldsasd356FSlsdGlnxAzx";	
 			
 			TopPlayerName    = "PlayerOben";
 			TopPlayerRestTime = "36";		
@@ -74,17 +76,20 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		public ICommand Start              => null;
-		public ICommand StartWithProgress  => null;
-		public ICommand ShowAboutHelp      => null;
-		public ICommand Capitulate         => null;		
-		public ICommand BrowseDll          => null;
-		public ICommand DumpDebugToFile    => null;
-		public ICommand DumpProgressToFile => null;
-		public ICommand CloseWindow        => null;
+		public ICommand Start                             => null;
+		public ICommand StartWithProgress                 => null;
+		public ICommand ShowAboutHelp                     => null;
+		public ICommand Capitulate                        => null;		
+		public ICommand BrowseDll                         => null;
+		public ICommand DumpDebugToFile                   => null;
+		public ICommand DumpProgressToFile                => null;
+		public ICommand CloseWindow                       => null;
+		public ICommand CopyCompressedProgressToClipBoard => null;
 
 		public ObservableCollection<string> DebugMessages  { get; }
-		public ObservableCollection<string> GameProgress   { get; }		
+		public ObservableCollection<string> GameProgress   { get; }
+
+		public string CompressedProgress { get; }
 
 		public bool IsAutoScrollProgressActive { get; set; }
 		public bool IsAutoScrollDebugMsgActive { get; set; }

@@ -34,6 +34,7 @@ using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
+using OQF.Utils.ProgressCodingUtils;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 {
@@ -59,6 +60,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		private bool isProgressSectionExpanded;
 		private bool isDebugSectionExpanded;
 		private string movesLeft;
+		private string compressedProgress;
 
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel, 
@@ -110,6 +112,10 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 									 IsMoveApplyable,
 									 new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
 
+			CopyCompressedProgressToClipBoard = new Command(DoCopyCompressedProgressToClipBoard,
+															() => !string.IsNullOrWhiteSpace(CompressedProgress),
+															new PropertyChangedCommandUpdater(this, nameof(CompressedProgress)));
+
 			ShowAboutHelp      = new Command(DoShowAboutHelp);
 			DumpDebugToFile    = new Command(DoDumpDebugToFile);
 			DumpProgressToFile = new Command(DoDumpProgressToFile);
@@ -123,6 +129,11 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 			botCountDownTimer = new Timer(BotCountDownTimerOnTick, null,Timeout.Infinite, Timeout.Infinite);		
 			StopTimer();	
+		}
+
+		private void DoCopyCompressedProgressToClipBoard()
+		{
+			System.Windows.Clipboard.SetText(CompressedProgress);
 		}
 
 		private void DoCloseWindow()
@@ -325,6 +336,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				TopPlayerRestTime = "--";
 
 				GameProgress.Clear();
+				CompressedProgress = "";
 			}
 			else
 			{
@@ -338,7 +350,10 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 				{
 					if (GameProgress.Count > 0)
+					{
 						GameProgress[GameProgress.Count - 1] = GameProgress[GameProgress.Count - 1] + $" {boardState.LastMove}";
+						CompressedProgress = ProgressCoding.ProgressToCompressedString(boardState.GetMoveList());
+					}
 
 					var currentMovesLeft = int.Parse(MovesLeft);
 					MovesLeft = (currentMovesLeft - 1).ToString();
@@ -348,10 +363,11 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				else
 				{
                     GameProgress.Add($"{GameProgress.Count + 1}: " + $"{boardState.LastMove}");
+					CompressedProgress = ProgressCoding.ProgressToCompressedString(boardState.GetMoveList());
 					StartTimer();
 				}
 			}			
-		}
+		}		
 
 		private void StartTimer()
 		{
@@ -371,19 +387,26 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		public ICommand Start              { get; }
-		public ICommand StartWithProgress  { get; }
-		public ICommand ShowAboutHelp      { get; }
-		public ICommand Capitulate         { get; }		
-		public ICommand BrowseDll          { get; }
-		public ICommand DumpDebugToFile    { get; }
-		public ICommand DumpProgressToFile { get; }
-		public ICommand CloseWindow        { get; }
+		public ICommand Start                             { get; }
+		public ICommand StartWithProgress                 { get; }
+		public ICommand ShowAboutHelp                     { get; }
+		public ICommand Capitulate                        { get; }		
+		public ICommand BrowseDll                         { get; }
+		public ICommand DumpDebugToFile                   { get; }
+		public ICommand DumpProgressToFile                { get; }
+		public ICommand CloseWindow                       { get; }
+		public ICommand CopyCompressedProgressToClipBoard { get; }
 
 		public ObservableCollection<string> DebugMessages { get; }
 		public ObservableCollection<string> GameProgress  { get; }
 
-		
+		public string CompressedProgress
+		{
+			get { return compressedProgress; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref compressedProgress, value);}
+		}
+
+
 		public bool IsAutoScrollProgressActive
 		{
 			get { return isAutoScrollProgressActive; }
@@ -502,6 +525,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				gameService.StopGame();
 
 				GameProgress.Clear();
+				CompressedProgress = "";
 				DebugMessages.Clear();
 			}
 
@@ -559,6 +583,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				gameService.StopGame();
 
 				GameProgress.Clear();
+				CompressedProgress = "";
 				DebugMessages.Clear();
 			}
 

@@ -14,17 +14,20 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		ICommand Start              { get; }	
-		ICommand StartWithProgress  { get; }	
-		ICommand ShowAboutHelp      { get; }
-		ICommand Capitulate         { get; }		
-		ICommand BrowseDll          { get; }
-		ICommand DumpDebugToFile    { get; }
-		ICommand DumpProgressToFile { get; }
-		ICommand CloseWindow        { get; }
+		ICommand Start                             { get; }	
+		ICommand StartWithProgress                 { get; }	
+		ICommand ShowAboutHelp                     { get; }
+		ICommand Capitulate                        { get; }		
+		ICommand BrowseDll                         { get; }
+		ICommand DumpDebugToFile                   { get; }
+		ICommand DumpProgressToFile                { get; }
+		ICommand CloseWindow                       { get; }
+		ICommand CopyCompressedProgressToClipBoard { get; }
 
 		ObservableCollection<string> DebugMessages { get; } 
-		ObservableCollection<string> GameProgress  { get; }						
+		ObservableCollection<string> GameProgress  { get; }
+		
+		string CompressedProgress { get; }						
 
 		bool IsAutoScrollProgressActive { get; set; }
 		bool IsAutoScrollDebugMsgActive { get; set; }

@@ -239,11 +239,13 @@
 										 Margin="5"
 										 IsReadOnly="True"
 										 TextWrapping="Wrap"
-										 Text="sdflkelnkn4lkfsldknw4634lklfwekrlwk55634llrkterltkwl4k6lwkfeclwke554kwelfkwer5l4ktrwelrkw"/>
+										 Text="{Binding CompressedProgress, 
+														Mode=OneWay}"/>
 								
 								<Button Grid.Column="1"
 										Margin="5"
-										ToolTip="CopyToClipboard">
+										ToolTip="CopyToClipboard"
+										Command="{Binding CopyCompressedProgressToClipBoard}">
 
 									<Viewbox Width="18" Height="18">
 										<Canvas Width="24" Height="24">
@@ -338,50 +340,50 @@
 
             </materialDesign:Card>
 
-<!--            <Border Grid.Row="2"-->
-<!--                    Grid.Column="1"-->
-<!--                    Margin="5,0"-->
-<!--                    Padding="0">-->
-<!---->
-<!--                <Grid Margin="15">-->
-<!---->
-<!--                    <i:Interaction.Behaviors>-->
-<!--                        <libBehaviors:KeepQuadratic />-->
-<!--                    </i:Interaction.Behaviors>-->
-<!---->
-<!--                    <Grid.RowDefinitions>-->
-<!--                        <RowDefinition Height="40" />-->
-<!--                        <RowDefinition />-->
-<!--                    </Grid.RowDefinitions>-->
-<!---->
-<!--                    <Grid.ColumnDefinitions>-->
-<!--                        <ColumnDefinition Width="40" />-->
-<!--                        <ColumnDefinition />-->
-<!--                    </Grid.ColumnDefinitions>-->
-<!---->
-<!--                    <materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />-->
-<!---->
-<!--                    <views1:BoardHorizontalLabelling Grid.Row="0"-->
-<!--                                                     Grid.Column="1"-->
-<!--                                                     IsHitTestVisible="False" />-->
-<!---->
-<!--                    <views1:BoardVerticalLabelling Grid.Row="1"-->
-<!--                                                   Grid.Column="0"-->
-<!--                                                   IsHitTestVisible="False" />-->
-<!---->
-<!--                    <views1:Board Grid.Row="1"-->
-<!--                                  Grid.Column="1"-->
-<!--                                  DataContext="{Binding BoardViewModel}"-->
-<!--                                  IsHitTestVisible="False"-->
-<!--                                  Padding="0" />-->
-<!---->
-<!--                    <views:BoardPlacement Grid.Row="1"-->
-<!--                                          Grid.Column="1"-->
-<!--                                          DataContext="{Binding BoardPlacementViewModel}"-->
-<!--                                          Padding="0" />-->
-<!---->
-<!--                </Grid>-->
-<!--            </Border>-->
+            <Border Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="5,0"
+                    Padding="0">
+
+                <Grid Margin="15">
+
+                    <i:Interaction.Behaviors>
+                        <libBehaviors:KeepQuadratic />
+                    </i:Interaction.Behaviors>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />
+
+                    <views1:BoardHorizontalLabelling Grid.Row="0"
+                                                     Grid.Column="1"
+                                                     IsHitTestVisible="False" />
+
+                    <views1:BoardVerticalLabelling Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   IsHitTestVisible="False" />
+
+                    <views1:Board Grid.Row="1"
+                                  Grid.Column="1"
+                                  DataContext="{Binding BoardViewModel}"
+                                  IsHitTestVisible="False"
+                                  Padding="0" />
+
+                    <views:BoardPlacement Grid.Row="1"
+                                          Grid.Column="1"
+                                          DataContext="{Binding BoardPlacementViewModel}"
+                                          Padding="0" />
+
+                </Grid>
+            </Border>
 
             <materialDesign:Card Grid.Row="2"
                                  Grid.Column="2"
