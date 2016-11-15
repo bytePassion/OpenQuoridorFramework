@@ -1,13 +1,23 @@
+################################################################################
+###                                                                          ###
+###                ChangeLog of the OpenQuoridorFramework                    ###
+###                                                                          ###
+################################################################################ 
+
+
 OpenQuoridorFramework (2.1)
+[planned release in november]
 --------------------------------------------------------------------------------
-1116-Release
-    - PlayerVsBot (1.1)
-        - Minor bug fixes
-        - Progress can be viewed and copyed as compressed string
-    - ReplayViewer (1.0)
+- PlayerVsBot (1.1)
+    - Minor bug fixes
+    - Progress can be viewed and copyed as compressed string
+- ReplayViewer (1.0)
+
 
 OpenQuoridorFramework (2.0)
+[October 28th, 2016] 
 --------------------------------------------------------------------------------
-Initial-Release
-    - PlayerVsBot  (1.0)
-    - ReplayViewer (1.0)   
+- PlayerVsBot  (1.0)
+    - Initial Release
+- ReplayViewer (1.0) 
+    - Initial Release
