@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoardStateExtensions.cs" />
     <Compile Include="BotLoader.cs" />
     <Compile Include="CreateProgressText.cs" />
     <Compile Include="CultureManager.cs" />
