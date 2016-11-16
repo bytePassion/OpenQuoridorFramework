@@ -35,7 +35,7 @@ namespace OQF.PlayerVsBot.Application
 			var boardViewModel = new BoardViewModel(gameService);
 			var boardPlacementViewModel = new BoardPlacementViewModel(gameService, gameFactory);
 			var languageSelectionViewModel = new LanguageSelectionViewModel();
-			var progressFileVerifierFactory = new ProgressFileVerifierFactory();
+			var progressFileVerifierFactory = new ProgressVerifierFactory();
 
 			var mainWindowViewModel = new MainWindowViewModel(boardViewModel,
 															  boardPlacementViewModel,

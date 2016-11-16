@@ -80,6 +80,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 		public ICommand Start                             => null;
 		public ICommand StartWithProgress                 => null;
+		public ICommand StartWithProgressFromFile         => null;
+		public ICommand StartWithProgressFromString       => null;
 		public ICommand ShowAboutHelp                     => null;
 		public ICommand Capitulate                        => null;		
 		public ICommand BrowseDll                         => null;

@@ -15,7 +15,7 @@ In this Version the OQF comes with two applications:
 
 To write a OQF-Bot you have to implement the IQuoridorBot-Inteface which can be found at OQF.Bot.Contracts. You can get more detailed information from the help-pages of PlayerVsBot.
 
-An examplary implementation is the SimpleWalkingBot which is also part of this version of OQF.
+An exemplary implementation is the SimpleWalkingBot which is also part of this version of OQF.
 
 ---
 

@@ -2,8 +2,8 @@
 
 namespace OQF.GameEngine.Contracts.Factories
 {
-	public interface IProgressFileVerifierFactory
+	public interface IProgressVerifierFactory
 	{
-		IProgressFileVerifier CreateVerifier();
+		IProgressVerifier CreateVerifier();
 	}
 }

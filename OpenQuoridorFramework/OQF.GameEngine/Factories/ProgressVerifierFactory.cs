@@ -4,11 +4,11 @@ using OQF.GameEngine.Contracts.Factories;
 
 namespace OQF.GameEngine.Factories
 {
-	public class ProgressFileVerifierFactory : IProgressFileVerifierFactory
+	public class ProgressVerifierFactory : IProgressVerifierFactory
 	{
-		public IProgressFileVerifier CreateVerifier()
+		public IProgressVerifier CreateVerifier()
 		{
-			return new ProgressFileVerifier();
+			return new ProgressVerifier();
 		}
 	}
 }

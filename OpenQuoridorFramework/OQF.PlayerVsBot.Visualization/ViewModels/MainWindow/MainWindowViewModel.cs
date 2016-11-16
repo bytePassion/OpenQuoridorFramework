@@ -45,7 +45,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 		private readonly IGameService gameService;
 		private readonly IApplicationSettingsRepository applicationSettingsRepository;
-		private readonly IProgressFileVerifierFactory progressFileVerifierFactory;
+		private readonly IProgressVerifierFactory progressVerifierFactory;
 		private readonly bool disableClosingDialog;
 
 		private string dllPathInput;		
@@ -68,14 +68,14 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 									ILanguageSelectionViewModel languageSelectionViewModel,
 									IGameService gameService, 
 									IApplicationSettingsRepository applicationSettingsRepository,
-									IProgressFileVerifierFactory progressFileVerifierFactory,
+									IProgressVerifierFactory progressVerifierFactory,
 									bool disableClosingDialog)
 		{
 			CultureManager.CultureChanged += RefreshCaptions;
 
 			this.gameService = gameService;
 			this.applicationSettingsRepository = applicationSettingsRepository;
-			this.progressFileVerifierFactory = progressFileVerifierFactory;
+			this.progressVerifierFactory = progressVerifierFactory;
 			this.disableClosingDialog = disableClosingDialog;
 
 			LanguageSelectionViewModel = languageSelectionViewModel;
@@ -105,9 +105,12 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 								() => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
 								new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));
 
-			StartWithProgress = new ParameterrizedCommand<string>(async filePath => await DoStartWithProgress(filePath),
+			StartWithProgress = new ParameterrizedCommand<string>(async filePath => await DoStartWithProgressFromFile(filePath),
 																  _ => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
 																  new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));
+
+			StartWithProgressFromFile = new ParameterrizedCommand<string>(async filePath => await DoStartWithProgressFromFile(filePath));
+
 			Capitulate = new Command(DoCapitulate,
 									 IsMoveApplyable,
 									 new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
@@ -389,6 +392,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 		public ICommand Start                             { get; }
 		public ICommand StartWithProgress                 { get; }
+		public ICommand StartWithProgressFromFile         { get; }
+		public ICommand StartWithProgressFromString       { get; }
 		public ICommand ShowAboutHelp                     { get; }
 		public ICommand Capitulate                        { get; }		
 		public ICommand BrowseDll                         { get; }
@@ -574,9 +579,9 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 													   Constants.GameConstraint.MaximalMovesPerGame));
 			
 			((Command)Capitulate).RaiseCanExecuteChanged();
-		}
+		}		
 
-		private async Task DoStartWithProgress (string filePath)
+		private async Task DoStartWithProgressFromFile (string filePath)
 		{
 			if (GameStatus == GameStatus.Finished)
 			{
@@ -622,7 +627,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				await NotificationService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
 											   Captions.ND_OkButtonCaption);
 				return;
-			}			
+			}
 
 			var progressFilePath = string.Empty;
 
@@ -647,16 +652,18 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			{
 				progressFilePath = filePath;
 			}
-			
+
 			var progressText = File.ReadAllText(progressFilePath);
 
-			var fileVerifier = progressFileVerifierFactory.CreateVerifier();
+			var fileVerifier = progressVerifierFactory.CreateVerifier();
 
-			var verificationResult = fileVerifier.Verify(progressText, Constants.GameConstraint.MaximalMovesPerGame);
+			var verificationResult = fileVerifier.Verify(progressText, 
+														 ProgressTextType.Readable, 
+														 Constants.GameConstraint.MaximalMovesPerGame);
 
 			switch (verificationResult)
 			{
-				case FileVerificationResult.EmptyOrInvalidFile:
+				case ProgressVerificationResult.EmptyOrInvalid:
 				{
 					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
@@ -664,7 +671,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 												   Captions.ND_OkButtonCaption);
 					return;
 				}
-				case FileVerificationResult.FileContainsInvalidMove:
+				case ProgressVerificationResult.ProgressContainsInvalidMove:
 				{
 					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
@@ -672,7 +679,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 												   Captions.ND_OkButtonCaption);
 					return;
 				}
-				case FileVerificationResult.FileContainsTerminatedGame:
+				case ProgressVerificationResult.ProgressContainsTerminatedGame:
 				{
 					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
@@ -680,7 +687,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 												   Captions.ND_OkButtonCaption);
 					return;
 				}
-				case FileVerificationResult.FileContainsMoreMovesThanAllowed:
+				case ProgressVerificationResult.ProgressContainsMoreMovesThanAllowed:
 				{
 					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
@@ -688,7 +695,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 												   Captions.ND_OkButtonCaption);
 					return;
 				}
-				case FileVerificationResult.ValidFile:
+				case ProgressVerificationResult.Valid:
 				{
 					applicationSettingsRepository.LastUsedBotPath = DllPathInput;
 					MovesLeft = (Constants.GameConstraint.MaximalMovesPerGame + 1).ToString();

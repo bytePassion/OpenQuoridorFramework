@@ -7,23 +7,30 @@ using OQF.GameEngine.Contracts.Analysis;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Transitions;
 using OQF.Utils;
+using OQF.Utils.ProgressCodingUtils;
 
 namespace OQF.GameEngine.Analysis
 {
-	internal class ProgressFileVerifier : IProgressFileVerifier
+	internal class ProgressVerifier : IProgressVerifier
 	{
-		public FileVerificationResult Verify(string progressText, int maxMoves)
+		public ProgressVerificationResult Verify(string progressText, ProgressTextType textType, int maxMoves)
 		{
-			var movesAsString = ParseProgressText.FromFileText(progressText);
+			// TODO: improvable ... viel einiges zu viel gemacht
+
+			var finalProgressText = textType == ProgressTextType.Readable
+										? progressText
+										: ProgressCoding.CompressedStringToProgress(progressText);
+
+			var movesAsString = ParseProgressText.FromFileText(finalProgressText);
 
 			if (!movesAsString.Any())
-				return FileVerificationResult.EmptyOrInvalidFile;
+				return ProgressVerificationResult.EmptyOrInvalid;
 
 			var moves = movesAsString.Select(MoveParser.GetMove);
 
 			if ((int)Math.Ceiling(moves.Count() / 2.0) >= maxMoves)
 			{
-				return FileVerificationResult.FileContainsMoreMovesThanAllowed;
+				return ProgressVerificationResult.ProgressContainsMoreMovesThanAllowed;
 			}
 
 			var topPlayer    = new Player(PlayerType.TopPlayer);
@@ -35,20 +42,20 @@ namespace OQF.GameEngine.Analysis
 			{
 				if (move is Capitulation)
 				{
-					return FileVerificationResult.FileContainsTerminatedGame;
+					return ProgressVerificationResult.ProgressContainsTerminatedGame;
 				}
 
 				if (!GameAnalysis.IsMoveLegal(boardState, move))
-					return FileVerificationResult.FileContainsInvalidMove;
+					return ProgressVerificationResult.ProgressContainsInvalidMove;
 
 				boardState = boardState.ApplyMove(move);
 
 				var winner = GameAnalysis.CheckWinningCondition(boardState);
 				if (winner != null)
-					return FileVerificationResult.FileContainsTerminatedGame;
+					return ProgressVerificationResult.ProgressContainsTerminatedGame;
 			}
 
-			return FileVerificationResult.ValidFile;
+			return ProgressVerificationResult.Valid;
 		}
 	}
 }

@@ -16,6 +16,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 		ICommand Start                             { get; }	
 		ICommand StartWithProgress                 { get; }	
+		ICommand StartWithProgressFromFile         { get; }	
+		ICommand StartWithProgressFromString       { get; }	
 		ICommand ShowAboutHelp                     { get; }
 		ICommand Capitulate                        { get; }		
 		ICommand BrowseDll                         { get; }
