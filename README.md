@@ -1,6 +1,9 @@
 # OpenQuoridorFramework (2.0)
 
 [![Join the chat at https://gitter.im/bytePassion/OpenQuoridorFramework](https://badges.gitter.im/bytePassion/OpenQuoridorFramework.svg)](https://gitter.im/bytePassion/OpenQuoridorFramework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![view and contribute to current tasks on trello](https://img.shields.io/badge/tasks-on%20trello-blue.svg)](https://trello.com/b/X9gnlWEl/openquoridorframework)
+[![get the latest code from github](https://img.shields.io/badge/code-on%20github-lightgrey.svg)](https://github.com/bytePassion/OpenQuoridorFramework.git)
+[![view licence from original source](https://img.shields.io/badge/licence-Apache%202.0-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 OpenQuoridorFramework is a set of libraries and applications to create bots for Quoridor, play against them and do a lot more cool stuff around Quoridor.
 
@@ -28,12 +31,6 @@ Planned applications:
 - Tournament: An application to let multiple bots  fight each other
 - QuoridorNetworkPlay: An application for two humans to play against over a LAN-connection
 - QuoridorWebPlay: A web-solution to play Quoridor
-
----
-
-The OpenQuoridorFramework is under [Apache-2.0-licence](http://www.apache.org/licenses/LICENSE-2.0).
-
-The SourceCode of the OpenQuoridorFramework can be found at [https://github.com/bytePassion/OpenQuoridorFramework.git](https://github.com/bytePassion/OpenQuoridorFramework.git)
 
 ---
 
