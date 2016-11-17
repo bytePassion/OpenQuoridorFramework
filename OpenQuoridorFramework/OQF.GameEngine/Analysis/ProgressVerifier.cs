@@ -17,10 +17,19 @@ namespace OQF.GameEngine.Analysis
 		{
 			// TODO: improvable ... viel einiges zu viel gemacht
 
-			var finalProgressText = textType == ProgressTextType.Readable
+			string finalProgressText;
+
+			try
+			{
+				finalProgressText = textType == ProgressTextType.Readable
 										? progressText
 										: ProgressCoding.CompressedStringToProgress(progressText);
-
+			}
+			catch
+			{
+				return ProgressVerificationResult.EmptyOrInvalid;
+			}
+			
 			var movesAsString = ParseProgressText.FromFileText(finalProgressText);
 
 			if (!movesAsString.Any())
