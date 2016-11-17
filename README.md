@@ -36,9 +36,11 @@ Planned applications:
 
 Latest Release ChangeLog Entry:
 
-Initial-Release
+[October 28th, 2016] 
  - PlayerVsBot  (1.0)
- - ReplayViewer (1.0)   
+   - Initial Release
+ - ReplayViewer (1.0) 
+   - Initial Release
 
 ---
 The boardgame Quoridor was created by Mirko Marchesi and is published by [Gigamic](http://en.gigamic.com/).
