@@ -15,7 +15,7 @@ namespace OQF.GameEngine.Analysis
 	{
 		public ProgressVerificationResult Verify(string progressText, ProgressTextType textType, int maxMoves)
 		{
-			// TODO: improvable ... viel einiges zu viel gemacht
+			// TODO: improvable ... hier wird beim entschlüsseln des compressed-Progress einiges zu viel gemacht
 
 			string finalProgressText;
 

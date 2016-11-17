@@ -1,12 +1,11 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using MaterialDesignThemes.Wpf;
-using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Dialogs.Notification.ViewModel;
 
-namespace OQF.PlayerVsBot.Visualization.Services
+namespace OQF.CommonUiElements.Dialogs.Notification
 {
-	internal static class NotificationService
+	public static class NotificationDialogService
 	{
 		public static async Task Show(string message, string buttonCaption)
 		{

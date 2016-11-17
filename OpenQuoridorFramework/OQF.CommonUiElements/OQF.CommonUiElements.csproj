@@ -80,6 +80,7 @@
     <Compile Include="Dialogs\Notification\NotificationDialog.xaml.cs">
       <DependentUpon>NotificationDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\Notification\NotificationDialogService.cs" />
     <Compile Include="Dialogs\Notification\ViewModel\INotificationDialogViewModel.cs" />
     <Compile Include="Dialogs\Notification\ViewModel\NotificationDialogViewModel.cs" />
     <Compile Include="Dialogs\Notification\ViewModel\NotificationDialogViewModelSampleData.cs" />

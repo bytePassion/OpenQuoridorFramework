@@ -71,7 +71,6 @@
     <Compile Include="Computations\GetTopPlayerMoveFromString.cs" />
     <Compile Include="Computations\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
-    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\IGameService.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />

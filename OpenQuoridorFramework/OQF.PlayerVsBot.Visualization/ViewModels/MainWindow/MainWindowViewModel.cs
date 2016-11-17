@@ -21,6 +21,7 @@ using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
+using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Dialogs.StringInput;
 using OQF.CommonUiElements.Dialogs.StringInput.ViewModel;
 using OQF.CommonUiElements.Dialogs.YesNo;
@@ -552,13 +553,13 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 			if (string.IsNullOrWhiteSpace(DllPathInput))
 			{
-				await NotificationService.Show(Captions.PvB_ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);				
+				await NotificationDialogService.Show(Captions.PvB_ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);				
 				return;
 			}
 
 			if (!File.Exists(DllPathInput))
 			{				
-				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]", 
+				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]", 
 											   Captions.ND_OkButtonCaption);
 				return;
 			}
@@ -571,7 +572,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			}
 			catch
 			{
-				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]",
+				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]",
 											   Captions.ND_OkButtonCaption);				
 				return;
 			}
@@ -580,7 +581,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 			if (uninitializedBotAndBotName == null)
 			{
-				await NotificationService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
+				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
 											   Captions.ND_OkButtonCaption);				
 				return;
 			}
@@ -610,13 +611,13 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 			if (string.IsNullOrWhiteSpace(DllPathInput))
 			{
-				await NotificationService.Show(Captions.PvB_ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);
+				await NotificationDialogService.Show(Captions.PvB_ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);
 				return;
 			}
 
 			if (!File.Exists(DllPathInput))
 			{
-				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]",
+				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]",
 											   Captions.ND_OkButtonCaption);
 				return;
 			}
@@ -629,7 +630,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			}
 			catch
 			{
-				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]",
+				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]",
 											   Captions.ND_OkButtonCaption);
 				return;
 			}
@@ -638,7 +639,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 			if (uninitializedBotAndBotName == null)
 			{
-				await NotificationService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
+				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
 											   Captions.ND_OkButtonCaption);
 				return;
 			}
@@ -680,7 +681,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			{
 				case ProgressVerificationResult.EmptyOrInvalid:
 				{
-					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
+					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
 												   $"\n{Captions.PVR_EmptyOrInvalid}",
 												   Captions.ND_OkButtonCaption);
@@ -688,7 +689,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				}
 				case ProgressVerificationResult.ProgressContainsInvalidMove:
 				{
-					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
+					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
 												   $"\n{Captions.PVR_ProgressContainsInvalidMove}",
 												   Captions.ND_OkButtonCaption);
@@ -696,7 +697,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				}
 				case ProgressVerificationResult.ProgressContainsTerminatedGame:
 				{
-					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
+					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
 												   $"\n{Captions.PVR_ProgressContainsTerminatedGame}",
 												   Captions.ND_OkButtonCaption);
@@ -704,7 +705,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				}
 				case ProgressVerificationResult.ProgressContainsMoreMovesThanAllowed:
 				{
-					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
+					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
 												   $"\n{Captions.PVR_ProgressContainsMoreMovesThanAllowed}",
 												   Captions.ND_OkButtonCaption);
@@ -742,13 +743,13 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 			if (string.IsNullOrWhiteSpace(DllPathInput))
 			{
-				await NotificationService.Show(Captions.PvB_ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);
+				await NotificationDialogService.Show(Captions.PvB_ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);
 				return;
 			}
 
 			if (!File.Exists(DllPathInput))
 			{
-				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]",
+				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]",
 											   Captions.ND_OkButtonCaption);
 				return;
 			}
@@ -761,7 +762,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			}
 			catch
 			{
-				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]",
+				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]",
 											   Captions.ND_OkButtonCaption);
 				return;
 			}
@@ -770,7 +771,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 			if (uninitializedBotAndBotName == null)
 			{
-				await NotificationService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
+				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
 											   Captions.ND_OkButtonCaption);
 				return;
 			}
@@ -813,7 +814,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			{
 				case ProgressVerificationResult.EmptyOrInvalid:
 				{
-					await NotificationService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
+					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
 												   $"\n{Captions.PVR_EmptyOrInvalid}",
 												   Captions.ND_OkButtonCaption);
@@ -821,7 +822,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				}
 				case ProgressVerificationResult.ProgressContainsInvalidMove:
 				{
-					await NotificationService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
+					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
 												   $"\n{Captions.PVR_ProgressContainsInvalidMove}",
 												   Captions.ND_OkButtonCaption);
@@ -829,7 +830,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				}
 				case ProgressVerificationResult.ProgressContainsTerminatedGame:
 				{
-					await NotificationService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
+					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
 												   $"\n{Captions.PVR_ProgressContainsTerminatedGame}",
 												   Captions.ND_OkButtonCaption);
@@ -837,7 +838,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				}
 				case ProgressVerificationResult.ProgressContainsMoreMovesThanAllowed:
 				{
-					await NotificationService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
+					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
 												   $"\n{Captions.PVR_ProgressContainsMoreMovesThanAllowed}",
 												   Captions.ND_OkButtonCaption);
