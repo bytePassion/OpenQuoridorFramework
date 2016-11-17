@@ -87,6 +87,7 @@
     <Compile Include="Dialogs\StringInput\StringInputDialog.xaml.cs">
       <DependentUpon>StringInputDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\StringInput\StringInputDialogService.cs" />
     <Compile Include="Dialogs\StringInput\ViewModel\IStringInputDialogViewModel.cs" />
     <Compile Include="Dialogs\StringInput\ViewModel\StringInputDialogViewModel.cs" />
     <Compile Include="Dialogs\StringInput\ViewModel\StringInputDialogViewModelSampleData.cs" />

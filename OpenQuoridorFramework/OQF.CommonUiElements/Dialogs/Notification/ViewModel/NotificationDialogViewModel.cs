@@ -4,7 +4,7 @@
 
 namespace OQF.CommonUiElements.Dialogs.Notification.ViewModel
 {
-	public class NotificationDialogViewModel : Lib.Wpf.ViewModelBase.ViewModel, INotificationDialogViewModel
+	internal class NotificationDialogViewModel : Lib.Wpf.ViewModelBase.ViewModel, INotificationDialogViewModel
 	{
 		public NotificationDialogViewModel(string message, string buttonCaption)
 		{			

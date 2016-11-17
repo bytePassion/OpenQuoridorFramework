@@ -23,7 +23,6 @@ using OQF.Bot.Contracts.Moves;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Dialogs.StringInput;
-using OQF.CommonUiElements.Dialogs.StringInput.ViewModel;
 using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.CommonUiElements.Dialogs.YesNo.ViewModel;
 using OQF.CommonUiElements.Info;
@@ -780,19 +779,11 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 			if (string.IsNullOrWhiteSpace(progressString))
 			{
-				var stringInputDialogViewModel = new StringInputDialogViewModel(Captions.PvB_ProgressInputDialogPromt);
+				var result = await StringInputDialogService.Show(Captions.PvB_ProgressInputDialogPromt);
 
-
-				var inputDialog = new StringInputDialog
+				if (!string.IsNullOrWhiteSpace(result))
 				{
-					DataContext = stringInputDialogViewModel
-				};
-
-				var result = await DialogHost.Show(inputDialog, "RootDialog");
-
-				if (!string.IsNullOrWhiteSpace((string) result))
-				{
-					compressedProgressString = (string) result;
+					compressedProgressString = result;
 				}
 				else
 				{

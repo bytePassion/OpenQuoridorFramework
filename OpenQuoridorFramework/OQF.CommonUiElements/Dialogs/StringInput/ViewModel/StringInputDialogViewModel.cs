@@ -5,7 +5,7 @@ using OQF.Resources.LanguageDictionaries;
 
 namespace OQF.CommonUiElements.Dialogs.StringInput.ViewModel
 {
-	public class StringInputDialogViewModel : Lib.Wpf.ViewModelBase.ViewModel, IStringInputDialogViewModel
+	internal class StringInputDialogViewModel : Lib.Wpf.ViewModelBase.ViewModel, IStringInputDialogViewModel
 	{
 		public StringInputDialogViewModel(string promt)
 		{
