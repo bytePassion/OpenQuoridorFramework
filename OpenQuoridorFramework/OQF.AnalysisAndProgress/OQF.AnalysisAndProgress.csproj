@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2F71F7F9-F40A-45E3-9401-5A40933DB8C7}</ProjectGuid>
+    <ProjectGuid>{1BD024DD-F067-439E-9A9D-87739108D8D9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OQF.Utils</RootNamespace>
-    <AssemblyName>OQF.Utils</AssemblyName>
+    <RootNamespace>OQF.AnalysisAndProgress</RootNamespace>
+    <AssemblyName>OQF.AnalysisAndProgress</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,22 +41,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoardStateUtils\BoardStateExtensions.cs" />
-    <Compile Include="BoardStateUtils\BoardStateTransition.cs" />
-    <Compile Include="BoardStateUtils\PlayerTransitions.cs" />
-    <Compile Include="BotLoader.cs" />
-    <Compile Include="CreateProgressText.cs" />
-    <Compile Include="CultureManager.cs" />
+    <Compile Include="Analysis\AnalysisGraph\Direction.cs" />
+    <Compile Include="Analysis\AnalysisGraph\FieldCoordinateExtensions.cs" />
+    <Compile Include="Analysis\AnalysisGraph\Graph.cs" />
+    <Compile Include="Analysis\AnalysisGraph\GraphConstruction.cs" />
+    <Compile Include="Analysis\AnalysisGraph\Node.cs" />
+    <Compile Include="Analysis\GameAnalysis.cs" />
+    <Compile Include="Analysis\HumanPlayerAnalysis.cs" />
+    <Compile Include="Analysis\HumanPlayerAnalysisResult.cs" />
+    <Compile Include="ProgressUtils\Coding\BaseCoding.cs" />
+    <Compile Include="ProgressUtils\Coding\MoveListCoding.cs" />
+    <Compile Include="ProgressUtils\Coding\ProgressCoding.cs" />
+    <Compile Include="ProgressUtils\CreateQProgress.cs" />
+    <Compile Include="ProgressUtils\Parsing\MoveParser.cs" />
+    <Compile Include="ProgressUtils\Parsing\ParseProgressText.cs" />
+    <Compile Include="ProgressUtils\QProgress.cs" />
+    <Compile Include="ProgressUtils\UpdateQProgress.cs" />
+    <Compile Include="ProgressUtils\Validation\MoveValidator.cs" />
+    <Compile Include="ProgressUtils\Validation\ProgressVerificationResult.cs" />
+    <Compile Include="ProgressUtils\Validation\ProgressVerifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
-      <Project>{6C27F04B-CFCC-4267-8720-4A44D7529A21}</Project>
+      <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
       <Name>Lib.FrameworkExtension</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
-      <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
+      <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Utils\OQF.Utils.csproj">
+      <Project>{2f71f7f9-f40a-45e3-9401-5a40933db8c7}</Project>
+      <Name>OQF.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

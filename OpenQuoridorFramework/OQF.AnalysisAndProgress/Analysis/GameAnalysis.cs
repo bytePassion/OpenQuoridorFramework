@@ -1,9 +1,9 @@
-﻿using OQF.Bot.Contracts.Coordination;
+﻿using OQF.AnalysisAndProgress.Analysis.AnalysisGraph;
+using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.Utils.Analysis.AnalysisGraph;
 
-namespace OQF.Utils.Analysis
+namespace OQF.AnalysisAndProgress.Analysis
 {
 	public static class GameAnalysis
 	{

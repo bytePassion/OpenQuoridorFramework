@@ -1,4 +1,4 @@
-﻿namespace OQF.Utils.Analysis.AnalysisGraph
+﻿namespace OQF.AnalysisAndProgress.Analysis.AnalysisGraph
 {
 	internal enum Direction
 	{

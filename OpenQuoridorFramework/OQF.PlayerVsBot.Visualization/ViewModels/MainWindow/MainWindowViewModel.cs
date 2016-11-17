@@ -15,6 +15,8 @@ using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
+using OQF.AnalysisAndProgress.ProgressUtils;
+using OQF.AnalysisAndProgress.ProgressUtils.Validation;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
@@ -34,8 +36,6 @@ using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
-using OQF.Utils.ProgressUtils;
-using OQF.Utils.ProgressUtils.Validation;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 {

@@ -110,6 +110,10 @@
       <Project>{6C27F04B-CFCC-4267-8720-4A44D7529A21}</Project>
       <Name>Lib.FrameworkExtension</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.AnalysisAndProgress\OQF.AnalysisAndProgress.csproj">
+      <Project>{1BD024DD-F067-439E-9A9D-87739108D8D9}</Project>
+      <Name>OQF.AnalysisAndProgress</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.PlayerVsBot.Contracts\OQF.PlayerVsBot.Contracts.csproj">
       <Project>{019F752C-6C3C-4EB5-B450-CAAB3BB1EF1D}</Project>
       <Name>OQF.PlayerVsBot.Contracts</Name>

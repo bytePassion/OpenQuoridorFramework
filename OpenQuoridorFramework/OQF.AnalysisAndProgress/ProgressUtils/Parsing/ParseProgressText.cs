@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using OQF.Utils.ProgressUtils.Validation;
+using OQF.AnalysisAndProgress.ProgressUtils.Validation;
 
-namespace OQF.Utils.ProgressUtils.Parsing
+namespace OQF.AnalysisAndProgress.ProgressUtils.Parsing
 {
 	internal static class ParseProgressText
 	{

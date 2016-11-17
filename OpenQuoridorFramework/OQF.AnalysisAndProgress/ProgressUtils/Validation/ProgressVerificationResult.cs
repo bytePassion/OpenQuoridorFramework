@@ -1,4 +1,4 @@
-﻿namespace OQF.Utils.ProgressUtils.Validation
+﻿namespace OQF.AnalysisAndProgress.ProgressUtils.Validation
 {
 	public enum ProgressVerificationResult
 	{

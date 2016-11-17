@@ -10,6 +10,7 @@ using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
+using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
 using OQF.CommonUiElements.Info;
@@ -17,7 +18,6 @@ using OQF.GameEngine.Contracts.Replay;
 using OQF.ReplayViewer.Visualization.Services;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
-using OQF.Utils.ProgressUtils;
 
 namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 {

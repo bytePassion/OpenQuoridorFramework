@@ -7,13 +7,13 @@ using Lib.FrameworkExtension;
 using Lib.SemanicTypes;
 using Lib.Wpf.Commands;
 using Lib.Wpf.ViewModelBase;
+using OQF.AnalysisAndProgress.Analysis;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
 using OQF.PlayerVsBot.Visualization.Services;
-using OQF.Utils.Analysis;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 {

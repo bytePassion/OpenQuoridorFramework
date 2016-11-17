@@ -1,6 +1,6 @@
-﻿using OQF.Bot.Contracts;
+﻿using OQF.AnalysisAndProgress.ProgressUtils;
+using OQF.Bot.Contracts;
 using OQF.GameEngine.Contracts.Games;
-using OQF.Utils.ProgressUtils;
 
 namespace OQF.GameEngine.Contracts.Factories
 {

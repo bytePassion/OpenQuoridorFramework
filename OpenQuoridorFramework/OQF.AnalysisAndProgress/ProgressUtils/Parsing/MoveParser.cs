@@ -2,7 +2,7 @@
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 
-namespace OQF.Utils.ProgressUtils.Parsing
+namespace OQF.AnalysisAndProgress.ProgressUtils.Parsing
 {
 	internal static class MoveParser
 	{

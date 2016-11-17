@@ -1,7 +1,7 @@
 ﻿using Lib.FrameworkExtension;
 using OQF.Bot.Contracts.Moves;
 
-namespace OQF.Utils.ProgressUtils
+namespace OQF.AnalysisAndProgress.ProgressUtils
 {
 	public static class UpdateQProgress
 	{

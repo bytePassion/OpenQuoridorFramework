@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading;
+using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
 using OQF.GameEngine.Contracts.Games;
-using OQF.Utils.ProgressUtils;
 
 namespace OQF.PlayerVsBot.Visualization.Services
 {

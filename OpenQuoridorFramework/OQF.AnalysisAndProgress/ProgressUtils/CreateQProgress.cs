@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using OQF.AnalysisAndProgress.ProgressUtils.Coding;
+using OQF.AnalysisAndProgress.ProgressUtils.Parsing;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.Utils.BoardStateUtils;
-using OQF.Utils.ProgressUtils.Coding;
-using OQF.Utils.ProgressUtils.Parsing;
 
-namespace OQF.Utils.ProgressUtils
+namespace OQF.AnalysisAndProgress.ProgressUtils
 {
 	public static class CreateQProgress
 	{

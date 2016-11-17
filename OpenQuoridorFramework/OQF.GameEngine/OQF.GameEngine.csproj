@@ -61,6 +61,10 @@
       <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
       <Name>Lib.FrameworkExtension</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.AnalysisAndProgress\OQF.AnalysisAndProgress.csproj">
+      <Project>{1BD024DD-F067-439E-9A9D-87739108D8D9}</Project>
+      <Name>OQF.AnalysisAndProgress</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Bot.Contracts</Name>

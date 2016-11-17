@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using OQF.Bot.Contracts.Coordination;
 
-namespace OQF.Utils.Analysis.AnalysisGraph
+namespace OQF.AnalysisAndProgress.Analysis.AnalysisGraph
 {
 	public class Node
 	{

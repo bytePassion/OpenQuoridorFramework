@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.GameEngine.Contracts.Replay;
 using OQF.Utils.BoardStateUtils;
-using OQF.Utils.ProgressUtils;
 
 namespace OQF.GameEngine.Replay
 {

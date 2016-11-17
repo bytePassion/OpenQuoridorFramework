@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading;
 using Lib.Concurrency;
+using OQF.AnalysisAndProgress.Analysis;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
-using OQF.Utils.Analysis;
 using OQF.Utils.BoardStateUtils;
 
 namespace OQF.GameEngine.Game

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using OQF.AnalysisAndProgress.ProgressUtils.Coding;
 using OQF.Bot.Contracts.Moves;
-using OQF.Utils.ProgressUtils.Coding;
 
-namespace OQF.Utils.ProgressUtils
+namespace OQF.AnalysisAndProgress.ProgressUtils
 {
 	public class QProgress
 	{

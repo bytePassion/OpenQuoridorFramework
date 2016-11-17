@@ -1,6 +1,6 @@
 ﻿using System;
+using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.GameElements;
-using OQF.Utils.ProgressUtils;
 
 namespace OQF.GameEngine.Contracts.Replay
 {

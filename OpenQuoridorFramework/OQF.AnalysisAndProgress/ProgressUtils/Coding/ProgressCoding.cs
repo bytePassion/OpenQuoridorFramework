@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using OQF.AnalysisAndProgress.ProgressUtils.Parsing;
 using OQF.Bot.Contracts.Moves;
-using OQF.Utils.ProgressUtils.Parsing;
+using OQF.Utils;
 
-namespace OQF.Utils.ProgressUtils.Coding
+namespace OQF.AnalysisAndProgress.ProgressUtils.Coding
 {
 	internal static class ProgressCoding
 	{

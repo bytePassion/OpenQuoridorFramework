@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
+using OQF.AnalysisAndProgress.Analysis;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.Utils.Analysis;
 using OQF.Utils.BoardStateUtils;
 
-namespace OQF.Utils.ProgressUtils.Validation
+namespace OQF.AnalysisAndProgress.ProgressUtils.Validation
 {
 	public static class ProgressVerifier 
 	{

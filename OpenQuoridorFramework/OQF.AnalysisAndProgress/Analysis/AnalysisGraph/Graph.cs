@@ -5,7 +5,7 @@ using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 
-namespace OQF.Utils.Analysis.AnalysisGraph
+namespace OQF.AnalysisAndProgress.Analysis.AnalysisGraph
 {
 	public class Graph
 	{
