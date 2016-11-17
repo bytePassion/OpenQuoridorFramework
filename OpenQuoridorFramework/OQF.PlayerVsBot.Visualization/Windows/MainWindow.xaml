@@ -17,7 +17,7 @@
         Width="1200"
         Height="950"
         MinWidth="1000"
-        MinHeight="600"		
+        MinHeight="600"
         Background="{DynamicResource MaterialDesignFlatButtonClick}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         TextElement.FontSize="12"
@@ -39,8 +39,8 @@
         <computations:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
         <computations:GetBottomPlayerMoveFromString x:Key="GetBottomPlayerMoveFromString" />
         <computations:GetTopPlayerMoveFromString x:Key="GetTopPlayerMoveFromString" />
-		<computations:GetProgressNrFromString x:Key="GetProgressNrFromString" />
-	</Window.Resources>
+        <computations:GetProgressNrFromString x:Key="GetProgressNrFromString" />
+    </Window.Resources>
 
     <materialDesign:DialogHost Identifier="RootDialog">
 
@@ -65,7 +65,7 @@
                                       Mode="Dark"
                                       Padding="8">
                 <DockPanel>
-					
+
                     <Button Width="60"
                             Margin="4,0"
                             Command="{Binding BrowseDll}"
@@ -74,7 +74,7 @@
                             ToolTip="{Binding BrowseForBotButtonToolTipCaption}">
                         <materialDesign:PackIcon Kind="OpenInNew" />
                     </Button>
-					
+
                     <Button Width="60"
                             Margin="4,0"
                             Command="{Binding Start}"
@@ -83,57 +83,61 @@
                             ToolTip="{Binding StartGameButtonToolTipCaption}">
                         <materialDesign:PackIcon Kind="Play" />
                     </Button>
-					
-                    <Button Width="60"
+
+                    <Button Name="startWithProgressButton"
+                            Width="60"
                             Margin="4,0"
-                            Command="{Binding StartWithProgress}"							
+                            Command="{Binding StartWithProgress}"
                             DockPanel.Dock="Left"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             ToolTip="{Binding StartWithProgressGameButtonToolTipCaption}">
 
-						<Canvas>
-							<materialDesign:PackIcon Canvas.Left="-15"
+                        <Canvas>
+                            <materialDesign:PackIcon Canvas.Left="-15"
                                                      Canvas.Top="-8"
                                                      Kind="Play" />
-							<Viewbox Canvas.Left="-3"
+                            <Viewbox Canvas.Left="-3"
                                      Canvas.Top="-9"
                                      Width="20"
                                      Height="15">
 
-								<Path Data="M7,13H21V11H7M7,19H21V17H7M7,7H21V5H7M2,11H3.8L2,13.1V14H5V13H3.2L5,10.9V10H2M3,8H4V4H2V5H3M2,17H4V17.5H3V18.5H4V19H2V20H5V16H2V17Z" Fill="White" />
+                                <Path Data="M7,13H21V11H7M7,19H21V17H7M7,7H21V5H7M2,11H3.8L2,13.1V14H5V13H3.2L5,10.9V10H2M3,8H4V4H2V5H3M2,17H4V17.5H3V18.5H4V19H2V20H5V16H2V17Z" Fill="White" />
 
-							</Viewbox>
-						</Canvas>
+                            </Viewbox>
+                        </Canvas>
 
-					</Button>
+                    </Button>
 
-					<Popup IsOpen="{Binding IsStartWithProgressPopupVisible, 
-											Mode=TwoWay, 
-											UpdateSourceTrigger=PropertyChanged}"
-						   StaysOpen="False"
-						   Placement="Mouse"
-						   Width="120"
-						   Height="65">
-						
-						<StackPanel Margin="5"
-									Background="Gray">
-							
-							<Button Content="From File"   
-									Height="25" 
-									Width="110" 
-									Command="{Binding StartWithProgressFromFile}"
-									CommandParameter="{x:Static system:String.Empty}"/>
-							
-							<Button Margin="0,5,0,0"
-									Content="From String" 
-									Height="25" 
-									Width="110" 
-									Command="{Binding StartWithProgressFromString}"
-									CommandParameter="{x:Static system:String.Empty}"/>
-						</StackPanel>
-						
-					</Popup>
-					
+                    <Popup HorizontalOffset="0"
+                           IsOpen="{Binding IsStartWithProgressPopupVisible,
+                                            Mode=TwoWay,
+                                            UpdateSourceTrigger=PropertyChanged}"
+                           Placement="Bottom"
+                           PlacementTarget="{Binding ElementName=startWithProgressButton}"
+                           StaysOpen="False"
+                           VerticalOffset="8">
+                        <materialDesign:ColorZone Mode="Dark">
+                            <StackPanel Margin="5">
+
+                                <Button Width="110"
+                                        Height="25"
+                                        Command="{Binding StartWithProgressFromFile}"
+                                        CommandParameter="{x:Static system:String.Empty}"
+                                        Content="From File" />
+
+                                <Button Width="110"
+                                        Height="25"
+                                        Margin="0,5,0,0"
+                                        Command="{Binding StartWithProgressFromString}"
+                                        CommandParameter="{x:Static system:String.Empty}"
+                                        Content="From String" />
+                            </StackPanel>
+                        </materialDesign:ColorZone>
+
+
+
+                    </Popup>
+
                     <Button Margin="4,0"
                             Command="{Binding ShowAboutHelp}"
                             DockPanel.Dock="Right"
@@ -152,16 +156,16 @@
                                 VerticalAlignment="Center"
                                 DockPanel.Dock="Left"
                                 Orientation="Horizontal">
-						
+
                         <TextBlock Margin="20,0"
                                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                                    Text="{Binding HeaderCaptionPlayer,
-                                                  Mode=OneWay}"/>
-						
+                                                  Mode=OneWay}" />
+
                         <TextBlock VerticalAlignment="Center"
                                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
                                    Text="vs." />
-						
+
                         <TextBlock Margin="20,0"
                                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                                    Text="{Binding TopPlayerName,
@@ -187,19 +191,19 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-					<Ellipse Grid.RowSpan="2"
+                    <Ellipse Grid.RowSpan="2"
                              Grid.Column="0"
                              Width="40"
                              Height="40"
                              Fill="{Binding GameStatus,
-                                            Converter={StaticResource TopPlayerMarkerColor}}"/>
+                                            Converter={StaticResource TopPlayerMarkerColor}}" />
 
-					<TextBlock Grid.Column="1"
+                    <TextBlock Grid.Column="1"
                                Margin="80,0,10,0"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
                                FontSize="20">
-                        <Run Text="{Binding MaximalThinkingTimeLabelCaption, Mode=OneWay}"/>
+                        <Run Text="{Binding MaximalThinkingTimeLabelCaption, Mode=OneWay}" />
                         :</TextBlock>
 
                     <TextBlock Grid.Column="2"
@@ -235,10 +239,7 @@
                                  Margin="8,0,0,0"
                                  VerticalAlignment="Stretch">
 
-                <Expander ExpandDirection="Right" 
-						  IsExpanded="{Binding IsProgressSectionExpanded, 
-											   Mode=TwoWay, 
-											   UpdateSourceTrigger=PropertyChanged}">
+                <Expander ExpandDirection="Right" IsExpanded="{Binding IsProgressSectionExpanded, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <Expander.Header>
                         <TextBlock RenderTransformOrigin=".5,.5" Text="{Binding ProgressCaption}">
                             <TextBlock.LayoutTransform>
@@ -247,124 +248,122 @@
                         </TextBlock>
                     </Expander.Header>
 
-					<DockPanel VerticalAlignment="Stretch">
+                    <DockPanel VerticalAlignment="Stretch">
 
-						<GroupBox DockPanel.Dock="Bottom"
-								  Width="250"
-                                  Margin="5"								  
+                        <GroupBox Width="250"
+                                  Margin="5"
                                   materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                   BorderThickness="0"
+                                  DockPanel.Dock="Bottom"
                                   Header="{Binding CompressedProgressCaption}"
                                   Style="{DynamicResource MaterialDesignGroupBox}">
-							
-							<Grid>
-								
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition/>
-									<ColumnDefinition Width="60"/>
-								</Grid.ColumnDefinitions>
-								
-								<TextBox Grid.Column="0"
-										 Margin="5"
-										 IsReadOnly="True"
-										 TextWrapping="Wrap"
-										 Text="{Binding CompressedProgress, 
-														Mode=OneWay}"/>
-								
-								<Button Grid.Column="1"
-										Margin="5"
-										ToolTip="{Binding CopyToClipboardButtonToolTipCpation}"
-										Command="{Binding CopyCompressedProgressToClipBoard}">
 
-									<Viewbox Width="18" Height="18">
-										<Canvas Width="24" Height="24">
-											<Path Data="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 
-												        21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" 
-												  Fill="White" />
-										</Canvas>
-									</Viewbox>
+                            <Grid>
 
-								</Button>
-								
-							</Grid>
-							
-						</GroupBox>
-						
-						<GroupBox DockPanel.Dock="Top"
-								  Width="250"
-                                  Margin="5"								  
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="60" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0"
+                                         Margin="5"
+                                         IsReadOnly="True"
+                                         Text="{Binding CompressedProgress,
+                                                        Mode=OneWay}"
+                                         TextWrapping="Wrap" />
+
+                                <Button Grid.Column="1"
+                                        Margin="5"
+                                        Command="{Binding CopyCompressedProgressToClipBoard}"
+                                        ToolTip="{Binding CopyToClipboardButtonToolTipCpation}">
+
+                                    <Viewbox Width="18" Height="18">
+                                        <Canvas Width="24" Height="24">
+                                            <Path Data="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0                      21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" Fill="White" />
+                                        </Canvas>
+                                    </Viewbox>
+
+                                </Button>
+
+                            </Grid>
+
+                        </GroupBox>
+
+                        <GroupBox Width="250"
+                                  Margin="5"
                                   materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                   BorderThickness="0"
+                                  DockPanel.Dock="Top"
                                   Header="{Binding ProgressCaption}"
                                   Style="{DynamicResource MaterialDesignGroupBox}">
 
 
-							<Grid>
-								<Grid.RowDefinitions>
-									<RowDefinition Height="40" />
-									<RowDefinition />
-								</Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
 
-								<CheckBox HorizontalAlignment="Right"
-                                      VerticalAlignment="Center"
-                                      Content="{Binding AutoScrollDownCheckBoxCaption}"
-                                      IsChecked="{Binding IsAutoScrollProgressActive,
-                                                          Mode=TwoWay,
-                                                          UpdateSourceTrigger=PropertyChanged}" />
+                                <CheckBox HorizontalAlignment="Right"
+                                          VerticalAlignment="Center"
+                                          Content="{Binding AutoScrollDownCheckBoxCaption}"
+                                          IsChecked="{Binding IsAutoScrollProgressActive,
+                                                              Mode=TwoWay,
+                                                              UpdateSourceTrigger=PropertyChanged}" />
 
-								<Button Grid.Row="0"
-                                    Width="95"
-                                    Height="25"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
-                                    Command="{Binding DumpProgressToFile}"
-                                    Content="{Binding DumpProgressToFileButtonCaption}" />
+                                <Button Grid.Row="0"
+                                        Width="95"
+                                        Height="25"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Command="{Binding DumpProgressToFile}"
+                                        Content="{Binding DumpProgressToFileButtonCaption}" />
 
-								<ScrollViewer Grid.Row="1"
-                                          HorizontalScrollBarVisibility="Auto"
-                                          VerticalScrollBarVisibility="Auto">
+                                <ScrollViewer Grid.Row="1"
+                                              HorizontalScrollBarVisibility="Auto"
+                                              VerticalScrollBarVisibility="Auto">
 
-									<ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}">
+                                    <ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}">
 
-										<ItemsControl.ItemTemplate>
-											<DataTemplate DataType="system:String">
-												<Grid>
-													<Grid.ColumnDefinitions>
-														<ColumnDefinition Width="30" />
-														<ColumnDefinition Width="30" />
-														<ColumnDefinition Width="30" />
-													</Grid.ColumnDefinitions>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate DataType="system:String">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="30" />
+                                                        <ColumnDefinition Width="30" />
+                                                        <ColumnDefinition Width="30" />
+                                                    </Grid.ColumnDefinitions>
 
-													<TextBlock Grid.Column="0"
-                                                           Margin="0,0,10,0"
-                                                           HorizontalAlignment="Right"
-                                                           Text="{Binding Converter={StaticResource GetProgressNrFromString}}" />
+                                                    <TextBlock Grid.Column="0"
+                                                               Margin="0,0,10,0"
+                                                               HorizontalAlignment="Right"
+                                                               Text="{Binding Converter={StaticResource GetProgressNrFromString}}" />
 
-													<TextBlock Grid.Column="1"
-                                                           HorizontalAlignment="Left"
-                                                           Text="{Binding Converter={StaticResource GetBottomPlayerMoveFromString}}" />
+                                                    <TextBlock Grid.Column="1"
+                                                               HorizontalAlignment="Left"
+                                                               Text="{Binding Converter={StaticResource GetBottomPlayerMoveFromString}}" />
 
-													<TextBlock Grid.Column="2"
-                                                           HorizontalAlignment="Left"
-                                                           Text="{Binding Converter={StaticResource GetTopPlayerMoveFromString}}" />
+                                                    <TextBlock Grid.Column="2"
+                                                               HorizontalAlignment="Left"
+                                                               Text="{Binding Converter={StaticResource GetTopPlayerMoveFromString}}" />
 
-												</Grid>
-											</DataTemplate>
-										</ItemsControl.ItemTemplate>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
 
-									</ItemsControl>
+                                    </ItemsControl>
 
-									<i:Interaction.Behaviors>
-										<libBehaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
-									</i:Interaction.Behaviors>
-								</ScrollViewer>
-							</Grid>
+                                    <i:Interaction.Behaviors>
+                                        <libBehaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
+                                    </i:Interaction.Behaviors>
+                                </ScrollViewer>
+                            </Grid>
 
-						</GroupBox>
+                        </GroupBox>
 
-					</DockPanel>
-					
-                    
+                    </DockPanel>
+
+
                 </Expander>
 
             </materialDesign:Card>
