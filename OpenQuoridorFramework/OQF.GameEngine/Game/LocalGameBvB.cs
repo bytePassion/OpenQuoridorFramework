@@ -5,7 +5,7 @@ using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Games;
-using OQF.GameEngine.Transitions;
+using OQF.Utils.BoardStateUtils;
 
 namespace OQF.GameEngine.Game
 {

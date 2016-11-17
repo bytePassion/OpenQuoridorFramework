@@ -1,4 +1,6 @@
-﻿namespace OQF.Utils
+﻿using OQF.Utils.ProgressUtils.Parsing;
+
+namespace OQF.Utils.ProgressUtils.Validation
 {
 	public static class MoveValidator
 	{

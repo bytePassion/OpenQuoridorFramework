@@ -6,7 +6,7 @@ using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 
-namespace OQF.Utils.ProgressCodingUtils
+namespace OQF.Utils.ProgressUtils.Coding
 {
 	public static class MoveListCoding
 	{

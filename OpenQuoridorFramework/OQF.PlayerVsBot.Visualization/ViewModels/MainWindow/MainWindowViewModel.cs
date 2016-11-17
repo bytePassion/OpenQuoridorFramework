@@ -35,7 +35,8 @@ using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
-using OQF.Utils.ProgressCodingUtils;
+using OQF.Utils.BoardStateUtils;
+using OQF.Utils.ProgressUtils.Coding;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 {

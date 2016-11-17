@@ -41,19 +41,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoardStateExtensions.cs" />
+    <Compile Include="BoardStateUtils\BoardStateExtensions.cs" />
+    <Compile Include="BoardStateUtils\BoardStateTransition.cs" />
+    <Compile Include="BoardStateUtils\PlayerTransitions.cs" />
     <Compile Include="BotLoader.cs" />
     <Compile Include="CreateProgressText.cs" />
     <Compile Include="CultureManager.cs" />
-    <Compile Include="MoveParser.cs" />
-    <Compile Include="MoveValidator.cs" />
-    <Compile Include="ParseProgressText.cs" />
-    <Compile Include="ProgressCodingUtils\BaseCoding.cs" />
-    <Compile Include="ProgressCodingUtils\MoveListCoding.cs" />
-    <Compile Include="ProgressCodingUtils\ProgressCoding.cs" />
+    <Compile Include="ProgressUtils\CreateQProgress.cs" />
+    <Compile Include="ProgressUtils\Parsing\MoveParser.cs" />
+    <Compile Include="ProgressUtils\UpdateQProgress.cs" />
+    <Compile Include="ProgressUtils\Validation\MoveValidator.cs" />
+    <Compile Include="ProgressUtils\Parsing\ParseProgressText.cs" />
+    <Compile Include="ProgressUtils\Coding\BaseCoding.cs" />
+    <Compile Include="ProgressUtils\Coding\MoveListCoding.cs" />
+    <Compile Include="ProgressUtils\Coding\ProgressCoding.cs" />
+    <Compile Include="ProgressUtils\QProgress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
+      <Project>{6C27F04B-CFCC-4267-8720-4A44D7529A21}</Project>
+      <Name>Lib.FrameworkExtension</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Bot.Contracts</Name>

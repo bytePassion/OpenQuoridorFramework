@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.GameEngine.Contracts.Replay;
-using OQF.GameEngine.Transitions;
-using OQF.Utils;
+using OQF.Utils.BoardStateUtils;
+using OQF.Utils.ProgressUtils.Parsing;
 
 namespace OQF.GameEngine.Replay
 {

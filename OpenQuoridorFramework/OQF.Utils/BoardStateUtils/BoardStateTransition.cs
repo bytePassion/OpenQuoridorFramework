@@ -3,7 +3,7 @@ using Lib.FrameworkExtension;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 
-namespace OQF.GameEngine.Transitions
+namespace OQF.Utils.BoardStateUtils
 {
 	public static class BoardStateTransition
 	{

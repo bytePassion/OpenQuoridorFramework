@@ -8,9 +8,9 @@ using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Analysis;
 using OQF.GameEngine.Contracts.Enums;
-using OQF.GameEngine.Transitions;
-using OQF.Utils;
-using OQF.Utils.ProgressCodingUtils;
+using OQF.Utils.BoardStateUtils;
+using OQF.Utils.ProgressUtils.Coding;
+using OQF.Utils.ProgressUtils.Parsing;
 
 namespace OQF.GameEngine.Game
 {

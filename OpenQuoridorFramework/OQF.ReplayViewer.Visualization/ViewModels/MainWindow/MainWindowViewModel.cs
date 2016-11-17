@@ -18,6 +18,7 @@ using OQF.ReplayViewer.Visualization.Services;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
 using OQF.Utils;
+using OQF.Utils.ProgressUtils.Parsing;
 
 namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 {

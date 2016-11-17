@@ -2,8 +2,9 @@
 using System.Linq;
 using System.Text;
 using OQF.Bot.Contracts.Moves;
+using OQF.Utils.ProgressUtils.Parsing;
 
-namespace OQF.Utils.ProgressCodingUtils
+namespace OQF.Utils.ProgressUtils.Coding
 {
 	public static class ProgressCoding
 	{

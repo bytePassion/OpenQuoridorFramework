@@ -26,7 +26,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
-namespace OQF.Utils.ProgressCodingUtils
+namespace OQF.Utils.ProgressUtils.Coding
 {
 	public static class BaseCoding
 	{		

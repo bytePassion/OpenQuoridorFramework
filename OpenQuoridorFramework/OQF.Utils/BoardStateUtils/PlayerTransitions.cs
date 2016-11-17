@@ -2,7 +2,7 @@
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.GameEngine.Transitions
+namespace OQF.Utils.BoardStateUtils
 {
 	public static class PlayerTransitions
 	{
