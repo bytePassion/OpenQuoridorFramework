@@ -26,7 +26,6 @@ using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.CommonUiElements.Info;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.GameEngine.Contracts.Enums;
-using OQF.GameEngine.Contracts.Factories;
 using OQF.PlayerVsBot.Contracts.Settings;
 using OQF.PlayerVsBot.Visualization.Global;
 using OQF.PlayerVsBot.Visualization.Services;
@@ -35,19 +34,20 @@ using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
-using OQF.Utils.BoardStateUtils;
-using OQF.Utils.ProgressUtils.Coding;
+using OQF.Utils.ProgressUtils;
+using OQF.Utils.ProgressUtils.Validation;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 {
 	public class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
+		//private QProgress currentProgress;
+
 		private readonly Timer botCountDownTimer;
 		private DateTime startTime;
 
 		private readonly IGameService gameService;
-		private readonly IApplicationSettingsRepository applicationSettingsRepository;
-		private readonly IProgressVerifierFactory progressVerifierFactory;
+		private readonly IApplicationSettingsRepository applicationSettingsRepository;		
 		private readonly bool disableClosingDialog;
 
 		private string dllPathInput;		
@@ -70,15 +70,13 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 									IBoardPlacementViewModel boardPlacementViewModel,
 									ILanguageSelectionViewModel languageSelectionViewModel,
 									IGameService gameService, 
-									IApplicationSettingsRepository applicationSettingsRepository,
-									IProgressVerifierFactory progressVerifierFactory,
+									IApplicationSettingsRepository applicationSettingsRepository,									
 									bool disableClosingDialog)
 		{
 			CultureManager.CultureChanged += RefreshCaptions;
 
 			this.gameService = gameService;
-			this.applicationSettingsRepository = applicationSettingsRepository;
-			this.progressVerifierFactory = progressVerifierFactory;
+			this.applicationSettingsRepository = applicationSettingsRepository;			
 			this.disableClosingDialog = disableClosingDialog;
 
 			LanguageSelectionViewModel = languageSelectionViewModel;
@@ -298,8 +296,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
                 {
                     if (result.Value)
                     {
-                        var fileText = CreateProgressText.FromBoardState(gameService.CurrentBoardState)
-                                                         .AndAppendWinnerAndReason(player, winningReason, invalidMove);
+	                    var fileText = CreateProgressText.FromBoardState(gameService.CurrentBoardState);
+                                                      // TODO   .AndAppendWinnerAndReason(player, winningReason, invalidMove);
 
                         File.WriteAllText(dialog.FileName, fileText);
                     }
@@ -353,7 +351,9 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 					if (GameProgress.Count > 0)
 					{
 						GameProgress[GameProgress.Count - 1] = GameProgress[GameProgress.Count - 1] + $" {boardState.LastMove}";
-						CompressedProgress = ProgressCoding.ProgressToCompressedString(boardState.GetMoveList());
+
+						// TODO improve
+						CompressedProgress = CreateQProgress.FromBoardState(boardState).Compressed;						
 					}
 
 					var currentMovesLeft = int.Parse(MovesLeft);
@@ -364,7 +364,10 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				else
 				{
                     GameProgress.Add($"{GameProgress.Count + 1}: " + $"{boardState.LastMove}");
-					CompressedProgress = ProgressCoding.ProgressToCompressedString(boardState.GetMoveList());
+
+					// TODO improve
+					CompressedProgress = CreateQProgress.FromBoardState(boardState).Compressed;
+
 					StartTimer();
 				}
 			}			
@@ -659,12 +662,11 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			}
 
 			var progressText = File.ReadAllText(progressFilePath);
+			var initialProgress = CreateQProgress.FromReadableProgressTextFile(progressText);
 
-			var fileVerifier = progressVerifierFactory.CreateVerifier();
-
-			var verificationResult = fileVerifier.Verify(progressText, 
-														 ProgressTextType.Readable, 
-														 Constants.GameConstraint.MaximalMovesPerGame);
+			var verificationResult = ProgressVerifier.Verify(initialProgress, 
+														     Constants.GameConstraint.MaximalMovesPerGame,
+															 true);
 
 			switch (verificationResult)
 			{
@@ -708,8 +710,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 										   uninitializedBotAndBotName.Item2,
 										   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
 															   Constants.GameConstraint.MaximalMovesPerGame), 
-										   progressText,
-										   ProgressTextType.Readable);
+										   initialProgress);
 
 					((Command)Capitulate).RaiseCanExecuteChanged();
 					return;
@@ -783,13 +784,13 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			else
 			{
 				compressedProgressString = progressString;
-			}			
+			}
 
-			var fileVerifier = progressVerifierFactory.CreateVerifier();
+			var initialProgress = CreateQProgress.FromCompressedProgressString(compressedProgressString);
 
-			var verificationResult = fileVerifier.Verify(compressedProgressString, 
-														 ProgressTextType.Compressed, 
-														 Constants.GameConstraint.MaximalMovesPerGame);
+			var verificationResult = ProgressVerifier.Verify(initialProgress, 														 
+															 Constants.GameConstraint.MaximalMovesPerGame,
+															 true);
 
 			switch (verificationResult)
 			{
@@ -832,9 +833,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 					gameService.CreateGame(uninitializedBotAndBotName.Item1,
 										   uninitializedBotAndBotName.Item2,
 										   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
-															   Constants.GameConstraint.MaximalMovesPerGame), 
-										   compressedProgressString,
-										   ProgressTextType.Compressed);
+															   Constants.GameConstraint.MaximalMovesPerGame),
+										   initialProgress);
 
 					((Command)Capitulate).RaiseCanExecuteChanged();
 					return;

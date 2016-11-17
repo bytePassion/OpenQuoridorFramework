@@ -1,11 +1,11 @@
 ﻿using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Analysis.AnalysisGraph;
+using OQF.Utils.Analysis.AnalysisGraph;
 
-namespace OQF.GameEngine.Analysis
+namespace OQF.Utils.Analysis
 {
-	internal static class GameAnalysis
+	public static class GameAnalysis
 	{
 	    public static bool IsMoveLegal(BoardState currentBoardState, Move potentialNextMove)
 		{

@@ -28,7 +28,7 @@ using System.Numerics;
 
 namespace OQF.Utils.ProgressUtils.Coding
 {
-	public static class BaseCoding
+	internal static class BaseCoding
 	{		
 		private const string CharSet = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM+/=";
 		

@@ -8,7 +8,7 @@ using OQF.Bot.Contracts.Moves;
 
 namespace OQF.Utils.ProgressUtils.Coding
 {
-	public static class MoveListCoding
+	internal static class MoveListCoding
 	{
 		public static BigInteger ConvertMoveListToBigInteger(IEnumerable<Move> moves)
 		{

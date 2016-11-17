@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using OQF.Bot.Contracts.GameElements;
+using OQF.Utils.ProgressUtils;
 
 namespace OQF.GameEngine.Contracts.Replay
 {
@@ -10,7 +10,7 @@ namespace OQF.GameEngine.Contracts.Replay
 
 		BoardState GetCurrentBoardState();
 
-		int NewReplay(IEnumerable<string> allmoves);
+		void NewReplay(QProgress progress);
 
 		void NextMove();
 		void PreviousMove();

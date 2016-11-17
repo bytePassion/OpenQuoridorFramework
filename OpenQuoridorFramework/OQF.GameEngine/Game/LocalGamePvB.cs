@@ -6,6 +6,7 @@ using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Games;
+using OQF.Utils.ProgressUtils;
 
 namespace OQF.GameEngine.Game
 {
@@ -26,13 +27,13 @@ namespace OQF.GameEngine.Game
 		private readonly IQuoridorBot quoridorBot;
 		
 		internal LocalGamePvB(IQuoridorBot unInitializedBot, string botName, GameConstraints gameConstraints, 
-							  string initialProgress, ProgressTextType progressTextType)
+							  QProgress initialProgress)
 		{
 			quoridorBot = unInitializedBot; 			
 			quoridorBot.DebugMessageAvailable += OnDebugMessageAvailable;
 
 			humenMoves = new TimeoutBlockingQueue<Move>(200);
-			gameLoopThreadPvB = new GameLoopThreadPvB(quoridorBot, botName, humenMoves, gameConstraints, initialProgress, progressTextType);
+			gameLoopThreadPvB = new GameLoopThreadPvB(quoridorBot, botName, humenMoves, gameConstraints, initialProgress);
 
 			gameLoopThreadPvB.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameLoopThreadPvB.WinnerAvailable        += OnWinnerAvailable;

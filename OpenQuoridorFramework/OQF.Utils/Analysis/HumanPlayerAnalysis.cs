@@ -2,35 +2,31 @@
 using System.Linq;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
-using OQF.GameEngine.Analysis.AnalysisGraph;
-using OQF.GameEngine.Contracts.Analysis;
+using OQF.Utils.Analysis.AnalysisGraph;
 
-namespace OQF.GameEngine.Analysis
+namespace OQF.Utils.Analysis
 {
-	internal class HumanPlayerAnalysis : IHumanPlayerAnalysis
-	{
-		private readonly IEnumerable<FieldCoordinate> possibleMoves;
-		private readonly IEnumerable<Wall>      possibleWalls;
-
-		public HumanPlayerAnalysis(BoardState boardState)
+	public static class HumanPlayerAnalysis 
+	{		
+		public static HumanPlayerAnalysisResult GetResult(BoardState boardState)
 		{		
 			var gameGraph = new Graph(boardState);
 							
-			possibleMoves = new List<FieldCoordinate>();
-			possibleWalls = new List<Wall>();
-
 			if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 			{
-				possibleMoves = gameGraph.GetNode(boardState.BottomPlayer.Position)
+				var possibleMoves = gameGraph.GetNode(boardState.BottomPlayer.Position)
 										 .Neighbours
 										 .Select(nodeNeigbour => nodeNeigbour.Coord);
 				
-				possibleWalls = GeneratePhysicalPossibleWalls(boardState);				
-			}							
+				var possibleWalls = GeneratePhysicalPossibleWalls(boardState);
+
+				return new HumanPlayerAnalysisResult(possibleWalls, possibleMoves);
+			}
+
+			return null;
 		}
 
-		public IEnumerable<Wall>            GetPossibleWalls() => possibleWalls;		
-		public IEnumerable<FieldCoordinate> GetPossibleMoves() => possibleMoves;
+		
 
 //		First version
 //		

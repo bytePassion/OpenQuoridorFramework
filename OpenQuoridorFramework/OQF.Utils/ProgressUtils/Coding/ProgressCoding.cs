@@ -6,7 +6,7 @@ using OQF.Utils.ProgressUtils.Parsing;
 
 namespace OQF.Utils.ProgressUtils.Coding
 {
-	public static class ProgressCoding
+	internal static class ProgressCoding
 	{
 
 		public static string CompressedStringToProgress (string progressAsString)

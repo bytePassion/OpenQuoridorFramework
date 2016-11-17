@@ -41,6 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\AnalysisGraph\Direction.cs" />
+    <Compile Include="Analysis\AnalysisGraph\FieldCoordinateExtensions.cs" />
+    <Compile Include="Analysis\AnalysisGraph\Graph.cs" />
+    <Compile Include="Analysis\AnalysisGraph\GraphConstruction.cs" />
+    <Compile Include="Analysis\AnalysisGraph\Node.cs" />
+    <Compile Include="Analysis\GameAnalysis.cs" />
+    <Compile Include="Analysis\HumanPlayerAnalysis.cs" />
+    <Compile Include="Analysis\HumanPlayerAnalysisResult.cs" />
     <Compile Include="BoardStateUtils\BoardStateExtensions.cs" />
     <Compile Include="BoardStateUtils\BoardStateTransition.cs" />
     <Compile Include="BoardStateUtils\PlayerTransitions.cs" />
@@ -56,6 +64,8 @@
     <Compile Include="ProgressUtils\Coding\MoveListCoding.cs" />
     <Compile Include="ProgressUtils\Coding\ProgressCoding.cs" />
     <Compile Include="ProgressUtils\QProgress.cs" />
+    <Compile Include="ProgressUtils\Validation\ProgressVerificationResult.cs" />
+    <Compile Include="ProgressUtils\Validation\ProgressVerifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,10 +76,6 @@
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj">
-      <Project>{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}</Project>
-      <Name>OQF.GameEngine.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,6 +3,7 @@ using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
+using OQF.Utils.ProgressUtils;
 
 namespace OQF.PlayerVsBot.Visualization.Services
 {
@@ -17,8 +18,7 @@ namespace OQF.PlayerVsBot.Visualization.Services
 		void CreateGame(IQuoridorBot uninitializedBot, 
 						string botName, 
 						GameConstraints gameConstraints, 
-						string initialProgress = null, 
-						ProgressTextType progressTextType = default(ProgressTextType));
+						QProgress initialProgress = null);
 
 		void ReportHumanMove(Move move);
 		void StopGame();

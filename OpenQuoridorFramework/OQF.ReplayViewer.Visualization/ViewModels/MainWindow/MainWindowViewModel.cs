@@ -17,8 +17,7 @@ using OQF.GameEngine.Contracts.Replay;
 using OQF.ReplayViewer.Visualization.Services;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
-using OQF.Utils;
-using OQF.Utils.ProgressUtils.Parsing;
+using OQF.Utils.ProgressUtils;
 
 namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 {
@@ -176,9 +175,10 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 				return;
 			}
 
-			var splittedMoves = ParseProgressText.FromFileText(fileText);
+			var progress = CreateQProgress.FromReadableProgressTextFile(fileText);
+			
 
-			if (!splittedMoves.Any())
+			if (!progress.Moves.Any())
 			{
 				MessageBox.Show("die datei beschreibt keinen gültigen spielverlauf");
 				return;
@@ -187,16 +187,12 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 			lastPlayedReplayService.SaveLastReplay(ProgressFilePath);
 
-			ProgressRows.Clear();
-
-			CreateProgressText.FromMoveList(splittedMoves.ToList())
-				              .Select(line => new ProgressRow(line))
-							  .Do(ProgressRows.Add);
+			ProgressRows.Clear();		
 		
-			var moveCount = replayService.NewReplay(splittedMoves);
+			replayService.NewReplay(progress);
 
 			moveIndex = 0;
-			MaxMoveIndex = moveCount - 1;
+			MaxMoveIndex = progress.MoveCount - 1;
 
 			PropertyChanged.Notify(this, nameof(MoveIndex));
 		}

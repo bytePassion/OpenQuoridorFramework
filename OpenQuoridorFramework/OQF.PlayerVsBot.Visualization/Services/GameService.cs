@@ -6,6 +6,7 @@ using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
 using OQF.GameEngine.Contracts.Games;
+using OQF.Utils.ProgressUtils;
 
 namespace OQF.PlayerVsBot.Visualization.Services
 {
@@ -31,7 +32,7 @@ namespace OQF.PlayerVsBot.Visualization.Services
 		
 
 		public void CreateGame(IQuoridorBot uninitializedBot, string botName, GameConstraints gameConstraints, 
-							   string initialProgress, ProgressTextType progressTextType)
+							   QProgress initialProgress)
 		{
 			if (currentIpvBGame != null)
 			{
@@ -43,13 +44,11 @@ namespace OQF.PlayerVsBot.Visualization.Services
 																botName, 
 																new GameConstraints(Timeout.InfiniteTimeSpan, 
 																					gameConstraints.MaximalMovesPerPlayer), 
-																initialProgress,
-																progressTextType)
+																initialProgress)
 									: gameFactory.CreateNewGame(uninitializedBot, 
 																botName, 
 																gameConstraints, 
-																initialProgress,
-																progressTextType);
+																initialProgress);
 
 			currentIpvBGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentIpvBGame.NextBoardstateAvailable += OnNextBoardstateAvailable;

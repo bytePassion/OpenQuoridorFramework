@@ -1,6 +1,6 @@
 ﻿using OQF.Bot.Contracts.Coordination;
 
-namespace OQF.GameEngine.Analysis.AnalysisGraph
+namespace OQF.Utils.Analysis.AnalysisGraph
 {
 	internal static class FieldCoordinateExtensions
 	{

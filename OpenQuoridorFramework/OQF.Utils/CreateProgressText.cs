@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts.Enums;
 
 namespace OQF.Utils
 {
@@ -62,49 +61,49 @@ namespace OQF.Utils
 			return resultList;
 		}
 
-	    public static string AndAppendWinnerAndReason(this string progress, Player winner, WinningReason winningReason, Move invalidMove)
-	    {
-		    var sb = new StringBuilder();
-
-		    sb.Append(progress);
-			sb.Append(Environment.NewLine);
-
-		    var winnerName = string.IsNullOrWhiteSpace(winner.Name)
-								? "Player"
-								: winner.Name;
-
-			sb.Append($"{winnerName} wins because");
-
-		    switch (winningReason)
-		    {
-				case WinningReason.ExceedanceOfThoughtTime:
-			    {
-				    sb.Append(" the oppenden bot exceeded its thinking time");
-				    break;
-			    }
-				case WinningReason.Capitulation:
-			    {
-					sb.Append(" the oppenden player capitulated");
-					break;
-			    }
-				case WinningReason.InvalidMove:
-			    {
-					sb.Append($" the oppenden player tryed to do an illegal move [{invalidMove}]");
-					break;
-			    }
-				case WinningReason.ExceedanceOfMaxMoves:
-			    {
-					sb.Append(" the oppenden player exceeds the maximal moves per player");
-					break;
-			    }
-				case WinningReason.RegularQuoridorWin:
-			    {
-					sb.Append(" he/she was simply better ;-)");
-					break;
-			    }
-		    }			
-
-		    return sb.ToString();
-	    }
+//	    public static string AndAppendWinnerAndReason(this string progress, Player winner, WinningReason winningReason, Move invalidMove)
+//	    {
+//		    var sb = new StringBuilder();
+//
+//		    sb.Append(progress);
+//			sb.Append(Environment.NewLine);
+//
+//		    var winnerName = string.IsNullOrWhiteSpace(winner.Name)
+//								? "Player"
+//								: winner.Name;
+//
+//			sb.Append($"{winnerName} wins because");
+//
+//		    switch (winningReason)
+//		    {
+//				case WinningReason.ExceedanceOfThoughtTime:
+//			    {
+//				    sb.Append(" the oppenden bot exceeded its thinking time");
+//				    break;
+//			    }
+//				case WinningReason.Capitulation:
+//			    {
+//					sb.Append(" the oppenden player capitulated");
+//					break;
+//			    }
+//				case WinningReason.InvalidMove:
+//			    {
+//					sb.Append($" the oppenden player tryed to do an illegal move [{invalidMove}]");
+//					break;
+//			    }
+//				case WinningReason.ExceedanceOfMaxMoves:
+//			    {
+//					sb.Append(" the oppenden player exceeds the maximal moves per player");
+//					break;
+//			    }
+//				case WinningReason.RegularQuoridorWin:
+//			    {
+//					sb.Append(" he/she was simply better ;-)");
+//					break;
+//			    }
+//		    }			
+//
+//		    return sb.ToString();
+//	    }
     }
 }

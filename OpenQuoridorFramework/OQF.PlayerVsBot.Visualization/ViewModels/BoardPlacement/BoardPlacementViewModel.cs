@@ -13,6 +13,7 @@ using OQF.Bot.Contracts.Moves;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Contracts.Factories;
 using OQF.PlayerVsBot.Visualization.Services;
+using OQF.Utils.Analysis;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 {
@@ -55,11 +56,11 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 		{
 			if (boardState?.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 			{
-				var boardAnalysis = gameFactory.GetGameAnalysis(boardState);
+				var boardAnalysis = HumanPlayerAnalysis.GetResult(boardState);
 
-				allPossibleWalls = boardAnalysis.GetPossibleWalls();				
+				allPossibleWalls = boardAnalysis.PossibleWalls;				
 
-				boardAnalysis.GetPossibleMoves()
+				boardAnalysis.PossibleMoves
 							 .Select(move => new PlayerState(null, move, -1))
 							 .Do(PossibleMoves.Add);
 			}

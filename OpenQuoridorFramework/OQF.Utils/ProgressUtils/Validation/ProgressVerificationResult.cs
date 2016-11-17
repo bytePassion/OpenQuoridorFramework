@@ -1,4 +1,4 @@
-﻿namespace OQF.GameEngine.Contracts.Enums
+﻿namespace OQF.Utils.ProgressUtils.Validation
 {
 	public enum ProgressVerificationResult
 	{

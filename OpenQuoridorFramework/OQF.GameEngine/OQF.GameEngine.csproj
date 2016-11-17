@@ -43,20 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analysis\AnalysisGraph\GraphConstruction.cs" />
-    <Compile Include="Analysis\AnalysisGraph\Direction.cs" />
-    <Compile Include="Analysis\AnalysisGraph\FieldCoordinateExtensions.cs" />
-    <Compile Include="Analysis\AnalysisGraph\Graph.cs" />
-    <Compile Include="Analysis\HumanPlayerAnalysis.cs" />
-    <Compile Include="Analysis\AnalysisGraph\Node.cs" />
-    <Compile Include="Analysis\ProgressVerifier.cs" />
     <Compile Include="Factories\GameFactory.cs" />
-    <Compile Include="Factories\ProgressVerifierFactory.cs" />
     <Compile Include="Factories\ReplayServiceFactory.cs" />
     <Compile Include="Game\GameLoopThreadBvB.cs" />
     <Compile Include="Game\LocalGameBvB.cs" />
     <Compile Include="Replay\ReplayService.cs" />
-    <Compile Include="Analysis\GameAnalysis.cs" />
     <Compile Include="Game\GameLoopThreadPvB.cs" />
     <Compile Include="Game\LocalGamePvB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

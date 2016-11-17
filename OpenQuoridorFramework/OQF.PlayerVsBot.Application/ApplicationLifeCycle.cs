@@ -34,15 +34,13 @@ namespace OQF.PlayerVsBot.Application
 
 			var boardViewModel = new BoardViewModel(gameService);
 			var boardPlacementViewModel = new BoardPlacementViewModel(gameService, gameFactory);
-			var languageSelectionViewModel = new LanguageSelectionViewModel();
-			var progressFileVerifierFactory = new ProgressVerifierFactory();
+			var languageSelectionViewModel = new LanguageSelectionViewModel();			
 
 			var mainWindowViewModel = new MainWindowViewModel(boardViewModel,
 															  boardPlacementViewModel,
 															  languageSelectionViewModel,
 															  gameService,
-															  applicationSettingsRepository,
-															  progressFileVerifierFactory,
+															  applicationSettingsRepository,															  
 															  commandLineArguments.DisableClosingDialogs);
 
 			if (!string.IsNullOrWhiteSpace(commandLineArguments.BotPath))

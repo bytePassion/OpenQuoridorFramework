@@ -4,7 +4,7 @@ using OQF.Utils.ProgressUtils.Validation;
 
 namespace OQF.Utils.ProgressUtils.Parsing
 {
-	public static class ParseProgressText
+	internal static class ParseProgressText
 	{
 		public static IEnumerable<string> FromFileText(string fileText)
 		{

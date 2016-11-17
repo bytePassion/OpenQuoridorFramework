@@ -2,7 +2,7 @@
 
 namespace OQF.Utils.ProgressUtils.Validation
 {
-	public static class MoveValidator
+	internal static class MoveValidator
 	{
 		public static bool IsValidMove(string move)
 		{

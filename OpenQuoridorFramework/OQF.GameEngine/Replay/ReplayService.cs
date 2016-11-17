@@ -4,7 +4,7 @@ using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.GameEngine.Contracts.Replay;
 using OQF.Utils.BoardStateUtils;
-using OQF.Utils.ProgressUtils.Parsing;
+using OQF.Utils.ProgressUtils;
 
 namespace OQF.GameEngine.Replay
 {
@@ -25,12 +25,10 @@ namespace OQF.GameEngine.Replay
 		}
 		
 
-		public int NewReplay(IEnumerable<string> allMoves)
+		public void NewReplay(QProgress progress)
 		{
-			BuildReplayStates(allMoves);
-			ShowReplayState(0);
-
-			return allReplayStates.Count;
+			BuildReplayStates(progress);
+			ShowReplayState(0);			
 		}
 
 		public void NextMove()                { ShowReplayState(currentReplayIndex+1); }
@@ -49,10 +47,9 @@ namespace OQF.GameEngine.Replay
 			NewBoardStateAvailable?.Invoke(nextState);
 		}
 
-		private void BuildReplayStates(IEnumerable<string> allMoves)
+		private void BuildReplayStates(QProgress progress)
 		{
 			allReplayStates = new List<BoardState>();
-
 
 			var topPlayer = new Player(PlayerType.TopPlayer);
 			var bottomPlayer = new Player(PlayerType.BottomPlayer);
@@ -62,10 +59,8 @@ namespace OQF.GameEngine.Replay
 
 			var playerAtMove = bottomPlayer;
 
-			foreach (var move in allMoves)
+			foreach (var nextMove in progress.Moves)
 			{
-				var nextMove = MoveParser.GetMove(move);
-
 				boardState = boardState.ApplyMove(nextMove);
 				allReplayStates.Add(boardState);
 
