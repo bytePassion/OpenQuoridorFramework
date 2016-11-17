@@ -83,6 +83,12 @@
     <Compile Include="Dialogs\Notification\ViewModel\INotificationDialogViewModel.cs" />
     <Compile Include="Dialogs\Notification\ViewModel\NotificationDialogViewModel.cs" />
     <Compile Include="Dialogs\Notification\ViewModel\NotificationDialogViewModelSampleData.cs" />
+    <Compile Include="Dialogs\StringInput\StringInputDialog.xaml.cs">
+      <DependentUpon>StringInputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\StringInput\ViewModel\IStringInputDialogViewModel.cs" />
+    <Compile Include="Dialogs\StringInput\ViewModel\StringInputDialogViewModel.cs" />
+    <Compile Include="Dialogs\StringInput\ViewModel\StringInputDialogViewModelSampleData.cs" />
     <Compile Include="Dialogs\YesNo\ViewModel\IYesNoDialogViewModel.cs" />
     <Compile Include="Dialogs\YesNo\ViewModel\YesNoDialogViewModel.cs" />
     <Compile Include="Dialogs\YesNo\ViewModel\YesNoDialogViewModelSampleData.cs" />
@@ -179,6 +185,10 @@
     <Page Include="Dialogs\Notification\NotificationDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\StringInput\StringInputDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\YesNo\YesNoDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
