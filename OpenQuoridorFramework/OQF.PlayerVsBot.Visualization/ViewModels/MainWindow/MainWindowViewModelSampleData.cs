@@ -55,6 +55,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			IsDisabledOverlayVisible = true;
 			PreventWindowClosingToAskUser = false;
 
+			IsStartWithProgressPopupVisible = true;
+
 			BrowseForBotButtonToolTipCaption          = "bot dll laden";
 			StartGameButtonToolTipCaption             = "Start";
 			StartWithProgressGameButtonToolTipCaption = "Start";
@@ -89,6 +91,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		public ICommand DumpProgressToFile                => null;
 		public ICommand CloseWindow                       => null;
 		public ICommand CopyCompressedProgressToClipBoard => null;
+
+		public bool IsStartWithProgressPopupVisible { get; set; }
 
 		public ObservableCollection<string> DebugMessages  { get; }
 		public ObservableCollection<string> GameProgress   { get; }

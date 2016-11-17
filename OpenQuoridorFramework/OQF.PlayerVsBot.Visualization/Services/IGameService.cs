@@ -14,7 +14,12 @@ namespace OQF.PlayerVsBot.Visualization.Services
 
 		BoardState CurrentBoardState { get; }		
 		
-		void CreateGame(IQuoridorBot uninitializedBot, string botName, GameConstraints gameConstraints, string initialProgress = null);
+		void CreateGame(IQuoridorBot uninitializedBot, 
+						string botName, 
+						GameConstraints gameConstraints, 
+						string initialProgress = null, 
+						ProgressTextType progressTextType = default(ProgressTextType));
+
 		void ReportHumanMove(Move move);
 		void StopGame();
 	}

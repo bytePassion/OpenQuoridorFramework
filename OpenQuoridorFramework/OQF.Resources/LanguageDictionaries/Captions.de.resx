@@ -456,14 +456,14 @@
   <data name="PvB_StartWithProgressGameButtonToolTipCaption" xml:space="preserve">
     <value>Spiel mit Verlaufsdatei starten</value>
   </data>
-  <data name="FVR_EmptyOrInvalidFile" xml:space="preserve">
-    <value>Die Datei ist leer oder ungültig</value>
+  <data name="PVR_EmptyOrInvalid" xml:space="preserve">
+    <value>Der Spielfortschritt ist leer oder ungültig</value>
   </data>
-  <data name="FVR_FileContainsInvalidMove" xml:space="preserve">
-    <value>Die Datei beinhaltet einen ungültigen Zug</value>
+  <data name="PVR_ProgressContainsInvalidMove" xml:space="preserve">
+    <value>Der Spielfortschritt beinhaltet einen ungültigen Zug</value>
   </data>
-  <data name="FVR_FileContainsTerminatedGame" xml:space="preserve">
-    <value>Die Datei beinhaltet ein Spiel, das bereits beendet ist</value>
+  <data name="PVR_ProgressContainsTerminatedGame" xml:space="preserve">
+    <value>Der Spielfortschritt beinhaltet ein Spiel, das bereits beendet ist</value>
   </data>
   <data name="PvB_ErrorMsg_ProgressFileCannotBeLoaded" xml:space="preserve">
     <value>Die Textdatei kann nicht als Spielfortschrittsdatei geladen werden</value>
@@ -549,8 +549,8 @@
   <data name="PvB_MovesLeftLabelCaption" xml:space="preserve">
     <value>Übrige Züge</value>
   </data>
-  <data name="FVR_FileContainsMoreMovesThanAllowed" xml:space="preserve">
-    <value>Die Datei beinhaltet mehr Züge als im zu startenden Spiel erlaubt sind</value>
+  <data name="PVR_ProgressContainsMoreMovesThanAllowed" xml:space="preserve">
+    <value>Der Spielfortschirtt beinhaltet mehr Züge als im zu startenden Spiel erlaubt sind</value>
   </data>
   <data name="AP_ApplicationNameSubItem" xml:space="preserve">
     <value>Name</value>
@@ -563,5 +563,17 @@
   </data>
   <data name="PvB_CopyToClipboardButtonToolTipCpation" xml:space="preserve">
     <value>Kopremierten Spielforschritt in Zwischenablage kopieren</value>
+  </data>
+  <data name="PvB_ErrorMsg_CompressedProgressCannotBeLoaded" xml:space="preserve">
+    <value>Diese Zeichenkette kann nicht als Spielfortschritt geladen werden</value>
+  </data>
+  <data name="SID_CancelButtonCaption" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="SID_OkButtonCaption" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="PvB_ProgressInputDialogPromt" xml:space="preserve">
+    <value>Geben Sie den kompremierten Spielfortschritt ein:</value>
   </data>
 </root>

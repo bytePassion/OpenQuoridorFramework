@@ -30,7 +30,8 @@ namespace OQF.PlayerVsBot.Visualization.Services
 		public BoardState CurrentBoardState { get; private set; }
 		
 
-		public void CreateGame(IQuoridorBot uninitializedBot, string botName, GameConstraints gameConstraints, string initialProgress)
+		public void CreateGame(IQuoridorBot uninitializedBot, string botName, GameConstraints gameConstraints, 
+							   string initialProgress, ProgressTextType progressTextType)
 		{
 			if (currentIpvBGame != null)
 			{
@@ -41,12 +42,14 @@ namespace OQF.PlayerVsBot.Visualization.Services
 									? gameFactory.CreateNewGame(uninitializedBot, 
 																botName, 
 																new GameConstraints(Timeout.InfiniteTimeSpan, 
-																gameConstraints.MaximalMovesPerPlayer), 
-																initialProgress)
+																					gameConstraints.MaximalMovesPerPlayer), 
+																initialProgress,
+																progressTextType)
 									: gameFactory.CreateNewGame(uninitializedBot, 
 																botName, 
 																gameConstraints, 
-																initialProgress);
+																initialProgress,
+																progressTextType);
 
 			currentIpvBGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentIpvBGame.NextBoardstateAvailable += OnNextBoardstateAvailable;

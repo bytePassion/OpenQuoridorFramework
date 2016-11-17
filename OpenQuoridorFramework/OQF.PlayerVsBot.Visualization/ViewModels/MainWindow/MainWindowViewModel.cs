@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Utils;
@@ -20,6 +21,8 @@ using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
+using OQF.CommonUiElements.Dialogs.StringInput;
+using OQF.CommonUiElements.Dialogs.StringInput.ViewModel;
 using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.CommonUiElements.Dialogs.YesNo.ViewModel;
 using OQF.CommonUiElements.Info;
@@ -61,6 +64,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		private bool isDebugSectionExpanded;
 		private string movesLeft;
 		private string compressedProgress;
+		private bool isStartWithProgressPopupVisible;
 
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel, 
@@ -105,11 +109,15 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 								() => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
 								new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));
 
-			StartWithProgress = new ParameterrizedCommand<string>(async filePath => await DoStartWithProgressFromFile(filePath),
-																  _ => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
-																  new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));
+			StartWithProgress = new Command(() => { IsStartWithProgressPopupVisible = true; }, 
+											() => GameStatus != GameStatus.Active && !string.IsNullOrWhiteSpace(DllPathInput),
+											new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(DllPathInput)));
 
-			StartWithProgressFromFile = new ParameterrizedCommand<string>(async filePath => await DoStartWithProgressFromFile(filePath));
+			StartWithProgressFromFile = new ParameterrizedCommand<string>(async filePath => { await DoStartWithProgressFromFile(filePath);
+																							  IsStartWithProgressPopupVisible = false; });
+
+			StartWithProgressFromString = new ParameterrizedCommand<string>(async progressString => { await DoStartWithProgressFromString(progressString);
+																								      IsStartWithProgressPopupVisible = false; });
 
 			Capitulate = new Command(DoCapitulate,
 									 IsMoveApplyable,
@@ -136,13 +144,13 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 		private void DoCopyCompressedProgressToClipBoard()
 		{
-			System.Windows.Clipboard.SetText(CompressedProgress);
+			Clipboard.SetText(CompressedProgress);
 		}
 
 		private void DoCloseWindow()
 		{
 			PreventWindowClosingToAskUser = false;
-			System.Windows.Application.Current.Windows
+			Application.Current.Windows
 							   .OfType<Windows.MainWindow>()
 							   .FirstOrDefault(window => ReferenceEquals(window.DataContext, this))
 							   ?.Close();
@@ -152,7 +160,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		{
 			var timeDiff = DateTime.Now - startTime;
 
-			System.Windows.Application.Current?.Dispatcher.Invoke(() =>
+			Application.Current?.Dispatcher.Invoke(() =>
 			{				
 				TopPlayerRestTime = GeometryLibUtils.DoubleFormat(Constants.GameConstraint.BotThinkingTimeSeconds - timeDiff.TotalSeconds, 2);
 			});			
@@ -402,6 +410,12 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		public ICommand CloseWindow                       { get; }
 		public ICommand CopyCompressedProgressToClipBoard { get; }
 
+		public bool IsStartWithProgressPopupVisible
+		{
+			get { return isStartWithProgressPopupVisible; }
+			set { PropertyChanged.ChangeAndNotify(this, ref isStartWithProgressPopupVisible, value); }
+		}
+
 		public ObservableCollection<string> DebugMessages { get; }
 		public ObservableCollection<string> GameProgress  { get; }
 
@@ -640,12 +654,13 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 				var result = dialog.ShowDialog();
 
-				if (result.HasValue)
+				if (result.HasValue && result.Value)
+				{					
+					progressFilePath = dialog.FileName;					
+				}
+				else
 				{
-					if (result.Value)
-					{
-						progressFilePath = dialog.FileName;
-					}
+					return;
 				}
 			}
 			else
@@ -667,7 +682,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				{
 					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-												   $"\n{Captions.FVR_EmptyOrInvalidFile}",
+												   $"\n{Captions.PVR_EmptyOrInvalid}",
 												   Captions.ND_OkButtonCaption);
 					return;
 				}
@@ -675,7 +690,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				{
 					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-												   $"\n{Captions.FVR_FileContainsInvalidMove}",
+												   $"\n{Captions.PVR_ProgressContainsInvalidMove}",
 												   Captions.ND_OkButtonCaption);
 					return;
 				}
@@ -683,7 +698,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				{
 					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-												   $"\n{Captions.FVR_FileContainsTerminatedGame}",
+												   $"\n{Captions.PVR_ProgressContainsTerminatedGame}",
 												   Captions.ND_OkButtonCaption);
 					return;
 				}
@@ -691,7 +706,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 				{
 					await NotificationService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
 												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-												   $"\n{Captions.FVR_FileContainsMoreMovesThanAllowed}",
+												   $"\n{Captions.PVR_ProgressContainsMoreMovesThanAllowed}",
 												   Captions.ND_OkButtonCaption);
 					return;
 				}
@@ -702,7 +717,142 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 					gameService.CreateGame(uninitializedBotAndBotName.Item1,
 										   uninitializedBotAndBotName.Item2,
 										   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
-															   Constants.GameConstraint.MaximalMovesPerGame), progressText);
+															   Constants.GameConstraint.MaximalMovesPerGame), 
+										   progressText,
+										   ProgressTextType.Readable);
+
+					((Command)Capitulate).RaiseCanExecuteChanged();
+					return;
+				}
+			}
+		}
+
+		private async Task DoStartWithProgressFromString (string progressString)
+		{
+			if (GameStatus == GameStatus.Finished)
+			{
+				gameService.StopGame();
+
+				GameProgress.Clear();
+				CompressedProgress = "";
+				DebugMessages.Clear();
+			}
+
+			GameStatus = GameStatus.Unloaded;
+
+			if (string.IsNullOrWhiteSpace(DllPathInput))
+			{
+				await NotificationService.Show(Captions.PvB_ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);
+				return;
+			}
+
+			if (!File.Exists(DllPathInput))
+			{
+				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{DllPathInput}]",
+											   Captions.ND_OkButtonCaption);
+				return;
+			}
+
+			Assembly dllToLoad;
+
+			try
+			{
+				dllToLoad = Assembly.LoadFile(DllPathInput);
+			}
+			catch
+			{
+				await NotificationService.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{DllPathInput}]",
+											   Captions.ND_OkButtonCaption);
+				return;
+			}
+
+			var uninitializedBotAndBotName = BotLoader.LoadBot(dllToLoad);
+
+			if (uninitializedBotAndBotName == null)
+			{
+				await NotificationService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
+											   Captions.ND_OkButtonCaption);
+				return;
+			}
+
+			string compressedProgressString;
+
+			if (string.IsNullOrWhiteSpace(progressString))
+			{
+				var stringInputDialogViewModel = new StringInputDialogViewModel(Captions.PvB_ProgressInputDialogPromt);
+
+
+				var inputDialog = new StringInputDialog
+				{
+					DataContext = stringInputDialogViewModel
+				};
+
+				var result = await DialogHost.Show(inputDialog, "RootDialog");
+
+				if (!string.IsNullOrWhiteSpace((string) result))
+				{
+					compressedProgressString = (string) result;
+				}
+				else
+				{
+					return;
+				}				
+			}
+			else
+			{
+				compressedProgressString = progressString;
+			}			
+
+			var fileVerifier = progressVerifierFactory.CreateVerifier();
+
+			var verificationResult = fileVerifier.Verify(compressedProgressString, 
+														 ProgressTextType.Compressed, 
+														 Constants.GameConstraint.MaximalMovesPerGame);
+
+			switch (verificationResult)
+			{
+				case ProgressVerificationResult.EmptyOrInvalid:
+				{
+					await NotificationService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
+												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+												   $"\n{Captions.PVR_EmptyOrInvalid}",
+												   Captions.ND_OkButtonCaption);
+					return;
+				}
+				case ProgressVerificationResult.ProgressContainsInvalidMove:
+				{
+					await NotificationService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
+												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+												   $"\n{Captions.PVR_ProgressContainsInvalidMove}",
+												   Captions.ND_OkButtonCaption);
+					return;
+				}
+				case ProgressVerificationResult.ProgressContainsTerminatedGame:
+				{
+					await NotificationService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
+												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+												   $"\n{Captions.PVR_ProgressContainsTerminatedGame}",
+												   Captions.ND_OkButtonCaption);
+					return;
+				}
+				case ProgressVerificationResult.ProgressContainsMoreMovesThanAllowed:
+				{
+					await NotificationService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
+												   $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
+												   $"\n{Captions.PVR_ProgressContainsMoreMovesThanAllowed}",
+												   Captions.ND_OkButtonCaption);
+					return;
+				}
+				case ProgressVerificationResult.Valid:
+				{
+					applicationSettingsRepository.LastUsedBotPath = DllPathInput;
+					MovesLeft = (Constants.GameConstraint.MaximalMovesPerGame + 1).ToString();
+					gameService.CreateGame(uninitializedBotAndBotName.Item1,
+										   uninitializedBotAndBotName.Item2,
+										   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
+															   Constants.GameConstraint.MaximalMovesPerGame), 
+										   compressedProgressString,
+										   ProgressTextType.Compressed);
 
 					((Command)Capitulate).RaiseCanExecuteChanged();
 					return;

@@ -10,6 +10,7 @@ using OQF.GameEngine.Analysis;
 using OQF.GameEngine.Contracts.Enums;
 using OQF.GameEngine.Transitions;
 using OQF.Utils;
+using OQF.Utils.ProgressCodingUtils;
 
 namespace OQF.GameEngine.Game
 {
@@ -31,6 +32,7 @@ namespace OQF.GameEngine.Game
 		private readonly TimeoutBlockingQueue<Move> botMoves;
 		private readonly GameConstraints gameConstraints;
 		private readonly string initialProgress;
+		private readonly ProgressTextType progressTextType;
 
 		private volatile bool stopRunning;
 
@@ -43,7 +45,8 @@ namespace OQF.GameEngine.Game
 								  string botName,
 							      TimeoutBlockingQueue<Move> humenMoves, 							      
 							      GameConstraints gameConstraints,
-								  string initialProgress)
+								  string initialProgress,
+								  ProgressTextType progressTextType)
 		{
 			bot = uninitializedBot;
 			this.botName = botName;
@@ -55,6 +58,7 @@ namespace OQF.GameEngine.Game
 			
 			this.gameConstraints = gameConstraints;
 			this.initialProgress = initialProgress;
+			this.progressTextType = progressTextType;
 
 			stopRunning = false;
 			IsRunning = false;
@@ -89,8 +93,10 @@ namespace OQF.GameEngine.Game
 
 			if (initialProgress != null)
 			{
-				var moves = ParseProgressText.FromFileText(initialProgress)
-											.Select(MoveParser.GetMove);				
+				var moves = progressTextType == ProgressTextType.Readable 
+									? ParseProgressText.FromFileText(initialProgress)
+													   .Select(MoveParser.GetMove)
+									: ProgressCoding.CompressedStringToMoveList(initialProgress);				
 
 				foreach (var move in moves)
 				{

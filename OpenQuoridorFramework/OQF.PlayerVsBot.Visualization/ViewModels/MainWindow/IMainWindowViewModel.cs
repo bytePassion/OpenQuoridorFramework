@@ -26,6 +26,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		ICommand CloseWindow                       { get; }
 		ICommand CopyCompressedProgressToClipBoard { get; }
 
+		bool IsStartWithProgressPopupVisible { get; set; }
+
 		ObservableCollection<string> DebugMessages { get; } 
 		ObservableCollection<string> GameProgress  { get; }
 		

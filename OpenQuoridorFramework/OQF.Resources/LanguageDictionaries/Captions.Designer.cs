@@ -187,42 +187,6 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The file is empty or invalid.
-        /// </summary>
-        public static string FVR_EmptyOrInvalidFile {
-            get {
-                return ResourceManager.GetString("FVR_EmptyOrInvalidFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The file contains an invalid move.
-        /// </summary>
-        public static string FVR_FileContainsInvalidMove {
-            get {
-                return ResourceManager.GetString("FVR_FileContainsInvalidMove", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The file contains more moves than allowed in the upcomming game.
-        /// </summary>
-        public static string FVR_FileContainsMoreMovesThanAllowed {
-            get {
-                return ResourceManager.GetString("FVR_FileContainsMoreMovesThanAllowed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The file contains a game which already ended.
-        /// </summary>
-        public static string FVR_FileContainsTerminatedGame {
-            get {
-                return ResourceManager.GetString("FVR_FileContainsTerminatedGame", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to BoardState.
         /// </summary>
         public static string HTWAB_BoardStateParagraphHeader {
@@ -700,6 +664,15 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The string connot be loaded as progress.
+        /// </summary>
+        public static string PvB_ErrorMsg_CompressedProgressCannotBeLoaded {
+            get {
+                return ResourceManager.GetString("PvB_ErrorMsg_CompressedProgressCannotBeLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File does not exist.
         /// </summary>
         public static string PvB_ErrorMsg_FileDoesNotExist {
@@ -786,6 +759,15 @@ namespace OQF.Resources.LanguageDictionaries {
         public static string PvB_ProgressCaption {
             get {
                 return ResourceManager.GetString("PvB_ProgressCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input the compressed Progress:.
+        /// </summary>
+        public static string PvB_ProgressInputDialogPromt {
+            get {
+                return ResourceManager.GetString("PvB_ProgressInputDialogPromt", resourceCulture);
             }
         }
         
@@ -1029,6 +1011,42 @@ namespace OQF.Resources.LanguageDictionaries {
         public static string PvBH_PageHeader {
             get {
                 return ResourceManager.GetString("PvBH_PageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The progress is empty or invalid.
+        /// </summary>
+        public static string PVR_EmptyOrInvalid {
+            get {
+                return ResourceManager.GetString("PVR_EmptyOrInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The progress contains an invalid move.
+        /// </summary>
+        public static string PVR_ProgressContainsInvalidMove {
+            get {
+                return ResourceManager.GetString("PVR_ProgressContainsInvalidMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The progress contains more moves than allowed in the upcomming game.
+        /// </summary>
+        public static string PVR_ProgressContainsMoreMovesThanAllowed {
+            get {
+                return ResourceManager.GetString("PVR_ProgressContainsMoreMovesThanAllowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The progress contains a game which already ended.
+        /// </summary>
+        public static string PVR_ProgressContainsTerminatedGame {
+            get {
+                return ResourceManager.GetString("PVR_ProgressContainsTerminatedGame", resourceCulture);
             }
         }
         
@@ -1299,6 +1317,24 @@ namespace OQF.Resources.LanguageDictionaries {
         public static string SavingDialogMessage {
             get {
                 return ResourceManager.GetString("SavingDialogMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string SID_CancelButtonCaption {
+            get {
+                return ResourceManager.GetString("SID_CancelButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        public static string SID_OkButtonCaption {
+            get {
+                return ResourceManager.GetString("SID_OkButtonCaption", resourceCulture);
             }
         }
         

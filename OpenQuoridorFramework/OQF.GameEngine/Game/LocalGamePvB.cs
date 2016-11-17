@@ -25,13 +25,14 @@ namespace OQF.GameEngine.Game
 		private readonly GameLoopThreadPvB gameLoopThreadPvB;
 		private readonly IQuoridorBot quoridorBot;
 		
-		internal LocalGamePvB(IQuoridorBot unInitializedBot, string botName, GameConstraints gameConstraints, string initialProgress)
+		internal LocalGamePvB(IQuoridorBot unInitializedBot, string botName, GameConstraints gameConstraints, 
+							  string initialProgress, ProgressTextType progressTextType)
 		{
 			quoridorBot = unInitializedBot; 			
 			quoridorBot.DebugMessageAvailable += OnDebugMessageAvailable;
 
 			humenMoves = new TimeoutBlockingQueue<Move>(200);
-			gameLoopThreadPvB = new GameLoopThreadPvB(quoridorBot, botName, humenMoves, gameConstraints, initialProgress);
+			gameLoopThreadPvB = new GameLoopThreadPvB(quoridorBot, botName, humenMoves, gameConstraints, initialProgress, progressTextType);
 
 			gameLoopThreadPvB.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameLoopThreadPvB.WinnerAvailable        += OnWinnerAvailable;

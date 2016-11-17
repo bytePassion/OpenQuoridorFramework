@@ -510,14 +510,14 @@
   <data name="PvB_StartWithProgressGameButtonToolTipCaption" xml:space="preserve">
     <value>Start Game from Progress-File</value>
   </data>
-  <data name="FVR_EmptyOrInvalidFile" xml:space="preserve">
-    <value>The file is empty or invalid</value>
+  <data name="PVR_EmptyOrInvalid" xml:space="preserve">
+    <value>The progress is empty or invalid</value>
   </data>
-  <data name="FVR_FileContainsInvalidMove" xml:space="preserve">
-    <value>The file contains an invalid move</value>
+  <data name="PVR_ProgressContainsInvalidMove" xml:space="preserve">
+    <value>The progress contains an invalid move</value>
   </data>
-  <data name="FVR_FileContainsTerminatedGame" xml:space="preserve">
-    <value>The file contains a game which already ended</value>
+  <data name="PVR_ProgressContainsTerminatedGame" xml:space="preserve">
+    <value>The progress contains a game which already ended</value>
   </data>
   <data name="PvB_ErrorMsg_ProgressFileCannotBeLoaded" xml:space="preserve">
     <value>The text-file connot be loaded as progress-file</value>
@@ -549,8 +549,8 @@
   <data name="PvB_MovesLeftLabelCaption" xml:space="preserve">
     <value>Moves left</value>
   </data>
-  <data name="FVR_FileContainsMoreMovesThanAllowed" xml:space="preserve">
-    <value>The file contains more moves than allowed in the upcomming game</value>
+  <data name="PVR_ProgressContainsMoreMovesThanAllowed" xml:space="preserve">
+    <value>The progress contains more moves than allowed in the upcomming game</value>
   </data>
   <data name="AP_ApplicationNameSubItem" xml:space="preserve">
     <value>Name</value>
@@ -563,5 +563,17 @@
   </data>
   <data name="PvB_CopyToClipboardButtonToolTipCpation" xml:space="preserve">
     <value>Copy compressed progress to clipboad</value>
+  </data>
+  <data name="PvB_ErrorMsg_CompressedProgressCannotBeLoaded" xml:space="preserve">
+    <value>The string connot be loaded as progress</value>
+  </data>
+  <data name="SID_CancelButtonCaption" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="SID_OkButtonCaption" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="PvB_ProgressInputDialogPromt" xml:space="preserve">
+    <value>Input the compressed Progress:</value>
   </data>
 </root>
