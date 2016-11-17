@@ -14,7 +14,6 @@ using Lib.Utils;
 using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
-using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.Coordination;
@@ -24,7 +23,6 @@ using OQF.CommonUiElements.Board.BoardViewModelBase;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Dialogs.StringInput;
 using OQF.CommonUiElements.Dialogs.YesNo;
-using OQF.CommonUiElements.Dialogs.YesNo.ViewModel;
 using OQF.CommonUiElements.Info;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.GameEngine.Contracts.Enums;
@@ -276,17 +274,10 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 	    }
 
 		private async void ExecuteWinDialog(bool reportWinning, Player player, WinningReason winningReason, Move invalidMove)
-	    {
-		    var yesNoDialogViewModel = new YesNoDialogViewModel(GetWinningOrLoosingMessage(reportWinning, winningReason, invalidMove));
-
-			var winningDialog = new YesNoDialog
-	        {
-                DataContext = yesNoDialogViewModel
-	        };
-			
-	        var dialogResult = await DialogHost.Show(winningDialog, "RootDialog");
-
-            if ((bool)dialogResult)
+		{
+			var dialogResult = await YesNoDialogService.Show(GetWinningOrLoosingMessage(reportWinning, winningReason, invalidMove));
+			 
+            if (dialogResult)
             {
                 var dialog = new SaveFileDialog()
                 {
@@ -312,9 +303,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
                         File.WriteAllText(dialog.FileName, fileText);
                     }
                 }
-            }
-            
-			yesNoDialogViewModel.Dispose();
+            }            			
         }
 
 		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move invalidMove)

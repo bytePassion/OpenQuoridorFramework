@@ -97,6 +97,7 @@
     <Compile Include="Dialogs\YesNo\YesNoDialog.xaml.cs">
       <DependentUpon>YesNoDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\YesNo\YesNoDialogService.cs" />
     <Compile Include="Info\InfoPage.cs" />
     <Compile Include="Info\InfoWindow\InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
