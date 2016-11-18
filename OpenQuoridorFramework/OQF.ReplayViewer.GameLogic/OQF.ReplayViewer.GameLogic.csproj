@@ -52,6 +52,10 @@
       <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
+      <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
+      <Name>OQF.CommonUiElements</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.ReplayViewer.Contracts\OQF.ReplayViewer.Contracts.csproj">
       <Project>{687B9BF9-025F-41D1-928D-AF349D624A50}</Project>
       <Name>OQF.ReplayViewer.Contracts</Name>

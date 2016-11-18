@@ -12,7 +12,7 @@ using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.GameElements;
-using OQF.CommonUiElements.Board.BoardViewModelBase;
+using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.CommonUiElements.Info;
 using OQF.ReplayViewer.Contracts;
 using OQF.ReplayViewer.Visualization.Services;

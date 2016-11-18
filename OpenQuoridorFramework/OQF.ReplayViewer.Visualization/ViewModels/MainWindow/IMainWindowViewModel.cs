@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
-using OQF.CommonUiElements.Board.BoardViewModelBase;
+using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 
 namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow

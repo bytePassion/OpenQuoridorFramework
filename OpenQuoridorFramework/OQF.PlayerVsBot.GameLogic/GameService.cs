@@ -11,8 +11,7 @@ using OQF.Utils.Enum;
 namespace OQF.PlayerVsBot.GameLogic
 {
 	public class GameService : IGameService
-	{
-		
+	{		
 		private readonly bool disableBotTimeout;
 
 		public event Action<BoardState> NewBoardStateAvailable;

@@ -21,7 +21,7 @@ using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.CommonUiElements.Board.BoardViewModelBase;
+using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Dialogs.StringInput;
 using OQF.CommonUiElements.Dialogs.YesNo;

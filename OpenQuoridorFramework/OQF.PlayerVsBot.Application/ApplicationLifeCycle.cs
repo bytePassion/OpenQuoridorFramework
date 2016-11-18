@@ -1,10 +1,10 @@
 ﻿using System.Globalization;
 using System.Windows;
 using Lib.Wpf;
+using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.GameLogic;
-using OQF.PlayerVsBot.Visualization.ViewModels.Board;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow;
 using OQF.PlayerVsBot.Visualization.Windows;

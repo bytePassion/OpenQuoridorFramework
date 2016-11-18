@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
-using OQF.CommonUiElements.Board.BoardViewModelBase;
+using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;

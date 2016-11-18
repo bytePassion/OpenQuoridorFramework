@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
-using OQF.CommonUiElements.Board.BoardViewModelBase;
+using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 
 #pragma warning disable 0067

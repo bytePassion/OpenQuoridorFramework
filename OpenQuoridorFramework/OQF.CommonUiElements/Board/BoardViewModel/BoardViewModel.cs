@@ -1,45 +1,49 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
 using Lib.FrameworkExtension;
 using Lib.SemanicTypes;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
-using OQF.CommonUiElements.Board.BoardViewModelBase;
-using OQF.ReplayViewer.Contracts;
+using Size = Lib.SemanicTypes.Size;
 
-namespace OQF.ReplayViewer.Visualization.ViewModels.Board
+namespace OQF.CommonUiElements.Board.BoardViewModel
 {
 	public class BoardViewModel : ViewModel, IBoardViewModel
 	{
-		private readonly IReplayService replayService;
+		private readonly IBoardStateProvider boardStateProvider;
 				
 		private Size boardSize;
 
-		public BoardViewModel(IReplayService replayService)
+		public BoardViewModel(IBoardStateProvider boardStateProvider)
 		{
-			this.replayService = replayService;
+			this.boardStateProvider = boardStateProvider;
+
 
 			VisiblePlayers = new ObservableCollection<PlayerState>();
 			VisibleWalls   = new ObservableCollection<Wall>();
 
-			replayService.NewBoardStateAvailable += OnDisplayedBoardStateVariableChanged;
-			OnDisplayedBoardStateVariableChanged(replayService.GetCurrentBoardState());
+			boardStateProvider.NewBoardStateAvailable += OnNewBoardStateAvailable;
+			OnNewBoardStateAvailable(boardStateProvider.CurrentBoardState);
 									
 			BoardSize = new Size(new Width(100), new Height(100));
 		}
 		
-		private void OnDisplayedBoardStateVariableChanged(BoardState newBoardState)
+		private void OnNewBoardStateAvailable(BoardState newBoardState)
 		{
-			VisiblePlayers.Clear();
-			VisibleWalls.Clear();
-
-			if (newBoardState != null)
+			Application.Current.Dispatcher.Invoke(() =>
 			{
-				newBoardState.PlacedWalls.Do(VisibleWalls.Add);
+				VisiblePlayers.Clear();
+				VisibleWalls.Clear();
 
-				VisiblePlayers.Add(newBoardState.TopPlayer);
-				VisiblePlayers.Add(newBoardState.BottomPlayer);
-			}
+				if (newBoardState != null)
+				{
+					newBoardState.PlacedWalls.Do(VisibleWalls.Add);
+
+					VisiblePlayers.Add(newBoardState.TopPlayer);
+					VisiblePlayers.Add(newBoardState.BottomPlayer);
+				}
+			});			
 		}		
 
 		public ObservableCollection<Wall>        VisibleWalls   { get; }
@@ -53,7 +57,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.Board
 
 		protected override void CleanUp()
 		{
-			replayService.NewBoardStateAvailable -= OnDisplayedBoardStateVariableChanged;
+			boardStateProvider.NewBoardStateAvailable -= OnNewBoardStateAvailable;
 		}
 		public override event PropertyChangedEventHandler PropertyChanged;
 	}

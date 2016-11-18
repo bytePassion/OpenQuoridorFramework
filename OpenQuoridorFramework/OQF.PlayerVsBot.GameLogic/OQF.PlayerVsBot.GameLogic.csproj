@@ -61,6 +61,10 @@
       <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
+      <Project>{8f773744-6fe4-49c2-8651-e6f29ec828fa}</Project>
+      <Name>OQF.CommonUiElements</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.PlayerVsBot.Contracts\OQF.PlayerVsBot.Contracts.csproj">
       <Project>{019F752C-6C3C-4EB5-B450-CAAB3BB1EF1D}</Project>
       <Name>OQF.PlayerVsBot.Contracts</Name>

@@ -1,15 +1,10 @@
-﻿using System;
-using OQF.AnalysisAndProgress.ProgressUtils;
-using OQF.Bot.Contracts.GameElements;
+﻿using OQF.AnalysisAndProgress.ProgressUtils;
+using OQF.CommonUiElements.Board.BoardViewModel;
 
 namespace OQF.ReplayViewer.Contracts
 {
-	public interface IReplayService
+	public interface IReplayService : IBoardStateProvider
 	{
-		event Action<BoardState> NewBoardStateAvailable;
-
-		BoardState GetCurrentBoardState();
-
 		void NewReplay(QProgress progress);
 
 		void NextMove();

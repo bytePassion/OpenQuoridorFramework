@@ -6,7 +6,7 @@ using OQF.Bot.Contracts.GameElements;
 
 #pragma warning disable 0067
 
-namespace OQF.CommonUiElements.Board.BoardViewModelBase
+namespace OQF.CommonUiElements.Board.BoardViewModel
 {
 	public class BoardViewModelSampleData : IBoardViewModel
 	{
