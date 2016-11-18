@@ -348,7 +348,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 					TopPlayerName = boardState.TopPlayer.Player.Name;
 
-					TopPlayerWallCountLeft = boardState.TopPlayer.WallsToPlace;
+					TopPlayerWallCountLeft    = boardState.TopPlayer.WallsToPlace;
 					BottomPlayerWallCountLeft = boardState.BottomPlayer.WallsToPlace;
 
 					if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
@@ -853,7 +853,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			if (GameStatus != GameStatus.Active)
 				return false;
 
-			return gameService.CurrentBoardState.CurrentMover.PlayerType == PlayerType.BottomPlayer;
+			return gameService.CurrentBoardState?.CurrentMover.PlayerType == PlayerType.BottomPlayer;
 		}
 		
 

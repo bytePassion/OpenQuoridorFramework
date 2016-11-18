@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="GameLoopThreadPvB.cs" />
     <Compile Include="GameService.cs" />
-    <Compile Include="LocalGamePvB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
