@@ -5,8 +5,13 @@ using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.GameLogic;
+using OQF.PlayerVsBot.Visualization.ViewModels.ActionBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
+using OQF.PlayerVsBot.Visualization.ViewModels.BotStatusBar;
+using OQF.PlayerVsBot.Visualization.ViewModels.DebugMessageView;
+using OQF.PlayerVsBot.Visualization.ViewModels.HumanPlayerBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow;
+using OQF.PlayerVsBot.Visualization.ViewModels.ProgressView;
 using OQF.PlayerVsBot.Visualization.Windows;
 using OQF.Utils;
 
@@ -29,13 +34,23 @@ namespace OQF.PlayerVsBot.Application
 				applicationSettingsRepository.SelectedLanguageCode = CultureManager.CurrentCulture.ToString();
 			};
 
-			var boardViewModel = new BoardViewModel(gameService);
-			var boardPlacementViewModel = new BoardPlacementViewModel(gameService);
-			var languageSelectionViewModel = new LanguageSelectionViewModel();			
+			var boardViewModel             = new BoardViewModel(gameService);
+			var boardPlacementViewModel    = new BoardPlacementViewModel(gameService);
+			var languageSelectionViewModel = new LanguageSelectionViewModel();
+			var actionBarViewModel         = new ActionBarViewModel(applicationSettingsRepository, gameService, 
+																	languageSelectionViewModel);
+			var botStatusBarViewModel      = new BotStatusBarViewModel(gameService);		
+			var humanPlayerBarViewModel    = new HumanPlayerBarViewModel(gameService);
+			var progressViewModel          = new ProgressViewModel(gameService);
+			var debugMessageViewModel      = new DebugMessageViewModel(gameService);
 
 			var mainWindowViewModel = new MainWindowViewModel(boardViewModel,
-															  boardPlacementViewModel,
-															  languageSelectionViewModel,
+															  boardPlacementViewModel,															  
+															  actionBarViewModel,
+															  botStatusBarViewModel,
+															  humanPlayerBarViewModel,
+															  progressViewModel,
+															  debugMessageViewModel,
 															  gameService,
 															  applicationSettingsRepository,															  
 															  commandLineArguments.DisableClosingDialogs);
@@ -43,12 +58,14 @@ namespace OQF.PlayerVsBot.Application
 			if (!string.IsNullOrWhiteSpace(commandLineArguments.BotPath))
 			{
 				var dllPath = commandLineArguments.BotPath;
-				mainWindowViewModel.DllPathInput = dllPath;
+				actionBarViewModel.DllPathInput = dllPath;
 
 				if (string.IsNullOrWhiteSpace(commandLineArguments.ProgressFilePath))
 				{
-					if (mainWindowViewModel.Start.CanExecute(null))
-						mainWindowViewModel.Start.Execute(null);
+					if (actionBarViewModel.Start.CanExecute(null))
+					{
+						actionBarViewModel.Start.Execute(null);
+					}
 					else
 					{
 						MessageBox.Show("startup-error");
@@ -57,8 +74,10 @@ namespace OQF.PlayerVsBot.Application
 				}
 				else
 				{
-					if (mainWindowViewModel.StartWithProgress.CanExecute(commandLineArguments.ProgressFilePath))
-						mainWindowViewModel.StartWithProgress.Execute(commandLineArguments.ProgressFilePath);
+					if (actionBarViewModel.StartWithProgress.CanExecute(commandLineArguments.ProgressFilePath))
+					{
+						actionBarViewModel.StartWithProgress.Execute(commandLineArguments.ProgressFilePath);
+					}
 					else
 					{
 						MessageBox.Show("startup-error");
