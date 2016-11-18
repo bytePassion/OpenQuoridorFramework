@@ -30,7 +30,6 @@ using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.Visualization.Global;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
-using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameStatus.cs" />
     <Compile Include="IGameService.cs" />
     <Compile Include="IApplicationSettingsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

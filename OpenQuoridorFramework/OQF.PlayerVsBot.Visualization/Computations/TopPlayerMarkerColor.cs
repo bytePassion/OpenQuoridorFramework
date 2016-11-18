@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows.Media;
 using Lib.Wpf.ConverterBase;
-using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
+using OQF.PlayerVsBot.Contracts;
 
 namespace OQF.PlayerVsBot.Visualization.Computations
 {

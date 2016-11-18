@@ -3,8 +3,8 @@ using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
+using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
-using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 {
