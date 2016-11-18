@@ -1,4 +1,4 @@
-﻿namespace OQF.GameEngine.Contracts.Enums
+﻿namespace OQF.AnalysisAndProgress.Enum
 {
 	public enum WinningReason
 	{

@@ -2,7 +2,7 @@
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.GameEngine.Contracts.Replay
+namespace OQF.ReplayViewer.Contracts
 {
 	public interface IReplayService
 	{

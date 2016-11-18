@@ -14,7 +14,7 @@ using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
 using OQF.CommonUiElements.Info;
-using OQF.GameEngine.Contracts.Replay;
+using OQF.ReplayViewer.Contracts;
 using OQF.ReplayViewer.Visualization.Services;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;

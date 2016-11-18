@@ -3,15 +3,15 @@ using System.Linq;
 using System.Threading;
 using Lib.Concurrency;
 using OQF.AnalysisAndProgress.Analysis;
+using OQF.AnalysisAndProgress.Enum;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts.Enums;
 using OQF.Utils.BoardStateUtils;
 
-namespace OQF.GameEngine.Game
+namespace OQF.PlayerVsBot.GameLogic
 {
 	public class GameLoopThreadPvB : IThread
 	{

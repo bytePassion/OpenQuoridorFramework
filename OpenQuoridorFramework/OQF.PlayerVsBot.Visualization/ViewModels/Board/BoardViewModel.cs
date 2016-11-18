@@ -1,11 +1,13 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
 using Lib.FrameworkExtension;
 using Lib.SemanicTypes;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
-using OQF.PlayerVsBot.Visualization.Services;
+using OQF.PlayerVsBot.Contracts;
+using Size = Lib.SemanicTypes.Size;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.Board
 {
@@ -30,16 +32,19 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.Board
 		
 		private void OnDisplayedBoardStateVariableChanged(BoardState newBoardState)
 		{
-			VisiblePlayers.Clear();
-			VisibleWalls.Clear();
-
-			if (newBoardState != null)
+			Application.Current.Dispatcher.Invoke(() =>
 			{
-				newBoardState.PlacedWalls.Do(VisibleWalls.Add);
+				VisiblePlayers.Clear();
+				VisibleWalls.Clear();
 
-				VisiblePlayers.Add(newBoardState.TopPlayer);
-				VisiblePlayers.Add(newBoardState.BottomPlayer);
-			}
+				if (newBoardState != null)
+				{
+					newBoardState.PlacedWalls.Do(VisibleWalls.Add);
+
+					VisiblePlayers.Add(newBoardState.TopPlayer);
+					VisiblePlayers.Add(newBoardState.BottomPlayer);
+				}
+			});			
 		}		
 
 		public ObservableCollection<Wall>        VisibleWalls   { get; }

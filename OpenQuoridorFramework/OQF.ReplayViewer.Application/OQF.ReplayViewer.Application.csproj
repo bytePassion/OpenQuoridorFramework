@@ -116,13 +116,13 @@
       <Project>{762ef986-e716-4d0b-a13b-360a0bf97086}</Project>
       <Name>Lib.Wpf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj">
-      <Project>{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}</Project>
-      <Name>OQF.GameEngine.Contracts</Name>
+    <ProjectReference Include="..\OQF.ReplayViewer.Contracts\OQF.ReplayViewer.Contracts.csproj">
+      <Project>{687B9BF9-025F-41D1-928D-AF349D624A50}</Project>
+      <Name>OQF.ReplayViewer.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.GameEngine\OQF.GameEngine.csproj">
-      <Project>{26E530F7-814E-4B05-8D4A-9B10BF659CF1}</Project>
-      <Name>OQF.GameEngine</Name>
+    <ProjectReference Include="..\OQF.ReplayViewer.GameLogic\OQF.ReplayViewer.GameLogic.csproj">
+      <Project>{0ECEF68F-B660-4733-97B6-187A3EDCE57E}</Project>
+      <Name>OQF.ReplayViewer.GameLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.ReplayViewer.Visualization\OQF.ReplayViewer.Visualization.csproj">
       <Project>{BC482C0B-D6F1-42E4-BAEC-85FD819D86E1}</Project>

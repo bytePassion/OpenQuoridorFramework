@@ -2,10 +2,9 @@
 using System.Windows;
 using Lib.Wpf;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
-using OQF.GameEngine.Contracts.Factories;
-using OQF.GameEngine.Factories;
+using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.Contracts.Settings;
-using OQF.PlayerVsBot.Visualization.Services;
+using OQF.PlayerVsBot.GameLogic;
 using OQF.PlayerVsBot.Visualization.ViewModels.Board;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow;
@@ -21,9 +20,8 @@ namespace OQF.PlayerVsBot.Application
 		public void BuildAndStart(StartupEventArgs startupEventArgs)
 		{
 			var commandLineArguments = CommandLine.Parse(startupEventArgs.Args);
-
-			IGameFactory gameFactory = new GameFactory();
-			gameService = new GameService(gameFactory, commandLineArguments.DisableBotTimeout);
+			
+			gameService = new GameService(commandLineArguments.DisableBotTimeout);
 			IApplicationSettingsRepository applicationSettingsRepository = new ApplicationSettingsRepository();
 
 			CultureManager.CurrentCulture = new CultureInfo(applicationSettingsRepository.SelectedLanguageCode);
@@ -33,7 +31,7 @@ namespace OQF.PlayerVsBot.Application
 			};
 
 			var boardViewModel = new BoardViewModel(gameService);
-			var boardPlacementViewModel = new BoardPlacementViewModel(gameService, gameFactory);
+			var boardPlacementViewModel = new BoardPlacementViewModel(gameService);
 			var languageSelectionViewModel = new LanguageSelectionViewModel();			
 
 			var mainWindowViewModel = new MainWindowViewModel(boardViewModel,

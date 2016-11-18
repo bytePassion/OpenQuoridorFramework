@@ -1,9 +1,9 @@
 using System;
+using OQF.AnalysisAndProgress.Enum;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts.Enums;
 
-namespace OQF.GameEngine.Contracts.Games
+namespace OQF.PlayerVsBot.Contracts
 {
 	public interface IPvBGame
 	{

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading;
 using Lib.Concurrency;
+using OQF.AnalysisAndProgress.Enum;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts.Enums;
-using OQF.GameEngine.Contracts.Games;
+using OQF.PlayerVsBot.Contracts;
 
-namespace OQF.GameEngine.Game
+namespace OQF.PlayerVsBot.GameLogic
 {
 	public class LocalGamePvB : IPvBGame
 	{

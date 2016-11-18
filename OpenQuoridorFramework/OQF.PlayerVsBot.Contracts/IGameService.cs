@@ -1,11 +1,11 @@
 ﻿using System;
+using OQF.AnalysisAndProgress.Enum;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts.Enums;
 
-namespace OQF.PlayerVsBot.Visualization.Services
+namespace OQF.PlayerVsBot.Contracts
 {
 	public interface IGameService
 	{

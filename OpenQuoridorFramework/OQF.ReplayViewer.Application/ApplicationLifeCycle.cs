@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using Lib.Wpf;
-using OQF.GameEngine.Contracts.Replay;
-using OQF.GameEngine.Replay;
+using OQF.ReplayViewer.Contracts;
+using OQF.ReplayViewer.GameLogic;
 using OQF.ReplayViewer.Visualization.Services;
 using OQF.ReplayViewer.Visualization.ViewModels.Board;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow;

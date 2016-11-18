@@ -49,6 +49,7 @@
     <Compile Include="Analysis\GameAnalysis.cs" />
     <Compile Include="Analysis\HumanPlayerAnalysis.cs" />
     <Compile Include="Analysis\HumanPlayerAnalysisResult.cs" />
+    <Compile Include="Enum\WinningReason.cs" />
     <Compile Include="ProgressUtils\Coding\BaseCoding.cs" />
     <Compile Include="ProgressUtils\Coding\MoveListCoding.cs" />
     <Compile Include="ProgressUtils\Coding\ProgressCoding.cs" />

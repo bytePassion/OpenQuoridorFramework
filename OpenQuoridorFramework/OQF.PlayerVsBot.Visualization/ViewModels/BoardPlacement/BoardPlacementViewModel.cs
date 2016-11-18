@@ -2,34 +2,34 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
-using Lib.SemanicTypes;
 using Lib.Wpf.Commands;
 using Lib.Wpf.ViewModelBase;
 using OQF.AnalysisAndProgress.Analysis;
+using OQF.AnalysisAndProgress.Enum;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts.Enums;
-using OQF.GameEngine.Contracts.Factories;
-using OQF.PlayerVsBot.Visualization.Services;
+using OQF.PlayerVsBot.Contracts;
+using Point = Lib.SemanicTypes.Point;
+using Size = Lib.SemanicTypes.Size;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 {
 	public class BoardPlacementViewModel : ViewModel, IBoardPlacementViewModel
 	{
 		private readonly IGameService gameService;
-		private readonly IGameFactory gameFactory;
+		
 		private Point currentMousePosition;
 		private Size boardSize;		
 
 		private IEnumerable<Wall> allPossibleWalls;
 
-		public BoardPlacementViewModel(IGameService gameService, IGameFactory gameFactory)
+		public BoardPlacementViewModel(IGameService gameService)
 		{
-			this.gameService = gameService;
-			this.gameFactory = gameFactory;			
+			this.gameService = gameService;			
 
 			gameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameService.WinnerAvailable += OnWinnerAvailable;
@@ -42,7 +42,10 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 
 		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move illegalMove)
 		{
-			DisablePlacement();
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				DisablePlacement();
+			});			
 		}
 
 		private void DisablePlacement()
@@ -54,20 +57,23 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 
 		private void OnNewBoardStateAvailable(BoardState boardState)
 		{
-			if (boardState?.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+			Application.Current.Dispatcher.Invoke(() =>
 			{
-				var boardAnalysis = HumanPlayerAnalysis.GetResult(boardState);
+				if (boardState?.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+				{
+					var boardAnalysis = HumanPlayerAnalysis.GetResult(boardState);
 
-				allPossibleWalls = boardAnalysis.PossibleWalls;				
+					allPossibleWalls = boardAnalysis.PossibleWalls;				
 
-				boardAnalysis.PossibleMoves
-							 .Select(move => new PlayerState(null, move, -1))
-							 .Do(PossibleMoves.Add);
-			}
-			else
-			{
-				DisablePlacement();
-			}						
+					boardAnalysis.PossibleMoves
+								 .Select(move => new PlayerState(null, move, -1))
+								 .Do(PossibleMoves.Add);
+				}
+				else
+				{
+					DisablePlacement();
+				}				
+			});					
 		}
 
 		public ICommand BoardClick { get; }

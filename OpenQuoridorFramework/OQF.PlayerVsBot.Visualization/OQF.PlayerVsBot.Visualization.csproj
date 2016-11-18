@@ -71,8 +71,6 @@
     <Compile Include="Computations\GetTopPlayerMoveFromString.cs" />
     <Compile Include="Computations\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
-    <Compile Include="Services\GameService.cs" />
-    <Compile Include="Services\IGameService.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
     <Compile Include="ViewModels\BoardPlacement\IBoardPlacementViewModel.cs" />
@@ -121,10 +119,6 @@
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj">
-      <Project>{e257aa0a-7215-4cba-b17a-61dc7ec3345a}</Project>
-      <Name>OQF.GameEngine.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
       <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>

@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Threading;
+using OQF.AnalysisAndProgress.Enum;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.GameEngine.Contracts.Enums;
-using OQF.GameEngine.Contracts.Factories;
-using OQF.GameEngine.Contracts.Games;
+using OQF.PlayerVsBot.Contracts;
 
-namespace OQF.PlayerVsBot.Visualization.Services
+namespace OQF.PlayerVsBot.GameLogic
 {
 	public class GameService : IGameService
 	{
-		private readonly IGameFactory gameFactory;
+		
 		private readonly bool disableBotTimeout;
 		public event Action<BoardState> NewBoardStateAvailable;
 		public event Action<string> NewDebugMsgAvailable;
@@ -20,9 +19,8 @@ namespace OQF.PlayerVsBot.Visualization.Services
 
 		private IPvBGame currentIpvBGame;		
 
-		public GameService(IGameFactory gameFactory, bool disableBotTimeout)
-		{
-			this.gameFactory = gameFactory;
+		public GameService(bool disableBotTimeout)
+		{			
 			this.disableBotTimeout = disableBotTimeout;
 			currentIpvBGame = null;
 			CurrentBoardState = null;			
@@ -40,15 +38,15 @@ namespace OQF.PlayerVsBot.Visualization.Services
 			}
 
 			currentIpvBGame = disableBotTimeout 
-									? gameFactory.CreateNewGame(uninitializedBot, 
-																botName, 
-																new GameConstraints(Timeout.InfiniteTimeSpan, 
-																					gameConstraints.MaximalMovesPerPlayer), 
-																initialProgress)
-									: gameFactory.CreateNewGame(uninitializedBot, 
-																botName, 
-																gameConstraints, 
-																initialProgress);
+									? new LocalGamePvB(uninitializedBot, 
+													   botName, 
+													   new GameConstraints(Timeout.InfiniteTimeSpan, 
+													   					   gameConstraints.MaximalMovesPerPlayer), 
+													   initialProgress)
+									: new LocalGamePvB(uninitializedBot, 
+													   botName, 
+													   gameConstraints, 
+													   initialProgress);
 
 			currentIpvBGame.DebugMessageAvailable   += OnDebugMessageAvailable;
 			currentIpvBGame.NextBoardstateAvailable += OnNextBoardstateAvailable;
@@ -56,28 +54,19 @@ namespace OQF.PlayerVsBot.Visualization.Services
 		}
 
 		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move invalidMove)
-		{
-			System.Windows.Application.Current.Dispatcher.Invoke(() =>
-			{
-				WinnerAvailable?.Invoke(player, winningReason, invalidMove);
-			});			
+		{			
+			WinnerAvailable?.Invoke(player, winningReason, invalidMove);				
 		}
 
 		private void OnNextBoardstateAvailable(BoardState boardState)
-		{
-			System.Windows.Application.Current.Dispatcher.Invoke(() =>
-			{
-				CurrentBoardState = boardState;
-				NewBoardStateAvailable?.Invoke(boardState);
-			});			
+		{			
+			CurrentBoardState = boardState;
+			NewBoardStateAvailable?.Invoke(boardState);					
 		}
 
 		private void OnDebugMessageAvailable(string s)
-		{
-			System.Windows.Application.Current.Dispatcher.Invoke(() =>
-			{
-				NewDebugMsgAvailable?.Invoke(s);
-			});			
+		{						
+			NewDebugMsgAvailable?.Invoke(s);					
 		}
 
 		public void ReportHumanMove(Move move)

@@ -5,7 +5,7 @@ using Lib.SemanicTypes;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.BoardViewModelBase;
-using OQF.GameEngine.Contracts.Replay;
+using OQF.ReplayViewer.Contracts;
 
 namespace OQF.ReplayViewer.Visualization.ViewModels.Board
 {

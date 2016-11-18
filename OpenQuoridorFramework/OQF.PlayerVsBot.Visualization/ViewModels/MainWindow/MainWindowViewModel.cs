@@ -15,6 +15,7 @@ using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
+using OQF.AnalysisAndProgress.Enum;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.AnalysisAndProgress.ProgressUtils.Validation;
 using OQF.Bot.Contracts;
@@ -27,10 +28,9 @@ using OQF.CommonUiElements.Dialogs.StringInput;
 using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.CommonUiElements.Info;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
-using OQF.GameEngine.Contracts.Enums;
+using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.Contracts.Settings;
 using OQF.PlayerVsBot.Visualization.Global;
-using OQF.PlayerVsBot.Visualization.Services;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
@@ -175,7 +175,10 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 		private void OnNewDebugMsgAvailable(string s)
 		{
-			DebugMessages.Add(s);
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				DebugMessages.Add(s);
+			});			
 		}
 
 		private void DoDumpProgressToFile ()
@@ -307,70 +310,73 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move invalidMove)
 		{
-			StopTimer();
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				StopTimer();
 
-			var reportWinning = player.PlayerType == PlayerType.BottomPlayer;
-						
+				var reportWinning = player.PlayerType == PlayerType.BottomPlayer;						
+				ExecuteWinDialog(reportWinning, player, winningReason, invalidMove);
 
-
-			ExecuteWinDialog(reportWinning, player, winningReason, invalidMove);
-
-			GameStatus = GameStatus.Finished;
+				GameStatus = GameStatus.Finished;
+			});			
 		}
 
 		
 
 		private void OnNewBoardStateAvailable(BoardState boardState)
-		{			
-			((Command)Capitulate).RaiseCanExecuteChanged();
-
-			if (boardState == null)
+		{
+			Application.Current.Dispatcher.Invoke(() =>
 			{
-				GameStatus = GameStatus.Unloaded;
+				((Command)Capitulate).RaiseCanExecuteChanged();
 
-				TopPlayerName = "- - - - -";
-				TopPlayerWallCountLeft = 10;
-				BottomPlayerWallCountLeft = 10;
-				MovesLeft = "--";
-				TopPlayerRestTime = "--";
-
-				GameProgress.Clear();
-				CompressedProgress = "";
-			}
-			else
-			{
-				GameStatus = GameStatus.Active;
-
-				TopPlayerName = boardState.TopPlayer.Player.Name;
-
-				TopPlayerWallCountLeft = boardState.TopPlayer.WallsToPlace;
-				BottomPlayerWallCountLeft = boardState.BottomPlayer.WallsToPlace;
-
-				if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+				if (boardState == null)
 				{
-					if (GameProgress.Count > 0)
-					{
-						GameProgress[GameProgress.Count - 1] = GameProgress[GameProgress.Count - 1] + $" {boardState.LastMove}";
+					GameStatus = GameStatus.Unloaded;
 
-						// TODO improve
-						CompressedProgress = CreateQProgress.FromBoardState(boardState).Compressed;						
-					}
+					TopPlayerName = "- - - - -";
+					TopPlayerWallCountLeft = 10;
+					BottomPlayerWallCountLeft = 10;
+					MovesLeft = "--";
+					TopPlayerRestTime = "--";
 
-					var currentMovesLeft = int.Parse(MovesLeft);
-					MovesLeft = (currentMovesLeft - 1).ToString();
-
-					StopTimer();
+					GameProgress.Clear();
+					CompressedProgress = "";
 				}
 				else
 				{
-                    GameProgress.Add($"{GameProgress.Count + 1}: " + $"{boardState.LastMove}");
+					GameStatus = GameStatus.Active;
 
-					// TODO improve
-					CompressedProgress = CreateQProgress.FromBoardState(boardState).Compressed;
+					TopPlayerName = boardState.TopPlayer.Player.Name;
 
-					StartTimer();
-				}
-			}			
+					TopPlayerWallCountLeft = boardState.TopPlayer.WallsToPlace;
+					BottomPlayerWallCountLeft = boardState.BottomPlayer.WallsToPlace;
+
+					if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+					{
+						if (GameProgress.Count > 0)
+						{
+							GameProgress[GameProgress.Count - 1] = GameProgress[GameProgress.Count - 1] + $" {boardState.LastMove}";
+
+							// TODO improve
+							CompressedProgress = CreateQProgress.FromBoardState(boardState).Compressed;						
+						}
+
+						var currentMovesLeft = int.Parse(MovesLeft);
+						MovesLeft = (currentMovesLeft - 1).ToString();
+
+						StopTimer();
+					}
+					else
+					{
+						GameProgress.Add($"{GameProgress.Count + 1}: " + $"{boardState.LastMove}");
+
+						// TODO improve
+						CompressedProgress = CreateQProgress.FromBoardState(boardState).Compressed;
+
+						StartTimer();
+					}
+				}			
+			});			
 		}		
 
 		private void StartTimer()

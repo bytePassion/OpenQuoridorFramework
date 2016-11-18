@@ -127,13 +127,9 @@
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OQF.GameEngine.Contracts\OQF.GameEngine.Contracts.csproj">
-      <Project>{E257AA0A-7215-4CBA-B17A-61DC7EC3345A}</Project>
-      <Name>OQF.GameEngine.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OQF.GameEngine\OQF.GameEngine.csproj">
-      <Project>{26E530F7-814E-4B05-8D4A-9B10BF659CF1}</Project>
-      <Name>OQF.GameEngine</Name>
+    <ProjectReference Include="..\OQF.PlayerVsBot.GameLogic\OQF.PlayerVsBot.GameLogic.csproj">
+      <Project>{E1C753ED-ADA5-4A8B-9D75-15F88737185E}</Project>
+      <Name>OQF.PlayerVsBot.GameLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.PlayerVsBot.Visualization\OQF.PlayerVsBot.Visualization.csproj">
       <Project>{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}</Project>
