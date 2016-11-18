@@ -3,7 +3,6 @@ using System.Windows;
 using Lib.Wpf;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.PlayerVsBot.Contracts;
-using OQF.PlayerVsBot.Contracts.Settings;
 using OQF.PlayerVsBot.GameLogic;
 using OQF.PlayerVsBot.Visualization.ViewModels.Board;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;

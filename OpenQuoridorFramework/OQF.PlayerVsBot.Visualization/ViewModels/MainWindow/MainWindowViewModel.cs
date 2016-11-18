@@ -28,7 +28,6 @@ using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.CommonUiElements.Info;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.PlayerVsBot.Contracts;
-using OQF.PlayerVsBot.Contracts.Settings;
 using OQF.PlayerVsBot.Visualization.Global;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;

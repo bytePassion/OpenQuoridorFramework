@@ -1,4 +1,4 @@
-﻿namespace OQF.PlayerVsBot.Contracts.Settings
+﻿namespace OQF.PlayerVsBot.Contracts
 {
 	public interface IApplicationSettingsRepository
 	{		

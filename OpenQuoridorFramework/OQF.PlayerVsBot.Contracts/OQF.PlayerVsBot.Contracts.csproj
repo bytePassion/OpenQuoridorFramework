@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IGameService.cs" />
-    <Compile Include="Settings\IApplicationSettingsRepository.cs" />
+    <Compile Include="IApplicationSettingsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
