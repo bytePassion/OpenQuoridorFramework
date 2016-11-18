@@ -71,16 +71,54 @@
     <Compile Include="Computations\GetTopPlayerMoveFromString.cs" />
     <Compile Include="Computations\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
+    <Compile Include="ViewModels\ActionBar\ActionBarViewModel.cs" />
+    <Compile Include="ViewModels\ActionBar\ActionBarViewModelSampleData.cs" />
+    <Compile Include="ViewModels\ActionBar\IActionBarViewModel.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
     <Compile Include="ViewModels\BoardPlacement\IBoardPlacementViewModel.cs" />
+    <Compile Include="ViewModels\BotStatusBar\BotStatusBarViewModel.cs" />
+    <Compile Include="ViewModels\BotStatusBar\BotStatusBarViewModelSampleData.cs" />
+    <Compile Include="ViewModels\BotStatusBar\IBotStatusBarViewModel.cs" />
+    <Compile Include="ViewModels\DebugMessageView\DebugMessageViewModel.cs" />
+    <Compile Include="ViewModels\DebugMessageView\DebugMessageViewModelSampleData.cs" />
+    <Compile Include="ViewModels\DebugMessageView\IDebugMessageViewModel.cs" />
+    <Compile Include="ViewModels\HumanPlayerBar\HumanPlayerBarViewModel.cs" />
+    <Compile Include="ViewModels\HumanPlayerBar\HumanPlayerBarViewModelSampleData.cs" />
+    <Compile Include="ViewModels\HumanPlayerBar\IHumanPlayerBarViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
+    <Compile Include="ViewModels\ProgressView\IProgressViewModel.cs" />
+    <Compile Include="ViewModels\ProgressView\ProgressViewModel.cs" />
+    <Compile Include="ViewModels\ProgressView\ProgressViewModelSampleData.cs" />
+    <Compile Include="Views\ActionBar.xaml.cs">
+      <DependentUpon>ActionBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BoardPlacement.xaml.cs">
       <DependentUpon>BoardPlacement.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\ActionBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BoardPlacement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BotStatusBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DebugMessageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HumanPlayerBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProgressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,6 +126,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Views\BotStatusBar.xaml.cs">
+      <DependentUpon>BotStatusBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DebugMessageView.xaml.cs">
+      <DependentUpon>DebugMessageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HumanPlayerBar.xaml.cs">
+      <DependentUpon>HumanPlayerBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProgressView.xaml.cs">
+      <DependentUpon>ProgressView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

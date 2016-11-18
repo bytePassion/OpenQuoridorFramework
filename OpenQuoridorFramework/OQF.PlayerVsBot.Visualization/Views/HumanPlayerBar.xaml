@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="OQF.PlayerVsBot.Visualization.Views.HumanPlayerBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:sampleData="clr-namespace:OQF.PlayerVsBot.Visualization.ViewModels.HumanPlayerBar"
+             xmlns:computations="clr-namespace:OQF.PlayerVsBot.Visualization.Computations"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+	
+	<d:DesignData.DataContext>
+		<sampleData:HumanPlayerBarViewModelSampleData/>
+	</d:DesignData.DataContext>
+	
+	<UserControl.Resources>
+		<computations:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
+	</UserControl.Resources>
+	
+	<materialDesign:Card Margin="8"
+                         Padding="8">
+
+		<Grid>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="70" />
+				<ColumnDefinition Width="Auto" MinWidth="150" />
+				<ColumnDefinition />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+
+			<Ellipse Grid.Column="0"
+                             Width="40"
+                             Height="40"
+                             Fill="{Binding GameStatus,
+                                            Converter={StaticResource BottomPlayerMarkerColor}}" />
+
+
+			<TextBlock Grid.Column="1"
+                               Margin="80,0,10,0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               FontSize="20">
+                        <Run Text="{Binding MovesLeftLabelCaption, Mode=OneWay}" />
+                        :</TextBlock>
+
+			<TextBlock Grid.Column="2"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               Text="{Binding MovesLeft}" />
+
+			<TextBlock Grid.Column="4"
+                               Margin="0,0,46,0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               FontSize="30">
+                        <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />
+                        :</TextBlock>
+
+
+			<TextBlock Grid.Column="4"
+                               Margin="0,0,5,0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               FontSize="30"
+                               Text="{Binding BottomPlayerWallCountLeft}" />
+
+
+
+			<Button Grid.Row="0"
+                            Grid.Column="3"
+                            Margin="20,7"
+                            HorizontalAlignment="Right"
+                            Command="{Binding Capitulate}"
+                            Content="{Binding CapitulateButtonCaption}" />
+
+		</Grid>
+
+	</materialDesign:Card>
+</UserControl>

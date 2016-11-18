@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="OQF.PlayerVsBot.Visualization.Views.ProgressView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OQF.PlayerVsBot.Visualization.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:behaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
+             xmlns:computations="clr-namespace:OQF.PlayerVsBot.Visualization.Computations"
+             xmlns:progressView="clr-namespace:OQF.PlayerVsBot.Visualization.ViewModels.ProgressView"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+	<d:DesignData.DataContext>
+		<progressView:ProgressViewModelSampleData/>
+	</d:DesignData.DataContext>
+
+	<UserControl.Resources>
+		<computations:GetBottomPlayerMoveFromString x:Key="GetBottomPlayerMoveFromString" />
+		<computations:GetTopPlayerMoveFromString x:Key="GetTopPlayerMoveFromString" />
+		<computations:GetProgressNrFromString x:Key="GetProgressNrFromString" />
+	</UserControl.Resources>
+	
+	<DockPanel VerticalAlignment="Stretch">
+
+		<GroupBox Width="250"
+                                  Margin="5"
+                                  materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                  BorderThickness="0"
+                                  DockPanel.Dock="Bottom"
+                                  Header="{Binding CompressedProgressCaption}"
+                                  Style="{DynamicResource MaterialDesignGroupBox}">
+
+			<Grid>
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="60" />
+				</Grid.ColumnDefinitions>
+
+				<TextBox Grid.Column="0"
+                                         Margin="5"
+                                         IsReadOnly="True"
+                                         Text="{Binding CompressedProgress,
+                                                        Mode=OneWay}"
+                                         TextWrapping="Wrap" />
+
+				<Button Grid.Column="1"
+                                        Margin="5"
+                                        Command="{Binding CopyCompressedProgressToClipBoard}"
+                                        ToolTip="{Binding CopyToClipboardButtonToolTipCpation}">
+
+					<Viewbox Width="18" Height="18">
+						<Canvas Width="24" Height="24">
+							<Path Data="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0                      21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" Fill="White" />
+						</Canvas>
+					</Viewbox>
+
+				</Button>
+
+			</Grid>
+
+		</GroupBox>
+
+		<GroupBox Width="250"
+                                  Margin="5"
+                                  materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                  BorderThickness="0"
+                                  DockPanel.Dock="Top"
+                                  Header="{Binding ProgressCaption}"
+                                  Style="{DynamicResource MaterialDesignGroupBox}">
+
+
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+
+				<CheckBox HorizontalAlignment="Right"
+                                          VerticalAlignment="Center"
+                                          Content="{Binding AutoScrollDownCheckBoxCaption}"
+                                          IsChecked="{Binding IsAutoScrollProgressActive,
+                                                              Mode=TwoWay,
+                                                              UpdateSourceTrigger=PropertyChanged}" />
+
+				<Button Grid.Row="0"
+                                        Width="95"
+                                        Height="25"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Command="{Binding DumpProgressToFile}"
+                                        Content="{Binding DumpProgressToFileButtonCaption}" />
+
+				<ScrollViewer Grid.Row="1"
+                                              HorizontalScrollBarVisibility="Auto"
+                                              VerticalScrollBarVisibility="Auto">
+
+					<ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}">
+
+						<ItemsControl.ItemTemplate>
+							<DataTemplate DataType="system:String">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="30" />
+										<ColumnDefinition Width="30" />
+										<ColumnDefinition Width="30" />
+									</Grid.ColumnDefinitions>
+
+									<TextBlock Grid.Column="0"
+                                                               Margin="0,0,10,0"
+                                                               HorizontalAlignment="Right"
+                                                               Text="{Binding Converter={StaticResource GetProgressNrFromString}}" />
+
+									<TextBlock Grid.Column="1"
+                                                               HorizontalAlignment="Left"
+                                                               Text="{Binding Converter={StaticResource GetBottomPlayerMoveFromString}}" />
+
+									<TextBlock Grid.Column="2"
+                                                               HorizontalAlignment="Left"
+                                                               Text="{Binding Converter={StaticResource GetTopPlayerMoveFromString}}" />
+
+								</Grid>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+
+					</ItemsControl>
+
+					<i:Interaction.Behaviors>
+						<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
+					</i:Interaction.Behaviors>
+				</ScrollViewer>
+			</Grid>
+
+		</GroupBox>
+
+	</DockPanel>
+
+</UserControl>

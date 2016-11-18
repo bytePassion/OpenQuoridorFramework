@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="OQF.PlayerVsBot.Visualization.Views.ActionBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:languageSelection="clr-namespace:OQF.CommonUiElements.Language.LanguageSelection;assembly=OQF.CommonUiElements"
+             xmlns:sampleData="clr-namespace:OQF.PlayerVsBot.Visualization.ViewModels.ActionBar"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+	
+	<d:DesignData.DataContext>
+		<sampleData:ActionBarViewModelSampleData/>
+	</d:DesignData.DataContext>
+	
+	<materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                              Mode="Dark"
+                              Padding="8">
+		<DockPanel>
+
+			<Button Width="60"
+                    Margin="4,0"
+                    Command="{Binding BrowseDll}"
+                    DockPanel.Dock="Left"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    ToolTip="{Binding BrowseForBotButtonToolTipCaption}">
+				<materialDesign:PackIcon Kind="OpenInNew" />
+			</Button>
+
+			<Button Width="60"
+                    Margin="4,0"
+                    Command="{Binding Start}"
+                    DockPanel.Dock="Left"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    ToolTip="{Binding StartGameButtonToolTipCaption}">
+				<materialDesign:PackIcon Kind="Play" />
+			</Button>
+
+			<Button Name="startWithProgressButton"
+                    Width="60"
+                    Margin="4,0"
+                    Command="{Binding StartWithProgress}"
+                    DockPanel.Dock="Left"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    ToolTip="{Binding StartWithProgressGameButtonToolTipCaption}">
+
+				<Canvas>
+					<materialDesign:PackIcon Canvas.Left="-15"
+                                             Canvas.Top="-8"
+                                             Kind="Play" />
+					<Viewbox Canvas.Left="-3"
+                             Canvas.Top="-9"
+                             Width="20"
+                             Height="15">
+
+						<Path Data="M7,13H21V11H7M7,19H21V17H7M7,7H21V5H7M2,11H3.8L2,13.1V14H5V13H3.2L5,
+									10.9V10H2M3,8H4V4H2V5H3M2,17H4V17.5H3V18.5H4V19H2V20H5V16H2V17Z" 
+							  Fill="White" />
+
+					</Viewbox>
+				</Canvas>
+
+			</Button>
+
+			<Popup HorizontalOffset="0"
+                   IsOpen="{Binding IsStartWithProgressPopupVisible,
+                                    Mode=TwoWay,
+                                    UpdateSourceTrigger=PropertyChanged}"
+                   Placement="Bottom"
+                   PlacementTarget="{Binding ElementName=startWithProgressButton}"
+                   StaysOpen="False"
+                   VerticalOffset="8">
+				
+				<materialDesign:ColorZone Mode="Dark">
+					<StackPanel Margin="5">
+
+						<Button Width="110"
+                                Height="25"
+                                Command="{Binding StartWithProgressFromFile}"
+                                CommandParameter="{x:Static system:String.Empty}"
+                                Content="From File" />
+
+						<Button Width="110"
+                                Height="25"
+                                Margin="0,5,0,0"
+                                Command="{Binding StartWithProgressFromString}"
+                                CommandParameter="{x:Static system:String.Empty}"
+                                Content="From String" />
+						
+					</StackPanel>
+				</materialDesign:ColorZone>
+
+			</Popup>
+
+			<Button Margin="4,0"
+                    Command="{Binding ShowAboutHelp}"
+                    DockPanel.Dock="Right"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    ToolTip="{Binding OpenInfoButtonToolTipCaption}">
+				<materialDesign:PackIcon Kind="Help" />
+			</Button>
+
+			<languageSelection:LanguageSelectionView Margin="4,0"
+                                                     DataContext="{Binding LanguageSelectionViewModel}"
+                                                     DockPanel.Dock="Right" />
+
+
+
+			<StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Left"
+                        Orientation="Horizontal">
+
+				<TextBlock Margin="20,0"
+                           Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                           Text="{Binding HeaderCaptionPlayer,
+                                          Mode=OneWay}" />
+
+				<TextBlock VerticalAlignment="Center"
+                           Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                           Text="vs." />
+
+				<TextBlock Margin="20,0"
+                           Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                           Text="{Binding TopPlayerName,
+                                          Mode=OneWay,
+                                          UpdateSourceTrigger=PropertyChanged}" />
+
+			</StackPanel>
+		</DockPanel>
+	</materialDesign:ColorZone>
+
+</UserControl>

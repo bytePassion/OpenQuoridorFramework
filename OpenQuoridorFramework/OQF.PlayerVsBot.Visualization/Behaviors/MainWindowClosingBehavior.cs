@@ -37,8 +37,8 @@ namespace OQF.PlayerVsBot.Visualization.Behaviors
 
 					if (savingDialogResult)
 					{
-						if (mainWindowViewModel.DumpProgressToFile.CanExecute(null))
-							mainWindowViewModel.DumpProgressToFile.Execute(null);
+						if (mainWindowViewModel.ProgressViewModel.DumpProgressToFile.CanExecute(null))
+							mainWindowViewModel.ProgressViewModel.DumpProgressToFile.Execute(null);
 					}
 
 					mainWindowViewModel.CloseWindow.Execute(null);

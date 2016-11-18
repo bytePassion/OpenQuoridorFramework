@@ -11,8 +11,11 @@ namespace OQF.PlayerVsBot.Contracts
 	public interface IGameService : IBoardStateProvider
 	{		
 		event Action<string>                      NewDebugMsgAvailable;
-		event Action<Player, WinningReason, Move> WinnerAvailable;				
-		
+		event Action<Player, WinningReason, Move> WinnerAvailable;
+		event Action<GameStatus>                  NewGameStatusAvailable;
+
+		GameStatus CurrentGameStatus { get; }
+
 		void CreateGame(IQuoridorBot uninitializedBot, 
 						string botName, 
 						GameConstraints gameConstraints, 

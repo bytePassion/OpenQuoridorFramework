@@ -17,11 +17,13 @@ namespace OQF.PlayerVsBot.GameLogic
 		public event Action<BoardState> NewBoardStateAvailable;
 		public event Action<string> NewDebugMsgAvailable;
 		public event Action<Player, WinningReason, Move> WinnerAvailable;
+		public event Action<GameStatus> NewGameStatusAvailable;
 
 		private TimeoutBlockingQueue<Move> humenMoves;
 		private GameLoopThreadPvB gameLoopThreadPvB;
 		private IQuoridorBot quoridorBot;
 		private BoardState currentBoardState;
+		private GameStatus currentGameStatus;
 
 
 		public GameService(bool disableBotTimeout)
@@ -29,6 +31,7 @@ namespace OQF.PlayerVsBot.GameLogic
 			this.disableBotTimeout = disableBotTimeout;			
 			CurrentBoardState = null;
 			gameLoopThreadPvB = null;
+			CurrentGameStatus = GameStatus.Unloaded;
 		}
 
 		public BoardState CurrentBoardState
@@ -44,6 +47,19 @@ namespace OQF.PlayerVsBot.GameLogic
 			}
 		}
 
+
+		public GameStatus CurrentGameStatus
+		{
+			get { return currentGameStatus; }
+			private set
+			{
+				if (currentGameStatus != value)
+				{
+					currentGameStatus = value;
+					NewGameStatusAvailable?.Invoke(currentGameStatus);
+				}				
+			}
+		}
 
 		public void CreateGame(IQuoridorBot uninitializedBot, string botName, GameConstraints gameConstraints, 
 							   QProgress initialProgress)
@@ -71,14 +87,15 @@ namespace OQF.PlayerVsBot.GameLogic
 			gameLoopThreadPvB.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			gameLoopThreadPvB.WinnerAvailable += OnWinnerAvailable;
 
-			new Thread(gameLoopThreadPvB.Run).Start();
+			CurrentGameStatus = GameStatus.Active;
 
-
+			new Thread(gameLoopThreadPvB.Run).Start();			
 		}
 
 		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move invalidMove)
 		{			
-			WinnerAvailable?.Invoke(player, winningReason, invalidMove);				
+			WinnerAvailable?.Invoke(player, winningReason, invalidMove);
+			CurrentGameStatus = GameStatus.Finished;
 		}
 
 		private void OnNewBoardStateAvailable (BoardState boardState)
@@ -110,6 +127,8 @@ namespace OQF.PlayerVsBot.GameLogic
 				gameLoopThreadPvB = null;
 				CurrentBoardState = null;
 			}
+
+			CurrentGameStatus = GameStatus.Unloaded;
 		}
 	}
 }
