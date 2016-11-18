@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading;
-using OQF.AnalysisAndProgress.Enum;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.PlayerVsBot.Contracts;
+using OQF.Utils.Enum;
 
 namespace OQF.PlayerVsBot.GameLogic
 {

@@ -15,7 +15,6 @@ using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
-using OQF.AnalysisAndProgress.Enum;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.AnalysisAndProgress.ProgressUtils.Validation;
 using OQF.Bot.Contracts;
@@ -36,6 +35,7 @@ using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
+using OQF.Utils.Enum;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 {
@@ -299,8 +299,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
                 {
                     if (result.Value)
                     {
-	                    var fileText = CreateProgressText.FromBoardState(gameService.CurrentBoardState);
-                                                      // TODO   .AndAppendWinnerAndReason(player, winningReason, invalidMove);
+	                    var fileText = CreateProgressText.FromBoardState(gameService.CurrentBoardState)
+                                                         .AndAppendWinnerAndReason(player, winningReason, invalidMove);
 
                         File.WriteAllText(dialog.FileName, fileText);
                     }

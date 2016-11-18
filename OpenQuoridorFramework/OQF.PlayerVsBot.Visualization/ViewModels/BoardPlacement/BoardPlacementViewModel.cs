@@ -8,11 +8,11 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using Lib.Wpf.ViewModelBase;
 using OQF.AnalysisAndProgress.Analysis;
-using OQF.AnalysisAndProgress.Enum;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.PlayerVsBot.Contracts;
+using OQF.Utils.Enum;
 using Point = Lib.SemanicTypes.Point;
 using Size = Lib.SemanicTypes.Size;
 

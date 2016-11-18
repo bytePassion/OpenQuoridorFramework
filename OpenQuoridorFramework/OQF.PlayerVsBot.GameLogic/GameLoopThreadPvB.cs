@@ -3,13 +3,13 @@ using System.Linq;
 using System.Threading;
 using Lib.Concurrency;
 using OQF.AnalysisAndProgress.Analysis;
-using OQF.AnalysisAndProgress.Enum;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.Utils.BoardStateUtils;
+using OQF.Utils.Enum;
 
 namespace OQF.PlayerVsBot.GameLogic
 {

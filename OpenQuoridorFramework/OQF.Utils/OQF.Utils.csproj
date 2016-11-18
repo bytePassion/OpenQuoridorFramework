@@ -47,6 +47,7 @@
     <Compile Include="BotLoader.cs" />
     <Compile Include="CreateProgressText.cs" />
     <Compile Include="CultureManager.cs" />
+    <Compile Include="Enum\WinningReason.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
