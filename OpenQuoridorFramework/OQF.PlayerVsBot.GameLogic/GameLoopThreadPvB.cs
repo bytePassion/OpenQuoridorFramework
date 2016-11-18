@@ -157,6 +157,7 @@ namespace OQF.PlayerVsBot.GameLogic
 			if (nextBotMove is Capitulation)
 			{
 				WinnerAvailable?.Invoke(humanPlayer, WinningReason.Capitulation, null);
+				return false;
 			}
 
 			var winner2 = GameAnalysis.CheckWinningCondition(currentBoardState);
@@ -188,6 +189,7 @@ namespace OQF.PlayerVsBot.GameLogic
 			if (nextHumanMove is Capitulation)
 			{
 				WinnerAvailable?.Invoke(computerPlayer, WinningReason.Capitulation, null);
+				return false;
 			}
 
 			var winner = GameAnalysis.CheckWinningCondition(currentBoardState);
