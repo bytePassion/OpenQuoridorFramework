@@ -18,6 +18,7 @@ using OQF.ReplayViewer.Contracts;
 using OQF.ReplayViewer.Visualization.Services;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
+using OQF.Utils;
 
 namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 {
@@ -190,6 +191,10 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			ProgressRows.Clear();		
 		
 			replayService.NewReplay(progress);
+
+			CreateProgressText.FromMoveList(progress.Moves.Select(move => move.ToString()).ToList())
+							  .Select(line => new ProgressRow(line))
+							  .Do(ProgressRows.Add);
 
 			moveIndex = 0;
 			MaxMoveIndex = progress.MoveCount - 1;
