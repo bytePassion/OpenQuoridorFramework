@@ -153,13 +153,13 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		{
 			if (string.IsNullOrWhiteSpace(botPath))
 			{
-				await NotificationDialogService.Show(Captions.PvB_ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);
+				await NotificationDialogService.Show(Captions.ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);
 				return null;
 			}
 
 			if (!File.Exists(botPath))
 			{
-				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_FileDoesNotExist} [{botPath}]",
+				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileDoesNotExist} [{botPath}]",
 											   Captions.ND_OkButtonCaption);
 				return null;
 			}
@@ -172,7 +172,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			}
 			catch
 			{
-				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_FileIsNoAssembly} [{botPath}]",
+				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileIsNoAssembly} [{botPath}]",
 											   Captions.ND_OkButtonCaption);
 				return null;
 			}
@@ -181,7 +181,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 
 			if (uninitializedBotAndBotName == null)
 			{
-				await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
+				await NotificationDialogService.Show($"{Captions.ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
 											   Captions.ND_OkButtonCaption);
 				return null;
 			}
@@ -295,52 +295,20 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 														     Constants.GameConstraint.MaximalMovesPerGame,
 															 true);
 
-			switch (verificationResult)
+			if (verificationResult.Result == VerificationResult.Valid)
 			{
-				case ProgressVerificationResult.EmptyOrInvalid:
-				{
-					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
-														 $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-														 $"\n{Captions.PVR_EmptyOrInvalid}",
-														 Captions.ND_OkButtonCaption);
-					return;
-				}
-				case ProgressVerificationResult.ProgressContainsInvalidMove:
-				{
-					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
-														 $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-														 $"\n{Captions.PVR_ProgressContainsInvalidMove}",
-														 Captions.ND_OkButtonCaption);
-					return;
-				}
-				case ProgressVerificationResult.ProgressContainsTerminatedGame:
-				{
-					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
-														 $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-														 $"\n{Captions.PVR_ProgressContainsTerminatedGame}",
-														 Captions.ND_OkButtonCaption);
-					return;
-				}
-				case ProgressVerificationResult.ProgressContainsMoreMovesThanAllowed:
-				{
-					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_ProgressFileCannotBeLoaded} [{progressFilePath}]" +
-												         $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-												         $"\n{Captions.PVR_ProgressContainsMoreMovesThanAllowed}",
-												         Captions.ND_OkButtonCaption);
-					return;
-				}
-				case ProgressVerificationResult.Valid:
-				{
-					applicationSettingsRepository.LastUsedBotPath = DllPathInput;					
-					gameService.CreateGame(uninitializedBotAndBotName.Item1,
-										   uninitializedBotAndBotName.Item2,
-										   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
-															   Constants.GameConstraint.MaximalMovesPerGame), 
-										   initialProgress);
-					
-					return;
-				}
+				applicationSettingsRepository.LastUsedBotPath = DllPathInput;
+				gameService.CreateGame(uninitializedBotAndBotName.Item1,
+					uninitializedBotAndBotName.Item2,
+					new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
+						Constants.GameConstraint.MaximalMovesPerGame),
+					initialProgress);
 			}
+			else
+			{
+				await NotificationDialogService.Show(verificationResult.ErrorMessage,
+													 Captions.ND_OkButtonCaption);
+			}			
 		}
 
 		private async Task DoStartWithProgressFromString (string progressString)
@@ -377,51 +345,20 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 															 Constants.GameConstraint.MaximalMovesPerGame,
 															 true);
 
-			switch (verificationResult)
+			if (verificationResult.Result == VerificationResult.Valid)
 			{
-				case ProgressVerificationResult.EmptyOrInvalid:
-				{
-					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
-												         $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-												         $"\n{Captions.PVR_EmptyOrInvalid}",
-												         Captions.ND_OkButtonCaption);
-					return;
-				}
-				case ProgressVerificationResult.ProgressContainsInvalidMove:
-				{
-					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
-												         $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-												         $"\n{Captions.PVR_ProgressContainsInvalidMove}",
-												         Captions.ND_OkButtonCaption);
-					return;
-				}
-				case ProgressVerificationResult.ProgressContainsTerminatedGame:
-				{
-					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
-												         $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-												         $"\n{Captions.PVR_ProgressContainsTerminatedGame}",
-												         Captions.ND_OkButtonCaption);
-					return;
-				}
-				case ProgressVerificationResult.ProgressContainsMoreMovesThanAllowed:
-				{
-					await NotificationDialogService.Show($"{Captions.PvB_ErrorMsg_CompressedProgressCannotBeLoaded}" +
-												         $"\n\n{Captions.PvB_ErrorMsg_Reason}:" +
-												         $"\n{Captions.PVR_ProgressContainsMoreMovesThanAllowed}",
-												         Captions.ND_OkButtonCaption);
-					return;
-				}
-				case ProgressVerificationResult.Valid:
-				{
-					applicationSettingsRepository.LastUsedBotPath = DllPathInput;					
-					gameService.CreateGame(uninitializedBotAndBotName.Item1,
-										   uninitializedBotAndBotName.Item2,
-										   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
-															   Constants.GameConstraint.MaximalMovesPerGame),
-										   initialProgress);					
-					return;
-				}
+				applicationSettingsRepository.LastUsedBotPath = DllPathInput;
+				gameService.CreateGame(uninitializedBotAndBotName.Item1,
+					                   uninitializedBotAndBotName.Item2,
+					                   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
+					                   	                   Constants.GameConstraint.MaximalMovesPerGame),
+					                   initialProgress);
 			}
+			else
+			{
+				await NotificationDialogService.Show(verificationResult.ErrorMessage,
+													 Captions.ND_OkButtonCaption);
+			}			
 		}
 
 		public string BrowseForBotButtonToolTipCaption          => Captions.PvB_BrowseForBotButtonToolTipCaption;

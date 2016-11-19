@@ -60,6 +60,7 @@
     <Compile Include="ProgressUtils\Validation\MoveValidator.cs" />
     <Compile Include="ProgressUtils\Validation\ProgressVerificationResult.cs" />
     <Compile Include="ProgressUtils\Validation\ProgressVerifier.cs" />
+    <Compile Include="ProgressUtils\Validation\VerificationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +71,10 @@
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Resources\OQF.Resources.csproj">
+      <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
+      <Name>OQF.Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Utils\OQF.Utils.csproj">
       <Project>{2f71f7f9-f40a-45e3-9401-5a40933db8c7}</Project>

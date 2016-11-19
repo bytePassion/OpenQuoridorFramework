@@ -432,16 +432,16 @@
   <data name="PvB_SaveGameProgressFileDialogTitle" xml:space="preserve">
     <value>Speichere Spielfortschritt von beendetem Spiel</value>
   </data>
-  <data name="PvB_ErrorMsg_NoDllPath" xml:space="preserve">
+  <data name="ErrorMsg_NoDllPath" xml:space="preserve">
     <value>Bevor das Spiel gestartet werden kann muss eine bot-Dll ausgewählt werden</value>
   </data>
-  <data name="PvB_ErrorMsg_FileDoesNotExist" xml:space="preserve">
+  <data name="ErrorMsg_FileDoesNotExist" xml:space="preserve">
     <value>Die Datei existiert nicht</value>
   </data>
-  <data name="PvB_ErrorMsg_FileIsNoAssembly" xml:space="preserve">
+  <data name="ErrorMsg_FileIsNoAssembly" xml:space="preserve">
     <value>Die Datei ist keine gültige Assembly</value>
   </data>
-  <data name="PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly" xml:space="preserve">
+  <data name="ErrorMsg_BotCanNotBeLoadedFromAsembly" xml:space="preserve">
     <value>Aus der Datei kann kein Bot geladen werden</value>
   </data>
   <data name="ND_OkButtonCaption" xml:space="preserve">
@@ -465,10 +465,7 @@
   <data name="PVR_ProgressContainsTerminatedGame" xml:space="preserve">
     <value>Der Spielfortschritt beinhaltet ein Spiel, das bereits beendet ist</value>
   </data>
-  <data name="PvB_ErrorMsg_ProgressFileCannotBeLoaded" xml:space="preserve">
-    <value>Die Textdatei kann nicht als Spielfortschrittsdatei geladen werden</value>
-  </data>
-  <data name="PvB_ErrorMsg_Reason" xml:space="preserve">
+  <data name="PVR_ErrorMsg_Reason" xml:space="preserve">
     <value>Grund</value>
   </data>
   <data name="HTWAB_HintParagraphHeader" xml:space="preserve">
@@ -564,8 +561,8 @@
   <data name="PvB_CopyToClipboardButtonToolTipCpation" xml:space="preserve">
     <value>Kopremierten Spielforschritt in Zwischenablage kopieren</value>
   </data>
-  <data name="PvB_ErrorMsg_CompressedProgressCannotBeLoaded" xml:space="preserve">
-    <value>Diese Zeichenkette kann nicht als Spielfortschritt geladen werden</value>
+  <data name="PVR_ErrorMsg_ProgressCannotBeLoaded" xml:space="preserve">
+    <value>Kann nicht als Spielfortschritt geladen werden</value>
   </data>
   <data name="SID_CancelButtonCaption" xml:space="preserve">
     <value>Abbrechen</value>

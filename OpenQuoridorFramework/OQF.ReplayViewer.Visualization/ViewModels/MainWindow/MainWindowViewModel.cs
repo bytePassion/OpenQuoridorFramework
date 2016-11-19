@@ -150,7 +150,13 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 					ProgressFilePath = dialog.FileName;
 		}
 
-		private void DoLoadGame()
+		private bool ValidateProgress(QProgress progress)
+		{
+
+			return true;
+		}
+
+		private void LoadGameFromFile()
 		{
 			if (string.IsNullOrWhiteSpace(ProgressFilePath))
 			{
@@ -177,7 +183,9 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			}
 
 			var progress = CreateQProgress.FromReadableProgressTextFile(fileText);
-			
+
+			if (!ValidateProgress(progress))
+				return;
 
 			if (!progress.Moves.Any())
 			{
@@ -188,8 +196,8 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 			lastPlayedReplayService.SaveLastReplay(ProgressFilePath);
 
-			ProgressRows.Clear();		
-		
+			ProgressRows.Clear();
+
 			replayService.NewReplay(progress);
 
 			CreateProgressText.FromMoveList(progress.Moves.Select(move => move.ToString()).ToList())
@@ -200,6 +208,11 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			MaxMoveIndex = progress.MoveCount - 1;
 
 			PropertyChanged.Notify(this, nameof(MoveIndex));
+		}
+
+		private void DoLoadGame()
+		{
+			
 		}
 
 		private void ClearHightning()

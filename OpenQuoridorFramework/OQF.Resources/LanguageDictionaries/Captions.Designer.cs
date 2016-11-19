@@ -187,6 +187,42 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bot cannot be loaded as assembly.
+        /// </summary>
+        public static string ErrorMsg_BotCanNotBeLoadedFromAsembly {
+            get {
+                return ResourceManager.GetString("ErrorMsg_BotCanNotBeLoadedFromAsembly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File does not exist.
+        /// </summary>
+        public static string ErrorMsg_FileDoesNotExist {
+            get {
+                return ResourceManager.GetString("ErrorMsg_FileDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File is no valid assembly.
+        /// </summary>
+        public static string ErrorMsg_FileIsNoAssembly {
+            get {
+                return ResourceManager.GetString("ErrorMsg_FileIsNoAssembly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have to choose a Bot-DLL before Starting a game.
+        /// </summary>
+        public static string ErrorMsg_NoDllPath {
+            get {
+                return ResourceManager.GetString("ErrorMsg_NoDllPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BoardState.
         /// </summary>
         public static string HTWAB_BoardStateParagraphHeader {
@@ -655,69 +691,6 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bot cannot be loaded as assembly.
-        /// </summary>
-        public static string PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly {
-            get {
-                return ResourceManager.GetString("PvB_ErrorMsg_BotCanNotBeLoadedFromAsembly", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The string connot be loaded as progress.
-        /// </summary>
-        public static string PvB_ErrorMsg_CompressedProgressCannotBeLoaded {
-            get {
-                return ResourceManager.GetString("PvB_ErrorMsg_CompressedProgressCannotBeLoaded", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to File does not exist.
-        /// </summary>
-        public static string PvB_ErrorMsg_FileDoesNotExist {
-            get {
-                return ResourceManager.GetString("PvB_ErrorMsg_FileDoesNotExist", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to File is no valid assembly.
-        /// </summary>
-        public static string PvB_ErrorMsg_FileIsNoAssembly {
-            get {
-                return ResourceManager.GetString("PvB_ErrorMsg_FileIsNoAssembly", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You have to choose a Bot-DLL before Starting a game.
-        /// </summary>
-        public static string PvB_ErrorMsg_NoDllPath {
-            get {
-                return ResourceManager.GetString("PvB_ErrorMsg_NoDllPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The text-file connot be loaded as progress-file.
-        /// </summary>
-        public static string PvB_ErrorMsg_ProgressFileCannotBeLoaded {
-            get {
-                return ResourceManager.GetString("PvB_ErrorMsg_ProgressFileCannotBeLoaded", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Reason.
-        /// </summary>
-        public static string PvB_ErrorMsg_Reason {
-            get {
-                return ResourceManager.GetString("PvB_ErrorMsg_Reason", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Player.
         /// </summary>
         public static string PvB_HeaderCaptionPlayer {
@@ -1047,6 +1020,24 @@ namespace OQF.Resources.LanguageDictionaries {
         public static string PVR_EmptyOrInvalid {
             get {
                 return ResourceManager.GetString("PVR_EmptyOrInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connot be loaded as progress.
+        /// </summary>
+        public static string PVR_ErrorMsg_ProgressCannotBeLoaded {
+            get {
+                return ResourceManager.GetString("PVR_ErrorMsg_ProgressCannotBeLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reason.
+        /// </summary>
+        public static string PVR_ErrorMsg_Reason {
+            get {
+                return ResourceManager.GetString("PVR_ErrorMsg_Reason", resourceCulture);
             }
         }
         
