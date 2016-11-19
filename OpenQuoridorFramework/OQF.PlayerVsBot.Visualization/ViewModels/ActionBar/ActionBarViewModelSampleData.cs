@@ -24,8 +24,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			StartWithProgressGameButtonToolTipCaption = "Start";
 			OpenInfoButtonToolTipCaption              = "Info";
 			StartGameFromStringButtonCaption          = "von Zeichenkette";
-			StartGameFromFileButtonCaption            = "von Datei";
-
+			StartGameFromFileButtonCaption            = "von Datei";			
 		}
 
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
@@ -48,7 +47,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		public string StartWithProgressGameButtonToolTipCaption { get; }
 		public string OpenInfoButtonToolTipCaption              { get; }
 		public string StartGameFromStringButtonCaption          { get; }
-		public string StartGameFromFileButtonCaption            { get; }
+		public string StartGameFromFileButtonCaption            { get; }		
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		

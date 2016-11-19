@@ -582,4 +582,7 @@
   <data name="PvB_StartGameFromStringButtonCaption" xml:space="preserve">
     <value>Von Zeichenkette</value>
   </data>
+  <data name="PvB_NoBotLoadedCaption" xml:space="preserve">
+    <value>&gt;&gt;noch kein bot geladen&lt;&lt;</value>
+  </data>
 </root>

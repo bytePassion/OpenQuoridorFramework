@@ -745,6 +745,15 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &gt;&gt;no bot loded&lt;&lt;.
+        /// </summary>
+        public static string PvB_NoBotLoadedCaption {
+            get {
+                return ResourceManager.GetString("PvB_NoBotLoadedCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help and About.
         /// </summary>
         public static string PvB_OpenInfoButtonToolTipCaption {

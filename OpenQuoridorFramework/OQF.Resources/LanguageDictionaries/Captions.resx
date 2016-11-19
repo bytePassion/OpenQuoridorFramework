@@ -562,4 +562,7 @@
   <data name="PvB_StartGameFromFileButtonCaption" xml:space="preserve">
     <value>From file</value>
   </data>
+  <data name="PvB_NoBotLoadedCaption" xml:space="preserve">
+    <value>&gt;&gt;no bot loded&lt;&lt;</value>
+  </data>
 </root>

@@ -27,6 +27,6 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		string StartWithProgressGameButtonToolTipCaption { get; }
 		string OpenInfoButtonToolTipCaption              { get; }
 		string StartGameFromStringButtonCaption          { get; }
-		string StartGameFromFileButtonCaption            { get; }
+		string StartGameFromFileButtonCaption            { get; }		
 	}
 }
