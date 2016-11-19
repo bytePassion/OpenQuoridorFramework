@@ -441,6 +441,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		public string StartGameButtonToolTipCaption             => Captions.PvB_StartGameButtonToolTipCaption;
 		public string StartWithProgressGameButtonToolTipCaption => Captions.PvB_StartWithProgressGameButtonToolTipCaption;
 		public string OpenInfoButtonToolTipCaption              => Captions.PvB_OpenInfoButtonToolTipCaption;
+		public string StartGameFromStringButtonCaption          => Captions.PvB_StartGameFromStringButtonCaption;
+		public string StartGameFromFileButtonCaption            => Captions.PvB_StartGameFromFileButtonCaption;
 		public string HeaderCaptionPlayer                       => Captions.PvB_HeaderCaptionPlayer;
 
 		private void RefreshCaptions ()
@@ -448,6 +450,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			PropertyChanged.Notify(this, nameof(BrowseForBotButtonToolTipCaption),
 										 nameof(StartGameButtonToolTipCaption),
 										 nameof(StartWithProgressGameButtonToolTipCaption),
+										 nameof(StartGameFromStringButtonCaption),
+										 nameof(StartGameFromFileButtonCaption),
 										 nameof(HeaderCaptionPlayer),
 										 nameof(OpenInfoButtonToolTipCaption));
 		}

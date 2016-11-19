@@ -576,4 +576,10 @@
   <data name="PvB_ProgressInputDialogPromt" xml:space="preserve">
     <value>Geben Sie den kompremierten Spielfortschritt ein:</value>
   </data>
+  <data name="PvB_StartGameFromFileButtonCaption" xml:space="preserve">
+    <value>Von Datei</value>
+  </data>
+  <data name="PvB_StartGameFromStringButtonCaption" xml:space="preserve">
+    <value>Von Zeichenkette</value>
+  </data>
 </root>

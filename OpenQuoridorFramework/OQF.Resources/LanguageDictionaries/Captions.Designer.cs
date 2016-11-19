@@ -790,6 +790,24 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to From file.
+        /// </summary>
+        public static string PvB_StartGameFromFileButtonCaption {
+            get {
+                return ResourceManager.GetString("PvB_StartGameFromFileButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From string.
+        /// </summary>
+        public static string PvB_StartGameFromStringButtonCaption {
+            get {
+                return ResourceManager.GetString("PvB_StartGameFromStringButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start Game from Progress-File.
         /// </summary>
         public static string PvB_StartWithProgressGameButtonToolTipCaption {

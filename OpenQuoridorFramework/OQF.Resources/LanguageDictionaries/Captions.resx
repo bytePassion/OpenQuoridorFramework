@@ -556,4 +556,10 @@
   <data name="PvB_ProgressInputDialogPromt" xml:space="preserve">
     <value>Input the compressed Progress:</value>
   </data>
+  <data name="PvB_StartGameFromStringButtonCaption" xml:space="preserve">
+    <value>From string</value>
+  </data>
+  <data name="PvB_StartGameFromFileButtonCaption" xml:space="preserve">
+    <value>From file</value>
+  </data>
 </root>
