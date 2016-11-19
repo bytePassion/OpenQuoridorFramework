@@ -14,6 +14,8 @@ namespace OQF.AnalysisAndProgress.ProgressUtils.Coding
 		{
 			var numberBuilder = new StringBuilder();
 
+			numberBuilder.Append("9");
+
 			foreach (var move in moves)
 			{
 				if (move is FigureMove)
@@ -47,7 +49,7 @@ namespace OQF.AnalysisAndProgress.ProgressUtils.Coding
 
 			var resultList = new List<Move>();
 
-			var index = 0;
+			var index = 1;	// '1' because the leading '9' will be ignored
 
 			while (index < codes.Length)
 			{

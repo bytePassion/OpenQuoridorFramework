@@ -44,6 +44,27 @@ namespace OQF.Utils
 			return sb.ToString();
 	    }
 
+	    public static string FromMoveList2(IList<Move> moveList)
+	    {
+			var sb = new StringBuilder();
+
+			for (var i = 0; i < moveList.Count; i+=2)
+			{
+				sb.Append($"{i/2 + 1}. ");
+
+				var move1 = moveList[i].ToString();
+
+				sb.Append($"{move1} ");
+
+				if (i + 1 < moveList.Count)
+					sb.Append($"{moveList[i+1]}");
+
+				sb.Append(Environment.NewLine);
+			}
+
+			return sb.ToString();
+		}
+
 		public static IEnumerable<string> FromMoveList(IList<string> moves)
 		{
 			var resultList = new List<string>();
