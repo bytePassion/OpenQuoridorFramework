@@ -27,14 +27,22 @@ namespace OQF.AnalysisAndProgress.ProgressUtils.Coding
 			}
 
 			return progressText.ToString();
+
 		}
 
 		public static IEnumerable<Move> CompressedStringToMoveList(string progressAsString)
 		{
-			var progressAsCompressedString = progressAsString;
+			try
+			{
+				var progressAsCompressedString = progressAsString;
 
-			var progressAsNumber = BaseCoding.Decode(progressAsCompressedString);
-			return MoveListCoding.ConvertBigIntegerToMoveList(progressAsNumber);
+				var progressAsNumber = BaseCoding.Decode(progressAsCompressedString);
+				return MoveListCoding.ConvertBigIntegerToMoveList(progressAsNumber);
+			}
+			catch
+			{
+				return new List<Move>();
+			}			
 		}
 		
 
