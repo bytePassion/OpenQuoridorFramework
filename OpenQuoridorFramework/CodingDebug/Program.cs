@@ -6,7 +6,6 @@ using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.Utils;
 
 namespace CodingDebug
 {
@@ -15,9 +14,9 @@ namespace CodingDebug
 		static void Main (string[] args)
 		{
 			
-			//TestRandomly(50);
+			TestRandomly(500);
 			
-			TestConfiguration("debug0_readable.txt");
+			//TestConfiguration("debug0_readable.txt");
 
 			Console.ReadLine();
 		}
@@ -51,32 +50,35 @@ namespace CodingDebug
 			{
 				var moveList = new List<Move>();
 
-				for (var x = XField.A; x <= XField.I; x++)
+				for (int j = 0; j < 3; j++)
 				{
-					for (var y = YField.One; y >= YField.Nine; y--)
+					for (var x = XField.A; x <= XField.I; x++)
 					{
-						var coord = new FieldCoordinate(x, y);
-						moveList.Add(new FigureMove(coord));
+						for (var y = YField.One; y >= YField.Nine; y--)
+						{
+							var coord = new FieldCoordinate(x, y);
+							moveList.Add(new FigureMove(coord));
+						}
 					}
-				}				
 
-				for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
-				{
-					for (var yCoord = YField.Nine; yCoord < YField.One; yCoord++)
+					for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
 					{
-						var coord = new FieldCoordinate(xCoord, yCoord);
+						for (var yCoord = YField.Nine; yCoord < YField.One; yCoord++)
+						{
+							var coord = new FieldCoordinate(xCoord, yCoord);
 
-						moveList.Add(new WallMove(new Wall(coord, WallOrientation.Horizontal)));
-						moveList.Add(new WallMove(new Wall(coord, WallOrientation.Vertical)));
+							moveList.Add(new WallMove(new Wall(coord, WallOrientation.Horizontal)));
+							moveList.Add(new WallMove(new Wall(coord, WallOrientation.Vertical)));
+						}
 					}
 				}
-
+				
 				moveList.Shuffle();
 
 				var progress = CreateQProgress.FromMoveList(moveList);
 
-				var fileText = CreateProgressText.FromMoveList2(moveList);
-				File.WriteAllText($"debug{i}_readable.txt", fileText);
+				//var fileText = CreateProgressText.FromMoveList2(moveList);
+				//File.WriteAllText($"debug{i}_readable.txt", fileText);
 
 				var compressedString = progress.Compressed;
 
@@ -87,10 +89,14 @@ namespace CodingDebug
 				var listsAreEqual = AreMoveListsEqual(moveList, newMoveList);
 
 				if (listsAreEqual)
-					Console.WriteLine($"ok [{compressedString.Substring(0, 10)}][{moveList.Count}]");
+				{
+					//Console.WriteLine($"ok [{compressedString.Substring(0, 10)}][{moveList.Count}]");
+				}					
 				else
 					Console.WriteLine("error");
 			}
+
+			Console.WriteLine("finished");
 		}
 
 		private static bool AreMoveListsEqual(IList<Move> l1, IList<Move> l2)
