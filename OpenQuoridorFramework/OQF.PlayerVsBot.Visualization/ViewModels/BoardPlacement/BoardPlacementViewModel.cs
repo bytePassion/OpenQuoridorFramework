@@ -119,51 +119,54 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 
 		private void CheckIfMouseIsOverPossibleWall()
 		{
-			if (currentMousePosition.XCoord < 0 || currentMousePosition.XCoord > boardSize.Width ||
+			if (currentMousePosition != null)
+			{
+				if (currentMousePosition.XCoord < 0 || currentMousePosition.XCoord > boardSize.Width ||
 				currentMousePosition.YCoord < 0 || currentMousePosition.YCoord > boardSize.Height)
-			{
-				PotentialPlacedWall.Clear();
-				return;
-			}
-
-			var cellWidth  = boardSize.Width/11.4;
-			var cellHeight = boardSize.Height/11.4;
-
-			if (allPossibleWalls != null)
-			{
-				foreach (var possibleWall in allPossibleWalls)
 				{
-					var xMin = possibleWall.Orientation == WallOrientation.Horizontal
+					PotentialPlacedWall.Clear();
+					return;
+				}
+
+				var cellWidth  = boardSize.Width/11.4;
+				var cellHeight = boardSize.Height/11.4;
+
+				if (allPossibleWalls != null)
+				{
+					foreach (var possibleWall in allPossibleWalls)
+					{
+						var xMin = possibleWall.Orientation == WallOrientation.Horizontal
 						? (double) possibleWall.TopLeft.XCoord*1.3*cellWidth
 						: ((double) possibleWall.TopLeft.XCoord + 1)*1.3*cellWidth - (0.3*cellWidth);
 
-					var xMax = xMin + (possibleWall.Orientation == WallOrientation.Horizontal
-						           ? 2.3*cellWidth
-						           : 0.3*cellWidth);
+						var xMax = xMin + (possibleWall.Orientation == WallOrientation.Horizontal
+								   ? 2.3*cellWidth
+								   : 0.3*cellWidth);
 
-					var yMin = possibleWall.Orientation == WallOrientation.Horizontal
+						var yMin = possibleWall.Orientation == WallOrientation.Horizontal
 						? ((double) possibleWall.TopLeft.YCoord + 1)*1.3*cellHeight - (0.3*cellHeight)
 						: (double) possibleWall.TopLeft.YCoord*1.3*cellHeight;
 
-					var yMax = yMin + (possibleWall.Orientation == WallOrientation.Horizontal
-						           ? 0.3*cellHeight
-						           : 2.3*cellHeight);
+						var yMax = yMin + (possibleWall.Orientation == WallOrientation.Horizontal
+								   ? 0.3*cellHeight
+								   : 2.3*cellHeight);
 
-					if (currentMousePosition.XCoord >= xMin && currentMousePosition.XCoord <= xMax &&
-					    currentMousePosition.YCoord >= yMin && currentMousePosition.YCoord <= yMax)
-					{
-						if (PotentialPlacedWall.Count > 0 && PotentialPlacedWall[0] != possibleWall)
+						if (currentMousePosition.XCoord >= xMin && currentMousePosition.XCoord <= xMax &&
+							currentMousePosition.YCoord >= yMin && currentMousePosition.YCoord <= yMax)
 						{
-							PotentialPlacedWall.Clear();
+							if (PotentialPlacedWall.Count > 0 && PotentialPlacedWall[0] != possibleWall)
+							{
+								PotentialPlacedWall.Clear();
+							}
+
+							if (PotentialPlacedWall.Count == 0)
+								PotentialPlacedWall.Add(possibleWall);
+
+							return;
 						}
-
-						if (PotentialPlacedWall.Count == 0)
-							PotentialPlacedWall.Add(possibleWall);
-
-						return;
 					}
 				}
-			}
+			}			
 
 			PotentialPlacedWall.Clear();
 		}
