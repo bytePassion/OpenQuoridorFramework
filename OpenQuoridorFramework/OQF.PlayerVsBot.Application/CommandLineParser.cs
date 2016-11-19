@@ -8,12 +8,14 @@ namespace OQF.PlayerVsBot.Application
 		private const string DisableBotTimeOutParameter     = "-disableBotTimeout";
 		private const string BotDllPathParameter            = "-botDll=";
 		private const string ProgressFilePathParameter      = "-progressFile=";
+		private const string ProgressStringParameter        = "-progressString=";
 
 		public static CommandLineArguments Parse(string[] args)
 		{
 			var disableClosingDialogs = false;
 			var disableBotTimeout     = false;
 			var botDllPath            = string.Empty;
+			var progressString        = string.Empty;
 			var progressFilePath      = string.Empty;
 
 			foreach (string arg in args)
@@ -37,10 +39,16 @@ namespace OQF.PlayerVsBot.Application
 				{
 					progressFilePath = arg.Substring(ProgressFilePathParameter.Length);
 				}
+
+				if (arg.ToLower().StartsWith(ProgressStringParameter.ToLower()))
+				{
+					progressString = arg.Substring(ProgressStringParameter.Length);
+				}
 			}
 
 			return new CommandLineArguments(botDllPath, 
 											progressFilePath,
+											progressString,
 											disableClosingDialogs, 
 											disableBotTimeout);
 		}

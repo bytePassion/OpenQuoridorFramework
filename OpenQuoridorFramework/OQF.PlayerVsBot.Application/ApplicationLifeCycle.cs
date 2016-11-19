@@ -60,11 +60,23 @@ namespace OQF.PlayerVsBot.Application
 				var dllPath = commandLineArguments.BotPath;
 				actionBarViewModel.DllPathInput = dllPath;
 
-				if (string.IsNullOrWhiteSpace(commandLineArguments.ProgressFilePath))
+				if (!string.IsNullOrWhiteSpace(commandLineArguments.ProgressFilePath))
 				{
-					if (actionBarViewModel.Start.CanExecute(null))
+					if (actionBarViewModel.StartWithProgress.CanExecute(null))
 					{
-						actionBarViewModel.Start.Execute(null);
+						actionBarViewModel.StartWithProgressFromFile.Execute(commandLineArguments.ProgressFilePath);
+					}
+					else
+					{
+						MessageBox.Show("startup-error");
+						return;
+					}
+				}
+				else if (!string.IsNullOrWhiteSpace(commandLineArguments.ProgressString))
+				{
+					if (actionBarViewModel.StartWithProgress.CanExecute(null))
+					{
+						actionBarViewModel.StartWithProgressFromString.Execute(commandLineArguments.ProgressString);
 					}
 					else
 					{
@@ -74,15 +86,15 @@ namespace OQF.PlayerVsBot.Application
 				}
 				else
 				{
-					if (actionBarViewModel.StartWithProgress.CanExecute(commandLineArguments.ProgressFilePath))
+					if (actionBarViewModel.Start.CanExecute(null))
 					{
-						actionBarViewModel.StartWithProgress.Execute(commandLineArguments.ProgressFilePath);
+						actionBarViewModel.Start.Execute(null);
 					}
 					else
 					{
 						MessageBox.Show("startup-error");
 						return;
-					}
+					}					
 				}
 			}
 
