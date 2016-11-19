@@ -71,31 +71,9 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			ShowAboutHelp = new Command(DoShowAboutHelp);
 
 			IsBotLoaded = false;
-
 			TopPlayerName = Captions.PvB_NoBotLoadedCaption;
 
-			DllPathInput = applicationSettingsRepository.LastUsedBotPath;
-
-			if (!string.IsNullOrWhiteSpace(DllPathInput))
-			{
-				if (File.Exists(DllPathInput))
-				{
-					try
-					{
-						var dllToLoad = Assembly.LoadFile(DllPathInput);
-						var uninitializedBotAndBotName = BotLoader.LoadBot(dllToLoad);
-						if (uninitializedBotAndBotName != null)
-						{
-							TopPlayerName = uninitializedBotAndBotName.Item2;
-							IsBotLoaded = true;
-						}
-					}
-					catch
-					{
-						// ignored
-					}
-				}
-			}
+			DllPathInput = applicationSettingsRepository.LastUsedBotPath;			
 		}
 
 		private void OnNewBoardStateAvailable(BoardState boardState)
@@ -139,7 +117,36 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		public string DllPathInput
 		{
 			get { return dllPathInput; }
-			set { PropertyChanged.ChangeAndNotify(this, ref dllPathInput, value); }
+			set
+			{
+				if (value != dllPathInput)
+				{
+					if (!string.IsNullOrWhiteSpace(value) && File.Exists(value))
+					{
+						try
+						{
+							var dllToLoad = Assembly.LoadFile(value);
+							var uninitializedBotAndBotName = BotLoader.LoadBot(dllToLoad);
+							if (uninitializedBotAndBotName != null)
+							{
+								TopPlayerName = uninitializedBotAndBotName.Item2;
+								IsBotLoaded = true;
+							}
+						}
+						catch
+						{
+							TopPlayerName = Captions.PvB_NoBotLoadedCaption;
+							IsBotLoaded = false;							
+						}
+					}
+					else
+					{
+						TopPlayerName = Captions.PvB_NoBotLoadedCaption;
+						IsBotLoaded = false;
+					}
+				}				
+				PropertyChanged.ChangeAndNotify(this, ref dllPathInput, value);
+			}
 		}
 
 		private async Task<Tuple<IQuoridorBot, string>>  TryToGetUninitializedBot(string botPath)
