@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.PlayerVsBot.Visualization", "OQF.PlayerVsBot.Visualization\OQF.PlayerVsBot.Visualization.csproj", "{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}"
 EndProject
@@ -56,6 +56,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.ReplayViewer.Contracts", "OQF.ReplayViewer.Contracts\OQF.ReplayViewer.Contracts.csproj", "{687B9BF9-025F-41D1-928D-AF349D624A50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.ReplayViewer.GameLogic", "OQF.ReplayViewer.GameLogic\OQF.ReplayViewer.GameLogic.csproj", "{0ECEF68F-B660-4733-97B6-187A3EDCE57E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Debug", "Debug", "{AEDE03F5-7444-478C-BE42-AF078707C168}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingDebug", "CodingDebug\CodingDebug.csproj", "{4D096618-5222-4879-8D5A-0AC80F8205D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -143,6 +147,10 @@ Global
 		{0ECEF68F-B660-4733-97B6-187A3EDCE57E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ECEF68F-B660-4733-97B6-187A3EDCE57E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ECEF68F-B660-4733-97B6-187A3EDCE57E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D096618-5222-4879-8D5A-0AC80F8205D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D096618-5222-4879-8D5A-0AC80F8205D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D096618-5222-4879-8D5A-0AC80F8205D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D096618-5222-4879-8D5A-0AC80F8205D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,5 +179,7 @@ Global
 		{E1C753ED-ADA5-4A8B-9D75-15F88737185E} = {A87A7DFF-DD49-4BA9-93CE-C995E790677F}
 		{687B9BF9-025F-41D1-928D-AF349D624A50} = {89EE142F-0C86-4A0A-B982-EA369F2D2CC6}
 		{0ECEF68F-B660-4733-97B6-187A3EDCE57E} = {89EE142F-0C86-4A0A-B982-EA369F2D2CC6}
+		{AEDE03F5-7444-478C-BE42-AF078707C168} = {4EADBE11-04E1-44FD-B0A3-F0CF22B1EAE4}
+		{4D096618-5222-4879-8D5A-0AC80F8205D4} = {AEDE03F5-7444-478C-BE42-AF078707C168}
 	EndGlobalSection
 EndGlobal
