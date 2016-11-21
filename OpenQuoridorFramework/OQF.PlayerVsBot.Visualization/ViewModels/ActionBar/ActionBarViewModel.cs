@@ -251,7 +251,6 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			{
 				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileCannotBeLoadedAsText} [{progressFilePath}]", 
 													 Captions.ND_OkButtonCaption);
-
 				return;
 			}
 			

@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
@@ -11,13 +10,16 @@ using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
 using OQF.AnalysisAndProgress.ProgressUtils;
+using OQF.AnalysisAndProgress.ProgressUtils.Validation;
 using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Info;
 using OQF.ReplayViewer.Contracts;
 using OQF.ReplayViewer.Visualization.Services;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
+using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
 
 namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
@@ -44,7 +46,9 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 			replayService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 
-			LoadGame      = new Command(DoLoadGame);
+			LoadGame      = new Command(DoLoadGame,
+										() => !string.IsNullOrWhiteSpace(ProgressFilePath),
+										new PropertyChangedCommandUpdater(this, nameof(ProgressFilePath)));
 			BrowseFile    = new Command(DoBrowseFile);
 			NextMove      = new Command(DoNextMove,
 									    () => IsReplayLoaded && MoveIndex < MaxMoveIndex,
@@ -150,23 +154,21 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 					ProgressFilePath = dialog.FileName;
 		}
 
-		private bool ValidateProgress(QProgress progress)
-		{
 
-			return true;
+
+		private void LoadGameFromString ()
+		{
+			var progress = CreateQProgress.FromCompressedProgressString(ProgressFilePath);
+			LoadProgress(progress);
 		}
 
-		private void LoadGameFromFile()
+		private async void LoadGameFromFile()
 		{
-			if (string.IsNullOrWhiteSpace(ProgressFilePath))
-			{
-				MessageBox.Show("bevor das Replay gestartet werden kann muss eine Replay-Datei ausgewählt werden");
-				return;
-			}
-
+			
 			if (!File.Exists(ProgressFilePath))
 			{
-				MessageBox.Show($"die datei {ProgressFilePath} existiert nicht");
+				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileDoesNotExist} [{ProgressFilePath}]", 
+													 Captions.ND_OkButtonCaption);				
 				return;
 			}
 
@@ -178,18 +180,25 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			}
 			catch
 			{
-				MessageBox.Show($"die datei {ProgressFilePath} kann nicht als text geladen werden");
+				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileCannotBeLoadedAsText} [{ProgressFilePath}]",
+													 Captions.ND_OkButtonCaption);
 				return;
 			}
 
 			var progress = CreateQProgress.FromReadableProgressTextFile(fileText);
+			LoadProgress(progress);
+		}
 
-			if (!ValidateProgress(progress))
-				return;
+		private async void LoadProgress(QProgress progress)
+		{
+			var verificationResult = ProgressVerifier.Verify(progress,
+															 int.MaxValue,
+															 false);
 
-			if (!progress.Moves.Any())
+			if (verificationResult.Result != VerificationResult.Valid)
 			{
-				MessageBox.Show("die datei beschreibt keinen gültigen spielverlauf");
+				await NotificationDialogService.Show(verificationResult.ErrorMessage,
+													 Captions.ND_OkButtonCaption);
 				return;
 			}
 
@@ -212,7 +221,19 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 		private void DoLoadGame()
 		{
-			
+			if (IsStringAFilePath(ProgressFilePath))
+			{
+				LoadGameFromFile();	
+			}
+			else
+			{
+				LoadGameFromString();
+			}			
+		}		
+
+		private bool IsStringAFilePath(string s)
+		{
+			return s.Contains(".") || s.Contains("\\") || s.Contains("/");			
 		}
 
 		private void ClearHightning()
