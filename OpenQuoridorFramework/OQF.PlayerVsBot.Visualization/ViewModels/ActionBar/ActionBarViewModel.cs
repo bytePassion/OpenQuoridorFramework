@@ -249,7 +249,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			}
 			catch
 			{
-				await NotificationDialogService.Show($"{Captions.ErrorMeg_FileCannotBeLoadedAsText} [{progressFilePath}]", 
+				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileCannotBeLoadedAsText} [{progressFilePath}]", 
 													 Captions.ND_OkButtonCaption);
 
 				return;
