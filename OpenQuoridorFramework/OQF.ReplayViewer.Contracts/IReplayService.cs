@@ -7,6 +7,8 @@ namespace OQF.ReplayViewer.Contracts
 	{
 		void NewReplay(QProgress progress);
 
+		int MoveCount { get; }
+
 		void NextMove();
 		void PreviousMove();
 		void JumpToMove(int moveIndex);

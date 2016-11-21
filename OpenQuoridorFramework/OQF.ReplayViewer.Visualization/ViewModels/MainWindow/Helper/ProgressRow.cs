@@ -6,26 +6,35 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper
 	public class ProgressRow : INotifyPropertyChanged
 	{
 		private bool highlightBottomPlayerMove;
-		private bool highlightTopPlayerMove;
+		private bool highlightTopPlayerMove;		
 
-		public ProgressRow(string line)
+		public ProgressRow(string line, bool isFirstLine)
 		{
-			var parts = line.Trim().Split(' ');
+			if (isFirstLine)
+			{
+				LineNumber = "0.";
+				BottomPlayerMove = "start";
+				TopPlayerMove = "";
+			}
+			else
+			{
+				var parts = line.Trim().Split(' ');
 
-			BottomPlayerMove = parts.Length > 1
-									? parts[1]
-									: string.Empty;
+				BottomPlayerMove = parts.Length > 1
+										? parts[1]
+										: string.Empty;
 
-			TopPlayerMove = parts.Length > 2
-									? parts[2]
-									: string.Empty;
+				TopPlayerMove = parts.Length > 2
+										? parts[2]
+										: string.Empty;
 
-			LineNumber = parts.Length > 0
-									? parts[0]
-									: string.Empty;
+				LineNumber = parts.Length > 0
+										? parts[0]
+										: string.Empty;
 
-			HighlightBottomPlayerMove = false;
-			HighlightTopPlayerMove    = false;
+				HighlightBottomPlayerMove = false;
+				HighlightTopPlayerMove    = false;
+			}			
 		}
 
 		public string LineNumber       { get; }

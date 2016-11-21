@@ -23,6 +23,6 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 						
 		ObservableCollection<ProgressRow> ProgressRows { get; }
 
-		string ProgressFilePath { get; set; }		
+		string LodingString { get; set; }		
 	}
 }

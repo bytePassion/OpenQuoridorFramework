@@ -36,14 +36,18 @@ namespace OQF.ReplayViewer.GameLogic
 		public ReplayService()
 		{
 			CurrentBoardState = null;
+			MoveCount = -1;
 		}
 		
 
 		public void NewReplay(QProgress progress)
 		{
 			BuildReplayStates(progress);
+			MoveCount = allReplayStates.Count;
 			ShowReplayState(0);			
 		}
+
+		public int MoveCount { get; private set; }
 
 		public void NextMove()                { ShowReplayState(currentReplayIndex+1); }
 		public void PreviousMove()            { ShowReplayState(currentReplayIndex-1); }
@@ -52,11 +56,13 @@ namespace OQF.ReplayViewer.GameLogic
 
 		private void ShowReplayState(int index)
 		{
-			currentReplayIndex = index;
+			if (index >= 0 && index < allReplayStates.Count)
+			{
+				currentReplayIndex = index;
+				var nextState = allReplayStates[currentReplayIndex];
+				CurrentBoardState = nextState;
 
-			var nextState = allReplayStates[currentReplayIndex];
-
-			CurrentBoardState = nextState;			
+			}
 		}
 
 		private void BuildReplayStates(QProgress progress)

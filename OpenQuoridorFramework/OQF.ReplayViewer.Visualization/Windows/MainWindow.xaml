@@ -68,7 +68,7 @@
             <TextBox Grid.Column="2"
                      Margin="7,10"
                      VerticalContentAlignment="Center"
-                     Text="{Binding ProgressFilePath,
+                     Text="{Binding LodingString,
                                     Mode=TwoWay,
                                     UpdateSourceTrigger=PropertyChanged}" />
             <Button Grid.Column="3"

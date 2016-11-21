@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
@@ -42,13 +43,13 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			this.replayService = replayService;
 			this.lastPlayedReplayService = lastPlayedReplayService;
 
-			ProgressFilePath = lastPlayedReplayService.GetLastReplay();
+			LodingString = lastPlayedReplayService.GetLastReplay();
 
 			replayService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 
 			LoadGame      = new Command(DoLoadGame,
-										() => !string.IsNullOrWhiteSpace(ProgressFilePath),
-										new PropertyChangedCommandUpdater(this, nameof(ProgressFilePath)));
+										() => !string.IsNullOrWhiteSpace(LodingString),
+										new PropertyChangedCommandUpdater(this, nameof(LodingString)));
 			BrowseFile    = new Command(DoBrowseFile);
 			NextMove      = new Command(DoNextMove,
 									    () => IsReplayLoaded && MoveIndex < MaxMoveIndex,
@@ -82,7 +83,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 			replayService.NextMove();
 			moveIndex++;
-			SetHighlightning(MoveIndex-1);
+			SetHighlightning(MoveIndex);
 			PropertyChanged.Notify(this, nameof(MoveIndex));
 		}
 
@@ -93,7 +94,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 			replayService.PreviousMove();
 			moveIndex--;
-			SetHighlightning(MoveIndex-1);
+			SetHighlightning(MoveIndex);
 			PropertyChanged.Notify(this, nameof(MoveIndex));
 		}
 	
@@ -112,7 +113,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			{
 				if (moveIndex != value)
 				{
-					SetHighlightning(value-1);
+					SetHighlightning(value);
 					replayService.JumpToMove(value);
 				}
 
@@ -134,7 +135,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 		public ObservableCollection<ProgressRow> ProgressRows { get; }
 
-		public string ProgressFilePath
+		public string LodingString
 		{
 			get { return progressFilePath; }
 			set { PropertyChanged.ChangeAndNotify(this, ref progressFilePath, value); }
@@ -151,23 +152,23 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 			if (result.HasValue)
 				if (result.Value)
-					ProgressFilePath = dialog.FileName;
+					LodingString = dialog.FileName;
 		}
 
 
 
-		private void LoadGameFromString ()
+		private async Task LoadGameFromString ()
 		{
-			var progress = CreateQProgress.FromCompressedProgressString(ProgressFilePath);
-			LoadProgress(progress);
+			var progress = CreateQProgress.FromCompressedProgressString(LodingString);
+			await LoadProgress(progress);
 		}
 
-		private async void LoadGameFromFile()
+		private async Task LoadGameFromFile()
 		{
 			
-			if (!File.Exists(ProgressFilePath))
+			if (!File.Exists(LodingString))
 			{
-				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileDoesNotExist} [{ProgressFilePath}]", 
+				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileDoesNotExist} [{LodingString}]", 
 													 Captions.ND_OkButtonCaption);				
 				return;
 			}
@@ -176,20 +177,20 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 			try
 			{
-				fileText = File.ReadAllText(ProgressFilePath);
+				fileText = File.ReadAllText(LodingString);
 			}
 			catch
 			{
-				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileCannotBeLoadedAsText} [{ProgressFilePath}]",
+				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileCannotBeLoadedAsText} [{LodingString}]",
 													 Captions.ND_OkButtonCaption);
 				return;
 			}
 
 			var progress = CreateQProgress.FromReadableProgressTextFile(fileText);
-			LoadProgress(progress);
+			await LoadProgress(progress);
 		}
 
-		private async void LoadProgress(QProgress progress)
+		private async Task LoadProgress(QProgress progress)
 		{
 			var verificationResult = ProgressVerifier.Verify(progress,
 															 int.MaxValue,
@@ -203,32 +204,35 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			}
 
 
-			lastPlayedReplayService.SaveLastReplay(ProgressFilePath);
-
-			ProgressRows.Clear();
+			lastPlayedReplayService.SaveLastReplay(LodingString);
 
 			replayService.NewReplay(progress);
 
+			ProgressRows.Clear();
+			ProgressRows.Add(new ProgressRow(string.Empty, true));
+			
 			CreateProgressText.FromMoveList(progress.Moves.Select(move => move.ToString()).ToList())
-							  .Select(line => new ProgressRow(line))
+							  .Select(line => new ProgressRow(line, false))
 							  .Do(ProgressRows.Add);
 
 			moveIndex = 0;
-			MaxMoveIndex = progress.MoveCount - 1;
+			MaxMoveIndex = replayService.MoveCount - 1;
 
 			PropertyChanged.Notify(this, nameof(MoveIndex));
 		}
 
-		private void DoLoadGame()
+		private async void DoLoadGame()
 		{
-			if (IsStringAFilePath(ProgressFilePath))
+			if (IsStringAFilePath(LodingString))
 			{
-				LoadGameFromFile();	
+				await LoadGameFromFile();	
 			}
 			else
 			{
-				LoadGameFromString();
-			}			
+				await LoadGameFromString();
+			}
+
+			SetHighlightning(MoveIndex);
 		}		
 
 		private bool IsStringAFilePath(string s)
@@ -249,17 +253,20 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 		{
 			ClearHightning();
 
-			if (index == -1)
-				return;
-
-			var rowIndex = (int)Math.Floor(index/2.0);
-			var progressRow = ProgressRows[rowIndex];
-
-			if ((index)%2 == 0)		
-				progressRow.HighlightBottomPlayerMove = true;			
-			else			
-				progressRow.HighlightTopPlayerMove = true;
-			
+			if (index == 0)
+			{
+				ProgressRows[0].HighlightBottomPlayerMove = true;
+			}
+			else
+			{
+				var rowIndex = (int)Math.Floor((index-1)/2.0);
+				var progressRow = ProgressRows[rowIndex+1];
+				
+				if ((index-1)%2 == 0)
+					progressRow.HighlightBottomPlayerMove = true;
+				else
+					progressRow.HighlightTopPlayerMove = true;
+			}						
 		}
 
 		protected override void CleanUp()
