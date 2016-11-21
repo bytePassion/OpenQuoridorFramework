@@ -45,6 +45,7 @@
     <Compile Include="BoardStateUtils\BoardStateTransition.cs" />
     <Compile Include="BoardStateUtils\PlayerTransitions.cs" />
     <Compile Include="BotLoader.cs" />
+    <Compile Include="BotLoadingResult.cs" />
     <Compile Include="CreateProgressText.cs" />
     <Compile Include="CultureManager.cs" />
     <Compile Include="Enum\WinningReason.cs" />
@@ -58,6 +59,10 @@
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572d-4b60-407c-bb7b-80fc66e63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Resources\OQF.Resources.csproj">
+      <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
+      <Name>OQF.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

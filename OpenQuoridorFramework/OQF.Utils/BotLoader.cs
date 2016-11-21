@@ -1,16 +1,39 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using OQF.Bot.Contracts;
+using OQF.Resources.LanguageDictionaries;
 
 namespace OQF.Utils
 {
 	public static class BotLoader
 	{
-		public static Tuple<IQuoridorBot,string> LoadBot(Assembly assembly)
+		public static BotLoadingResult GetUninitializedBot(string botDllPath)
 		{
+			if (string.IsNullOrWhiteSpace(botDllPath))
+			{
+				return new BotLoadingResult(null, null, false, Captions.ErrorMsg_NoDllPath);								
+			}
+
+			if (!File.Exists(botDllPath))
+			{
+				return new BotLoadingResult(null, null, false, $"{Captions.ErrorMsg_FileDoesNotExist} [{botDllPath}]");								
+			}
+
+			Assembly dllToLoad;
+
 			try
 			{
-				var allTypesInAssembly = assembly.GetTypes();
+				dllToLoad = Assembly.LoadFile(botDllPath);
+			}
+			catch
+			{
+				return new BotLoadingResult(null, null, false, $"{Captions.ErrorMsg_FileIsNoAssembly} [{botDllPath}]");				
+			}
+			
+			try
+			{
+				var allTypesInAssembly = dllToLoad.GetTypes();
 
 				foreach (var type in allTypesInAssembly)
 				{
@@ -26,7 +49,7 @@ namespace OQF.Utils
 								try
 								{
 									var instance = Activator.CreateInstance(type);
-									return new Tuple<IQuoridorBot, string>((IQuoridorBot)instance, type.Name);
+									return new BotLoadingResult((IQuoridorBot)instance, type.Name, true, null);									
 								}
 								catch
 								{
@@ -41,8 +64,9 @@ namespace OQF.Utils
 			{
 				// ignored
 			}
-			
-	        return null;
-        }
-    }
+						
+			return new BotLoadingResult(null, null, false, $"{Captions.ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]");						
+		}
+
+	}
 }
