@@ -1339,6 +1339,69 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Browse.
+        /// </summary>
+        public static string RV_BrowseFileButtonCaption {
+            get {
+                return ResourceManager.GetString("RV_BrowseFileButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress-file or compressed progress.
+        /// </summary>
+        public static string RV_InputPromtLabelCaption {
+            get {
+                return ResourceManager.GetString("RV_InputPromtLabelCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load and start.
+        /// </summary>
+        public static string RV_LoadAndStartButtonCaption {
+            get {
+                return ResourceManager.GetString("RV_LoadAndStartButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string RV_NextStepButtonCaption {
+            get {
+                return ResourceManager.GetString("RV_NextStepButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previous.
+        /// </summary>
+        public static string RV_PrevStepButtonCaption {
+            get {
+                return ResourceManager.GetString("RV_PrevStepButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress.
+        /// </summary>
+        public static string RV_ProgressSectionHeader {
+            get {
+                return ResourceManager.GetString("RV_ProgressSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help &amp; About.
+        /// </summary>
+        public static string RV_ShowAboutHelpButtonCaption {
+            get {
+                return ResourceManager.GetString("RV_ShowAboutHelpButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to save the current game progress?.
         /// </summary>
         public static string SavingDialogMessage {

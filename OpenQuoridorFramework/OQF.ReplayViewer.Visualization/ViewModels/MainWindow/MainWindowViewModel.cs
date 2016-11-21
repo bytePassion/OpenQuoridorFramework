@@ -41,6 +41,8 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 									IReplayService replayService,								
 									ILastPlayedReplayService lastPlayedReplayService)
 		{
+			CultureManager.CultureChanged += RefreshCaptions;
+
 			BoardViewModel = boardViewModel;
 			this.replayService = replayService;
 			this.lastPlayedReplayService = lastPlayedReplayService;
@@ -143,7 +145,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 		{
 			get { return progressFilePath; }
 			set { PropertyChanged.ChangeAndNotify(this, ref progressFilePath, value); }
-		}
+		}		
 
 		private void DoBrowseFile()
 		{
@@ -273,8 +275,29 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			}						
 		}
 
+
+		public string BrowseFileButtonCaption    => Captions.RV_BrowseFileButtonCaption;
+		public string InputPromtLabelCaption     => Captions.RV_InputPromtLabelCaption;
+		public string LoadAndStartButtonCaption  => Captions.RV_LoadAndStartButtonCaption;
+		public string NextStepButtonCaption      => Captions.RV_NextStepButtonCaption;
+		public string PrevStepButtonCaption      => Captions.RV_PrevStepButtonCaption;
+		public string ProgressSectionHeader      => Captions.RV_ProgressSectionHeader;
+		public string ShowAboutHelpButtonCaption => Captions.RV_ShowAboutHelpButtonCaption;
+
+		private void RefreshCaptions ()
+		{
+			PropertyChanged.Notify(this, nameof(BrowseFileButtonCaption),
+										 nameof(InputPromtLabelCaption),
+										 nameof(LoadAndStartButtonCaption),
+										 nameof(NextStepButtonCaption),
+										 nameof(PrevStepButtonCaption),
+										 nameof(ProgressSectionHeader),										 
+										 nameof(ShowAboutHelpButtonCaption));
+		}	
+
 		protected override void CleanUp()
 		{
+			CultureManager.CultureChanged -= RefreshCaptions;
 			replayService.NewBoardStateAvailable -= OnNewBoardStateAvailable;
 		}
 

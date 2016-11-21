@@ -27,6 +27,14 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 				new ProgressRow("1. e3 e7", false),
 				new ProgressRow("1. e4 e6", false)
 			};
+
+			BrowseFileButtonCaption = "Browse";
+			InputPromtLabelCaption = "File or compressed Progress";
+			LoadAndStartButtonCaption = "Load and start";
+			NextStepButtonCaption = "Next";
+			PrevStepButtonCaption = "Prev";
+			ProgressSectionHeader = "Progress";
+			ShowAboutHelpButtonCaption = "Help & About";
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
@@ -42,7 +50,16 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 		public int MaxMoveIndex { get; }
 		public bool IsReplayLoaded { get; }
 		public ObservableCollection<ProgressRow> ProgressRows { get; }
-		public string LodingString { get; set; }		
+		public string LodingString { get; set; }
+
+
+		public string BrowseFileButtonCaption { get; }
+		public string InputPromtLabelCaption { get; }
+		public string LoadAndStartButtonCaption { get; }
+		public string NextStepButtonCaption { get; }
+		public string PrevStepButtonCaption { get; }
+		public string ProgressSectionHeader { get; }
+		public string ShowAboutHelpButtonCaption { get; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		

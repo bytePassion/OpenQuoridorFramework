@@ -585,4 +585,25 @@
   <data name="ErrorMsg_FileCannotBeLoadedAsText" xml:space="preserve">
     <value>File cannot be loaded as text</value>
   </data>
+  <data name="RV_BrowseFileButtonCaption" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="RV_InputPromtLabelCaption" xml:space="preserve">
+    <value>Progress-file or compressed progress</value>
+  </data>
+  <data name="RV_LoadAndStartButtonCaption" xml:space="preserve">
+    <value>Load and start</value>
+  </data>
+  <data name="RV_NextStepButtonCaption" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="RV_PrevStepButtonCaption" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="RV_ProgressSectionHeader" xml:space="preserve">
+    <value>Progress</value>
+  </data>
+  <data name="RV_ShowAboutHelpButtonCaption" xml:space="preserve">
+    <value>Help &amp; About</value>
+  </data>
 </root>

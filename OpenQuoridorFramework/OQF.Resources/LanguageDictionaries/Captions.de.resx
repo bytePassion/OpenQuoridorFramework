@@ -585,4 +585,25 @@
   <data name="ErrorMsg_FileCannotBeLoadedAsText" xml:space="preserve">
     <value>Die Datei kann nicht als Text gelesen werden</value>
   </data>
+  <data name="RV_BrowseFileButtonCaption" xml:space="preserve">
+    <value>Durchsuchen</value>
+  </data>
+  <data name="RV_InputPromtLabelCaption" xml:space="preserve">
+    <value>Spielfortschrittsdatei oder kompremierter Spielfortschritt</value>
+  </data>
+  <data name="RV_LoadAndStartButtonCaption" xml:space="preserve">
+    <value>Laden und Starten</value>
+  </data>
+  <data name="RV_NextStepButtonCaption" xml:space="preserve">
+    <value>Nächster</value>
+  </data>
+  <data name="RV_PrevStepButtonCaption" xml:space="preserve">
+    <value>Vorheriger</value>
+  </data>
+  <data name="RV_ProgressSectionHeader" xml:space="preserve">
+    <value>Spielfortschritt</value>
+  </data>
+  <data name="RV_ShowAboutHelpButtonCaption" xml:space="preserve">
+    <value>Hilfe &amp; Über</value>
+  </data>
 </root>

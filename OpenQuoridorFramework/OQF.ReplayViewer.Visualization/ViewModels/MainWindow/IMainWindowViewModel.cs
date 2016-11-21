@@ -25,6 +25,15 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 						
 		ObservableCollection<ProgressRow> ProgressRows { get; }
 
-		string LodingString { get; set; }		
+		string LodingString { get; set; }	
+		
+		
+		string BrowseFileButtonCaption    { get; }
+		string InputPromtLabelCaption     { get; }
+		string LoadAndStartButtonCaption  { get; }	
+		string NextStepButtonCaption      { get; }
+		string PrevStepButtonCaption      { get; }
+		string ProgressSectionHeader      { get; }
+		string ShowAboutHelpButtonCaption { get; }
 	}
 }
