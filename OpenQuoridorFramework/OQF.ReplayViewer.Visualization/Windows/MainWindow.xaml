@@ -9,7 +9,8 @@
         xmlns:mainWindow="clr-namespace:OQF.ReplayViewer.Visualization.ViewModels.MainWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views1="clr-namespace:OQF.CommonUiElements.Board.Views;assembly=OQF.CommonUiElements"
+        xmlns:views="clr-namespace:OQF.CommonUiElements.Board.Views;assembly=OQF.CommonUiElements"
+        xmlns:languageSelection="clr-namespace:OQF.CommonUiElements.Language.LanguageSelection;assembly=OQF.CommonUiElements"
         Title="OpenQuoridorFramework - Replay Viewer"
         Width="1200"
         MinWidth="800"
@@ -53,6 +54,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="150" />
                 <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0"
@@ -81,7 +83,13 @@
                     Command="{Binding ShowAboutHelp}"
                     Content="about" />
 
-        </Grid>
+			<languageSelection:LanguageSelectionView Grid.Column="5"
+													 Margin="0,0,10,0"
+													 HorizontalAlignment="Center"
+													 VerticalAlignment="Center"
+                                                     DataContext="{Binding LanguageSelectionViewModel}"/>
+
+		</Grid>
 
 
         <Grid Grid.Row="1"
@@ -218,19 +226,19 @@
                 </Grid.ColumnDefinitions>
 
 
-                <views1:BoardHorizontalLabelling Grid.Row="0"
+                <views:BoardHorizontalLabelling Grid.Row="0"
                                                  Grid.Column="1"
                                                  IsHitTestVisible="False" />
 
-                <views1:BoardVerticalLabelling Grid.Row="1"
+                <views:BoardVerticalLabelling Grid.Row="1"
                                                Grid.Column="0"
                                                IsHitTestVisible="False" />
 
-                <views1:Board Grid.Row="1"
-                              Grid.Column="1"
-                              DataContext="{Binding BoardViewModel}"
-                              IsHitTestVisible="False"
-                              Padding="0" />
+<!--                <views:Board Grid.Row="1"-->
+<!--                              Grid.Column="1"-->
+<!--                              DataContext="{Binding BoardViewModel}"-->
+<!--                              IsHitTestVisible="False"-->
+<!--                              Padding="0" />-->
 
             </Grid>
         </Border>

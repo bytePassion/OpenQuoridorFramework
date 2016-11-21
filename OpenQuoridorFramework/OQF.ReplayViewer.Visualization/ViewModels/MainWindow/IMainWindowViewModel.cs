@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 
 namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
@@ -9,6 +10,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 	internal interface IMainWindowViewModel : IViewModel
 	{
 		IBoardViewModel BoardViewModel { get; }
+		ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 		
 		ICommand LoadGame      { get; }
 		ICommand BrowseFile    { get; }

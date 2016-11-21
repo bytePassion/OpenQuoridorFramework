@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 
 #pragma warning disable 0067
@@ -13,6 +14,8 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 		public MainWindowViewModelSampleData()
 		{
 			BoardViewModel = new BoardViewModelSampleData();
+			LanguageSelectionViewModel = new LanguageSelectionViewModelSampleData();
+
 			LodingString = "blubb.txt";
 			MoveIndex = 5;
 			MaxMoveIndex = 15;
@@ -27,6 +30,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 		}
 
 		public IBoardViewModel BoardViewModel { get; }
+		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
 		public ICommand LoadGame      => null;
 		public ICommand BrowseFile    => null;

@@ -16,6 +16,7 @@ using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Info;
+using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.ReplayViewer.Contracts;
 using OQF.ReplayViewer.Visualization.Services;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
@@ -35,13 +36,15 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 		private bool isReplayLoaded;
 
 
-		public MainWindowViewModel (IBoardViewModel boardViewModel, 
+		public MainWindowViewModel (IBoardViewModel boardViewModel,
+									ILanguageSelectionViewModel languageSelectionViewModel,
 									IReplayService replayService,								
 									ILastPlayedReplayService lastPlayedReplayService)
 		{
 			BoardViewModel = boardViewModel;
 			this.replayService = replayService;
 			this.lastPlayedReplayService = lastPlayedReplayService;
+			LanguageSelectionViewModel = languageSelectionViewModel;
 
 			LodingString = lastPlayedReplayService.GetLastReplay();
 
@@ -99,6 +102,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 		}
 	
 		public IBoardViewModel BoardViewModel { get; }
+		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
 		public ICommand LoadGame      { get; }
 		public ICommand BrowseFile    { get; }
