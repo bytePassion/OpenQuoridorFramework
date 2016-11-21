@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -68,12 +67,22 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			StartWithProgressFromString = new ParameterrizedCommand<string>(async progressString => { await DoStartWithProgressFromString(progressString);
 																								      IsStartWithProgressPopupVisible = false; });
 
-			ShowAboutHelp = new Command(DoShowAboutHelp);
+			ShowAboutHelp = new Command(DoShowAboutHelp);			
 
-			IsBotLoaded = false;
-			TopPlayerName = Captions.PvB_NoBotLoadedCaption;
+			DllPathInput = applicationSettingsRepository.LastUsedBotPath;
 
-			DllPathInput = applicationSettingsRepository.LastUsedBotPath;			
+			var loadingResult = BotLoader.GetUninitializedBot(DllPathInput);
+
+			if (loadingResult.WasLodingSuccessful)
+			{
+				TopPlayerName = loadingResult.BotName;
+				IsBotLoaded = true;				
+			}
+			else
+			{
+				TopPlayerName = Captions.PvB_NoBotLoadedCaption;
+				IsBotLoaded = false;
+			}
 		}
 
 		private void OnNewBoardStateAvailable(BoardState boardState)
@@ -117,79 +126,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		public string DllPathInput
 		{
 			get { return dllPathInput; }
-			set
-			{
-				if (value != dllPathInput)
-				{
-					if (!string.IsNullOrWhiteSpace(value) && File.Exists(value))
-					{
-						try
-						{
-							var dllToLoad = Assembly.LoadFile(value);
-							var uninitializedBotAndBotName = BotLoader.LoadBot(dllToLoad);
-							if (uninitializedBotAndBotName != null)
-							{
-								TopPlayerName = uninitializedBotAndBotName.Item2;
-								IsBotLoaded = true;
-							}
-						}
-						catch
-						{
-							TopPlayerName = Captions.PvB_NoBotLoadedCaption;
-							IsBotLoaded = false;							
-						}
-					}
-					else
-					{
-						TopPlayerName = Captions.PvB_NoBotLoadedCaption;
-						IsBotLoaded = false;
-					}
-				}				
-				PropertyChanged.ChangeAndNotify(this, ref dllPathInput, value);
-			}
-		}
-
-		private async Task<Tuple<IQuoridorBot, string>>  TryToGetUninitializedBot(string botPath)
-		{
-			if (string.IsNullOrWhiteSpace(botPath))
-			{
-				await NotificationDialogService.Show(Captions.ErrorMsg_NoDllPath, Captions.ND_OkButtonCaption);
-				return null;
-			}
-
-			if (!File.Exists(botPath))
-			{
-				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileDoesNotExist} [{botPath}]",
-											   Captions.ND_OkButtonCaption);
-				return null;
-			}
-
-			Assembly dllToLoad;
-
-			try
-			{
-				dllToLoad = Assembly.LoadFile(botPath);
-			}
-			catch
-			{
-				await NotificationDialogService.Show($"{Captions.ErrorMsg_FileIsNoAssembly} [{botPath}]",
-											   Captions.ND_OkButtonCaption);
-				return null;
-			}
-
-			var uninitializedBotAndBotName = BotLoader.LoadBot(dllToLoad);
-
-			if (uninitializedBotAndBotName == null)
-			{
-				await NotificationDialogService.Show($"{Captions.ErrorMsg_BotCanNotBeLoadedFromAsembly} [{dllToLoad.FullName}]",
-											   Captions.ND_OkButtonCaption);
-				return null;
-			}
-
-			applicationSettingsRepository.LastUsedBotPath = botPath;
-
-			return uninitializedBotAndBotName;
-		}
+			set { PropertyChanged.ChangeAndNotify(this, ref dllPathInput, value); }
+		}		
 
 		public bool IsStartWithProgressPopupVisible
 		{
@@ -222,47 +160,56 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 
 			var result = dialog.ShowDialog();
 
-			if (result.HasValue)
-				if (result.Value)
-				{
-					DllPathInput = dialog.FileName;
-
-					var bot = await TryToGetUninitializedBot(DllPathInput);
-
-					if (bot != null)
-					{
-						IsBotLoaded = true;
-						TopPlayerName = bot.Item2;						
-					}
-					else
-					{
-						IsBotLoaded = false;
-						TopPlayerName = Captions.PvB_NoBotLoadedCaption;
-					}					
-				}					
-        }
+			if (result.HasValue && result.Value)
+			{
+				DllPathInput = dialog.FileName;
+				await TryToGetUninitializedBot();
+			}				
+		}
 
 		private async Task DoStart()
 		{						
-			var uninitializedBotAndBotName = await TryToGetUninitializedBot(DllPathInput);
+			var uninitializedBotAndBotName = await TryToGetUninitializedBot();
 
 			if (uninitializedBotAndBotName == null)
 				return;
 														
-			gameService.CreateGame(uninitializedBotAndBotName.Item1, 
-								   uninitializedBotAndBotName.Item2, 
+			gameService.CreateGame(uninitializedBotAndBotName.UninitializedBot, 
+								   uninitializedBotAndBotName.BotName, 
 								   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds), 
 													   Constants.GameConstraint.MaximalMovesPerGame));						
-		}		
+		}
+
+		private async Task<BotLoadingResult> TryToGetUninitializedBot()
+		{
+			var loadingResult = BotLoader.GetUninitializedBot(DllPathInput);
+
+			if (loadingResult.WasLodingSuccessful)
+			{
+				TopPlayerName = loadingResult.BotName;
+				IsBotLoaded = true;
+
+				return loadingResult;
+			}
+			else
+			{
+				TopPlayerName = Captions.PvB_NoBotLoadedCaption;
+				IsBotLoaded = false;
+
+				await NotificationDialogService.Show(loadingResult.ErrorMessage, 
+													 Captions.ND_OkButtonCaption);
+
+				return null;
+			}
+		}
 
 		private async Task DoStartWithProgressFromFile (string filePath)
 		{
-			var uninitializedBotAndBotName = await TryToGetUninitializedBot(DllPathInput);
+			var loadingResult = await TryToGetUninitializedBot();
 
-			if (uninitializedBotAndBotName == null)						
+			if (loadingResult == null)						
 				return;
 			
-
 			string progressFilePath;
 
 			if (string.IsNullOrWhiteSpace(filePath))
@@ -298,11 +245,11 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			if (verificationResult.Result == VerificationResult.Valid)
 			{
 				applicationSettingsRepository.LastUsedBotPath = DllPathInput;
-				gameService.CreateGame(uninitializedBotAndBotName.Item1,
-					uninitializedBotAndBotName.Item2,
-					new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
-						Constants.GameConstraint.MaximalMovesPerGame),
-					initialProgress);
+				gameService.CreateGame(loadingResult.UninitializedBot,
+									   loadingResult.BotName,
+					                   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
+						                                   Constants.GameConstraint.MaximalMovesPerGame),
+					                   initialProgress);
 			}
 			else
 			{
@@ -313,12 +260,11 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 
 		private async Task DoStartWithProgressFromString (string progressString)
 		{
-			var uninitializedBotAndBotName = await TryToGetUninitializedBot(DllPathInput);
+			var loadingResult = await TryToGetUninitializedBot();
 
-			if (uninitializedBotAndBotName == null)			
+			if (loadingResult == null)			
 				return;
 			
-
 			string compressedProgressString;
 
 			if (string.IsNullOrWhiteSpace(progressString))
@@ -348,8 +294,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			if (verificationResult.Result == VerificationResult.Valid)
 			{
 				applicationSettingsRepository.LastUsedBotPath = DllPathInput;
-				gameService.CreateGame(uninitializedBotAndBotName.Item1,
-					                   uninitializedBotAndBotName.Item2,
+				gameService.CreateGame(loadingResult.UninitializedBot,
+					                   loadingResult.BotName,
 					                   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
 					                   	                   Constants.GameConstraint.MaximalMovesPerGame),
 					                   initialProgress);
