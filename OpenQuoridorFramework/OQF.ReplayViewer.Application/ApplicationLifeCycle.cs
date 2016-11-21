@@ -1,12 +1,13 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
 using Lib.Wpf;
 using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.ReplayViewer.Contracts;
 using OQF.ReplayViewer.GameLogic;
-using OQF.ReplayViewer.Visualization.Services;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow;
 using OQF.ReplayViewer.Visualization.Windows;
+using OQF.Utils;
 
 namespace OQF.ReplayViewer.Application
 {
@@ -15,12 +16,18 @@ namespace OQF.ReplayViewer.Application
 		public void BuildAndStart(StartupEventArgs startupEventArgs)
 		{
 			IReplayService replayService = new ReplayService();
-			ILastPlayedReplayService lastPlayedReplayService = new LastPlayedReplayService();
+			IApplicationSettingsRepository applicationSettingsRepository = new ApplicationSettingsRepository();
+
+			CultureManager.CurrentCulture = new CultureInfo(applicationSettingsRepository.SelectedLanguageCode);
+			CultureManager.CultureChanged += () =>
+			{
+				applicationSettingsRepository.SelectedLanguageCode = CultureManager.CurrentCulture.ToString();
+			};
 
 			var boardViewModel = new BoardViewModel(replayService);
 			var languageSelectionViewModel = new LanguageSelectionViewModel();
 
-			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, languageSelectionViewModel, replayService, lastPlayedReplayService);
+			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, languageSelectionViewModel, replayService, applicationSettingsRepository);
 
 			var mainWindow = new MainWindow
 			{

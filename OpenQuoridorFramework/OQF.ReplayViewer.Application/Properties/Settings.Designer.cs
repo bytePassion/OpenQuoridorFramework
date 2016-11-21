@@ -22,5 +22,29 @@ namespace OQF.ReplayViewer.Application.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastPlayedReplayString {
+            get {
+                return ((string)(this["LastPlayedReplayString"]));
+            }
+            set {
+                this["LastPlayedReplayString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("de")]
+        public string SelectedLanguageCode {
+            get {
+                return ((string)(this["SelectedLanguageCode"]));
+            }
+            set {
+                this["SelectedLanguageCode"] = value;
+            }
+        }
     }
 }

@@ -18,7 +18,6 @@ using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Info;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.ReplayViewer.Contracts;
-using OQF.ReplayViewer.Visualization.Services;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Resources;
 using OQF.Resources.LanguageDictionaries;
@@ -29,7 +28,8 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 	public class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
 		private readonly IReplayService replayService;
-		private readonly ILastPlayedReplayService lastPlayedReplayService;
+		private readonly IApplicationSettingsRepository applicationSettingsRepository;
+
 		private int moveIndex;
 		private int maxMoveIndex;
 		private string progressFilePath;
@@ -38,17 +38,18 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel,
 									ILanguageSelectionViewModel languageSelectionViewModel,
-									IReplayService replayService,								
-									ILastPlayedReplayService lastPlayedReplayService)
+									IReplayService replayService,
+									IApplicationSettingsRepository applicationSettingsRepository)
 		{
 			CultureManager.CultureChanged += RefreshCaptions;
 
 			BoardViewModel = boardViewModel;
 			this.replayService = replayService;
-			this.lastPlayedReplayService = lastPlayedReplayService;
+			this.applicationSettingsRepository = applicationSettingsRepository;
+
 			LanguageSelectionViewModel = languageSelectionViewModel;
 
-			LodingString = lastPlayedReplayService.GetLastReplay();
+			LodingString = applicationSettingsRepository.LastPlayedReplayString;
 
 			replayService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 
@@ -209,8 +210,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 				return;
 			}
 
-
-			lastPlayedReplayService.SaveLastReplay(LodingString);
+			applicationSettingsRepository.LastPlayedReplayString = LodingString;			
 
 			replayService.NewReplay(progress);
 
