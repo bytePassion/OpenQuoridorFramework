@@ -582,4 +582,7 @@
   <data name="PvB_NoBotLoadedCaption" xml:space="preserve">
     <value>&gt;&gt;noch kein bot geladen&lt;&lt;</value>
   </data>
+  <data name="ErrorMeg_FileCannotBeLoadedAsText" xml:space="preserve">
+    <value>Die Datei kann nicht als Text gelesen werden</value>
+  </data>
 </root>

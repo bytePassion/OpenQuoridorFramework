@@ -187,6 +187,15 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File cannot be loaded as text.
+        /// </summary>
+        public static string ErrorMeg_FileCannotBeLoadedAsText {
+            get {
+                return ResourceManager.GetString("ErrorMeg_FileCannotBeLoadedAsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bot cannot be loaded as assembly.
         /// </summary>
         public static string ErrorMsg_BotCanNotBeLoadedFromAsembly {

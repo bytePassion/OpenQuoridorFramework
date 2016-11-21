@@ -36,9 +36,9 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		private string topPlayerName;
 		private bool isBotLoaded;
 
-		public ActionBarViewModel(IApplicationSettingsRepository applicationSettingsRepository, 
-								  IGameService gameService, 
-								  ILanguageSelectionViewModel languageSelectionViewModel)
+		public ActionBarViewModel(IApplicationSettingsRepository applicationSettingsRepository,
+			IGameService gameService,
+			ILanguageSelectionViewModel languageSelectionViewModel)
 		{
 			CultureManager.CultureChanged += RefreshCaptions;
 
@@ -50,24 +50,30 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			gameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 
 			BrowseDll = new Command(DoBrowseDll,
-								    () => gameService.CurrentGameStatus != GameStatus.Active,
-									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
+				() => gameService.CurrentGameStatus != GameStatus.Active,
+				new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
 
 			Start = new Command(async () => await DoStart(),
-								() => gameService.CurrentGameStatus != GameStatus.Active && IsBotLoaded,
-								new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(IsBotLoaded)));
+				() => gameService.CurrentGameStatus != GameStatus.Active && IsBotLoaded,
+				new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(IsBotLoaded)));
 
-			StartWithProgress = new Command(() => { IsStartWithProgressPopupVisible = true; }, 
-											() => gameService.CurrentGameStatus != GameStatus.Active && IsBotLoaded,
-											new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(IsBotLoaded)));
+			StartWithProgress = new Command(() => { IsStartWithProgressPopupVisible = true; },
+				() => gameService.CurrentGameStatus != GameStatus.Active && IsBotLoaded,
+				new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(IsBotLoaded)));
 
-			StartWithProgressFromFile = new ParameterrizedCommand<string>(async filePath => { await DoStartWithProgressFromFile(filePath);
-																							  IsStartWithProgressPopupVisible = false; });
+			StartWithProgressFromFile = new ParameterrizedCommand<string>(async filePath =>
+			{
+				await DoStartWithProgressFromFile(filePath);
+				IsStartWithProgressPopupVisible = false;
+			});
 
-			StartWithProgressFromString = new ParameterrizedCommand<string>(async progressString => { await DoStartWithProgressFromString(progressString);
-																								      IsStartWithProgressPopupVisible = false; });
+			StartWithProgressFromString = new ParameterrizedCommand<string>(async progressString =>
+			{
+				await DoStartWithProgressFromString(progressString);
+				IsStartWithProgressPopupVisible = false;
+			});
 
-			ShowAboutHelp = new Command(DoShowAboutHelp);			
+			ShowAboutHelp = new Command(DoShowAboutHelp);
 
 			DllPathInput = applicationSettingsRepository.LastUsedBotPath;
 
@@ -76,7 +82,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			if (loadingResult.WasLodingSuccessful)
 			{
 				TopPlayerName = loadingResult.BotName;
-				IsBotLoaded = true;				
+				IsBotLoaded = true;
 			}
 			else
 			{
@@ -91,25 +97,25 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			{
 				if (boardState != null)
 					TopPlayerName = boardState.TopPlayer.Player.Name;
-			});			
+			});
 		}
 
 		private void OnNewGameStatusAvailable(GameStatus newGameStatus)
 		{
 			Application.Current.Dispatcher.Invoke(() =>
 			{
-				GameStatus = newGameStatus;				
-			});									
+				GameStatus = newGameStatus;
+			});
 		}
 
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
-		public ICommand Start                             { get; }
-		public ICommand StartWithProgress                 { get; }
-		public ICommand StartWithProgressFromFile         { get; }
-		public ICommand StartWithProgressFromString       { get; }
-		public ICommand ShowAboutHelp                     { get; }
-		public ICommand BrowseDll                         { get; }
+		public ICommand Start { get; }
+		public ICommand StartWithProgress { get; }
+		public ICommand StartWithProgressFromFile { get; }
+		public ICommand StartWithProgressFromString { get; }
+		public ICommand ShowAboutHelp { get; }
+		public ICommand BrowseDll { get; }
 
 		private bool IsBotLoaded
 		{
@@ -127,7 +133,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		{
 			get { return dllPathInput; }
 			set { PropertyChanged.ChangeAndNotify(this, ref dllPathInput, value); }
-		}		
+		}
 
 		public bool IsStartWithProgressPopupVisible
 		{
@@ -141,14 +147,14 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			private set { PropertyChanged.ChangeAndNotify(this, ref topPlayerName, value); }
 		}
 
-		private void DoShowAboutHelp ()
+		private void DoShowAboutHelp()
 		{
 			InfoWindowService.Show(OpenQuoridorFrameworkInfo.Applications.PlayerVsBot.Info,
-								   InfoPage.PlayerVsBotApplicationInfo,
-								   InfoPage.QuoridorRules,
-								   InfoPage.QuoridorNotation,
-								   InfoPage.HowToWriteABot,
-								   InfoPage.About);
+				InfoPage.PlayerVsBotApplicationInfo,
+				InfoPage.QuoridorRules,
+				InfoPage.QuoridorNotation,
+				InfoPage.HowToWriteABot,
+				InfoPage.About);
 		}
 
 		private async void DoBrowseDll()
@@ -164,20 +170,20 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			{
 				DllPathInput = dialog.FileName;
 				await TryToGetUninitializedBot();
-			}				
+			}
 		}
 
 		private async Task DoStart()
-		{						
+		{
 			var uninitializedBotAndBotName = await TryToGetUninitializedBot();
 
 			if (uninitializedBotAndBotName == null)
 				return;
-														
-			gameService.CreateGame(uninitializedBotAndBotName.UninitializedBot, 
-								   uninitializedBotAndBotName.BotName, 
-								   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds), 
-													   Constants.GameConstraint.MaximalMovesPerGame));						
+
+			gameService.CreateGame(uninitializedBotAndBotName.UninitializedBot,
+				uninitializedBotAndBotName.BotName,
+				new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
+					Constants.GameConstraint.MaximalMovesPerGame));
 		}
 
 		private async Task<BotLoadingResult> TryToGetUninitializedBot()
@@ -196,20 +202,20 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 				TopPlayerName = Captions.PvB_NoBotLoadedCaption;
 				IsBotLoaded = false;
 
-				await NotificationDialogService.Show(loadingResult.ErrorMessage, 
-													 Captions.ND_OkButtonCaption);
+				await NotificationDialogService.Show(loadingResult.ErrorMessage,
+					Captions.ND_OkButtonCaption);
 
 				return null;
 			}
 		}
 
-		private async Task DoStartWithProgressFromFile (string filePath)
+		private async Task DoStartWithProgressFromFile(string filePath)
 		{
 			var loadingResult = await TryToGetUninitializedBot();
 
-			if (loadingResult == null)						
+			if (loadingResult == null)
 				return;
-			
+
 			string progressFilePath;
 
 			if (string.IsNullOrWhiteSpace(filePath))
@@ -222,8 +228,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 				var result = dialog.ShowDialog();
 
 				if (result.HasValue && result.Value)
-				{					
-					progressFilePath = dialog.FileName;					
+				{
+					progressFilePath = dialog.FileName;
 				}
 				else
 				{
@@ -235,7 +241,20 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 				progressFilePath = filePath;
 			}
 
-			var progressText = File.ReadAllText(progressFilePath);
+			string progressText;
+
+			try
+			{
+				progressText = File.ReadAllText(progressFilePath);
+			}
+			catch
+			{
+				await NotificationDialogService.Show($"{Captions.ErrorMeg_FileCannotBeLoadedAsText} [{progressFilePath}]", 
+													 Captions.ND_OkButtonCaption);
+
+				return;
+			}
+			
 			var initialProgress = CreateQProgress.FromReadableProgressTextFile(progressText);
 
 			var verificationResult = ProgressVerifier.Verify(initialProgress, 
