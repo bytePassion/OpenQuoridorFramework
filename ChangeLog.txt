@@ -5,16 +5,21 @@
 ################################################################################ 
 
 
-OpenQuoridorFramework (2.1)
+OpenQuoridorFramework (2.2)
 [planned release in november]
 --------------------------------------------------------------------------------
 - PlayerVsBot (1.1)
     - Several minor bug fixes
     - Several Ui-Improvements
-    - Progress can be viewed and copied as compressed string
-    - Game can be started from a comressed string as well as from a 
+    - Progress can be viewed and copied as compressed-progress-string
+    - Game can be started from a comressed-progress-string as well as from a 
       progress-file
-- ReplayViewer (1.0)
+    - added new commandLineParamter to start a game from a compressed-progress-string
+- ReplayViewer (1.1)
+    - Several minor bug fixes
+    - Several Ui-Improvements
+    - localization (de & en)
+    - replay can be loaded from compressed string
 
 
 OpenQuoridorFramework (2.0)
