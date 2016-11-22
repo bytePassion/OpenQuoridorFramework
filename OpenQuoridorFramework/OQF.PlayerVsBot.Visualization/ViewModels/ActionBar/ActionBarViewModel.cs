@@ -150,11 +150,11 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		private void DoShowAboutHelp()
 		{
 			InfoWindowService.Show(OpenQuoridorFrameworkInfo.Applications.PlayerVsBot.Info,
-				InfoPage.PlayerVsBotApplicationInfo,
-				InfoPage.QuoridorRules,
-				InfoPage.QuoridorNotation,
-				InfoPage.HowToWriteABot,
-				InfoPage.About);
+				                   InfoPage.PlayerVsBotApplicationInfo,
+				                   InfoPage.QuoridorRules,
+				                   InfoPage.QuoridorNotation,
+				                   InfoPage.HowToWriteABot,
+				                   InfoPage.About);
 		}
 
 		private async void DoBrowseDll()

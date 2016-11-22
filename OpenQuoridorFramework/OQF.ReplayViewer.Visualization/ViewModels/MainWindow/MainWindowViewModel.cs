@@ -78,7 +78,10 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 		private void DoShowAboutHelp()
 		{
-			InfoWindowService.Show(OpenQuoridorFrameworkInfo.Applications.ReplayViewer.Info,								   
+			InfoWindowService.Show(OpenQuoridorFrameworkInfo.Applications.ReplayViewer.Info,
+								   InfoPage.ReplayViewerApplicationInfo,
+								   InfoPage.QuoridorRules,
+								   InfoPage.QuoridorNotation,								   
 								   InfoPage.About);
 		}
 
