@@ -421,7 +421,7 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can simplify your debugging-process by modifying the properties of your bot-project in a way that the test-application PlayerVsBot is started automaticly with the bot loaded every time you start debugging. To do so (an example is shown in the picture above) you have to adjust the StartAction to launch the PlayerVsBot-application. In addition to that you have to add the result of the build-process (your bot-dll) as command-line-parameter for the test-application. Don&apos;t forget the quotation marks! There a [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to You can simplify your debugging-process by modifying the properties of your bot-project in a way that the test-application PlayerVsBot is started automaticly with the bot loaded every time you start debugging. To do so (an example is shown in the picture above) you have to adjust the StartAction to launch the PlayerVsBot-application. In addition to that you have to add the result of the build-process (your bot-dll) as command-line-parameter for the test-application. Don&apos;t forget the quotation marks if there [rest of string was truncated]&quot;;.
         /// </summary>
         public static string HTWAB_HintParagraphText {
             get {
