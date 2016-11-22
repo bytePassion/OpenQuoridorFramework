@@ -592,4 +592,37 @@
   <data name="PvBH_Explanation23" xml:space="preserve">
     <value>23. Copy compressed progress string to clipboard</value>
   </data>
+  <data name="RVH_Explanation01" xml:space="preserve">
+    <value>1. Load replay from game-progress</value>
+  </data>
+  <data name="RVH_Explanation02" xml:space="preserve">
+    <value>2. Enter here path to progress-file or enter a compressed progress string directly</value>
+  </data>
+  <data name="RVH_Explanation03" xml:space="preserve">
+    <value>3. Browse for progress-file</value>
+  </data>
+  <data name="RVH_Explanation04" xml:space="preserve">
+    <value>4. Show help- and about-pages</value>
+  </data>
+  <data name="RVH_Explanation05" xml:space="preserve">
+    <value>5. Choose your favorite language</value>
+  </data>
+  <data name="RVH_Explanation06" xml:space="preserve">
+    <value>6. Jump to previous step of the replay</value>
+  </data>
+  <data name="RVH_Explanation07" xml:space="preserve">
+    <value>7. See and navigate through the currently loaded progress</value>
+  </data>
+  <data name="RVH_Explanation08" xml:space="preserve">
+    <value>8. Jump to next step of the replay</value>
+  </data>
+  <data name="RVH_Explanation09" xml:space="preserve">
+    <value>9. Currently loaded progress</value>
+  </data>
+  <data name="RVH_Explanation10" xml:space="preserve">
+    <value>10. Currently displayed step of the progress</value>
+  </data>
+  <data name="RVH_PageHeader" xml:space="preserve">
+    <value>Overview to 'Replay Viewer'</value>
+  </data>
 </root>

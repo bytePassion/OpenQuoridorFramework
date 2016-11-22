@@ -1420,6 +1420,105 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 1. Load replay from game-progress.
+        /// </summary>
+        public static string RVH_Explanation01 {
+            get {
+                return ResourceManager.GetString("RVH_Explanation01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2. Enter here path to progress-file or enter a compressed progress string directly.
+        /// </summary>
+        public static string RVH_Explanation02 {
+            get {
+                return ResourceManager.GetString("RVH_Explanation02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3. Browse for progress-file.
+        /// </summary>
+        public static string RVH_Explanation03 {
+            get {
+                return ResourceManager.GetString("RVH_Explanation03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4. Show help- and about-pages.
+        /// </summary>
+        public static string RVH_Explanation04 {
+            get {
+                return ResourceManager.GetString("RVH_Explanation04", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5. Choose your favorite language.
+        /// </summary>
+        public static string RVH_Explanation05 {
+            get {
+                return ResourceManager.GetString("RVH_Explanation05", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6. Jump to previous step of the replay.
+        /// </summary>
+        public static string RVH_Explanation06 {
+            get {
+                return ResourceManager.GetString("RVH_Explanation06", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7. See and navigate through the currently loaded progress.
+        /// </summary>
+        public static string RVH_Explanation07 {
+            get {
+                return ResourceManager.GetString("RVH_Explanation07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8. Jump to next step of the replay.
+        /// </summary>
+        public static string RVH_Explanation08 {
+            get {
+                return ResourceManager.GetString("RVH_Explanation08", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9. Currently loaded progress.
+        /// </summary>
+        public static string RVH_Explanation09 {
+            get {
+                return ResourceManager.GetString("RVH_Explanation09", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10. Currently displayed step of the progress.
+        /// </summary>
+        public static string RVH_Explanation10 {
+            get {
+                return ResourceManager.GetString("RVH_Explanation10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overview to &apos;Replay Viewer&apos;.
+        /// </summary>
+        public static string RVH_PageHeader {
+            get {
+                return ResourceManager.GetString("RVH_PageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to save the current game progress?.
         /// </summary>
         public static string SavingDialogMessage {

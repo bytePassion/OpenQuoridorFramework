@@ -612,4 +612,37 @@
   <data name="PvBH_Explanation23" xml:space="preserve">
     <value>23. Kompremierten Spielfortschritt in Zwischenablage kopieren</value>
   </data>
+  <data name="RVH_PageHeader" xml:space="preserve">
+    <value>Übersicht zu 'Replay Viewer'</value>
+  </data>
+  <data name="RVH_Explanation01" xml:space="preserve">
+    <value>1. Spielfortschritt laden</value>
+  </data>
+  <data name="RVH_Explanation02" xml:space="preserve">
+    <value>2. Hier kann entweder der Pfad zu einer Spielfortschrittsdatei, oder ein kompremierter Spielfortschritt direkt eingegeben werden</value>
+  </data>
+  <data name="RVH_Explanation03" xml:space="preserve">
+    <value>3. Dateisystem nach Spielfortschrittsdatei durchsuchen</value>
+  </data>
+  <data name="RVH_Explanation04" xml:space="preserve">
+    <value>4. Hilfe- und Über-Seiten anzeigen</value>
+  </data>
+  <data name="RVH_Explanation05" xml:space="preserve">
+    <value>5. Wähle deine Sprache</value>
+  </data>
+  <data name="RVH_Explanation06" xml:space="preserve">
+    <value>6. Zum vorhergehenden Schritt des Spielfortschritts springen</value>
+  </data>
+  <data name="RVH_Explanation07" xml:space="preserve">
+    <value>7. Hier kann der Fortschritt im aktuell geladenen Spielfortschritt gesehen und manipuliert werden</value>
+  </data>
+  <data name="RVH_Explanation08" xml:space="preserve">
+    <value>8. Zum nächsten Schritt des Spielfortschritts springen</value>
+  </data>
+  <data name="RVH_Explanation09" xml:space="preserve">
+    <value>9. Aktuell geladener Spielfortschritt</value>
+  </data>
+  <data name="RVH_Explanation10" xml:space="preserve">
+    <value>10. Aktuell gezeigter Schritt des Spielfortschritts</value>
+  </data>
 </root>

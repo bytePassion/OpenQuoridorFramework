@@ -64,8 +64,10 @@
 
             <TextBlock Grid.Column="1"
                        HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Text="{Binding InputPromtLabelCaption}" />
+                       VerticalAlignment="Center">
+				<Run Text="{Binding InputPromtLabelCaption, Mode=OneWay}"/>:
+				<Run/>
+			</TextBlock>
 
             <TextBox Grid.Column="2"
                      Margin="7,10"

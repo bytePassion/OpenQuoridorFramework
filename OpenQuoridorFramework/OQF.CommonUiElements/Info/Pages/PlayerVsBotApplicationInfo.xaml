@@ -14,10 +14,8 @@
     </d:DesignData.DataContext>
 
     <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
-
-
-    </UserControl.Resources>
+		<ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
+	</UserControl.Resources>
 
     <ScrollViewer Background="White"
                   HorizontalScrollBarVisibility="Disabled"
