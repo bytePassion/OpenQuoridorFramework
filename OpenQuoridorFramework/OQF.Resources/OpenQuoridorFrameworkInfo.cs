@@ -27,19 +27,19 @@ namespace OQF.Resources
 
 		public const string QuoridorInventor  = "Mirko Marchesi";
 		public const string QuoridorPublisher = "Gigamic";
-		public static readonly Uri QuoridorPublisherUri =new Uri(@"http://en.gigamic.com/");
+		public static readonly Uri QuoridorPublisherUri = new Uri(@"http://en.gigamic.com/");
 
 		public static readonly Uri GitHubUri = new Uri(GitHubUriText);
 		public const string GitHubUriText = @"https://github.com/bytePassion/OpenQuoridorFramework.git";
 
-		public const string FrameworkVersion = "2.0";
+		public const string FrameworkVersion = "2.2";
 
 		public static class Applications
 		{
 			public static class PlayerVsBot
 			{
 				private const string Name               = "Player vs. Bot";
-				private const string ApplicationVersion = "1.0";
+				private const string ApplicationVersion = "1.1";
 				
 				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, 
 																				  ApplicationVersion,
@@ -53,7 +53,7 @@ namespace OQF.Resources
 			public static class ReplayViewer
 			{
 				public const string Name               = "Replay Viewer";
-				public const string ApplicationVersion = "1.0";
+				public const string ApplicationVersion = "1.1";
 				
 				public static readonly ApplicationInfo Info = new ApplicationInfo(Name,
 																				  ApplicationVersion,
