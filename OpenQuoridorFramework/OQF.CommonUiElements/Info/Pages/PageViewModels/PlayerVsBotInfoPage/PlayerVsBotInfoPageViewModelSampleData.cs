@@ -29,6 +29,8 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 		public string Explanation19 => "19 blubb";
 		public string Explanation20 => "20 blubb";
 		public string Explanation21 => "21 blubb";
+		public string Explanation22 => "22 blubb";
+		public string Explanation23 => "23 blubb";
         public string DisplayName   => "PlayerVsBot";
 
 

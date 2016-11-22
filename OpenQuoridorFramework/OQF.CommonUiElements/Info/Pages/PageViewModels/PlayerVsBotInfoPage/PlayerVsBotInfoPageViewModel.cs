@@ -37,7 +37,9 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 		public string Explanation19 => Captions.PvBH_Explanation19;
 		public string Explanation20 => Captions.PvBH_Explanation20;
 		public string Explanation21 => Captions.PvBH_Explanation21;
-        public string DisplayName   => Captions.IP_PlayerVsBotInfoButtonCaption;
+		public string Explanation22 => Captions.PvBH_Explanation22;
+		public string Explanation23 => Captions.PvBH_Explanation23;
+		public string DisplayName   => Captions.IP_PlayerVsBotInfoButtonCaption;
 
         private void RefreshCaptions ()
 		{
@@ -64,6 +66,8 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 										 nameof(Explanation19),
 										 nameof(Explanation20),
 										 nameof(Explanation21),
+										 nameof(Explanation22),
+										 nameof(Explanation23),
 										 nameof(DisplayName));
 		}
 

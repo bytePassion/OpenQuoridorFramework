@@ -52,47 +52,29 @@
                         <TextBlock Margin="0,20,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-                            <Run Text="{Binding Explanation01, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation02, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation03, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation04, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation05, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation06, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation07, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation08, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation09, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation10, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation11, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation12, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation13, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation14, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation15, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation16, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation17, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation18, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation19, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation20, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding Explanation21, Mode=OneWay}" />
+                            <Run Text="{Binding Explanation01, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation02, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation03, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation04, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation05, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation06, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation07, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation08, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation09, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation10, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation11, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation12, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation13, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation14, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation15, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation16, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation17, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation18, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation19, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation20, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation21, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation22, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation23, Mode=OneWay}" />
                         </TextBlock>
 
                     </StackPanel>

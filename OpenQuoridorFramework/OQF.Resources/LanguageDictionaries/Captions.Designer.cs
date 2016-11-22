@@ -835,7 +835,7 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3. Start a game from progress-file (if a bot was loaded).
+        ///   Looks up a localized string similar to 3. Start a game from a progress (if a bot was loaded).
         /// </summary>
         public static string PvBH_Explanation03 {
             get {
@@ -1002,6 +1002,24 @@ namespace OQF.Resources.LanguageDictionaries {
         public static string PvBH_Explanation21 {
             get {
                 return ResourceManager.GetString("PvBH_Explanation21", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 22. Compressed progress string.
+        /// </summary>
+        public static string PvBH_Explanation22 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation22", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 23. Copy compressed progress string to clipboard.
+        /// </summary>
+        public static string PvBH_Explanation23 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation23", resourceCulture);
             }
         }
         
