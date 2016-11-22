@@ -481,7 +481,7 @@
     <value>2. Spiel starten (sofern vorher ein Bot gewählt wurde)</value>
   </data>
   <data name="PvBH_Explanation03" xml:space="preserve">
-    <value>3. Spiel von Spielfortschrittsdatei starten (sofern vorher ein Bot gewählt wurde)</value>
+    <value>3. Spiel von Spielfortschritts starten (sofern vorher ein Bot gewählt wurde)</value>
   </data>
   <data name="PvBH_Explanation04" xml:space="preserve">
     <value>4. Name des Bots gegen den gespielt wird</value>
@@ -605,5 +605,11 @@
   </data>
   <data name="RV_ShowAboutHelpButtonCaption" xml:space="preserve">
     <value>Hilfe &amp; Über</value>
+  </data>
+  <data name="PvBH_Explanation22" xml:space="preserve">
+    <value>22. Kompremierter Spielfortschritt</value>
+  </data>
+  <data name="PvBH_Explanation23" xml:space="preserve">
+    <value>23. Kompremierten Spielfortschritt in Zwischenablage kopieren</value>
   </data>
 </root>

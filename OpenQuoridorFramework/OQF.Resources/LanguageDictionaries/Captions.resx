@@ -410,7 +410,7 @@
     <value>2. Start a game (if a bot was loaded)</value>
   </data>
   <data name="PvBH_Explanation03" xml:space="preserve">
-    <value>3. Start a game from progress-file (if a bot was loaded)</value>
+    <value>3. Start a game from a progress (if a bot was loaded)</value>
   </data>
   <data name="PvBH_Explanation04" xml:space="preserve">
     <value>4. Name of the bot you are playing against</value>
@@ -585,5 +585,11 @@
   </data>
   <data name="RV_ProgressSectionHeader" xml:space="preserve">
     <value>Progress</value>
+  </data>
+  <data name="PvBH_Explanation22" xml:space="preserve">
+    <value>22. Compressed progress string</value>
+  </data>
+  <data name="PvBH_Explanation23" xml:space="preserve">
+    <value>23. Copy compressed progress string to clipboard</value>
   </data>
 </root>
