@@ -55,20 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationLifeCycle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +87,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
+      <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
+      <Name>Lib.FrameworkExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib.Wpf\Lib.Wpf.csproj">
+      <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
+      <Name>Lib.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Net.DesktopClient.Visualization\OQF.Net.DesktopClient.Visualization.csproj">
+      <Project>{C11746E5-570E-4FAD-ABBD-921E8C2DBD76}</Project>
+      <Name>OQF.Net.DesktopClient.Visualization</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

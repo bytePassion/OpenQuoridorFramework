@@ -10,7 +10,7 @@ namespace OQF.Net.LanServer.Application
 		{
 			var mainWindowViewModel = new MainWindowViewModel("blubb2");
 
-			var mainWindow = new MainWindow
+			var mainWindow = new Visualization.Windows.MainWindow
 			{
 				DataContext = mainWindowViewModel
 			};
