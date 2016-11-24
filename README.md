@@ -1,4 +1,4 @@
-# OpenQuoridorFramework (2.0)
+# OpenQuoridorFramework (2.2)
 
 [![Join the chat at https://gitter.im/bytePassion/OpenQuoridorFramework](https://badges.gitter.im/bytePassion/OpenQuoridorFramework.svg)](https://gitter.im/bytePassion/OpenQuoridorFramework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![view and contribute to current tasks on trello](https://img.shields.io/badge/tasks-on%20trello-blue.svg)](https://trello.com/b/X9gnlWEl/openquoridorframework)
@@ -36,11 +36,17 @@ Planned applications:
 
 Latest Release ChangeLog Entry:
 
-[October 28th, 2016] 
- - PlayerVsBot  (1.0)
-   - Initial Release
- - ReplayViewer (1.0) 
-   - Initial Release
+[November 25th, 2016]
+ - PlayerVsBot (1.1)
+   - Several minor bug fixes
+   - Several Ui-Improvements
+   - Progress can be viewed and copied as compressed-progress-string
+   - Game can be started from a comressed-progress-string as well as from a progress-file
+   - added new commandLineParamter to start a game from a compressed-progress-string
+- ReplayViewer (1.1)
+   - Several minor bug fixes
+   - Several Ui-Improvements, including localization (de & en)
+   - replay can be loaded from compressed string
 
 ---
 The boardgame Quoridor was created by Mirko Marchesi and is published by [Gigamic](http://en.gigamic.com/).

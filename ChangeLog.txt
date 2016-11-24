@@ -6,7 +6,7 @@
 
 
 OpenQuoridorFramework (2.2)
-[planned release in november]
+[November 25th, 2016]
 --------------------------------------------------------------------------------
 - PlayerVsBot (1.1)
     - Several minor bug fixes
@@ -17,8 +17,7 @@ OpenQuoridorFramework (2.2)
     - added new commandLineParamter to start a game from a compressed-progress-string
 - ReplayViewer (1.1)
     - Several minor bug fixes
-    - Several Ui-Improvements
-    - localization (de & en)
+    - Several Ui-Improvements, including localization (de & en)
     - replay can be loaded from compressed string
 
 
