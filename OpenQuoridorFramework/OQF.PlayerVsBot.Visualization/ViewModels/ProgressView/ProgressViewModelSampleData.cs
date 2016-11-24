@@ -21,7 +21,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ProgressView
 			IsAutoScrollProgressActive = true;
 
 			AutoScrollDownCheckBoxCaption       = "Automatisch scrollen";			
-			CompressedProgressCaption           = "Kompremierter Spielfortschritt";
+			CompressedProgressCaption           = "Komprimierter Spielfortschritt";
 			CopyToClipboardButtonToolTipCpation = "In Zwischenablage kopieren";
 			DumpProgressToFileButtonCaption     = "Speichern";
 			ProgressCaption                     = "Spielverlauf";

@@ -121,7 +121,7 @@
     <value>Durchsuchen nach Bot-DLL</value>
   </data>
   <data name="PvB_StartGameButtonToolTipCaption" xml:space="preserve">
-    <value>Spiel Starten</value>
+    <value>Spiel starten</value>
   </data>
   <data name="PvB_OpenInfoButtonToolTipCaption" xml:space="preserve">
     <value>Hilfe / Über</value>
@@ -172,7 +172,7 @@
     <value>Ungültiger Zug</value>
   </data>
   <data name="WinningReason_ExceedanceOfMaxMoves" xml:space="preserve">
-    <value>The maximum of allowed moved where exceeded</value>
+    <value>Die maximale Zuganzahl wurde überschritten</value>
   </data>
   <data name="WinningReason_ExceedanceOfThoughtTime" xml:space="preserve">
     <value>Die maximale Bedenkzeit wurde überschritten</value>
@@ -433,7 +433,7 @@
     <value>Speichere Spielfortschritt von beendetem Spiel</value>
   </data>
   <data name="ErrorMsg_NoDllPath" xml:space="preserve">
-    <value>Bevor das Spiel gestartet werden kann muss eine bot-Dll ausgewählt werden</value>
+    <value>Bevor das Spiel gestartet werden kann muss eine Bot-DLL ausgewählt werden</value>
   </data>
   <data name="ErrorMsg_FileDoesNotExist" xml:space="preserve">
     <value>Die Datei existiert nicht</value>
@@ -556,7 +556,7 @@
     <value>Version</value>
   </data>
   <data name="PvB_CompressedProgressCaption" xml:space="preserve">
-    <value>Kompremierter Spielfortschritt</value>
+    <value>Komprimierter Spielfortschritt</value>
   </data>
   <data name="PvB_CopyToClipboardButtonToolTipCpation" xml:space="preserve">
     <value>Kopremierten Spielforschritt in Zwischenablage kopieren</value>
@@ -571,7 +571,7 @@
     <value>Ok</value>
   </data>
   <data name="PvB_ProgressInputDialogPromt" xml:space="preserve">
-    <value>Geben Sie den kompremierten Spielfortschritt ein:</value>
+    <value>Geben Sie den komprimierten Spielfortschritt ein:</value>
   </data>
   <data name="PvB_StartGameFromFileButtonCaption" xml:space="preserve">
     <value>Von Datei</value>
@@ -580,7 +580,7 @@
     <value>Von Zeichenkette</value>
   </data>
   <data name="PvB_NoBotLoadedCaption" xml:space="preserve">
-    <value>&gt;&gt;noch kein bot geladen&lt;&lt;</value>
+    <value>&gt;&gt;noch kein Bot geladen&lt;&lt;</value>
   </data>
   <data name="ErrorMsg_FileCannotBeLoadedAsText" xml:space="preserve">
     <value>Die Datei kann nicht als Text gelesen werden</value>
@@ -607,10 +607,10 @@
     <value>Hilfe &amp; Über</value>
   </data>
   <data name="PvBH_Explanation22" xml:space="preserve">
-    <value>22. Kompremierter Spielfortschritt</value>
+    <value>22. Komprimierter Spielfortschritt</value>
   </data>
   <data name="PvBH_Explanation23" xml:space="preserve">
-    <value>23. Kompremierten Spielfortschritt in Zwischenablage kopieren</value>
+    <value>23. Komprimierten Spielfortschritt in Zwischenablage kopieren</value>
   </data>
   <data name="RVH_PageHeader" xml:space="preserve">
     <value>Übersicht zu 'Replay Viewer'</value>
@@ -619,7 +619,7 @@
     <value>1. Spielfortschritt laden</value>
   </data>
   <data name="RVH_Explanation02" xml:space="preserve">
-    <value>2. Hier kann entweder der Pfad zu einer Spielfortschrittsdatei, oder ein kompremierter Spielfortschritt direkt eingegeben werden</value>
+    <value>2. Hier kann entweder der Pfad zu einer Spielfortschrittsdatei, oder ein komprimierter Spielfortschritt direkt eingegeben werden</value>
   </data>
   <data name="RVH_Explanation03" xml:space="preserve">
     <value>3. Dateisystem nach Spielfortschrittsdatei durchsuchen</value>
