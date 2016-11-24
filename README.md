@@ -43,7 +43,7 @@ Latest Release ChangeLog Entry:
    - Progress can be viewed and copied as compressed-progress-string
    - Game can be started from a comressed-progress-string as well as from a progress-file
    - added new commandLineParamter to start a game from a compressed-progress-string
-- ReplayViewer (1.1)
+ - ReplayViewer (1.1)
    - Several minor bug fixes
    - Several Ui-Improvements, including localization (de & en)
    - replay can be loaded from compressed string
