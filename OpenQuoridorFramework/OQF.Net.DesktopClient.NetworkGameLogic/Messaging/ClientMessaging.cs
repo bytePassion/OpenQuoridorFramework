@@ -15,17 +15,14 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic.Messaging
 		private readonly ReceivingThread receivingThread;
 
 		private readonly TimeoutBlockingQueue<NetworkMessageBase> outgoingMessageQueue;
+		
 
-		private readonly ClientId myClientId;
-
-		public ClientMessaging (Address serverAddress)
+		public ClientMessaging (Address serverAddress, ClientId newClientId)
 		{
-			myClientId = new ClientId(Guid.NewGuid());
-
 			outgoingMessageQueue = new TimeoutBlockingQueue<NetworkMessageBase>(500);
 			sendingThread = new SendingThread(serverAddress, outgoingMessageQueue);
 
-			receivingThread = new ReceivingThread(serverAddress, myClientId);
+			receivingThread = new ReceivingThread(serverAddress, newClientId);
 			receivingThread.NewMessageAvailable += OnNewMessageAvailable;
 
 		}

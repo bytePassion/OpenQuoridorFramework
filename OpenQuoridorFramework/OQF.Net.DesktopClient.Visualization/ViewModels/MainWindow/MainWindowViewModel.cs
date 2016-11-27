@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
@@ -17,7 +18,16 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public MainWindowViewModel(INetworkGameService networkGameService)
 		{
 			this.networkGameService = networkGameService;
+			networkGameService.GotConnected += OnGotConnected;
 			ConnectToServer = new Command(DoConnect);
+		}
+
+		private void OnGotConnected()
+		{
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				Response = "positive";
+			});
 		}
 
 		public ICommand ConnectToServer { get; }

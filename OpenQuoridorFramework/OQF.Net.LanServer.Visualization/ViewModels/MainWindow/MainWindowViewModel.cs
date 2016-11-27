@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
@@ -47,7 +48,11 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 
 		private void OnNewOutputAvailable(string s)
 		{
-			Output.Add(s);
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				Output.Add(s);
+			});
+			
 		}
 
 		public ICommand ActivateServer   { get; }
