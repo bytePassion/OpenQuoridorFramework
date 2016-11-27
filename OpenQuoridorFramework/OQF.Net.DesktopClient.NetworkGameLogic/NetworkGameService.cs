@@ -13,15 +13,23 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		public event Action GotConnected;
 
 		private IClientMessaging messagingService;
+		private ClientId clientId;
+
 
 		public void ConnectToServer(AddressIdentifier serverAddress, string playerName)
 		{
-			var newClientId = new ClientId(Guid.NewGuid());
-			messagingService = new ClientMessaging(new Address(new TcpIpProtocol(), serverAddress), newClientId);
+			clientId = new ClientId(Guid.NewGuid());
+			messagingService = new ClientMessaging(new Address(new TcpIpProtocol(), serverAddress), clientId);
 			messagingService.NewIncomingMessage += OnNewIncomingMessage;
 
 
-			messagingService.SendMessage(new ConnectToServerRequest(newClientId, playerName));
+			messagingService.SendMessage(new ConnectToServerRequest(clientId, playerName));
+		}
+
+		public void CreateGame(string gameName, Guid gameId)
+		{
+			if (clientId != null)
+				messagingService.SendMessage(new CreateGameRequest(clientId, gameName, gameId));
 		}
 
 		private void OnNewIncomingMessage(NetworkMessageBase networkMessageBase)
@@ -38,6 +46,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		public void Dissconnect()
 		{
+			clientId = null;
 			messagingService?.Dispose();
 		}
 	}

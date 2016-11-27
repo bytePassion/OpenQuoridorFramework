@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
@@ -19,7 +20,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		{
 			this.networkGameService = networkGameService;
 			networkGameService.GotConnected += OnGotConnected;
+
 			ConnectToServer = new Command(DoConnect);
+			CreateGame = new Command(DoCreateGame);
 		}
 
 		private void OnGotConnected()
@@ -31,6 +34,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		}
 
 		public ICommand ConnectToServer { get; }
+		public ICommand CreateGame { get; }
+		public string NewGameName { get; set; }
 
 		public string ServerAddress { get; set; }
 		public string PlayerName { get; set; }
@@ -43,7 +48,13 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 		private void DoConnect()
 		{
-			networkGameService.ConnectToServer(AddressIdentifier.GetIpAddressIdentifierFromString(ServerAddress));
+			networkGameService.ConnectToServer(AddressIdentifier.GetIpAddressIdentifierFromString(ServerAddress), PlayerName);
+		}
+
+		private void DoCreateGame()
+		{
+			var newGameId = Guid.NewGuid();
+			networkGameService.CreateGame(NewGameName, newGameId);	
 		}
 
 		protected override void CleanUp() {	}

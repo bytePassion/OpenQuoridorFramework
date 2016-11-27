@@ -8,6 +8,7 @@ namespace OQF.Net.DesktopClient.Contracts
 		event Action GotConnected;
 
 		void ConnectToServer(AddressIdentifier serverAddress, string playerName);
-		void Dissconnect();
+		void CreateGame(string gameName, Guid gameId);
+		void Dissconnect(); 
 	}
 }

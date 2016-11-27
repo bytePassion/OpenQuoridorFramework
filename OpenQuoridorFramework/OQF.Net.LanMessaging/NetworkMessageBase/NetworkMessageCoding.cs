@@ -45,9 +45,11 @@ namespace OQF.Net.LanMessaging.NetworkMessageBase
 				case NetworkMessageType.ErrorResponse:                       return ErrorResponse.Parse(messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.ConnectToServerRequest:              return ConnectToServerRequest.Parse(messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.ConnectToServerResponse:             return ConnectToServerResponse.Parse(messageParts.ClientId, messageParts.Content);	
+				case NetworkMessageType.CreateGameRequest:                   return CreateGameRequest.Parse(messageParts.ClientId, messageParts.Content);
 																		   
  				case NetworkMessageType.NewBoardStateAvailableNotification:  return NewGameStateAvailableNotification.Parse(messageParts.ClientId, messageParts.Content);
-				
+				case NetworkMessageType.OpenGameListUpdateNotification:      return OpenGameListUpdateNotification.Parse(messageParts.ClientId, messageParts.Content);
+
 				default:
 					throw new ArgumentException();
 			}

@@ -12,9 +12,13 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			ServerAddress = "10.10.10.10";
 			Response = "positive";
 			PlayerName = "xelor";
+			NewGameName = "myGame01";
 		}
 
 		public ICommand ConnectToServer => null;
+		public ICommand CreateGame => null;
+
+		public string NewGameName { get; set; }
 		public string ServerAddress { get; set; }
 		public string PlayerName { get; set; }
 		public string Response { get; }

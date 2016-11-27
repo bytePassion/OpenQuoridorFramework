@@ -4,8 +4,11 @@
 	{
 		ConnectToServerRequest,
 		ConnectToServerResponse,
+
+		CreateGameRequest,
 		
-		NewBoardStateAvailableNotification,		
+		NewBoardStateAvailableNotification,
+		OpenGameListUpdateNotification,
 
 		ErrorResponse		
 	}
