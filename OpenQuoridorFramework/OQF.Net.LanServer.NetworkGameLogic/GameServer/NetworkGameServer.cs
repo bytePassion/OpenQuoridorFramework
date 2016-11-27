@@ -32,6 +32,8 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 			messagingService = new ServerMessaging(serverAddress);
 
 			messagingService.NewIncomingMessage += OnNewIncomingMessage;
+
+			NewOutputAvailable?.Invoke("ActivatedServer");
 		}
 
 		private void OnNewIncomingMessage(NetworkMessageBase newIncommingMsg)
@@ -65,6 +67,8 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 		public void Deactivate()
 		{
+			NewOutputAvailable?.Invoke("DeactivatedServer");
+
 			if (messagingService != null)
 			{
 				messagingService.NewIncomingMessage -= OnNewIncomingMessage;

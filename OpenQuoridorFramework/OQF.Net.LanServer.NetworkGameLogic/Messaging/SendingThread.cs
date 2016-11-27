@@ -31,7 +31,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.Messaging
 			using (var socket = new PublisherSocket())
 			{
 				socket.Options.Linger = TimeSpan.Zero;
-				socket.Connect(serverAddress.ZmqAddress + ":" + MessagingConstants.TcpIpPort.PubSubPort);
+				socket.Bind(serverAddress.ZmqAddress + ":" + MessagingConstants.TcpIpPort.PubSubPort);
 
 				while (!stopRunning)
 				{

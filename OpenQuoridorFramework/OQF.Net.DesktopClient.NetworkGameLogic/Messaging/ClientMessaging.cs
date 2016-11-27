@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Lib.Concurrency;
 using Lib.FrameworkExtension;
 using OQF.Net.LanMessaging.AddressTypes;
@@ -25,6 +26,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic.Messaging
 			receivingThread = new ReceivingThread(serverAddress, newClientId);
 			receivingThread.NewMessageAvailable += OnNewMessageAvailable;
 
+			new Thread(sendingThread.Run).Start();
+			new Thread(receivingThread.Run).Start();
 		}
 
 		private void OnNewMessageAvailable (NetworkMessageBase incomingMessage)

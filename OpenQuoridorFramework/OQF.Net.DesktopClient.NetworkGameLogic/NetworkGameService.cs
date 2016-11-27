@@ -38,7 +38,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		public void Dissconnect()
 		{
-			messagingService.Dispose();
+			messagingService?.Dispose();
 		}
 	}
 }

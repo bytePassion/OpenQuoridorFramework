@@ -28,6 +28,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic.Messaging
 			IsRunning = true;
 			using (var socket = new SubscriberSocket())
 			{
+				socket.SubscribeToAnyTopic();
 				socket.Options.Linger = TimeSpan.Zero;
 				socket.Connect(serverAddress.ZmqAddress + ":" + MessagingConstants.TcpIpPort.PubSubPort);
 

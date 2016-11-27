@@ -20,11 +20,17 @@
 		
 		<StackPanel Grid.Column="1">
 			
-			<Label Content="enter server address:"></Label>
-			<TextBox></TextBox>
-			<Button Content="Connect to Server"/>
+			<Label Content="enter server address:"/>
 			
-			<TextBlock Margin="0,40,0,0"></TextBlock>
+			<TextBox Text="{Binding ServerAddress,
+									Mode=TwoWay,
+									UpdateSourceTrigger=PropertyChanged}"/>
+			
+			<Button Content="Connect to Server" 
+					Command="{Binding ConnectToServer}"/>
+			
+			<TextBlock Margin="0,40,0,0"
+					   Text="{Binding Response}"/>
 			
 		</StackPanel>
 		
