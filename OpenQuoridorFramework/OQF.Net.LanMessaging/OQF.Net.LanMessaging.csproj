@@ -71,6 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendReceive\SendReceiveExtensions.cs" />
     <Compile Include="Types\ClientId.cs" />
+    <Compile Include="Utils\IpAddressCatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
