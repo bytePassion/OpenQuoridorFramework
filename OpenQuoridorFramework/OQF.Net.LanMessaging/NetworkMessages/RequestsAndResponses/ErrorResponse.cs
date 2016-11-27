@@ -5,8 +5,8 @@ namespace OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses
 {
 	public class ErrorResponse : NetworkMessageBase.NetworkMessageBase
 	{
-		public ErrorResponse (string errorMessage, ClientId receiver) 
-			: base(NetworkMessageType.ErrorResponse)
+		public ErrorResponse (ClientId receiver, string errorMessage) 
+			: base(NetworkMessageType.ErrorResponse, receiver)
 		{
 			ErrorMessage = errorMessage;
 		}
@@ -18,9 +18,9 @@ namespace OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses
 			return ErrorMessage;			
 		}
 
-		public static ErrorResponse Parse (string s)
+		public static ErrorResponse Parse (ClientId clientId, string s)
 		{			
-			return new ErrorResponse(s, null);
+			return new ErrorResponse(clientId, s);
 		}
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 {
-	internal interface IClientRepository
+	public interface IClientRepository
 	{
 		ClientInfo GetClientById(ClientId clientId);
 		bool IsClientIdRegistered(ClientId clientId);

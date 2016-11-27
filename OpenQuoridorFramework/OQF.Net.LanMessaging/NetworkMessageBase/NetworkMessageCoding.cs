@@ -1,14 +1,36 @@
 ﻿using System;
 using OQF.Net.LanMessaging.NetworkMessages.Notifications;
 using OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses;
+using OQF.Net.LanMessaging.Types;
 
 namespace OQF.Net.LanMessaging.NetworkMessageBase
 {
 	public static class NetworkMessageCoding
 	{
+		private class MessageParts
+		{
+			public MessageParts(string messageAsString)
+			{
+				var indexOfFirstPipe = messageAsString.IndexOf("|", StringComparison.Ordinal);
+				var typeAsString = messageAsString.Substring(0, indexOfFirstPipe);
+				var restOfTheMessage = messageAsString.Substring(indexOfFirstPipe+1);
+				var indexOfSecondPipe = restOfTheMessage.IndexOf("|", StringComparison.Ordinal);
+				var clientIdAsString = restOfTheMessage.Substring(0, indexOfSecondPipe);
+				var content = restOfTheMessage.Substring(indexOfSecondPipe + 1);
+
+				Type = (NetworkMessageType) Enum.Parse(typeof(NetworkMessageType), typeAsString);
+				ClientId = new ClientId(Guid.Parse(clientIdAsString));
+				Content = content;
+			}
+
+			public NetworkMessageType Type { get; }
+			public ClientId ClientId { get; }
+			public string Content { get; }
+		}
+
 		public static string Encode(NetworkMessageBase msg)
 		{
-			return msg.Type + "|" +  msg.AsString();
+			return $"{msg.Type}|{msg.ClientId}|{msg.AsString()}";
 		}
 		
 		public static NetworkMessageBase Decode(string messageString)
@@ -16,40 +38,22 @@ namespace OQF.Net.LanMessaging.NetworkMessageBase
 			if (string.IsNullOrWhiteSpace(messageString))
 				return null;
 
-			var type = (NetworkMessageType)Enum.Parse(typeof(NetworkMessageType), GetTypeFromMsg(messageString));
-			var msg = GetMsgContent(messageString);
+			var messageParts = new MessageParts(messageString);
 
-			switch (type)
+			switch (messageParts.Type)
 			{
-				case NetworkMessageType.ErrorResponse:                       return ErrorResponse.Parse(msg);																			     			
-				case NetworkMessageType.ConnectToServerRequest:              return ConnectToServerRequest.Parse(msg);
-				case NetworkMessageType.ConnectToServerResponse:             return ConnectToServerResponse.Parse(msg);				
+				case NetworkMessageType.ErrorResponse:                       return ErrorResponse.Parse(messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.ConnectToServerRequest:              return ConnectToServerRequest.Parse(messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.ConnectToServerResponse:             return ConnectToServerResponse.Parse(messageParts.ClientId, messageParts.Content);	
 																		   
- 				case NetworkMessageType.NewBoardStateAvailableNotification:                return NewBoardStateAvailableNotification.Parse(msg);
+ 				case NetworkMessageType.NewBoardStateAvailableNotification:  return NewGameStateAvailableNotification.Parse(messageParts.ClientId, messageParts.Content);
 				
 				default:
 					throw new ArgumentException();
 			}
 		}
 
-		private static string GetTypeFromMsg(string messageString)
-		{
-			var index = messageString.IndexOf("|", StringComparison.Ordinal);
-
-			if (index == -1)
-				throw new ArgumentException("inner error @ message decoding");
-
-			return messageString.Substring(0, index);
-		}
-
-		private static string GetMsgContent(string messageString)
-		{
-			var index = messageString.IndexOf("|", StringComparison.Ordinal);
-
-			if (index == -1)
-				throw new ArgumentException("inner error @ message decoding");
-
-			return messageString.Substring(index + 1, messageString.Length - index - 1);
-		}
+		
+				
 	}
 }

@@ -64,7 +64,7 @@
     <Compile Include="NetworkMessageBase\NetworkMessageBase.cs" />
     <Compile Include="NetworkMessageBase\NetworkMessageCoding.cs" />
     <Compile Include="NetworkMessageBase\NetworkMessageType.cs" />
-    <Compile Include="NetworkMessages\Notifications\NewBoardStateAvailableNotification.cs" />
+    <Compile Include="NetworkMessages\Notifications\NewGameStateAvailableNotification.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\ConnectToServerRequest.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\ConnectToServerResponse.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\ErrorResponse.cs" />
@@ -83,6 +83,10 @@
     <ProjectReference Include="..\Lib.SemanicTypes\Lib.SemanicTypes.csproj">
       <Project>{8FE851FB-DD9C-4C93-BCED-5098235D44E9}</Project>
       <Name>Lib.SemanicTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.AnalysisAndProgress\OQF.AnalysisAndProgress.csproj">
+      <Project>{1BD024DD-F067-439E-9A9D-87739108D8D9}</Project>
+      <Name>OQF.AnalysisAndProgress</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
       <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>

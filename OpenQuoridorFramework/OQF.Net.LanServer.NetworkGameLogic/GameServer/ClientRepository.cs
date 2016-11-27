@@ -3,7 +3,7 @@ using OQF.Net.LanMessaging.Types;
 
 namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 {
-	internal class ClientRepository : IClientRepository
+	public class ClientRepository : IClientRepository
 	{
 		private readonly IDictionary<ClientId, ClientInfo> clients;
 

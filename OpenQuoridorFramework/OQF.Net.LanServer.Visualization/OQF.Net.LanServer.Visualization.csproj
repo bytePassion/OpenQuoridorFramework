@@ -67,6 +67,10 @@
       <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
       <Name>Lib.Wpf</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.Net.LanMessaging\OQF.Net.LanMessaging.csproj">
+      <Project>{c0e2a650-5ca7-4d79-9342-da2936c9e2f7}</Project>
+      <Name>OQF.Net.LanMessaging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Net.LanServer.Contracts\OQF.Net.LanServer.Contracts.csproj">
       <Project>{FB421C48-4320-4864-A40F-D0E90F514B0B}</Project>
       <Name>OQF.Net.LanServer.Contracts</Name>

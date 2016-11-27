@@ -35,6 +35,13 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 		private void OnNewIncomingMessage(NetworkMessageBase networkMessageBase)
 		{
+			switch (networkMessageBase.Type)
+			{
+				case NetworkMessageType.ConnectToServerRequest:
+				{
+					break;
+				}	
+			}
 			// TODO: handle messages
 		}
 

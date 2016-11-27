@@ -1,29 +1,26 @@
-﻿using OQF.Net.LanMessaging.AddressTypes;
-using OQF.Net.LanMessaging.NetworkMessageBase;
+﻿using OQF.Net.LanMessaging.NetworkMessageBase;
 using OQF.Net.LanMessaging.Types;
 
 namespace OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses
 {
 	public class ConnectToServerRequest : NetworkMessageBase.NetworkMessageBase
 	{		
-		public ConnectToServerRequest(AddressIdentifier clientAdress, ClientId sender)
-			: base(NetworkMessageType.ConnectToServerRequest)
-		{
-			ClientAdress = clientAdress;
+		public ConnectToServerRequest(ClientId clientId, string playerName)
+			: base(NetworkMessageType.ConnectToServerRequest, clientId)
+		{			
+			PlayerName = playerName;
 		}
-
-		public AddressIdentifier ClientAdress { get; }
+				
 		public string PlayerName { get; }
 
 		public override string AsString()
 		{
-			return ClientAdress.ToString();
+			return PlayerName;
         }
 
-		public static ConnectToServerRequest Parse(string s)
-		{
-			var clientAddress = AddressIdentifier.GetIpAddressIdentifierFromString(s);
-			return new ConnectToServerRequest(clientAddress, null);
+		public static ConnectToServerRequest Parse(ClientId clientId, string s)
+		{			
+			return new ConnectToServerRequest(clientId, s);
 		}
 	}
 }
