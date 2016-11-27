@@ -12,5 +12,10 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		{
 			
 		}
+
+		public void Dissconnect()
+		{
+			
+		}
 	}
 }

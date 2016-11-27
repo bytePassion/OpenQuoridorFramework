@@ -8,5 +8,6 @@ namespace OQF.Net.DesktopClient.Contracts
 		event Action GotConnected;
 
 		void ConnectToServer(AddressIdentifier serverAddress);
+		void Dissconnect();
 	}
 }
