@@ -6,7 +6,7 @@ namespace OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses
 {
 	public class CreateGameRequest : NetworkMessageBase.NetworkMessageBase
 	{
-		public CreateGameRequest(ClientId clientId, string gameName, Guid gameId) 
+		public CreateGameRequest(ClientId clientId, string gameName, NetworkGameId gameId) 
 			: base(NetworkMessageType.CreateGameRequest, clientId)
 		{
 			GameName = gameName;
@@ -14,7 +14,7 @@ namespace OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses
 		}
 
 		public string GameName { get; }
-		public Guid GameId { get; }
+		public NetworkGameId GameId { get; }
 
 		public override string AsString()
 		{
@@ -27,7 +27,7 @@ namespace OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses
 
 			return new CreateGameRequest(clientId, 
 										 parts[0], 
-										 Guid.Parse(parts[1]));
+										 new NetworkGameId(Guid.Parse(parts[1])));
 		}
 	}
 }

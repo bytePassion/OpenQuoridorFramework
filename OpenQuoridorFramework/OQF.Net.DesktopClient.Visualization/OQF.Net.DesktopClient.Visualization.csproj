@@ -63,6 +63,10 @@
       <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
       <Name>Lib.FrameworkExtension</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lib.SemanicTypes\Lib.SemanicTypes.csproj">
+      <Project>{8fe851fb-dd9c-4c93-bced-5098235d44e9}</Project>
+      <Name>Lib.SemanicTypes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lib.Wpf\Lib.Wpf.csproj">
       <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
       <Name>Lib.Wpf</Name>

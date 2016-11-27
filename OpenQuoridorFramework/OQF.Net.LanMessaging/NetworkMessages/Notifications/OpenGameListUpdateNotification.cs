@@ -8,13 +8,13 @@ namespace OQF.Net.LanMessaging.NetworkMessages.Notifications
 {
 	public class OpenGameListUpdateNotification : NetworkMessageBase.NetworkMessageBase
 	{
-		public OpenGameListUpdateNotification(ClientId clientId, IDictionary<Guid, string> openGames) 
+		public OpenGameListUpdateNotification(ClientId clientId, IDictionary<NetworkGameId, string> openGames) 
 			: base(NetworkMessageType.OpenGameListUpdateNotification, clientId)
 		{
 			OpenGames = openGames;
 		}
 
-		private IDictionary<Guid, string> OpenGames { get; }
+		private IDictionary<NetworkGameId, string> OpenGames { get; }
 
 		public override string AsString()
 		{
@@ -36,7 +36,7 @@ namespace OQF.Net.LanMessaging.NetworkMessages.Notifications
 
 		public static OpenGameListUpdateNotification Parse (ClientId clientId, string s)
 		{
-			var games = new Dictionary<Guid, string>();
+			var games = new Dictionary<NetworkGameId, string>();
 
 			var pairs = s.Split(';');
 
@@ -44,7 +44,7 @@ namespace OQF.Net.LanMessaging.NetworkMessages.Notifications
 			{
 				var parts = pair.Split(',');
 
-				games.Add(Guid.Parse(parts[0]), parts[1]);
+				games.Add(new NetworkGameId(Guid.Parse(parts[0])), parts[1]);
 			}
 
 			return new OpenGameListUpdateNotification(clientId, games);			

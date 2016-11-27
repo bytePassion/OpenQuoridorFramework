@@ -6,28 +6,33 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 {
 	public class GameRepository : IGameRepository
 	{
-		private readonly IList<NetworkGame> games;
+		private readonly IDictionary<NetworkGameId, NetworkGame> games;
 
 		public GameRepository()
 		{
-			games = new List<NetworkGame>();
+			games = new Dictionary<NetworkGameId, NetworkGame>();
 		}
 
 		public NetworkGame GetGameByPlayer(ClientId clientId)
 		{
-			return games.FirstOrDefault(game => game.GameInitiator.ClientId == clientId || game.Opponend?.ClientId == clientId);
+			return games.FirstOrDefault(game => game.Value.GameInitiator.ClientId == clientId || game.Value.Opponend?.ClientId == clientId).Value;
 		}
 
-		public void CreateGame(ClientInfo gameInitiator, string gameName)
+		public NetworkGame GetGameById(NetworkGameId gameId)
 		{
-			games.Add(new NetworkGame(gameName, gameInitiator));
+			throw new System.NotImplementedException();
 		}
 
-		public void DeleteGame(NetworkGame game)
+		public void CreateGame(NetworkGameId gameId, ClientInfo gameInitiator, string gameName)
 		{
-			games.Remove(game);
+			games.Add(gameId, new NetworkGame(gameName, gameInitiator));
 		}
 
+		public void DeleteGame(NetworkGameId gameId)
+		{
+			games.Remove(gameId);
+		}
+		
 		public void ClearRepository()
 		{
 			games.Clear();

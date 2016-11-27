@@ -44,6 +44,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lib.SemanicTypes\Lib.SemanicTypes.csproj">
+      <Project>{8fe851fb-dd9c-4c93-bced-5098235d44e9}</Project>
+      <Name>Lib.SemanicTypes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Net.LanMessaging\OQF.Net.LanMessaging.csproj">
       <Project>{C0E2A650-5CA7-4D79-9342-DA2936C9E2F7}</Project>
       <Name>OQF.Net.LanMessaging</Name>

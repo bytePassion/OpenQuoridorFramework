@@ -7,6 +7,7 @@ using Lib.Wpf.Commands;
 using Lib.Wpf.ViewModelBase;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.LanMessaging.AddressTypes;
+using OQF.Net.LanMessaging.Types;
 
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
@@ -53,7 +54,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 		private void DoCreateGame()
 		{
-			var newGameId = Guid.NewGuid();
+			var newGameId = new NetworkGameId( Guid.NewGuid());
 			networkGameService.CreateGame(NewGameName, newGameId);	
 		}
 

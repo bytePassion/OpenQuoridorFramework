@@ -26,7 +26,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			messagingService.SendMessage(new ConnectToServerRequest(clientId, playerName));
 		}
 
-		public void CreateGame(string gameName, Guid gameId)
+		public void CreateGame(string gameName, NetworkGameId gameId)
 		{
 			if (clientId != null)
 				messagingService.SendMessage(new CreateGameRequest(clientId, gameName, gameId));
