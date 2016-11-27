@@ -67,6 +67,14 @@
       <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
       <Name>Lib.Wpf</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.Net.DesktopClient.Contracts\OQF.Net.DesktopClient.Contracts.csproj">
+      <Project>{5EDEDF8C-367C-495E-9C81-0519D443B7A9}</Project>
+      <Name>OQF.Net.DesktopClient.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Net.LanMessaging\OQF.Net.LanMessaging.csproj">
+      <Project>{C0E2A650-5CA7-4D79-9342-DA2936C9E2F7}</Project>
+      <Name>OQF.Net.LanMessaging</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

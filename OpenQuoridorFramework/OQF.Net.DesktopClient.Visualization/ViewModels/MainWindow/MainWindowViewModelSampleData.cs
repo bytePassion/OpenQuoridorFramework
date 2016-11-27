@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows.Input;
 
 #pragma warning disable 0067
 
@@ -8,12 +9,15 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 	{
 		public MainWindowViewModelSampleData()
 		{
-			Text = "first";
+			ServerAddress = "10.10.10.10";
+			Response = "positive";
 		}
 
-		public string Text { get; }
+		public ICommand ConnectToServer => null;
+		public string ServerAddress { get; set; }
+		public string Response { get; }
 
 		public void Dispose () { }
-		public event PropertyChangedEventHandler PropertyChanged;				
+		public event PropertyChangedEventHandler PropertyChanged;		
 	}
 }

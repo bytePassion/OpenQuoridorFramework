@@ -5,13 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         xmlns:mainWindow="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow"
         mc:Ignorable="d"
-        Title="OpenQuoridorFramework - DesktopClient" Height="350" Width="525">
+        Title="OpenQuoridorFramework - DesktopClient" Height="550" Width="825">
 	
 	<d:DesignData.DataContext>
 		<mainWindow:MainWindowViewModelSampleData/>
 	</d:DesignData.DataContext>
 	
     <Grid>
-        <TextBlock Text="{Binding Text}"></TextBlock>
+        
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="300"/>
+		</Grid.ColumnDefinitions>
+		
+		<StackPanel Grid.Column="1">
+			
+			<Label Content="enter server address:"></Label>
+			<TextBox></TextBox>
+			<Button Content="Connect to Server"/>
+			
+			<TextBlock Margin="0,40,0,0"></TextBlock>
+			
+		</StackPanel>
+		
     </Grid>
 </Window>

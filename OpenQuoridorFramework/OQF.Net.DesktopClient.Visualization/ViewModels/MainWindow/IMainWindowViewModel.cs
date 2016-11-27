@@ -1,9 +1,14 @@
-﻿using Lib.Wpf.ViewModelBase;
+﻿using System.Windows.Input;
+using Lib.Wpf.ViewModelBase;
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 {
 	public interface IMainWindowViewModel : IViewModel
 	{
-		string Text { get; }
+		ICommand ConnectToServer { get; }
+
+		string ServerAddress { get; set; }
+
+		string Response { get; }
 	}
 }
