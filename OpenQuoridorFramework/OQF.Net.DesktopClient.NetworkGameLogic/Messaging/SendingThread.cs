@@ -6,7 +6,7 @@ using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.NetworkMessageBase;
 using OQF.Net.LanMessaging.SendReceive;
 
-namespace OQF.Net.LanServer.NetworkGameLogic.Messaging
+namespace OQF.Net.DesktopClient.NetworkGameLogic.Messaging
 {
 	internal class SendingThread : IThread
 	{
@@ -14,24 +14,22 @@ namespace OQF.Net.LanServer.NetworkGameLogic.Messaging
 
 		private readonly Address serverAddress;
 		private readonly TimeoutBlockingQueue<NetworkMessageBase> outgoingMessageQueue;
+
 		private volatile bool stopRunning;
 
-		public SendingThread(Address serverAddress,
-							 TimeoutBlockingQueue<NetworkMessageBase> outgoingMessageQueue)
+		public SendingThread(Address serverAddress, TimeoutBlockingQueue<NetworkMessageBase> outgoingMessageQueue)
 		{
 			this.serverAddress = serverAddress;
 			this.outgoingMessageQueue = outgoingMessageQueue;
-			stopRunning = false;
-			IsRunning = false;
 		}
 
 		public void Run()
 		{
 			IsRunning = true;
-			using (var socket = new PublisherSocket())
+			using (var socket = new PushSocket())
 			{
 				socket.Options.Linger = TimeSpan.Zero;
-				socket.Connect(serverAddress.ZmqAddress + ":" + MessagingConstants.TcpIpPort.PubSubPort);
+				socket.Connect(serverAddress.ZmqAddress + ":" + MessagingConstants.TcpIpPort.PushPullPort);
 
 				while (!stopRunning)
 				{
@@ -53,7 +51,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.Messaging
 			IsRunning = false;
 		}
 
-		public void Stop()
+		public void Stop ()
 		{
 			stopRunning = true;
 		}

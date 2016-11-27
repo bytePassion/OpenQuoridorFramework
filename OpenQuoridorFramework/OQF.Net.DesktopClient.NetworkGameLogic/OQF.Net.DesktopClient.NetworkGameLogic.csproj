@@ -30,8 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AsyncIO, Version=0.1.25.0, Culture=neutral, PublicKeyToken=44a94435bd6f33f8, processorArchitecture=MSIL">
+      <HintPath>..\packages\AsyncIO.0.1.26.0\lib\net40\AsyncIO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetMQ, Version=4.0.0.0, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetMQ.4.0.0-rc5\lib\net40\NetMQ.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,10 +49,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Messaging\ClientMessaging.cs" />
+    <Compile Include="Messaging\IClientMessaging.cs" />
+    <Compile Include="Messaging\ReceivingThread.cs" />
+    <Compile Include="Messaging\SendingThread.cs" />
     <Compile Include="NetworkGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lib.Concurrency\Lib.Concurrency.csproj">
+      <Project>{623D4B55-9687-4C7C-9B23-5C1403A110D1}</Project>
+      <Name>Lib.Concurrency</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
+      <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
+      <Name>Lib.FrameworkExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib.SemanicTypes\Lib.SemanicTypes.csproj">
+      <Project>{8fe851fb-dd9c-4c93-bced-5098235d44e9}</Project>
+      <Name>Lib.SemanicTypes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Net.DesktopClient.Contracts\OQF.Net.DesktopClient.Contracts.csproj">
       <Project>{5EDEDF8C-367C-495E-9C81-0519D443B7A9}</Project>
       <Name>OQF.Net.DesktopClient.Contracts</Name>
@@ -52,6 +77,9 @@
       <Project>{C0E2A650-5CA7-4D79-9342-DA2936C9E2F7}</Project>
       <Name>OQF.Net.LanMessaging</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
