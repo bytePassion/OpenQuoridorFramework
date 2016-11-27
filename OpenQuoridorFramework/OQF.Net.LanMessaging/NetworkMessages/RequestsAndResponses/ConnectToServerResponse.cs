@@ -12,7 +12,7 @@ namespace OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses
 				
 		public override string AsString()
 		{
-			return string.Empty;
+			return "---";
         }
 
 		public static ConnectToServerResponse Parse(ClientId clientId, string s)

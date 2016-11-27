@@ -1,6 +1,7 @@
 ﻿using System;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.NetworkMessageBase;
+using OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses;
 using OQF.Net.LanServer.Contracts;
 using OQF.Net.LanServer.NetworkGameLogic.Messaging;
 
@@ -33,16 +34,33 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 			messagingService.NewIncomingMessage += OnNewIncomingMessage;
 		}
 
-		private void OnNewIncomingMessage(NetworkMessageBase networkMessageBase)
+		private void OnNewIncomingMessage(NetworkMessageBase newIncommingMsg)
 		{
-			switch (networkMessageBase.Type)
+			switch (newIncommingMsg.Type)
 			{
 				case NetworkMessageType.ConnectToServerRequest:
 				{
+					var msg = (ConnectToServerRequest) newIncommingMsg;
+
+					NewOutputAvailable?.Invoke($"<<< ConnectToServer from ({msg.PlayerName}|{msg.ClientId})");
+
+					if (!clientRepository.IsClientIdRegistered(msg.ClientId))
+					{
+						clientRepository.AddClient(msg.ClientId, msg.PlayerName);
+
+						NewOutputAvailable?.Invoke(">>> ConnectToServerResponse");
+
+						messagingService.SendMessage(new ConnectToServerResponse(msg.ClientId));
+					}
+					else
+					{
+						NewOutputAvailable?.Invoke(">>> ConnectToServerResponse ERROR");
+						// ERROR !!!!
+					}
+
 					break;
 				}	
-			}
-			// TODO: handle messages
+			}			
 		}
 
 		public void Deactivate()
