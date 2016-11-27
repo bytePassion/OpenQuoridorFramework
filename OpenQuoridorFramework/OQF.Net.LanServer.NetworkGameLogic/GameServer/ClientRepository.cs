@@ -37,6 +37,11 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 				clients.Remove(clientId);
 		}
 
+		public IEnumerable<ClientInfo> GetAllClients()
+		{
+			return clients.Values;
+		}
+
 		public void ClearRepository()
 		{
 			clients.Clear();

@@ -1,4 +1,5 @@
-﻿using OQF.Net.LanMessaging.Types;
+﻿using System.Collections.Generic;
+using OQF.Net.LanMessaging.Types;
 
 namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 {
@@ -8,6 +9,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		bool IsClientIdRegistered(ClientId clientId);
 		void AddClient(ClientId clientId, string playerName);
 		void RemoveClient(ClientId clientId);
+		IEnumerable<ClientInfo> GetAllClients();
 		void ClearRepository();
 	}
 }
