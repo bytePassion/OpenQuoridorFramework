@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Lib.Wpf;
+using OQF.Net.LanServer.Contracts;
 using OQF.Net.LanServer.NetworkGameLogic.GameServer;
 using OQF.Net.LanServer.Visualization.ViewModels.MainWindow;
 
@@ -7,10 +8,12 @@ namespace OQF.Net.LanServer.Application
 {
 	internal class ApplicationLifeCycle : IApplicationLifeCycle
 	{
+		private INetworkGameServer networkGameServer;
+
 		public void BuildAndStart(StartupEventArgs startupEventArgs)
 		{
 			var clientRepository = new ClientRepository();
-			var networkGameServer = new NetworkGameServer(clientRepository);
+			networkGameServer = new NetworkGameServer(clientRepository);
 
 			var mainWindowViewModel = new MainWindowViewModel(networkGameServer);
 
@@ -24,7 +27,7 @@ namespace OQF.Net.LanServer.Application
 
 		public void CleanUp(ExitEventArgs exitEventArgs)
 		{
-			// Nothing to do
+			networkGameServer.Deactivate();
 		}
 	}
 }
