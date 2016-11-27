@@ -1,5 +1,7 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
+using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 {
@@ -13,5 +15,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		string PlayerName { get; set; }
 
 		string Response { get; }
+
+		ObservableCollection<GameDisplayData> AvailableOpenGames { get; }
+		GameDisplayData SelectedOpenGame { get; set; }
 	}
 }

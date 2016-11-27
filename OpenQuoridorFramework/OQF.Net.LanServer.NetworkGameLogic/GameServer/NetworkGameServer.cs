@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.NetworkMessageBase;
 using OQF.Net.LanMessaging.NetworkMessages.Notifications;
@@ -61,6 +62,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 						NewOutputAvailable?.Invoke(">>> ConnectToServerResponse");
 
 						messagingService.SendMessage(new ConnectToServerResponse(msg.ClientId));
+						SendGameListUpdate(msg.ClientId);
 					}
 					else
 					{
@@ -72,34 +74,42 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 				}	
 				case NetworkMessageType.CreateGameRequest:
 				{
+					
 					var msg = (CreateGameRequest) newIncommingMsg;
+
+					NewOutputAvailable?.Invoke($"<<< CreateGameRequest from ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
 
 					gameRepository.CreateGame(msg.GameId, 
 											  clientRepository.GetClientById(msg.ClientId), 
 											  msg.GameName);
 
-					SendGameListUpdate();
+					SendGameListUpdateToAllClients();
 
 					break;
 				}
 			}			
 		}
 
-		private void SendGameListUpdate()
-		{
+		private void SendGameListUpdateToAllClients()
+		{			
+			foreach (var client in clientRepository.GetAllClients())
+			{				
+				SendGameListUpdate(client.ClientId);
+			}
+		}
 
+		private void SendGameListUpdate(ClientId clientId)
+		{
 			var gameList = new Dictionary<NetworkGameId, string>();
 
-			foreach (var networkGame in gameRepository.GetAllGames())
+			foreach (var networkGame in gameRepository.GetAllGames().Where(game => !game.IsGameActive))
 			{
 				gameList.Add(networkGame.GameId, networkGame.GameName);
 			}
 
-			foreach (var client in clientRepository.GetAllClients())
-			{				
-				var msg = new OpenGameListUpdateNotification(client.ClientId, gameList);
-				messagingService.SendMessage(msg);
-			}
+			var msg = new OpenGameListUpdateNotification(clientId, gameList);
+			NewOutputAvailable?.Invoke($">>> GameListUpdate to ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
+			messagingService.SendMessage(msg);
 		}
 
 		public void Deactivate()

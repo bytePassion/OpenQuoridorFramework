@@ -14,7 +14,7 @@ namespace OQF.Net.LanMessaging.NetworkMessages.Notifications
 			OpenGames = openGames;
 		}
 
-		private IDictionary<NetworkGameId, string> OpenGames { get; }
+		public IDictionary<NetworkGameId, string> OpenGames { get; }
 
 		public override string AsString()
 		{
@@ -37,6 +37,9 @@ namespace OQF.Net.LanMessaging.NetworkMessages.Notifications
 		public static OpenGameListUpdateNotification Parse (ClientId clientId, string s)
 		{
 			var games = new Dictionary<NetworkGameId, string>();
+
+			if (string.IsNullOrWhiteSpace(s))
+				return new OpenGameListUpdateNotification(clientId, games);
 
 			var pairs = s.Split(';');
 
