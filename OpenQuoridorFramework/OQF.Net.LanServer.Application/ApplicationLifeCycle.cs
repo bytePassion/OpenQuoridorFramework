@@ -13,7 +13,9 @@ namespace OQF.Net.LanServer.Application
 		public void BuildAndStart(StartupEventArgs startupEventArgs)
 		{
 			var clientRepository = new ClientRepository();
-			networkGameServer = new NetworkGameServer(clientRepository);
+			var gameRepository = new GameRepository();
+
+			networkGameServer = new NetworkGameServer(clientRepository, gameRepository);
 
 			var mainWindowViewModel = new MainWindowViewModel(networkGameServer);
 

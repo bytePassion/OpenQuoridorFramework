@@ -20,12 +20,16 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 		public NetworkGame GetGameById(NetworkGameId gameId)
 		{
-			throw new System.NotImplementedException();
+			if (games.ContainsKey(gameId))
+				return games[gameId];
+			else			
+				return null;
+			
 		}
 
 		public void CreateGame(NetworkGameId gameId, ClientInfo gameInitiator, string gameName)
 		{
-			games.Add(gameId, new NetworkGame(gameName, gameInitiator));
+			games.Add(gameId, new NetworkGame(gameName, gameInitiator, gameId));
 		}
 
 		public void DeleteGame(NetworkGameId gameId)
