@@ -11,7 +11,14 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		public event Action<string> NewOutputAvailable;
 
 		private IServerMessaging messagingService;
-		
+
+		private readonly IClientRepository clientRepository;
+
+		public NetworkGameServer(IClientRepository clientRepository)
+		{
+			this.clientRepository = clientRepository;
+		}
+
 
 		public void Activate(Address serverAddress)
 		{
@@ -20,6 +27,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 				Deactivate();	
 			}
 
+			clientRepository.ClearRepository();
 			messagingService = new ServerMessaging(serverAddress);
 
 			messagingService.NewIncomingMessage += OnNewIncomingMessage;
