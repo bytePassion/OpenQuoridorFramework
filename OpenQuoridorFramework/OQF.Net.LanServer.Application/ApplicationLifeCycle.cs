@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Lib.Wpf;
+using OQF.Net.LanServer.NetworkGameLogic.GameServer;
 using OQF.Net.LanServer.Visualization.ViewModels.MainWindow;
 
 namespace OQF.Net.LanServer.Application
@@ -8,7 +9,9 @@ namespace OQF.Net.LanServer.Application
 	{
 		public void BuildAndStart(StartupEventArgs startupEventArgs)
 		{
-			var mainWindowViewModel = new MainWindowViewModel("blubb2");
+			var networkGameServer = new NetworkGameServer();
+
+			var mainWindowViewModel = new MainWindowViewModel(networkGameServer);
 
 			var mainWindow = new Visualization.Windows.MainWindow
 			{

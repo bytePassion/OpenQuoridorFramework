@@ -75,6 +75,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Net.DesktopClient.Appli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Net.DesktopClient.Visualization", "OQF.Net.DesktopClient.Visualization\OQF.Net.DesktopClient.Visualization.csproj", "{C11746E5-570E-4FAD-ABBD-921E8C2DBD76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Net.LanServer.NetworkGameLogic", "OQF.Net.LanServer.NetworkGameLogic\OQF.Net.LanServer.NetworkGameLogic.csproj", "{26F53A21-4E08-49ED-8F52-00C94BD12C0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Net.LanServer.Contracts", "OQF.Net.LanServer.Contracts\OQF.Net.LanServer.Contracts.csproj", "{FB421C48-4320-4864-A40F-D0E90F514B0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -181,6 +185,14 @@ Global
 		{C11746E5-570E-4FAD-ABBD-921E8C2DBD76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C11746E5-570E-4FAD-ABBD-921E8C2DBD76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C11746E5-570E-4FAD-ABBD-921E8C2DBD76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26F53A21-4E08-49ED-8F52-00C94BD12C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26F53A21-4E08-49ED-8F52-00C94BD12C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26F53A21-4E08-49ED-8F52-00C94BD12C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26F53A21-4E08-49ED-8F52-00C94BD12C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB421C48-4320-4864-A40F-D0E90F514B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB421C48-4320-4864-A40F-D0E90F514B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB421C48-4320-4864-A40F-D0E90F514B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB421C48-4320-4864-A40F-D0E90F514B0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -218,5 +230,7 @@ Global
 		{C0E2A650-5CA7-4D79-9342-DA2936C9E2F7} = {AF09E6CC-E2E4-4E88-A53B-3C8F2551F6B9}
 		{DA3C5642-3D11-4470-8CFC-346CD6C0F5C6} = {5B305350-7F5D-4438-8553-9A4BE3BC2253}
 		{C11746E5-570E-4FAD-ABBD-921E8C2DBD76} = {5B305350-7F5D-4438-8553-9A4BE3BC2253}
+		{26F53A21-4E08-49ED-8F52-00C94BD12C0E} = {0B890322-538D-42E7-A69E-BC2774AFBA26}
+		{FB421C48-4320-4864-A40F-D0E90F514B0B} = {0B890322-538D-42E7-A69E-BC2774AFBA26}
 	EndGlobalSection
 EndGlobal

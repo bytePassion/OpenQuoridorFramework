@@ -88,6 +88,14 @@
       <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
       <Name>Lib.Wpf</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.Net.LanServer.Contracts\OQF.Net.LanServer.Contracts.csproj">
+      <Project>{FB421C48-4320-4864-A40F-D0E90F514B0B}</Project>
+      <Name>OQF.Net.LanServer.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Net.LanServer.NetworkGameLogic\OQF.Net.LanServer.NetworkGameLogic.csproj">
+      <Project>{26F53A21-4E08-49ED-8F52-00C94BD12C0E}</Project>
+      <Name>OQF.Net.LanServer.NetworkGameLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Net.LanServer.Visualization\OQF.Net.LanServer.Visualization.csproj">
       <Project>{DCF3E53C-3E12-42E3-BE8B-87D8A26E70FC}</Project>
       <Name>OQF.Net.LanServer.Visualization</Name>
