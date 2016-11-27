@@ -79,6 +79,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Net.LanServer.NetworkGa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Net.LanServer.Contracts", "OQF.Net.LanServer.Contracts\OQF.Net.LanServer.Contracts.csproj", "{FB421C48-4320-4864-A40F-D0E90F514B0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Net.DesktopClient.NetworkGameLogic", "OQF.Net.DesktopClient.NetworkGameLogic\OQF.Net.DesktopClient.NetworkGameLogic.csproj", "{32DC14D0-4346-40D7-9126-EF24FFF166D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Net.DesktopClient.Contracts", "OQF.Net.DesktopClient.Contracts\OQF.Net.DesktopClient.Contracts.csproj", "{5EDEDF8C-367C-495E-9C81-0519D443B7A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -193,6 +197,14 @@ Global
 		{FB421C48-4320-4864-A40F-D0E90F514B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB421C48-4320-4864-A40F-D0E90F514B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB421C48-4320-4864-A40F-D0E90F514B0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32DC14D0-4346-40D7-9126-EF24FFF166D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32DC14D0-4346-40D7-9126-EF24FFF166D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32DC14D0-4346-40D7-9126-EF24FFF166D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32DC14D0-4346-40D7-9126-EF24FFF166D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EDEDF8C-367C-495E-9C81-0519D443B7A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EDEDF8C-367C-495E-9C81-0519D443B7A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EDEDF8C-367C-495E-9C81-0519D443B7A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EDEDF8C-367C-495E-9C81-0519D443B7A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -232,5 +244,7 @@ Global
 		{C11746E5-570E-4FAD-ABBD-921E8C2DBD76} = {5B305350-7F5D-4438-8553-9A4BE3BC2253}
 		{26F53A21-4E08-49ED-8F52-00C94BD12C0E} = {0B890322-538D-42E7-A69E-BC2774AFBA26}
 		{FB421C48-4320-4864-A40F-D0E90F514B0B} = {0B890322-538D-42E7-A69E-BC2774AFBA26}
+		{32DC14D0-4346-40D7-9126-EF24FFF166D0} = {5B305350-7F5D-4438-8553-9A4BE3BC2253}
+		{5EDEDF8C-367C-495E-9C81-0519D443B7A9} = {5B305350-7F5D-4438-8553-9A4BE3BC2253}
 	EndGlobalSection
 EndGlobal
