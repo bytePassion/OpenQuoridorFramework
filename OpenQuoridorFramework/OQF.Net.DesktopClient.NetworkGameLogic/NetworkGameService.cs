@@ -14,14 +14,14 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		private IClientMessaging messagingService;
 
-		public void ConnectToServer(AddressIdentifier serverAddress)
+		public void ConnectToServer(AddressIdentifier serverAddress, string playerName)
 		{
 			var newClientId = new ClientId(Guid.NewGuid());
 			messagingService = new ClientMessaging(new Address(new TcpIpProtocol(), serverAddress), newClientId);
 			messagingService.NewIncomingMessage += OnNewIncomingMessage;
 
 
-			messagingService.SendMessage(new ConnectToServerRequest(newClientId, "xelor"));
+			messagingService.SendMessage(new ConnectToServerRequest(newClientId, playerName));
 		}
 
 		private void OnNewIncomingMessage(NetworkMessageBase networkMessageBase)

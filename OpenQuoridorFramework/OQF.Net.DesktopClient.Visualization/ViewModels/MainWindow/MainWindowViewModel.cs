@@ -33,6 +33,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public ICommand ConnectToServer { get; }
 
 		public string ServerAddress { get; set; }
+		public string PlayerName { get; set; }
 
 		public string Response
 		{

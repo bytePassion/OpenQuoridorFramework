@@ -11,10 +11,12 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		{
 			ServerAddress = "10.10.10.10";
 			Response = "positive";
+			PlayerName = "xelor";
 		}
 
 		public ICommand ConnectToServer => null;
 		public string ServerAddress { get; set; }
+		public string PlayerName { get; set; }
 		public string Response { get; }
 
 		public void Dispose () { }

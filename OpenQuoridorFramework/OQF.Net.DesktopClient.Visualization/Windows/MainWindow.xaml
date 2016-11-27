@@ -25,11 +25,19 @@
 			<TextBox Text="{Binding ServerAddress,
 									Mode=TwoWay,
 									UpdateSourceTrigger=PropertyChanged}"/>
-			
+
+			<Label Content="enter player name:"
+				   Margin="0,10,0,0"/>
+
+			<TextBox Text="{Binding PlayerName,
+									Mode=TwoWay,
+									UpdateSourceTrigger=PropertyChanged}"/>
+
 			<Button Content="Connect to Server" 
-					Command="{Binding ConnectToServer}"/>
-			
-			<TextBlock Margin="0,40,0,0"
+					Command="{Binding ConnectToServer}"
+					Margin="0,10,0,0"/>
+
+			<TextBlock Margin="0,10,0,0"
 					   Text="{Binding Response}"/>
 			
 		</StackPanel>

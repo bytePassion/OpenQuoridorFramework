@@ -7,7 +7,7 @@ namespace OQF.Net.DesktopClient.Contracts
 	{
 		event Action GotConnected;
 
-		void ConnectToServer(AddressIdentifier serverAddress);
+		void ConnectToServer(AddressIdentifier serverAddress, string playerName);
 		void Dissconnect();
 	}
 }
