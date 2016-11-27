@@ -1,4 +1,5 @@
-﻿using OQF.Net.LanMessaging.Types;
+﻿using System.Collections.Generic;
+using OQF.Net.LanMessaging.Types;
 
 namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 {
@@ -8,6 +9,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		NetworkGame GetGameById(NetworkGameId gameId);
 		void CreateGame(NetworkGameId gameId, ClientInfo gameInitiator, string gameName);
 		void DeleteGame(NetworkGameId gameId);
+		IEnumerable<NetworkGame> GetAllGames();
 		void ClearRepository();
 	}
 }

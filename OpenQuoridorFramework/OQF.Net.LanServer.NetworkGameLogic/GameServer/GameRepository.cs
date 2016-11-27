@@ -32,7 +32,12 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		{
 			games.Remove(gameId);
 		}
-		
+
+		public IEnumerable<NetworkGame> GetAllGames()
+		{
+			return games.Values;
+		}
+
 		public void ClearRepository()
 		{
 			games.Clear();
