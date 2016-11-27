@@ -30,8 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AsyncIO, Version=0.1.25.0, Culture=neutral, PublicKeyToken=44a94435bd6f33f8, processorArchitecture=MSIL">
+      <HintPath>..\packages\AsyncIO.0.1.26.0\lib\net40\AsyncIO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetMQ, Version=4.0.0.0, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetMQ.4.0.0-rc5\lib\net40\NetMQ.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +49,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressTypes\Address.cs" />
+    <Compile Include="AddressTypes\AddressIdentifier.cs" />
+    <Compile Include="AddressTypes\AddressIdentifierType.cs" />
+    <Compile Include="AddressTypes\InProcIdentifier.cs" />
+    <Compile Include="AddressTypes\InProcProtocol.cs" />
+    <Compile Include="AddressTypes\IpPort.cs" />
+    <Compile Include="AddressTypes\IpV4AddressIdentifier.cs" />
+    <Compile Include="AddressTypes\IpV6AddressIdentifier.cs" />
+    <Compile Include="AddressTypes\Protocol.cs" />
+    <Compile Include="AddressTypes\ProtocolType.cs" />
+    <Compile Include="AddressTypes\TcpIpProtocol.cs" />
+    <Compile Include="MessagingConstants.cs" />
+    <Compile Include="NetworkMessageBase\NetworkMessageBase.cs" />
+    <Compile Include="NetworkMessageBase\NetworkMessageCoding.cs" />
+    <Compile Include="NetworkMessageBase\NetworkMessageType.cs" />
+    <Compile Include="NetworkMessages\Notifications\NewBoardStateAvailableNotification.cs" />
+    <Compile Include="NetworkMessages\RequestsAndResponses\ConnectToServerRequest.cs" />
+    <Compile Include="NetworkMessages\RequestsAndResponses\ConnectToServerResponse.cs" />
+    <Compile Include="NetworkMessages\RequestsAndResponses\ErrorResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendReceive\SendReceiveExtensions.cs" />
+    <Compile Include="Types\ClientId.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
+      <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
+      <Name>Lib.FrameworkExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib.SemanicTypes\Lib.SemanicTypes.csproj">
+      <Project>{8FE851FB-DD9C-4C93-BCED-5098235D44E9}</Project>
+      <Name>Lib.SemanicTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
+      <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
+      <Name>OQF.Bot.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
