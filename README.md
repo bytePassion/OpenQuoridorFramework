@@ -1,4 +1,4 @@
-![Image](/OpenQuoridorFramework/quoridor_logo.png)
+![OQF_Logo](/OpenQuoridorFramework/quoridor_logo.ico)
 
 # OpenQuoridorFramework (2.2)
 
