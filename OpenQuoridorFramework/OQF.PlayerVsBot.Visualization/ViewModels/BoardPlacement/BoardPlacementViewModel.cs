@@ -61,7 +61,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 			{
 				if (boardState?.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 				{
-					var boardAnalysis = HumanPlayerAnalysis.GetResult(boardState);
+					var boardAnalysis = PlayerAnalysis.GetResult(boardState, PlayerType.BottomPlayer);
 
 					allPossibleWalls = boardAnalysis.PossibleWalls;				
 

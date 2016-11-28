@@ -4,9 +4,9 @@ using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.AnalysisAndProgress.Analysis
 {
-	public class HumanPlayerAnalysisResult
+	public class PlayerAnalysisResult
 	{
-		public HumanPlayerAnalysisResult(IEnumerable<Wall> possibleWalls, IEnumerable<FieldCoordinate> possibleMoves)
+		public PlayerAnalysisResult(IEnumerable<Wall> possibleWalls, IEnumerable<FieldCoordinate> possibleMoves)
 		{
 			PossibleWalls = possibleWalls;
 			PossibleMoves = possibleMoves;

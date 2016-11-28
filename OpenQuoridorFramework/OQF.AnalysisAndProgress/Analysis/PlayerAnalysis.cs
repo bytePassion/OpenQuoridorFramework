@@ -6,23 +6,25 @@ using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.AnalysisAndProgress.Analysis
 {
-	public static class HumanPlayerAnalysis 
+	public static class PlayerAnalysis 
 	{		
-		public static HumanPlayerAnalysisResult GetResult(BoardState boardState)
+		public static PlayerAnalysisResult GetResult(BoardState boardState, PlayerType forPlayerType)
 		{		
 			var gameGraph = new Graph(boardState);
 							
-			if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+			if (boardState.CurrentMover.PlayerType == forPlayerType)
 			{
-				var possibleMoves = gameGraph.GetNode(boardState.BottomPlayer.Position)
-										 .Neighbours
-										 .Select(nodeNeigbour => nodeNeigbour.Coord);
+				var possibleMoves = gameGraph.GetNode(forPlayerType == PlayerType.BottomPlayer 
+															? boardState.BottomPlayer.Position 
+															: boardState.TopPlayer.Position)
+										     .Neighbours
+										     .Select(nodeNeigbour => nodeNeigbour.Coord);
 				
 				var possibleWalls = GeneratePhysicalPossibleWalls(boardState);
 
-				return new HumanPlayerAnalysisResult(possibleWalls, possibleMoves);
+				return new PlayerAnalysisResult(possibleWalls, possibleMoves);
 			}
-
+			
 			return null;
 		}
 
