@@ -1,3 +1,5 @@
+![Image](/OpenQuoridorFramework/quoridor_logo.png)
+
 # OpenQuoridorFramework (2.2)
 
 [![Join the chat at https://gitter.im/bytePassion/OpenQuoridorFramework](https://badges.gitter.im/bytePassion/OpenQuoridorFramework.svg)](https://gitter.im/bytePassion/OpenQuoridorFramework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
