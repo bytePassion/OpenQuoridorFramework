@@ -49,7 +49,7 @@ namespace OQF.Net.LanMessaging.NetworkMessageBase
 				case NetworkMessageType.JoinGameRequest:                     return JoinGameRequest.Parse(messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.JoinGameResponse:                    return JoinGameResponse.Parse(messageParts.ClientId, messageParts.Content);
 
-				case NetworkMessageType.NewBoardStateAvailableNotification:  return NewBoardStateAvailableNotification.Parse(messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.NewGameStateAvailableNotification:  return NewGameStateAvailableNotification.Parse(messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.OpenGameListUpdateNotification:      return OpenGameListUpdateNotification.Parse(messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.GameOverNotification:                return GameOverNotification.Parse(messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.NextMoveSubmission:                  return NextMoveSubmission.Parse(messageParts.ClientId, messageParts.Content);

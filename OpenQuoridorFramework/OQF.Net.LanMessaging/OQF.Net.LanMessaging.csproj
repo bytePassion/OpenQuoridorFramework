@@ -65,7 +65,7 @@
     <Compile Include="NetworkMessageBase\NetworkMessageCoding.cs" />
     <Compile Include="NetworkMessageBase\NetworkMessageType.cs" />
     <Compile Include="NetworkMessages\Notifications\GameOverNotification.cs" />
-    <Compile Include="NetworkMessages\Notifications\NewBoardStateAvailableNotification.cs" />
+    <Compile Include="NetworkMessages\Notifications\NewGameStateAvailableNotification.cs" />
     <Compile Include="NetworkMessages\Notifications\NextMoveSubmission.cs" />
     <Compile Include="NetworkMessages\Notifications\OpenGameListUpdateNotification.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\ConnectToServerRequest.cs" />

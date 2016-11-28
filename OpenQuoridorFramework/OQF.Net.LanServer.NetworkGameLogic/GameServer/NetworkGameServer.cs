@@ -80,7 +80,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 					
 					var msg = (CreateGameRequest) newIncommingMsg;
 
-					NewOutputAvailable?.Invoke($"<<< CreateGameRequest from ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
+					NewOutputAvailable?.Invoke($"<<< CreateGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 
 					gameRepository.CreateGame(msg.GameId, 
 											  clientRepository.GetClientById(msg.ClientId), 
@@ -94,23 +94,25 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 				{
 					var msg = (JoinGameRequest) newIncommingMsg;
 
-					NewOutputAvailable?.Invoke($"<<< JoinGameRequest from ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
+					NewOutputAvailable?.Invoke($"<<< JoinGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 
 					var game = gameRepository.GetGameById(msg.GameId);
 
 					if (game == null || game.IsGameActive)
 					{
-						NewOutputAvailable?.Invoke($">>> JoinGameResponse (negative) to ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
+						NewOutputAvailable?.Invoke($">>> JoinGameResponse (negative) to {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 						messagingService.SendMessage(new JoinGameResponse(msg.ClientId, msg.GameId, false, ""));
 					}
 					else
 					{
-						NewOutputAvailable?.Invoke($">>> JoinGameResponse (positive) to ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
+						NewOutputAvailable?.Invoke($">>> JoinGameResponse (positive) to {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 
 						messagingService.SendMessage(new JoinGameResponse(msg.ClientId, 
 																		  game.GameId, 
 																		  true, 
 																		  game.GameInitiator.PlayerName));
+
+						NewOutputAvailable?.Invoke($">>> Opend Game is starting for {game.GameInitiator.PlayerName}");
 
 						messagingService.SendMessage(new OpendGameIsStarting(game.GameInitiator.ClientId, 
 																			 game.GameId, 
@@ -128,7 +130,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 				{
 					var msg = (NextMoveSubmission) newIncommingMsg;
 
-					NewOutputAvailable?.Invoke($"<<< NextMoveSubmission from ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
+					NewOutputAvailable?.Invoke($"<<< NextMoveSubmission from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 
 					var game = gameRepository.GetGameById(msg.GameId);
 
@@ -151,6 +153,9 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 			networkGame.NewBoardStateAvailable -= OnNewBoardStateAvailable;
 			networkGame.WinnerAvailable        -= OnWinnerAvailable;
 
+			NewOutputAvailable?.Invoke($">>> GameOver notification for ({networkGame.GameName})");
+
+
 			messagingService.SendMessage(new GameOverNotification(networkGame.GameInitiator.ClientId, 
 																  networkGame.GameInitiator.ClientId == clientInfo.ClientId, 
 																  winningReason));
@@ -168,8 +173,11 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		{
 			var newProgress = CreateQProgress.FromBoardState(boardState);
 
-			messagingService.SendMessage(new NewBoardStateAvailableNotification(networkGame.GameInitiator.ClientId, newProgress, networkGame.GameId));
-			messagingService.SendMessage(new NewBoardStateAvailableNotification(networkGame.Opponend.ClientId,      newProgress, networkGame.GameId));
+			NewOutputAvailable?.Invoke($">>> new boardState for {networkGame.GameInitiator.PlayerName} and {networkGame.Opponend.PlayerName}");
+
+
+			messagingService.SendMessage(new NewGameStateAvailableNotification(networkGame.GameInitiator.ClientId, newProgress, networkGame.GameId));
+			messagingService.SendMessage(new NewGameStateAvailableNotification(networkGame.Opponend.ClientId,      newProgress, networkGame.GameId));
 		}
 
 		private void SendGameListUpdateToAllClients()
@@ -190,7 +198,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 			}
 
 			var msg = new OpenGameListUpdateNotification(clientId, gameList);
-			NewOutputAvailable?.Invoke($">>> GameListUpdate to ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
+			NewOutputAvailable?.Invoke($">>> GameListUpdate to {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 			messagingService.SendMessage(msg);
 		}
 

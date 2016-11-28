@@ -124,9 +124,9 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					UpdatedGameListAvailable?.Invoke(msg.OpenGames);
 					break;
 				}
-				case NetworkMessageType.NewBoardStateAvailableNotification:
+				case NetworkMessageType.NewGameStateAvailableNotification:
 				{
-					var msg = (NewBoardStateAvailableNotification) incommingMsg;
+					var msg = (NewGameStateAvailableNotification) incommingMsg;
 
 					if (msg.GameId == CurrentGameId)
 						CurrentBoardState = msg.NewGameState.GetBoardState(BottomPlayer, TopPlayer);

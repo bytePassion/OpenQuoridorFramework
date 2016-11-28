@@ -9,7 +9,7 @@
 
 		CreateGameRequest,
 		
-		NewBoardStateAvailableNotification,
+		NewGameStateAvailableNotification,
 		OpenGameListUpdateNotification,
 		GameOverNotification,
 		NextMoveSubmission,

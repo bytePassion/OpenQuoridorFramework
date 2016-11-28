@@ -5,10 +5,10 @@ using OQF.Net.LanMessaging.Types;
 
 namespace OQF.Net.LanMessaging.NetworkMessages.Notifications
 {
-	public class NewBoardStateAvailableNotification : NetworkMessageBase.NetworkMessageBase
+	public class NewGameStateAvailableNotification : NetworkMessageBase.NetworkMessageBase
 	{
-		public NewBoardStateAvailableNotification (ClientId receiver, QProgress newGameState, NetworkGameId gameId) 
-			: base(NetworkMessageType.NewBoardStateAvailableNotification, receiver)
+		public NewGameStateAvailableNotification (ClientId receiver, QProgress newGameState, NetworkGameId gameId) 
+			: base(NetworkMessageType.NewGameStateAvailableNotification, receiver)
 		{
 			NewGameState = newGameState;
 			GameId = gameId;
@@ -22,14 +22,14 @@ namespace OQF.Net.LanMessaging.NetworkMessages.Notifications
 			return $"{NewGameState.Compressed};{GameId}";
 		}
 
-		public static NewBoardStateAvailableNotification Parse (ClientId clientId, string s)
+		public static NewGameStateAvailableNotification Parse (ClientId clientId, string s)
 		{
 			var parts = s.Split(';');
 
 			var progress = CreateQProgress.FromCompressedProgressString(parts[0]);
 			var gameId = new NetworkGameId(Guid.Parse(parts[1]));
 
-			return new NewBoardStateAvailableNotification(clientId, progress, gameId);
+			return new NewGameStateAvailableNotification(clientId, progress, gameId);
 		}
 	}
 }
