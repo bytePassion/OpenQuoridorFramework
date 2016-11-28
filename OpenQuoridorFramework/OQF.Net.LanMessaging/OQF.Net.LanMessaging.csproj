@@ -70,6 +70,7 @@
     <Compile Include="NetworkMessages\RequestsAndResponses\ConnectToServerResponse.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\CreateGameRequest.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\ErrorResponse.cs" />
+    <Compile Include="NetworkMessages\RequestsAndResponses\JoidGameRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendReceive\SendReceiveExtensions.cs" />
     <Compile Include="Types\ClientId.cs" />

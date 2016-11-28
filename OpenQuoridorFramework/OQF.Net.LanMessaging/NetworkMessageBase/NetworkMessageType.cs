@@ -4,6 +4,8 @@
 	{
 		ConnectToServerRequest,
 		ConnectToServerResponse,
+		JoinGameRequest,
+		JoinGameResponse,
 
 		CreateGameRequest,
 		
