@@ -88,6 +88,10 @@
       <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
       <Name>Lib.Wpf</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
+      <Project>{8f773744-6fe4-49c2-8651-e6f29ec828fa}</Project>
+      <Name>OQF.CommonUiElements</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Net.DesktopClient.Contracts\OQF.Net.DesktopClient.Contracts.csproj">
       <Project>{5EDEDF8C-367C-495E-9C81-0519D443B7A9}</Project>
       <Name>OQF.Net.DesktopClient.Contracts</Name>

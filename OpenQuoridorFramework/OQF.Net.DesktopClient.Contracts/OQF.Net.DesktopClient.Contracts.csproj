@@ -56,6 +56,10 @@
       <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
+      <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
+      <Name>OQF.CommonUiElements</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Net.LanMessaging\OQF.Net.LanMessaging.csproj">
       <Project>{C0E2A650-5CA7-4D79-9342-DA2936C9E2F7}</Project>
       <Name>OQF.Net.LanMessaging</Name>

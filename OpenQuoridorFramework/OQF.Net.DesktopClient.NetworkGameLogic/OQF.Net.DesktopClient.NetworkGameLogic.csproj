@@ -77,6 +77,10 @@
       <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
       <Name>OQF.Bot.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
+      <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
+      <Name>OQF.CommonUiElements</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Net.DesktopClient.Contracts\OQF.Net.DesktopClient.Contracts.csproj">
       <Project>{5EDEDF8C-367C-495E-9C81-0519D443B7A9}</Project>
       <Name>OQF.Net.DesktopClient.Contracts</Name>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using OQF.AnalysisAndProgress.ProgressUtils;
+using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.Net.DesktopClient.Contracts;
@@ -20,38 +20,49 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		public event Action<IDictionary<NetworkGameId, string>> UpdatedGameListAvailable;
 		public event Action JoinError;
 		public event Action<string> JoinSuccessful;
-		public event Action<QProgress> NewProgressAvailable;
+		public event Action<string> OpendGameIsStarting;		
 		public event Action<bool, WinningReason> GameOver;
+		public event Action<BoardState> NewBoardStateAvailable;
 
 		private IClientMessaging messagingService;
 		private ClientId clientId;
-		private QProgress currentProgress;
+		private BoardState currentBoardState;
 
 		public NetworkGameService()
 		{
-			CurrentProgress = null;
+			CurrentBoardState = null;
 			CurrentGameId = null;
 			TopPlayer = null;
 			BottomPlayer = null;
+			ClientPlayer = null;
+			OpponendPlayer = null;
 		}
 
-		public QProgress CurrentProgress
+
+		public BoardState CurrentBoardState
 		{
-			get { return currentProgress; }
+			get { return currentBoardState; }
 			private set
 			{
-				currentProgress = value;
-				NewProgressAvailable?.Invoke(CurrentProgress);
+				currentBoardState = value;
+				NewBoardStateAvailable?.Invoke(CurrentBoardState);
 			}
 		}
+
+		
 
 		public NetworkGameId CurrentGameId { get; private set; }
 		public Player TopPlayer { get; private set; }
 		public Player BottomPlayer { get; private set; }
+		public Player ClientPlayer { get; private set; }
+		public Player OpponendPlayer { get; private set; }
 
+
+		private string PlayerName { get; set; }
 
 		public void ConnectToServer(AddressIdentifier serverAddress, string playerName)
 		{
+			PlayerName = playerName;
 			clientId = new ClientId(Guid.NewGuid());
 			messagingService = new ClientMessaging(new Address(new TcpIpProtocol(), serverAddress), clientId);
 			messagingService.NewIncomingMessage += OnNewIncomingMessage;
@@ -63,9 +74,11 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		public void CreateGame(string gameName, NetworkGameId gameId)
 		{
 			CurrentGameId = null;
-			CurrentProgress = null;
+			CurrentBoardState = null;
 			TopPlayer = null;
 			BottomPlayer = null;
+			ClientPlayer = null;
+			OpponendPlayer = null;
 
 			if (clientId != null)
 				messagingService.SendMessage(new CreateGameRequest(clientId, gameName, gameId));
@@ -74,9 +87,11 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		public void JoinGame(NetworkGameId gameId)
 		{
 			CurrentGameId = null;
-			CurrentProgress = null;
+			CurrentBoardState = null;
 			TopPlayer = null;
 			BottomPlayer = null;
+			ClientPlayer = null;
+			OpponendPlayer = null;
 
 			if (clientId != null)
 				messagingService.SendMessage(new JoinGameRequest(clientId, gameId));
@@ -114,7 +129,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					var msg = (NewBoardStateAvailableNotification) incommingMsg;
 
 					if (msg.GameId == CurrentGameId)
-						CurrentProgress = msg.NewGameState;
+						CurrentBoardState = msg.NewGameState.GetBoardState(BottomPlayer, TopPlayer);
 					else
 						throw new Exception();
 
@@ -127,6 +142,12 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					if (msg.JoinSuccessful)
 					{
 						CurrentGameId = msg.GameId;
+
+						TopPlayer      = new Player(PlayerType.TopPlayer,    PlayerName);
+						BottomPlayer   = new Player(PlayerType.BottomPlayer, msg.OpponendPlayerName);
+						ClientPlayer   = TopPlayer;
+						OpponendPlayer = BottomPlayer;
+
 						JoinSuccessful?.Invoke(msg.OpponendPlayerName);
 					}
 					else
@@ -144,7 +165,22 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					GameOver?.Invoke(msg.Win, msg.WinningReason);
 
 					break;
-				}				
+				}	
+				case NetworkMessageType.OpendGameIsStarting:
+				{
+					var msg = (OpendGameIsStarting) incommingMsg;
+
+					CurrentGameId = msg.GameId;
+
+					TopPlayer      = new Player(PlayerType.TopPlayer,    msg.OpponendPlayerName);
+					BottomPlayer   = new Player(PlayerType.BottomPlayer, PlayerName);
+					ClientPlayer   = BottomPlayer;
+					OpponendPlayer = TopPlayer;
+
+					OpendGameIsStarting?.Invoke(msg.OpponendPlayerName);
+
+					break;
+				}			
 			}
 		}
 
@@ -152,6 +188,6 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		{
 			clientId = null;
 			messagingService?.Dispose();
-		}
+		}		
 	}
 }

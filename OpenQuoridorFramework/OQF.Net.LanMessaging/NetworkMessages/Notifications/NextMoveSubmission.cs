@@ -32,5 +32,5 @@ namespace OQF.Net.LanMessaging.NetworkMessages.Notifications
 
 			return new NextMoveSubmission(clientId, nextMove, gameId);
 		}
-	}
+	}	
 }

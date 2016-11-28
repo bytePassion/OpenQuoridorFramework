@@ -26,12 +26,25 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			this.networkGameService = networkGameService;
 			networkGameService.GotConnected += OnGotConnected;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
+			networkGameService.JoinError += OnJoinError;
+			networkGameService.JoinSuccessful += NetworkGameServiceOnJoinSuccessful;
+
 
 			AvailableOpenGames = new ObservableCollection<GameDisplayData>();
 
 			ConnectToServer = new Command(DoConnect);
 			CreateGame = new Command(DoCreateGame);
 			JoinGame = new Command(DoJoinGame);
+		}
+
+		private void NetworkGameServiceOnJoinSuccessful(string s)
+		{
+			MessageBox.Show("join successful");
+		}
+
+		private void OnJoinError()
+		{
+			MessageBox.Show("joining failed");
 		}
 
 		private void OnUpdatedGameListAvailable(IDictionary<NetworkGameId, string> newGameList)
