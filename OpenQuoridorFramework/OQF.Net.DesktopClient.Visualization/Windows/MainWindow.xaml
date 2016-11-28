@@ -67,6 +67,10 @@
 				
 			</ListBox>
 
+			<Button Content="Join Game" 
+					Command="{Binding CreateGame}"
+					Margin="0,5,0,0"/>
+
 			<TextBlock Margin="0,10,0,0"
 					   Text="{Binding Response}"/>
 			

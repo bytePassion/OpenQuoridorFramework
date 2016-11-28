@@ -30,6 +30,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 		public ICommand ConnectToServer => null;
 		public ICommand CreateGame => null;
+		public ICommand JoinGame => null;
 
 		public string NewGameName { get; set; }
 		public string ServerAddress { get; set; }

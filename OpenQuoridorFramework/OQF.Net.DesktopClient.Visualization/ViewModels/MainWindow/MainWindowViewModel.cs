@@ -31,6 +31,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 			ConnectToServer = new Command(DoConnect);
 			CreateGame = new Command(DoCreateGame);
+			JoinGame = new Command(DoJoinGame);
 		}
 
 		private void OnUpdatedGameListAvailable(IDictionary<NetworkGameId, string> newGameList)
@@ -60,6 +61,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 		public ICommand ConnectToServer { get; }
 		public ICommand CreateGame { get; }
+		public ICommand JoinGame { get; }
 		public string NewGameName { get; set; }
 
 		public string ServerAddress { get; set; }
@@ -84,6 +86,11 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		{
 			var newGameId = new NetworkGameId( Guid.NewGuid());
 			networkGameService.CreateGame(NewGameName, newGameId);	
+		}
+
+		private void DoJoinGame()
+		{
+			networkGameService.JoinGame(SelectedOpenGame.GameId);
 		}
 
 		protected override void CleanUp() {	}
