@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using OQF.AnalysisAndProgress.ProgressUtils;
+using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.NetworkGameLogic.Messaging;
@@ -30,6 +31,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		{
 			CurrentProgress = null;
 			CurrentGameId = null;
+			TopPlayer = null;
+			BottomPlayer = null;
 		}
 
 		public QProgress CurrentProgress
@@ -42,7 +45,9 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			}
 		}
 
-		public NetworkGameId CurrentGameId { get; private set; }		
+		public NetworkGameId CurrentGameId { get; private set; }
+		public Player TopPlayer { get; private set; }
+		public Player BottomPlayer { get; private set; }
 
 
 		public void ConnectToServer(AddressIdentifier serverAddress, string playerName)
@@ -59,6 +64,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		{
 			CurrentGameId = null;
 			CurrentProgress = null;
+			TopPlayer = null;
+			BottomPlayer = null;
 
 			if (clientId != null)
 				messagingService.SendMessage(new CreateGameRequest(clientId, gameName, gameId));
@@ -68,6 +75,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		{
 			CurrentGameId = null;
 			CurrentProgress = null;
+			TopPlayer = null;
+			BottomPlayer = null;
 
 			if (clientId != null)
 				messagingService.SendMessage(new JoinGameRequest(clientId, gameId));

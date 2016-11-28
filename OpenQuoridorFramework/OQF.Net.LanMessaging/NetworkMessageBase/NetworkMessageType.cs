@@ -13,6 +13,7 @@
 		OpenGameListUpdateNotification,
 		GameOverNotification,
 		NextMoveSubmission,
+		OpendGameIsStarting,
 
 		ErrorResponse		
 	}

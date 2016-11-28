@@ -106,7 +106,15 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 					else
 					{
 						NewOutputAvailable?.Invoke($">>> JoinGameResponse (positive) to ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
-						messagingService.SendMessage(new JoinGameResponse(msg.ClientId, game.GameId, true, game.GameInitiator.PlayerName));
+
+						messagingService.SendMessage(new JoinGameResponse(msg.ClientId, 
+																		  game.GameId, 
+																		  true, 
+																		  game.GameInitiator.PlayerName));
+
+						messagingService.SendMessage(new OpendGameIsStarting(game.GameInitiator.ClientId, 
+																			 game.GameId, 
+																			 clientRepository.GetClientById(msg.ClientId).PlayerName));
 
 						game.NewBoardStateAvailable += OnNewBoardStateAvailable;
 						game.WinnerAvailable        += OnWinnerAvailable;

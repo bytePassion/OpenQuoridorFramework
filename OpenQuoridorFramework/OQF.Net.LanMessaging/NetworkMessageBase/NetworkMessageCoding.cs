@@ -53,6 +53,7 @@ namespace OQF.Net.LanMessaging.NetworkMessageBase
 				case NetworkMessageType.OpenGameListUpdateNotification:      return OpenGameListUpdateNotification.Parse(messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.GameOverNotification:                return GameOverNotification.Parse(messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.NextMoveSubmission:                  return NextMoveSubmission.Parse(messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.OpendGameIsStarting:                 return OpendGameIsStarting.Parse(messageParts.ClientId, messageParts.Content);
 
 				default:
 					throw new ArgumentException();
