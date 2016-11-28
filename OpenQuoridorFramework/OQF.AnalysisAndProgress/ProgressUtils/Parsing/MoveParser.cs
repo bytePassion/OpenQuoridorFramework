@@ -4,7 +4,7 @@ using OQF.Bot.Contracts.Moves;
 
 namespace OQF.AnalysisAndProgress.ProgressUtils.Parsing
 {
-	internal static class MoveParser
+	public static class MoveParser
 	{
 		public static Move GetMove (string s)
 		{
