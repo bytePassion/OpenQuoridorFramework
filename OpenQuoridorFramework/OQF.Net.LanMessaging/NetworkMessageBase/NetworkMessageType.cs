@@ -12,6 +12,7 @@
 		NewBoardStateAvailableNotification,
 		OpenGameListUpdateNotification,
 		GameOverNotification,
+		NextMoveSubmission,
 
 		ErrorResponse		
 	}

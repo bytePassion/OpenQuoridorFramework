@@ -100,16 +100,37 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 					if (game == null || game.IsGameActive)
 					{
+						NewOutputAvailable?.Invoke($">>> JoinGameResponse (negative) to ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
 						messagingService.SendMessage(new JoinGameResponse(msg.ClientId, msg.GameId, false, ""));
 					}
 					else
 					{
+						NewOutputAvailable?.Invoke($">>> JoinGameResponse (positive) to ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
 						messagingService.SendMessage(new JoinGameResponse(msg.ClientId, game.GameId, true, game.GameInitiator.PlayerName));
 
 						game.NewBoardStateAvailable += OnNewBoardStateAvailable;
 						game.WinnerAvailable        += OnWinnerAvailable;
 
 						game.StartGame(clientRepository.GetClientById(msg.ClientId));
+					}
+
+					break;
+				}
+				case NetworkMessageType.NextMoveSubmission:
+				{
+					var msg = (NextMoveSubmission) newIncommingMsg;
+
+					NewOutputAvailable?.Invoke($"<<< NextMoveSubmission from ({clientRepository.GetClientById(msg.ClientId).PlayerName})");
+
+					var game = gameRepository.GetGameById(msg.GameId);
+
+					if (game == null || !game.IsGameActive)
+					{
+						NewOutputAvailable?.Invoke(">>> NextMoveSubmission ERROR!");
+					}
+					else
+					{
+						game.ReportMove(clientRepository.GetClientById(msg.ClientId), msg.NextMove);
 					}
 
 					break;
