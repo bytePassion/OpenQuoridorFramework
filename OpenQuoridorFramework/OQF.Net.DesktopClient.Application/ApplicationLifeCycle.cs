@@ -1,7 +1,9 @@
 ﻿using System.Windows;
 using Lib.Wpf;
+using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.NetworkGameLogic;
+using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow;
 
 namespace OQF.Net.DesktopClient.Application
@@ -14,7 +16,10 @@ namespace OQF.Net.DesktopClient.Application
 		{
 			networkGameService = new NetworkGameService();
 
-			var mainWindowViewModel = new MainWindowViewModel(networkGameService);
+			var boardPlacementViewModel = new BoardPlacementViewModel(networkGameService);
+			var boardViewModel = new BoardViewModel(networkGameService);
+
+			var mainWindowViewModel = new MainWindowViewModel(networkGameService, boardPlacementViewModel, boardViewModel);
 
 			var mainWindow = new Visualization.Windows.MainWindow
 			{

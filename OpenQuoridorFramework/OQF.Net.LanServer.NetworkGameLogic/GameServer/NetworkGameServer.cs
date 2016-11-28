@@ -130,7 +130,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 				{
 					var msg = (NextMoveSubmission) newIncommingMsg;
 
-					NewOutputAvailable?.Invoke($"<<< NextMoveSubmission from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
+					NewOutputAvailable?.Invoke($"<<< NextMoveSubmission from {clientRepository.GetClientById(msg.ClientId).PlayerName} [{msg.NextMove}]");
 
 					var game = gameRepository.GetGameById(msg.GameId);
 

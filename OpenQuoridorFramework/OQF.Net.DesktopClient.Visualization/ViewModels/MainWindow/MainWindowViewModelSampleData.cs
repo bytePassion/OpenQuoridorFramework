@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 
 #pragma warning disable 0067
@@ -11,6 +13,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 	{
 		public MainWindowViewModelSampleData()
 		{
+			BoardPlacementViewModel = new BoardPlacementViewModelSampleData();
+			BoardViewModel = new BoardViewModelSampleData();
+
 			ServerAddress = "10.10.10.10";
 			Response = "positive";
 			PlayerName = "xelor";
@@ -27,6 +32,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 			SelectedOpenGame = AvailableOpenGames[2];
 		}
+
+		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
+		public IBoardViewModel BoardViewModel { get; }
 
 		public ICommand ConnectToServer => null;
 		public ICommand CreateGame => null;

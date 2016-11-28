@@ -58,8 +58,6 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 			if (CurrentBoardState.CurrentMover == sender.Player)
 			{
-				CurrentBoardState = CurrentBoardState.ApplyMove(newMove);
-
 				if (!GameAnalysis.IsMoveLegal(CurrentBoardState, newMove))
 				{
 					WinnerAvailable?.Invoke(this, 

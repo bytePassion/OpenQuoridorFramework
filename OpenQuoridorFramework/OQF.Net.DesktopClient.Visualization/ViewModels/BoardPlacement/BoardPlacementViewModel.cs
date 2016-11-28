@@ -47,26 +47,34 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement
 		{
 			Application.Current.Dispatcher.Invoke(() =>
 			{
-				if (boardState?.CurrentMover.PlayerType == networkGameService.ClientPlayer.PlayerType)
+				if (boardState != null && networkGameService.ClientPlayer != null)
 				{
-					var boardAnalysis = PlayerAnalysis.GetResult(boardState, networkGameService.ClientPlayer.PlayerType);
+					if (boardState.CurrentMover.PlayerType == networkGameService.ClientPlayer.PlayerType)
+					{
+						var boardAnalysis = PlayerAnalysis.GetResult(boardState, networkGameService.ClientPlayer.PlayerType);
 
-					allPossibleWalls = boardAnalysis.PossibleWalls;
+						allPossibleWalls = boardAnalysis.PossibleWalls;
 
-					boardAnalysis.PossibleMoves
-								 .Select(move => new PlayerState(null, move, -1))
-								 .Do(PossibleMoves.Add);
+						boardAnalysis.PossibleMoves
+							.Select(move => new PlayerState(null, move, -1))
+							.Do(PossibleMoves.Add);
 
-					IsPlacementEnabled = true;
+						IsPlacementEnabled = true;
 
-					IsWallPlacementPossible = networkGameService.ClientPlayer.PlayerType == PlayerType.BottomPlayer
-													? boardState.BottomPlayer.WallsToPlace > 0
-													: boardState.TopPlayer.WallsToPlace > 0;
+						IsWallPlacementPossible = networkGameService.ClientPlayer.PlayerType == PlayerType.BottomPlayer
+							? boardState.BottomPlayer.WallsToPlace > 0
+							: boardState.TopPlayer.WallsToPlace > 0;
+					}
+					else
+					{
+						DisablePlacement();
+					}
 				}
 				else
 				{
 					DisablePlacement();
 				}
+
 			});
 		}
 

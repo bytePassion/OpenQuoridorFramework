@@ -5,6 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         xmlns:mainWindow="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow"
         xmlns:helper="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
+        xmlns:views="clr-namespace:OQF.CommonUiElements.Board.Views;assembly=OQF.CommonUiElements"
+        xmlns:views1="clr-namespace:OQF.Net.DesktopClient.Visualization.Views"
         mc:Ignorable="d"
         Title="OpenQuoridorFramework - DesktopClient" Height="550" Width="825">
 	
@@ -75,6 +79,51 @@
 					   Text="{Binding Response}"/>
 			
 		</StackPanel>
-		
-    </Grid>
+
+
+		<Border Grid.Column="0"
+                    Margin="5,0"
+                    Padding="0">
+
+			<Grid Margin="15">
+
+				<i:Interaction.Behaviors>
+					<behaviors:KeepQuadratic />
+				</i:Interaction.Behaviors>
+
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="40" />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+			
+
+				<views:BoardHorizontalLabelling Grid.Row="0"
+                                                     Grid.Column="1"
+                                                     IsHitTestVisible="False" />
+
+				<views:BoardVerticalLabelling Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   IsHitTestVisible="False" />
+
+				<views:Board Grid.Row="1"
+                             Grid.Column="1"
+                             DataContext="{Binding BoardViewModel}"
+                             IsHitTestVisible="False"
+                             Padding="0" />
+
+				<views1:BoardPlacement Grid.Row="1"
+                                       Grid.Column="1"
+                                       DataContext="{Binding BoardPlacementViewModel}"
+                                       Padding="0" />
+
+			</Grid>
+		</Border>
+
+	</Grid>
 </Window>
+

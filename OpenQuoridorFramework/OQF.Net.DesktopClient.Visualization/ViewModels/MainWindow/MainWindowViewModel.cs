@@ -8,10 +8,13 @@ using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using Lib.Wpf.ViewModelBase;
+using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.Net.DesktopClient.Contracts;
+using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.Types;
+using OQF.Utils.Enum;
 
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
@@ -21,14 +24,19 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		private readonly INetworkGameService networkGameService;
 		private string response;
 
-		public MainWindowViewModel(INetworkGameService networkGameService)
+		public MainWindowViewModel(INetworkGameService networkGameService, 
+								   IBoardPlacementViewModel boardPlacementViewModel, 
+								   IBoardViewModel boardViewModel)
 		{
 			this.networkGameService = networkGameService;
+			BoardPlacementViewModel = boardPlacementViewModel;
+			BoardViewModel = boardViewModel;
 			networkGameService.GotConnected += OnGotConnected;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
 			networkGameService.JoinError += OnJoinError;
 			networkGameService.JoinSuccessful += NetworkGameServiceOnJoinSuccessful;
 			networkGameService.OpendGameIsStarting += OnOpendGameIsStarting;
+			networkGameService.GameOver += OnGameOver;
 
 
 			AvailableOpenGames = new ObservableCollection<GameDisplayData>();
@@ -36,6 +44,15 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			ConnectToServer = new Command(DoConnect);
 			CreateGame = new Command(DoCreateGame);
 			JoinGame = new Command(DoJoinGame);
+		}
+
+		private void OnGameOver(bool b, WinningReason winningReason)
+		{
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				var msg = b ? "won" : "lost";
+				Response = $"game is {msg} because {winningReason}";
+			});
 		}
 
 		private void OnOpendGameIsStarting(string s)
@@ -86,6 +103,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 				Response = "positive";
 			});
 		}
+
+		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
+		public IBoardViewModel BoardViewModel { get; }
 
 		public ICommand ConnectToServer { get; }
 		public ICommand CreateGame { get; }
