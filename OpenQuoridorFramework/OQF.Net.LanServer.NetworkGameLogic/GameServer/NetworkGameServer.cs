@@ -160,8 +160,8 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		{
 			var newProgress = CreateQProgress.FromBoardState(boardState);
 
-			messagingService.SendMessage(new NewGameStateAvailableNotification(networkGame.GameInitiator.ClientId, newProgress, networkGame.GameId));
-			messagingService.SendMessage(new NewGameStateAvailableNotification(networkGame.Opponend.ClientId,      newProgress, networkGame.GameId));
+			messagingService.SendMessage(new NewBoardStateAvailableNotification(networkGame.GameInitiator.ClientId, newProgress, networkGame.GameId));
+			messagingService.SendMessage(new NewBoardStateAvailableNotification(networkGame.Opponend.ClientId,      newProgress, networkGame.GameId));
 		}
 
 		private void SendGameListUpdateToAllClients()
