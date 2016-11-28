@@ -4,9 +4,9 @@ using OQF.Net.LanMessaging.Types;
 
 namespace OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses
 {
-	public class JoidGameRequest : NetworkMessageBase.NetworkMessageBase
+	public class JoinGameRequest : NetworkMessageBase.NetworkMessageBase
 	{
-		public JoidGameRequest(ClientId clientId, NetworkGameId gameId) 
+		public JoinGameRequest (ClientId clientId, NetworkGameId gameId) 
 			: base(NetworkMessageType.JoinGameRequest, clientId)
 		{
 			GameId = gameId;
@@ -19,9 +19,9 @@ namespace OQF.Net.LanMessaging.NetworkMessages.RequestsAndResponses
 			return GameId.ToString();
 		}
 
-		public static JoidGameRequest Parse(ClientId clientId, string s)
+		public static JoinGameRequest Parse (ClientId clientId, string s)
 		{
-			return new JoidGameRequest(clientId, new NetworkGameId(Guid.Parse(s)));
+			return new JoinGameRequest(clientId, new NetworkGameId(Guid.Parse(s)));
 		}
 	}
 }
