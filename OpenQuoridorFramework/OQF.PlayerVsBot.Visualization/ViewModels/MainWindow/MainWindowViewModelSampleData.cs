@@ -1,12 +1,12 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.PlayerVsBot.Visualization.ViewModels.ActionBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Visualization.ViewModels.BotStatusBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.DebugMessageView;
 using OQF.PlayerVsBot.Visualization.ViewModels.HumanPlayerBar;
-using OQF.PlayerVsBot.Visualization.ViewModels.ProgressView;
 
 #pragma warning disable 0067
 

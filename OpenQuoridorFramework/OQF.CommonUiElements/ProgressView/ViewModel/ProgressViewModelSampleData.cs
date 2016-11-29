@@ -4,9 +4,9 @@ using System.Windows.Input;
 
 #pragma warning disable 0067
 
-namespace OQF.PlayerVsBot.Visualization.ViewModels.ProgressView
+namespace OQF.CommonUiElements.ProgressView.ViewModel
 {
-	internal class ProgressViewModelSampleData : IProgressViewModel
+	public class ProgressViewModelSampleData : IProgressViewModel
 	{
 		public ProgressViewModelSampleData()
 		{

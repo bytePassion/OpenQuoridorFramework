@@ -6,25 +6,24 @@ using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
-using Lib.Wpf.ViewModelBase;
 using Microsoft.Win32;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
-using OQF.PlayerVsBot.Contracts;
+using OQF.CommonUiElements.Board.BoardViewModel;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
 
-namespace OQF.PlayerVsBot.Visualization.ViewModels.ProgressView
+namespace OQF.CommonUiElements.ProgressView.ViewModel
 {
-	public class ProgressViewModel : ViewModel, IProgressViewModel
+	public class ProgressViewModel : Lib.Wpf.ViewModelBase.ViewModel, IProgressViewModel
 	{
-		private readonly IGameService gameService;
+		private readonly IBoardStateProvider gameService;
 
 		private bool isAutoScrollProgressActive;
 		private string compressedProgress;
 
-		public ProgressViewModel(IGameService gameService)
+		public ProgressViewModel(IBoardStateProvider gameService)
 		{
 			CultureManager.CultureChanged += RefreshCaptions;
 

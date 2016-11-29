@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
 
-namespace OQF.PlayerVsBot.Visualization.ViewModels.ProgressView
+namespace OQF.CommonUiElements.ProgressView.ViewModel
 {
 	public interface IProgressViewModel : IViewModel
 	{

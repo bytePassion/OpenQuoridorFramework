@@ -66,9 +66,6 @@
     <Compile Include="Behaviors\MainWindowClosingBehavior.cs" />
     <Compile Include="Behaviors\ReportRelativeMousePositionBehavior.cs" />
     <Compile Include="Computations\BottomPlayerMarkerColor.cs" />
-    <Compile Include="Computations\GetBottomPlayerMoveFromString.cs" />
-    <Compile Include="Computations\GetProgressNrFromString.cs" />
-    <Compile Include="Computations\GetTopPlayerMoveFromString.cs" />
     <Compile Include="Computations\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
     <Compile Include="ViewModels\ActionBar\ActionBarViewModel.cs" />
@@ -89,9 +86,6 @@
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
-    <Compile Include="ViewModels\ProgressView\IProgressViewModel.cs" />
-    <Compile Include="ViewModels\ProgressView\ProgressViewModel.cs" />
-    <Compile Include="ViewModels\ProgressView\ProgressViewModelSampleData.cs" />
     <Compile Include="Views\ActionBar.xaml.cs">
       <DependentUpon>ActionBar.xaml</DependentUpon>
     </Compile>
@@ -118,10 +112,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProgressView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -134,9 +124,6 @@
     </Compile>
     <Compile Include="Views\HumanPlayerBar.xaml.cs">
       <DependentUpon>HumanPlayerBar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ProgressView.xaml.cs">
-      <DependentUpon>ProgressView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

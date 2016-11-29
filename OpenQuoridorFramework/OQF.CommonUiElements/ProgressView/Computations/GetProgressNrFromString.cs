@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using Lib.Wpf.ConverterBase;
 
-namespace OQF.PlayerVsBot.Visualization.Computations
+namespace OQF.CommonUiElements.ProgressView.Computations
 {
 	internal class GetProgressNrFromString : GenericValueConverter<string, string>
 	{
