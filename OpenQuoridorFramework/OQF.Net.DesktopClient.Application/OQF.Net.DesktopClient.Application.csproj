@@ -113,6 +113,10 @@
       <Project>{C11746E5-570E-4FAD-ABBD-921E8C2DBD76}</Project>
       <Name>OQF.Net.DesktopClient.Visualization</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.Resources\OQF.Resources.csproj">
+      <Project>{03ee53da-74c5-4883-98f0-bf2618ebdf93}</Project>
+      <Name>OQF.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
