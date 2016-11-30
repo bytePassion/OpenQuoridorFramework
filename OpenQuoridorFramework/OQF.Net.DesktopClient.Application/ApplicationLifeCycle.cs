@@ -21,7 +21,7 @@ namespace OQF.Net.DesktopClient.Application
 		{
 			var isBoardRotatedVariable = new SharedState<bool>(false);
 
-			networkGameService = new NetworkGameService();
+			networkGameService = new NetworkGameService(isBoardRotatedVariable);
 
 			var boardPlacementViewModel = new BoardPlacementViewModel(networkGameService);
 			var boardViewModel = new BoardViewModel(networkGameService);
@@ -32,6 +32,7 @@ namespace OQF.Net.DesktopClient.Application
 			var boardVerticalLabelingViewModel   = new BoardVerticalLabalingViewModel(isBoardRotatedVariable);
 
 			var mainWindowViewModel = new MainWindowViewModel(networkGameService, 
+															  isBoardRotatedVariable,
 															  boardPlacementViewModel, 
 															  boardViewModel, 
 															  progressViewModel,

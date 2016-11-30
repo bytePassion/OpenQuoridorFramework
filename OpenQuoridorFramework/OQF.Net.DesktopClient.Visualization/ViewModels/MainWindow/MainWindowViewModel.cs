@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using Lib.Communication.State;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using Lib.Wpf.ViewModelBase;
@@ -25,9 +26,12 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 	public class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
 		private readonly INetworkGameService networkGameService;
+		private readonly ISharedStateReadOnly<bool> isBoardRotatedVariable;
 		private string response;
+		private bool isBoardRotated;
 
 		public MainWindowViewModel(INetworkGameService networkGameService, 
+								   ISharedStateReadOnly<bool> isBoardRotatedVariable,
 								   IBoardPlacementViewModel boardPlacementViewModel, 
 								   IBoardViewModel boardViewModel, 
 								   IProgressViewModel progressViewModel, 
@@ -36,12 +40,14 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 								   IBoardLabelingViewModel boardVerticalLabelingViewModel)
 		{
 			this.networkGameService = networkGameService;
+			this.isBoardRotatedVariable = isBoardRotatedVariable;
 			BoardPlacementViewModel = boardPlacementViewModel;
 			BoardViewModel = boardViewModel;
 			ProgressViewModel = progressViewModel;
 			ActionBarViewModel = actionBarViewModel;
 			BoardHorizontalLabelingViewModel = boardHorizontalLabelingViewModel;
 			BoardVerticalLabelingViewModel = boardVerticalLabelingViewModel;
+
 			networkGameService.GotConnected += OnGotConnected;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
 			networkGameService.JoinError += OnJoinError;
@@ -49,12 +55,19 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			networkGameService.OpendGameIsStarting += OnOpendGameIsStarting;
 			networkGameService.GameOver += OnGameOver;
 
+			isBoardRotatedVariable.StateChanged += OnIsBoardRotatedVariableChanged;
+			OnIsBoardRotatedVariableChanged(isBoardRotatedVariable.Value);
 
 			AvailableOpenGames = new ObservableCollection<GameDisplayData>();
 
 			ConnectToServer = new Command(DoConnect);
 			CreateGame = new Command(DoCreateGame);
 			JoinGame = new Command(DoJoinGame);
+		}
+
+		private void OnIsBoardRotatedVariableChanged(bool newIsBoardRotated)
+		{
+			IsBoardRotated = newIsBoardRotated;
 		}
 
 		private void OnGameOver(bool b, WinningReason winningReason)
@@ -134,6 +147,12 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		{
 			get { return response; }
 			private set { PropertyChanged.ChangeAndNotify(this, ref response, value); }
+		}
+
+		public bool IsBoardRotated
+		{
+			get { return isBoardRotated; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref isBoardRotated, value); }
 		}
 
 		public ObservableCollection<GameDisplayData> AvailableOpenGames { get; }

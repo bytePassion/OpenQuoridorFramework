@@ -90,6 +90,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lib.Communication\Lib.Communication.csproj">
+      <Project>{A7CA266B-B1A3-4ED5-B0BE-EE5EE80A48FC}</Project>
+      <Name>Lib.Communication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
       <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
       <Name>Lib.FrameworkExtension</Name>

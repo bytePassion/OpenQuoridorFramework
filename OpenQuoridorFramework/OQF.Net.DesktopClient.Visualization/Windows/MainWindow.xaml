@@ -93,7 +93,8 @@
 			<Border Grid.Row="2"
                     Grid.Column="1"
                     Margin="5,0"
-                    Padding="0">
+                    Padding="0"
+					Name="BoardContainer">
 
 				<Grid Margin="15">
 
@@ -127,12 +128,49 @@
 					              Grid.Column="1"
 					              DataContext="{Binding BoardViewModel}"
 					              IsHitTestVisible="False"
-					              Padding="0" />
+					              Padding="0"
+								  RenderTransformOrigin="0.5, 0.5">
+
+						<views1:Board.Style>
+							<Style TargetType="views1:Board">
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
+										<Setter Property="RenderTransform">
+											<Setter.Value>
+												<RotateTransform Angle="180"
+																 CenterX="0.5"
+																 CenterY="0.5"/>
+											</Setter.Value>
+										</Setter>
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</views1:Board.Style>
+					</views1:Board>
 
 					<views:BoardPlacement Grid.Row="1"
 					                      Grid.Column="1"
 					                      DataContext="{Binding BoardPlacementViewModel}"
-					                      Padding="0" />
+					                      Padding="0" 
+										  RenderTransformOrigin="0.5, 0.5">
+
+						<views:BoardPlacement.Style>
+							<Style TargetType="views:BoardPlacement">
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
+										<Setter Property="RenderTransform">
+											<Setter.Value>
+												<RotateTransform Angle="180"
+																 CenterX="0.5"
+																 CenterY="0.5"/>
+											</Setter.Value>
+										</Setter>
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</views:BoardPlacement.Style>
+											
+					</views:BoardPlacement>
 
 				</Grid>
 			</Border>

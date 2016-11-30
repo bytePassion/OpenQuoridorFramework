@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Lib.Communication.State;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
@@ -16,6 +17,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 {
 	public class NetworkGameService : INetworkGameService
 	{
+		private readonly ISharedStateWriteOnly<bool> isBoardRotatedVariable;
 		public event Action GotConnected;
 		public event Action<IDictionary<NetworkGameId, string>> UpdatedGameListAvailable;
 		public event Action JoinError;
@@ -28,8 +30,9 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		private ClientId clientId;
 		private BoardState currentBoardState;
 
-		public NetworkGameService()
+		public NetworkGameService(ISharedStateWriteOnly<bool> isBoardRotatedVariable)
 		{
+			this.isBoardRotatedVariable = isBoardRotatedVariable;
 			CurrentBoardState = null;
 			CurrentGameId = null;
 			TopPlayer = null;
@@ -149,6 +152,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 					if (msg.JoinSuccessful)
 					{
+						isBoardRotatedVariable.Value = true;
 						CurrentGameId = msg.GameId;
 
 						TopPlayer      = new Player(PlayerType.TopPlayer,    PlayerName);
@@ -178,6 +182,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 				{
 					var msg = (OpendGameIsStarting) incommingMsg;
 
+					isBoardRotatedVariable.Value = false;
 					CurrentGameId = msg.GameId;
 
 					TopPlayer      = new Player(PlayerType.TopPlayer,    msg.OpponendPlayerName);

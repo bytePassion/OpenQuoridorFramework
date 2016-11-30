@@ -29,6 +29,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 		string Response { get; }
 
+		bool IsBoardRotated { get; }
+
 		ObservableCollection<GameDisplayData> AvailableOpenGames { get; }
 		GameDisplayData SelectedOpenGame { get; set; }
 	}

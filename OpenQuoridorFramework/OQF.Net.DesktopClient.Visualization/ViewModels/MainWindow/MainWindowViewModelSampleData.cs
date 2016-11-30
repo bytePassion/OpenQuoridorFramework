@@ -27,6 +27,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			Response = "positive";
 			PlayerName = "xelor";
 			NewGameName = "myGame01";
+			IsBoardRotated = false;
 
 			AvailableOpenGames = new ObservableCollection<GameDisplayData>
 			{
@@ -55,6 +56,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public string ServerAddress { get; set; }
 		public string PlayerName { get; set; }
 		public string Response { get; }
+		public bool IsBoardRotated { get; }
+
 		public ObservableCollection<GameDisplayData> AvailableOpenGames { get; }
 		public GameDisplayData SelectedOpenGame { get; set; }
 
