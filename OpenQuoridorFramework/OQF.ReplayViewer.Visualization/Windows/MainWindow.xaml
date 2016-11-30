@@ -229,12 +229,14 @@
 
 
                 <views:BoardHorizontalLabelling Grid.Row="0"
-                                                 Grid.Column="1"
-                                                 IsHitTestVisible="False" />
+                                                Grid.Column="1"
+                                                IsHitTestVisible="False" 
+												DataContext="{Binding BoardHorizontalLabelingViewModel}"/>
 
                 <views:BoardVerticalLabelling Grid.Row="1"
-                                               Grid.Column="0"
-                                               IsHitTestVisible="False" />
+                                              Grid.Column="0"
+                                              IsHitTestVisible="False"
+											  DataContext="{Binding BoardVerticalLabelingViewModel}"/>
 
                 <views:Board Grid.Row="1"
                               Grid.Column="1"

@@ -14,6 +14,7 @@ using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.AnalysisAndProgress.ProgressUtils.Validation;
 using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Info;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
@@ -34,10 +35,12 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 		private int maxMoveIndex;
 		private string progressFilePath;
 		private bool isReplayLoaded;
-
+		
 
 		public MainWindowViewModel (IBoardViewModel boardViewModel,
 									ILanguageSelectionViewModel languageSelectionViewModel,
+									IBoardLabelingViewModel boardHorizontalLabelingViewModel, 
+									IBoardLabelingViewModel boardVerticalLabelingViewModel,
 									IReplayService replayService,
 									IApplicationSettingsRepository applicationSettingsRepository)
 		{
@@ -46,6 +49,8 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			BoardViewModel = boardViewModel;
 			this.replayService = replayService;
 			this.applicationSettingsRepository = applicationSettingsRepository;
+			BoardHorizontalLabelingViewModel = boardHorizontalLabelingViewModel;
+			BoardVerticalLabelingViewModel = boardVerticalLabelingViewModel;
 
 			LanguageSelectionViewModel = languageSelectionViewModel;
 
@@ -109,6 +114,8 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 	
 		public IBoardViewModel BoardViewModel { get; }
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
+		public IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
+		public IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
 
 		public ICommand LoadGame      { get; }
 		public ICommand BrowseFile    { get; }

@@ -2,6 +2,7 @@
 using System.Windows;
 using Lib.Wpf;
 using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.ReplayViewer.Contracts;
 using OQF.ReplayViewer.GameLogic;
@@ -26,8 +27,15 @@ namespace OQF.ReplayViewer.Application
 
 			var boardViewModel = new BoardViewModel(replayService);
 			var languageSelectionViewModel = new LanguageSelectionViewModel();
+			var boardHorizontalLabelingViewModel = new BoardHorizontalLabelingViewModel(null);
+			var boardVerticalLabelingViewModel   = new BoardVerticalLabalingViewModel(null);
 
-			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, languageSelectionViewModel, replayService, applicationSettingsRepository);
+			var mainWindowViewModel = new MainWindowViewModel(boardViewModel, 
+															  languageSelectionViewModel, 
+															  boardHorizontalLabelingViewModel,
+															  boardVerticalLabelingViewModel,
+															  replayService, 
+															  applicationSettingsRepository);
 
 			var mainWindow = new MainWindow
 			{

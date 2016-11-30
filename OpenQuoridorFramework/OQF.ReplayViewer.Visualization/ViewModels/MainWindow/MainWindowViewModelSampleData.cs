@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 
@@ -15,6 +16,8 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 		{
 			BoardViewModel = new BoardViewModelSampleData();
 			LanguageSelectionViewModel = new LanguageSelectionViewModelSampleData();
+			BoardVerticalLabelingViewModel = new BoardLabelingViewModelSampleData();
+			BoardHorizontalLabelingViewModel = new BoardLabelingViewModelSampleData();
 
 			LodingString = "blubb.txt";
 			MoveIndex = 5;
@@ -39,6 +42,8 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 
 		public IBoardViewModel BoardViewModel { get; }
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
+		public IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
+		public IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
 
 		public ICommand LoadGame      => null;
 		public ICommand BrowseFile    => null;
