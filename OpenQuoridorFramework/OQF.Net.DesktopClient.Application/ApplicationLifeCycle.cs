@@ -1,6 +1,8 @@
 ﻿using System.Windows;
+using Lib.Communication.State;
 using Lib.Wpf;
 using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Contracts;
@@ -17,6 +19,8 @@ namespace OQF.Net.DesktopClient.Application
 
 		public void BuildAndStart (StartupEventArgs startupEventArgs)
 		{
+			var isBoardRotatedVariable = new SharedState<bool>(false);
+
 			networkGameService = new NetworkGameService();
 
 			var boardPlacementViewModel = new BoardPlacementViewModel(networkGameService);
@@ -24,12 +28,16 @@ namespace OQF.Net.DesktopClient.Application
 			var progressViewModel = new ProgressViewModel(networkGameService);
 			var languageSelectionViewModel = new LanguageSelectionViewModel();
 			var actionBarViewModel = new ActionBarViewModel(languageSelectionViewModel, networkGameService);
+			var boardHorizontalLabelingViewModel = new BoardHorizontalLabelingViewModel(isBoardRotatedVariable);
+			var boardVerticalLabelingViewModel   = new BoardVerticalLabalingViewModel(isBoardRotatedVariable);
 
 			var mainWindowViewModel = new MainWindowViewModel(networkGameService, 
 															  boardPlacementViewModel, 
 															  boardViewModel, 
 															  progressViewModel,
-															  actionBarViewModel);
+															  actionBarViewModel,
+															  boardHorizontalLabelingViewModel,
+															  boardVerticalLabelingViewModel);
 
 			var mainWindow = new Visualization.Windows.MainWindow
 			{

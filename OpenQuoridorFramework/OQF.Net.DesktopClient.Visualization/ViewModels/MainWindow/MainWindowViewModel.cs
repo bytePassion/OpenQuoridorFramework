@@ -9,6 +9,7 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
@@ -30,13 +31,17 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 								   IBoardPlacementViewModel boardPlacementViewModel, 
 								   IBoardViewModel boardViewModel, 
 								   IProgressViewModel progressViewModel, 
-								   IActionBarViewModel actionBarViewModel)
+								   IActionBarViewModel actionBarViewModel, 
+								   IBoardLabelingViewModel boardHorizontalLabelingViewModel, 
+								   IBoardLabelingViewModel boardVerticalLabelingViewModel)
 		{
 			this.networkGameService = networkGameService;
 			BoardPlacementViewModel = boardPlacementViewModel;
 			BoardViewModel = boardViewModel;
 			ProgressViewModel = progressViewModel;
 			ActionBarViewModel = actionBarViewModel;
+			BoardHorizontalLabelingViewModel = boardHorizontalLabelingViewModel;
+			BoardVerticalLabelingViewModel = boardVerticalLabelingViewModel;
 			networkGameService.GotConnected += OnGotConnected;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
 			networkGameService.JoinError += OnJoinError;
@@ -114,6 +119,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public IBoardViewModel BoardViewModel { get; }
 		public IProgressViewModel ProgressViewModel { get; }
 		public IActionBarViewModel ActionBarViewModel { get; }
+		public IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
+		public IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
 
 		public ICommand ConnectToServer { get; }
 		public ICommand CreateGame { get; }

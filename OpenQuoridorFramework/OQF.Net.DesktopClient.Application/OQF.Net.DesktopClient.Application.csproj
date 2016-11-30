@@ -89,6 +89,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lib.Communication\Lib.Communication.csproj">
+      <Project>{a7ca266b-b1a3-4ed5-b0be-ee5ee80a48fc}</Project>
+      <Name>Lib.Communication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
       <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
       <Name>Lib.FrameworkExtension</Name>

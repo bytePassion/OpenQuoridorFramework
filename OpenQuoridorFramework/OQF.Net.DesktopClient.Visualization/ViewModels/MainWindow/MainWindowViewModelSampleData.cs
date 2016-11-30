@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
@@ -19,6 +20,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			BoardViewModel = new BoardViewModelSampleData();
 			ProgressViewModel = new ProgressViewModelSampleData();
 			ActionBarViewModel = new ActionBarViewModelSampleData();
+			BoardHorizontalLabelingViewModel = new BoardLabelingViewModelSampleData();
+			BoardVerticalLabelingViewModel = new BoardLabelingViewModelSampleData();
 
 			ServerAddress = "10.10.10.10";
 			Response = "positive";
@@ -41,6 +44,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public IBoardViewModel BoardViewModel { get; }
 		public IProgressViewModel ProgressViewModel { get; }
 		public IActionBarViewModel ActionBarViewModel { get; }
+		public IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
+		public IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
 
 		public ICommand ConnectToServer => null;
 		public ICommand CreateGame => null;

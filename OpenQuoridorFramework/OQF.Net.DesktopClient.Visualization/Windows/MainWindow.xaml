@@ -63,11 +63,11 @@
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
 					   Text="BotStatusBar"/>
-			
-<!--			<views:BotStatusBar Grid.Row="1"-->
-<!--                                 Grid.Column="0"-->
-<!--                                 Grid.ColumnSpan="3"-->
-<!--                                 DataContext="{Binding BotStatusBarViewModel}"/>-->
+
+			<!--			<views:BotStatusBar Grid.Row="1"-->
+			<!--                                 Grid.Column="0"-->
+			<!--                                 Grid.ColumnSpan="3"-->
+			<!--                                 DataContext="{Binding BotStatusBarViewModel}"/>-->
 
 			<materialDesign:Card Grid.Row="2"
                                  Grid.Column="0"
@@ -83,7 +83,7 @@
 						</TextBlock>
 					</Expander.Header>
 
-					
+
 					<progressView:ProgressView DataContext="{Binding ProgressViewModel}"/>
 
 				</Expander>
@@ -115,22 +115,24 @@
 
 					<views1:BoardHorizontalLabelling Grid.Row="0"
                                                      Grid.Column="1"
-                                                     IsHitTestVisible="False" />
+                                                     IsHitTestVisible="False"
+													 DataContext="{Binding BoardHorizontalLabelingViewModel}"/>
 
 					<views1:BoardVerticalLabelling Grid.Row="1"
                                                    Grid.Column="0"
-                                                   IsHitTestVisible="False" />
+                                                   IsHitTestVisible="False"
+												   DataContext="{Binding BoardVerticalLabelingViewModel}"/>
 
-					                    <views1:Board Grid.Row="1"
-					                                  Grid.Column="1"
-					                                  DataContext="{Binding BoardViewModel}"
-					                                  IsHitTestVisible="False"
-					                                  Padding="0" />
-					
-                    <views:BoardPlacement Grid.Row="1"
-					                                          Grid.Column="1"
-					                                          DataContext="{Binding BoardPlacementViewModel}"
-					                                          Padding="0" />
+					<views1:Board Grid.Row="1"
+					              Grid.Column="1"
+					              DataContext="{Binding BoardViewModel}"
+					              IsHitTestVisible="False"
+					              Padding="0" />
+
+					<views:BoardPlacement Grid.Row="1"
+					                      Grid.Column="1"
+					                      DataContext="{Binding BoardPlacementViewModel}"
+					                      Padding="0" />
 
 				</Grid>
 			</Border>
@@ -204,71 +206,14 @@
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
 					   Text="HumanPlayerBar"/>
-			
-<!--			<views:HumanPlayerBar Grid.Row="3"-->
-<!--                                  Grid.Column="0"-->
-<!--                                  Grid.ColumnSpan="3"-->
-<!--								  DataContext="{Binding HumanPlayerBarViewModel}"/>-->
+
+			<!--			<views:HumanPlayerBar Grid.Row="3"-->
+			<!--                                  Grid.Column="0"-->
+			<!--                                  Grid.ColumnSpan="3"-->
+			<!--								  DataContext="{Binding HumanPlayerBarViewModel}"/>-->
 
 		</Grid>
 
 	</materialDesign:DialogHost>
-
-
-
-	<!--    <Grid>-->
-<!--        -->
-<!--		<Grid.ColumnDefinitions>-->
-<!--			<ColumnDefinition/>-->
-<!--			<ColumnDefinition Width="300"/>-->
-<!--		</Grid.ColumnDefinitions>-->
-<!--		-->
-
-<!---->
-<!---->
-<!--		<Border Grid.Column="0"-->
-<!--                    Margin="5,0"-->
-<!--                    Padding="0">-->
-<!---->
-<!--			<Grid Margin="15">-->
-<!---->
-<!--				<i:Interaction.Behaviors>-->
-<!--					<libBehaviors:KeepQuadratic />-->
-<!--				</i:Interaction.Behaviors>-->
-<!---->
-<!--				<Grid.RowDefinitions>-->
-<!--					<RowDefinition Height="40" />-->
-<!--					<RowDefinition />-->
-<!--				</Grid.RowDefinitions>-->
-<!---->
-<!--				<Grid.ColumnDefinitions>-->
-<!--					<ColumnDefinition Width="40" />-->
-<!--					<ColumnDefinition />-->
-<!--				</Grid.ColumnDefinitions>-->
-<!--			-->
-<!---->
-<!--				<views1:BoardHorizontalLabelling Grid.Row="0"-->
-<!--                                                     Grid.Column="1"-->
-<!--                                                     IsHitTestVisible="False" />-->
-<!---->
-<!--				<views1:BoardVerticalLabelling Grid.Row="1"-->
-<!--                                                   Grid.Column="0"-->
-<!--                                                   IsHitTestVisible="False" />-->
-<!---->
-<!--				<views1:Board Grid.Row="1"-->
-<!--                             Grid.Column="1"-->
-<!--                             DataContext="{Binding BoardViewModel}"-->
-<!--                             IsHitTestVisible="False"-->
-<!--                             Padding="0" />-->
-<!---->
-<!--				<views:BoardPlacement Grid.Row="1"-->
-<!--                                       Grid.Column="1"-->
-<!--                                       DataContext="{Binding BoardPlacementViewModel}"-->
-<!--                                       Padding="0" />-->
-<!---->
-<!--			</Grid>-->
-<!--		</Border>-->
-<!---->
-<!--	</Grid>-->
 </Window>
 
