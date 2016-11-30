@@ -25,10 +25,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 
 			LanguageSelectionViewModel = languageSelectionViewModel;
 			this.networkGameService = networkGameService;
-
-			networkGameService.GotConnected        += OnGotConnected;
-			networkGameService.JoinSuccessful      += OnGameIsStarting;
-			networkGameService.OpendGameIsStarting += OnGameIsStarting;
+			
+			networkGameService.JoinSuccessful      += OnJoinSuccessful;
+			networkGameService.OpendGameIsStarting += OnOpendGameIsStarting;
 
 			ShowAboutHelp = new Command(DoShowAboutHelp);
 
@@ -37,17 +36,21 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 			GameName = "no game started";
 		}
 
-	
-		private void OnGameIsStarting(string opponentName)
-		{
-			OpponentPlayerName = opponentPlayerName;
-			GameName = networkGameService.GameName + ":";
-		}
-
-		private void OnGotConnected()
+		private void OnOpendGameIsStarting(string s)
 		{
 			InitiatorPlayerName = networkGameService.PlayerName;
+			OpponentPlayerName = s;
+			GameName = networkGameService.GameName;
 		}
+
+		private void OnJoinSuccessful(string s)
+		{
+			InitiatorPlayerName = s;
+			OpponentPlayerName = networkGameService.PlayerName;
+			GameName = networkGameService.GameName;
+		}
+
+		
 
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
@@ -93,10 +96,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 		protected override void CleanUp ()
 		{
 			CultureManager.CultureChanged -= RefreshCaptions;
-
-			networkGameService.GotConnected        -= OnGotConnected;
-			networkGameService.JoinSuccessful      -= OnGameIsStarting;
-			networkGameService.OpendGameIsStarting -= OnGameIsStarting;
+			
+			networkGameService.JoinSuccessful      -= OnJoinSuccessful;
+			networkGameService.OpendGameIsStarting -= OnOpendGameIsStarting;
 		}
 
 		public override event PropertyChangedEventHandler PropertyChanged;
