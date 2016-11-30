@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 
@@ -11,6 +12,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 	{
 		IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		IBoardViewModel BoardViewModel { get; }
+		IProgressViewModel ProgressViewModel { get; }
 
 		ICommand ConnectToServer { get; }
 		ICommand CreateGame { get; }

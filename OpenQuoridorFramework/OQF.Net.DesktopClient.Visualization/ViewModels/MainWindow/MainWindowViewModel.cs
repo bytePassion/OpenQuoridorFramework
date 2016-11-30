@@ -9,6 +9,7 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
@@ -26,11 +27,13 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 		public MainWindowViewModel(INetworkGameService networkGameService, 
 								   IBoardPlacementViewModel boardPlacementViewModel, 
-								   IBoardViewModel boardViewModel)
+								   IBoardViewModel boardViewModel, 
+								   IProgressViewModel progressViewModel)
 		{
 			this.networkGameService = networkGameService;
 			BoardPlacementViewModel = boardPlacementViewModel;
 			BoardViewModel = boardViewModel;
+			ProgressViewModel = progressViewModel;
 			networkGameService.GotConnected += OnGotConnected;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
 			networkGameService.JoinError += OnJoinError;
@@ -106,6 +109,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		public IBoardViewModel BoardViewModel { get; }
+		public IProgressViewModel ProgressViewModel { get; }
 
 		public ICommand ConnectToServer { get; }
 		public ICommand CreateGame { get; }

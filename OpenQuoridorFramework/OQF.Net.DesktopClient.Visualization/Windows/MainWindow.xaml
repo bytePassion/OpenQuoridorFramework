@@ -10,6 +10,7 @@
         xmlns:mainWindow1="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow"
         xmlns:helper="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper"
         xmlns:views="clr-namespace:OQF.Net.DesktopClient.Visualization.Views"
+        xmlns:progressView="clr-namespace:OQF.CommonUiElements.ProgressView;assembly=OQF.CommonUiElements"
         Title="OpenQuoridorFramework - DesktopClient"
         Width="1200"
         Height="950"
@@ -82,11 +83,8 @@
 						</TextBlock>
 					</Expander.Header>
 
-					<TextBlock HorizontalAlignment="Center"
-					           VerticalAlignment="Center"
-					           Text="ProgressView"/>
 					
-<!--					<views:ProgressView DataContext="{Binding ProgressViewModel}"/>-->
+					<progressView:ProgressView DataContext="{Binding ProgressViewModel}"/>
 
 				</Expander>
 
@@ -123,16 +121,16 @@
                                                    Grid.Column="0"
                                                    IsHitTestVisible="False" />
 
-					<!--                    <views1:Board Grid.Row="1"-->
-					<!--                                  Grid.Column="1"-->
-					<!--                                  DataContext="{Binding BoardViewModel}"-->
-					<!--                                  IsHitTestVisible="False"-->
-					<!--                                  Padding="0" />-->
-					<!---->
-<!--                    <views:BoardPlacement Grid.Row="1"-->
-					<!--                                          Grid.Column="1"-->
-					<!--                                          DataContext="{Binding BoardPlacementViewModel}"-->
-					<!--                                          Padding="0" />-->
+					                    <views1:Board Grid.Row="1"
+					                                  Grid.Column="1"
+					                                  DataContext="{Binding BoardViewModel}"
+					                                  IsHitTestVisible="False"
+					                                  Padding="0" />
+					
+                    <views:BoardPlacement Grid.Row="1"
+					                                          Grid.Column="1"
+					                                          DataContext="{Binding BoardPlacementViewModel}"
+					                                          Padding="0" />
 
 				</Grid>
 			</Border>
