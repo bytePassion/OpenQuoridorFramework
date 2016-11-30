@@ -62,14 +62,13 @@
                                           UpdateSourceTrigger=PropertyChanged}" />
 
 			</StackPanel>
-			
+
 			<TextBlock Grid.Column="0"
 					   HorizontalAlignment="Left"
 					   VerticalAlignment="Center"
 					   Margin="10,0,0,0"
-					   Style="{StaticResource MaterialDesignHeadlineTextBlock}">
-				
-				<Run Text="{Binding GameName, Mode=OneWay}"/>:				
+					   Style="{StaticResource MaterialDesignHeadlineTextBlock}">				
+				<Run Text="{Binding GameName, Mode=OneWay}"/>
 			</TextBlock>
 			
 		</Grid>

@@ -31,13 +31,17 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 			networkGameService.OpendGameIsStarting += OnGameIsStarting;
 
 			ShowAboutHelp = new Command(DoShowAboutHelp);
+
+			InitiatorPlayerName = "-----";
+			OpponentPlayerName = "-----";
+			GameName = "no game started";
 		}
 
 	
 		private void OnGameIsStarting(string opponentName)
 		{
 			OpponentPlayerName = opponentPlayerName;
-			GameName = networkGameService.GameName;
+			GameName = networkGameService.GameName + ":";
 		}
 
 		private void OnGotConnected()
