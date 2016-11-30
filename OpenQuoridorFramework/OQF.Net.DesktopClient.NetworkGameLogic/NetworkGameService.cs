@@ -52,13 +52,17 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		
 
 		public NetworkGameId CurrentGameId { get; private set; }
+
+		public string PlayerName { get; private set; }
+		public string GameName { get; private set; }
+
 		public Player TopPlayer { get; private set; }
 		public Player BottomPlayer { get; private set; }
 		public Player ClientPlayer { get; private set; }
 		public Player OpponendPlayer { get; private set; }
 
 
-		private string PlayerName { get; set; }
+		
 
 		public void ConnectToServer(AddressIdentifier serverAddress, string playerName)
 		{
@@ -73,6 +77,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		public void CreateGame(string gameName, NetworkGameId gameId)
 		{
+			GameName = gameName;
+
 			CurrentGameId = null;
 			CurrentBoardState = null;
 			TopPlayer = null;
@@ -84,8 +90,10 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 				messagingService.SendMessage(new CreateGameRequest(clientId, gameName, gameId));
 		}
 
-		public void JoinGame(NetworkGameId gameId)
+		public void JoinGame(NetworkGameId gameId, string gameName)
 		{
+			GameName = gameName;
+
 			CurrentGameId = null;
 			CurrentBoardState = null;
 			TopPlayer = null;

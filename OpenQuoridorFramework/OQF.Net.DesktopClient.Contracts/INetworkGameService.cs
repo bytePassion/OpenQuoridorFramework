@@ -15,11 +15,13 @@ namespace OQF.Net.DesktopClient.Contracts
 		event Action<IDictionary<NetworkGameId, string>> UpdatedGameListAvailable;
 		event Action JoinError;
 		event Action<string> JoinSuccessful;
-		event Action<string> OpendGameIsStarting;
-		
+		event Action<string> OpendGameIsStarting;		
 		event Action<bool, WinningReason> GameOver;
 		
 		NetworkGameId CurrentGameId { get; }
+
+		string PlayerName { get; }
+		string GameName   { get; }
 
 		Player TopPlayer      { get; }
 		Player BottomPlayer   { get; }
@@ -28,7 +30,7 @@ namespace OQF.Net.DesktopClient.Contracts
 
 		void ConnectToServer(AddressIdentifier serverAddress, string playerName);
 		void CreateGame(string gameName, NetworkGameId gameId);
-		void JoinGame(NetworkGameId gameId);
+		void JoinGame(NetworkGameId gameId, string gameName);
 		void SubmitMove(Move nextMove);
 
 		void Dissconnect(); 

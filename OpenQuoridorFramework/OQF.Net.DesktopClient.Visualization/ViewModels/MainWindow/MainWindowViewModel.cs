@@ -11,6 +11,7 @@ using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Contracts;
+using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Net.LanMessaging.AddressTypes;
@@ -28,12 +29,14 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public MainWindowViewModel(INetworkGameService networkGameService, 
 								   IBoardPlacementViewModel boardPlacementViewModel, 
 								   IBoardViewModel boardViewModel, 
-								   IProgressViewModel progressViewModel)
+								   IProgressViewModel progressViewModel, 
+								   IActionBarViewModel actionBarViewModel)
 		{
 			this.networkGameService = networkGameService;
 			BoardPlacementViewModel = boardPlacementViewModel;
 			BoardViewModel = boardViewModel;
 			ProgressViewModel = progressViewModel;
+			ActionBarViewModel = actionBarViewModel;
 			networkGameService.GotConnected += OnGotConnected;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
 			networkGameService.JoinError += OnJoinError;
@@ -110,6 +113,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
 		public IBoardViewModel BoardViewModel { get; }
 		public IProgressViewModel ProgressViewModel { get; }
+		public IActionBarViewModel ActionBarViewModel { get; }
 
 		public ICommand ConnectToServer { get; }
 		public ICommand CreateGame { get; }
@@ -142,7 +146,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 		private void DoJoinGame()
 		{
-			networkGameService.JoinGame(SelectedOpenGame.GameId);
+			networkGameService.JoinGame(SelectedOpenGame.GameId, SelectedOpenGame.GameName);
 		}
 
 		protected override void CleanUp() {	}
