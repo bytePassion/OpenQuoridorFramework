@@ -11,7 +11,7 @@ using Microsoft.Win32;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.PlayerVsBot.Contracts;

@@ -7,7 +7,7 @@ using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 using Size = Lib.SemanicTypes.Size;
 
-namespace OQF.CommonUiElements.Board.BoardViewModel
+namespace OQF.CommonUiElements.Board.ViewModels.Board
 {
 	public class BoardViewModel : ViewModel, IBoardViewModel
 	{

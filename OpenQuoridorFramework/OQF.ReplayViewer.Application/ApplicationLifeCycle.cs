@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
 using Lib.Wpf;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.ReplayViewer.Contracts;
 using OQF.ReplayViewer.GameLogic;

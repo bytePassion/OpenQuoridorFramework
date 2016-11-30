@@ -54,10 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board\BoardColors\Brushes.cs" />
-    <Compile Include="Board\BoardViewModel\BoardViewModel.cs" />
-    <Compile Include="Board\BoardViewModel\BoardViewModelSampleData.cs" />
-    <Compile Include="Board\BoardViewModel\IBoardStateProvider.cs" />
-    <Compile Include="Board\BoardViewModel\IBoardViewModel.cs" />
+    <Compile Include="Board\ViewModels\Board\BoardViewModel.cs" />
+    <Compile Include="Board\ViewModels\Board\BoardViewModelSampleData.cs" />
+    <Compile Include="Board\ViewModels\IBoardStateProvider.cs" />
+    <Compile Include="Board\ViewModels\Board\IBoardViewModel.cs" />
     <Compile Include="Board\Views\Board.xaml.cs">
       <DependentUpon>Board.xaml</DependentUpon>
     </Compile>

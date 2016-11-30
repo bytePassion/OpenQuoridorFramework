@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.PlayerVsBot.Visualization.ViewModels.ActionBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;

@@ -1,5 +1,5 @@
 ﻿using OQF.AnalysisAndProgress.ProgressUtils;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels;
 
 namespace OQF.ReplayViewer.Contracts
 {

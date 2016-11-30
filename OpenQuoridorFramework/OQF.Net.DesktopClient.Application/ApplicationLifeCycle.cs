@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using Lib.Wpf;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.NetworkGameLogic;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;

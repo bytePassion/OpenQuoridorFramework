@@ -10,7 +10,7 @@ using Microsoft.Win32;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
 

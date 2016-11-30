@@ -2,7 +2,7 @@
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.CommonUiElements.Board.BoardViewModel
+namespace OQF.CommonUiElements.Board.ViewModels.Board
 {
 	public interface IBoardViewModel : IViewModel
 	{

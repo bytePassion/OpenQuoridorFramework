@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.Types;
 using OQF.Utils.Enum;

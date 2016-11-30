@@ -1,7 +1,7 @@
 ﻿using System;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.CommonUiElements.Board.BoardViewModel
+namespace OQF.CommonUiElements.Board.ViewModels
 {
 	public interface IBoardStateProvider
 	{

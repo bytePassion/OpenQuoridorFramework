@@ -13,7 +13,7 @@ using Microsoft.Win32;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.AnalysisAndProgress.ProgressUtils.Validation;
 using OQF.Bot.Contracts.GameElements;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Info;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
