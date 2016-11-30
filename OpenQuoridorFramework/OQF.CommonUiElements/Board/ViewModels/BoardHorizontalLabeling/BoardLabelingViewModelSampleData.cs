@@ -2,7 +2,7 @@
 
 namespace OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling
 {
-	internal class BoardLabelingViewModelSampleData : IBoardLabelingViewModel
+	public class BoardLabelingViewModelSampleData : IBoardLabelingViewModel
 	{
 		public BoardLabelingViewModelSampleData()
 		{

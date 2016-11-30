@@ -104,11 +104,13 @@
 
                     <views1:BoardHorizontalLabelling Grid.Row="0"
                                                      Grid.Column="1"
-                                                     IsHitTestVisible="False" />
+                                                     IsHitTestVisible="False"
+													 DataContext="{Binding BoardHorizontalLabelingViewModel}"/>
 
                     <views1:BoardVerticalLabelling Grid.Row="1"
                                                    Grid.Column="0"
-                                                   IsHitTestVisible="False" />
+                                                   IsHitTestVisible="False" 
+												   DataContext="{Binding BoardVerticalLabelingViewModel}"/>
 
                     <views1:Board Grid.Row="1"
                                   Grid.Column="1"
