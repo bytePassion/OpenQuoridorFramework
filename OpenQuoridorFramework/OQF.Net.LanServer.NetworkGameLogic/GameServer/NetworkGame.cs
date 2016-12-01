@@ -93,6 +93,6 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 										WinningReason.InvalidMove);
 				IsGameActive = false;
 			}
-		}
+		}				
 	}
 }

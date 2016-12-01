@@ -7,6 +7,7 @@
 		JoinGameRequest,
 		JoinGameResponse,
 
+		LeaveGameRequest,
 		CreateGameRequest,
 		
 		NewGameStateAvailableNotification,

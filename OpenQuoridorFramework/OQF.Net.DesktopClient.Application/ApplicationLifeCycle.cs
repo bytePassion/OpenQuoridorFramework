@@ -37,7 +37,8 @@ namespace OQF.Net.DesktopClient.Application
 			var remotePlayerBarViewModel = new RemotePlayerBarViewModel(networkGameService);
 			var networkViewModel = new NetworkViewModel(networkGameService);
 
-			var mainWindowViewModel = new MainWindowViewModel(isBoardRotatedVariable,
+			var mainWindowViewModel = new MainWindowViewModel(networkGameService,
+															  isBoardRotatedVariable,
 															  boardPlacementViewModel, 
 															  boardViewModel, 
 															  progressViewModel,

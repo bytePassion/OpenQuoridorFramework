@@ -145,6 +145,37 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 					break;
 				}
+				case NetworkMessageType.LeaveGameRequest:
+				{
+					var msg = (LeaveGameRequest) newIncommingMsg;
+
+					NewOutputAvailable?.Invoke($"<<< LeaveGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
+
+					var game = gameRepository.GetGameById(msg.GameId);
+
+					if (game == null || !game.IsGameActive)
+					{
+						NewOutputAvailable?.Invoke(">>> NextMoveSubmission ERROR!");
+					}
+					else
+					{
+						game.NewBoardStateAvailable -= OnNewBoardStateAvailable;
+						game.WinnerAvailable        -= OnWinnerAvailable;
+
+						messagingService.SendMessage(new GameOverNotification(msg.ClientId == game.GameInitiator.ClientId 
+																					? game.Opponend.ClientId 
+																					: game.GameInitiator.ClientId, 
+																			  true, 
+																			  WinningReason.Capitulation));
+
+
+						// TODO store game
+
+						gameRepository.DeleteGame(game.GameId);
+					}
+
+					break;
+				}
 			}			
 		}
 

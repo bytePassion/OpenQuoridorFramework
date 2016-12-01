@@ -42,18 +42,19 @@ namespace OQF.Net.LanMessaging.NetworkMessageBase
 
 			switch (messageParts.Type)
 			{
-				case NetworkMessageType.ErrorResponse:                       return ErrorResponse.Parse(messageParts.ClientId, messageParts.Content);
-				case NetworkMessageType.ConnectToServerRequest:              return ConnectToServerRequest.Parse(messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.ErrorResponse:                       return ErrorResponse.Parse          (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.ConnectToServerRequest:              return ConnectToServerRequest.Parse (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.ConnectToServerResponse:             return ConnectToServerResponse.Parse(messageParts.ClientId, messageParts.Content);	
-				case NetworkMessageType.CreateGameRequest:                   return CreateGameRequest.Parse(messageParts.ClientId, messageParts.Content);
-				case NetworkMessageType.JoinGameRequest:                     return JoinGameRequest.Parse(messageParts.ClientId, messageParts.Content);
-				case NetworkMessageType.JoinGameResponse:                    return JoinGameResponse.Parse(messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.CreateGameRequest:                   return CreateGameRequest.Parse      (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.JoinGameRequest:                     return JoinGameRequest.Parse        (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.JoinGameResponse:                    return JoinGameResponse.Parse       (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.LeaveGameRequest:                    return LeaveGameRequest.Parse       (messageParts.ClientId, messageParts.Content);
 
-				case NetworkMessageType.NewGameStateAvailableNotification:  return NewGameStateAvailableNotification.Parse(messageParts.ClientId, messageParts.Content);
-				case NetworkMessageType.OpenGameListUpdateNotification:      return OpenGameListUpdateNotification.Parse(messageParts.ClientId, messageParts.Content);
-				case NetworkMessageType.GameOverNotification:                return GameOverNotification.Parse(messageParts.ClientId, messageParts.Content);
-				case NetworkMessageType.NextMoveSubmission:                  return NextMoveSubmission.Parse(messageParts.ClientId, messageParts.Content);
-				case NetworkMessageType.OpendGameIsStarting:                 return OpendGameIsStarting.Parse(messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.NewGameStateAvailableNotification:   return NewGameStateAvailableNotification.Parse(messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.OpenGameListUpdateNotification:      return OpenGameListUpdateNotification.Parse   (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.GameOverNotification:                return GameOverNotification.Parse             (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.NextMoveSubmission:                  return NextMoveSubmission.Parse               (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.OpendGameIsStarting:                 return OpendGameIsStarting.Parse              (messageParts.ClientId, messageParts.Content);
 
 				default:
 					throw new ArgumentException();

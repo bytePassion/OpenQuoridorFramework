@@ -43,8 +43,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 		public string NewGameName { get; set; }
 		public string ServerAddress { get; set; }
-		public string PlayerName { get; set; }
-		public string Response { get; }
+		public string PlayerName { get; set; }		
 
 		public ObservableCollection<GameDisplayData> AvailableOpenGames { get; }
 		public GameDisplayData SelectedOpenGame { get; set; }

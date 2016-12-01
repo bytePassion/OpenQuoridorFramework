@@ -160,7 +160,11 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		public void LeaveGame()
 		{
-			throw new NotImplementedException();
+			if (CurrentGameId != null)
+			{
+				CurrentGameStatus = GameStatus.NoGame;
+				messagingService.SendMessage(new LeaveGameRequest(clientId, CurrentGameId));
+			}
 		}
 
 		public void CancelCreatedGame()

@@ -1,15 +1,18 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 using Lib.Communication.State;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.ProgressView.ViewModel;
+using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView;
 using OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar;
+using OQF.Utils.Enum;
 
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
@@ -21,7 +24,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		
 		private bool isBoardRotated;
 
-		public MainWindowViewModel(ISharedStateReadOnly<bool> isBoardRotatedVariable,
+		public MainWindowViewModel(INetworkGameService networkGameService,
+								   ISharedStateReadOnly<bool> isBoardRotatedVariable,
 								   IBoardPlacementViewModel boardPlacementViewModel, 
 								   IBoardViewModel boardViewModel, 
 								   IProgressViewModel progressViewModel, 
@@ -43,8 +47,19 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			RemotePlayerBarViewModel = remotePlayerBarViewModel;
 			NetworkViewModel = networkViewModel;
 
+			networkGameService.GameOver += OnGameOver;
+
 			isBoardRotatedVariable.StateChanged += OnIsBoardRotatedVariableChanged;
 			OnIsBoardRotatedVariableChanged(isBoardRotatedVariable.Value);						
+		}
+
+		private void OnGameOver(bool b, WinningReason winningReason)
+		{
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				var msg = b ? "winner" : "looser";
+				MessageBox.Show($"{msg} because {winningReason}");
+			});			
 		}
 
 		private void OnIsBoardRotatedVariableChanged(bool newIsBoardRotated)

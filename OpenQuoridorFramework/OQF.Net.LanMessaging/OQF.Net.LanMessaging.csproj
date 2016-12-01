@@ -75,6 +75,7 @@
     <Compile Include="NetworkMessages\RequestsAndResponses\JoidGameRequest.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\JoinGameResponse.cs" />
     <Compile Include="NetworkMessages\Notifications\OpendGameIsStarting.cs" />
+    <Compile Include="NetworkMessages\RequestsAndResponses\LeaveGameRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendReceive\SendReceiveExtensions.cs" />
     <Compile Include="Types\ClientId.cs" />
