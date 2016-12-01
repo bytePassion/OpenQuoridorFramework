@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="OQF.Net.DesktopClient.Visualization.Views.NetworkView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
+             xmlns:helper="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper"
+             xmlns:networkView="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+	
+	<d:DesignData.DataContext>
+		<networkView:NetworkViewModelSampleData/>
+	</d:DesignData.DataContext>
+	
+	<StackPanel>
+
+		<Label Content="enter server address:"/>
+		<TextBox Text="{Binding ServerAddress,
+												Mode=TwoWay,
+												UpdateSourceTrigger=PropertyChanged}"/>
+		<Label Content="enter player name:"
+							   Margin="0,10,0,0"/>
+		<TextBox Text="{Binding PlayerName,
+												Mode=TwoWay,
+												UpdateSourceTrigger=PropertyChanged}"/>
+		<Button Content="Connect to Server" 
+								Command="{Binding ConnectToServer}"
+								Margin="0,5,0,0"/>
+		<Label Content="enter new game name:"
+							   Margin="0,10,0,0"/>
+		<TextBox Text="{Binding NewGameName,
+												Mode=TwoWay,
+												UpdateSourceTrigger=PropertyChanged}"/>
+		<Button Content="Create New Game" 
+								Command="{Binding CreateGame}"
+								Margin="0,5,0,0"/>
+		<Label Content="open game list:"
+							   Margin="0,10,0,0"/>
+		<ListBox ItemsSource="{Binding AvailableOpenGames}"
+								 SelectionMode="Single"
+								 SelectedItem="{Binding SelectedOpenGame,
+													    Mode=TwoWay,
+									                    UpdateSourceTrigger=PropertyChanged}">
+			<ListBox.ItemTemplate>
+				<DataTemplate DataType="helper:GameDisplayData">
+					<TextBlock Text="{Binding GameName}"/>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<Button Content="Join Game" 
+								Command="{Binding JoinGame}"
+								Margin="0,5,0,0"/>
+		<TextBlock Margin="0,10,0,0"
+								   Text="{Binding Response}"/>
+	</StackPanel>
+</UserControl>

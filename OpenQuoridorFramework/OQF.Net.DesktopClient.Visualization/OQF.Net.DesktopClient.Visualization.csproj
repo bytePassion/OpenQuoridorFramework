@@ -69,6 +69,9 @@
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
+    <Compile Include="ViewModels\NetworkView\INetworkViewModel.cs" />
+    <Compile Include="ViewModels\NetworkView\NetworkViewModel.cs" />
+    <Compile Include="ViewModels\NetworkView\NetworkViewModelSampleData.cs" />
     <Compile Include="ViewModels\RemotePlayerBar\IRemotePlayerBarViewModel.cs" />
     <Compile Include="ViewModels\RemotePlayerBar\RemotePlayerBarViewModel.cs" />
     <Compile Include="ViewModels\RemotePlayerBar\RemotePlayerBarViewModelSampleData.cs" />
@@ -80,6 +83,9 @@
     </Compile>
     <Compile Include="Views\LocalPlayerBar.xaml.cs">
       <DependentUpon>LocalPlayerBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NetworkView.xaml.cs">
+      <DependentUpon>NetworkView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RemotePlayerBar.xaml.cs">
       <DependentUpon>RemotePlayerBar.xaml</DependentUpon>
@@ -98,6 +104,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\LocalPlayerBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NetworkView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

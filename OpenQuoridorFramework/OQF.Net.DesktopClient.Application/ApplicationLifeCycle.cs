@@ -11,6 +11,7 @@ using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow;
+using OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView;
 using OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar;
 
 namespace OQF.Net.DesktopClient.Application
@@ -34,9 +35,9 @@ namespace OQF.Net.DesktopClient.Application
 			var boardVerticalLabelingViewModel = new BoardVerticalLabalingViewModel(isBoardRotatedVariable);
 			var localPlayerBarViewModel = new LocalPlayerBarViewModel(networkGameService);
 			var remotePlayerBarViewModel = new RemotePlayerBarViewModel(networkGameService);
+			var networkViewModel = new NetworkViewModel(networkGameService);
 
-			var mainWindowViewModel = new MainWindowViewModel(networkGameService, 
-															  isBoardRotatedVariable,
+			var mainWindowViewModel = new MainWindowViewModel(isBoardRotatedVariable,
 															  boardPlacementViewModel, 
 															  boardViewModel, 
 															  progressViewModel,
@@ -44,7 +45,8 @@ namespace OQF.Net.DesktopClient.Application
 															  boardHorizontalLabelingViewModel,
 															  boardVerticalLabelingViewModel,
 															  localPlayerBarViewModel,
-															  remotePlayerBarViewModel);
+															  remotePlayerBarViewModel, 
+															  networkViewModel);
 
 			var mainWindow = new Visualization.Windows.MainWindow
 			{
