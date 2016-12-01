@@ -6,6 +6,7 @@ using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
+using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 
 #pragma warning disable 0067
@@ -22,6 +23,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			ActionBarViewModel = new ActionBarViewModelSampleData();
 			BoardHorizontalLabelingViewModel = new BoardLabelingViewModelSampleData();
 			BoardVerticalLabelingViewModel = new BoardLabelingViewModelSampleData();
+			LocalPlayerBarViewModel = new LocalPlayerBarViewModelSampleData();
 
 			ServerAddress = "10.10.10.10";
 			Response = "positive";
@@ -47,6 +49,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public IActionBarViewModel ActionBarViewModel { get; }
 		public IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
 		public IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
+		public ILocalPlayerBarViewModel LocalPlayerBarViewModel { get; }
 
 		public ICommand ConnectToServer => null;
 		public ICommand CreateGame => null;

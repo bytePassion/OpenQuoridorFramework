@@ -238,18 +238,10 @@
 
 			</materialDesign:Card>
 
-			<TextBlock Grid.Row="3"
-					   Grid.Column="0"
-					   Grid.ColumnSpan="3"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center"
-					   Text="HumanPlayerBar"/>
-
-			<!--			<views:HumanPlayerBar Grid.Row="3"-->
-			<!--                                  Grid.Column="0"-->
-			<!--                                  Grid.ColumnSpan="3"-->
-			<!--								  DataContext="{Binding HumanPlayerBarViewModel}"/>-->
-
+			<views:LocalPlayerBar Grid.Row="3"
+					              Grid.Column="0"
+					              Grid.ColumnSpan="3"					             
+					              DataContext="{Binding LocalPlayerBarViewModel}"/>
 		</Grid>
 
 	</materialDesign:DialogHost>

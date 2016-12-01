@@ -15,6 +15,7 @@ using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
+using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.Types;
@@ -37,7 +38,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 								   IProgressViewModel progressViewModel, 
 								   IActionBarViewModel actionBarViewModel, 
 								   IBoardLabelingViewModel boardHorizontalLabelingViewModel, 
-								   IBoardLabelingViewModel boardVerticalLabelingViewModel)
+								   IBoardLabelingViewModel boardVerticalLabelingViewModel, ILocalPlayerBarViewModel localPlayerBarViewModel)
 		{
 			this.networkGameService = networkGameService;
 			this.isBoardRotatedVariable = isBoardRotatedVariable;
@@ -47,6 +48,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			ActionBarViewModel = actionBarViewModel;
 			BoardHorizontalLabelingViewModel = boardHorizontalLabelingViewModel;
 			BoardVerticalLabelingViewModel = boardVerticalLabelingViewModel;
+			LocalPlayerBarViewModel = localPlayerBarViewModel;
 
 			networkGameService.GotConnected += OnGotConnected;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
@@ -134,6 +136,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public IActionBarViewModel ActionBarViewModel { get; }
 		public IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
 		public IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
+		public ILocalPlayerBarViewModel LocalPlayerBarViewModel { get; }
 
 		public ICommand ConnectToServer { get; }
 		public ICommand CreateGame { get; }
@@ -175,7 +178,10 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			networkGameService.JoinGame(SelectedOpenGame.GameId, SelectedOpenGame.GameName);
 		}
 
-		protected override void CleanUp() {	}
+		protected override void CleanUp()
+		{
+			isBoardRotatedVariable.StateChanged -= OnIsBoardRotatedVariableChanged;
+		}
 		public override event PropertyChangedEventHandler PropertyChanged;		
 	}
 }

@@ -32,7 +32,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement
 			this.networkGameService = networkGameService;
 		
 			networkGameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
-			networkGameService.GameOver += OnGameOver;
+			networkGameService.GameOver               += OnGameOver;
 
 			BoardClick = new Command(HandleBoardClick);
 
@@ -218,8 +218,10 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement
 
 		protected override void CleanUp()
 		{
-			// TODO
+			networkGameService.NewBoardStateAvailable -= OnNewBoardStateAvailable;
+			networkGameService.GameOver               -= OnGameOver;
 		}
+
 		public override event PropertyChangedEventHandler PropertyChanged;
 	}
 }

@@ -5,14 +5,69 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OQF.Net.DesktopClient.Visualization.Views"
              xmlns:localPlayerBar="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:computations="clr-namespace:OQF.Net.DesktopClient.Visualization.Computations"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="100" d:DesignWidth="700">
 	
 	<d:DesignData.DataContext>
 		<localPlayerBar:LocalPlayerBarViewModelSampleData/>
 	</d:DesignData.DataContext>
 	
-    <Grid>
-            
-    </Grid>
+	<UserControl.Resources>
+		<computations:GetLocalPlayerIconBrush x:Key="GetLocalPlayerIconBrush"/>
+	</UserControl.Resources>
+
+	<materialDesign:Card Margin="8"
+                         Padding="8">
+
+		<Grid>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="70" />
+				<ColumnDefinition />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+
+			<Ellipse Grid.Column="0"
+                     Width="40"
+                     Height="40"
+                     Fill="{Binding IsGameInitiator,
+                                    Converter={StaticResource GetLocalPlayerIconBrush}}" 
+					 RenderTransformOrigin="0.5, 0.5">
+
+				<Ellipse.RenderTransform>
+					<RotateTransform Angle="-45" />
+				</Ellipse.RenderTransform>
+
+			</Ellipse>
+
+
+			<TextBlock Grid.Column="3"
+                               Margin="0,0,46,0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               FontSize="30">
+                        <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />:
+			</TextBlock>
+
+			<TextBlock Grid.Column="3"
+                               Margin="0,0,5,0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               FontSize="30"
+                               Text="{Binding WallsLeft}" />
+
+			<Button Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="20,7"
+                            HorizontalAlignment="Right"
+                            Command="{Binding Capitulate}"
+                            Content="{Binding CapitulateButtonCaption}" />
+
+		</Grid>
+
+	</materialDesign:Card>
 </UserControl>

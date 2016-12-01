@@ -9,6 +9,7 @@ using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.NetworkGameLogic;
 using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
+using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow;
 
 namespace OQF.Net.DesktopClient.Application
@@ -29,7 +30,8 @@ namespace OQF.Net.DesktopClient.Application
 			var languageSelectionViewModel = new LanguageSelectionViewModel();
 			var actionBarViewModel = new ActionBarViewModel(languageSelectionViewModel, networkGameService);
 			var boardHorizontalLabelingViewModel = new BoardHorizontalLabelingViewModel(isBoardRotatedVariable);
-			var boardVerticalLabelingViewModel   = new BoardVerticalLabalingViewModel(isBoardRotatedVariable);
+			var boardVerticalLabelingViewModel = new BoardVerticalLabalingViewModel(isBoardRotatedVariable);
+			var localPlayerBarViewModel = new LocalPlayerBarViewModel(networkGameService);
 
 			var mainWindowViewModel = new MainWindowViewModel(networkGameService, 
 															  isBoardRotatedVariable,
@@ -38,7 +40,8 @@ namespace OQF.Net.DesktopClient.Application
 															  progressViewModel,
 															  actionBarViewModel,
 															  boardHorizontalLabelingViewModel,
-															  boardVerticalLabelingViewModel);
+															  boardVerticalLabelingViewModel,
+															  localPlayerBarViewModel);
 
 			var mainWindow = new Visualization.Windows.MainWindow
 			{

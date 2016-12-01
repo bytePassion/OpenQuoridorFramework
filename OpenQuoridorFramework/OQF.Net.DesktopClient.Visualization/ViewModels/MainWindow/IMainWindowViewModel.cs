@@ -6,6 +6,7 @@ using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
+using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
@@ -18,6 +19,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		IActionBarViewModel ActionBarViewModel { get; }
 		IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
 		IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
+		ILocalPlayerBarViewModel LocalPlayerBarViewModel { get; }
 
 		ICommand ConnectToServer { get; }
 		ICommand CreateGame { get; }
