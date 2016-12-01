@@ -17,6 +17,7 @@ using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
+using OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.Types;
 using OQF.Utils.Enum;
@@ -38,7 +39,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 								   IProgressViewModel progressViewModel, 
 								   IActionBarViewModel actionBarViewModel, 
 								   IBoardLabelingViewModel boardHorizontalLabelingViewModel, 
-								   IBoardLabelingViewModel boardVerticalLabelingViewModel, ILocalPlayerBarViewModel localPlayerBarViewModel)
+								   IBoardLabelingViewModel boardVerticalLabelingViewModel, ILocalPlayerBarViewModel localPlayerBarViewModel, IRemotePlayerBarViewModel remotePlayerBarViewModel)
 		{
 			this.networkGameService = networkGameService;
 			this.isBoardRotatedVariable = isBoardRotatedVariable;
@@ -49,6 +50,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			BoardHorizontalLabelingViewModel = boardHorizontalLabelingViewModel;
 			BoardVerticalLabelingViewModel = boardVerticalLabelingViewModel;
 			LocalPlayerBarViewModel = localPlayerBarViewModel;
+			RemotePlayerBarViewModel = remotePlayerBarViewModel;
 
 			networkGameService.GotConnected += OnGotConnected;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
@@ -137,6 +139,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
 		public IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
 		public ILocalPlayerBarViewModel LocalPlayerBarViewModel { get; }
+		public IRemotePlayerBarViewModel RemotePlayerBarViewModel { get; }
 
 		public ICommand ConnectToServer { get; }
 		public ICommand CreateGame { get; }

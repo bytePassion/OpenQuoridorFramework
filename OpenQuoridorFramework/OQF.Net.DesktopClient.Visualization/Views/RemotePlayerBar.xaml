@@ -1,18 +1,18 @@
-﻿<UserControl x:Class="OQF.Net.DesktopClient.Visualization.Views.LocalPlayerBar"
+﻿<UserControl x:Class="OQF.Net.DesktopClient.Visualization.Views.RemotePlayerBar"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
-             xmlns:localPlayerBar="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:computations="clr-namespace:OQF.Net.DesktopClient.Visualization.Computations"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:remotePlayerBar="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="700">
+             d:DesignHeight="300" d:DesignWidth="300">
 	
 	<d:DesignData.DataContext>
-		<localPlayerBar:LocalPlayerBarViewModelSampleData/>
+		<remotePlayerBar:RemotePlayerBarViewModelSampleData/>
 	</d:DesignData.DataContext>
-	
+
 	<UserControl.Resources>
 		<computations:GetPlayerIconBrush x:Key="GetPlayerIconBrush"/>
 	</UserControl.Resources>
@@ -58,15 +58,8 @@
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="{Binding WallsLeft}" />
-
-			<Button Grid.Row="0"
-                            Grid.Column="2"
-                            Margin="20,7"
-                            HorizontalAlignment="Right"
-                            Command="{Binding Capitulate}"
-                            Content="{Binding CapitulateButtonCaption}" />
-
 		</Grid>
 
 	</materialDesign:Card>
 </UserControl>
+

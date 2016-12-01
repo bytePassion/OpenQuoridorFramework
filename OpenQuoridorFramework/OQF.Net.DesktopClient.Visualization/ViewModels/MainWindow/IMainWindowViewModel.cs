@@ -8,6 +8,7 @@ using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
+using OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar;
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 {
@@ -20,6 +21,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
 		IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
 		ILocalPlayerBarViewModel LocalPlayerBarViewModel { get; }
+		IRemotePlayerBarViewModel RemotePlayerBarViewModel { get; }
 
 		ICommand ConnectToServer { get; }
 		ICommand CreateGame { get; }

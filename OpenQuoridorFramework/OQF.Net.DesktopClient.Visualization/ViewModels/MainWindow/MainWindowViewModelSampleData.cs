@@ -8,6 +8,7 @@ using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
+using OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar;
 
 #pragma warning disable 0067
 
@@ -24,6 +25,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			BoardHorizontalLabelingViewModel = new BoardLabelingViewModelSampleData();
 			BoardVerticalLabelingViewModel = new BoardLabelingViewModelSampleData();
 			LocalPlayerBarViewModel = new LocalPlayerBarViewModelSampleData();
+			RemotePlayerBarViewModel = new RemotePlayerBarViewModelSampleData();
 
 			ServerAddress = "10.10.10.10";
 			Response = "positive";
@@ -50,6 +52,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
 		public IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
 		public ILocalPlayerBarViewModel LocalPlayerBarViewModel { get; }
+		public IRemotePlayerBarViewModel RemotePlayerBarViewModel { get; }
 
 		public ICommand ConnectToServer => null;
 		public ICommand CreateGame => null;
