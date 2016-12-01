@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
+using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
@@ -20,6 +21,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 	{
 		private readonly INetworkGameService networkGameService;
 		private string response;
+		private string serverAddress;
+		private string playerName;
+		private ConnectionStatus connectionStatus;
 
 		public NetworkViewModel(INetworkGameService networkGameService)
 		{
@@ -35,27 +39,54 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 			AvailableOpenGames = new ObservableCollection<GameDisplayData>();
 
-			ConnectToServer = new Command(DoConnect);
+			ConnectToServer = new Command(DoConnect,
+										  IsConnectPossible,
+										  new PropertyChangedCommandUpdater(this, nameof(PlayerName),
+																				  nameof(ServerAddress),
+																				  nameof(ConnectionStatus)));
+
 			CreateGame = new Command(DoCreateGame);
 			JoinGame = new Command(DoJoinGame);
 		}
 
-		private void OnConnectionStatusChanged(ConnectionStatus connectionStatus)
+		private bool IsConnectPossible()
+		{
+			return ConnectionStatus == ConnectionStatus.NotConnected &&
+			       !string.IsNullOrWhiteSpace(PlayerName) &&
+			       AddressIdentifier.IsIpAddressIdentifier(ServerAddress);
+		}
+
+		private void OnConnectionStatusChanged(ConnectionStatus newConnectionStatus)
 		{
 			Application.Current.Dispatcher.Invoke(() =>
 			{
-				Response = $"ConnectionStatus: {connectionStatus}";
+				Response = $"ConnectionStatus: {newConnectionStatus}";
+				ConnectionStatus = newConnectionStatus;
 			});
 		}
-
 	
 		public ICommand ConnectToServer { get; }
 		public ICommand CreateGame { get; }
 		public ICommand JoinGame { get; }
 		public string NewGameName { get; set; }
 
-		public string ServerAddress { get; set; }
-		public string PlayerName { get; set; }
+		public ConnectionStatus ConnectionStatus
+		{
+			get { return connectionStatus; }
+			private set {PropertyChanged.ChangeAndNotify(this, ref connectionStatus, value); }
+		}
+
+		public string ServerAddress
+		{
+			get { return serverAddress; }
+			set { PropertyChanged.ChangeAndNotify(this, ref serverAddress, value); }
+		}
+
+		public string PlayerName
+		{
+			get { return playerName; }
+			set { PropertyChanged.ChangeAndNotify(this, ref playerName, value); }
+		}
 
 		public string Response
 		{

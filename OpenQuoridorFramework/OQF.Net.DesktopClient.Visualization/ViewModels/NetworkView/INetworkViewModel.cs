@@ -1,12 +1,15 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
+using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 {
 	public interface INetworkViewModel : IViewModel
 	{
+		ConnectionStatus ConnectionStatus { get; }
+
 		ICommand ConnectToServer { get; }
 		ICommand CreateGame { get; }
 		ICommand JoinGame { get; }

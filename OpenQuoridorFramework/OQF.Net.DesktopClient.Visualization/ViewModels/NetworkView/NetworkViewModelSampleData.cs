@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
@@ -9,6 +10,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 	{
 		public NetworkViewModelSampleData()
 		{
+			ConnectionStatus = ConnectionStatus.Connected;
+			 
 			ServerAddress = "10.10.10.10";
 			Response = "positive";
 			PlayerName = "xelor";
@@ -25,6 +28,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 			SelectedOpenGame = AvailableOpenGames[2];
 		}
+
+		public ConnectionStatus ConnectionStatus { get; }
 
 		public ICommand ConnectToServer => null;
 		public ICommand CreateGame => null;
