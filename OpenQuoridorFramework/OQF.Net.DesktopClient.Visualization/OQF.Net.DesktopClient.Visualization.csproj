@@ -61,6 +61,9 @@
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
     <Compile Include="ViewModels\BoardPlacement\IBoardPlacementViewModel.cs" />
+    <Compile Include="ViewModels\LocalPlayerBar\ILocalPlayerBarViewModel.cs" />
+    <Compile Include="ViewModels\LocalPlayerBar\LocalPlayerBarViewModel.cs" />
+    <Compile Include="ViewModels\LocalPlayerBar\LocalPlayerBarViewModelSampleData.cs" />
     <Compile Include="ViewModels\MainWindow\Helper\GameDisplayData.cs" />
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
@@ -70,6 +73,9 @@
     </Compile>
     <Compile Include="Views\BoardPlacement.xaml.cs">
       <DependentUpon>BoardPlacement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocalPlayerBar.xaml.cs">
+      <DependentUpon>LocalPlayerBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -83,6 +89,10 @@
     <Page Include="Views\BoardPlacement.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LocalPlayerBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -138,6 +148,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
