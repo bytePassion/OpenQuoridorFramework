@@ -40,16 +40,15 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 		{
 			InitiatorPlayerName = networkGameService.PlayerName;
 			OpponentPlayerName = s;
-			GameName = networkGameService.GameName;
+			GameName = networkGameService.GameName + ":";
 		}
 
 		private void OnJoinSuccessful(string s)
 		{
 			InitiatorPlayerName = s;
 			OpponentPlayerName = networkGameService.PlayerName;
-			GameName = networkGameService.GameName;
+			GameName = networkGameService.GameName + ":";
 		}
-
 		
 
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }

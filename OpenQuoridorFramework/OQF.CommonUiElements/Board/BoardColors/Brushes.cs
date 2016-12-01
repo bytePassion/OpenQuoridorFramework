@@ -19,10 +19,10 @@ namespace OQF.CommonUiElements.Board.BoardColors
 			EndPoint = new Point(0.5, 1),
 			StartPoint = new Point(0.5, 0),
 			GradientStops = new GradientStopCollection()
-				{
-					new GradientStop(Color.FromRgb(241, 241, 241), 0.159),
-					new GradientStop(Color.FromRgb(178, 178, 178), 0.674)
-				}
+							{
+								new GradientStop(Color.FromRgb(241, 241, 241), 0.159),
+								new GradientStop(Color.FromRgb(178, 178, 178), 0.674)
+							}
 		};
 
 		public static readonly Brush TopPlayerActiveColor = new LinearGradientBrush()
@@ -31,10 +31,10 @@ namespace OQF.CommonUiElements.Board.BoardColors
 			EndPoint = new Point(0.5, 1),
 			StartPoint = new Point(0.5, 0),
 			GradientStops = new GradientStopCollection()
-				{
-					new GradientStop(Color.FromRgb(122, 122, 122), 0.159),
-					new GradientStop(Color.FromRgb(48, 48, 48), 0.674)
-				}
+							{
+								new GradientStop(Color.FromRgb(122, 122, 122), 0.159),
+								new GradientStop(Color.FromRgb(48, 48, 48), 0.674)
+							}
 		};
 	}
 }
