@@ -6,26 +6,31 @@
              xmlns:helper="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper"
              xmlns:networkView="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="700" d:DesignWidth="300">
 	
 	<d:DesignData.DataContext>
 		<networkView:NetworkViewModelSampleData/>
 	</d:DesignData.DataContext>
 	
-	<StackPanel>
+	<StackPanel Width="300">
 
-		<Label Content="enter server address:"/>
-		<TextBox Text="{Binding ServerAddress,
-												Mode=TwoWay,
-												UpdateSourceTrigger=PropertyChanged}"/>
-		<Label Content="enter player name:"
-							   Margin="0,10,0,0"/>
-		<TextBox Text="{Binding PlayerName,
-												Mode=TwoWay,
-												UpdateSourceTrigger=PropertyChanged}"/>
-		<Button Content="Connect to Server" 
-								Command="{Binding ConnectToServer}"
-								Margin="0,5,0,0"/>
+		<StackPanel>
+			<Label Content="enter server address:"/>
+			<TextBox Text="{Binding ServerAddress,
+									Mode=TwoWay,
+									UpdateSourceTrigger=PropertyChanged}"/>
+			<Label Content="enter player name:"
+					Margin="0,10,0,0"/>
+			<TextBox Text="{Binding PlayerName,
+									Mode=TwoWay,
+									UpdateSourceTrigger=PropertyChanged}"/>
+			<Button Content="Connect to Server" 
+					Command="{Binding ConnectToServer}"
+					Margin="0,5,0,0"/>
+		</StackPanel>
+		
+		
+		
 		<Label Content="enter new game name:"
 							   Margin="0,10,0,0"/>
 		<TextBox Text="{Binding NewGameName,

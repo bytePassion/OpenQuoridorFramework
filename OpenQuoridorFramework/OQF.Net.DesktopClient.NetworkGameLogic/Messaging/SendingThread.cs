@@ -10,8 +10,6 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic.Messaging
 {
 	internal class SendingThread : IThread
 	{
-		public event Action<NetworkMessageBase> SendingError;
-
 		private readonly Address serverAddress;
 		private readonly TimeoutBlockingQueue<NetworkMessageBase> outgoingMessageQueue;
 
@@ -42,7 +40,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic.Messaging
 
 					if (!wasSendingSuccessful)
 					{
-						SendingError?.Invoke(nextMessage);
+						// TODO report error
 					}
 				}
 			}

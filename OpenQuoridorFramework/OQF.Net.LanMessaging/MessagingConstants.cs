@@ -13,6 +13,7 @@ namespace OQF.Net.LanMessaging
 		public static class Timeout
 		{
 			public const uint StandardSendingTimeout = 2000;
+			public const uint ClientConnectionTimeout = 5000;
 		}
 	}
 }

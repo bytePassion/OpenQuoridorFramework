@@ -29,8 +29,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 			networkGameService.JoinSuccessful += NetworkGameServiceOnJoinSuccessful;
 			networkGameService.OpendGameIsStarting += OnOpendGameIsStarting;
 			networkGameService.GameOver += OnGameOver;
-			networkGameService.GotConnected += OnGotConnected;
+			networkGameService.ConnectionStatusChanged += OnConnectionStatusChanged;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
+			
 
 			AvailableOpenGames = new ObservableCollection<GameDisplayData>();
 
@@ -39,7 +40,15 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 			JoinGame = new Command(DoJoinGame);
 		}
 
+		private void OnConnectionStatusChanged(ConnectionStatus connectionStatus)
+		{
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				Response = $"ConnectionStatus: {connectionStatus}";
+			});
+		}
 
+	
 		public ICommand ConnectToServer { get; }
 		public ICommand CreateGame { get; }
 		public ICommand JoinGame { get; }
@@ -103,15 +112,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 				Response = "join error";
 			});
 		}
-
-		private void OnGotConnected ()
-		{
-			Application.Current.Dispatcher.Invoke(() =>
-			{
-				Response = "positive";
-			});
-		}
-
+		
 		private void DoConnect ()
 		{
 			networkGameService.ConnectToServer(AddressIdentifier.GetIpAddressIdentifierFromString(ServerAddress), PlayerName);
@@ -134,7 +135,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 		protected override void CleanUp ()
 		{
-			
+			// TODO
 		}
 		public override event PropertyChangedEventHandler PropertyChanged;
 

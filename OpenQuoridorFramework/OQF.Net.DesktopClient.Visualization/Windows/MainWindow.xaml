@@ -186,7 +186,8 @@
 						</TextBlock>
 					</Expander.Header>
 
-					<views:NetworkView DataContext="{Binding NetworkViewModel}"/>
+					<views:NetworkView DataContext="{Binding NetworkViewModel}"
+									   Margin="10,5,0,5"/>
 				</Expander>
 
 			</materialDesign:Card>

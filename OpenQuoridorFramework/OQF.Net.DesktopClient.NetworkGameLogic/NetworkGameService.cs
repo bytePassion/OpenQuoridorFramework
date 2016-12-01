@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using Lib.Communication.State;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.NetworkGameLogic.Messaging;
+using OQF.Net.LanMessaging;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.NetworkMessageBase;
 using OQF.Net.LanMessaging.NetworkMessages.Notifications;
@@ -17,8 +19,11 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 {
 	public class NetworkGameService : INetworkGameService
 	{
+		
+
 		private readonly ISharedStateWriteOnly<bool> isBoardRotatedVariable;
-		public event Action GotConnected;
+
+		public event Action<ConnectionStatus> ConnectionStatusChanged;
 		public event Action<IDictionary<NetworkGameId, string>> UpdatedGameListAvailable;
 		public event Action JoinError;
 		public event Action<string> JoinSuccessful;
@@ -30,6 +35,9 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		private ClientId clientId;
 		private BoardState currentBoardState;
 
+		private Timer connectionTimeoutTimer;
+		private ConnectionStatus currentConnectionStatus;
+
 		public NetworkGameService(ISharedStateWriteOnly<bool> isBoardRotatedVariable)
 		{
 			this.isBoardRotatedVariable = isBoardRotatedVariable;
@@ -39,8 +47,9 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			BottomPlayer = null;
 			ClientPlayer = null;
 			OpponendPlayer = null;
-		}
 
+			CurrentConnectionStatus = ConnectionStatus.NotConnected;			
+		}
 
 		public BoardState CurrentBoardState
 		{
@@ -51,9 +60,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 				NewBoardStateAvailable?.Invoke(CurrentBoardState);
 			}
 		}
-
 		
-
 		public NetworkGameId CurrentGameId { get; private set; }
 
 		public string PlayerName { get; private set; }
@@ -65,17 +72,48 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		public Player OpponendPlayer { get; private set; }
 
 
-		
+		public ConnectionStatus CurrentConnectionStatus
+		{
+			get { return currentConnectionStatus; }
+			set
+			{
+				currentConnectionStatus = value;
+				ConnectionStatusChanged?.Invoke(CurrentConnectionStatus);
+			}
+		}
+
 
 		public void ConnectToServer(AddressIdentifier serverAddress, string playerName)
 		{
-			PlayerName = playerName;
-			clientId = new ClientId(Guid.NewGuid());
-			messagingService = new ClientMessaging(new Address(new TcpIpProtocol(), serverAddress), clientId);
-			messagingService.NewIncomingMessage += OnNewIncomingMessage;
+			if (CurrentConnectionStatus == ConnectionStatus.NotConnected)
+			{
+				PlayerName = playerName;
+				clientId = new ClientId(Guid.NewGuid());
+				messagingService = new ClientMessaging(new Address(new TcpIpProtocol(), serverAddress), clientId);
+				messagingService.NewIncomingMessage += OnNewIncomingMessage;
 
+				connectionTimeoutTimer = new Timer(OnConnectionTimeout, 
+												   null, 
+												   TimeSpan.FromMilliseconds(MessagingConstants.Timeout.ClientConnectionTimeout), 
+												   TimeSpan.FromSeconds(1));
 
-			messagingService.SendMessage(new ConnectToServerRequest(clientId, playerName));
+				CurrentConnectionStatus = ConnectionStatus.TryingToConnect;
+
+				messagingService.SendMessage(new ConnectToServerRequest(clientId, playerName));
+			}		
+		}
+
+		private void OnConnectionTimeout(object state)
+		{
+			if (CurrentConnectionStatus != ConnectionStatus.Connected)
+			{
+				Disconnect();
+				CurrentConnectionStatus = ConnectionStatus.NotConnected;
+			}
+				
+			connectionTimeoutTimer.Change(Timeout.Infinite, Timeout.Infinite);
+			connectionTimeoutTimer.Dispose();
+			connectionTimeoutTimer = null;
 		}
 
 		public void CreateGame(string gameName, NetworkGameId gameId)
@@ -126,7 +164,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			{
 				case NetworkMessageType.ConnectToServerResponse:
 				{
-					GotConnected?.Invoke();
+					CurrentConnectionStatus = ConnectionStatus.Connected;					
 					break;
 				}
 				case NetworkMessageType.OpenGameListUpdateNotification:
@@ -197,7 +235,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			}
 		}
 
-		public void Dissconnect()
+		public void Disconnect()
 		{
 			clientId = null;
 			messagingService?.Dispose();

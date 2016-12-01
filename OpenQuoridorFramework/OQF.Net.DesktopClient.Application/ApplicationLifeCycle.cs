@@ -58,7 +58,7 @@ namespace OQF.Net.DesktopClient.Application
 
 		public void CleanUp (ExitEventArgs exitEventArgs)
 		{
-			networkGameService.Dissconnect();
+			networkGameService.Disconnect();
 		}
 	}
 }

@@ -11,7 +11,7 @@ namespace OQF.Net.DesktopClient.Contracts
 {
 	public interface INetworkGameService : IBoardStateProvider
 	{
-		event Action GotConnected;
+		event Action<ConnectionStatus> ConnectionStatusChanged;		
 		event Action<IDictionary<NetworkGameId, string>> UpdatedGameListAvailable;
 		event Action JoinError;
 		event Action<string> JoinSuccessful;
@@ -19,6 +19,7 @@ namespace OQF.Net.DesktopClient.Contracts
 		event Action<bool, WinningReason> GameOver;
 		
 		NetworkGameId CurrentGameId { get; }
+		ConnectionStatus CurrentConnectionStatus { get; }
 
 		string PlayerName { get; }
 		string GameName   { get; }
@@ -32,7 +33,7 @@ namespace OQF.Net.DesktopClient.Contracts
 		void CreateGame(string gameName, NetworkGameId gameId);
 		void JoinGame(NetworkGameId gameId, string gameName);
 		void SubmitMove(Move nextMove);
-
-		void Dissconnect(); 
+		
+		void Disconnect(); 
 	}
 }
