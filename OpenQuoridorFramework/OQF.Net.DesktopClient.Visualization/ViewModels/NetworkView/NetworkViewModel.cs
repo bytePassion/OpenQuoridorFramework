@@ -13,7 +13,6 @@ using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.Types;
-using OQF.Utils.Enum;
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 {
@@ -24,16 +23,19 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		private string serverAddress;
 		private string playerName;
 		private ConnectionStatus connectionStatus;
+		private GameStatus gameStatus;
 
 		public NetworkViewModel(INetworkGameService networkGameService)
 		{
 			this.networkGameService = networkGameService;
 
-			networkGameService.JoinError += OnJoinError;
-			networkGameService.JoinSuccessful += NetworkGameServiceOnJoinSuccessful;
-			networkGameService.OpendGameIsStarting += OnOpendGameIsStarting;
-			networkGameService.GameOver += OnGameOver;
-			networkGameService.ConnectionStatusChanged += OnConnectionStatusChanged;
+//			networkGameService.JoinError += OnJoinError;
+//			networkGameService.JoinSuccessful += NetworkGameServiceOnJoinSuccessful;
+//			networkGameService.OpendGameIsStarting += OnOpendGameIsStarting;
+//			networkGameService.GameOver += OnGameOver;
+
+			networkGameService.ConnectionStatusChanged  += OnConnectionStatusChanged;
+			networkGameService.GameStatusChanged        += OnGameStatusChanged;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
 			
 
@@ -47,6 +49,15 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 			CreateGame = new Command(DoCreateGame);
 			JoinGame = new Command(DoJoinGame);
+		}
+
+		private void OnGameStatusChanged(GameStatus newGameStatus)
+		{
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				Response = $"Gamestatus: {newGameStatus}";
+				GameStatus = newGameStatus;
+			});
 		}
 
 		private bool IsConnectPossible()
@@ -64,11 +75,19 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 				ConnectionStatus = newConnectionStatus;
 			});
 		}
-	
+
+		
 		public ICommand ConnectToServer { get; }
 		public ICommand CreateGame { get; }
 		public ICommand JoinGame { get; }
 		public string NewGameName { get; set; }
+
+
+		public GameStatus GameStatus
+		{
+			get { return gameStatus; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref gameStatus, value); }
+		}
 
 		public ConnectionStatus ConnectionStatus
 		{
@@ -111,38 +130,38 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 			});
 		}
 
-		private void OnGameOver (bool b, WinningReason winningReason)
-		{
-			Application.Current.Dispatcher.Invoke(() =>
-			{
-				var msg = b ? "won" : "lost";
-				Response = $"game is {msg} because {winningReason}";
-			});
-		}
+//		private void OnGameOver (bool b, WinningReason winningReason)
+//		{
+//			Application.Current.Dispatcher.Invoke(() =>
+//			{
+//				var msg = b ? "won" : "lost";
+//				Response = $"game is {msg} because {winningReason}";
+//			});
+//		}
 
-		private void OnOpendGameIsStarting (string s)
-		{
-			Application.Current.Dispatcher.Invoke(() =>
-			{
-				Response = $"game is starting with {s}";
-			});
-		}
-
-		private void NetworkGameServiceOnJoinSuccessful (string s)
-		{
-			Application.Current.Dispatcher.Invoke(() =>
-			{
-				Response = $"join successful with {s}";
-			});
-		}
-
-		private void OnJoinError ()
-		{
-			Application.Current.Dispatcher.Invoke(() =>
-			{
-				Response = "join error";
-			});
-		}
+//		private void OnOpendGameIsStarting (string s)
+//		{
+//			Application.Current.Dispatcher.Invoke(() =>
+//			{
+//				Response = $"game is starting with {s}";
+//			});
+//		}
+//
+//		private void NetworkGameServiceOnJoinSuccessful (string s)
+//		{
+//			Application.Current.Dispatcher.Invoke(() =>
+//			{
+//				Response = $"join successful with {s}";
+//			});
+//		}
+//
+//		private void OnJoinError ()
+//		{
+//			Application.Current.Dispatcher.Invoke(() =>
+//			{
+//				Response = "join error";
+//			});
+//		}
 		
 		private void DoConnect ()
 		{

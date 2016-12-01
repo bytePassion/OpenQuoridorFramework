@@ -11,7 +11,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		public NetworkViewModelSampleData()
 		{
 			ConnectionStatus = ConnectionStatus.Connected;
-			 
+			GameStatus = GameStatus.PlayingOpendGame; 
+
 			ServerAddress = "10.10.10.10";
 			Response = "positive";
 			PlayerName = "xelor";
@@ -30,6 +31,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		}
 
 		public ConnectionStatus ConnectionStatus { get; }
+		public GameStatus GameStatus { get; }
 
 		public ICommand ConnectToServer => null;
 		public ICommand CreateGame => null;

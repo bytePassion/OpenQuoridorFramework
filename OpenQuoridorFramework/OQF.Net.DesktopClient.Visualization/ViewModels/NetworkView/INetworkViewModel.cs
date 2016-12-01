@@ -9,14 +9,15 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 	public interface INetworkViewModel : IViewModel
 	{
 		ConnectionStatus ConnectionStatus { get; }
+		GameStatus GameStatus { get; }
 
 		ICommand ConnectToServer { get; }
-		ICommand CreateGame { get; }
-		ICommand JoinGame { get; }
+		ICommand CreateGame      { get; }
+		ICommand JoinGame        { get; }
 
-		string NewGameName { get; set; }
+		string NewGameName   { get; set; }
 		string ServerAddress { get; set; }
-		string PlayerName { get; set; }
+		string PlayerName    { get; set; }
 
 		string Response { get; }
 
