@@ -4,6 +4,8 @@ using System.Windows.Input;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 
+#pragma warning disable 0067
+
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 {
 	internal class NetworkViewModelSampleData : INetworkViewModel
@@ -11,10 +13,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		public NetworkViewModelSampleData()
 		{
 			ConnectionStatus = ConnectionStatus.Connected;
-			GameStatus = GameStatus.PlayingOpendGame; 
+			GameStatus = GameStatus.NoGame; 
 
-			ServerAddress = "10.10.10.10";
-			Response = "positive";
+			ServerAddress = "10.10.10.10";			
 			PlayerName = "xelor";
 			NewGameName = "myGame01";
 
@@ -33,9 +34,12 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		public ConnectionStatus ConnectionStatus { get; }
 		public GameStatus GameStatus { get; }
 
-		public ICommand ConnectToServer => null;
-		public ICommand CreateGame => null;
-		public ICommand JoinGame => null;
+		public ICommand ConnectToServer      => null;
+		public ICommand DisconnectFromServer => null;
+		public ICommand CreateGame           => null;
+		public ICommand CancelCreatedGame    => null;
+		public ICommand JoinGame             => null;
+		public ICommand LeaveGame            => null;
 
 		public string NewGameName { get; set; }
 		public string ServerAddress { get; set; }

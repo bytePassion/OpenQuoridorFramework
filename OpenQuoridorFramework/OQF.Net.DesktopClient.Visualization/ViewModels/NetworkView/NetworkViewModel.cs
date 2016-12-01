@@ -24,63 +24,74 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		private string playerName;
 		private ConnectionStatus connectionStatus;
 		private GameStatus gameStatus;
+		private string newGameName;
+		private GameDisplayData selectedOpenGame;
 
 		public NetworkViewModel(INetworkGameService networkGameService)
 		{
 			this.networkGameService = networkGameService;
 
-//			networkGameService.JoinError += OnJoinError;
-//			networkGameService.JoinSuccessful += NetworkGameServiceOnJoinSuccessful;
-//			networkGameService.OpendGameIsStarting += OnOpendGameIsStarting;
-//			networkGameService.GameOver += OnGameOver;
-
 			networkGameService.ConnectionStatusChanged  += OnConnectionStatusChanged;
 			networkGameService.GameStatusChanged        += OnGameStatusChanged;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
 			
-
 			AvailableOpenGames = new ObservableCollection<GameDisplayData>();
 
 			ConnectToServer = new Command(DoConnect,
-										  IsConnectPossible,
+										  () => ConnectionStatus == ConnectionStatus.NotConnected &&
+												!string.IsNullOrWhiteSpace(PlayerName) &&
+												AddressIdentifier.IsIpAddressIdentifier(ServerAddress),
 										  new PropertyChangedCommandUpdater(this, nameof(PlayerName),
 																				  nameof(ServerAddress),
 																				  nameof(ConnectionStatus)));
 
-			CreateGame = new Command(DoCreateGame);
-			JoinGame = new Command(DoJoinGame);
+			CreateGame = new Command(DoCreateGame,
+									 () => !string.IsNullOrWhiteSpace(NewGameName) && 
+										   (GameStatus == GameStatus.GameOver || GameStatus == GameStatus.NoGame),
+									 new PropertyChangedCommandUpdater(this, nameof(NewGameName), nameof(GameStatus)));
+
+			JoinGame = new Command(DoJoinGame,
+								   () => SelectedOpenGame != null &&
+										 (GameStatus == GameStatus.GameOver || GameStatus == GameStatus.NoGame),
+								   new PropertyChangedCommandUpdater(this, nameof(SelectedOpenGame), nameof(GameStatus)));
+
+			DisconnectFromServer = new Command(DoDisconnectFromServer,
+											   () => ConnectionStatus == ConnectionStatus.Connected,
+											   new PropertyChangedCommandUpdater(this, nameof(ConnectionStatus)));
+
+			CancelCreatedGame = new Command(DoCancelCreatedGame,
+											() => GameStatus == GameStatus.WaitingForOponend,
+											new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
+
+			LeaveGame = new Command(DoLeaveGame,
+									() => GameStatus == GameStatus.PlayingJoinedGame || GameStatus == GameStatus.PlayingOpendGame,
+									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
 		}
 
 		private void OnGameStatusChanged(GameStatus newGameStatus)
 		{
 			Application.Current.Dispatcher.Invoke(() =>
-			{
-				Response = $"Gamestatus: {newGameStatus}";
+			{				
 				GameStatus = newGameStatus;
 			});
-		}
-
-		private bool IsConnectPossible()
-		{
-			return ConnectionStatus == ConnectionStatus.NotConnected &&
-			       !string.IsNullOrWhiteSpace(PlayerName) &&
-			       AddressIdentifier.IsIpAddressIdentifier(ServerAddress);
 		}
 
 		private void OnConnectionStatusChanged(ConnectionStatus newConnectionStatus)
 		{
 			Application.Current.Dispatcher.Invoke(() =>
-			{
-				Response = $"ConnectionStatus: {newConnectionStatus}";
+			{				
 				ConnectionStatus = newConnectionStatus;
 			});
 		}
 
 		
-		public ICommand ConnectToServer { get; }
-		public ICommand CreateGame { get; }
-		public ICommand JoinGame { get; }
-		public string NewGameName { get; set; }
+		public ICommand ConnectToServer      { get; }
+		public ICommand DisconnectFromServer { get; }
+		public ICommand CreateGame           { get; }
+		public ICommand CancelCreatedGame    { get; }
+		public ICommand JoinGame             { get; }
+		public ICommand LeaveGame            { get; }
+		
 
 
 		public GameStatus GameStatus
@@ -101,16 +112,22 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 			set { PropertyChanged.ChangeAndNotify(this, ref serverAddress, value); }
 		}
 
+		public string NewGameName
+		{
+			get { return newGameName; }
+			set { PropertyChanged.ChangeAndNotify(this, ref newGameName, value); }
+		}
+
 		public string PlayerName
 		{
 			get { return playerName; }
 			set { PropertyChanged.ChangeAndNotify(this, ref playerName, value); }
 		}
 
-		public string Response
+		public GameDisplayData SelectedOpenGame
 		{
-			get { return response; }
-			private set { PropertyChanged.ChangeAndNotify(this, ref response, value); }
+			get { return selectedOpenGame; }
+			set { PropertyChanged.ChangeAndNotify(this, ref selectedOpenGame, value); }
 		}
 
 		private void OnUpdatedGameListAvailable (IDictionary<NetworkGameId, string> newGameList)
@@ -129,39 +146,6 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 				// TODO: restore selection;
 			});
 		}
-
-//		private void OnGameOver (bool b, WinningReason winningReason)
-//		{
-//			Application.Current.Dispatcher.Invoke(() =>
-//			{
-//				var msg = b ? "won" : "lost";
-//				Response = $"game is {msg} because {winningReason}";
-//			});
-//		}
-
-//		private void OnOpendGameIsStarting (string s)
-//		{
-//			Application.Current.Dispatcher.Invoke(() =>
-//			{
-//				Response = $"game is starting with {s}";
-//			});
-//		}
-//
-//		private void NetworkGameServiceOnJoinSuccessful (string s)
-//		{
-//			Application.Current.Dispatcher.Invoke(() =>
-//			{
-//				Response = $"join successful with {s}";
-//			});
-//		}
-//
-//		private void OnJoinError ()
-//		{
-//			Application.Current.Dispatcher.Invoke(() =>
-//			{
-//				Response = "join error";
-//			});
-//		}
 		
 		private void DoConnect ()
 		{
@@ -179,13 +163,30 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 			networkGameService.JoinGame(SelectedOpenGame.GameId, SelectedOpenGame.GameName);
 		}
 
-		public ObservableCollection<GameDisplayData> AvailableOpenGames { get; }
+		private void DoLeaveGame()
+		{
+			// TODO: ask user
+			networkGameService.LeaveGame();
+		}
 
-		public GameDisplayData SelectedOpenGame { get; set; }
+		private void DoCancelCreatedGame()
+		{
+			networkGameService.CancelCreatedGame();
+		}
+
+		private void DoDisconnectFromServer()
+		{
+			// TODO: ask user
+			networkGameService.Disconnect();
+		}
+
+		public ObservableCollection<GameDisplayData> AvailableOpenGames { get; }		
 
 		protected override void CleanUp ()
 		{
-			// TODO
+			networkGameService.ConnectionStatusChanged  += OnConnectionStatusChanged;
+			networkGameService.GameStatusChanged        += OnGameStatusChanged;
+			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;
 		}
 		public override event PropertyChangedEventHandler PropertyChanged;
 

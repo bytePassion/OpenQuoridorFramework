@@ -14,9 +14,9 @@ namespace OQF.Net.DesktopClient.Contracts
 		event Action<ConnectionStatus> ConnectionStatusChanged;
 		event Action<GameStatus> GameStatusChanged;
 		event Action<IDictionary<NetworkGameId, string>> UpdatedGameListAvailable;
-		event Action JoinError;
-		event Action<string> JoinSuccessful;
-		event Action<string> OpendGameIsStarting;		
+		event Action JoinError;                    
+		event Action<string> JoinSuccessful;			// TODO: delete
+		event Action<string> OpendGameIsStarting;       // TODO: delete
 		event Action<bool, WinningReason> GameOver;
 		
 		NetworkGameId CurrentGameId { get; }
@@ -34,6 +34,8 @@ namespace OQF.Net.DesktopClient.Contracts
 		void ConnectToServer(AddressIdentifier serverAddress, string playerName);
 		void CreateGame(string gameName, NetworkGameId gameId);
 		void JoinGame(NetworkGameId gameId, string gameName);
+		void LeaveGame();
+		void CancelCreatedGame();
 		void SubmitMove(Move nextMove);
 		
 		void Disconnect(); 

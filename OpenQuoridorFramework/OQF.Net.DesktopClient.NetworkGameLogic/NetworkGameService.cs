@@ -158,6 +158,16 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 				messagingService.SendMessage(new JoinGameRequest(clientId, gameId));
 		}
 
+		public void LeaveGame()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void CancelCreatedGame()
+		{
+			throw new NotImplementedException();
+		}
+
 		public void SubmitMove(Move nextMove)
 		{
 			if (clientId != null && CurrentGameId != null)
@@ -253,6 +263,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		public void Disconnect()
 		{
+			CurrentConnectionStatus = ConnectionStatus.NotConnected;
+			CurrentGameStatus = GameStatus.NoGame;
 			clientId = null;
 			messagingService?.Dispose();
 		}		

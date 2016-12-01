@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
              xmlns:helper="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper"
              xmlns:networkView="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView"
+             xmlns:computations="clr-namespace:OQF.Net.DesktopClient.Visualization.Computations"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="300">
 	
@@ -12,9 +13,32 @@
 		<networkView:NetworkViewModelSampleData/>
 	</d:DesignData.DataContext>
 	
+	<UserControl.Resources>
+		<computations:ConnectionPanelVisibility x:Key="ConnectionPanelVisibility"/>
+		<computations:DisconnectPanelVisibility x:Key="DisconnectPanelVisibility"/>
+		<computations:ConnectionDisplayText x:Key="ConnectionDisplayText"/>
+		<computations:ConnectionDisplayBackground x:Key="ConnectionDisplayBackground"/>
+		<computations:CreateGamePanelVisibility x:Key="CreateGamePanelVisibility"/>
+		<computations:LeaveGamePanelVisiblity x:Key="LeaveGamePanelVisiblity"/>
+	</UserControl.Resources>
+	
 	<StackPanel Width="300">
 
-		<StackPanel>
+		<Border BorderBrush="Black"
+				BorderThickness="2"
+				CornerRadius="5"
+				Margin="0,0,0,20"
+				Background="{Binding ConnectionStatus, Converter={StaticResource ConnectionDisplayBackground}}">
+			
+			<TextBlock Text="{Binding ConnectionStatus, Converter={StaticResource ConnectionDisplayText}}"
+					   HorizontalAlignment="Center"
+					   VerticalAlignment="Center"/>
+			
+		</Border>
+		
+		
+		<StackPanel Visibility="{Binding ConnectionStatus, Converter={StaticResource ConnectionPanelVisibility}}"
+					Margin="0,0,0,20">
 			<Label Content="enter server address:"/>
 			<TextBox Text="{Binding ServerAddress,
 									Mode=TwoWay,
@@ -27,35 +51,73 @@
 			<Button Content="Connect to Server" 
 					Command="{Binding ConnectToServer}"
 					Margin="0,5,0,0"/>
+			
 		</StackPanel>
 		
+			
+		<StackPanel Visibility="{Binding ConnectionStatus, Converter={StaticResource DisconnectPanelVisibility}}"
+					Margin="0,0,0,20">
+
+			<Button Content="Disconnect from Server" 
+					Command="{Binding DisconnectFromServer}"/>
+
+		</StackPanel>
 		
-		
-		<Label Content="enter new game name:"
+		<StackPanel Margin="0,0,0,20">
+					
+			<StackPanel.Visibility>
+				<MultiBinding Converter="{StaticResource CreateGamePanelVisibility}">
+					<Binding Path="ConnectionStatus"/>
+					<Binding Path="GameStatus"/>
+				</MultiBinding>
+			</StackPanel.Visibility>
+			
+			<Label Content="enter new game name:"
 							   Margin="0,10,0,0"/>
-		<TextBox Text="{Binding NewGameName,
+			<TextBox Text="{Binding NewGameName,
 												Mode=TwoWay,
 												UpdateSourceTrigger=PropertyChanged}"/>
-		<Button Content="Create New Game" 
+			<Button Content="Create New Game" 
 								Command="{Binding CreateGame}"
-								Margin="0,5,0,0"/>
-		<Label Content="open game list:"
+								Margin="0,5,0,5"/>
+
+			<Button Content="Cancel created Game" 
+					Command="{Binding CancelCreatedGame}"/>
+
+
+			<Label Content="open game list:"
 							   Margin="0,10,0,0"/>
-		<ListBox ItemsSource="{Binding AvailableOpenGames}"
+			<ListBox ItemsSource="{Binding AvailableOpenGames}"
 								 SelectionMode="Single"
 								 SelectedItem="{Binding SelectedOpenGame,
 													    Mode=TwoWay,
 									                    UpdateSourceTrigger=PropertyChanged}">
-			<ListBox.ItemTemplate>
-				<DataTemplate DataType="helper:GameDisplayData">
-					<TextBlock Text="{Binding GameName}"/>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
-		<Button Content="Join Game" 
-								Command="{Binding JoinGame}"
-								Margin="0,5,0,0"/>
-		<TextBlock Margin="0,10,0,0"
-								   Text="{Binding Response}"/>
+				<ListBox.ItemTemplate>
+					<DataTemplate DataType="helper:GameDisplayData">
+						<TextBlock Text="{Binding GameName}"/>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+			
+			<Button Content="Join Game" 
+					Command="{Binding JoinGame}"
+					Margin="0,5,0,0"/>
+
+		</StackPanel>
+
+		<StackPanel >
+
+			<StackPanel.Visibility>
+				<MultiBinding Converter="{StaticResource LeaveGamePanelVisiblity}">
+					<Binding Path="ConnectionStatus"/>
+					<Binding Path="GameStatus"/>
+				</MultiBinding>
+			</StackPanel.Visibility>
+
+			<Button Content="Leave Game"
+					Command="{Binding LeaveGame}"/>
+			
+		</StackPanel>
+										
 	</StackPanel>
 </UserControl>

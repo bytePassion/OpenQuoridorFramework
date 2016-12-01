@@ -11,15 +11,16 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		ConnectionStatus ConnectionStatus { get; }
 		GameStatus GameStatus { get; }
 
-		ICommand ConnectToServer { get; }
-		ICommand CreateGame      { get; }
-		ICommand JoinGame        { get; }
+		ICommand ConnectToServer      { get; }
+		ICommand DisconnectFromServer { get; }
+		ICommand CreateGame           { get; }
+		ICommand CancelCreatedGame    { get; }
+		ICommand JoinGame             { get; }
+		ICommand LeaveGame            { get; }
 
 		string NewGameName   { get; set; }
 		string ServerAddress { get; set; }
-		string PlayerName    { get; set; }
-
-		string Response { get; }
+		string PlayerName    { get; set; }		
 
 		ObservableCollection<GameDisplayData> AvailableOpenGames { get; }
 		GameDisplayData SelectedOpenGame { get; set; }

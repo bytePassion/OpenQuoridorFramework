@@ -54,7 +54,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behaviors\ReportRelativeMousePositionBehavior.cs" />
+    <Compile Include="Computations\ConnectionDisplayBackground.cs" />
+    <Compile Include="Computations\ConnectionDisplayText.cs" />
+    <Compile Include="Computations\ConnectionPanelVisibility.cs" />
+    <Compile Include="Computations\CreateGamePanelVisibility.cs" />
+    <Compile Include="Computations\DisconnectPanelVisibility.cs" />
     <Compile Include="Computations\GetLocalPlayerIconBrush.cs" />
+    <Compile Include="Computations\LeaveGamePanelVisiblity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ActionBar\ActionBarViewModel.cs" />
     <Compile Include="ViewModels\ActionBar\ActionBarViewModelSampleData.cs" />
