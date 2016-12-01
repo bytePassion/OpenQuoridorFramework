@@ -18,12 +18,11 @@ using OQF.Utils.Enum;
 namespace OQF.Net.DesktopClient.NetworkGameLogic
 {
 	public class NetworkGameService : INetworkGameService
-	{
-		
-
+	{		
 		private readonly ISharedStateWriteOnly<bool> isBoardRotatedVariable;
 
 		public event Action<ConnectionStatus> ConnectionStatusChanged;
+		public event Action<GameStatus> GameStatusChanged;
 		public event Action<IDictionary<NetworkGameId, string>> UpdatedGameListAvailable;
 		public event Action JoinError;
 		public event Action<string> JoinSuccessful;
@@ -37,6 +36,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		private Timer connectionTimeoutTimer;
 		private ConnectionStatus currentConnectionStatus;
+		private GameStatus currentGameStatus;
 
 		public NetworkGameService(ISharedStateWriteOnly<bool> isBoardRotatedVariable)
 		{
@@ -48,7 +48,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			ClientPlayer = null;
 			OpponendPlayer = null;
 
-			CurrentConnectionStatus = ConnectionStatus.NotConnected;			
+			CurrentConnectionStatus = ConnectionStatus.NotConnected;		
+			CurrentGameStatus = GameStatus.NoGame;	
 		}
 
 		public BoardState CurrentBoardState
@@ -62,15 +63,23 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		}
 		
 		public NetworkGameId CurrentGameId { get; private set; }
-
-		public string PlayerName { get; private set; }
-		public string GameName { get; private set; }
-
-		public Player TopPlayer { get; private set; }
-		public Player BottomPlayer { get; private set; }
-		public Player ClientPlayer { get; private set; }
+		
+		public string PlayerName     { get; private set; }
+		public string GameName       { get; private set; }
+		public Player TopPlayer      { get; private set; }
+		public Player BottomPlayer   { get; private set; }
+		public Player ClientPlayer   { get; private set; }
 		public Player OpponendPlayer { get; private set; }
 
+		public GameStatus CurrentGameStatus
+		{
+			get { return currentGameStatus; }
+			private set
+			{
+				currentGameStatus = value;
+				GameStatusChanged?.Invoke(CurrentGameStatus);
+			}
+		}
 
 		public ConnectionStatus CurrentConnectionStatus
 		{
@@ -128,7 +137,10 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			OpponendPlayer = null;
 
 			if (clientId != null)
+			{
+				CurrentGameStatus = GameStatus.WaitingForOponend;				
 				messagingService.SendMessage(new CreateGameRequest(clientId, gameName, gameId));
+			}				
 		}
 
 		public void JoinGame(NetworkGameId gameId, string gameName)
@@ -198,10 +210,12 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 						ClientPlayer   = TopPlayer;
 						OpponendPlayer = BottomPlayer;
 
+						CurrentGameStatus = GameStatus.PlayingJoinedGame;
 						JoinSuccessful?.Invoke(msg.OpponendPlayerName);
 					}
 					else
 					{
+						CurrentGameStatus = GameStatus.NoGame;
 						CurrentGameId = null;
 						JoinError?.Invoke();
 					}
@@ -211,7 +225,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 				case NetworkMessageType.GameOverNotification:
 				{
 					var msg = (GameOverNotification) incommingMsg;
-
+					
+					CurrentGameStatus = GameStatus.GameOver;
 					GameOver?.Invoke(msg.Win, msg.WinningReason);
 
 					break;
@@ -228,6 +243,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					ClientPlayer   = BottomPlayer;
 					OpponendPlayer = TopPlayer;
 
+					CurrentGameStatus = GameStatus.PlayingOpendGame;
 					OpendGameIsStarting?.Invoke(msg.OpponendPlayerName);
 
 					break;
