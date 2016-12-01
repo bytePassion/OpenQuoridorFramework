@@ -13,7 +13,7 @@ namespace OQF.CommonUiElements.Board.BoardColors
 		public static readonly SolidColorBrush PossibleMoveFieldColor   = new SolidColorBrush(Color.FromArgb(96, 255, 249, 197));
 		public static readonly SolidColorBrush PotentialPlacedWallColor = new SolidColorBrush(Color.FromArgb(207, 255, 255, 255));
 
-		public static readonly Brush TopPlayerActiveColor = new LinearGradientBrush()
+		public static readonly Brush BottomPlayerActiveColor = new LinearGradientBrush()
 		{
 			MappingMode = BrushMappingMode.RelativeToBoundingBox,
 			EndPoint = new Point(0.5, 1),
@@ -25,7 +25,7 @@ namespace OQF.CommonUiElements.Board.BoardColors
 				}
 		};
 
-		public static readonly Brush BottomPlayerActiveColor = new LinearGradientBrush()
+		public static readonly Brush TopPlayerActiveColor = new LinearGradientBrush()
 		{
 			MappingMode = BrushMappingMode.RelativeToBoundingBox,
 			EndPoint = new Point(0.5, 1),
