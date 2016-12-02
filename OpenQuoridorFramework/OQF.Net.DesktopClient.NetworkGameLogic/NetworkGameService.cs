@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Lib.Communication.State;
 using OQF.Bot.Contracts.Coordination;
@@ -208,7 +209,9 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 				case NetworkMessageType.OpenGameListUpdateNotification:
 				{
 					var msg = (OpenGameListUpdateNotification) incommingMsg;
-					UpdatedGameListAvailable?.Invoke(msg.OpenGames);
+					UpdatedGameListAvailable?.Invoke(msg.OpenGames
+														.Where(gameInfoPair => gameInfoPair.Key != OpendGameId && gameInfoPair.Key != CurrentGameId)
+														.ToDictionary(gameInfoPair => gameInfoPair.Key, game => game.Value));
 					break;
 				}
 				case NetworkMessageType.NewGameStateAvailableNotification:
