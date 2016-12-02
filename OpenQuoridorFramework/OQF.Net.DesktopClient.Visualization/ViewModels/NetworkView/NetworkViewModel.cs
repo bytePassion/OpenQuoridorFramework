@@ -19,6 +19,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 	public class NetworkViewModel : ViewModel, INetworkViewModel
 	{
 		private readonly INetworkGameService networkGameService;
+		private readonly IApplicationSettingsRepository applicationSettingsRepository;
 		private string response;
 		private string serverAddress;
 		private string playerName;
@@ -27,9 +28,10 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		private string newGameName;
 		private GameDisplayData selectedOpenGame;
 
-		public NetworkViewModel(INetworkGameService networkGameService)
+		public NetworkViewModel(INetworkGameService networkGameService, IApplicationSettingsRepository applicationSettingsRepository)
 		{
 			this.networkGameService = networkGameService;
+			this.applicationSettingsRepository = applicationSettingsRepository;
 
 			networkGameService.ConnectionStatusChanged  += OnConnectionStatusChanged;
 			networkGameService.GameStatusChanged        += OnGameStatusChanged;
@@ -66,6 +68,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 			LeaveGame = new Command(DoLeaveGame,
 									() => GameStatus == GameStatus.PlayingJoinedGame || GameStatus == GameStatus.PlayingOpendGame,
 									new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
+
+			ServerAddress = applicationSettingsRepository.LastConnectedServerAddress;
+			PlayerName = applicationSettingsRepository.LastUsedPlayerName;
 		}
 
 		private void OnGameStatusChanged(GameStatus newGameStatus)
@@ -79,7 +84,13 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		private void OnConnectionStatusChanged(ConnectionStatus newConnectionStatus)
 		{
 			Application.Current.Dispatcher.Invoke(() =>
-			{				
+			{
+				if (newConnectionStatus == ConnectionStatus.Connected)
+				{
+					applicationSettingsRepository.LastConnectedServerAddress = ServerAddress;
+					applicationSettingsRepository.LastUsedPlayerName = PlayerName;
+				}
+
 				ConnectionStatus = newConnectionStatus;
 			});
 		}

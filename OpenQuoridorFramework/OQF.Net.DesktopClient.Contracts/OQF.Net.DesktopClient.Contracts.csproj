@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ConnectionStatus.cs" />
     <Compile Include="GameStatus.cs" />
+    <Compile Include="IApplicationSettingsRepository.cs" />
     <Compile Include="INetworkGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

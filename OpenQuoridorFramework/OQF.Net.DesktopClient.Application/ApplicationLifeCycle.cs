@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
 using Lib.Communication.State;
 using Lib.Wpf;
 using OQF.CommonUiElements.Board.ViewModels.Board;
@@ -13,6 +14,7 @@ using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow;
 using OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView;
 using OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar;
+using OQF.Utils;
 
 namespace OQF.Net.DesktopClient.Application
 {
@@ -25,17 +27,24 @@ namespace OQF.Net.DesktopClient.Application
 			var isBoardRotatedVariable = new SharedState<bool>(false);
 
 			networkGameService = new NetworkGameService(isBoardRotatedVariable);
+			IApplicationSettingsRepository applicationSettingsRepository = new ApplicationSettingsRepository();
 
-			var boardPlacementViewModel = new BoardPlacementViewModel(networkGameService);
-			var boardViewModel = new BoardViewModel(networkGameService);
-			var progressViewModel = new ProgressViewModel(networkGameService);
-			var languageSelectionViewModel = new LanguageSelectionViewModel();
-			var actionBarViewModel = new ActionBarViewModel(languageSelectionViewModel, networkGameService);
+			CultureManager.CurrentCulture = new CultureInfo(applicationSettingsRepository.SelectedLanguageCode);
+			CultureManager.CultureChanged += () =>
+			{
+				applicationSettingsRepository.SelectedLanguageCode = CultureManager.CurrentCulture.ToString();
+			};
+
+			var boardPlacementViewModel          = new BoardPlacementViewModel(networkGameService);
+			var boardViewModel                   = new BoardViewModel(networkGameService);
+			var progressViewModel                = new ProgressViewModel(networkGameService);
+			var languageSelectionViewModel       = new LanguageSelectionViewModel();
+			var actionBarViewModel               = new ActionBarViewModel(languageSelectionViewModel, networkGameService);
 			var boardHorizontalLabelingViewModel = new BoardHorizontalLabelingViewModel(isBoardRotatedVariable);
-			var boardVerticalLabelingViewModel = new BoardVerticalLabalingViewModel(isBoardRotatedVariable);
-			var localPlayerBarViewModel = new LocalPlayerBarViewModel(networkGameService);
-			var remotePlayerBarViewModel = new RemotePlayerBarViewModel(networkGameService);
-			var networkViewModel = new NetworkViewModel(networkGameService);
+			var boardVerticalLabelingViewModel   = new BoardVerticalLabalingViewModel(isBoardRotatedVariable);
+			var localPlayerBarViewModel          = new LocalPlayerBarViewModel(networkGameService);
+			var remotePlayerBarViewModel         = new RemotePlayerBarViewModel(networkGameService);
+			var networkViewModel                 = new NetworkViewModel(networkGameService, applicationSettingsRepository);
 
 			var mainWindowViewModel = new MainWindowViewModel(networkGameService,
 															  isBoardRotatedVariable,
