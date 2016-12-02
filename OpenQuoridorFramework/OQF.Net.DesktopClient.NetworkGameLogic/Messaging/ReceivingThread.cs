@@ -39,9 +39,13 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic.Messaging
 					if (incommingMessage == null)
 						continue;
 
-					if (incommingMessage.ClientId != myClientId)
-						continue;
+					var isMessageForAllClients = incommingMessage.ClientId == new ClientId(Guid.Empty);
 
+					if (incommingMessage.ClientId != myClientId && !isMessageForAllClients)
+					{
+						continue;
+					}
+						
 					NewMessageAvailable?.Invoke(incommingMessage);
 				}
 			}

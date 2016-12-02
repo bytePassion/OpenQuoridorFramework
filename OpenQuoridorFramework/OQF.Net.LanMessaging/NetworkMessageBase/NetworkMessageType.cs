@@ -18,6 +18,7 @@
 		NextMoveSubmission,
 		OpendGameIsStarting,
 		ClientDisconnect,
+		ServerDisconnect,
 
 		ErrorResponse		
 	}

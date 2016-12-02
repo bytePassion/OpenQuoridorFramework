@@ -288,6 +288,8 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 			if (messagingService != null)
 			{
+				messagingService.SendMessage(new ServerDisconnect());
+
 				messagingService.NewIncomingMessage -= OnNewIncomingMessage;
 				messagingService.Dispose();
 				messagingService = null;

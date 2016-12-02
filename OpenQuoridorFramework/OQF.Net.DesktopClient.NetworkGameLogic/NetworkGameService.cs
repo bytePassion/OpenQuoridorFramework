@@ -290,7 +290,12 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					}
 
 					break;
-				}		
+				}	
+				case NetworkMessageType.ServerDisconnect:
+				{
+					Disconnect();
+					break;
+				}	
 			}
 		}
 
@@ -304,9 +309,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			CurrentConnectionStatus = ConnectionStatus.NotConnected;
 			CurrentGameStatus = GameStatus.NoGame;
 			CurrentBoardState = null;
-			ClientId = null;
-
-			// TODO: msg to server
+			ClientId = null;			
 
 			messagingService?.Dispose();
 		}		

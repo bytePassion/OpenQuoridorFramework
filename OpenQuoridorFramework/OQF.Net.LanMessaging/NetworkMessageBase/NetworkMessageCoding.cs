@@ -42,7 +42,7 @@ namespace OQF.Net.LanMessaging.NetworkMessageBase
 
 			switch (messageParts.Type)
 			{
-				case NetworkMessageType.ErrorResponse:                       return ErrorResponse.Parse                    (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.ErrorResponse:                       return ErrorResponse.Parse                    (messageParts.ClientId, messageParts.Content); // TODO: delete
 				case NetworkMessageType.ConnectToServerRequest:              return ConnectToServerRequest.Parse           (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.ConnectToServerResponse:             return ConnectToServerResponse.Parse          (messageParts.ClientId, messageParts.Content);	
 				case NetworkMessageType.CreateGameRequest:                   return CreateGameRequest.Parse                (messageParts.ClientId, messageParts.Content);
@@ -58,6 +58,7 @@ namespace OQF.Net.LanMessaging.NetworkMessageBase
 				case NetworkMessageType.NextMoveSubmission:                  return NextMoveSubmission.Parse               (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.OpendGameIsStarting:                 return OpendGameIsStarting.Parse              (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.ClientDisconnect:                    return ClientDisconnect.Parse                 (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.ServerDisconnect:                    return ServerDisconnect.Parse                 (messageParts.ClientId, messageParts.Content);
 
 				default:
 					throw new ArgumentException();
