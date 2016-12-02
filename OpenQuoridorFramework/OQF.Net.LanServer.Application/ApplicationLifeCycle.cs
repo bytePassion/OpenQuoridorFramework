@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
 using Lib.Wpf;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.Net.LanServer.Contracts;
@@ -8,6 +9,7 @@ using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
 using OQF.Net.LanServer.Visualization.ViewModels.GameOverview;
 using OQF.Net.LanServer.Visualization.ViewModels.LogView;
 using OQF.Net.LanServer.Visualization.ViewModels.MainWindow;
+using OQF.Utils;
 
 namespace OQF.Net.LanServer.Application
 {
@@ -17,6 +19,14 @@ namespace OQF.Net.LanServer.Application
 
 		public void BuildAndStart(StartupEventArgs startupEventArgs)
 		{
+			IApplicationSettingsRepository applicationSettingsRepository = new ApplicationSettingsRepository();
+
+			CultureManager.CurrentCulture = new CultureInfo(applicationSettingsRepository.SelectedLanguageCode);
+			CultureManager.CultureChanged += () =>
+			{
+				applicationSettingsRepository.SelectedLanguageCode = CultureManager.CurrentCulture.ToString();
+			};
+
 			var clientRepository = new ClientRepository();
 			var gameRepository = new GameRepository();
 

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientInfo.cs" />
+    <Compile Include="IApplicationSettingsRepository.cs" />
     <Compile Include="IClientRepository.cs" />
     <Compile Include="IGameRepository.cs" />
     <Compile Include="INetworkGame.cs" />
