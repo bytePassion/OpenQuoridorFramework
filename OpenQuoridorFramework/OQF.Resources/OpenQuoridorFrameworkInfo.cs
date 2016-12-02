@@ -64,6 +64,20 @@ namespace OQF.Resources
 																				  ThirdPartyItems);
 			}
 
+			public static class NetworkLanServer
+			{
+				public const string Name               = "Network.LanServer";
+				public const string ApplicationVersion = "0.1";
+
+				public static readonly ApplicationInfo Info = new ApplicationInfo(Name,
+																				  ApplicationVersion,
+																				  FrameworkVersion,
+																				  Licence,
+																				  LicenceUri,
+																				  ActiveDevelopers,
+																				  ThirdPartyItems);
+			}
+
 			public static class NetworkDesktopClient
 			{
 				public const string Name               = "Network.DesktopClient";
