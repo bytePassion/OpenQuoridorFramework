@@ -7,8 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"       
         xmlns:views1="clr-namespace:OQF.CommonUiElements.Board.Views;assembly=OQF.CommonUiElements"
-        xmlns:mainWindow1="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow"
-        xmlns:helper="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper"
+        xmlns:mainWindow1="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow"        
         xmlns:views="clr-namespace:OQF.Net.DesktopClient.Visualization.Views"
         xmlns:progressView="clr-namespace:OQF.CommonUiElements.ProgressView;assembly=OQF.CommonUiElements"
         Title="OpenQuoridorFramework - DesktopClient"
@@ -67,7 +66,7 @@
                                  Margin="8,0,0,0"
                                  VerticalAlignment="Stretch">
 
-				<Expander ExpandDirection="Right" IsExpanded="{Binding IsProgressSectionExpanded, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+				<Expander ExpandDirection="Right" IsExpanded="{Binding IsProgressViewExpanded, Mode=OneWay}">
 					<Expander.Header>
 						<TextBlock RenderTransformOrigin=".5,.5" Text="{Binding ProgressCaption}">
 							<TextBlock.LayoutTransform>
@@ -175,11 +174,10 @@
 
 				<Expander DockPanel.Dock="Right"
                           ExpandDirection="Left"
-                          IsExpanded="{Binding IsDebugSectionExpanded,
-                                               Mode=TwoWay,
-                                               UpdateSourceTrigger=PropertyChanged}">
+                          IsExpanded="{Binding IsNetworkViewExpanded,
+                                               Mode=OneWay}">
 					<Expander.Header>
-						<TextBlock RenderTransformOrigin=".5,.5" Text="{Binding DebugCaption}">
+						<TextBlock RenderTransformOrigin=".5,.5" Text="{Binding NetworkViewCaption}">
 							<TextBlock.LayoutTransform>
 								<RotateTransform Angle="-90" />
 							</TextBlock.LayoutTransform>

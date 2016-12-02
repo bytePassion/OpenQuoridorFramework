@@ -300,6 +300,9 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			CurrentGameStatus = GameStatus.NoGame;
 			CurrentBoardState = null;
 			clientId = null;
+
+			// TODO: msg to server
+
 			messagingService?.Dispose();
 		}		
 	}

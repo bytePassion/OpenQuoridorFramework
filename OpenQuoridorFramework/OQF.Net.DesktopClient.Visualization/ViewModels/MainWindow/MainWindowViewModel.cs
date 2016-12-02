@@ -12,6 +12,8 @@ using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView;
 using OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar;
+using OQF.Resources.LanguageDictionaries;
+using OQF.Utils;
 using OQF.Utils.Enum;
 
 
@@ -19,10 +21,12 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 {
 	public class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
-		
+		private readonly INetworkGameService networkGameService;
 		private readonly ISharedStateReadOnly<bool> isBoardRotatedVariable;
 		
 		private bool isBoardRotated;
+		private bool isProgressViewExpanded;
+		private bool isNetworkViewExpanded;
 
 		public MainWindowViewModel(INetworkGameService networkGameService,
 								   ISharedStateReadOnly<bool> isBoardRotatedVariable,
@@ -35,7 +39,10 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 								   ILocalPlayerBarViewModel localPlayerBarViewModel, 
 								   IRemotePlayerBarViewModel remotePlayerBarViewModel, 
 								   INetworkViewModel networkViewModel)
-		{			
+		{
+			CultureManager.CultureChanged += RefreshCaptions;
+
+			this.networkGameService = networkGameService;
 			this.isBoardRotatedVariable = isBoardRotatedVariable;
 			BoardPlacementViewModel = boardPlacementViewModel;
 			BoardViewModel = boardViewModel;
@@ -48,9 +55,39 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			NetworkViewModel = networkViewModel;
 
 			networkGameService.GameOver += OnGameOver;
+			networkGameService.GameStatusChanged += OnGameStatusChanged;
+
+			OnGameStatusChanged(networkGameService.CurrentGameStatus);
 
 			isBoardRotatedVariable.StateChanged += OnIsBoardRotatedVariableChanged;
 			OnIsBoardRotatedVariableChanged(isBoardRotatedVariable.Value);						
+		}		
+
+		private void OnGameStatusChanged(GameStatus gameStatus)
+		{
+			switch (gameStatus)
+			{
+				case GameStatus.NoGame:								
+				case GameStatus.WaitingForOponend:
+				{
+					IsNetworkViewExpanded = true;
+					IsProgressViewExpanded = false;
+					break;
+				}
+				case GameStatus.PlayingJoinedGame:
+				case GameStatus.PlayingOpendGame:
+				{
+					IsNetworkViewExpanded = false;
+					IsProgressViewExpanded = true;
+					break;
+				}
+				case GameStatus.GameOver:
+				{
+					IsNetworkViewExpanded = true;
+					IsProgressViewExpanded = true;
+					break;
+				}
+			}
 		}
 
 		private void OnGameOver(bool b, WinningReason winningReason)
@@ -77,14 +114,40 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public IRemotePlayerBarViewModel RemotePlayerBarViewModel { get; }
 		public INetworkViewModel NetworkViewModel { get; }
 
+		public bool IsProgressViewExpanded
+		{
+			get { return isProgressViewExpanded; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref isProgressViewExpanded, value); }
+		}
+
+		public bool IsNetworkViewExpanded
+		{
+			get { return isNetworkViewExpanded; }
+			private set {PropertyChanged.ChangeAndNotify(this, ref isNetworkViewExpanded, value); }
+		}
+
 		public bool IsBoardRotated
 		{
 			get { return isBoardRotated; }
 			private set { PropertyChanged.ChangeAndNotify(this, ref isBoardRotated, value); }
 		}
-		
+
+		public string ProgressCaption => Captions.PvB_ProgressCaption;
+		public string NetworkViewCaption => Captions.NCl_NetworkViewCaption;
+
+		private void RefreshCaptions ()
+		{
+			PropertyChanged.Notify(this, nameof(ProgressCaption), 
+										 nameof(NetworkViewCaption));
+		}
+
 		protected override void CleanUp()
 		{
+			CultureManager.CultureChanged -= RefreshCaptions;
+
+			networkGameService.GameOver -= OnGameOver;
+			networkGameService.GameStatusChanged -= OnGameStatusChanged;
+
 			isBoardRotatedVariable.StateChanged -= OnIsBoardRotatedVariableChanged;
 		}
 		public override event PropertyChangedEventHandler PropertyChanged;		

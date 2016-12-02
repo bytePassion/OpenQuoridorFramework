@@ -645,4 +645,7 @@
   <data name="RVH_Explanation10" xml:space="preserve">
     <value>10. Aktuell gezeigter Schritt des Spielfortschritts</value>
   </data>
+  <data name="NCl_NetworkViewCaption" xml:space="preserve">
+    <value>Verbindungsoptionen</value>
+  </data>
 </root>

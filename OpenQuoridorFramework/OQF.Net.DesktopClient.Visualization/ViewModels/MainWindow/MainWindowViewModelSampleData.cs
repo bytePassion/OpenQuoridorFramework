@@ -26,7 +26,13 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 			RemotePlayerBarViewModel = new RemotePlayerBarViewModelSampleData();
 			NetworkViewModel = new NetworkViewModelSampleData();
 			
-			IsBoardRotated = false;			
+			IsBoardRotated = false;
+
+			IsProgressViewExpanded = false;
+			IsNetworkViewExpanded = true;
+
+			ProgressCaption = "Spielfortschritt";
+			NetworkViewCaption = "Verbindungsoptionen";
 		}
 
 		public IBoardPlacementViewModel BoardPlacementViewModel { get; }
@@ -39,8 +45,14 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		public IRemotePlayerBarViewModel RemotePlayerBarViewModel { get; }
 		public INetworkViewModel NetworkViewModel { get; }
 
+		public bool IsProgressViewExpanded { get; }
+		public bool IsNetworkViewExpanded { get; }
+
 		public bool IsBoardRotated { get; }
-		
+
+		public string ProgressCaption { get; }
+		public string NetworkViewCaption { get; }
+
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
 	}

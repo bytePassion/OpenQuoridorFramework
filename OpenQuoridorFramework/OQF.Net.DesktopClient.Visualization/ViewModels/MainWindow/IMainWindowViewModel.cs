@@ -22,6 +22,12 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		IRemotePlayerBarViewModel RemotePlayerBarViewModel { get; }
 		INetworkViewModel NetworkViewModel { get; }
 		
-		bool IsBoardRotated { get; }		
+		bool IsProgressViewExpanded { get; }
+		bool IsNetworkViewExpanded { get; }
+
+		bool IsBoardRotated { get; }
+
+		string ProgressCaption { get; }
+		string NetworkViewCaption { get; }
 	}
 }

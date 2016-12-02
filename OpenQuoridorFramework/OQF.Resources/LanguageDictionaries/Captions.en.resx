@@ -645,4 +645,7 @@
   <data name="RVH_Explanation10" xml:space="preserve">
     <value>10. Currently displayed step of the progress</value>
   </data>
+  <data name="NCl_NetworkViewCaption" xml:space="preserve">
+    <value>Connection-Options</value>
+  </data>
 </root>

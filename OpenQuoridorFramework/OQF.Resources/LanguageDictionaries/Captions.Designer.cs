@@ -592,6 +592,15 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connection-Options.
+        /// </summary>
+        public static string NCl_NetworkViewCaption {
+            get {
+                return ResourceManager.GetString("NCl_NetworkViewCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         public static string ND_OkButtonCaption {
