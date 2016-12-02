@@ -82,7 +82,7 @@
 				<TextBlock Text="{Binding ConnectedClientsSectionCaption}"
 						   Margin="5"
 						   Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
-
+				<views:ClientsView DataContext="{Binding ClientsViewModel}"/>
 			</StackPanel>
 		</materialDesign:Card>
 

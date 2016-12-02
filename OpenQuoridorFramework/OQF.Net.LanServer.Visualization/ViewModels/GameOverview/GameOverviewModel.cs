@@ -21,6 +21,7 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.GameOverview
 			CurrentGames = new ObservableCollection<GameDisplayData>();
 
 			gameRepository.RepositoryChanged += OnRepositoryChanged;
+			OnRepositoryChanged();
 		}
 
 		private void OnRepositoryChanged()

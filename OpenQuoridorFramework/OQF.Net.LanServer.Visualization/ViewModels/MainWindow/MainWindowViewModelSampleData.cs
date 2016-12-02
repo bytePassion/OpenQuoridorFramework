@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
+using OQF.Net.LanServer.Visualization.ViewModels.ClientsView;
 using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
 using OQF.Net.LanServer.Visualization.ViewModels.GameOverview;
 using OQF.Net.LanServer.Visualization.ViewModels.LogView;
@@ -16,6 +17,7 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 			ConnectionBarViewModel = new ConnectionBarViewModelSampleData();	
 			LogViewModel           = new LogViewModelSampleData();
 			GameOverviewModel      = new GameOverviewModelSampleData();
+			ClientsViewModel       = new ClientsViewModelSampleData();
 
 			ServerLogSectionCaption = "Server-Log:";
 			GameOverviewSectionCaption = "Game overview:";
@@ -26,6 +28,7 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 		public IConnectionBarViewModel ConnectionBarViewModel { get; }
 		public ILogViewModel           LogViewModel           { get; }
 		public IGameOverviewModel      GameOverviewModel      { get; }
+		public IClientsViewModel       ClientsViewModel       { get; }
 
 		public string ServerLogSectionCaption        { get; }
 		public string GameOverviewSectionCaption     { get; }

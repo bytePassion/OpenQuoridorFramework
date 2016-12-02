@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using OQF.Net.LanMessaging.Types;
 using OQF.Net.LanServer.Contracts;
 
@@ -12,6 +13,8 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		{
 			clients = new Dictionary<ClientId, ClientInfo>();
 		}
+
+		public event Action RepositoryChanged;
 
 		public ClientInfo GetClientById(ClientId clientId)
 		{
@@ -29,13 +32,20 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		public void AddClient(ClientId clientId, string playerName)
 		{
 			if (!IsClientIdRegistered(clientId))
+			{
 				clients.Add(clientId, new ClientInfo(clientId, playerName));
+				RepositoryChanged?.Invoke();
+			}
+				
 		}
 
 		public void RemoveClient(ClientId clientId)
 		{
 			if (IsClientIdRegistered(clientId))
+			{
 				clients.Remove(clientId);
+				RepositoryChanged?.Invoke();
+			}				
 		}
 
 		public IEnumerable<ClientInfo> GetAllClients()
@@ -46,6 +56,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		public void ClearRepository()
 		{
 			clients.Clear();
+			RepositoryChanged?.Invoke();
 		}
 	}
 }

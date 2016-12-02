@@ -56,6 +56,9 @@
     <Compile Include="ViewModels\ActionBar\ActionBarViewModel.cs" />
     <Compile Include="ViewModels\ActionBar\ActionBarViewModelSampleData.cs" />
     <Compile Include="ViewModels\ActionBar\IActionBarViewModel.cs" />
+    <Compile Include="ViewModels\ClientsView\ClientsViewModel.cs" />
+    <Compile Include="ViewModels\ClientsView\ClientsViewModelSampleData.cs" />
+    <Compile Include="ViewModels\ClientsView\IClientsViewModel.cs" />
     <Compile Include="ViewModels\ConnectionBar\ConnectionBarViewModel.cs" />
     <Compile Include="ViewModels\ConnectionBar\ConnectionBarViewModelSampleData.cs" />
     <Compile Include="ViewModels\ConnectionBar\IConnectionBarViewModel.cs" />
@@ -72,6 +75,9 @@
     <Compile Include="Views\ActionBar.xaml.cs">
       <DependentUpon>ActionBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ClientsView.xaml.cs">
+      <DependentUpon>ClientsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ConnectionBar.xaml.cs">
       <DependentUpon>ConnectionBar.xaml</DependentUpon>
     </Compile>
@@ -87,6 +93,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\ActionBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClientsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

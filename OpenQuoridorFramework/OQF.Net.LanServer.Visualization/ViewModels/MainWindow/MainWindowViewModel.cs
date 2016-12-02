@@ -2,6 +2,7 @@
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
+using OQF.Net.LanServer.Visualization.ViewModels.ClientsView;
 using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
 using OQF.Net.LanServer.Visualization.ViewModels.GameOverview;
 using OQF.Net.LanServer.Visualization.ViewModels.LogView;
@@ -17,7 +18,8 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 		public MainWindowViewModel(IActionBarViewModel actionBarViewModel, 
 								   IConnectionBarViewModel connectionBarViewModel, 
 								   ILogViewModel logViewModel, 
-								   IGameOverviewModel gameOverviewModel)
+								   IGameOverviewModel gameOverviewModel, 
+								   IClientsViewModel clientsViewModel)
 		{			
 			CultureManager.CultureChanged += RefreshCaptions;
 
@@ -25,12 +27,14 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 			ConnectionBarViewModel = connectionBarViewModel;
 			LogViewModel = logViewModel;
 			GameOverviewModel = gameOverviewModel;
+			ClientsViewModel = clientsViewModel;
 		}		
 
 		public IActionBarViewModel     ActionBarViewModel     { get; }
 		public IConnectionBarViewModel ConnectionBarViewModel { get; }
 		public ILogViewModel           LogViewModel           { get; }
 		public IGameOverviewModel      GameOverviewModel      { get; }
+		public IClientsViewModel       ClientsViewModel       { get; }
 
 		public string ServerLogSectionCaption        => Captions.LSv_ServerLogSectionCaption;
 		public string GameOverviewSectionCaption     => Captions.LSv_GameOverviewSectionCaption;

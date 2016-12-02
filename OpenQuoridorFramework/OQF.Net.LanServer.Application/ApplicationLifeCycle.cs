@@ -5,6 +5,7 @@ using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.Net.LanServer.Contracts;
 using OQF.Net.LanServer.NetworkGameLogic.GameServer;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
+using OQF.Net.LanServer.Visualization.ViewModels.ClientsView;
 using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
 using OQF.Net.LanServer.Visualization.ViewModels.GameOverview;
 using OQF.Net.LanServer.Visualization.ViewModels.LogView;
@@ -37,11 +38,13 @@ namespace OQF.Net.LanServer.Application
 			var connectionBarViewModel     = new ConnectionBarViewModel(networkGameServer);
 			var logViewModel               = new LogViewModel(networkGameServer);
 			var gameOverviewModel          = new GameOverviewModel(gameRepository);
+			var clientsViewModel           = new ClientsViewModel(clientRepository);
 
 			var mainWindowViewModel = new MainWindowViewModel(actionBarViewModel,
 															  connectionBarViewModel,
 															  logViewModel,
-															  gameOverviewModel);
+															  gameOverviewModel,
+															  clientsViewModel);
 
 			var mainWindow = new Visualization.Windows.MainWindow
 			{
