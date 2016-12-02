@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 
+#pragma warning disable 0067
+
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 {
 	internal class RemotePlayerBarViewModelSampleData : IRemotePlayerBarViewModel

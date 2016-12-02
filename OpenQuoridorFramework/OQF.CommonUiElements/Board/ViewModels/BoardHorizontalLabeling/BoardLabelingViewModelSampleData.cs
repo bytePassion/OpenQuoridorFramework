@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 
+#pragma warning disable 0067
+
 namespace OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling
 {
 	public class BoardLabelingViewModelSampleData : IBoardLabelingViewModel
