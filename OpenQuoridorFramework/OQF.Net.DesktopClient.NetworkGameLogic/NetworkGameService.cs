@@ -169,6 +169,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			if (CurrentGameId != null)
 			{
 				CurrentGameStatus = GameStatus.NoGame;
+				CurrentBoardState = null;
 				messagingService.SendMessage(new LeaveGameRequest(clientId, CurrentGameId));
 			}
 		}
@@ -245,6 +246,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					else
 					{
 						CurrentGameStatus = GameStatus.NoGame;
+						CurrentBoardState = null;
 						CurrentGameId = null;
 						JoinError?.Invoke();
 					}
@@ -284,6 +286,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					if (msg.ActionSuccessful)
 					{
 						CurrentGameStatus = GameStatus.NoGame;
+						CurrentBoardState = null;
 					}
 
 					break;
@@ -295,6 +298,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		{
 			CurrentConnectionStatus = ConnectionStatus.NotConnected;
 			CurrentGameStatus = GameStatus.NoGame;
+			CurrentBoardState = null;
 			clientId = null;
 			messagingService?.Dispose();
 		}		
