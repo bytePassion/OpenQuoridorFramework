@@ -21,11 +21,11 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 			AvailableOpenGames = new ObservableCollection<GameDisplayData>
 			{
-				new GameDisplayData(null, "game1"),
-				new GameDisplayData(null, "game2"),
-				new GameDisplayData(null, "game3"),
-				new GameDisplayData(null, "game4"),
-				new GameDisplayData(null, "game5")
+				new GameDisplayData(null, "game1", "p1"),
+				new GameDisplayData(null, "game2", "p2"),
+				new GameDisplayData(null, "game3", "p3"),
+				new GameDisplayData(null, "game4", "p4"),
+				new GameDisplayData(null, "game5", "p5")
 			};
 
 			SelectedOpenGame = AvailableOpenGames[2];
@@ -41,9 +41,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		public ICommand JoinGame             => null;
 		public ICommand LeaveGame            => null;
 
-		public string NewGameName { get; set; }
+		public string NewGameName   { get; set; }
 		public string ServerAddress { get; set; }
-		public string PlayerName { get; set; }		
+		public string PlayerName    { get; set; }		
 
 		public ObservableCollection<GameDisplayData> AvailableOpenGames { get; }
 		public GameDisplayData SelectedOpenGame { get; set; }

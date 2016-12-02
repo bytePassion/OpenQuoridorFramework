@@ -13,7 +13,7 @@ namespace OQF.Net.DesktopClient.Contracts
 	{
 		event Action<ConnectionStatus> ConnectionStatusChanged;
 		event Action<GameStatus> GameStatusChanged;
-		event Action<IDictionary<NetworkGameId, string>> UpdatedGameListAvailable;
+		event Action<IEnumerable<NetworkGameInfo>> UpdatedGameListAvailable;
 		event Action JoinError;                    
 		event Action<string> JoinSuccessful;			// TODO: delete
 		event Action<string> OpendGameIsStarting;       // TODO: delete

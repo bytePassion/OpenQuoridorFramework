@@ -248,7 +248,9 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		{
 			var gameList = gameRepository.GetAllGames()
 										 .Where(game => !game.IsGameActive)
-										 .ToDictionary(networkGame => networkGame.GameId, networkGame => networkGame.GameName);
+										 .Select(game => new NetworkGameInfo(game.GameId, 
+																			 game.GameInitiator.PlayerName, 
+																			 game.GameName));
 
 			var msg = new OpenGameListUpdateNotification(clientId, gameList);
 			NewOutputAvailable?.Invoke($">>> GameListUpdate to {clientRepository.GetClientById(msg.ClientId).PlayerName}");

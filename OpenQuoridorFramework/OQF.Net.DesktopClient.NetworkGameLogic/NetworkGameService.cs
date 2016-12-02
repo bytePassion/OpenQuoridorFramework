@@ -24,7 +24,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		public event Action<ConnectionStatus> ConnectionStatusChanged;
 		public event Action<GameStatus> GameStatusChanged;
-		public event Action<IDictionary<NetworkGameId, string>> UpdatedGameListAvailable;
+		public event Action<IEnumerable<NetworkGameInfo>> UpdatedGameListAvailable;
 		public event Action JoinError;
 		public event Action<string> JoinSuccessful;
 		public event Action<string> OpendGameIsStarting;		
@@ -211,8 +211,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 				{
 					var msg = (OpenGameListUpdateNotification) incommingMsg;
 					UpdatedGameListAvailable?.Invoke(msg.OpenGames
-														.Where(gameInfoPair => gameInfoPair.Key != OpendGameId && gameInfoPair.Key != CurrentGameId)
-														.ToDictionary(gameInfoPair => gameInfoPair.Key, game => game.Value));
+														.Where(gameInfo => gameInfo.GameId != OpendGameId && gameInfo.GameId != CurrentGameId));
 					break;
 				}
 				case NetworkMessageType.NewGameStateAvailableNotification:

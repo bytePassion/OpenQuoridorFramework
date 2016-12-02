@@ -99,7 +99,19 @@
 									                    UpdateSourceTrigger=PropertyChanged}">
 				<ListBox.ItemTemplate>
 					<DataTemplate DataType="helper:GameDisplayData">
-						<TextBlock Text="{Binding GameName}"/>
+						<Grid Width="290">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="190"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							
+							<TextBlock Grid.Column="0" 
+									   Text="{Binding GameName}"/>	
+							<TextBlock Grid.Column="1" >
+								<Run Text="["/><Run Text="{Binding InitiatorName, Mode=OneWay}"/><Run Text="]"/>
+							</TextBlock>	
+						</Grid>
+						
 					</DataTemplate>
 				</ListBox.ItemTemplate>
 			</ListBox>

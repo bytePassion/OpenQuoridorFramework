@@ -82,6 +82,7 @@
     <Compile Include="SendReceive\SendReceiveExtensions.cs" />
     <Compile Include="Types\ClientId.cs" />
     <Compile Include="Types\NetworkGameId.cs" />
+    <Compile Include="Types\NetworkGameInfo.cs" />
     <Compile Include="Utils\IpAddressCatcher.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -19,8 +19,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 	public class NetworkViewModel : ViewModel, INetworkViewModel
 	{
 		private readonly INetworkGameService networkGameService;
-		private readonly IApplicationSettingsRepository applicationSettingsRepository;
-		private string response;
+		private readonly IApplicationSettingsRepository applicationSettingsRepository;		
 		private string serverAddress;
 		private string playerName;
 		private ConnectionStatus connectionStatus;
@@ -141,7 +140,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 			set { PropertyChanged.ChangeAndNotify(this, ref selectedOpenGame, value); }
 		}
 
-		private void OnUpdatedGameListAvailable (IDictionary<NetworkGameId, string> newGameList)
+		private void OnUpdatedGameListAvailable (IEnumerable<NetworkGameInfo> newGameList)
 		{
 			Application.Current.Dispatcher.Invoke(() =>
 			{
@@ -149,7 +148,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 				foreach (var openGame in newGameList)
 				{
-					AvailableOpenGames.Add(new GameDisplayData(openGame.Key, openGame.Value));
+					AvailableOpenGames.Add(new GameDisplayData(openGame.GameId, openGame.GameName, openGame.InitiatorName));
 				}
 
 				SelectedOpenGame = AvailableOpenGames.FirstOrDefault();
