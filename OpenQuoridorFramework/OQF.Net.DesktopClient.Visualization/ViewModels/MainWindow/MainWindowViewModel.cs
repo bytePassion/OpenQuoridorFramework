@@ -5,6 +5,7 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
+using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
@@ -92,10 +93,10 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 
 		private void OnGameOver(bool b, WinningReason winningReason)
 		{
-			Application.Current.Dispatcher.Invoke(() =>
+			Application.Current.Dispatcher.InvokeAsync(async () =>
 			{
-				var msg = b ? "winner" : "looser";
-				MessageBox.Show($"{msg} because {winningReason}");
+				var msg = b ? $"Gewonnen! [{winningReason}]" : $"Verloren .... [{winningReason}]";
+				await NotificationDialogService.Show(msg, "Ok");
 			});			
 		}
 
