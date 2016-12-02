@@ -15,10 +15,10 @@ namespace OQF.Net.DesktopClient.Visualization.Computations
 
 			switch (gameStatus)
 			{
-				case GameStatus.GameOver:
-				case GameStatus.WaitingForOponend:
+				case GameStatus.GameOver:				
 				case GameStatus.NoGame:             return Visibility.Visible;
 
+				case GameStatus.WaitingForOponend:
 				case GameStatus.PlayingJoinedGame:
 				case GameStatus.PlayingOpendGame:   return Visibility.Collapsed;
 			}

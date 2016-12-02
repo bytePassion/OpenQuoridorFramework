@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behaviors\ReportRelativeMousePositionBehavior.cs" />
+    <Compile Include="Computations\CancelGamePanelVisibility.cs" />
     <Compile Include="Computations\ConnectionDisplayBackground.cs" />
     <Compile Include="Computations\ConnectionDisplayText.cs" />
     <Compile Include="Computations\ConnectionPanelVisibility.cs" />
