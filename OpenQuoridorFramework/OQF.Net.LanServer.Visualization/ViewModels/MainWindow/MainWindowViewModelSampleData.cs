@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
+using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
 
 #pragma warning disable 0067
 
@@ -11,6 +12,8 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 	{
 		public MainWindowViewModelSampleData()
 		{
+			ActionBarViewModel = new ActionBarViewModelSampleData();
+
 			Output = new ObservableCollection<string>
 			{
 				"output1",
@@ -28,6 +31,8 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 
 			SelectedIpAddress = AvailableIpAddresses.First();
 		}
+
+		public IActionBarViewModel ActionBarViewModel { get; }
 
 		public ICommand ActivateServer   => null;
 		public ICommand DeactivateServer => null;

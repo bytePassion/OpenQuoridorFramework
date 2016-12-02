@@ -35,6 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.2.0.725, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.2.0.725\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -70,6 +78,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,6 +96,10 @@
     <ProjectReference Include="..\Lib.Wpf\Lib.Wpf.csproj">
       <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
       <Name>Lib.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
+      <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
+      <Name>OQF.CommonUiElements</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.Net.LanServer.Contracts\OQF.Net.LanServer.Contracts.csproj">
       <Project>{FB421C48-4320-4864-A40F-D0E90F514B0B}</Project>

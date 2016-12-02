@@ -9,6 +9,7 @@ using Lib.Wpf.ViewModelBase;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.Utils;
 using OQF.Net.LanServer.Contracts;
+using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
 
 #pragma warning disable 0067
 
@@ -18,9 +19,11 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 	{
 		private readonly INetworkGameServer networkGameServer;
 
-		public MainWindowViewModel(INetworkGameServer networkGameServer)
+		public MainWindowViewModel(INetworkGameServer networkGameServer, 
+								   IActionBarViewModel actionBarViewModel)
 		{
 			this.networkGameServer = networkGameServer;
+			ActionBarViewModel = actionBarViewModel;
 			Output = new ObservableCollection<string>();
 
 			ActivateServer   = new Command(DoActivate);
@@ -54,6 +57,8 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 			});
 			
 		}
+
+		public IActionBarViewModel ActionBarViewModel { get; }
 
 		public ICommand ActivateServer   { get; }
 		public ICommand DeactivateServer { get; }
