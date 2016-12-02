@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
+using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
 
 #pragma warning disable 0067
 
@@ -13,6 +14,7 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 		public MainWindowViewModelSampleData()
 		{
 			ActionBarViewModel = new ActionBarViewModelSampleData();
+			ConnectionBarViewModel = new ConnectionBarViewModelSampleData();
 
 			Output = new ObservableCollection<string>
 			{
@@ -33,6 +35,7 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 		}
 
 		public IActionBarViewModel ActionBarViewModel { get; }
+		public IConnectionBarViewModel ConnectionBarViewModel { get; }
 
 		public ICommand ActivateServer   => null;
 		public ICommand DeactivateServer => null;

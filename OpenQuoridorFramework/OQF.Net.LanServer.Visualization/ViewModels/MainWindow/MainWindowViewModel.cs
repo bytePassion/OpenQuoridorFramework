@@ -10,6 +10,7 @@ using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.Utils;
 using OQF.Net.LanServer.Contracts;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
+using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
 
 #pragma warning disable 0067
 
@@ -20,10 +21,12 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 		private readonly INetworkGameServer networkGameServer;
 
 		public MainWindowViewModel(INetworkGameServer networkGameServer, 
-								   IActionBarViewModel actionBarViewModel)
+								   IActionBarViewModel actionBarViewModel, 
+								   IConnectionBarViewModel connectionBarViewModel)
 		{
 			this.networkGameServer = networkGameServer;
 			ActionBarViewModel = actionBarViewModel;
+			ConnectionBarViewModel = connectionBarViewModel;
 			Output = new ObservableCollection<string>();
 
 			ActivateServer   = new Command(DoActivate);
@@ -59,6 +62,7 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 		}
 
 		public IActionBarViewModel ActionBarViewModel { get; }
+		public IConnectionBarViewModel ConnectionBarViewModel { get; }
 
 		public ICommand ActivateServer   { get; }
 		public ICommand DeactivateServer { get; }

@@ -1,8 +1,8 @@
 ﻿namespace OQF.Net.LanServer.Visualization.Views
 {
-	public partial class ActionBar
+	public partial class ConnectionBar 
 	{
-		public ActionBar ()
+		public ConnectionBar ()
 		{
 			InitializeComponent();
 		}

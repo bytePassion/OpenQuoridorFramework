@@ -6,7 +6,9 @@
         xmlns:mainWindow="clr-namespace:OQF.Net.LanServer.Visualization.ViewModels.MainWindow"
         xmlns:views="clr-namespace:OQF.Net.LanServer.Visualization.Views"
         mc:Ignorable="d"
-        Title="OpenQuoridorFramework - LanServer" Height="350" Width="525">
+        Title="OpenQuoridorFramework - LanServer" 
+		Height="600" 
+		Width="800">
 	
 	<d:DesignData.DataContext>
 		<mainWindow:MainWindowViewModelSampleData/>
@@ -32,9 +34,14 @@
 						 Grid.ColumnSpan="3"
 						 DataContext="{Binding ActionBarViewModel}"/>
 		
-		<Button Grid.Row="1"
+		<views:ConnectionBar Grid.Row="1"
+							 Grid.Column="0"
+							 Grid.ColumnSpan="3"
+							 DataContext="{Binding ConnectionBarViewModel}"/>
+		
+		<Button Grid.Row="2"
 				Content="activate"
-				Margin="5"
+				Margin="185,5,5,5"
 				HorizontalAlignment="Left"
 				Width="150"
 				Command="{Binding ActivateServer}"/>
