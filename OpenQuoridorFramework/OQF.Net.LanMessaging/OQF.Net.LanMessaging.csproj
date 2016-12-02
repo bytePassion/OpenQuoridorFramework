@@ -68,6 +68,8 @@
     <Compile Include="NetworkMessages\Notifications\NewGameStateAvailableNotification.cs" />
     <Compile Include="NetworkMessages\Notifications\NextMoveSubmission.cs" />
     <Compile Include="NetworkMessages\Notifications\OpenGameListUpdateNotification.cs" />
+    <Compile Include="NetworkMessages\RequestsAndResponses\CancelCreatedGameRequest.cs" />
+    <Compile Include="NetworkMessages\RequestsAndResponses\CancelCreatedGameResponse.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\ConnectToServerRequest.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\ConnectToServerResponse.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\CreateGameRequest.cs" />

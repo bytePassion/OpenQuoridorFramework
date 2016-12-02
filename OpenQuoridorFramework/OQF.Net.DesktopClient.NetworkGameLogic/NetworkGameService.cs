@@ -47,6 +47,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			BottomPlayer = null;
 			ClientPlayer = null;
 			OpponendPlayer = null;
+			OpendGameId = null;
 
 			CurrentConnectionStatus = ConnectionStatus.NotConnected;		
 			CurrentGameStatus = GameStatus.NoGame;	
@@ -64,6 +65,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		
 		public NetworkGameId CurrentGameId { get; private set; }
 		
+		private NetworkGameId OpendGameId { get; set; }
+
 		public string PlayerName     { get; private set; }
 		public string GameName       { get; private set; }
 		public Player TopPlayer      { get; private set; }
@@ -138,6 +141,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 			if (clientId != null)
 			{
+				OpendGameId = gameId;
 				CurrentGameStatus = GameStatus.WaitingForOponend;				
 				messagingService.SendMessage(new CreateGameRequest(clientId, gameName, gameId));
 			}				
@@ -153,6 +157,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			BottomPlayer = null;
 			ClientPlayer = null;
 			OpponendPlayer = null;
+			OpendGameId = null;
 
 			if (clientId != null)
 				messagingService.SendMessage(new JoinGameRequest(clientId, gameId));
@@ -169,7 +174,14 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		public void CancelCreatedGame()
 		{
-			throw new NotImplementedException();
+			if (clientId != null && OpendGameId != null)
+			{
+				messagingService.SendMessage(new CancelCreatedGameRequest(clientId, OpendGameId));
+			}
+			else
+			{
+				throw new Exception();
+			}			
 		}
 
 		public void SubmitMove(Move nextMove)
@@ -261,7 +273,18 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					OpendGameIsStarting?.Invoke(msg.OpponendPlayerName);
 
 					break;
-				}			
+				}	
+				case NetworkMessageType.CancelCreatedGameResponse:
+				{
+					var msg = (CancelCreatedGameResponse) incommingMsg;
+
+					if (msg.ActionSuccessful)
+					{
+						CurrentGameStatus = GameStatus.NoGame;
+					}
+
+					break;
+				}		
 			}
 		}
 

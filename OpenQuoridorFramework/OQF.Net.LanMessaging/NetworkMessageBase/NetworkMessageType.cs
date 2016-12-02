@@ -6,6 +6,9 @@
 		ConnectToServerResponse,
 		JoinGameRequest,
 		JoinGameResponse,
+		CancelCreatedGameRequest,
+		CancelCreatedGameResponse,
+
 
 		LeaveGameRequest,
 		CreateGameRequest,

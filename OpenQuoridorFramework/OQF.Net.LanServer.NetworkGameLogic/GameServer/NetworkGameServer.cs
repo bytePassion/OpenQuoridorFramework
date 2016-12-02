@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.GameElements;
@@ -28,6 +27,13 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		{
 			this.clientRepository = clientRepository;
 			this.gameRepository = gameRepository;
+
+			gameRepository.RepositoryChanged += OnRepositoryChanged;
+		}
+
+		private void OnRepositoryChanged()
+		{
+			SendGameListUpdateToAllClients();
 		}
 
 
@@ -76,17 +82,14 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 					break;
 				}	
 				case NetworkMessageType.CreateGameRequest:
-				{
-					
+				{					
 					var msg = (CreateGameRequest) newIncommingMsg;
 
 					NewOutputAvailable?.Invoke($"<<< CreateGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 
 					gameRepository.CreateGame(msg.GameId, 
 											  clientRepository.GetClientById(msg.ClientId), 
-											  msg.GameName);
-
-					SendGameListUpdateToAllClients();
+											  msg.GameName);					
 
 					break;
 				}
@@ -162,6 +165,8 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 						game.NewBoardStateAvailable -= OnNewBoardStateAvailable;
 						game.WinnerAvailable        -= OnWinnerAvailable;
 
+						NewOutputAvailable?.Invoke($">>> GameOver notification for ({game.GameName})");
+
 						messagingService.SendMessage(new GameOverNotification(msg.ClientId == game.GameInitiator.ClientId 
 																					? game.Opponend.ClientId 
 																					: game.GameInitiator.ClientId, 
@@ -172,6 +177,26 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 						// TODO store game
 
 						gameRepository.DeleteGame(game.GameId);
+					}
+
+					break;
+				}
+				case NetworkMessageType.CancelCreatedGameRequest:
+				{
+					var msg = (CancelCreatedGameRequest) newIncommingMsg;
+
+					NewOutputAvailable?.Invoke($"<<< CancelGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
+
+					var game = gameRepository.GetGameById(msg.GameId);
+
+					if (game.IsGameActive)
+					{
+						messagingService.SendMessage(new CancelCreatedGameResponse(msg.ClientId, false));
+					}
+					else
+					{
+						gameRepository.DeleteGame(msg.GameId);
+						messagingService.SendMessage(new CancelCreatedGameResponse(msg.ClientId, true));
 					}
 
 					break;
@@ -221,12 +246,9 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 		private void SendGameListUpdate(ClientId clientId)
 		{
-			var gameList = new Dictionary<NetworkGameId, string>();
-
-			foreach (var networkGame in gameRepository.GetAllGames().Where(game => !game.IsGameActive))
-			{
-				gameList.Add(networkGame.GameId, networkGame.GameName);
-			}
+			var gameList = gameRepository.GetAllGames()
+										 .Where(game => !game.IsGameActive)
+										 .ToDictionary(networkGame => networkGame.GameId, networkGame => networkGame.GameName);
 
 			var msg = new OpenGameListUpdateNotification(clientId, gameList);
 			NewOutputAvailable?.Invoke($">>> GameListUpdate to {clientRepository.GetClientById(msg.ClientId).PlayerName}");

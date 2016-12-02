@@ -12,6 +12,8 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 	public class NetworkGame
 	{
 		private BoardState currentBoardState;
+		private bool isGameActive;
+		public event Action GameStatusChanged;
 		public event Action<NetworkGame, BoardState> NewBoardStateAvailable;
 		public event Action<NetworkGame, ClientInfo, WinningReason> WinnerAvailable;
 
@@ -23,7 +25,16 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 			IsGameActive = false;
 		}
 
-		public bool IsGameActive { get; private set; }
+		public bool IsGameActive
+		{
+			get { return isGameActive; }
+			private set
+			{
+				isGameActive = value;
+				GameStatusChanged?.Invoke();
+			}
+		}
+
 		public string GameName { get; }
 		public ClientInfo GameInitiator { get; }
 		public ClientInfo Opponend { get; private set; }

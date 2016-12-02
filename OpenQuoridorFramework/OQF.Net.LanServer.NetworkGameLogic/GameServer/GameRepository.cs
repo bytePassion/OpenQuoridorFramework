@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using OQF.Net.LanMessaging.Types;
 
@@ -12,6 +13,8 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		{
 			games = new Dictionary<NetworkGameId, NetworkGame>();
 		}
+
+		public event Action RepositoryChanged;
 
 		public NetworkGame GetGameByPlayer(ClientId clientId)
 		{
@@ -29,12 +32,27 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 		public void CreateGame(NetworkGameId gameId, ClientInfo gameInitiator, string gameName)
 		{
-			games.Add(gameId, new NetworkGame(gameName, gameInitiator, gameId));
+			var newGame = new NetworkGame(gameName, gameInitiator, gameId);
+
+			newGame.GameStatusChanged += OnGameStatusChanged;
+
+			games.Add(gameId, newGame);
+			RepositoryChanged?.Invoke();
+		}
+
+		private void OnGameStatusChanged()
+		{
+			RepositoryChanged?.Invoke();
 		}
 
 		public void DeleteGame(NetworkGameId gameId)
 		{
+			var gameToDelete = games[gameId];
+
+			gameToDelete.GameStatusChanged -= OnGameStatusChanged;
+
 			games.Remove(gameId);
+			RepositoryChanged?.Invoke();
 		}
 
 		public IEnumerable<NetworkGame> GetAllGames()
@@ -44,6 +62,11 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 		public void ClearRepository()
 		{
+			foreach (var networkGame in games.Values)
+			{
+				networkGame.GameStatusChanged -= OnGameStatusChanged;
+			}
+
 			games.Clear();
 		}
 	}
