@@ -66,6 +66,9 @@
                                  Margin="8,0,0,0"
                                  VerticalAlignment="Stretch">
 
+				
+				<!--	TODO: vll höhe des expanders an die der card binden  -->
+				
 				<Expander ExpandDirection="Right" IsExpanded="{Binding IsProgressViewExpanded, Mode=OneWay}">
 					<Expander.Header>
 						<TextBlock RenderTransformOrigin=".5,.5" Text="{Binding ProgressCaption}">

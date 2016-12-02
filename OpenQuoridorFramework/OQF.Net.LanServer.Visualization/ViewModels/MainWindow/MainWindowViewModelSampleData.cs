@@ -1,7 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Windows.Input;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
 using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
 
@@ -23,27 +21,14 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 				"output3",
 				"output4",
 				"output5"
-			};
-
-			AvailableIpAddresses = new ObservableCollection<string>
-			{
-				"192.168.127.23",
-				"10.72.30.5"
-			};
-
-			SelectedIpAddress = AvailableIpAddresses.First();
+			};			
 		}
 
 		public IActionBarViewModel ActionBarViewModel { get; }
 		public IConnectionBarViewModel ConnectionBarViewModel { get; }
-
-		public ICommand ActivateServer   => null;
-		public ICommand DeactivateServer => null;
-		public string SelectedIpAddress { get; set; }
-
+		
 		public ObservableCollection<string> Output { get; }
-		public ObservableCollection<string> AvailableIpAddresses { get; }
-
+		
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
 	}

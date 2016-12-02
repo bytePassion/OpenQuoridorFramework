@@ -1,13 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows;
-using System.Windows.Input;
-using Lib.FrameworkExtension;
-using Lib.Wpf.Commands;
 using Lib.Wpf.ViewModelBase;
-using OQF.Net.LanMessaging.AddressTypes;
-using OQF.Net.LanMessaging.Utils;
 using OQF.Net.LanServer.Contracts;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
 using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
@@ -27,30 +21,13 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 			this.networkGameServer = networkGameServer;
 			ActionBarViewModel = actionBarViewModel;
 			ConnectionBarViewModel = connectionBarViewModel;
+
 			Output = new ObservableCollection<string>();
-
-			ActivateServer   = new Command(DoActivate);
-			DeactivateServer = new Command(DoDeactivate);
 			
-			AvailableIpAddresses = IpAddressCatcher.GetAllAvailableLocalIpAddresses()
-					                               .Select(address => address.Identifier.ToString())
-					                               .ToObservableCollection();
-
-			SelectedIpAddress = AvailableIpAddresses.First();
-
 			networkGameServer.NewOutputAvailable += OnNewOutputAvailable;
 		}
 
-		private void DoDeactivate()
-		{
-			networkGameServer.Deactivate();
-		}
-
-		private void DoActivate()
-		{
-			networkGameServer.Activate(new Address(new TcpIpProtocol(), 
-												  AddressIdentifier.GetIpAddressIdentifierFromString(SelectedIpAddress)));
-		}
+		
 
 		private void OnNewOutputAvailable(string s)
 		{
@@ -64,12 +41,9 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 		public IActionBarViewModel ActionBarViewModel { get; }
 		public IConnectionBarViewModel ConnectionBarViewModel { get; }
 
-		public ICommand ActivateServer   { get; }
-		public ICommand DeactivateServer { get; }
-		public string SelectedIpAddress { get; set; }
-
+		
 		public ObservableCollection<string> Output { get; }
-		public ObservableCollection<string> AvailableIpAddresses { get; }
+		
 
 		protected override void CleanUp()
 		{

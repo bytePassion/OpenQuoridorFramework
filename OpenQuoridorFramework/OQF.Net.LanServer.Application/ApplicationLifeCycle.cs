@@ -22,7 +22,7 @@ namespace OQF.Net.LanServer.Application
 
 			var languageSelectionViewModel = new LanguageSelectionViewModel();
 			var actionBarViewModel = new ActionBarViewModel(languageSelectionViewModel);
-			var connectionBarViewModel = new ConnectionBarViewModel();
+			var connectionBarViewModel = new ConnectionBarViewModel(networkGameServer);
 
 			var mainWindowViewModel = new MainWindowViewModel(networkGameServer, 
 															  actionBarViewModel,
