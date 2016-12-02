@@ -1,10 +1,8 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Windows;
+﻿using System.ComponentModel;
 using Lib.Wpf.ViewModelBase;
-using OQF.Net.LanServer.Contracts;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
 using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
+using OQF.Net.LanServer.Visualization.ViewModels.LogView;
 
 #pragma warning disable 0067
 
@@ -12,43 +10,20 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 {
 	public class MainWindowViewModel : ViewModel, IMainWindowViewModel
 	{
-		private readonly INetworkGameServer networkGameServer;
-
-		public MainWindowViewModel(INetworkGameServer networkGameServer, 
-								   IActionBarViewModel actionBarViewModel, 
-								   IConnectionBarViewModel connectionBarViewModel)
-		{
-			this.networkGameServer = networkGameServer;
+		public MainWindowViewModel(IActionBarViewModel actionBarViewModel, 
+								   IConnectionBarViewModel connectionBarViewModel, 
+								   ILogViewModel logViewModel)
+		{			
 			ActionBarViewModel = actionBarViewModel;
 			ConnectionBarViewModel = connectionBarViewModel;
-
-			Output = new ObservableCollection<string>();
-			
-			networkGameServer.NewOutputAvailable += OnNewOutputAvailable;
+			LogViewModel = logViewModel;
 		}
-
 		
-
-		private void OnNewOutputAvailable(string s)
-		{
-			Application.Current.Dispatcher.Invoke(() =>
-			{
-				Output.Add(s);
-			});
-			
-		}
-
 		public IActionBarViewModel ActionBarViewModel { get; }
 		public IConnectionBarViewModel ConnectionBarViewModel { get; }
+		public ILogViewModel LogViewModel { get; }
 
-		
-		public ObservableCollection<string> Output { get; }
-		
-
-		protected override void CleanUp()
-		{
-			networkGameServer.NewOutputAvailable -= OnNewOutputAvailable;
-		}
+		protected override void CleanUp() {	}
 		public override event PropertyChangedEventHandler PropertyChanged;		
 	}
 }

@@ -26,7 +26,7 @@
 		
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="2*"/>
-			<ColumnDefinition/>
+			<ColumnDefinition Width="2*"/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
 		
@@ -49,16 +49,13 @@
 							 VerticalAlignment="Stretch"
 							 Margin="5">
 			<StackPanel>
+				
 				<TextBlock Text="Server-Log:"
 						   Margin="5"
 						   Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
-				<ScrollViewer HorizontalScrollBarVisibility="Disabled"
-							  VerticalScrollBarVisibility="Auto">
-
-					<ItemsControl ItemsSource="{Binding Output}"
-					              Margin="5"/>
-
-				</ScrollViewer>
+				
+				<views:LogView DataContext="{Binding LogViewModel}"/>
+				
 			</StackPanel>
 		</materialDesign:Card>
 

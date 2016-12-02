@@ -1,7 +1,7 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
 using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
+using OQF.Net.LanServer.Visualization.ViewModels.LogView;
 
 #pragma warning disable 0067
 
@@ -12,23 +12,14 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 		public MainWindowViewModelSampleData()
 		{
 			ActionBarViewModel = new ActionBarViewModelSampleData();
-			ConnectionBarViewModel = new ConnectionBarViewModelSampleData();
-
-			Output = new ObservableCollection<string>
-			{
-				"output1",
-				"output2",
-				"output3",
-				"output4",
-				"output5"
-			};			
+			ConnectionBarViewModel = new ConnectionBarViewModelSampleData();	
+			LogViewModel = new LogViewModelSampleData();			
 		}
 
 		public IActionBarViewModel ActionBarViewModel { get; }
 		public IConnectionBarViewModel ConnectionBarViewModel { get; }
-		
-		public ObservableCollection<string> Output { get; }
-		
+		public ILogViewModel LogViewModel { get; }
+
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
 	}
