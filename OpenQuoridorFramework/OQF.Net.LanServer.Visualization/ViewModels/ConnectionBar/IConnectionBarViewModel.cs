@@ -11,6 +11,8 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 
 		string SelectedIpAddress { get; set; }
 
+		bool IsServerActive { get; }
+
 		ObservableCollection<string> AvailableIpAddresses { get; }
 	}
 }

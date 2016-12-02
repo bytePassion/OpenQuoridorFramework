@@ -18,6 +18,7 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 			};
 
 			SelectedIpAddress = AvailableIpAddresses.First();
+			IsServerActive = false;
 		}
 
 		public ICommand ActivateServer   => null;
@@ -25,6 +26,7 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 
 		public string SelectedIpAddress { get; set; }
 
+		public bool IsServerActive { get; }
 		public ObservableCollection<string> AvailableIpAddresses { get; }
 
 		public void Dispose () { }
