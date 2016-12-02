@@ -32,7 +32,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		public event Action<BoardState> NewBoardStateAvailable;
 
 		private IClientMessaging messagingService;
-		private ClientId clientId;
+		
 		private BoardState currentBoardState;
 
 		private Timer connectionTimeoutTimer;
@@ -67,6 +67,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		public NetworkGameId CurrentGameId { get; private set; }
 		
 		private NetworkGameId OpendGameId { get; set; }
+		private ClientId ClientId { get; set; }
 
 		public string PlayerName     { get; private set; }
 		public string GameName       { get; private set; }
@@ -101,8 +102,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			if (CurrentConnectionStatus == ConnectionStatus.NotConnected)
 			{
 				PlayerName = playerName;
-				clientId = new ClientId(Guid.NewGuid());
-				messagingService = new ClientMessaging(new Address(new TcpIpProtocol(), serverAddress), clientId);
+				ClientId = new ClientId(Guid.NewGuid());
+				messagingService = new ClientMessaging(new Address(new TcpIpProtocol(), serverAddress), ClientId);
 				messagingService.NewIncomingMessage += OnNewIncomingMessage;
 
 				connectionTimeoutTimer = new Timer(OnConnectionTimeout, 
@@ -112,7 +113,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 				CurrentConnectionStatus = ConnectionStatus.TryingToConnect;
 
-				messagingService.SendMessage(new ConnectToServerRequest(clientId, playerName));
+				messagingService.SendMessage(new ConnectToServerRequest(ClientId, playerName));
 			}		
 		}
 
@@ -140,11 +141,11 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			ClientPlayer = null;
 			OpponendPlayer = null;
 
-			if (clientId != null)
+			if (ClientId != null)
 			{
 				OpendGameId = gameId;
 				CurrentGameStatus = GameStatus.WaitingForOponend;				
-				messagingService.SendMessage(new CreateGameRequest(clientId, gameName, gameId));
+				messagingService.SendMessage(new CreateGameRequest(ClientId, gameName, gameId));
 			}				
 		}
 
@@ -160,8 +161,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			OpponendPlayer = null;
 			OpendGameId = null;
 
-			if (clientId != null)
-				messagingService.SendMessage(new JoinGameRequest(clientId, gameId));
+			if (ClientId != null)
+				messagingService.SendMessage(new JoinGameRequest(ClientId, gameId));
 		}
 
 		public void LeaveGame()
@@ -170,15 +171,15 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			{
 				CurrentGameStatus = GameStatus.NoGame;
 				CurrentBoardState = null;
-				messagingService.SendMessage(new LeaveGameRequest(clientId, CurrentGameId));
+				messagingService.SendMessage(new LeaveGameRequest(ClientId, CurrentGameId));
 			}
 		}
 
 		public void CancelCreatedGame()
 		{
-			if (clientId != null && OpendGameId != null)
+			if (ClientId != null && OpendGameId != null)
 			{
-				messagingService.SendMessage(new CancelCreatedGameRequest(clientId, OpendGameId));
+				messagingService.SendMessage(new CancelCreatedGameRequest(ClientId, OpendGameId));
 			}
 			else
 			{
@@ -188,9 +189,9 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		public void SubmitMove(Move nextMove)
 		{
-			if (clientId != null && CurrentGameId != null)
+			if (ClientId != null && CurrentGameId != null)
 			{
-				messagingService.SendMessage(new NextMoveSubmission(clientId, nextMove, CurrentGameId));
+				messagingService.SendMessage(new NextMoveSubmission(ClientId, nextMove, CurrentGameId));
 			}
 			else
 			{
@@ -295,10 +296,15 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 		public void Disconnect()
 		{
+			if (CurrentConnectionStatus == ConnectionStatus.Connected)
+			{
+				messagingService.SendMessage(new ClientDisconnect(ClientId));
+			}
+
 			CurrentConnectionStatus = ConnectionStatus.NotConnected;
 			CurrentGameStatus = GameStatus.NoGame;
 			CurrentBoardState = null;
-			clientId = null;
+			ClientId = null;
 
 			// TODO: msg to server
 

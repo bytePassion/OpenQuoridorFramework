@@ -9,7 +9,6 @@
 		CancelCreatedGameRequest,
 		CancelCreatedGameResponse,
 
-
 		LeaveGameRequest,
 		CreateGameRequest,
 		
@@ -18,6 +17,7 @@
 		GameOverNotification,
 		NextMoveSubmission,
 		OpendGameIsStarting,
+		ClientDisconnect,
 
 		ErrorResponse		
 	}

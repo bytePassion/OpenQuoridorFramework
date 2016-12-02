@@ -162,21 +162,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 					}
 					else
 					{
-						game.NewBoardStateAvailable -= OnNewBoardStateAvailable;
-						game.WinnerAvailable        -= OnWinnerAvailable;
-
-						NewOutputAvailable?.Invoke($">>> GameOver notification for ({game.GameName})");
-
-						messagingService.SendMessage(new GameOverNotification(msg.ClientId == game.GameInitiator.ClientId 
-																					? game.Opponend.ClientId 
-																					: game.GameInitiator.ClientId, 
-																			  true, 
-																			  WinningReason.Capitulation));
-
-
-						// TODO store game
-
-						gameRepository.DeleteGame(game.GameId);
+						LeaveGame(msg.ClientId, game);
 					}
 
 					break;
@@ -201,7 +187,46 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 					break;
 				}
+				case NetworkMessageType.ClientDisconnect:
+				{
+					NewOutputAvailable?.Invoke($"<<< Disconnect from {clientRepository.GetClientById(newIncommingMsg.ClientId)?.PlayerName}");
+
+					DisconnectClient(newIncommingMsg.ClientId);
+
+					break;
+				}
 			}			
+		}
+
+		private void DisconnectClient(ClientId clientId)
+		{
+			var game = gameRepository.GetGameByPlayer(clientId);
+
+			if (game != null)
+			{
+				LeaveGame(clientId, game);
+			}
+
+			clientRepository.RemoveClient(clientId);
+		}
+
+		private void LeaveGame(ClientId clientId, INetworkGame game)
+		{
+			game.NewBoardStateAvailable -= OnNewBoardStateAvailable;
+			game.WinnerAvailable        -= OnWinnerAvailable;
+
+			NewOutputAvailable?.Invoke($">>> GameOver notification for ({game.GameName})");
+
+			messagingService.SendMessage(new GameOverNotification(clientId == game.GameInitiator.ClientId
+																					? game.Opponend.ClientId
+																					: game.GameInitiator.ClientId,
+																  true,
+																  WinningReason.Capitulation));
+
+
+			// TODO store game
+
+			gameRepository.DeleteGame(game.GameId);
 		}
 
 		private void OnWinnerAvailable(INetworkGame networkGame, ClientInfo clientInfo, WinningReason winningReason)
