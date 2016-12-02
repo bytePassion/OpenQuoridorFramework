@@ -15,13 +15,21 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 			ActionBarViewModel     = new ActionBarViewModelSampleData();
 			ConnectionBarViewModel = new ConnectionBarViewModelSampleData();	
 			LogViewModel           = new LogViewModelSampleData();
-			GameOverviewModel      = new GameOverviewModelSampleData();			
+			GameOverviewModel      = new GameOverviewModelSampleData();
+
+			ServerLogSectionCaption = "Server-Log:";
+			GameOverviewSectionCaption = "Game overview:";
+			ConnectedClientsSectionCaption = "Connected clients:";
 		}
 
 		public IActionBarViewModel     ActionBarViewModel     { get; }
 		public IConnectionBarViewModel ConnectionBarViewModel { get; }
 		public ILogViewModel           LogViewModel           { get; }
 		public IGameOverviewModel      GameOverviewModel      { get; }
+
+		public string ServerLogSectionCaption        { get; }
+		public string GameOverviewSectionCaption     { get; }
+		public string ConnectedClientsSectionCaption { get; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		

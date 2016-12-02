@@ -12,5 +12,9 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 		IConnectionBarViewModel ConnectionBarViewModel { get; }		
 		ILogViewModel           LogViewModel           { get; }	
 		IGameOverviewModel      GameOverviewModel      { get; }	
+
+		string ServerLogSectionCaption        { get; }
+		string GameOverviewSectionCaption     { get; }
+		string ConnectedClientsSectionCaption { get; }
 	}
 }

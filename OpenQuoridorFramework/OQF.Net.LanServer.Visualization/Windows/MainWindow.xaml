@@ -50,7 +50,7 @@
 							 Margin="5">
 			<StackPanel>
 				
-				<TextBlock Text="Server-Log:"
+				<TextBlock Text="{Binding ServerLogSectionCaption}"
 						   Margin="5"
 						   Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
 				
@@ -65,7 +65,7 @@
 							 Margin="0,5">
 
 			<StackPanel>
-				<TextBlock Text="Game-Overview:"
+				<TextBlock Text="{Binding GameOverviewSectionCaption}"
 						   Margin="5"
 						   Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
 				<views:GameOverview DataContext="{Binding GameOverviewModel}"/>
@@ -79,7 +79,7 @@
 							 VerticalAlignment="Stretch"
 							 Margin="5">
 			<StackPanel>
-				<TextBlock Text="ConnectedClients:"
+				<TextBlock Text="{Binding ConnectedClientsSectionCaption}"
 						   Margin="5"
 						   Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
 

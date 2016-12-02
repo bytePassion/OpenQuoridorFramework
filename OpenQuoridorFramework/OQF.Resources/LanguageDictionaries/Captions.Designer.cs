@@ -592,6 +592,60 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Activate.
+        /// </summary>
+        public static string LSv_ActivateButtonCaption {
+            get {
+                return ResourceManager.GetString("LSv_ActivateButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connected clients:.
+        /// </summary>
+        public static string LSv_ConnectedClientsSectionCaption {
+            get {
+                return ResourceManager.GetString("LSv_ConnectedClientsSectionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deactivate.
+        /// </summary>
+        public static string LSv_DeactivateButtonCaption {
+            get {
+                return ResourceManager.GetString("LSv_DeactivateButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game overview:.
+        /// </summary>
+        public static string LSv_GameOverviewSectionCaption {
+            get {
+                return ResourceManager.GetString("LSv_GameOverviewSectionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select server-address:.
+        /// </summary>
+        public static string LSv_SelectServerAddressPromt {
+            get {
+                return ResourceManager.GetString("LSv_SelectServerAddressPromt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server-Log:.
+        /// </summary>
+        public static string LSv_ServerLogSectionCaption {
+            get {
+                return ResourceManager.GetString("LSv_ServerLogSectionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connection-Options.
         /// </summary>
         public static string NCl_NetworkViewCaption {

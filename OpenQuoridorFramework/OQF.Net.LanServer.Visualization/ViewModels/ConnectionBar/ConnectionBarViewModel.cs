@@ -9,6 +9,8 @@ using Lib.Wpf.ViewModelBase;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.Utils;
 using OQF.Net.LanServer.Contracts;
+using OQF.Resources.LanguageDictionaries;
+using OQF.Utils;
 
 namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 {
@@ -19,6 +21,8 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 
 		public ConnectionBarViewModel(INetworkGameServer networkGameServer)
 		{
+			CultureManager.CultureChanged += RefreshCaptions;
+
 			this.networkGameServer = networkGameServer;
 			ActivateServer   = new Command(DoActivate,   () => !IsServerActive, new PropertyChangedCommandUpdater(this, nameof(IsServerActive)));
 			DeactivateServer = new Command(DoDeactivate, () =>  IsServerActive, new PropertyChangedCommandUpdater(this, nameof(IsServerActive)));
@@ -28,7 +32,7 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 												   .ToObservableCollection();
 
 			SelectedIpAddress = AvailableIpAddresses.First();
-		}
+		}		
 
 		public ICommand ActivateServer   { get; }
 		public ICommand DeactivateServer { get; }
@@ -43,6 +47,10 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 
 		public ObservableCollection<string> AvailableIpAddresses { get; }
 
+		public string ActivateButtonCaption    => Captions.LSv_ActivateButtonCaption;
+		public string DeactivateButtonCaption  => Captions.LSv_DeactivateButtonCaption;
+		public string SelectServerAddressPromt => Captions.LSv_SelectServerAddressPromt;
+
 		private void DoDeactivate ()
 		{
 			networkGameServer.Deactivate();
@@ -56,8 +64,16 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 			IsServerActive = true;
 		}
 
+		private void RefreshCaptions ()
+		{
+			PropertyChanged.Notify(this, nameof(ActivateButtonCaption),
+										 nameof(DeactivateButtonCaption),
+										 nameof(SelectServerAddressPromt));
+		}
+
 		protected override void CleanUp()
-		{			
+		{
+			CultureManager.CultureChanged -= RefreshCaptions;
 		}
 		public override event PropertyChangedEventHandler PropertyChanged;
 	}

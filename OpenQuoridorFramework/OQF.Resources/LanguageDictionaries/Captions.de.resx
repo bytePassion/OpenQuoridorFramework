@@ -648,4 +648,22 @@
   <data name="NCl_NetworkViewCaption" xml:space="preserve">
     <value>Verbindungsoptionen</value>
   </data>
+  <data name="LSv_ServerLogSectionCaption" xml:space="preserve">
+    <value>Server-Log:</value>
+  </data>
+  <data name="LSv_GameOverviewSectionCaption" xml:space="preserve">
+    <value>Spielübersicht:</value>
+  </data>
+  <data name="LSv_ConnectedClientsSectionCaption" xml:space="preserve">
+    <value>Verbundene Klienten:</value>
+  </data>
+  <data name="LSv_ActivateButtonCaption" xml:space="preserve">
+    <value>Aktivieren</value>
+  </data>
+  <data name="LSv_DeactivateButtonCaption" xml:space="preserve">
+    <value>Deaktivieren</value>
+  </data>
+  <data name="LSv_SelectServerAddressPromt" xml:space="preserve">
+    <value>Wähle Server-Adresse:</value>
+  </data>
 </root>

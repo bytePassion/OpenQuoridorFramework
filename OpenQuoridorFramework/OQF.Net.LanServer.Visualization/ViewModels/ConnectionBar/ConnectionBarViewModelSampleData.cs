@@ -19,6 +19,10 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 
 			SelectedIpAddress = AvailableIpAddresses.First();
 			IsServerActive = false;
+
+			ActivateButtonCaption = "Activate";
+			DeactivateButtonCaption = "Deactivate";
+			SelectServerAddressPromt = "Select server-address:";
 		}
 
 		public ICommand ActivateServer   => null;
@@ -28,6 +32,10 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 
 		public bool IsServerActive { get; }
 		public ObservableCollection<string> AvailableIpAddresses { get; }
+
+		public string ActivateButtonCaption    { get; }
+		public string DeactivateButtonCaption  { get; }
+		public string SelectServerAddressPromt { get; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
