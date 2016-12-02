@@ -25,9 +25,9 @@
 		</Grid.RowDefinitions>
 		
 		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="3*"/>
 			<ColumnDefinition Width="2*"/>
 			<ColumnDefinition Width="2*"/>
-			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
 		
 		<views:ActionBar Grid.Row="0"
@@ -68,6 +68,7 @@
 				<TextBlock Text="Game-Overview:"
 						   Margin="5"
 						   Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
+				<views:GameOverview DataContext="{Binding GameOverviewModel}"/>
 				
 			</StackPanel>
 

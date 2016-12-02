@@ -4,18 +4,19 @@ using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.Net.LanMessaging.Types;
+using OQF.Net.LanServer.Contracts;
 using OQF.Utils.BoardStateUtils;
 using OQF.Utils.Enum;
 
 namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 {
-	public class NetworkGame
+	public class NetworkGame : INetworkGame
 	{
 		private BoardState currentBoardState;
 		private bool isGameActive;
 		public event Action GameStatusChanged;
-		public event Action<NetworkGame, BoardState> NewBoardStateAvailable;
-		public event Action<NetworkGame, ClientInfo, WinningReason> WinnerAvailable;
+		public event Action<INetworkGame, BoardState> NewBoardStateAvailable;
+		public event Action<INetworkGame, ClientInfo, WinningReason> WinnerAvailable;
 
 		public NetworkGame(string gameName, ClientInfo gameInitiator, NetworkGameId gameId)
 		{

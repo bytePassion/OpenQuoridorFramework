@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 
+#pragma warning disable 0067
+
 namespace OQF.Net.LanServer.Visualization.ViewModels.LogView
 {
 	internal class LogViewModelSampleData : ILogViewModel

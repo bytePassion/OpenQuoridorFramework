@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using OQF.Net.LanMessaging.Types;
+using OQF.Net.LanServer.Contracts;
 
 namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 {
 	public class GameRepository : IGameRepository
 	{
-		private readonly IDictionary<NetworkGameId, NetworkGame> games;
+		private readonly IDictionary<NetworkGameId, INetworkGame> games;
 
 		public GameRepository()
 		{
-			games = new Dictionary<NetworkGameId, NetworkGame>();
+			games = new Dictionary<NetworkGameId, INetworkGame>();
 		}
 
 		public event Action RepositoryChanged;
 
-		public NetworkGame GetGameByPlayer(ClientId clientId)
+		public INetworkGame GetGameByPlayer (ClientId clientId)
 		{
 			return games.FirstOrDefault(game => game.Value.GameInitiator.ClientId == clientId || game.Value.Opponend?.ClientId == clientId).Value;
 		}
 
-		public NetworkGame GetGameById(NetworkGameId gameId)
+		public INetworkGame GetGameById (NetworkGameId gameId)
 		{
 			if (games.ContainsKey(gameId))
 				return games[gameId];
@@ -55,7 +56,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 			RepositoryChanged?.Invoke();
 		}
 
-		public IEnumerable<NetworkGame> GetAllGames()
+		public IEnumerable<INetworkGame> GetAllGames()
 		{
 			return games.Values;
 		}

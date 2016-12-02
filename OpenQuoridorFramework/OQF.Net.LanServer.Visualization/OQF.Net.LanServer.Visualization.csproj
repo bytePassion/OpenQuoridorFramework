@@ -59,6 +59,10 @@
     <Compile Include="ViewModels\ConnectionBar\ConnectionBarViewModel.cs" />
     <Compile Include="ViewModels\ConnectionBar\ConnectionBarViewModelSampleData.cs" />
     <Compile Include="ViewModels\ConnectionBar\IConnectionBarViewModel.cs" />
+    <Compile Include="ViewModels\GameOverview\GameOverviewModel.cs" />
+    <Compile Include="ViewModels\GameOverview\GameOverviewModelSampleData.cs" />
+    <Compile Include="ViewModels\GameOverview\Helper\GameDisplayData.cs" />
+    <Compile Include="ViewModels\GameOverview\IGameOverviewModel.cs" />
     <Compile Include="ViewModels\LogView\ILogViewModel.cs" />
     <Compile Include="ViewModels\LogView\LogViewModel.cs" />
     <Compile Include="ViewModels\LogView\LogViewModelSampleData.cs" />
@@ -70,6 +74,9 @@
     </Compile>
     <Compile Include="Views\ConnectionBar.xaml.cs">
       <DependentUpon>ConnectionBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameOverview.xaml.cs">
+      <DependentUpon>GameOverview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LogView.xaml.cs">
       <DependentUpon>LogView.xaml</DependentUpon>
@@ -84,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ConnectionBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

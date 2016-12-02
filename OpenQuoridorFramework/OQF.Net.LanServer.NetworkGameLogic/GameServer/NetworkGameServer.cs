@@ -204,7 +204,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 			}			
 		}
 
-		private void OnWinnerAvailable(NetworkGame networkGame, ClientInfo clientInfo, WinningReason winningReason)
+		private void OnWinnerAvailable(INetworkGame networkGame, ClientInfo clientInfo, WinningReason winningReason)
 		{
 			networkGame.NewBoardStateAvailable -= OnNewBoardStateAvailable;
 			networkGame.WinnerAvailable        -= OnWinnerAvailable;
@@ -225,7 +225,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 			gameRepository.DeleteGame(networkGame.GameId);
 		}
 
-		private void OnNewBoardStateAvailable(NetworkGame networkGame, BoardState boardState)
+		private void OnNewBoardStateAvailable(INetworkGame networkGame, BoardState boardState)
 		{
 			var newProgress = CreateQProgress.FromBoardState(boardState);
 

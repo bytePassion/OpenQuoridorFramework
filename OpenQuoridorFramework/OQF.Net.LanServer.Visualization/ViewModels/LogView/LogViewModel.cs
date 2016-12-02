@@ -4,6 +4,8 @@ using System.Windows;
 using Lib.Wpf.ViewModelBase;
 using OQF.Net.LanServer.Contracts;
 
+#pragma warning disable 0067
+
 namespace OQF.Net.LanServer.Visualization.ViewModels.LogView
 {
 	public class LogViewModel : ViewModel, ILogViewModel

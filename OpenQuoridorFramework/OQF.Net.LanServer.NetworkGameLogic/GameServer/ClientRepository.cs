@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using OQF.Net.LanMessaging.Types;
+using OQF.Net.LanServer.Contracts;
 
 namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 {

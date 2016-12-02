@@ -49,11 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameServer\ClientInfo.cs" />
     <Compile Include="GameServer\ClientRepository.cs" />
     <Compile Include="GameServer\GameRepository.cs" />
-    <Compile Include="GameServer\IClientRepository.cs" />
-    <Compile Include="GameServer\IGameRepository.cs" />
     <Compile Include="GameServer\NetworkGame.cs" />
     <Compile Include="Messaging\IServerMessaging.cs" />
     <Compile Include="GameServer\NetworkGameServer.cs" />

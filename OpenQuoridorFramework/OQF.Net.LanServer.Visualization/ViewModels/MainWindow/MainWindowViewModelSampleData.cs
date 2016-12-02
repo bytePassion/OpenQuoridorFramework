@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
 using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;
+using OQF.Net.LanServer.Visualization.ViewModels.GameOverview;
 using OQF.Net.LanServer.Visualization.ViewModels.LogView;
 
 #pragma warning disable 0067
@@ -11,14 +12,16 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.MainWindow
 	{
 		public MainWindowViewModelSampleData()
 		{
-			ActionBarViewModel = new ActionBarViewModelSampleData();
+			ActionBarViewModel     = new ActionBarViewModelSampleData();
 			ConnectionBarViewModel = new ConnectionBarViewModelSampleData();	
-			LogViewModel = new LogViewModelSampleData();			
+			LogViewModel           = new LogViewModelSampleData();
+			GameOverviewModel      = new GameOverviewModelSampleData();			
 		}
 
-		public IActionBarViewModel ActionBarViewModel { get; }
+		public IActionBarViewModel     ActionBarViewModel     { get; }
 		public IConnectionBarViewModel ConnectionBarViewModel { get; }
-		public ILogViewModel LogViewModel { get; }
+		public ILogViewModel           LogViewModel           { get; }
+		public IGameOverviewModel      GameOverviewModel      { get; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;		
