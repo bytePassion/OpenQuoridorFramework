@@ -31,7 +31,7 @@
 
 
 
-        <Grid Margin="0,0,0,20" Visibility="{Binding ConnectionStatus, Converter={StaticResource ConnectionPanelVisibility}}">
+        <Grid Margin="0,0,0,16" Visibility="{Binding ConnectionStatus, Converter={StaticResource ConnectionPanelVisibility}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="8" />
@@ -55,13 +55,12 @@
                 <Button Margin="8,0"
                         Command="{Binding ConnectToServer}"
                         Content="Connect to Server" />
-                <StackPanel Orientation="Horizontal" Margin="0,15,10,0">
+                <StackPanel Margin="0,16,8,0" Orientation="Horizontal">
                     <Ellipse Width="16"
-                             Height="16"                             
+                             Height="16"
                              Fill="{Binding ConnectionStatus,
                                             Converter={StaticResource ConnectionDisplayBackground}}" />
-                    <TextBlock VerticalAlignment="Center"
-							   Margin="10,0,0,0">
+                    <TextBlock Margin="8,0,0,0" VerticalAlignment="Center">
 
                         <TextBlock.Text>
                             <MultiBinding Converter="{StaticResource ConnectionDisplayText}">
@@ -77,7 +76,7 @@
 
 
 
-        <StackPanel Margin="0,0,0,20" Visibility="{Binding ConnectionStatus, Converter={StaticResource DisconnectPanelVisibility}}">
+        <StackPanel Margin="0,0,0,16" Visibility="{Binding ConnectionStatus, Converter={StaticResource DisconnectPanelVisibility}}">
 
             <Button Margin="8,0"
                     Command="{Binding DisconnectFromServer}"
@@ -101,7 +100,9 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <TextBlock Margin="0,0,0,8"  Style="{StaticResource MaterialDesignSubheadingTextBlock}" Text="Neues Spiel" />
+                <TextBlock Margin="0,0,0,8"
+                           Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                           Text="Neues Spiel" />
                 <TextBox materialDesign:HintAssist.Hint="Spielname" Text="{Binding NewGameName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <Button Margin="8"
                         Command="{Binding CreateGame}"
