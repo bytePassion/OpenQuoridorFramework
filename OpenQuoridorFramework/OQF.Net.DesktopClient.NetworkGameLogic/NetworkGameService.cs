@@ -167,7 +167,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			{
 				CurrentGameStatus = GameStatus.NoGame;
 				CurrentBoardState = null;
-				messagingService.SendMessage(new LeaveGameRequest(ClientId, CurrentGameId));
+				messagingService.SendMessage(new LeaveGame(ClientId, CurrentGameId));
 			}
 		}
 

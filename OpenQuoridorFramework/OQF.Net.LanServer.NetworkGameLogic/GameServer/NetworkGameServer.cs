@@ -156,17 +156,17 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 					break;
 				}
-				case NetworkMessageType.LeaveGameRequest:
+				case NetworkMessageType.LeaveGame:
 				{
-					var msg = (LeaveGameRequest) newIncommingMsg;
+					var msg = (LeaveGame) newIncommingMsg;
 
-					NewOutputAvailable?.Invoke($"<<< LeaveGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
+					NewOutputAvailable?.Invoke($"<<< LeaveGame from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 
 					var game = gameRepository.GetGameById(msg.GameId);
 					
 					if (game == null || !game.IsGameActive)
 					{
-						NewOutputAvailable?.Invoke($">>> LeaveGameRequest ERROR! (@{clientRepository.GetClientById(msg.ClientId).PlayerName})");
+						NewOutputAvailable?.Invoke($">>> LeaveGame ERROR! (@{clientRepository.GetClientById(msg.ClientId).PlayerName})");
 					}
 					else
 					{
