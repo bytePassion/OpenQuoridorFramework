@@ -204,7 +204,10 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 			if (game != null)
 			{
-				LeaveGame(clientId, game);
+				if (game.IsGameActive)
+					LeaveGame(clientId, game);
+				else
+					gameRepository.DeleteGame(game.GameId);
 			}
 
 			clientRepository.RemoveClient(clientId);
