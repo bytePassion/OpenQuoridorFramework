@@ -6,6 +6,7 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
+using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.Utils;
 using OQF.Net.LanServer.Contracts;
@@ -51,10 +52,16 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 		public string DeactivateButtonCaption  => Captions.LSv_DeactivateButtonCaption;
 		public string SelectServerAddressPromt => Captions.LSv_SelectServerAddressPromt;
 
-		private void DoDeactivate ()
+		private async void DoDeactivate ()
 		{
-			networkGameServer.Deactivate();
-			IsServerActive = false;
+			var userConfirmLeaving = await YesNoDialogService.Show(Captions.LSv_DeactivateServerConfirmationPromt);
+
+			if (userConfirmLeaving)
+			{
+				networkGameServer.Deactivate();
+				IsServerActive = false;
+			}
+				
 		}
 
 		private void DoActivate ()

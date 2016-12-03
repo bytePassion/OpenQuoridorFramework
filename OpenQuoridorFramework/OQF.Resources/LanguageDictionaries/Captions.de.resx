@@ -666,4 +666,7 @@
   <data name="LSv_SelectServerAddressPromt" xml:space="preserve">
     <value>Wähle Server-Adresse:</value>
   </data>
+  <data name="LSv_DeactivateServerConfirmationPromt" xml:space="preserve">
+    <value>Den Server wirklich deaktivieren?</value>
+  </data>
 </root>

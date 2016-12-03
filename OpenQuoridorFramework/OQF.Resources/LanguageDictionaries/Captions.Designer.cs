@@ -619,6 +619,15 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you really want to deactivate the server?.
+        /// </summary>
+        public static string LSv_DeactivateServerConfirmationPromt {
+            get {
+                return ResourceManager.GetString("LSv_DeactivateServerConfirmationPromt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game overview:.
         /// </summary>
         public static string LSv_GameOverviewSectionCaption {
