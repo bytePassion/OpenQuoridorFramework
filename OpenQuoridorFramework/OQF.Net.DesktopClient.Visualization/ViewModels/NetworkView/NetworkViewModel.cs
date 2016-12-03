@@ -151,9 +151,16 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 					AvailableOpenGames.Add(new GameDisplayData(openGame.GameId, openGame.GameName, openGame.InitiatorName));
 				}
 
-				SelectedOpenGame = AvailableOpenGames.FirstOrDefault();
+				if (SelectedOpenGame != null)
+				{
+					var lastSelection = AvailableOpenGames.FirstOrDefault(game => game.GameId == SelectedOpenGame.GameId);
 
-				// TODO: restore selection;
+					SelectedOpenGame = lastSelection ?? AvailableOpenGames.FirstOrDefault();
+				}
+				else
+				{
+					SelectedOpenGame = AvailableOpenGames.FirstOrDefault();
+				}												
 			});
 		}
 		
