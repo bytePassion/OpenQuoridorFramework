@@ -55,13 +55,13 @@
                 <Button Margin="8,0"
                         Command="{Binding ConnectToServer}"
                         Content="Connect to Server" />
-                <DockPanel Margin="0,8,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,15,10,0">
                     <Ellipse Width="16"
-                             Height="16"
-                             DockPanel.Dock="Right"
+                             Height="16"                             
                              Fill="{Binding ConnectionStatus,
                                             Converter={StaticResource ConnectionDisplayBackground}}" />
-                    <TextBlock VerticalAlignment="Center" DockPanel.Dock="Left">
+                    <TextBlock VerticalAlignment="Center"
+							   Margin="10,0,0,0">
 
                         <TextBlock.Text>
                             <MultiBinding Converter="{StaticResource ConnectionDisplayText}">
@@ -71,7 +71,7 @@
                         </TextBlock.Text>
 
                     </TextBlock>
-                </DockPanel>
+                </StackPanel>
             </StackPanel>
         </Grid>
 
