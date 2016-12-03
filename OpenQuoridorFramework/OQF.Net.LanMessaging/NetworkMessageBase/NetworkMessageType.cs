@@ -8,10 +8,11 @@
 		JoinGameResponse,
 		CancelCreatedGameRequest,
 		CancelCreatedGameResponse,
+		CreateGameRequest,
+		CreateGameResponse,
 
 		LeaveGameRequest,
-		CreateGameRequest,
-		
+				
 		NewGameStateAvailableNotification,
 		OpenGameListUpdateNotification,
 		GameOverNotification,

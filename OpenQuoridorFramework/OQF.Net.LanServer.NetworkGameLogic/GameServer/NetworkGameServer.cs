@@ -84,13 +84,20 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 				{					
 					var msg = (CreateGameRequest) newIncommingMsg;
 
-					// TODO: createGameRespone
-
 					NewOutputAvailable?.Invoke($"<<< CreateGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 
-					gameRepository.CreateGame(msg.GameId, 
+					var newGameId = new NetworkGameId(Guid.NewGuid());
+
+					while (gameRepository.GetGameById(newGameId) != null)
+						newGameId = new NetworkGameId(Guid.NewGuid());
+
+					gameRepository.CreateGame(newGameId, 
 											  clientRepository.GetClientById(msg.ClientId), 
-											  msg.GameName);					
+											  msg.GameName);
+
+					NewOutputAvailable?.Invoke($">>> CreateGameResponse to {clientRepository.GetClientById(msg.ClientId).PlayerName}");
+
+					messagingService.SendMessage(new CreateGameResponse(msg.ClientId, newGameId));				
 
 					break;
 				}

@@ -75,6 +75,7 @@
     <Compile Include="NetworkMessages\RequestsAndResponses\ConnectToServerRequest.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\ConnectToServerResponse.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\CreateGameRequest.cs" />
+    <Compile Include="NetworkMessages\RequestsAndResponses\CreateGameResponse.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\JoidGameRequest.cs" />
     <Compile Include="NetworkMessages\RequestsAndResponses\JoinGameResponse.cs" />
     <Compile Include="NetworkMessages\Notifications\OpendGameIsStarting.cs" />

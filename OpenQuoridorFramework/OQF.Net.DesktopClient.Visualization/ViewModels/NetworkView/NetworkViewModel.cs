@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -175,9 +174,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		}
 
 		private void DoCreateGame ()
-		{
-			var newGameId = new NetworkGameId( Guid.NewGuid());
-			networkGameService.CreateGame(NewGameName, newGameId);
+		{			
+			networkGameService.CreateGame(NewGameName);
 		}
 
 		private void DoJoinGame ()

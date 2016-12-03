@@ -45,6 +45,7 @@ namespace OQF.Net.LanMessaging.NetworkMessageBase
 				case NetworkMessageType.ConnectToServerRequest:              return ConnectToServerRequest.Parse           (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.ConnectToServerResponse:             return ConnectToServerResponse.Parse          (messageParts.ClientId, messageParts.Content);	
 				case NetworkMessageType.CreateGameRequest:                   return CreateGameRequest.Parse                (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.CreateGameResponse:                  return CreateGameResponse.Parse               (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.JoinGameRequest:                     return JoinGameRequest.Parse                  (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.JoinGameResponse:                    return JoinGameResponse.Parse                 (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.LeaveGameRequest:                    return LeaveGameRequest.Parse                 (messageParts.ClientId, messageParts.Content);

@@ -28,9 +28,9 @@ namespace OQF.Net.DesktopClient.Contracts
 		Player BottomPlayer   { get; }
 		Player ClientPlayer   { get; }
 		Player OpponendPlayer { get; }
-
+		
 		void ConnectToServer(AddressIdentifier serverAddress, string playerName);
-		void CreateGame(string gameName, NetworkGameId gameId);
+		void CreateGame(string gameName);
 		void JoinGame(NetworkGameId gameId, string gameName);
 		void LeaveGame();
 		void CancelCreatedGame();

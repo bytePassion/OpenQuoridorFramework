@@ -128,7 +128,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 			connectionTimeoutTimer = null;
 		}
 
-		public void CreateGame(string gameName, NetworkGameId gameId)
+		public void CreateGame(string gameName)
 		{
 			GameName = gameName;
 
@@ -141,9 +141,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 			if (ClientId != null)
 			{
-				OpendGameId = gameId;
-				CurrentGameStatus = GameStatus.WaitingForOponend;				
-				messagingService.SendMessage(new CreateGameRequest(ClientId, gameName, gameId));
+				messagingService.SendMessage(new CreateGameRequest(ClientId, gameName));
 			}				
 		}
 
@@ -291,6 +289,15 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					Disconnect();
 					break;
 				}	
+				case NetworkMessageType.CreateGameResponse:
+				{
+					var msg = (CreateGameResponse) incommingMsg;
+
+					OpendGameId = msg.GameId;
+					CurrentGameStatus = GameStatus.WaitingForOponend;
+
+					break;
+				}
 			}
 		}
 
