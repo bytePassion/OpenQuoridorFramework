@@ -57,16 +57,14 @@ namespace OQF.CommonUiElements.ProgressView.ViewModel
 						if (GameProgress.Count > 0)
 						{
 							GameProgress[GameProgress.Count - 1] = GameProgress[GameProgress.Count - 1] + $" {boardState.LastMove}";
-
-							// TODO improve
+							
 							CompressedProgress = CreateQProgress.FromBoardState(boardState).Compressed;
 						}
 					}
 					else
 					{
 						GameProgress.Add($"{GameProgress.Count + 1}: " + $"{boardState.LastMove}");
-
-						// TODO improve
+						
 						CompressedProgress = CreateQProgress.FromBoardState(boardState).Compressed;
 					}
 				}
