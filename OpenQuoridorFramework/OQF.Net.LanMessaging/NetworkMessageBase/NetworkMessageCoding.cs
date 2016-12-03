@@ -41,8 +41,7 @@ namespace OQF.Net.LanMessaging.NetworkMessageBase
 			var messageParts = new MessageParts(messageString);
 
 			switch (messageParts.Type)
-			{
-				case NetworkMessageType.ErrorResponse:                       return ErrorResponse.Parse                    (messageParts.ClientId, messageParts.Content); // TODO: delete
+			{				
 				case NetworkMessageType.ConnectToServerRequest:              return ConnectToServerRequest.Parse           (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.ConnectToServerResponse:             return ConnectToServerResponse.Parse          (messageParts.ClientId, messageParts.Content);	
 				case NetworkMessageType.CreateGameRequest:                   return CreateGameRequest.Parse                (messageParts.ClientId, messageParts.Content);
