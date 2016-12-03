@@ -54,6 +54,11 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 						IsGameInitiator = true;
 						break;
 					}
+					case GameStatus.NoGame:
+					{
+						OnGameOver(false, WinningReason.Capitulation);
+						break;
+					}
 				}
 			});
 		}
