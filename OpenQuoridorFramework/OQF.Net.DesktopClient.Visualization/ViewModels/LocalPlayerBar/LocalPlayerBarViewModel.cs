@@ -7,6 +7,7 @@ using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
+using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
@@ -63,9 +64,12 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 			});
 		}
 		
-		private void DoCapitulate()
+		private async void DoCapitulate()
 		{
-			networkGameService.SubmitMove(new Capitulation());
+			var userConfirmLeaving = await YesNoDialogService.Show("wirklich kapitulieren?");
+
+			if (userConfirmLeaving)
+				networkGameService.SubmitMove(new Capitulation());
 		}
 
 		private void OnGameOver(bool arg1, WinningReason arg2)

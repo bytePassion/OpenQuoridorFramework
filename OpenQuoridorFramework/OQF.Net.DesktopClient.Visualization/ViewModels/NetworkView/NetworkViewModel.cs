@@ -9,6 +9,7 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
+using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Net.LanMessaging.AddressTypes;
@@ -180,21 +181,28 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 			networkGameService.JoinGame(SelectedOpenGame.GameId, SelectedOpenGame.GameName);
 		}
 
-		private void DoLeaveGame()
+		private async void DoLeaveGame()
 		{
-			// TODO: ask user
-			networkGameService.LeaveGame();
+			var userConfirmLeaving = await YesNoDialogService.Show("wirklich spiel verlassen?");
+
+			if (userConfirmLeaving)
+				networkGameService.LeaveGame();
 		}
 
-		private void DoCancelCreatedGame()
+		private async void DoCancelCreatedGame()
 		{
-			networkGameService.CancelCreatedGame();
+			var userConfirmLeaving = await YesNoDialogService.Show("wirklich spiel löschen?");
+
+			if (userConfirmLeaving)
+				networkGameService.CancelCreatedGame();
 		}
 
-		private void DoDisconnectFromServer()
+		private async void DoDisconnectFromServer()
 		{
-			// TODO: ask user
-			networkGameService.Disconnect();
+			var userConfirmLeaving = await YesNoDialogService.Show("wirklich verbindung trennen?");
+
+			if (userConfirmLeaving)
+				networkGameService.Disconnect();
 		}
 
 		public ObservableCollection<GameDisplayData> AvailableOpenGames { get; }		
