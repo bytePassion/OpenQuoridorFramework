@@ -201,6 +201,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		private void DisconnectClient(ClientId clientId)
 		{
 			var game = gameRepository.GetGameByPlayer(clientId);
+			clientRepository.RemoveClient(clientId);
 
 			if (game != null)
 			{
@@ -208,9 +209,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 					LeaveGame(clientId, game);
 				else
 					gameRepository.DeleteGame(game.GameId);
-			}
-
-			clientRepository.RemoveClient(clientId);
+			}			
 		}
 
 		private void LeaveGame(ClientId clientId, INetworkGame game)
