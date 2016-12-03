@@ -14,6 +14,8 @@ using OQF.Net.DesktopClient.Contracts;
 using OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.Types;
+using OQF.Resources.LanguageDictionaries;
+using OQF.Utils;
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 {
@@ -30,6 +32,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 		public NetworkViewModel(INetworkGameService networkGameService, IApplicationSettingsRepository applicationSettingsRepository)
 		{
+			CultureManager.CultureChanged += RefreshCaptions;
+
 			this.networkGameService = networkGameService;
 			this.applicationSettingsRepository = applicationSettingsRepository;
 
@@ -71,7 +75,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 			ServerAddress = applicationSettingsRepository.LastConnectedServerAddress;
 			PlayerName = applicationSettingsRepository.LastUsedPlayerName;
-		}
+		}		
 
 		private void OnGameStatusChanged(GameStatus newGameStatus)
 		{
@@ -183,7 +187,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 		private async void DoLeaveGame()
 		{
-			var userConfirmLeaving = await YesNoDialogService.Show("wirklich spiel verlassen?");
+			var userConfirmLeaving = await YesNoDialogService.Show(Captions.NCl_Confirmation_LeaveGame);
 
 			if (userConfirmLeaving)
 				networkGameService.LeaveGame();
@@ -191,7 +195,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 		private async void DoCancelCreatedGame()
 		{
-			var userConfirmLeaving = await YesNoDialogService.Show("wirklich spiel löschen?");
+			var userConfirmLeaving = await YesNoDialogService.Show(Captions.NCl_Confirmation_CancelGame);
 
 			if (userConfirmLeaving)
 				networkGameService.CancelCreatedGame();
@@ -199,7 +203,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 		private async void DoDisconnectFromServer()
 		{
-			var userConfirmLeaving = await YesNoDialogService.Show("wirklich verbindung trennen?");
+			var userConfirmLeaving = await YesNoDialogService.Show(Captions.NCl_Confirmation_Disconnect);
 
 			if (userConfirmLeaving)
 				networkGameService.Disconnect();
@@ -207,8 +211,41 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 		public ObservableCollection<GameDisplayData> AvailableOpenGames { get; }		
 
+		public string ServerAddressPromt                  => Captions.NCl_ServerAddressPromt;
+		public string ServerAddressHint                   => Captions.NCl_ServerAddressHint;
+		public string PlayerNamePromt                     => Captions.NCl_PlayerNamePromt;
+		public string PlayerNameHint                      => Captions.NCl_PlayerNameHint;
+		public string ConnectToServerButtonCaption        => Captions.NCl_ConnectToServerButtonCaption;
+		public string DisconnectFromServerButtonsCaptions => Captions.NCl_DisconectFromServerButtonCaption;
+		public string NewGameNamePromt                    => Captions.NCl_NewGameNamePromt;
+		public string NewGameNameHint                     => Captions.NCl_NewGameNameHint;
+		public string OpenGameListSectionHeader           => Captions.NCl_OpenGameListSectionHeader;
+		public string JoinGameButtonCaption               => Captions.NCl_JoinGameButtonCaption;
+		public string CancelCreatedGameButtonCaption      => Captions.NCl_CancelCreatedGameButtonCaption;
+		public string LeaveGameButtonCaption              => Captions.NCl_LeaveGameButtonCaption;
+
+
+		private void RefreshCaptions ()
+		{
+			PropertyChanged.Notify(this, nameof(ServerAddressPromt),
+										 nameof(ServerAddressHint),
+										 nameof(PlayerNamePromt),
+										 nameof(PlayerNameHint),
+										 nameof(ConnectToServerButtonCaption),
+										 nameof(DisconnectFromServerButtonsCaptions),
+										 nameof(NewGameNamePromt),
+										 nameof(NewGameNameHint),
+										 nameof(OpenGameListSectionHeader),
+										 nameof(JoinGameButtonCaption),
+										 nameof(CancelCreatedGameButtonCaption),
+										 nameof(LeaveGameButtonCaption),
+										 nameof(ConnectionStatus));
+		}
+
 		protected override void CleanUp ()
 		{
+			CultureManager.CultureChanged -= RefreshCaptions;
+
 			networkGameService.ConnectionStatusChanged  += OnConnectionStatusChanged;
 			networkGameService.GameStatusChanged        += OnGameStatusChanged;
 			networkGameService.UpdatedGameListAvailable += OnUpdatedGameListAvailable;

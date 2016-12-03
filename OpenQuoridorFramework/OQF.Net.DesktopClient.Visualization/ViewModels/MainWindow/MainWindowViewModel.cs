@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Text;
 using System.Windows;
 using Lib.Communication.State;
 using Lib.FrameworkExtension;
@@ -95,10 +96,37 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow
 		{
 			Application.Current.Dispatcher.InvokeAsync(async () =>
 			{
-				var msg = b ? $"Gewonnen! [{winningReason}]" : $"Verloren .... [{winningReason}]";
-				await NotificationDialogService.Show(msg, "Ok");
+				await NotificationDialogService.Show(GetWinningOrLoosingMessage(b, winningReason), "Ok");
 			});			
 		}
+
+
+		private static string GetWinningOrLoosingMessage (bool reportWinning, WinningReason winningReason)
+		{
+			var sb = new StringBuilder();
+
+			sb.Append(reportWinning
+							? $"{Captions.NCl_WinningMessage}"
+							: $"{Captions.NCL_LoosingMessage}");
+
+			sb.Append($"\n{Captions.WD_Message_Reason}: {WinningReasonToString(winningReason)}");						
+
+			return sb.ToString();
+		}
+
+		private static string WinningReasonToString(WinningReason winningReason)
+	    {
+		    switch (winningReason)
+		    {
+			    case WinningReason.Capitulation:            return Captions.WinningReason_Capitulation;				
+				case WinningReason.InvalidMove:             return Captions.WinningReason_InvalidMode;
+				case WinningReason.ExceedanceOfMaxMoves:    return Captions.WinningReason_ExceedanceOfMaxMoves;
+				case WinningReason.ExceedanceOfThoughtTime: return Captions.WinningReason_ExceedanceOfThoughtTime;
+				case WinningReason.RegularQuoridorWin:      return Captions.WinningReason_RegularQuoridorWin;			    
+		    }
+
+		    return "";
+	    }
 
 		private void OnIsBoardRotatedVariableChanged(bool newIsBoardRotated)
 		{

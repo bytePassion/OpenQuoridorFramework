@@ -2,6 +2,7 @@
 using System.Globalization;
 using Lib.Wpf.ConverterBase;
 using OQF.Net.DesktopClient.Contracts;
+using OQF.Resources.LanguageDictionaries;
 
 namespace OQF.Net.DesktopClient.Visualization.Computations
 {
@@ -11,24 +12,19 @@ namespace OQF.Net.DesktopClient.Visualization.Computations
 		{
 			switch (connectionStatus)
 			{
-				case ConnectionStatus.Connected:
-				{
-					if (gameStatus == GameStatus.WaitingForOponend)
-						return "Connected - Waiting for opponend";
-					else
-						return "Connected";
-				}
 				case ConnectionStatus.NotConnected:
 				{
-					return "Not Connected";
+					return Captions.NCl_ConnectionStatus_NotConnected;
 				}
 				case ConnectionStatus.TryingToConnect:
 				{
-					return "Trying to connect ....";
+					return Captions.NCl_ConnectionStatus_TryingToConnect;
+				}
+				default:
+				{
+					return string.Empty;
 				}
 			}
-
-			throw new ArgumentException();
 		}
 	}
 }

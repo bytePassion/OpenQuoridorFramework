@@ -30,10 +30,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 
 			ShowAboutHelp = new Command(DoShowAboutHelp);
 
-			InitiatorPlayerName = "-----";
-			OpponentPlayerName = "-----";
-			GameName = "no game started";
-		}
+			OnGameStatusChanged(networkGameService.CurrentGameStatus);
+		}		
 
 		private void OnGameStatusChanged(GameStatus newGameStatus)
 		{
@@ -51,6 +49,13 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 					InitiatorPlayerName = networkGameService.ClientPlayer.Name;
 					OpponentPlayerName  = networkGameService.OpponendPlayer.Name; 
 					GameName = networkGameService.GameName + ":";
+					break;
+				}
+				default:
+				{
+					InitiatorPlayerName = "-----";
+					OpponentPlayerName = "-----";
+					GameName = Captions.NCl_NoGameStartedNotice;
 					break;
 				}
 			}
@@ -87,13 +92,17 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 								   InfoPage.QuoridorNotation,								   
 								   InfoPage.About);
 		}
-
-
+		
 		public string OpenInfoButtonToolTipCaption => Captions.PvB_OpenInfoButtonToolTipCaption;
 		
-
 		private void RefreshCaptions ()
 		{
+			if (networkGameService.CurrentGameStatus != GameStatus.PlayingJoinedGame &&
+			    networkGameService.CurrentGameStatus != GameStatus.PlayingOpendGame)
+			{
+				GameName = Captions.NCl_NoGameStartedNotice;
+			}
+
 			PropertyChanged.Notify(this, nameof(OpenInfoButtonToolTipCaption));			
 		}
 

@@ -27,11 +27,7 @@
 
     <StackPanel Width="300">
 
-
-
-
-
-        <Grid Margin="0,0,0,16" Visibility="{Binding ConnectionStatus, Converter={StaticResource ConnectionPanelVisibility}}">
+		<Grid Margin="0,0,0,16" Visibility="{Binding ConnectionStatus, Converter={StaticResource ConnectionPanelVisibility}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="8" />
@@ -42,19 +38,21 @@
             <StackPanel Grid.Row="0">
                 <TextBlock Margin="0,0,0,8"
                            Style="{StaticResource MaterialDesignSubheadingTextBlock}"
-                           Text="Server Adresse:" />
-                <TextBox materialDesign:HintAssist.Hint="Ip-Adresse" Text="{Binding ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                           Text="{Binding ServerAddressPromt}" />
+                <TextBox materialDesign:HintAssist.Hint="{Binding ServerAddressHint}" 
+						 Text="{Binding ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel Grid.Row="2">
                 <TextBlock Margin="0,8,0,8"
                            Style="{StaticResource MaterialDesignSubheadingTextBlock}"
-                           Text="Spielername:" />
-                <TextBox materialDesign:HintAssist.Hint="Name" Text="{Binding PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                           Text="{Binding PlayerNamePromt}" />
+                <TextBox materialDesign:HintAssist.Hint="{Binding PlayerNameHint}" 
+						 Text="{Binding PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel Grid.Row="4">
                 <Button Margin="8,0"
                         Command="{Binding ConnectToServer}"
-                        Content="Connect to Server" />
+                        Content="{Binding ConnectToServerButtonCaption}" />
                 <StackPanel Margin="0,16,8,0" Orientation="Horizontal">
                     <Ellipse Width="16"
                              Height="16"
@@ -80,7 +78,7 @@
 
             <Button Margin="8,0"
                     Command="{Binding DisconnectFromServer}"
-                    Content="Disconnect from Server" />
+                    Content="{Binding DisconnectFromServerButtonsCaptions}" />
 
         </StackPanel>
 
@@ -92,6 +90,7 @@
                     <Binding Path="GameStatus" />
                 </MultiBinding>
             </Grid.Visibility>
+			
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="16" />
@@ -99,40 +98,42 @@
                 <RowDefinition Height="8" />
                 <RowDefinition />
             </Grid.RowDefinitions>
+			
             <StackPanel Grid.Row="0">
                 <TextBlock Margin="0,0,0,8"
                            Style="{StaticResource MaterialDesignSubheadingTextBlock}"
-                           Text="Neues Spiel" />
-                <TextBox materialDesign:HintAssist.Hint="Spielname" Text="{Binding NewGameName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                           Text="{Binding NewGameNamePromt}" />
+                <TextBox materialDesign:HintAssist.Hint="{Binding NewGameNameHint}" 
+						 Text="{Binding NewGameName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <Button Margin="8"
                         Command="{Binding CreateGame}"
-                        Content="Spiel erstellen" />
+                        Content="{Binding CancelCreatedGameButtonCaption}" />
             </StackPanel>
             <StackPanel Grid.Row="2">
 
                 <TextBlock Margin="0,0,0,8"
                            Style="{StaticResource MaterialDesignSubheadingTextBlock}"
-                           Text="Offene Spiele" />
+                           Text="{Binding OpenGameListSectionHeader}" />
                 <ListBox ItemsSource="{Binding AvailableOpenGames}"
                          SelectedItem="{Binding SelectedOpenGame,
                                                 Mode=TwoWay,
                                                 UpdateSourceTrigger=PropertyChanged}"
                          SelectionMode="Single">
+					
                     <ListBox.ItemTemplate>
                         <DataTemplate DataType="helper:GameDisplayData">
-                            <Grid Width="290">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="190" />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
+							<Grid Width="290">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="190" />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Column="0" Text="{Binding GameName}" />
-                                <TextBlock Grid.Column="1">
+								<TextBlock Grid.Column="0" Text="{Binding GameName}" />
+								<TextBlock Grid.Column="1">
                                     <Run Text="[" /><Run Text="{Binding InitiatorName, Mode=OneWay}" /><Run Text="]" />
-                                </TextBlock>
-                            </Grid>
-
-                        </DataTemplate>
+								</TextBlock>
+							</Grid>
+						</DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
 
@@ -140,7 +141,7 @@
             <Button Grid.Row="4"
                     Margin="8"
                     Command="{Binding JoinGame}"
-                    Content="Join Game" />
+                    Content="{Binding JoinGameButtonCaption}" />
         </Grid>
 
 
@@ -155,7 +156,7 @@
 
             <Button Margin="8"
                     Command="{Binding CancelCreatedGame}"
-                    Content="Cancel created Game" />
+                    Content="{Binding CancelCreatedGameButtonCaption}" />
 
         </StackPanel>
 
@@ -170,7 +171,7 @@
 
             <Button Margin="8"
                     Command="{Binding LeaveGame}"
-                    Content="Leave Game" />
+                    Content="{Binding LeaveGameButtonCaption}" />
 
         </StackPanel>
 

@@ -29,6 +29,19 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 			};
 
 			SelectedOpenGame = AvailableOpenGames[2];
+
+			ServerAddressPromt = "Server-address:";
+			ServerAddressHint = "is-address";
+			PlayerNamePromt = "playername:";
+			PlayerNameHint = "playername";
+			ConnectToServerButtonCaption = "connect";
+			DisconnectFromServerButtonsCaptions = "disconnect";
+			NewGameNamePromt = "new game name:";
+			NewGameNameHint = "game-name";
+			OpenGameListSectionHeader = "open game list";
+			JoinGameButtonCaption = "join game";
+			LeaveGameButtonCaption = "leave game";
+			CancelCreatedGameButtonCaption = "cancel game";
 		}
 
 		public ConnectionStatus ConnectionStatus { get; }
@@ -47,6 +60,19 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 		public ObservableCollection<GameDisplayData> AvailableOpenGames { get; }
 		public GameDisplayData SelectedOpenGame { get; set; }
+
+		public string ServerAddressPromt                  { get; }
+		public string ServerAddressHint                   { get; }
+		public string PlayerNamePromt                     { get; }
+		public string PlayerNameHint                      { get; }
+		public string ConnectToServerButtonCaption        { get; }
+		public string DisconnectFromServerButtonsCaptions { get; }
+		public string NewGameNamePromt                    { get; }
+		public string NewGameNameHint                     { get; }
+		public string OpenGameListSectionHeader           { get; }
+		public string JoinGameButtonCaption               { get; }
+		public string CancelCreatedGameButtonCaption      { get; }
+		public string LeaveGameButtonCaption              { get; }		
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;

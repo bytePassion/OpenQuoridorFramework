@@ -24,5 +24,18 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 
 		ObservableCollection<GameDisplayData> AvailableOpenGames { get; }
 		GameDisplayData SelectedOpenGame { get; set; }
+
+		string ServerAddressPromt                  { get; }
+		string ServerAddressHint                   { get; }
+		string PlayerNamePromt                     { get; }
+		string PlayerNameHint                      { get; }
+		string ConnectToServerButtonCaption        { get; }
+		string DisconnectFromServerButtonsCaptions { get; }
+		string NewGameNamePromt                    { get; }
+		string NewGameNameHint                     { get; }
+		string OpenGameListSectionHeader           { get; }
+		string JoinGameButtonCaption               { get; }
+		string CancelCreatedGameButtonCaption      { get; }
+		string LeaveGameButtonCaption              { get; }		
 	}
 }

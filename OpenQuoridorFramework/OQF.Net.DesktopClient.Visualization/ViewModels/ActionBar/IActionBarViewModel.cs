@@ -14,6 +14,6 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 		string OpponentPlayerName  { get; }
 		string GameName { get; }
 
-		string OpenInfoButtonToolTipCaption { get; }
+		string OpenInfoButtonToolTipCaption { get; }		
 	}
 }

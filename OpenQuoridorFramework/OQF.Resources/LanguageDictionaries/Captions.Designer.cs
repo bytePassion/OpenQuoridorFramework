@@ -655,11 +655,191 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel created game.
+        /// </summary>
+        public static string NCl_CancelCreatedGameButtonCaption {
+            get {
+                return ResourceManager.GetString("NCl_CancelCreatedGameButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want to cancel your created game?.
+        /// </summary>
+        public static string NCl_Confirmation_CancelGame {
+            get {
+                return ResourceManager.GetString("NCl_Confirmation_CancelGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want to disconnect from the server?.
+        /// </summary>
+        public static string NCl_Confirmation_Disconnect {
+            get {
+                return ResourceManager.GetString("NCl_Confirmation_Disconnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want to leave the current game?.
+        /// </summary>
+        public static string NCl_Confirmation_LeaveGame {
+            get {
+                return ResourceManager.GetString("NCl_Confirmation_LeaveGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not connected.
+        /// </summary>
+        public static string NCl_ConnectionStatus_NotConnected {
+            get {
+                return ResourceManager.GetString("NCl_ConnectionStatus_NotConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trying to connect .....
+        /// </summary>
+        public static string NCl_ConnectionStatus_TryingToConnect {
+            get {
+                return ResourceManager.GetString("NCl_ConnectionStatus_TryingToConnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connect to server.
+        /// </summary>
+        public static string NCl_ConnectToServerButtonCaption {
+            get {
+                return ResourceManager.GetString("NCl_ConnectToServerButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disconnect from server.
+        /// </summary>
+        public static string NCl_DisconectFromServerButtonCaption {
+            get {
+                return ResourceManager.GetString("NCl_DisconectFromServerButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Join selected game.
+        /// </summary>
+        public static string NCl_JoinGameButtonCaption {
+            get {
+                return ResourceManager.GetString("NCl_JoinGameButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leave current game.
+        /// </summary>
+        public static string NCl_LeaveGameButtonCaption {
+            get {
+                return ResourceManager.GetString("NCl_LeaveGameButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You lost this game..
+        /// </summary>
+        public static string NCL_LoosingMessage {
+            get {
+                return ResourceManager.GetString("NCL_LoosingMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connection-Options.
         /// </summary>
         public static string NCl_NetworkViewCaption {
             get {
                 return ResourceManager.GetString("NCl_NetworkViewCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to game-name.
+        /// </summary>
+        public static string NCl_NewGameNameHint {
+            get {
+                return ResourceManager.GetString("NCl_NewGameNameHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a name for the new game:.
+        /// </summary>
+        public static string NCl_NewGameNamePromt {
+            get {
+                return ResourceManager.GetString("NCl_NewGameNamePromt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No game started.
+        /// </summary>
+        public static string NCl_NoGameStartedNotice {
+            get {
+                return ResourceManager.GetString("NCl_NoGameStartedNotice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games to join:.
+        /// </summary>
+        public static string NCl_OpenGameListSectionHeader {
+            get {
+                return ResourceManager.GetString("NCl_OpenGameListSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to your game alias.
+        /// </summary>
+        public static string NCl_PlayerNameHint {
+            get {
+                return ResourceManager.GetString("NCl_PlayerNameHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose player name:.
+        /// </summary>
+        public static string NCl_PlayerNamePromt {
+            get {
+                return ResourceManager.GetString("NCl_PlayerNamePromt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP-address.
+        /// </summary>
+        public static string NCl_ServerAddressHint {
+            get {
+                return ResourceManager.GetString("NCl_ServerAddressHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Server address:.
+        /// </summary>
+        public static string NCl_ServerAddressPromt {
+            get {
+                return ResourceManager.GetString("NCl_ServerAddressPromt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Congratulations! You won this game!.
+        /// </summary>
+        public static string NCl_WinningMessage {
+            get {
+                return ResourceManager.GetString("NCl_WinningMessage", resourceCulture);
             }
         }
         
