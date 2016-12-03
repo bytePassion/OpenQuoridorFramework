@@ -6,6 +6,7 @@ using OQF.Bot.Contracts.GameElements;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
+using OQF.Utils.Enum;
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 {
@@ -21,24 +22,42 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 
 			this.networkGameService = networkGameService;
 
-			networkGameService.NewBoardStateAvailable += OnNewBoardStateAvailable;			
-			networkGameService.JoinSuccessful         += OnJoinSuccessful;
-			networkGameService.OpendGameIsStarting    += OnOpendGameIsStarting;
+			networkGameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
+			networkGameService.GameOver               += OnGameOver;
+			networkGameService.GameStatusChanged      += OnGameStatusChanged;
 
 			OnNewBoardStateAvailable(networkGameService.CurrentBoardState);			
 		}
 
-		private void OnOpendGameIsStarting (string s)
+		private void OnGameStatusChanged (GameStatus newGameStatus)
 		{
-			IsGameInitiator = false;
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				switch (newGameStatus)
+				{
+					case GameStatus.PlayingJoinedGame:
+					{
+						IsGameInitiator = true;
+						break;
+					}
+					case GameStatus.PlayingOpendGame:
+					{
+						IsGameInitiator = false;
+						break;
+					}
+				}
+			});
 		}
 
-		private void OnJoinSuccessful (string s)
+		private void OnGameOver (bool arg1, WinningReason arg2)
 		{
-			IsGameInitiator = true;
-		}		
+			Application.Current.Dispatcher.Invoke(() =>
+			{				
+				WallsLeft = "--";
+				IsGameInitiator = null;
+			});
+		}
 
-		
 		private void OnNewBoardStateAvailable (BoardState boardState)
 		{
 			Application.Current.Dispatcher.Invoke(() =>
@@ -81,9 +100,9 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 		{
 			CultureManager.CultureChanged -= RefreshCaptions;
 
-			networkGameService.NewBoardStateAvailable -= OnNewBoardStateAvailable;			
-			networkGameService.JoinSuccessful         -= OnJoinSuccessful;
-			networkGameService.OpendGameIsStarting    -= OnOpendGameIsStarting;
+			networkGameService.NewBoardStateAvailable -= OnNewBoardStateAvailable;
+			networkGameService.GameStatusChanged      -= OnGameStatusChanged;
+			networkGameService.GameOver               -= OnGameOver;
 		}
 
 		public override event PropertyChangedEventHandler PropertyChanged;

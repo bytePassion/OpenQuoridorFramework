@@ -26,8 +26,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 			LanguageSelectionViewModel = languageSelectionViewModel;
 			this.networkGameService = networkGameService;
 			
-			networkGameService.JoinSuccessful      += OnJoinSuccessful;
-			networkGameService.OpendGameIsStarting += OnOpendGameIsStarting;
+			networkGameService.GameStatusChanged += OnGameStatusChanged;
 
 			ShowAboutHelp = new Command(DoShowAboutHelp);
 
@@ -36,21 +35,27 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 			GameName = "no game started";
 		}
 
-		private void OnOpendGameIsStarting(string s)
+		private void OnGameStatusChanged(GameStatus newGameStatus)
 		{
-			InitiatorPlayerName = networkGameService.PlayerName;
-			OpponentPlayerName = s;
-			GameName = networkGameService.GameName + ":";
-		}
-
-		private void OnJoinSuccessful(string s)
-		{
-			InitiatorPlayerName = s;
-			OpponentPlayerName = networkGameService.PlayerName;
-			GameName = networkGameService.GameName + ":";
+			switch (newGameStatus)
+			{
+				case GameStatus.PlayingJoinedGame:
+				{
+					InitiatorPlayerName = networkGameService.OpponendPlayer.Name;
+					OpponentPlayerName  = networkGameService.ClientPlayer.Name;
+					GameName = networkGameService.GameName + ":";
+					break;
+				}
+				case GameStatus.PlayingOpendGame:
+				{
+					InitiatorPlayerName = networkGameService.ClientPlayer.Name;
+					OpponentPlayerName  = networkGameService.OpponendPlayer.Name; 
+					GameName = networkGameService.GameName + ":";
+					break;
+				}
+			}
 		}
 		
-
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
 		public ICommand ShowAboutHelp { get; }
@@ -95,9 +100,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar
 		protected override void CleanUp ()
 		{
 			CultureManager.CultureChanged -= RefreshCaptions;
-			
-			networkGameService.JoinSuccessful      -= OnJoinSuccessful;
-			networkGameService.OpendGameIsStarting -= OnOpendGameIsStarting;
+
+			networkGameService.GameStatusChanged -= OnGameStatusChanged;
 		}
 
 		public override event PropertyChangedEventHandler PropertyChanged;

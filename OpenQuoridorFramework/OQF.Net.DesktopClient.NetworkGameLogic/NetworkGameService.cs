@@ -25,9 +25,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		public event Action<ConnectionStatus> ConnectionStatusChanged;
 		public event Action<GameStatus> GameStatusChanged;
 		public event Action<IEnumerable<NetworkGameInfo>> UpdatedGameListAvailable;
-		public event Action JoinError;
-		public event Action<string> JoinSuccessful;
-		public event Action<string> OpendGameIsStarting;		
+		public event Action JoinError;		
 		public event Action<bool, WinningReason> GameOver;
 		public event Action<BoardState> NewBoardStateAvailable;
 
@@ -240,8 +238,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 						ClientPlayer   = TopPlayer;
 						OpponendPlayer = BottomPlayer;
 
-						CurrentGameStatus = GameStatus.PlayingJoinedGame;
-						JoinSuccessful?.Invoke(msg.OpponendPlayerName);
+						CurrentGameStatus = GameStatus.PlayingJoinedGame;						
 					}
 					else
 					{
@@ -274,9 +271,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 					ClientPlayer   = BottomPlayer;
 					OpponendPlayer = TopPlayer;
 
-					CurrentGameStatus = GameStatus.PlayingOpendGame;
-					OpendGameIsStarting?.Invoke(msg.OpponendPlayerName);
-
+					CurrentGameStatus = GameStatus.PlayingOpendGame;					
 					break;
 				}	
 				case NetworkMessageType.CancelCreatedGameResponse:

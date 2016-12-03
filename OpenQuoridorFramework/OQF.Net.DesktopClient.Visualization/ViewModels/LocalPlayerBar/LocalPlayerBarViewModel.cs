@@ -29,26 +29,35 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 
 			networkGameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 			networkGameService.GameOver               += OnGameOver;
-			networkGameService.JoinSuccessful         += OnJoinSuccessful;
-			networkGameService.OpendGameIsStarting    += OnOpendGameIsStarting;
+			networkGameService.GameStatusChanged      += OnGameStatusChanged;
 
 			OnNewBoardStateAvailable(networkGameService.CurrentBoardState);
 
 			Capitulate = new Command(DoCapitulate, 
 									 () => IsPlacementPossible, 
 									 new PropertyChangedCommandUpdater(this, nameof(IsPlacementPossible)));
-		}		
-
-		private void OnOpendGameIsStarting(string s)
-		{
-			IsGameInitiator = true;
 		}
-
-		private void OnJoinSuccessful(string s)
+			
+		private void OnGameStatusChanged(GameStatus newGameStatus)
 		{
-			IsGameInitiator = false;
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				switch (newGameStatus)
+				{
+					case GameStatus.PlayingJoinedGame:
+					{
+						IsGameInitiator = false;
+						break;
+					}
+					case GameStatus.PlayingOpendGame:
+					{
+						IsGameInitiator = true;
+						break;
+					}
+				}
+			});
 		}
-
+		
 		private void DoCapitulate()
 		{
 			networkGameService.SubmitMove(new Capitulation());
@@ -59,6 +68,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 			Application.Current.Dispatcher.Invoke(() =>
 			{
 				IsPlacementPossible = false;
+				WallsLeft = "--";
+				IsGameInitiator = null;
 			});
 		}
 
@@ -120,8 +131,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 
 			networkGameService.NewBoardStateAvailable -= OnNewBoardStateAvailable;
 			networkGameService.GameOver               -= OnGameOver;
-			networkGameService.JoinSuccessful         -= OnJoinSuccessful;
-			networkGameService.OpendGameIsStarting    -= OnOpendGameIsStarting;
+			networkGameService.GameStatusChanged      -= OnGameStatusChanged;
 		}
 
 		public override event PropertyChangedEventHandler PropertyChanged;		
