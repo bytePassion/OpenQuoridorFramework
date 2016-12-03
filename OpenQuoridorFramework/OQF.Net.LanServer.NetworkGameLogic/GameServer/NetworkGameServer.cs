@@ -62,21 +62,20 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 				{
 					var msg = (ConnectToServerRequest) newIncommingMsg;
 
-					NewOutputAvailable?.Invoke($"<<< ConnectToServer from ({msg.PlayerName}|{msg.ClientId})");
+					NewOutputAvailable?.Invoke($"<<< ConnectToServer from {msg.PlayerName}");
 
 					if (!clientRepository.IsClientIdRegistered(msg.ClientId))
 					{
 						clientRepository.AddClient(msg.ClientId, msg.PlayerName);
 
-						NewOutputAvailable?.Invoke(">>> ConnectToServerResponse");
+						NewOutputAvailable?.Invoke($">>> ConnectToServerResponse to {msg.PlayerName}");
 
 						messagingService.SendMessage(new ConnectToServerResponse(msg.ClientId));
 						SendGameListUpdate(msg.ClientId);
 					}
 					else
 					{
-						NewOutputAvailable?.Invoke(">>> ConnectToServerResponse ERROR");
-						// ERROR !!!!
+						NewOutputAvailable?.Invoke($">>> ConnectToServerResponse ERROR (@{msg.PlayerName})");						
 					}
 
 					break;
@@ -84,6 +83,8 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 				case NetworkMessageType.CreateGameRequest:
 				{					
 					var msg = (CreateGameRequest) newIncommingMsg;
+
+					// TODO: createGameRespone
 
 					NewOutputAvailable?.Invoke($"<<< CreateGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 
@@ -139,7 +140,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 					if (game == null || !game.IsGameActive)
 					{
-						NewOutputAvailable?.Invoke(">>> NextMoveSubmission ERROR!");
+						NewOutputAvailable?.Invoke($">>> NextMoveSubmission ERROR! @({clientRepository.GetClientById(msg.ClientId).PlayerName} [{msg.NextMove}])");
 					}
 					else
 					{
@@ -155,10 +156,10 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 					NewOutputAvailable?.Invoke($"<<< LeaveGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 
 					var game = gameRepository.GetGameById(msg.GameId);
-
+					
 					if (game == null || !game.IsGameActive)
 					{
-						NewOutputAvailable?.Invoke(">>> NextMoveSubmission ERROR!");
+						NewOutputAvailable?.Invoke($">>> LeaveGameRequest ERROR! (@{clientRepository.GetClientById(msg.ClientId).PlayerName})");
 					}
 					else
 					{
@@ -171,17 +172,19 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 				{
 					var msg = (CancelCreatedGameRequest) newIncommingMsg;
 
-					NewOutputAvailable?.Invoke($"<<< CancelGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
+					NewOutputAvailable?.Invoke($"<<< CancelCreatedGameRequest from {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 
 					var game = gameRepository.GetGameById(msg.GameId);
 
 					if (game.IsGameActive)
 					{
+						NewOutputAvailable?.Invoke($"<<< CancelCreatedGameResponse (negativ) to {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 						messagingService.SendMessage(new CancelCreatedGameResponse(msg.ClientId, false));
 					}
 					else
 					{
 						gameRepository.DeleteGame(msg.GameId);
+						NewOutputAvailable?.Invoke($"<<< CancelCreatedGameResponse (positiv) to {clientRepository.GetClientById(msg.ClientId).PlayerName}");
 						messagingService.SendMessage(new CancelCreatedGameResponse(msg.ClientId, true));
 					}
 
@@ -264,11 +267,16 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		}
 
 		private void SendGameListUpdateToAllClients()
-		{			
-			foreach (var client in clientRepository.GetAllClients())
-			{				
-				SendGameListUpdate(client.ClientId);
-			}
+		{
+			var gameList = gameRepository.GetAllGames()
+										 .Where(game => !game.IsGameActive)
+										 .Select(game => new NetworkGameInfo(game.GameId,
+																			 game.GameInitiator.PlayerName,
+																			 game.GameName));
+
+			var msg = new OpenGameListUpdateNotification(new ClientId(Guid.Empty), gameList);
+			NewOutputAvailable?.Invoke(">>> GameListUpdate to all Players");
+			messagingService.SendMessage(msg);
 		}
 
 		private void SendGameListUpdate(ClientId clientId)
