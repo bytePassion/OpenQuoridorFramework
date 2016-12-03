@@ -9,9 +9,7 @@
 		CancelCreatedGameRequest,
 		CancelCreatedGameResponse,
 		CreateGameRequest,
-		CreateGameResponse,
-
-		LeaveGameRequest,
+		CreateGameResponse,		
 				
 		NewGameStateAvailableNotification,
 		OpenGameListUpdateNotification,
@@ -19,6 +17,7 @@
 		NextMoveSubmission,
 		OpendGameIsStarting,
 		ClientDisconnect,
-		ServerDisconnect				
+		ServerDisconnect,
+		LeaveGame
 	}
 }
