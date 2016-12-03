@@ -18,6 +18,7 @@
 		OpendGameIsStarting,
 		ClientDisconnect,
 		ServerDisconnect,
-		LeaveGame
+		LeaveGame,
+		HeartBeat
 	}
 }

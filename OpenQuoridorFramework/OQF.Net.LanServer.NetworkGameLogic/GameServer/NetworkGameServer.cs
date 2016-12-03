@@ -22,6 +22,8 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 		private readonly IClientRepository clientRepository;
 		private readonly IGameRepository gameRepository;
 
+		private HeartbeatService heartbeatService;
+
 		public NetworkGameServer(IClientRepository clientRepository,
 								 IGameRepository gameRepository)
 		{
@@ -51,7 +53,15 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 			messagingService.NewIncomingMessage += OnNewIncomingMessage;
 
+			heartbeatService = new HeartbeatService(messagingService, clientRepository);
+			heartbeatService.ClientVanished += OnClientVanished;
+
 			NewOutputAvailable?.Invoke("ActivatedServer");
+		}
+
+		private void OnClientVanished(ClientId clientId)
+		{
+			DisconnectClient(clientId);
 		}
 
 		private void OnNewIncomingMessage(NetworkMessageBase newIncommingMsg)
@@ -305,6 +315,9 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 			if (messagingService != null)
 			{
+				heartbeatService.Dispose();
+				heartbeatService.ClientVanished -= OnClientVanished;
+
 				messagingService.SendMessage(new ServerDisconnect());
 
 				messagingService.NewIncomingMessage -= OnNewIncomingMessage;

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="GameServer\ClientRepository.cs" />
     <Compile Include="GameServer\GameRepository.cs" />
+    <Compile Include="GameServer\HeartbeatService.cs" />
     <Compile Include="GameServer\NetworkGame.cs" />
     <Compile Include="Messaging\IServerMessaging.cs" />
     <Compile Include="GameServer\NetworkGameServer.cs" />

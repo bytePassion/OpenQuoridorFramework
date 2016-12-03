@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HeartbeatService.cs" />
     <Compile Include="Messaging\ClientMessaging.cs" />
     <Compile Include="Messaging\IClientMessaging.cs" />
     <Compile Include="Messaging\ReceivingThread.cs" />
