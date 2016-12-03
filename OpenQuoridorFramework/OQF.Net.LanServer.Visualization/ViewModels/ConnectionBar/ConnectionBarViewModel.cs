@@ -60,8 +60,7 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar
 			{
 				networkGameServer.Deactivate();
 				IsServerActive = false;
-			}
-				
+			}				
 		}
 
 		private void DoActivate ()
