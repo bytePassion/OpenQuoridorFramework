@@ -42,6 +42,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 			JoinGameButtonCaption = "join game";
 			LeaveGameButtonCaption = "leave game";
 			CancelCreatedGameButtonCaption = "cancel game";
+			CreateGameButtonCaption = "create game";
 		}
 
 		public ConnectionStatus ConnectionStatus { get; }
@@ -72,7 +73,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		public string OpenGameListSectionHeader           { get; }
 		public string JoinGameButtonCaption               { get; }
 		public string CancelCreatedGameButtonCaption      { get; }
-		public string LeaveGameButtonCaption              { get; }		
+		public string LeaveGameButtonCaption              { get; }
+		public string CreateGameButtonCaption             { get; }
 
 		public void Dispose () { }
 		public event PropertyChangedEventHandler PropertyChanged;

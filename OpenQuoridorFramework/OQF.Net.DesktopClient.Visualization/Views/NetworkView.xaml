@@ -107,7 +107,7 @@
 						 Text="{Binding NewGameName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <Button Margin="8"
                         Command="{Binding CreateGame}"
-                        Content="{Binding CancelCreatedGameButtonCaption}" />
+                        Content="{Binding CreateGameButtonCaption}" />
             </StackPanel>
             <StackPanel Grid.Row="2">
 

@@ -221,6 +221,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		public string JoinGameButtonCaption               => Captions.NCl_JoinGameButtonCaption;
 		public string CancelCreatedGameButtonCaption      => Captions.NCl_CancelCreatedGameButtonCaption;
 		public string LeaveGameButtonCaption              => Captions.NCl_LeaveGameButtonCaption;
+		public string CreateGameButtonCaption             => Captions.NCl_CreateGameButtonCaption;
 
 
 		private void RefreshCaptions ()
@@ -235,6 +236,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 										 nameof(NewGameNameHint),
 										 nameof(OpenGameListSectionHeader),
 										 nameof(JoinGameButtonCaption),
+										 nameof(CreateGameButtonCaption),
 										 nameof(CancelCreatedGameButtonCaption),
 										 nameof(LeaveGameButtonCaption),
 										 nameof(ConnectionStatus));

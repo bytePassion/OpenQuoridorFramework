@@ -718,6 +718,15 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create game.
+        /// </summary>
+        public static string NCl_CreateGameButtonCaption {
+            get {
+                return ResourceManager.GetString("NCl_CreateGameButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disconnect from server.
         /// </summary>
         public static string NCl_DisconectFromServerButtonCaption {

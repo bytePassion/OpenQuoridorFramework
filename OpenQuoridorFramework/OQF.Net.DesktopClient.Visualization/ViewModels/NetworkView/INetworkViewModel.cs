@@ -36,6 +36,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView
 		string OpenGameListSectionHeader           { get; }
 		string JoinGameButtonCaption               { get; }
 		string CancelCreatedGameButtonCaption      { get; }
-		string LeaveGameButtonCaption              { get; }		
+		string LeaveGameButtonCaption              { get; }	
+		string CreateGameButtonCaption             { get; }	
 	}
 }

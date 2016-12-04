@@ -729,4 +729,7 @@
   <data name="NCL_LoosingMessage" xml:space="preserve">
     <value>You lost this game.</value>
   </data>
+  <data name="NCl_CreateGameButtonCaption" xml:space="preserve">
+    <value>Create game</value>
+  </data>
 </root>
