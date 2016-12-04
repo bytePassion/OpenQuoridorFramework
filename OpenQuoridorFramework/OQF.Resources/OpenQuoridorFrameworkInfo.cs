@@ -22,6 +22,9 @@ namespace OQF.Resources
 			new ThirdPartyItem("Flag-Icons from", "www.iconDrawer.com", new Uri(@"http://www.icondrawer.com/"))
 		};
 
+		public const string DevelopedBy = "bytePassion";
+		public static readonly Uri DevelopedByUrl = new Uri(@"http://www.bytePassion.de");
+
 		public const string Licence = "Apache 2.0";
 		public static readonly Uri LicenceUri = new Uri(@"http://www.apache.org/licenses/LICENSE-2.0");
 
