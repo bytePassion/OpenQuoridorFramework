@@ -25,8 +25,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 
 			messagingService.NewIncomingMessage += OnNewIncomingMessage;
 
-			sendingTimer   = new Timer(OnSendingTimerTick, null, TimeSpan.FromMilliseconds( 500), TimeSpan.FromMilliseconds(2000));
-			receivingTimer = new Timer(OnReceivingTimer,   null, TimeSpan.FromMilliseconds(5000), TimeSpan.FromMilliseconds(5000));
+			sendingTimer   = new Timer(OnSendingTimerTick, null, TimeSpan.FromMilliseconds( 500),  TimeSpan.FromMilliseconds(2000));
+			receivingTimer = new Timer(OnReceivingTimer,   null, TimeSpan.FromMilliseconds(5000),  TimeSpan.FromMilliseconds(5000));
 
 			receivedHeartBeat = false;
 		}

@@ -59,6 +59,7 @@ namespace OQF.Net.LanMessaging.NetworkMessageBase
 				case NetworkMessageType.OpendGameIsStarting:                 return OpendGameIsStarting.Parse              (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.ClientDisconnect:                    return ClientDisconnect.Parse                 (messageParts.ClientId, messageParts.Content);
 				case NetworkMessageType.ServerDisconnect:                    return ServerDisconnect.Parse                 (messageParts.ClientId, messageParts.Content);
+				case NetworkMessageType.HeartBeat:                           return HeartBeat.Parse                        (messageParts.ClientId, messageParts.Content);
 
 				default:
 					throw new ArgumentException();

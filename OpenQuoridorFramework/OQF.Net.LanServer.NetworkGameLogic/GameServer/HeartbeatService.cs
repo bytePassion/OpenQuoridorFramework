@@ -72,7 +72,7 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 			var currentReceivments = receivedHeartBeatCollection.Receivements.ToDictionary(pair => pair.Key, pair => pair.Value);
 
 			foreach (var receivementPair in currentReceivments)
-			{
+			{				
 				if (!receivementPair.Value)
 				{
 					ClientVanished?.Invoke(receivementPair.Key);
@@ -87,7 +87,11 @@ namespace OQF.Net.LanServer.NetworkGameLogic.GameServer
 
 		private void OnSendingTimerTick(object state)
 		{
-			messagingService.SendMessage(new HeartBeat(new ClientId(Guid.Empty)));
+			if (clientRepository.GetAllClients().Any())
+			{
+				messagingService.SendMessage(new HeartBeat(new ClientId(Guid.Empty)));
+			}
+				
 		}
 
 		private void OnNewIncomingMessage(NetworkMessageBase incommingMsg)
