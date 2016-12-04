@@ -11,6 +11,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:views="clr-namespace:OQF.PlayerVsBot.Visualization.Views"
         xmlns:views1="clr-namespace:OQF.CommonUiElements.Board.Views;assembly=OQF.CommonUiElements"
+        xmlns:progressView="clr-namespace:OQF.CommonUiElements.ProgressView;assembly=OQF.CommonUiElements"
         Title="OpenQuoridorFramework - Player vs. Bot"
         Width="1200"
         Height="950"
@@ -72,7 +73,7 @@
                         </TextBlock>
                     </Expander.Header>
 
-					<views:ProgressView DataContext="{Binding ProgressViewModel}"/>
+					<progressView:ProgressView DataContext="{Binding ProgressViewModel}"/>
 
 				</Expander>
 
@@ -103,11 +104,13 @@
 
                     <views1:BoardHorizontalLabelling Grid.Row="0"
                                                      Grid.Column="1"
-                                                     IsHitTestVisible="False" />
+                                                     IsHitTestVisible="False"
+													 DataContext="{Binding BoardHorizontalLabelingViewModel}"/>
 
                     <views1:BoardVerticalLabelling Grid.Row="1"
                                                    Grid.Column="0"
-                                                   IsHitTestVisible="False" />
+                                                   IsHitTestVisible="False" 
+												   DataContext="{Binding BoardVerticalLabelingViewModel}"/>
 
                     <views1:Board Grid.Row="1"
                                   Grid.Column="1"

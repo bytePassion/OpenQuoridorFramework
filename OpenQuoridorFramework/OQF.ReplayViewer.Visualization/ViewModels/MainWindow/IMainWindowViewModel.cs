@@ -1,7 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper;
 
@@ -11,7 +12,10 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 	{
 		IBoardViewModel BoardViewModel { get; }
 		ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
-		
+		IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
+		IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
+
+
 		ICommand LoadGame      { get; }
 		ICommand BrowseFile    { get; }
 		ICommand ShowAboutHelp { get; }

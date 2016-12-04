@@ -1,0 +1,179 @@
+﻿<UserControl x:Class="OQF.Net.DesktopClient.Visualization.Views.NetworkView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:computations="clr-namespace:OQF.Net.DesktopClient.Visualization.Computations"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:helper="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow.Helper"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:networkView="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView"
+             d:DesignHeight="700"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+
+    <d:DesignData.DataContext>
+        <networkView:NetworkViewModelSampleData />
+    </d:DesignData.DataContext>
+
+    <UserControl.Resources>
+        <computations:ConnectionPanelVisibility x:Key="ConnectionPanelVisibility" />
+        <computations:DisconnectPanelVisibility x:Key="DisconnectPanelVisibility" />
+        <computations:ConnectionDisplayText x:Key="ConnectionDisplayText" />
+        <computations:ConnectionDisplayBackground x:Key="ConnectionDisplayBackground" />
+        <computations:CreateGamePanelVisibility x:Key="CreateGamePanelVisibility" />
+        <computations:LeaveGamePanelVisiblity x:Key="LeaveGamePanelVisiblity" />
+        <computations:CancelGamePanelVisibility x:Key="CancelGamePanelVisibility" />
+    </UserControl.Resources>
+
+    <StackPanel Width="300">
+
+		<Grid Margin="0,0,0,16" Visibility="{Binding ConnectionStatus, Converter={StaticResource ConnectionPanelVisibility}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBlock Margin="0,0,0,8"
+                           Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                           Text="{Binding ServerAddressPromt}" />
+                <TextBox materialDesign:HintAssist.Hint="{Binding ServerAddressHint}" 
+						 Text="{Binding ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <TextBlock Margin="0,8,0,8"
+                           Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                           Text="{Binding PlayerNamePromt}" />
+                <TextBox materialDesign:HintAssist.Hint="{Binding PlayerNameHint}" 
+						 Text="{Binding PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Grid.Row="4">
+                <Button Margin="8,0"
+                        Command="{Binding ConnectToServer}"
+                        Content="{Binding ConnectToServerButtonCaption}" />
+                <StackPanel Margin="0,16,8,0" Orientation="Horizontal">
+                    <Ellipse Width="16"
+                             Height="16"
+                             Fill="{Binding ConnectionStatus,
+                                            Converter={StaticResource ConnectionDisplayBackground}}" />
+                    <TextBlock Margin="8,0,0,0" VerticalAlignment="Center">
+
+                        <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource ConnectionDisplayText}">
+                                <Binding Path="ConnectionStatus" />
+                                <Binding Path="GameStatus" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+
+
+        <StackPanel Margin="0,0,0,16" Visibility="{Binding ConnectionStatus, Converter={StaticResource DisconnectPanelVisibility}}">
+
+            <Button Margin="8,0"
+                    Command="{Binding DisconnectFromServer}"
+                    Content="{Binding DisconnectFromServerButtonsCaptions}" />
+
+        </StackPanel>
+
+
+        <Grid>
+            <Grid.Visibility>
+                <MultiBinding Converter="{StaticResource CreateGamePanelVisibility}">
+                    <Binding Path="ConnectionStatus" />
+                    <Binding Path="GameStatus" />
+                </MultiBinding>
+            </Grid.Visibility>
+			
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="16" />
+                <RowDefinition />
+                <RowDefinition Height="8" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+			
+            <StackPanel Grid.Row="0">
+                <TextBlock Margin="0,0,0,8"
+                           Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                           Text="{Binding NewGameNamePromt}" />
+                <TextBox materialDesign:HintAssist.Hint="{Binding NewGameNameHint}" 
+						 Text="{Binding NewGameName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Margin="8"
+                        Command="{Binding CreateGame}"
+                        Content="{Binding CancelCreatedGameButtonCaption}" />
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+
+                <TextBlock Margin="0,0,0,8"
+                           Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                           Text="{Binding OpenGameListSectionHeader}" />
+                <ListBox ItemsSource="{Binding AvailableOpenGames}"
+                         SelectedItem="{Binding SelectedOpenGame,
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                         SelectionMode="Single">
+					
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="helper:GameDisplayData">
+							<Grid Width="290">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="190" />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+
+								<TextBlock Grid.Column="0" Text="{Binding GameName}" />
+								<TextBlock Grid.Column="1">
+                                    <Run Text="[" /><Run Text="{Binding InitiatorName, Mode=OneWay}" /><Run Text="]" />
+								</TextBlock>
+							</Grid>
+						</DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </StackPanel>
+            <Button Grid.Row="4"
+                    Margin="8"
+                    Command="{Binding JoinGame}"
+                    Content="{Binding JoinGameButtonCaption}" />
+        </Grid>
+
+
+        <StackPanel>
+
+            <StackPanel.Visibility>
+                <MultiBinding Converter="{StaticResource CancelGamePanelVisibility}">
+                    <Binding Path="ConnectionStatus" />
+                    <Binding Path="GameStatus" />
+                </MultiBinding>
+            </StackPanel.Visibility>
+
+            <Button Margin="8"
+                    Command="{Binding CancelCreatedGame}"
+                    Content="{Binding CancelCreatedGameButtonCaption}" />
+
+        </StackPanel>
+
+        <StackPanel>
+
+            <StackPanel.Visibility>
+                <MultiBinding Converter="{StaticResource LeaveGamePanelVisiblity}">
+                    <Binding Path="ConnectionStatus" />
+                    <Binding Path="GameStatus" />
+                </MultiBinding>
+            </StackPanel.Visibility>
+
+            <Button Margin="8"
+                    Command="{Binding LeaveGame}"
+                    Content="{Binding LeaveGameButtonCaption}" />
+
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

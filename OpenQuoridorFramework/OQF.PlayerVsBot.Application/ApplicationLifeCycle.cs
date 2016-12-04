@@ -1,8 +1,10 @@
 ﻿using System.Globalization;
 using System.Windows;
 using Lib.Wpf;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
+using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.GameLogic;
 using OQF.PlayerVsBot.Visualization.ViewModels.ActionBar;
@@ -11,7 +13,6 @@ using OQF.PlayerVsBot.Visualization.ViewModels.BotStatusBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.DebugMessageView;
 using OQF.PlayerVsBot.Visualization.ViewModels.HumanPlayerBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.MainWindow;
-using OQF.PlayerVsBot.Visualization.ViewModels.ProgressView;
 using OQF.PlayerVsBot.Visualization.Windows;
 using OQF.Utils;
 
@@ -34,15 +35,18 @@ namespace OQF.PlayerVsBot.Application
 				applicationSettingsRepository.SelectedLanguageCode = CultureManager.CurrentCulture.ToString();
 			};
 
-			var boardViewModel             = new BoardViewModel(gameService);
-			var boardPlacementViewModel    = new BoardPlacementViewModel(gameService);
-			var languageSelectionViewModel = new LanguageSelectionViewModel();
-			var actionBarViewModel         = new ActionBarViewModel(applicationSettingsRepository, gameService, 
-																	languageSelectionViewModel);
-			var botStatusBarViewModel      = new BotStatusBarViewModel(gameService);		
-			var humanPlayerBarViewModel    = new HumanPlayerBarViewModel(gameService);
-			var progressViewModel          = new ProgressViewModel(gameService);
-			var debugMessageViewModel      = new DebugMessageViewModel(gameService);
+			var boardViewModel                   = new BoardViewModel(gameService);
+			var boardPlacementViewModel          = new BoardPlacementViewModel(gameService);
+			var languageSelectionViewModel       = new LanguageSelectionViewModel();
+			var actionBarViewModel               = new ActionBarViewModel(applicationSettingsRepository, 
+																		  gameService, 
+											      						  languageSelectionViewModel);
+			var botStatusBarViewModel            = new BotStatusBarViewModel(gameService);		
+			var humanPlayerBarViewModel          = new HumanPlayerBarViewModel(gameService);
+			var progressViewModel                = new ProgressViewModel(gameService);
+			var debugMessageViewModel            = new DebugMessageViewModel(gameService);
+			var boardHorizontalLabelingViewModel = new BoardHorizontalLabelingViewModel(null);
+			var boardVerticalLabelingViewModel   = new BoardVerticalLabalingViewModel(null);
 
 			var mainWindowViewModel = new MainWindowViewModel(boardViewModel,
 															  boardPlacementViewModel,															  
@@ -51,6 +55,8 @@ namespace OQF.PlayerVsBot.Application
 															  humanPlayerBarViewModel,
 															  progressViewModel,
 															  debugMessageViewModel,
+															  boardHorizontalLabelingViewModel,
+															  boardVerticalLabelingViewModel,
 															  gameService,
 															  applicationSettingsRepository,															  
 															  commandLineArguments.DisableClosingDialogs);

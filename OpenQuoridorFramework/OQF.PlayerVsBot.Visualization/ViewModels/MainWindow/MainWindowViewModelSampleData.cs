@@ -1,12 +1,13 @@
 using System.ComponentModel;
 using System.Windows.Input;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
+using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.PlayerVsBot.Visualization.ViewModels.ActionBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Visualization.ViewModels.BotStatusBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.DebugMessageView;
 using OQF.PlayerVsBot.Visualization.ViewModels.HumanPlayerBar;
-using OQF.PlayerVsBot.Visualization.ViewModels.ProgressView;
 
 #pragma warning disable 0067
 
@@ -16,13 +17,15 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 	{
 		public MainWindowViewModelSampleData()
 		{
-			BoardViewModel             = new BoardViewModelSampleData();
-			BoardPlacementViewModel    = new BoardPlacementViewModelSampleData();		
-			ActionBarViewModel         = new ActionBarViewModelSampleData();
-			BotStatusBarViewModel      = new BotStatusBarViewModelSampleData();
-			HumanPlayerBarViewModel    = new HumanPlayerBarViewModelSampleData();
-			ProgressViewModel          = new ProgressViewModelSampleData();
-			DebugMessageViewModel      = new DebugMessageViewModelSampleData();
+			BoardViewModel                   = new BoardViewModelSampleData();
+			BoardPlacementViewModel          = new BoardPlacementViewModelSampleData();		
+			ActionBarViewModel               = new ActionBarViewModelSampleData();
+			BotStatusBarViewModel            = new BotStatusBarViewModelSampleData();
+			HumanPlayerBarViewModel          = new HumanPlayerBarViewModelSampleData();
+			ProgressViewModel                = new ProgressViewModelSampleData();
+			DebugMessageViewModel            = new DebugMessageViewModelSampleData();
+			BoardHorizontalLabelingViewModel = new BoardLabelingViewModelSampleData();
+			BoardVerticalLabelingViewModel   = new BoardLabelingViewModelSampleData();
 																					
 			IsProgressSectionExpanded = true;
 			IsDebugSectionExpanded    = false;
@@ -34,14 +37,16 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			DebugCaption    = "Debug";																		
 		}
 
-		public IBoardViewModel             BoardViewModel             { get; }
-		public IBoardPlacementViewModel    BoardPlacementViewModel    { get; }		
-		public IActionBarViewModel         ActionBarViewModel         { get; }
-		public IBotStatusBarViewModel      BotStatusBarViewModel      { get; }
-		public IHumanPlayerBarViewModel    HumanPlayerBarViewModel    { get; }
-		public IProgressViewModel          ProgressViewModel          { get; }
-		public IDebugMessageViewModel      DebugMessageViewModel      { get; }
-		
+		public IBoardViewModel             BoardViewModel                   { get; }
+		public IBoardPlacementViewModel    BoardPlacementViewModel          { get; }		
+		public IActionBarViewModel         ActionBarViewModel               { get; }
+		public IBotStatusBarViewModel      BotStatusBarViewModel            { get; }
+		public IHumanPlayerBarViewModel    HumanPlayerBarViewModel          { get; }
+		public IProgressViewModel          ProgressViewModel                { get; }
+		public IDebugMessageViewModel      DebugMessageViewModel            { get; }
+		public IBoardLabelingViewModel     BoardHorizontalLabelingViewModel { get; }
+		public IBoardLabelingViewModel     BoardVerticalLabelingViewModel   { get; }
+
 		public ICommand CloseWindow   => null;
 				
 		public bool IsProgressSectionExpanded { get; set; }

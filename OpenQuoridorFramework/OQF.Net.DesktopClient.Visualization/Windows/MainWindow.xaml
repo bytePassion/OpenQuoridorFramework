@@ -1,0 +1,204 @@
+﻿<Window x:Class="OQF.Net.DesktopClient.Visualization.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"        
+        xmlns:libBehaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"       
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"       
+        xmlns:views1="clr-namespace:OQF.CommonUiElements.Board.Views;assembly=OQF.CommonUiElements"
+        xmlns:mainWindow1="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.MainWindow"        
+        xmlns:views="clr-namespace:OQF.Net.DesktopClient.Visualization.Views"
+        xmlns:progressView="clr-namespace:OQF.CommonUiElements.ProgressView;assembly=OQF.CommonUiElements"
+        Title="OpenQuoridorFramework - DesktopClient"
+        Width="1200"
+        Height="950"
+        MinWidth="1000"
+        MinHeight="600"
+        Background="{DynamicResource MaterialDesignFlatButtonClick}"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        TextElement.FontSize="12"
+        TextElement.FontWeight="Medium"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+	
+	<d:DesignData.DataContext>
+		<mainWindow1:MainWindowViewModelSampleData/>
+	</d:DesignData.DataContext>
+
+
+	<materialDesign:DialogHost Identifier="RootDialog">
+
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Grid.Row="0"
+					   Grid.Column="0"
+					   Grid.ColumnSpan="3"
+					   HorizontalAlignment="Center"
+					   VerticalAlignment="Center"
+					   Text="ActionBar"/>
+
+			<views:ActionBar Grid.Row="0"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="3"
+							 DataContext="{Binding ActionBarViewModel}"/>
+
+			<views:RemotePlayerBar Grid.Row="1"
+					               Grid.Column="0"
+					               Grid.ColumnSpan="3"
+					               DataContext="{Binding RemotePlayerBarViewModel}"/>
+
+			<materialDesign:Card Grid.Row="2"
+                                 Grid.Column="0"
+                                 Margin="8,0,0,0"
+                                 VerticalAlignment="Stretch">
+
+				
+				<!--	TODO: vll höhe des expanders an die der card binden  -->
+				
+				<Expander ExpandDirection="Right" IsExpanded="{Binding IsProgressViewExpanded, Mode=OneWay}">
+					<Expander.Header>
+						<TextBlock RenderTransformOrigin=".5,.5" Text="{Binding ProgressCaption}">
+							<TextBlock.LayoutTransform>
+								<RotateTransform Angle="90" />
+							</TextBlock.LayoutTransform>
+						</TextBlock>
+					</Expander.Header>
+
+
+					<progressView:ProgressView DataContext="{Binding ProgressViewModel}"/>
+
+				</Expander>
+
+			</materialDesign:Card>
+
+			<Border Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="5,0"
+                    Padding="0"
+					Name="BoardContainer">
+
+				<Grid Margin="15">
+
+					<i:Interaction.Behaviors>
+						<libBehaviors:KeepQuadratic />
+					</i:Interaction.Behaviors>
+
+					<Grid.RowDefinitions>
+						<RowDefinition Height="40" />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="40" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+
+					<materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />
+
+					<views1:BoardHorizontalLabelling Grid.Row="0"
+                                                     Grid.Column="1"
+                                                     IsHitTestVisible="False"
+													 DataContext="{Binding BoardHorizontalLabelingViewModel}"/>
+
+					<views1:BoardVerticalLabelling Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   IsHitTestVisible="False"
+												   DataContext="{Binding BoardVerticalLabelingViewModel}"/>
+
+					<views1:Board Grid.Row="1"
+					              Grid.Column="1"
+					              DataContext="{Binding BoardViewModel}"
+					              IsHitTestVisible="False"
+					              Padding="0"
+								  RenderTransformOrigin="0.5, 0.5">
+
+						<views1:Board.Style>
+							<Style TargetType="views1:Board">
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
+										<Setter Property="RenderTransform">
+											<Setter.Value>
+												<RotateTransform Angle="180"
+																 CenterX="0.5"
+																 CenterY="0.5"/>
+											</Setter.Value>
+										</Setter>
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</views1:Board.Style>
+					</views1:Board>
+
+					<views:BoardPlacement Grid.Row="1"
+					                      Grid.Column="1"
+					                      DataContext="{Binding BoardPlacementViewModel}"
+					                      Padding="0" 
+										  RenderTransformOrigin="0.5, 0.5">
+
+						<views:BoardPlacement.Style>
+							<Style TargetType="views:BoardPlacement">
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
+										<Setter Property="RenderTransform">
+											<Setter.Value>
+												<RotateTransform Angle="180"
+																 CenterX="0.5"
+																 CenterY="0.5"/>
+											</Setter.Value>
+										</Setter>
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</views:BoardPlacement.Style>
+											
+					</views:BoardPlacement>
+
+				</Grid>
+			</Border>
+
+			<materialDesign:Card Grid.Row="2"
+                                 Grid.Column="2"
+                                 Margin="0,0,8,0"
+                                 VerticalAlignment="Stretch">
+
+				<Expander DockPanel.Dock="Right"
+                          ExpandDirection="Left"
+                          IsExpanded="{Binding IsNetworkViewExpanded,
+                                               Mode=OneWay}">
+					<Expander.Header>
+						<TextBlock RenderTransformOrigin=".5,.5" Text="{Binding NetworkViewCaption}">
+							<TextBlock.LayoutTransform>
+								<RotateTransform Angle="-90" />
+							</TextBlock.LayoutTransform>
+						</TextBlock>
+					</Expander.Header>
+
+					<views:NetworkView DataContext="{Binding NetworkViewModel}"
+									   Margin="10,5,0,5"/>
+				</Expander>
+
+			</materialDesign:Card>
+
+			<views:LocalPlayerBar Grid.Row="3"
+					              Grid.Column="0"
+					              Grid.ColumnSpan="3"					             
+					              DataContext="{Binding LocalPlayerBarViewModel}"/>
+		</Grid>
+
+	</materialDesign:DialogHost>
+</Window>
+

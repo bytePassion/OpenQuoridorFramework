@@ -13,28 +13,28 @@ namespace OQF.CommonUiElements.Board.BoardColors
 		public static readonly SolidColorBrush PossibleMoveFieldColor   = new SolidColorBrush(Color.FromArgb(96, 255, 249, 197));
 		public static readonly SolidColorBrush PotentialPlacedWallColor = new SolidColorBrush(Color.FromArgb(207, 255, 255, 255));
 
-		public static readonly Brush TopPlayerActiveColor = new LinearGradientBrush()
-		{
-			MappingMode = BrushMappingMode.RelativeToBoundingBox,
-			EndPoint = new Point(0.5, 1),
-			StartPoint = new Point(0.5, 0),
-			GradientStops = new GradientStopCollection()
-				{
-					new GradientStop(Color.FromRgb(241, 241, 241), 0.159),
-					new GradientStop(Color.FromRgb(178, 178, 178), 0.674)
-				}
-		};
-
 		public static readonly Brush BottomPlayerActiveColor = new LinearGradientBrush()
 		{
 			MappingMode = BrushMappingMode.RelativeToBoundingBox,
 			EndPoint = new Point(0.5, 1),
 			StartPoint = new Point(0.5, 0),
 			GradientStops = new GradientStopCollection()
-				{
-					new GradientStop(Color.FromRgb(122, 122, 122), 0.159),
-					new GradientStop(Color.FromRgb(48, 48, 48), 0.674)
-				}
+							{
+								new GradientStop(Color.FromRgb(241, 241, 241), 0.159),
+								new GradientStop(Color.FromRgb(178, 178, 178), 0.674)
+							}
+		};
+
+		public static readonly Brush TopPlayerActiveColor = new LinearGradientBrush()
+		{
+			MappingMode = BrushMappingMode.RelativeToBoundingBox,
+			EndPoint = new Point(0.5, 1),
+			StartPoint = new Point(0.5, 0),
+			GradientStops = new GradientStopCollection()
+							{
+								new GradientStop(Color.FromRgb(122, 122, 122), 0.159),
+								new GradientStop(Color.FromRgb(48, 48, 48), 0.674)
+							}
 		};
 	}
 }

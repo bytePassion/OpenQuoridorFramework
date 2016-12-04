@@ -3,11 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:boardHorizontalLabeling="clr-namespace:OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling"
              d:DesignHeight="400"
              d:DesignWidth="40"
              mc:Ignorable="d">
 
-    <Grid>
+	<d:DesignData.DataContext>
+		<boardHorizontalLabeling:BoardLabelingViewModelSampleData/>
+	</d:DesignData.DataContext>
+
+	<Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="0.3*" />
@@ -41,14 +46,14 @@
             </Style>
         </Grid.Resources>
 
-        <Border Grid.Row=" 0"> <TextBlock Text="9" /> </Border>
-        <Border Grid.Row=" 2"> <TextBlock Text="8" /> </Border>
-        <Border Grid.Row=" 4"> <TextBlock Text="7" /> </Border>
-        <Border Grid.Row=" 6"> <TextBlock Text="6" /> </Border>
-        <Border Grid.Row=" 8"> <TextBlock Text="5" /> </Border>
-        <Border Grid.Row="10"> <TextBlock Text="4" /> </Border>
-        <Border Grid.Row="12"> <TextBlock Text="3" /> </Border>
-        <Border Grid.Row="14"> <TextBlock Text="2" /> </Border>
-        <Border Grid.Row="16"> <TextBlock Text="1" /> </Border>
+        <Border Grid.Row=" 0"> <TextBlock Text="{Binding Label1, Mode=OneWay}" /> </Border>
+        <Border Grid.Row=" 2"> <TextBlock Text="{Binding Label2, Mode=OneWay}" /> </Border>
+        <Border Grid.Row=" 4"> <TextBlock Text="{Binding Label3, Mode=OneWay}" /> </Border>
+        <Border Grid.Row=" 6"> <TextBlock Text="{Binding Label4, Mode=OneWay}" /> </Border>
+        <Border Grid.Row=" 8"> <TextBlock Text="{Binding Label5, Mode=OneWay}" /> </Border>
+        <Border Grid.Row="10"> <TextBlock Text="{Binding Label6, Mode=OneWay}" /> </Border>
+        <Border Grid.Row="12"> <TextBlock Text="{Binding Label7, Mode=OneWay}" /> </Border>
+        <Border Grid.Row="14"> <TextBlock Text="{Binding Label8, Mode=OneWay}" /> </Border>
+        <Border Grid.Row="16"> <TextBlock Text="{Binding Label9, Mode=OneWay}" /> </Border>
     </Grid>
 </UserControl>

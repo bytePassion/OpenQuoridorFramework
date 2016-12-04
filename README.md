@@ -9,9 +9,11 @@
 
 OpenQuoridorFramework is a set of libraries and applications to create bots for Quoridor, play against them and do a lot more cool stuff around Quoridor.
 
-In this Version the OQF comes with two applications:
+In this Version the OQF comes with four applications:
 - PlayerVsBot:  An application to play (as human) against an OQF-Bot
 - ReplayViewer: An application to analize (review) a past game
+- Network.DesktopClient: An application to play againt each other over LAN
+- Network.LanServer: This application is the junction for the Network.DesktopClient
 
 ---
 
@@ -31,24 +33,28 @@ If you want to contribute to the OQF, contact a developer via E-Mail or Gitter-C
 
 Planned applications:
 - Tournament: An application to let multiple bots  fight each other
-- QuoridorNetworkPlay: An application for two humans to play against over a LAN-connection
 - QuoridorWebPlay: A web-solution to play Quoridor
 
 ---
 
-Latest Release ChangeLog Entry:
+Usages:
+- PlayerVsBot: load a OQF-bot from a Dll-file and play against the bot
+- ReplayViewer: load a progress from a past game via progress-file or compressed progress string and review the past game 
+- Network:
+   - first: start and activate the LanServer
+   - second: start as many DesktopClients as you want in the local network, connect to the server and play against each other
 
-[November 25th, 2016]
+---
+
+Latest ChangeLog Entry:
+
+[December 4th, 2016]
  - PlayerVsBot (1.1)
-   - Several minor bug fixes
-   - Several Ui-Improvements
-   - Progress can be viewed and copied as compressed-progress-string
-   - Game can be started from a comressed-progress-string as well as from a progress-file
-   - added new commandLineParamter to start a game from a compressed-progress-string
  - ReplayViewer (1.1)
-   - Several minor bug fixes
-   - Several Ui-Improvements, including localization (de & en)
-   - replay can be loaded from compressed string
+ - Network.DesktopClient (1.0)
+   - Initial Release
+ - Network.LanServer (1.0)
+   - Initial Release
 
 ---
 The boardgame Quoridor was created by Mirko Marchesi and is published by [Gigamic](http://en.gigamic.com/).

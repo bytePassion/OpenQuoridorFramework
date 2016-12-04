@@ -9,13 +9,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:views="clr-namespace:OQF.CommonUiElements.Board.Views"
              xmlns:gameElements="clr-namespace:OQF.Bot.Contracts.GameElements;assembly=OQF.Bot.Contracts"
-             xmlns:boardViewModel="clr-namespace:OQF.CommonUiElements.Board.BoardViewModel"
+             xmlns:board="clr-namespace:OQF.CommonUiElements.Board.ViewModels.Board"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
 
     <d:DesignData.DataContext>
-        <boardViewModel:BoardViewModelSampleData />
+        <board:BoardViewModelSampleData />
     </d:DesignData.DataContext>
 
     <UserControl.Resources>

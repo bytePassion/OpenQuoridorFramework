@@ -625,4 +625,88 @@
   <data name="RVH_PageHeader" xml:space="preserve">
     <value>Overview to 'Replay Viewer'</value>
   </data>
+  <data name="NCl_NetworkViewCaption" xml:space="preserve">
+    <value>Connection-Options</value>
+  </data>
+  <data name="LSv_ServerLogSectionCaption" xml:space="preserve">
+    <value>Server-Log:</value>
+  </data>
+  <data name="LSv_GameOverviewSectionCaption" xml:space="preserve">
+    <value>Game overview:</value>
+  </data>
+  <data name="LSv_ConnectedClientsSectionCaption" xml:space="preserve">
+    <value>Connected clients:</value>
+  </data>
+  <data name="LSv_ActivateButtonCaption" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="LSv_DeactivateButtonCaption" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="LSv_SelectServerAddressPromt" xml:space="preserve">
+    <value>Select server-address:</value>
+  </data>
+  <data name="LSv_DeactivateServerConfirmationPromt" xml:space="preserve">
+    <value>Do you really want to deactivate the server?</value>
+  </data>
+  <data name="NCl_NoGameStartedNotice" xml:space="preserve">
+    <value>No game started</value>
+  </data>
+  <data name="NCl_ServerAddressPromt" xml:space="preserve">
+    <value>Enter Server address:</value>
+  </data>
+  <data name="NCl_ServerAddressHint" xml:space="preserve">
+    <value>IP-address</value>
+  </data>
+  <data name="NCl_PlayerNamePromt" xml:space="preserve">
+    <value>Choose player name:</value>
+  </data>
+  <data name="NCl_PlayerNameHint" xml:space="preserve">
+    <value>your game alias</value>
+  </data>
+  <data name="NCl_ConnectToServerButtonCaption" xml:space="preserve">
+    <value>Connect to server</value>
+  </data>
+  <data name="NCl_ConnectionStatus_NotConnected" xml:space="preserve">
+    <value>Not connected</value>
+  </data>
+  <data name="NCl_ConnectionStatus_TryingToConnect" xml:space="preserve">
+    <value>Trying to connect ....</value>
+  </data>
+  <data name="NCl_DisconectFromServerButtonCaption" xml:space="preserve">
+    <value>Disconnect from server</value>
+  </data>
+  <data name="NCl_NewGameNamePromt" xml:space="preserve">
+    <value>Choose a name for the new game:</value>
+  </data>
+  <data name="NCl_NewGameNameHint" xml:space="preserve">
+    <value>game-name</value>
+  </data>
+  <data name="NCl_OpenGameListSectionHeader" xml:space="preserve">
+    <value>Games to join:</value>
+  </data>
+  <data name="NCl_JoinGameButtonCaption" xml:space="preserve">
+    <value>Join selected game</value>
+  </data>
+  <data name="NCl_CancelCreatedGameButtonCaption" xml:space="preserve">
+    <value>Cancel created game</value>
+  </data>
+  <data name="NCl_LeaveGameButtonCaption" xml:space="preserve">
+    <value>Leave current game</value>
+  </data>
+  <data name="NCl_Confirmation_LeaveGame" xml:space="preserve">
+    <value>Do you really want to leave the current game?</value>
+  </data>
+  <data name="NCl_Confirmation_CancelGame" xml:space="preserve">
+    <value>Do you really want to cancel your created game?</value>
+  </data>
+  <data name="NCl_Confirmation_Disconnect" xml:space="preserve">
+    <value>Do you really want to disconnect from the server?</value>
+  </data>
+  <data name="NCl_WinningMessage" xml:space="preserve">
+    <value>Congratulations! You won this game!</value>
+  </data>
+  <data name="NCL_LoosingMessage" xml:space="preserve">
+    <value>You lost this game.</value>
+  </data>
 </root>

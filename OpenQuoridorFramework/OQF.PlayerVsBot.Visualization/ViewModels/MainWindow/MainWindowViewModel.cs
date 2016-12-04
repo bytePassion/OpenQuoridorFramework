@@ -11,15 +11,16 @@ using Microsoft.Win32;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
-using OQF.CommonUiElements.Board.BoardViewModel;
+using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
 using OQF.CommonUiElements.Dialogs.YesNo;
+using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.Visualization.ViewModels.ActionBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Visualization.ViewModels.BotStatusBar;
 using OQF.PlayerVsBot.Visualization.ViewModels.DebugMessageView;
 using OQF.PlayerVsBot.Visualization.ViewModels.HumanPlayerBar;
-using OQF.PlayerVsBot.Visualization.ViewModels.ProgressView;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
 using OQF.Utils.Enum;
@@ -44,6 +45,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 									IHumanPlayerBarViewModel humanPlayerBarViewModel,
 									IProgressViewModel progressViewModel,
 									IDebugMessageViewModel debugMessageViewModel,
+									IBoardLabelingViewModel boardHorizontalLabelingViewModel, 
+									IBoardLabelingViewModel boardVerticalLabelingViewModel,
 									IGameService gameService, 
 									IApplicationSettingsRepository applicationSettingsRepository,									
 									bool disableClosingDialog)
@@ -53,6 +56,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			this.gameService = gameService;
 			this.applicationSettingsRepository = applicationSettingsRepository;			
 			this.disableClosingDialog = disableClosingDialog;
+			BoardHorizontalLabelingViewModel = boardHorizontalLabelingViewModel;
+			BoardVerticalLabelingViewModel = boardVerticalLabelingViewModel;
 
 			DebugMessageViewModel      = debugMessageViewModel;
 			ProgressViewModel          = progressViewModel;
@@ -167,13 +172,15 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			});			
 		}
 		
-		public IBoardViewModel             BoardViewModel             { get; }
-		public IBoardPlacementViewModel    BoardPlacementViewModel    { get; }		
-		public IActionBarViewModel         ActionBarViewModel         { get; }
-		public IBotStatusBarViewModel      BotStatusBarViewModel      { get; }
-		public IHumanPlayerBarViewModel    HumanPlayerBarViewModel    { get; }
-		public IProgressViewModel          ProgressViewModel          { get; }
-		public IDebugMessageViewModel      DebugMessageViewModel      { get; }
+		public IBoardViewModel             BoardViewModel                   { get; }
+		public IBoardPlacementViewModel    BoardPlacementViewModel          { get; }		
+		public IActionBarViewModel         ActionBarViewModel               { get; }
+		public IBotStatusBarViewModel      BotStatusBarViewModel            { get; }
+		public IHumanPlayerBarViewModel    HumanPlayerBarViewModel          { get; }
+		public IProgressViewModel          ProgressViewModel                { get; }
+		public IDebugMessageViewModel      DebugMessageViewModel            { get; }
+		public IBoardLabelingViewModel     BoardHorizontalLabelingViewModel { get; }
+		public IBoardLabelingViewModel     BoardVerticalLabelingViewModel   { get; }
 
 		public ICommand CloseWindow { get; }
 						

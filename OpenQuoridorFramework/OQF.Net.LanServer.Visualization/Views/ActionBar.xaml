@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="OQF.Net.LanServer.Visualization.Views.ActionBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
+             xmlns:actionBar="clr-namespace:OQF.Net.LanServer.Visualization.ViewModels.ActionBar"
+             xmlns:languageSelection="clr-namespace:OQF.CommonUiElements.Language.LanguageSelection;assembly=OQF.CommonUiElements"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="900">
+	
+	<d:DesignData.DataContext>
+		<actionBar:ActionBarViewModelSampleData/>
+	</d:DesignData.DataContext>
+
+	<materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                              Mode="Dark"
+							  Background="#37474f"
+                              Padding="8">
+		<Grid>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+
+			<Button Margin="4,0"
+                    Command="{Binding ShowAboutHelp}"
+                    Grid.Column="3"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    ToolTip="{Binding OpenInfoButtonToolTipCaption}">
+				<materialDesign:PackIcon Kind="Help" />
+			</Button>
+
+			<languageSelection:LanguageSelectionView Margin="2,0"
+                                                     DataContext="{Binding LanguageSelectionViewModel}"
+                                                     Grid.Column="2" />
+
+		</Grid>
+			</materialDesign:ColorZone>
+</UserControl>

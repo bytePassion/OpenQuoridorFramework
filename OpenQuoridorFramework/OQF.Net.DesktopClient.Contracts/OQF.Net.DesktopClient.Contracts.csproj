@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5EDEDF8C-367C-495E-9C81-0519D443B7A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OQF.Net.DesktopClient.Contracts</RootNamespace>
+    <AssemblyName>OQF.Net.DesktopClient.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConnectionStatus.cs" />
+    <Compile Include="GameStatus.cs" />
+    <Compile Include="IApplicationSettingsRepository.cs" />
+    <Compile Include="INetworkGameService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib.SemanicTypes\Lib.SemanicTypes.csproj">
+      <Project>{8fe851fb-dd9c-4c93-bced-5098235d44e9}</Project>
+      <Name>Lib.SemanicTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.AnalysisAndProgress\OQF.AnalysisAndProgress.csproj">
+      <Project>{1BD024DD-F067-439E-9A9D-87739108D8D9}</Project>
+      <Name>OQF.AnalysisAndProgress</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
+      <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
+      <Name>OQF.Bot.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
+      <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
+      <Name>OQF.CommonUiElements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Net.LanMessaging\OQF.Net.LanMessaging.csproj">
+      <Project>{C0E2A650-5CA7-4D79-9342-DA2936C9E2F7}</Project>
+      <Name>OQF.Net.LanMessaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Utils\OQF.Utils.csproj">
+      <Project>{2F71F7F9-F40A-45E3-9401-5A40933DB8C7}</Project>
+      <Name>OQF.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

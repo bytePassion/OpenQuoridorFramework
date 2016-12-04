@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C11746E5-570E-4FAD-ABBD-921E8C2DBD76}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OQF.Net.DesktopClient.Visualization</RootNamespace>
+    <AssemblyName>OQF.Net.DesktopClient.Visualization</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.2.0.725, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.2.0.725\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Behaviors\ReportRelativeMousePositionBehavior.cs" />
+    <Compile Include="Computations\CancelGamePanelVisibility.cs" />
+    <Compile Include="Computations\ConnectionDisplayBackground.cs" />
+    <Compile Include="Computations\ConnectionDisplayText.cs" />
+    <Compile Include="Computations\ConnectionPanelVisibility.cs" />
+    <Compile Include="Computations\CreateGamePanelVisibility.cs" />
+    <Compile Include="Computations\DisconnectPanelVisibility.cs" />
+    <Compile Include="Computations\GetLocalPlayerIconBrush.cs" />
+    <Compile Include="Computations\LeaveGamePanelVisiblity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ActionBar\ActionBarViewModel.cs" />
+    <Compile Include="ViewModels\ActionBar\ActionBarViewModelSampleData.cs" />
+    <Compile Include="ViewModels\ActionBar\IActionBarViewModel.cs" />
+    <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />
+    <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
+    <Compile Include="ViewModels\BoardPlacement\IBoardPlacementViewModel.cs" />
+    <Compile Include="ViewModels\LocalPlayerBar\ILocalPlayerBarViewModel.cs" />
+    <Compile Include="ViewModels\LocalPlayerBar\LocalPlayerBarViewModel.cs" />
+    <Compile Include="ViewModels\LocalPlayerBar\LocalPlayerBarViewModelSampleData.cs" />
+    <Compile Include="ViewModels\MainWindow\Helper\GameDisplayData.cs" />
+    <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\MainWindowViewModelSampleData.cs" />
+    <Compile Include="ViewModels\NetworkView\INetworkViewModel.cs" />
+    <Compile Include="ViewModels\NetworkView\NetworkViewModel.cs" />
+    <Compile Include="ViewModels\NetworkView\NetworkViewModelSampleData.cs" />
+    <Compile Include="ViewModels\RemotePlayerBar\IRemotePlayerBarViewModel.cs" />
+    <Compile Include="ViewModels\RemotePlayerBar\RemotePlayerBarViewModel.cs" />
+    <Compile Include="ViewModels\RemotePlayerBar\RemotePlayerBarViewModelSampleData.cs" />
+    <Compile Include="Views\ActionBar.xaml.cs">
+      <DependentUpon>ActionBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BoardPlacement.xaml.cs">
+      <DependentUpon>BoardPlacement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocalPlayerBar.xaml.cs">
+      <DependentUpon>LocalPlayerBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NetworkView.xaml.cs">
+      <DependentUpon>NetworkView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RemotePlayerBar.xaml.cs">
+      <DependentUpon>RemotePlayerBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\ActionBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BoardPlacement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LocalPlayerBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NetworkView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RemotePlayerBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib.Communication\Lib.Communication.csproj">
+      <Project>{A7CA266B-B1A3-4ED5-B0BE-EE5EE80A48FC}</Project>
+      <Name>Lib.Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
+      <Project>{6c27f04b-cfcc-4267-8720-4a44d7529a21}</Project>
+      <Name>Lib.FrameworkExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib.SemanicTypes\Lib.SemanicTypes.csproj">
+      <Project>{8fe851fb-dd9c-4c93-bced-5098235d44e9}</Project>
+      <Name>Lib.SemanicTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib.Wpf\Lib.Wpf.csproj">
+      <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
+      <Name>Lib.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.AnalysisAndProgress\OQF.AnalysisAndProgress.csproj">
+      <Project>{1BD024DD-F067-439E-9A9D-87739108D8D9}</Project>
+      <Name>OQF.AnalysisAndProgress</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Bot.Contracts\OQF.Bot.Contracts.csproj">
+      <Project>{8692572D-4B60-407C-BB7B-80FC66E63904}</Project>
+      <Name>OQF.Bot.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
+      <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
+      <Name>OQF.CommonUiElements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Net.DesktopClient.Contracts\OQF.Net.DesktopClient.Contracts.csproj">
+      <Project>{5EDEDF8C-367C-495E-9C81-0519D443B7A9}</Project>
+      <Name>OQF.Net.DesktopClient.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Net.LanMessaging\OQF.Net.LanMessaging.csproj">
+      <Project>{C0E2A650-5CA7-4D79-9342-DA2936C9E2F7}</Project>
+      <Name>OQF.Net.LanMessaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Resources\OQF.Resources.csproj">
+      <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
+      <Name>OQF.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OQF.Utils\OQF.Utils.csproj">
+      <Project>{2F71F7F9-F40A-45E3-9401-5A40933DB8C7}</Project>
+      <Name>OQF.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

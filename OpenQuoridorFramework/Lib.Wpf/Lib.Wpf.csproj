@@ -66,6 +66,7 @@
     <Compile Include="ConverterBase\GenericThreeToOneValueConverter.cs" />
     <Compile Include="ConverterBase\GenericTwoToOneValueConverter.cs" />
     <Compile Include="ConverterBase\GenericValueConverter.cs" />
+    <Compile Include="Converter\BoolInverter.cs" />
     <Compile Include="Converter\BoolToCollapsedVisibilityConverter.cs" />
     <Compile Include="Converter\BoolToHiddenVisibilityConverter.cs" />
     <Compile Include="Converter\BoolToNullableBoolConverter.cs" />
