@@ -57,4 +57,10 @@ Latest ChangeLog Entry:
    - Initial Release
 
 ---
+
 The boardgame Quoridor was created by Mirko Marchesi and is published by [Gigamic](http://en.gigamic.com/).
+
+---
+
+Developed by [bytePassion](http://www.bytePassion.de)
+![bytePassion_Logo](/OpenQuoridorFramework/OQF.Resources/Images/bytePassionLogo.png)
