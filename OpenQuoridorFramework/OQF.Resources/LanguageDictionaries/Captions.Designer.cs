@@ -88,6 +88,15 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Developed by.
+        /// </summary>
+        public static string AP_DevelopedBy {
+            get {
+                return ResourceManager.GetString("AP_DevelopedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Developers.
         /// </summary>
         public static string AP_DeveloperSectionHeader {

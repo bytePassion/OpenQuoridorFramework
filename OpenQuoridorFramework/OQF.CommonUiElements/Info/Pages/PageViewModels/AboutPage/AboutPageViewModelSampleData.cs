@@ -22,13 +22,16 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 		public string QuoridorInventerSubItem   => "blablubb";
 		public string QuoridorPublisherSubItem  => "blablubb";
 		public string LicenceSectionHeader      => "blablubb";
+		public string DevelopedBy               => "blablubb";
 		public string ApplicationName           => "blablubb";
 		public string VersionIdentifier         => "blablubb";
 		public string FrameworkVersion          => "blablubb";
 		public string LicenceName               => "blablubb";
+		public string BytePassionName           => "blablubb";
 		public string DisplayName               => "About";
 
-		public Uri LicenceUri => new Uri("blablubb");
+		public Uri LicenceUri     => new Uri("blablubb");		
+		public Uri BytePassionUri => new Uri("blablubb");
 
 		public IEnumerable<string>         Developers      { get; }
 		public IEnumerable<ThirdPartyItem> ThridPartyItems { get; }

@@ -712,4 +712,7 @@
   <data name="NCl_CreateGameButtonCaption" xml:space="preserve">
     <value>Create game</value>
   </data>
+  <data name="AP_DevelopedBy" xml:space="preserve">
+    <value>Developed by</value>
+  </data>
 </root>

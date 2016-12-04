@@ -20,6 +20,7 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 		string QuoridorInventerSubItem   { get; }
 		string QuoridorPublisherSubItem  { get; }
 		string LicenceSectionHeader      { get; }
+		string DevelopedBy               { get; }
 		
 		IEnumerable<string>         Developers      { get; }
 		IEnumerable<ThirdPartyItem> ThridPartyItems { get; }
@@ -29,6 +30,8 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 		string FrameworkVersion  { get; }
 		string LicenceName       { get; }
 		Uri    LicenceUri        { get; }
+		string BytePassionName   { get; }
+		Uri    BytePassionUri    { get; }
 		
 	}
 }

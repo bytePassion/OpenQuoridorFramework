@@ -20,6 +20,8 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 			VersionIdentifier = applicationInfo.ApplicationVersion;
 			LicenceName       = applicationInfo.LicenceName;
 			LicenceUri        = applicationInfo.LicenceUri;
+			BytePassionName = applicationInfo.DevelopedBy;
+			BytePassionUri = applicationInfo.DevelopedByUri;
 
 			CultureManager.CultureChanged += RefreshCaptions;
 		}
@@ -38,6 +40,7 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 		public string QuoridorInventerSubItem   => Captions.AP_QuoridorInventorSubItem;
 		public string QuoridorPublisherSubItem  => Captions.AP_QuoridorPublisherSubItem;
 		public string LicenceSectionHeader      => Captions.AP_LicenceSectionHeader;
+		public string DevelopedBy               => Captions.AP_DevelopedBy;
 		public string DisplayName               => Captions.IP_AboutButtonCaption;
 
 		public IEnumerable<string>         Developers      { get; }
@@ -47,7 +50,9 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 		public string VersionIdentifier { get; }
 		public string FrameworkVersion  { get; }
 		public string LicenceName       { get; }
-		public Uri    LicenceUri        { get; }		
+		public Uri    LicenceUri        { get; }
+		public string BytePassionName   { get; }
+		public Uri    BytePassionUri    { get; }
 
 		private void RefreshCaptions()
 		{
@@ -62,12 +67,13 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage
 										 nameof(LicenceSectionHeader),
 										 nameof(SourceCodeSectionHeader),
 										 nameof(SourceCodeSectionText),
+										 nameof(DevelopedBy),
 										 nameof(DisplayName));
 		}
 
 		protected override void CleanUp()
 		{
-			CultureManager.CultureChanged += RefreshCaptions;
+			CultureManager.CultureChanged -= RefreshCaptions;
 		}
 
 		public override event PropertyChangedEventHandler PropertyChanged;	    

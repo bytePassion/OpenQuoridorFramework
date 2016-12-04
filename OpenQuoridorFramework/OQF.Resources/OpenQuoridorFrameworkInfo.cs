@@ -49,6 +49,8 @@ namespace OQF.Resources
 																				  FrameworkVersion, 
 																				  Licence, 
 																				  LicenceUri, 
+																				  DevelopedBy,
+																				  DevelopedByUrl,
 																				  ActiveDevelopers, 
 																				  ThirdPartyItems);
 			}
@@ -62,7 +64,9 @@ namespace OQF.Resources
 																				  ApplicationVersion,
 																				  FrameworkVersion,
 																				  Licence, 
-																				  LicenceUri, 
+																				  LicenceUri,
+																				  DevelopedBy,
+																				  DevelopedByUrl,
 																				  ActiveDevelopers, 
 																				  ThirdPartyItems);
 			}
@@ -77,6 +81,8 @@ namespace OQF.Resources
 																				  FrameworkVersion,
 																				  Licence,
 																				  LicenceUri,
+																				  DevelopedBy,
+																				  DevelopedByUrl,
 																				  ActiveDevelopers,
 																				  ThirdPartyItems);
 			}
@@ -91,6 +97,8 @@ namespace OQF.Resources
 																				  FrameworkVersion,
 																				  Licence,
 																				  LicenceUri,
+																				  DevelopedBy,
+																				  DevelopedByUrl,
 																				  ActiveDevelopers,
 																				  ThirdPartyItems);
 			}
@@ -105,6 +113,8 @@ namespace OQF.Resources
 																				  FrameworkVersion,
 																				  Licence,
 																				  LicenceUri,
+																				  DevelopedBy,
+																				  DevelopedByUrl,
 																				  ActiveDevelopers,
 																				  ThirdPartyItems);
 			}			

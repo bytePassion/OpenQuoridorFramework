@@ -247,7 +247,27 @@
                     </StackPanel>
                 </materialDesign:Card>
 
-            </StackPanel>
+				<materialDesign:Card Margin="8,0"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                     Padding="8">
+					<StackPanel>
+						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" >
+							<Run Text="{Binding DevelopedBy, Mode=OneWay}"/>
+							<Hyperlink NavigateUri="{Binding BytePassionUri}">
+                                <TextBlock Foreground="#FF0066CC" Text="{Binding BytePassionName}" />
+
+                                <i:Interaction.Behaviors>
+                                    <behaviors:UrlNavigationBehavior />
+                                </i:Interaction.Behaviors>
+                            </Hyperlink>
+						</TextBlock>
+						
+						<Image Source="pack://application:,,,/OQF.Resources;Component/Images/bytePassionLogo.png"
+							   MaxWidth="500"/>
+					</StackPanel>
+				</materialDesign:Card>
+
+			</StackPanel>
         </Grid>
     </ScrollViewer>
 </UserControl>

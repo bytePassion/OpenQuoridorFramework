@@ -732,4 +732,7 @@
   <data name="NCl_CreateGameButtonCaption" xml:space="preserve">
     <value>Neues Spiel erstellen</value>
   </data>
+  <data name="AP_DevelopedBy" xml:space="preserve">
+    <value>Entwickelt von</value>
+  </data>
 </root>

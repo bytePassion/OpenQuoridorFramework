@@ -5,7 +5,8 @@ namespace OQF.Resources
 {
 	public class ApplicationInfo
 	{
-		public ApplicationInfo(string name, string version, string frameworkVersion, string licenceName, Uri licenceUri,
+		public ApplicationInfo(string name, string version, string frameworkVersion, string licenceName, Uri licenceUri, 
+							   string developedBy, Uri developedByUri,
 							   IEnumerable<string> developers, IEnumerable<ThirdPartyItem> thirdPartyItems)
 		{
 			Name = name;
@@ -14,6 +15,8 @@ namespace OQF.Resources
 			LicenceUri = licenceUri;
 			Developers = developers;
 			ThirdPartyItems = thirdPartyItems;
+			DevelopedBy = developedBy;
+			DevelopedByUri = developedByUri;
 			FrameworkVersion = frameworkVersion;
 		}
 
@@ -25,5 +28,7 @@ namespace OQF.Resources
 		public string FrameworkVersion   { get; }
 		public string LicenceName        { get; }
 		public Uri    LicenceUri         { get; }
+		public string DevelopedBy        { get; }
+		public Uri    DevelopedByUri     { get; }
 	}
 }
