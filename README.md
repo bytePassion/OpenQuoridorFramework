@@ -1,6 +1,6 @@
 ![OQF_Logo](/OpenQuoridorFramework/quoridor_logo.ico)
 
-# OpenQuoridorFramework (2.2)
+# OpenQuoridorFramework (4.2)
 
 [![Join the chat at https://gitter.im/bytePassion/OpenQuoridorFramework](https://badges.gitter.im/bytePassion/OpenQuoridorFramework.svg)](https://gitter.im/bytePassion/OpenQuoridorFramework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![view and contribute to current tasks on trello](https://img.shields.io/badge/tasks-on%20trello-blue.svg)](https://trello.com/b/X9gnlWEl/openquoridorframework)
