@@ -15,8 +15,38 @@ namespace OQF.Net.LanServer.Visualization.ViewModels.LogView
 				"output2",
 				"output3",
 				"output4",
-				"output5"
-			};
+				"output5",
+                "output1",
+                "output2",
+                "output3",
+                "output4",
+                "output5",
+                "output1",
+                "output2",
+                "output3",
+                "output4",
+                "output5",
+                "output1",
+                "output2",
+                "output3",
+                "output4",
+                "output5",
+                "output1",
+                "output2",
+                "output3",
+                "output4",
+                "output5",
+                "output1",
+                "output2",
+                "output3",
+                "output4",
+                "output5",
+                "output1",
+                "output2",
+                "output3",
+                "output4",
+                "output5"
+            };
 		}
 
 		public ObservableCollection<string> Output { get; }
