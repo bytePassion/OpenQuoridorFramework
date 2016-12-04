@@ -108,6 +108,9 @@
   <ItemGroup>
     <Resource Include="InfoImages\replayViewer_help_german.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bytePassionLogo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
