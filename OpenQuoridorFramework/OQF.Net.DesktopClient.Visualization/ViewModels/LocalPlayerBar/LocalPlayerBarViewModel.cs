@@ -21,6 +21,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 		private bool isPlacementPossible;
 		private bool? isGameInitiator;
 		private string wallsLeft;
+		private string playerName;
 
 		public LocalPlayerBarViewModel(INetworkGameService networkGameService)
 		{
@@ -48,11 +49,13 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 					case GameStatus.PlayingJoinedGame:
 					{
 						IsGameInitiator = false;
+						PlayerName = networkGameService.ClientPlayer.Name;
 						break;
 					}
 					case GameStatus.PlayingOpendGame:
 					{
 						IsGameInitiator = true;
+						PlayerName = networkGameService.ClientPlayer.Name;
 						break;
 					}
 					case GameStatus.NoGame:
@@ -79,6 +82,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 				IsPlacementPossible = false;
 				WallsLeft = "--";
 				IsGameInitiator = null;
+				PlayerName = string.Empty;
 			});
 		}
 
@@ -123,6 +127,12 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 		{
 			get { return wallsLeft; }
 			private set { PropertyChanged.ChangeAndNotify(this, ref wallsLeft, value); }
+		}
+
+		public string PlayerName
+		{
+			get { return playerName; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref playerName, value); }
 		}
 
 		public string WallsLeftLabelCaption   => Captions.PvB_WallsLeftLabelCaption;

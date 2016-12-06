@@ -7,7 +7,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:remotePlayerBar="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="100" d:DesignWidth="800">
 	
 	<d:DesignData.DataContext>
 		<remotePlayerBar:RemotePlayerBarViewModelSampleData/>
@@ -20,28 +20,50 @@
 	<materialDesign:Card Margin="8"
                          Padding="8">
 
-		<Grid>
+		<Grid Height="45">
 
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="70" />
+				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition />
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
 
 
-			<Ellipse Grid.Column="0"
-                     Width="40"
-                     Height="40"
-                     Fill="{Binding IsGameInitiator,
-                                    Converter={StaticResource GetPlayerIconBrush}}" 
-					 RenderTransformOrigin="0.5, 0.5">
+			<Border Grid.Column="0"
+					BorderThickness="1"
+					BorderBrush="Black"
+					CornerRadius="3">
 
-				<Ellipse.RenderTransform>
-					<RotateTransform Angle="-45" />
-				</Ellipse.RenderTransform>
+				<Grid>
 
-			</Ellipse>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+
+					<Ellipse Grid.Column="0"
+							 Width="40"
+							 Height="40"
+							 Margin="10,0"
+							 Fill="{Binding IsGameInitiator,
+											 Converter={StaticResource GetPlayerIconBrush}}" 
+					         RenderTransformOrigin="0.5, 0.5">
+
+						<Ellipse.RenderTransform>
+							<RotateTransform Angle="-45" />
+						</Ellipse.RenderTransform>
+
+					</Ellipse>
+
+					<TextBlock Grid.Column="1"
+							   Margin="0,0,10,0"
+							   FontSize="30"
+							   VerticalAlignment="Center"
+							   Text="{Binding PlayerName}"></TextBlock>
+
+				</Grid>
+			</Border>
 
 
 			<TextBlock Grid.Column="3"
@@ -58,6 +80,11 @@
                                VerticalAlignment="Center"
                                FontSize="30"
                                Text="{Binding WallsLeft}" />
+
+			<Button Grid.Column="2"
+                            Margin="20,7"
+                            HorizontalAlignment="Right"                            
+                            Content="blubb" />
 		</Grid>
 
 	</materialDesign:Card>

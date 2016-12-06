@@ -10,11 +10,13 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 		{
 			IsGameInitiator = true;
 			WallsLeft = "7";
-			WallsLeftLabelCaption = "Walls";			
+			WallsLeftLabelCaption = "Walls";
+			PlayerName = "opponend player";
 		}
 
 		public bool? IsGameInitiator { get; }
 		public string WallsLeft { get; }
+		public string PlayerName { get; }
 		public string WallsLeftLabelCaption { get; }		
 
 		public void Dispose() { }

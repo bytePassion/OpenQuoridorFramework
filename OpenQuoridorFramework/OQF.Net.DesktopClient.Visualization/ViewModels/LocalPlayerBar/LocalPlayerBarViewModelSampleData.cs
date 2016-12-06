@@ -14,11 +14,13 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 			WallsLeft = "7";
 			WallsLeftLabelCaption = "Walls";
 			CapitulateButtonCaption = "Capitulate";
+			PlayerName = "localPlayer";
 		}
 
 		public ICommand Capitulate => null;
 		public bool? IsGameInitiator { get; }
 		public string WallsLeft { get; }
+		public string PlayerName { get; }
 		public string WallsLeftLabelCaption { get; }
 		public string CapitulateButtonCaption { get; }
 

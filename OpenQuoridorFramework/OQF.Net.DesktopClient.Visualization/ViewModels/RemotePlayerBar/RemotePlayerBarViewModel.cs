@@ -15,6 +15,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 		private readonly INetworkGameService networkGameService;		
 		private bool? isGameInitiator;
 		private string wallsLeft;
+		private string playerName;
 
 		public RemotePlayerBarViewModel (INetworkGameService networkGameService)
 		{
@@ -38,11 +39,13 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 					case GameStatus.PlayingJoinedGame:
 					{
 						IsGameInitiator = true;
+						PlayerName = networkGameService.OpponendPlayer.Name;
 						break;
 					}
 					case GameStatus.PlayingOpendGame:
 					{
 						IsGameInitiator = false;
+						PlayerName = networkGameService.OpponendPlayer.Name;
 						break;
 					}
 					case GameStatus.NoGame:
@@ -77,6 +80,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 				{
 					WallsLeft = "--";
 					IsGameInitiator = null;
+					PlayerName = string.Empty;
 				}
 
 			});
@@ -92,6 +96,12 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 		{
 			get { return wallsLeft; }
 			private set { PropertyChanged.ChangeAndNotify(this, ref wallsLeft, value); }
+		}
+
+		public string PlayerName
+		{
+			get { return playerName; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref playerName, value); }
 		}
 
 		public string WallsLeftLabelCaption => Captions.PvB_WallsLeftLabelCaption;		
