@@ -63,6 +63,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 			{				
 				WallsLeft = "--";
 				IsGameInitiator = null;
+				PlayerName = "--";
 			});
 		}
 
@@ -80,7 +81,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 				{
 					WallsLeft = "--";
 					IsGameInitiator = null;
-					PlayerName = string.Empty;
+					PlayerName = "--";
 				}
 
 			});

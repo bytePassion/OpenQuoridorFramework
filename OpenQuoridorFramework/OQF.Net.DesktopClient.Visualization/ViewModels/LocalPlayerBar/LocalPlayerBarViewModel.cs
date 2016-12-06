@@ -82,7 +82,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 				IsPlacementPossible = false;
 				WallsLeft = "--";
 				IsGameInitiator = null;
-				PlayerName = string.Empty;
+				PlayerName = "--";
 			});
 		}
 
@@ -104,6 +104,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 				{
 					WallsLeft = "--";
 					IsGameInitiator = null;
+					PlayerName = "--";
 				}
 
 			});
