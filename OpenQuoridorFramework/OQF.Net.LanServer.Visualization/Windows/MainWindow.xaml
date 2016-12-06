@@ -82,7 +82,7 @@
                                Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                                Text="{Binding GameOverviewSectionCaption}" />
 
-                    <views:LogView Grid.Row="1" DataContext="{Binding GameOverviewModel}" />
+                    <views:GameOverview Grid.Row="1" DataContext="{Binding GameOverviewModel}" />
 
                 </Grid>
 
@@ -102,7 +102,7 @@
                                Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                                Text="{Binding ConnectedClientsSectionCaption}" />
 
-                    <views:LogView Grid.Row="1" DataContext="{Binding ClientsViewModel}" />
+                    <views:ClientsView Grid.Row="1" DataContext="{Binding ClientsViewModel}" />
 
                 </Grid>
             </materialDesign:Card>
