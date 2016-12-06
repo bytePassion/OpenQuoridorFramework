@@ -7,6 +7,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:networkView="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:commandExecutingBehaviors="clr-namespace:Lib.Wpf.CommandExecutingBehaviors;assembly=Lib.Wpf"
              d:DesignHeight="700"
              d:DesignWidth="300"
              mc:Ignorable="d">
@@ -40,14 +42,26 @@
                            Style="{StaticResource MaterialDesignSubheadingTextBlock}"
                            Text="{Binding ServerAddressPromt}" />
                 <TextBox materialDesign:HintAssist.Hint="{Binding ServerAddressHint}" 
-						 Text="{Binding ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+						 Text="{Binding ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+
+					<i:Interaction.Behaviors>
+						<commandExecutingBehaviors:ExecuteCommandOnEnter Command="{Binding ConnectToServer}"/>
+					</i:Interaction.Behaviors>
+					
+				</TextBox>
             </StackPanel>
             <StackPanel Grid.Row="2">
                 <TextBlock Margin="0,8,0,8"
                            Style="{StaticResource MaterialDesignSubheadingTextBlock}"
                            Text="{Binding PlayerNamePromt}" />
                 <TextBox materialDesign:HintAssist.Hint="{Binding PlayerNameHint}" 
-						 Text="{Binding PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+						 Text="{Binding PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+
+					<i:Interaction.Behaviors>
+						<commandExecutingBehaviors:ExecuteCommandOnEnter Command="{Binding ConnectToServer}"/>
+					</i:Interaction.Behaviors>
+
+				</TextBox>
             </StackPanel>
             <StackPanel Grid.Row="4">
                 <Button Margin="8,0"
@@ -104,7 +118,12 @@
                            Style="{StaticResource MaterialDesignSubheadingTextBlock}"
                            Text="{Binding NewGameNamePromt}" />
                 <TextBox materialDesign:HintAssist.Hint="{Binding NewGameNameHint}" 
-						 Text="{Binding NewGameName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+						 Text="{Binding NewGameName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+					<i:Interaction.Behaviors>
+						<commandExecutingBehaviors:ExecuteCommandOnEnter Command="{Binding CreateGame}"/>
+					</i:Interaction.Behaviors>
+					
+				</TextBox>
                 <Button Margin="8"
                         Command="{Binding CreateGame}"
                         Content="{Binding CreateGameButtonCaption}" />
