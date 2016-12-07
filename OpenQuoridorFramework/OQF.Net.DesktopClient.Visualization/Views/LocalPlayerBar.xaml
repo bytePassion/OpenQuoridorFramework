@@ -1,93 +1,87 @@
 ﻿<UserControl x:Class="OQF.Net.DesktopClient.Visualization.Views.LocalPlayerBar"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
+             xmlns:computations="clr-namespace:OQF.Net.DesktopClient.Visualization.Computations"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:localPlayerBar="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:computations="clr-namespace:OQF.Net.DesktopClient.Visualization.Computations"
-             mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="800">
-	
-	<d:DesignData.DataContext>
-		<localPlayerBar:LocalPlayerBarViewModelSampleData/>
-	</d:DesignData.DataContext>
-	
-	<UserControl.Resources>
-		<computations:GetPlayerIconBrush x:Key="GetPlayerIconBrush"/>
-	</UserControl.Resources>
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="100"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
 
-	<materialDesign:Card Margin="8"
-                         Padding="8">
+    <d:DesignData.DataContext>
+        <localPlayerBar:LocalPlayerBarViewModelSampleData />
+    </d:DesignData.DataContext>
 
-		<Grid Height="45">
+    <UserControl.Resources>
+        <computations:GetPlayerIconBrush x:Key="GetPlayerIconBrush" />
+    </UserControl.Resources>
 
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition />
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="Auto" />
-			</Grid.ColumnDefinitions>
+    <materialDesign:Card Margin="8" Padding="8">
+
+        <Grid Height="45">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
 
 
-			<Border Grid.Column="0"
-					BorderThickness="1"
-					BorderBrush="Black"
-					CornerRadius="3">
+            <Grid Grid.Column="0">
 
-				<Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="Auto"/>
-						<ColumnDefinition Width="Auto"/>
-					</Grid.ColumnDefinitions>
+                <Ellipse Grid.Column="0"
+                         Width="40"
+                         Height="40"
+                         Margin="10,0"
+                         Fill="{Binding IsGameInitiator,
+                                        Converter={StaticResource GetPlayerIconBrush}}"
+                         RenderTransformOrigin="0.5, 0.5">
 
-					<Ellipse Grid.Column="0"
-							 Width="40"
-							 Height="40"
-							 Margin="10,0"
-							 Fill="{Binding IsGameInitiator,
-											 Converter={StaticResource GetPlayerIconBrush}}" 
-					         RenderTransformOrigin="0.5, 0.5">
+                    <Ellipse.RenderTransform>
+                        <RotateTransform Angle="-45" />
+                    </Ellipse.RenderTransform>
 
-						<Ellipse.RenderTransform>
-							<RotateTransform Angle="-45" />
-						</Ellipse.RenderTransform>
+                </Ellipse>
 
-					</Ellipse>
+                <TextBlock Grid.Column="1"
+                           VerticalAlignment="Center"
+                           FontSize="30"
+                           Text="{Binding PlayerName}"
+                           d:LayoutOverrides="Height" />
 
-					<TextBlock Grid.Column="1"
-							   Margin="0,0,10,0"
-							   FontSize="30"
-							   VerticalAlignment="Center"
-							   Text="{Binding PlayerName}"></TextBlock>
+            </Grid>
 
-				</Grid>
-			</Border>
+            <Button Grid.Column="2"
+                    Command="{Binding Capitulate}"
+                    VerticalAlignment="Center"
+                    Content="{Binding CapitulateButtonCaption}" />
 
-			<TextBlock Grid.Column="3"
-                               Margin="0,0,46,0"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Center"
-                               FontSize="30">
-                        <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />:
-			</TextBlock>
+            <TextBlock Grid.Column="4"
+                       VerticalAlignment="Center"
+                       FontSize="30">
+                <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />
+                :</TextBlock>
 
-			<TextBlock Grid.Column="3"
-                               Margin="0,0,5,0"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Center"
-                               FontSize="30"
-                               Text="{Binding WallsLeft}" />
+            <TextBlock Grid.Column="6"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       Text="{Binding WallsLeft}" />
 
-			<Button Grid.Row="0"
-                            Grid.Column="2"
-                            Margin="20,7"
-                            HorizontalAlignment="Right"
-                            Command="{Binding Capitulate}"
-                            Content="{Binding CapitulateButtonCaption}" />
 
-		</Grid>
 
-	</materialDesign:Card>
+        </Grid>
+
+    </materialDesign:Card>
 </UserControl>
