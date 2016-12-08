@@ -11,6 +11,7 @@ using OQF.AnalysisAndProgress.Analysis;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
+using OQF.CommonUiElements.Board.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Utils.Enum;
 using Point = Lib.SemanicTypes.Point;

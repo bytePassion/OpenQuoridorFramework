@@ -4,7 +4,7 @@ using Lib.SemanicTypes;
 using Lib.Wpf.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 
-namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
+namespace OQF.CommonUiElements.Board.ViewModels.BoardPlacement
 {
 	public interface IBoardPlacementViewModel : IViewModel
 	{

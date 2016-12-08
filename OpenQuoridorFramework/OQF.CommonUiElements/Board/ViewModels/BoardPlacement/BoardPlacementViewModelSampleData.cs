@@ -7,9 +7,9 @@ using OQF.Bot.Contracts.GameElements;
 
 #pragma warning disable 0067
 
-namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
+namespace OQF.CommonUiElements.Board.ViewModels.BoardPlacement
 {
-	internal class BoardPlacementViewModelSampleData : IBoardPlacementViewModel
+	public class BoardPlacementViewModelSampleData : IBoardPlacementViewModel
 	{
 		public BoardPlacementViewModelSampleData()
 		{

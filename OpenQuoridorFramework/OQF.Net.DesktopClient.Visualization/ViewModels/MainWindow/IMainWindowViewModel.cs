@@ -1,6 +1,7 @@
 ﻿using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;
+using OQF.CommonUiElements.Board.ViewModels.BoardPlacement;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;

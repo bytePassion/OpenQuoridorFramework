@@ -13,6 +13,7 @@ using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;
+using OQF.CommonUiElements.Board.ViewModels.BoardPlacement;
 using OQF.CommonUiElements.Dialogs.YesNo;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.PlayerVsBot.Contracts;

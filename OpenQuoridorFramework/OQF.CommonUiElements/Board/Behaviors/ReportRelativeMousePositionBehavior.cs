@@ -4,11 +4,10 @@ using System.Windows.Interactivity;
 using Lib.SemanicTypes;
 using Point = Lib.SemanicTypes.Point;
 
-namespace OQF.PlayerVsBot.Visualization.Behaviors
+namespace OQF.CommonUiElements.Board.Behaviors
 {
 	public class ReportRelativeMousePositionBehavior : Behavior<FrameworkElement>
 	{
-
 		public static readonly DependencyProperty MousePositionProperty = 
 			DependencyProperty.Register(nameof(MousePosition), 
 										typeof(Point), 

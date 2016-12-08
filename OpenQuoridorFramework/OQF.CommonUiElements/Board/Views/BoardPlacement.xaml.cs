@@ -1,4 +1,4 @@
-﻿namespace OQF.Net.DesktopClient.Visualization.Views
+﻿namespace OQF.CommonUiElements.Board.Views
 {
 	public partial class BoardPlacement
 	{

@@ -53,11 +53,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board\Behaviors\ReportRelativeMousePositionBehavior.cs" />
     <Compile Include="Board\BoardColors\Brushes.cs" />
     <Compile Include="Board\ViewModels\BoardLabeling\BoardHorizontalLabelingViewModel.cs" />
     <Compile Include="Board\ViewModels\BoardLabeling\BoardLabelingViewModelSampleData.cs" />
     <Compile Include="Board\ViewModels\BoardLabeling\BoardVerticalLabalingViewModel.cs" />
     <Compile Include="Board\ViewModels\BoardLabeling\IBoardLabelingViewModel.cs" />
+    <Compile Include="Board\ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
+    <Compile Include="Board\ViewModels\BoardPlacement\IBoardPlacementViewModel.cs" />
     <Compile Include="Board\ViewModels\Board\BoardViewModel.cs" />
     <Compile Include="Board\ViewModels\Board\BoardViewModelSampleData.cs" />
     <Compile Include="Board\ViewModels\IBoardStateProvider.cs" />
@@ -70,6 +73,9 @@
     </Compile>
     <Compile Include="Board\Views\BoardHorizontalLabelling.xaml.cs">
       <DependentUpon>BoardHorizontalLabelling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Board\Views\BoardPlacement.xaml.cs">
+      <DependentUpon>BoardPlacement.xaml</DependentUpon>
     </Compile>
     <Compile Include="Board\Views\BoardVerticalLabelling.xaml.cs">
       <DependentUpon>BoardVerticalLabelling.xaml</DependentUpon>
@@ -193,6 +199,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Board\Views\BoardHorizontalLabelling.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Board\Views\BoardPlacement.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

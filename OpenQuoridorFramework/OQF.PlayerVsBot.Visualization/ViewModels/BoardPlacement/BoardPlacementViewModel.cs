@@ -11,6 +11,7 @@ using OQF.AnalysisAndProgress.Analysis;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
+using OQF.CommonUiElements.Board.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Contracts;
 using OQF.Utils.Enum;
 using Point = Lib.SemanicTypes.Point;
@@ -122,7 +123,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 			if (currentMousePosition != null)
 			{
 				if (currentMousePosition.XCoord < 0 || currentMousePosition.XCoord > boardSize.Width ||
-				currentMousePosition.YCoord < 0 || currentMousePosition.YCoord > boardSize.Height)
+				    currentMousePosition.YCoord < 0 || currentMousePosition.YCoord > boardSize.Height)
 				{
 					PotentialPlacedWall.Clear();
 					return;
@@ -136,20 +137,20 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 					foreach (var possibleWall in allPossibleWalls)
 					{
 						var xMin = possibleWall.Orientation == WallOrientation.Horizontal
-						? (double) possibleWall.TopLeft.XCoord*1.3*cellWidth
-						: ((double) possibleWall.TopLeft.XCoord + 1)*1.3*cellWidth - (0.3*cellWidth);
+										? (double) possibleWall.TopLeft.XCoord*1.3*cellWidth
+										: ((double) possibleWall.TopLeft.XCoord + 1)*1.3*cellWidth - (0.3*cellWidth);
 
 						var xMax = xMin + (possibleWall.Orientation == WallOrientation.Horizontal
-								   ? 2.3*cellWidth
-								   : 0.3*cellWidth);
+									   ? 2.3*cellWidth
+									   : 0.3*cellWidth);
 
 						var yMin = possibleWall.Orientation == WallOrientation.Horizontal
 						? ((double) possibleWall.TopLeft.YCoord + 1)*1.3*cellHeight - (0.3*cellHeight)
 						: (double) possibleWall.TopLeft.YCoord*1.3*cellHeight;
 
 						var yMax = yMin + (possibleWall.Orientation == WallOrientation.Horizontal
-								   ? 0.3*cellHeight
-								   : 2.3*cellHeight);
+									   ? 0.3*cellHeight
+									   : 2.3*cellHeight);
 
 						if (currentMousePosition.XCoord >= xMin && currentMousePosition.XCoord <= xMax &&
 							currentMousePosition.YCoord >= yMin && currentMousePosition.YCoord <= yMax)
@@ -173,8 +174,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 
 		private FieldCoordinate? IsMouseOverPotentialMoveField()
 		{
-			var cellWidth  = boardSize.Width/11.4;
-			var cellHeight = boardSize.Height/11.4;
+			var cellWidth  = boardSize.Width  / 11.4;
+			var cellHeight = boardSize.Height / 11.4;
 
 			foreach (var moveField in PossibleMoves)
 			{

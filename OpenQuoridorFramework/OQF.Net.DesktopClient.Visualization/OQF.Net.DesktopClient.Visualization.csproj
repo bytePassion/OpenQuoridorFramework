@@ -67,8 +67,6 @@
     <Compile Include="ViewModels\ActionBar\ActionBarViewModelSampleData.cs" />
     <Compile Include="ViewModels\ActionBar\IActionBarViewModel.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />
-    <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModelSampleData.cs" />
-    <Compile Include="ViewModels\BoardPlacement\IBoardPlacementViewModel.cs" />
     <Compile Include="ViewModels\LocalPlayerBar\ILocalPlayerBarViewModel.cs" />
     <Compile Include="ViewModels\LocalPlayerBar\LocalPlayerBarViewModel.cs" />
     <Compile Include="ViewModels\LocalPlayerBar\LocalPlayerBarViewModelSampleData.cs" />
@@ -84,9 +82,6 @@
     <Compile Include="ViewModels\RemotePlayerBar\RemotePlayerBarViewModelSampleData.cs" />
     <Compile Include="Views\ActionBar.xaml.cs">
       <DependentUpon>ActionBar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BoardPlacement.xaml.cs">
-      <DependentUpon>BoardPlacement.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LocalPlayerBar.xaml.cs">
       <DependentUpon>LocalPlayerBar.xaml</DependentUpon>
@@ -105,10 +100,6 @@
     <Page Include="Views\ActionBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\BoardPlacement.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\LocalPlayerBar.xaml">
       <SubType>Designer</SubType>

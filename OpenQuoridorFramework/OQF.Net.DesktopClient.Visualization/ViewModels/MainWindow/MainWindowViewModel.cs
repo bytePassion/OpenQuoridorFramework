@@ -6,6 +6,7 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;
+using OQF.CommonUiElements.Board.ViewModels.BoardPlacement;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Contracts;

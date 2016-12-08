@@ -143,14 +143,14 @@
 						</views1:Board.Style>
 					</views1:Board>
 
-					<views:BoardPlacement Grid.Row="1"
+					<views1:BoardPlacement Grid.Row="1"
 					                      Grid.Column="1"
 					                      DataContext="{Binding BoardPlacementViewModel}"
 					                      Padding="0" 
 										  RenderTransformOrigin="0.5, 0.5">
 
-						<views:BoardPlacement.Style>
-							<Style TargetType="views:BoardPlacement">
+						<views1:BoardPlacement.Style>
+							<Style TargetType="views1:BoardPlacement">
 								<Style.Triggers>
 									<DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
 										<Setter Property="RenderTransform">
@@ -163,9 +163,9 @@
 									</DataTrigger>
 								</Style.Triggers>
 							</Style>
-						</views:BoardPlacement.Style>
+						</views1:BoardPlacement.Style>
 											
-					</views:BoardPlacement>
+					</views1:BoardPlacement>
 
 				</Grid>
 			</Border>
