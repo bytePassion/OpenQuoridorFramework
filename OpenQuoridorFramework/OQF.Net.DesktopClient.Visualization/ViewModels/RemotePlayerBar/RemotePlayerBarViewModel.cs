@@ -16,6 +16,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 		private bool? isGameInitiator;
 		private string wallsLeft;
 		private string playerName;
+		private string playerStatus;
 
 		public RemotePlayerBarViewModel (INetworkGameService networkGameService)
 		{
@@ -64,6 +65,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 				WallsLeft = "--";
 				IsGameInitiator = null;
 				PlayerName = "--";
+				PlayerStatus = string.Empty;
 			});
 		}
 
@@ -76,6 +78,16 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 					WallsLeft = IsGameInitiator.Value
 									? boardState.BottomPlayer.WallsToPlace.ToString()
 									: boardState.TopPlayer.WallsToPlace.ToString();
+
+					if (networkGameService.ClientPlayer != null &&
+					    boardState.CurrentMover.PlayerType == networkGameService.OpponendPlayer.PlayerType)
+					{
+						PlayerStatus = Captions.NCl_RemotePlayerStatus;
+					}
+					else
+					{
+						PlayerStatus = string.Empty;
+					}
 				}
 				else
 				{
@@ -105,10 +117,19 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 			private set { PropertyChanged.ChangeAndNotify(this, ref playerName, value); }
 		}
 
+		public string PlayerStatus
+		{
+			get { return playerStatus; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref playerStatus, value); }
+		}
+
 		public string WallsLeftLabelCaption => Captions.PvB_WallsLeftLabelCaption;		
 
 		private void RefreshCaptions ()
 		{
+			if (!string.IsNullOrEmpty(PlayerStatus))
+				PlayerStatus = Captions.NCl_RemotePlayerStatus;
+
 			PropertyChanged.Notify(this, nameof(WallsLeftLabelCaption));
 		}
 

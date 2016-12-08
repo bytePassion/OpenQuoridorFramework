@@ -52,19 +52,21 @@
 
                 </Ellipse>
 
-                <TextBlock Grid.Column="1"
+				<TextBlock Grid.Column="1"
                            VerticalAlignment="Center"
-                           FontSize="30"
-                           Text="{Binding PlayerName}" />
+                           FontSize="30"                          
+                           d:LayoutOverrides="Height" >
+					<Run Text="{Binding PlayerName, Mode=OneWay}"/>
+					<Run Text="{Binding PlayerStatus, Mode=OneWay}"/>
+				</TextBlock>
 
-            </Grid>
-
+			</Grid>
 
             <TextBlock Grid.Column="2"
                        VerticalAlignment="Center"
                        FontSize="30">
-                <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />
-                :</TextBlock>
+                <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />:
+			</TextBlock>
 
             <TextBlock Grid.Column="4"
                        VerticalAlignment="Center"

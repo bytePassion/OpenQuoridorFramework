@@ -735,4 +735,10 @@
   <data name="AP_DevelopedBy" xml:space="preserve">
     <value>Entwickelt von</value>
   </data>
+  <data name="NCl_LocalPlayerStatus" xml:space="preserve">
+    <value>- du bist dran</value>
+  </data>
+  <data name="NCl_RemotePlayerStatus" xml:space="preserve">
+    <value>denkt nach ....</value>
+  </data>
 </root>

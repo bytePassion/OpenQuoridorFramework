@@ -763,6 +763,15 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to - it&apos;s your turn.
+        /// </summary>
+        public static string NCl_LocalPlayerStatus {
+            get {
+                return ResourceManager.GetString("NCl_LocalPlayerStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You lost this game..
         /// </summary>
         public static string NCL_LoosingMessage {
@@ -831,6 +840,15 @@ namespace OQF.Resources.LanguageDictionaries {
         public static string NCl_PlayerNamePromt {
             get {
                 return ResourceManager.GetString("NCl_PlayerNamePromt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to is thinking .....
+        /// </summary>
+        public static string NCl_RemotePlayerStatus {
+            get {
+                return ResourceManager.GetString("NCl_RemotePlayerStatus", resourceCulture);
             }
         }
         

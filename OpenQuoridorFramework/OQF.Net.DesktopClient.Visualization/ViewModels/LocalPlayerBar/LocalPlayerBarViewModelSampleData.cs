@@ -15,12 +15,14 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 			WallsLeftLabelCaption = "Walls";
 			CapitulateButtonCaption = "Capitulate";
 			PlayerName = "localPlayer";
+			PlayerStatus = " - it's your turn";
 		}
 
 		public ICommand Capitulate => null;
 		public bool? IsGameInitiator { get; }
 		public string WallsLeft { get; }
 		public string PlayerName { get; }
+		public string PlayerStatus { get; }
 		public string WallsLeftLabelCaption { get; }
 		public string CapitulateButtonCaption { get; }
 

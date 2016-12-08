@@ -22,6 +22,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 		private bool? isGameInitiator;
 		private string wallsLeft;
 		private string playerName;
+		private string playerStatus;
 
 		public LocalPlayerBarViewModel(INetworkGameService networkGameService)
 		{
@@ -83,6 +84,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 				WallsLeft = "--";
 				IsGameInitiator = null;
 				PlayerName = "--";
+				PlayerStatus = string.Empty;
 			});
 		}
 
@@ -93,6 +95,10 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 				IsPlacementPossible = boardState != null && 
 									  networkGameService.ClientPlayer != null &&
 				                      boardState.CurrentMover.PlayerType == networkGameService.ClientPlayer.PlayerType;
+
+				PlayerStatus = IsPlacementPossible 
+										? Captions.NCl_LocalPlayerStatus
+										: string.Empty;
 
 				if (boardState != null && IsGameInitiator.HasValue)
 				{
@@ -136,11 +142,20 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 			private set { PropertyChanged.ChangeAndNotify(this, ref playerName, value); }
 		}
 
+		public string PlayerStatus
+		{
+			get { return playerStatus; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref playerStatus, value); }
+		}
+
 		public string WallsLeftLabelCaption   => Captions.PvB_WallsLeftLabelCaption;
 		public string CapitulateButtonCaption => Captions.PvB_CapitulateButtonCaption;
 
 		private void RefreshCaptions ()
 		{
+			if (!string.IsNullOrEmpty(PlayerStatus))
+				PlayerStatus = Captions.NCl_LocalPlayerStatus;
+
 			PropertyChanged.Notify(this, nameof(WallsLeftLabelCaption), 
 										 nameof(CapitulateButtonCaption));
 		}

@@ -735,4 +735,10 @@
   <data name="AP_DevelopedBy" xml:space="preserve">
     <value>Developed by</value>
   </data>
+  <data name="NCl_LocalPlayerStatus" xml:space="preserve">
+    <value>- it's your turn</value>
+  </data>
+  <data name="NCl_RemotePlayerStatus" xml:space="preserve">
+    <value>is thinking ....</value>
+  </data>
 </root>

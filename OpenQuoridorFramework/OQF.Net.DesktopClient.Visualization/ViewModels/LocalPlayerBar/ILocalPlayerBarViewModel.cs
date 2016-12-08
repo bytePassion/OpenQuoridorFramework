@@ -10,6 +10,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar
 		bool? IsGameInitiator { get; }
 		string WallsLeft { get; }
 		string PlayerName { get; }
+		string PlayerStatus { get; }
 
 		string WallsLeftLabelCaption { get; }
 		string CapitulateButtonCaption { get; }
