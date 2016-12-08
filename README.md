@@ -48,7 +48,7 @@ Usages:
 
 Latest ChangeLog Entry:
 
-[December 4th, 2016]
+[December 8th, 2016]
  - PlayerVsBot (1.1)
  - ReplayViewer (1.1)
  - Network.DesktopClient (1.0)
