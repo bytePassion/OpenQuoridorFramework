@@ -1,6 +1,6 @@
 ﻿using Lib.Wpf.ViewModelBase;
 
-namespace OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling
+namespace OQF.CommonUiElements.Board.ViewModels.BoardLabeling
 {
 	public interface IBoardLabelingViewModel : IViewModel
 	{

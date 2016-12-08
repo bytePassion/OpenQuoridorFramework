@@ -3,7 +3,7 @@ using Lib.Communication.State;
 using Lib.FrameworkExtension;
 using Lib.Wpf.ViewModelBase;
 
-namespace OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling
+namespace OQF.CommonUiElements.Board.ViewModels.BoardLabeling
 {
 	public class BoardHorizontalLabelingViewModel : ViewModel, IBoardLabelingViewModel
 	{

@@ -14,7 +14,7 @@ using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.AnalysisAndProgress.ProgressUtils.Validation;
 using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Board.ViewModels.Board;
-using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
+using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Info;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;

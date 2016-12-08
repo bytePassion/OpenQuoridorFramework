@@ -2,7 +2,7 @@
 
 #pragma warning disable 0067
 
-namespace OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling
+namespace OQF.CommonUiElements.Board.ViewModels.BoardLabeling
 {
 	public class BoardLabelingViewModelSampleData : IBoardLabelingViewModel
 	{

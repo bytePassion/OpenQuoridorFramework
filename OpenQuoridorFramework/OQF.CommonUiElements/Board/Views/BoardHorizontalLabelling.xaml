@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:boardHorizontalLabeling="clr-namespace:OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling"
+             xmlns:boardLabeling="clr-namespace:OQF.CommonUiElements.Board.ViewModels.BoardLabeling"
              d:DesignHeight="40"
              d:DesignWidth="400"
              mc:Ignorable="d">
 	
 	<d:DesignData.DataContext>
-		<boardHorizontalLabeling:BoardLabelingViewModelSampleData/>
+		<boardLabeling:BoardLabelingViewModelSampleData/>
 	</d:DesignData.DataContext>
 
     <Grid>

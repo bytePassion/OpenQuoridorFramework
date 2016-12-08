@@ -54,10 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board\BoardColors\Brushes.cs" />
-    <Compile Include="Board\ViewModels\BoardHorizontalLabeling\BoardHorizontalLabelingViewModel.cs" />
-    <Compile Include="Board\ViewModels\BoardHorizontalLabeling\BoardLabelingViewModelSampleData.cs" />
-    <Compile Include="Board\ViewModels\BoardHorizontalLabeling\BoardVerticalLabalingViewModel.cs" />
-    <Compile Include="Board\ViewModels\BoardHorizontalLabeling\IBoardLabelingViewModel.cs" />
+    <Compile Include="Board\ViewModels\BoardLabeling\BoardHorizontalLabelingViewModel.cs" />
+    <Compile Include="Board\ViewModels\BoardLabeling\BoardLabelingViewModelSampleData.cs" />
+    <Compile Include="Board\ViewModels\BoardLabeling\BoardVerticalLabalingViewModel.cs" />
+    <Compile Include="Board\ViewModels\BoardLabeling\IBoardLabelingViewModel.cs" />
     <Compile Include="Board\ViewModels\Board\BoardViewModel.cs" />
     <Compile Include="Board\ViewModels\Board\BoardViewModelSampleData.cs" />
     <Compile Include="Board\ViewModels\IBoardStateProvider.cs" />

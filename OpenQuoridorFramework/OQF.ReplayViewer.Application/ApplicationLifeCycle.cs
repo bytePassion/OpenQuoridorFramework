@@ -2,7 +2,7 @@
 using System.Windows;
 using Lib.Wpf;
 using OQF.CommonUiElements.Board.ViewModels.Board;
-using OQF.CommonUiElements.Board.ViewModels.BoardHorizontalLabeling;
+using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.ReplayViewer.Contracts;
 using OQF.ReplayViewer.GameLogic;
