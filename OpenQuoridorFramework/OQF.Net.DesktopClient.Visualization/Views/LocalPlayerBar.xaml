@@ -56,7 +56,8 @@
 
                 <TextBlock Grid.Column="1"
                            VerticalAlignment="Center"
-                           FontSize="30"                          
+                           FontSize="30"           
+						   Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                            d:LayoutOverrides="Height" >
 					<Run Text="{Binding PlayerName, Mode=OneWay}"/>
 					<Run Text="{Binding PlayerStatus, Mode=OneWay}"/>
@@ -71,7 +72,8 @@
 
             <TextBlock Grid.Column="4"
                        VerticalAlignment="Center"
-                       FontSize="30">
+                       FontSize="30"
+					   Style="{StaticResource MaterialDesignHeadlineTextBlock}">
                 <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />:
 			</TextBlock>
 
@@ -79,6 +81,7 @@
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        FontSize="30"
+					   Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                        Text="{Binding WallsLeft}" />
 		</Grid>
 
