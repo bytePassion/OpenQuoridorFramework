@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -12,6 +14,7 @@ using Microsoft.Win32;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.AnalysisAndProgress.ProgressUtils.Validation;
 using OQF.Bot.Contracts;
+using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Dialogs.StringInput;
@@ -19,6 +22,7 @@ using OQF.CommonUiElements.Info;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.Visualization.Global;
+using OQF.PlayerVsBot.Visualization.ViewModels.ActionBar.Helper;
 using OQF.Resources;
 using OQF.Resources.LanguageDictionaries;
 using OQF.Utils;
@@ -49,29 +53,36 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			gameService.NewGameStatusAvailable += OnNewGameStatusAvailable;
 			gameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
 
+			StartOptions = new List<StartOptionsDisplayData>
+			{
+				new StartOptionsDisplayData(PlayerType.BottomPlayer, Captions.PvB_StartOption_BottomPlayer),
+				new StartOptionsDisplayData(PlayerType.TopPlayer,    Captions.PvB_StartOption_TopPlayer)
+			};
+			SelectedOption = StartOptions.First();
+
 			BrowseDll = new Command(DoBrowseDll,
-				() => gameService.CurrentGameStatus != GameStatus.Active,
-				new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
+				                    () => gameService.CurrentGameStatus != GameStatus.Active,
+				                    new PropertyChangedCommandUpdater(this, nameof(GameStatus)));
 
 			Start = new Command(async () => await DoStart(),
-				() => gameService.CurrentGameStatus != GameStatus.Active && IsBotLoaded,
-				new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(IsBotLoaded)));
+				                () => gameService.CurrentGameStatus != GameStatus.Active && IsBotLoaded,
+				                new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(IsBotLoaded)));
 
 			StartWithProgress = new Command(() => { IsStartWithProgressPopupVisible = true; },
-				() => gameService.CurrentGameStatus != GameStatus.Active && IsBotLoaded,
-				new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(IsBotLoaded)));
+				                            () => gameService.CurrentGameStatus != GameStatus.Active && IsBotLoaded,
+				                            new PropertyChangedCommandUpdater(this, nameof(GameStatus), nameof(IsBotLoaded)));
 
 			StartWithProgressFromFile = new ParameterrizedCommand<string>(async filePath =>
-			{
-				await DoStartWithProgressFromFile(filePath);
-				IsStartWithProgressPopupVisible = false;
-			});
+			                            {
+			                            	await DoStartWithProgressFromFile(filePath);
+			                            	IsStartWithProgressPopupVisible = false;
+			                            });
 
 			StartWithProgressFromString = new ParameterrizedCommand<string>(async progressString =>
-			{
-				await DoStartWithProgressFromString(progressString);
-				IsStartWithProgressPopupVisible = false;
-			});
+			                              {
+			                              	  await DoStartWithProgressFromString(progressString);
+			                              	  IsStartWithProgressPopupVisible = false;
+			                              });
 
 			ShowAboutHelp = new Command(DoShowAboutHelp);
 
@@ -116,6 +127,10 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		public ICommand StartWithProgressFromString { get; }
 		public ICommand ShowAboutHelp { get; }
 		public ICommand BrowseDll { get; }
+
+		public IEnumerable<StartOptionsDisplayData> StartOptions { get; }
+
+		public StartOptionsDisplayData SelectedOption { get; set; }
 
 		private bool IsBotLoaded
 		{
@@ -268,6 +283,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 					                   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
 						                                   Constants.GameConstraint.MaximalMovesPerGame),
 					                   initialProgress);
+				// TODO: start as bottom or top player
 			}
 			else
 			{
@@ -347,6 +363,9 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			{
 				TopPlayerName = Captions.PvB_NoBotLoadedCaption;
 			}
+
+			((IList<StartOptionsDisplayData>) StartOptions)[0].DisplayCaption = Captions.PvB_StartOption_BottomPlayer;
+			((IList<StartOptionsDisplayData>) StartOptions)[1].DisplayCaption = Captions.PvB_StartOption_TopPlayer;
 		}
 
 		protected override void CleanUp()

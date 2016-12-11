@@ -1087,6 +1087,24 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start as bottom player.
+        /// </summary>
+        public static string PvB_StartOption_BottomPlayer {
+            get {
+                return ResourceManager.GetString("PvB_StartOption_BottomPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start as top player.
+        /// </summary>
+        public static string PvB_StartOption_TopPlayer {
+            get {
+                return ResourceManager.GetString("PvB_StartOption_TopPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start Game from Progress-File.
         /// </summary>
         public static string PvB_StartWithProgressGameButtonToolTipCaption {

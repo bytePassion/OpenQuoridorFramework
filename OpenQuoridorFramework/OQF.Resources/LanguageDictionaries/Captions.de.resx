@@ -741,4 +741,10 @@
   <data name="NCl_RemotePlayerStatus" xml:space="preserve">
     <value>denkt nach ....</value>
   </data>
+  <data name="PvB_StartOption_BottomPlayer" xml:space="preserve">
+    <value>Als Bottom-PLayer starten</value>
+  </data>
+  <data name="PvB_StartOption_TopPlayer" xml:space="preserve">
+    <value>Als Top-Player starten</value>
+  </data>
 </root>

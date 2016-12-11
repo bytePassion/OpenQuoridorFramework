@@ -721,4 +721,10 @@
   <data name="NCl_RemotePlayerStatus" xml:space="preserve">
     <value>is thinking ....</value>
   </data>
+  <data name="PvB_StartOption_BottomPlayer" xml:space="preserve">
+    <value>Start as bottom player</value>
+  </data>
+  <data name="PvB_StartOption_TopPlayer" xml:space="preserve">
+    <value>Start as top player</value>
+  </data>
 </root>

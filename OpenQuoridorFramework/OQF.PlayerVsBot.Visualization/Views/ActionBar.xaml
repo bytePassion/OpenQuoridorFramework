@@ -7,8 +7,9 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:languageSelection="clr-namespace:OQF.CommonUiElements.Language.LanguageSelection;assembly=OQF.CommonUiElements"
              xmlns:sampleData="clr-namespace:OQF.PlayerVsBot.Visualization.ViewModels.ActionBar"
+             xmlns:helper="clr-namespace:OQF.PlayerVsBot.Visualization.ViewModels.ActionBar.Helper"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="800">
+             d:DesignHeight="80" d:DesignWidth="800">
 
 	
 	<d:DesignData.DataContext>
@@ -18,61 +19,103 @@
 	<materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
                               Mode="Dark"
                               Padding="8">
-		<DockPanel>
+		
+		<Grid Height="80">
 
-			<Button Width="60"
-                    Margin="4,0"
-                    Command="{Binding BrowseDll}"
-                    DockPanel.Dock="Left"
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="100"/>
+				<ColumnDefinition Width="110"/>
+				<ColumnDefinition Width="110"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="60"/>
+				<ColumnDefinition Width="60"/>
+			</Grid.ColumnDefinitions>						
+
+			<Button Grid.Row="0"
+					Grid.Column="0"
+					Grid.RowSpan="2"
+					HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+					Width="65"
+					
+                    Command="{Binding BrowseDll}"                    
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     ToolTip="{Binding BrowseForBotButtonToolTipCaption}">
-				<materialDesign:PackIcon Kind="OpenInNew" />
+				
+					<materialDesign:PackIcon Kind="OpenInNew" />
 			</Button>
 
-			<Button Width="60"
-                    Margin="4,0"
-                    Command="{Binding Start}"
-                    DockPanel.Dock="Left"
+			<Button Grid.Row="0"
+					Grid.Column="1"
+					HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+					Width="65"					
+                    Command="{Binding Start}"                    
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     ToolTip="{Binding StartGameButtonToolTipCaption}">
-				<materialDesign:PackIcon Kind="Play" />
+				
+					<materialDesign:PackIcon Kind="Play" />
 			</Button>
 
-			<Button Name="startWithProgressButton"
-                    Width="60"
-                    Margin="4,0"
-                    Command="{Binding StartWithProgress}"
-                    DockPanel.Dock="Left"
+			<ComboBox Grid.Row="1"
+					  Grid.Column="1"
+					  Grid.ColumnSpan="2"					 
+					  ItemsSource="{Binding StartOptions}"
+					  SelectedItem="{Binding SelectedOption, 
+											 Mode=TwoWay, 
+											 UpdateSourceTrigger=PropertyChanged}">
+				
+				<ComboBox.ItemTemplate>
+					<DataTemplate DataType="helper:StartOptionsDisplayData">
+						<TextBlock Text="{Binding DisplayCaption}"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+				
+			</ComboBox>
+			
+			<Button Grid.Row="0"
+					Grid.Column="2"					
+					Name="startWithProgressButton"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"   
+					Width="65"
+					Margin="5"
+                    Command="{Binding StartWithProgress}"                    
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     ToolTip="{Binding StartWithProgressGameButtonToolTipCaption}">
 
-				<Canvas>
-					<materialDesign:PackIcon Canvas.Left="-15"
-                                             Canvas.Top="-8"
-                                             Kind="Play" />
-					<Viewbox Canvas.Left="-3"
+					<Canvas>
+						<materialDesign:PackIcon Canvas.Left="-15"
+                                                 Canvas.Top="-8"
+                                                 Kind="Play" />
+						<Viewbox Canvas.Left="-3"
                              Canvas.Top="-9"
                              Width="20"
                              Height="15">
 
-						<Path Data="M7,13H21V11H7M7,19H21V17H7M7,7H21V5H7M2,11H3.8L2,13.1V14H5V13H3.2L5,
-									10.9V10H2M3,8H4V4H2V5H3M2,17H4V17.5H3V18.5H4V19H2V20H5V16H2V17Z" 
+							<Path Data="M7,13H21V11H7M7,19H21V17H7M7,7H21V5H7M2,11H3.8L2,13.1V14H5V13H3.2L5,
+									    10.9V10H2M3,8H4V4H2V5H3M2,17H4V17.5H3V18.5H4V19H2V20H5V16H2V17Z" 
 							  Fill="White" />
 
-					</Viewbox>
-				</Canvas>
+						</Viewbox>
+					</Canvas>
 
-			</Button>
+				</Button>
 
 			<Popup HorizontalOffset="0"
-                   IsOpen="{Binding IsStartWithProgressPopupVisible,
+				   IsOpen="{Binding IsStartWithProgressPopupVisible,
                                     Mode=TwoWay,
                                     UpdateSourceTrigger=PropertyChanged}"
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=startWithProgressButton}"
                    StaysOpen="False"
                    VerticalOffset="8">
-				
+
 				<materialDesign:ColorZone Mode="Dark">
 					<StackPanel Margin="5">
 
@@ -88,29 +131,36 @@
                                 Command="{Binding StartWithProgressFromString}"
                                 CommandParameter="{x:Static system:String.Empty}"
                                 Content="{Binding StartGameFromStringButtonCaption}" />
-						
+
 					</StackPanel>
 				</materialDesign:ColorZone>
-
 			</Popup>
 
-			<Button Margin="4,0"
-                    Command="{Binding ShowAboutHelp}"
-                    DockPanel.Dock="Right"
+			<Button Grid.Row="0"
+					Grid.Column="5"
+					Grid.RowSpan="2"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+                    Command="{Binding ShowAboutHelp}"                  
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     ToolTip="{Binding OpenInfoButtonToolTipCaption}">
-				<materialDesign:PackIcon Kind="Help" />
+					<materialDesign:PackIcon Kind="Help" />
 			</Button>
 
-			<languageSelection:LanguageSelectionView Margin="4,0"
-                                                     DataContext="{Binding LanguageSelectionViewModel}"
-                                                     DockPanel.Dock="Right" />
+			<languageSelection:LanguageSelectionView Grid.Row="0"
+													 Grid.Column="4"
+													 Grid.RowSpan="2"
+													 HorizontalAlignment="Center"
+													 VerticalAlignment="Center"
+				                                     DataContext="{Binding LanguageSelectionViewModel}"/>
 
 
 
-			<StackPanel HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        DockPanel.Dock="Left"
+			<StackPanel Grid.Row="0"
+						Grid.Column="3"
+						Grid.RowSpan="2"
+						HorizontalAlignment="Center"
+                        VerticalAlignment="Center"                        
                         Orientation="Horizontal">
 
 				<TextBlock Margin="20,0"
@@ -129,7 +179,10 @@
                                           UpdateSourceTrigger=PropertyChanged}" />
 
 			</StackPanel>
-		</DockPanel>
+
+		</Grid>
+		
+		
 	</materialDesign:ColorZone>
 
 </UserControl>
