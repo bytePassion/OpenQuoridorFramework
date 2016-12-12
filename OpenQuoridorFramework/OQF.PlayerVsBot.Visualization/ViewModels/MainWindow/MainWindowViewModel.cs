@@ -180,7 +180,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		{
 			Application.Current.Dispatcher.Invoke(() =>
 			{				
-				var reportWinning = player.PlayerType == PlayerType.BottomPlayer;						
+				var reportWinning = player.PlayerType == gameService.HumanPlayerPosition;						
 				ExecuteWinDialog(reportWinning, player, winningReason, invalidMove);				
 			});			
 		}
