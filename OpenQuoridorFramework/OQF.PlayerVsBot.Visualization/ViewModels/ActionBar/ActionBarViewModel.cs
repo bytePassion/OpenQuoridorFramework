@@ -15,7 +15,6 @@ using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.AnalysisAndProgress.ProgressUtils.Validation;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.Coordination;
-using OQF.Bot.Contracts.GameElements;
 using OQF.CommonUiElements.Dialogs.Notification;
 using OQF.CommonUiElements.Dialogs.StringInput;
 using OQF.CommonUiElements.Info;
@@ -50,8 +49,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			this.gameService = gameService;
 			LanguageSelectionViewModel = languageSelectionViewModel;
 
-			gameService.NewGameStatusAvailable += OnNewGameStatusAvailable;
-			gameService.NewBoardStateAvailable += OnNewBoardStateAvailable;
+			gameService.NewGameStatusAvailable += OnNewGameStatusAvailable;			
 
 			StartOptions = new List<StartOptionsDisplayData>
 			{
@@ -100,15 +98,6 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 				TopPlayerName = Captions.PvB_NoBotLoadedCaption;
 				IsBotLoaded = false;
 			}
-		}
-
-		private void OnNewBoardStateAvailable(BoardState boardState)
-		{
-			Application.Current.Dispatcher.Invoke(() =>
-			{
-				if (boardState != null)
-					TopPlayerName = boardState.TopPlayer.Player.Name;
-			});
 		}
 
 		private void OnNewGameStatusAvailable(GameStatus newGameStatus)
