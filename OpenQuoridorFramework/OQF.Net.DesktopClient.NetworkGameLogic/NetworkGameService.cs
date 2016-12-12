@@ -30,7 +30,7 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		public event Action<BoardState> NewBoardStateAvailable;
 
 		private IClientMessaging messagingService;
-		//private HeartbeatService heartbeatService;
+		private HeartbeatService heartbeatService;
 		
 		private BoardState currentBoardState;
 
@@ -204,8 +204,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 				{
 					CurrentConnectionStatus = ConnectionStatus.Connected;		
 					
-					//heartbeatService = new HeartbeatService(messagingService, ClientId);
-					//heartbeatService.ServerVanished += OnServerVanished;
+					heartbeatService = new HeartbeatService(messagingService, ClientId);
+					heartbeatService.ServerVanished += OnServerVanished;
 								
 					break;
 				}
@@ -315,8 +315,8 @@ namespace OQF.Net.DesktopClient.NetworkGameLogic
 		{
 			if (CurrentConnectionStatus == ConnectionStatus.Connected)
 			{
-				//heartbeatService.ServerVanished -= OnServerVanished;
-				//heartbeatService.Dispose();
+				heartbeatService.ServerVanished -= OnServerVanished;
+				heartbeatService.Dispose();
 				messagingService.SendMessage(new ClientDisconnect(ClientId));
 			}
 
