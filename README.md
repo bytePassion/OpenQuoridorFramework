@@ -1,3 +1,10 @@
+## Hinweis für den dotnetpro-Contest 01/2017
+
+Auch wenn der Code im [offiziellen dotnetpro-GitHub-Repository](https://github.com/dotnetpro/contest012017), bzw. auf der Heft-CD die Referenz in dem Contest ist, so ist dieser Code trotzdem noch kompatibel zur aktuellen Version des OpenQuoridorFramework.
+Wer also gerne mit der aktuellen Version von PlayerVsBot herumspielen mag, ist gerne dazu eingeladen. 
+
+Trotzdem empfehlen wir vor der Abgabe den Bot auf jeden Fall nochmal mit dem offizellen Contest-Code zu testen.
+
 ![OQF_Logo](/OpenQuoridorFramework/quoridor_logo.ico)
 
 # OpenQuoridorFramework (4.2)
