@@ -196,9 +196,10 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 				return;
 
 			gameService.CreateGame(uninitializedBotAndBotName.UninitializedBot,
-				uninitializedBotAndBotName.BotName,
-				new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
-					Constants.GameConstraint.MaximalMovesPerGame));
+								   uninitializedBotAndBotName.BotName,
+				                   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
+					                                                        Constants.GameConstraint.MaximalMovesPerGame),
+								   SelectedOption.PlayerStartingType);
 		}
 
 		private async Task<BotLoadingResult> TryToGetUninitializedBot()
@@ -282,8 +283,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 									   loadingResult.BotName,
 					                   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
 						                                   Constants.GameConstraint.MaximalMovesPerGame),
-					                   initialProgress);
-				// TODO: start as bottom or top player
+									   SelectedOption.PlayerStartingType,
+					                   initialProgress);				
 			}
 			else
 			{
@@ -332,7 +333,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 					                   loadingResult.BotName,
 					                   new GameConstraints(TimeSpan.FromSeconds(Constants.GameConstraint.BotThinkingTimeSeconds),
 					                   	                   Constants.GameConstraint.MaximalMovesPerGame),
-					                   initialProgress);
+									   SelectedOption.PlayerStartingType,
+									   initialProgress);
 			}
 			else
 			{

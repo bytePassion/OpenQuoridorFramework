@@ -13,7 +13,7 @@ using OQF.Utils.Enum;
 
 namespace OQF.PlayerVsBot.GameLogic
 {
-	public class GameLoopThreadPvB : IGameLoopThread
+	public class GameLoopThreadBvP : IGameLoopThread
 	{
 		private class BotsTimeOut : Move
 		{			
@@ -39,8 +39,8 @@ namespace OQF.PlayerVsBot.GameLogic
 		private BoardState currentBoardState;
 		private Player humanPlayer;
 		private Player computerPlayer;
-
-		public GameLoopThreadPvB (IQuoridorBot uninitializedBot, 
+		
+		public GameLoopThreadBvP (IQuoridorBot uninitializedBot, 
 								  string botName,
 							      TimeoutBlockingQueue<Move> humenMoves, 							      
 							      GameConstraints gameConstraints,
@@ -78,12 +78,12 @@ namespace OQF.PlayerVsBot.GameLogic
 		{
 			IsRunning = true;
 
-			computerPlayer = new Player(PlayerType.TopPlayer, botName);
-			humanPlayer    = new Player(PlayerType.BottomPlayer);
+			computerPlayer = new Player(PlayerType.BottomPlayer, botName);
+			humanPlayer    = new Player(PlayerType.TopPlayer);
 			
 			bot.Init(computerPlayer.PlayerType, gameConstraints);
 
-			currentBoardState = BoardStateTransition.CreateInitialBoadState(computerPlayer, humanPlayer);
+			currentBoardState = BoardStateTransition.CreateInitialBoadState(humanPlayer, computerPlayer);
 			NewBoardStateAvailable?.Invoke(currentBoardState);
 
 			var moveCounter = 0;
@@ -98,7 +98,7 @@ namespace OQF.PlayerVsBot.GameLogic
 					NewBoardStateAvailable?.Invoke(currentBoardState);
 				}
 
-				if (moves.Count()%2 == 1)
+				if (moves.Count()%2 == 0)
 				{
 					var succeedGame = DoBotMove();
 
@@ -117,19 +117,19 @@ namespace OQF.PlayerVsBot.GameLogic
 			{
 				if (moveCounter >= gameConstraints.MaximalMovesPerPlayer)
 				{
-					WinnerAvailable?.Invoke(computerPlayer, WinningReason.ExceedanceOfMaxMoves, null);
+					WinnerAvailable?.Invoke(humanPlayer, WinningReason.ExceedanceOfMaxMoves, null);
 				}
 
 				bool succeedGame;
-
-				succeedGame = DoHumanMove();
-				if (!succeedGame)
-					break;
 
 
 				succeedGame = DoBotMove();
 				if (!succeedGame)
 					break;
+
+				succeedGame = DoHumanMove();
+				if (!succeedGame)
+					break;				
 
 				moveCounter++;
 			}

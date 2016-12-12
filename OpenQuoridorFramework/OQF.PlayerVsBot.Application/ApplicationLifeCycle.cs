@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows;
+using Lib.Communication.State;
 using Lib.Wpf;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;
@@ -25,8 +26,11 @@ namespace OQF.PlayerVsBot.Application
 		public void BuildAndStart(StartupEventArgs startupEventArgs)
 		{
 			var commandLineArguments = CommandLine.Parse(startupEventArgs.Args);
-			
-			gameService = new GameService(commandLineArguments.DisableBotTimeout);
+
+			var isBoardRotatedVariable = new SharedState<bool>(false);
+
+			gameService = new GameService(commandLineArguments.DisableBotTimeout,
+										  isBoardRotatedVariable);
 			IApplicationSettingsRepository applicationSettingsRepository = new ApplicationSettingsRepository();
 
 			CultureManager.CurrentCulture = new CultureInfo(applicationSettingsRepository.SelectedLanguageCode);
@@ -34,6 +38,8 @@ namespace OQF.PlayerVsBot.Application
 			{
 				applicationSettingsRepository.SelectedLanguageCode = CultureManager.CurrentCulture.ToString();
 			};
+
+
 
 			var boardViewModel                   = new BoardViewModel(gameService);
 			var boardPlacementViewModel          = new BoardPlacementViewModel(gameService);
@@ -45,8 +51,8 @@ namespace OQF.PlayerVsBot.Application
 			var humanPlayerBarViewModel          = new HumanPlayerBarViewModel(gameService);
 			var progressViewModel                = new ProgressViewModel(gameService);
 			var debugMessageViewModel            = new DebugMessageViewModel(gameService);
-			var boardHorizontalLabelingViewModel = new BoardHorizontalLabelingViewModel(null);
-			var boardVerticalLabelingViewModel   = new BoardVerticalLabalingViewModel(null);
+			var boardHorizontalLabelingViewModel = new BoardHorizontalLabelingViewModel(isBoardRotatedVariable);
+			var boardVerticalLabelingViewModel   = new BoardVerticalLabalingViewModel(isBoardRotatedVariable);
 
 			var mainWindowViewModel = new MainWindowViewModel(boardViewModel,
 															  boardPlacementViewModel,															  
@@ -59,7 +65,8 @@ namespace OQF.PlayerVsBot.Application
 															  boardVerticalLabelingViewModel,
 															  gameService,
 															  applicationSettingsRepository,															  
-															  commandLineArguments.DisableClosingDialogs);
+															  commandLineArguments.DisableClosingDialogs,
+															  isBoardRotatedVariable);
 
 			if (!string.IsNullOrWhiteSpace(commandLineArguments.BotPath))
 			{

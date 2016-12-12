@@ -40,11 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameLoopThreadBvP.cs" />
     <Compile Include="GameLoopThreadPvB.cs" />
     <Compile Include="GameService.cs" />
+    <Compile Include="IGameLoopThread.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lib.Communication\Lib.Communication.csproj">
+      <Project>{A7CA266B-B1A3-4ED5-B0BE-EE5EE80A48FC}</Project>
+      <Name>Lib.Communication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lib.Concurrency\Lib.Concurrency.csproj">
       <Project>{623D4B55-9687-4C7C-9B23-5C1403A110D1}</Project>
       <Name>Lib.Concurrency</Name>

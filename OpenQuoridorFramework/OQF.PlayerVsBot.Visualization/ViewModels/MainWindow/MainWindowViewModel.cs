@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using Lib.Communication.State;
 using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using Lib.Wpf.ViewModelBase;
@@ -32,12 +33,14 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		private readonly IGameService gameService;
 		private readonly IApplicationSettingsRepository applicationSettingsRepository;		
 		private readonly bool disableClosingDialog;
-				
+		private readonly ISharedStateReadOnly<bool> isBoardRotatedVariable;
+
 		private bool isDisabledOverlayVisible;
 		private bool isProgressSectionExpanded;
 		private bool isDebugSectionExpanded;
-		
-						
+		private bool isBoardRotated;
+
+
 		public MainWindowViewModel (IBoardViewModel boardViewModel, 
 									IBoardPlacementViewModel boardPlacementViewModel,									
 									IActionBarViewModel actionBarViewModel,
@@ -49,13 +52,15 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 									IBoardLabelingViewModel boardVerticalLabelingViewModel,
 									IGameService gameService, 
 									IApplicationSettingsRepository applicationSettingsRepository,									
-									bool disableClosingDialog)
+									bool disableClosingDialog,
+									ISharedStateReadOnly<bool> isBoardRotatedVariable)
 		{
 			CultureManager.CultureChanged += RefreshCaptions;
 
 			this.gameService = gameService;
 			this.applicationSettingsRepository = applicationSettingsRepository;			
 			this.disableClosingDialog = disableClosingDialog;
+			this.isBoardRotatedVariable = isBoardRotatedVariable;
 			BoardHorizontalLabelingViewModel = boardHorizontalLabelingViewModel;
 			BoardVerticalLabelingViewModel = boardVerticalLabelingViewModel;
 
@@ -67,6 +72,9 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			BoardPlacementViewModel    = boardPlacementViewModel;
 			BoardViewModel             = boardViewModel;
 						
+			isBoardRotatedVariable.StateChanged += OnIsBoardRotatedVariableChanged;
+			OnIsBoardRotatedVariableChanged(isBoardRotatedVariable.Value);
+
 			gameService.WinnerAvailable        += OnWinnerAvailable;
 			gameService.NewGameStatusAvailable += OnNewGameStatusAvailable;
 						
@@ -76,6 +84,11 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 			
 			IsDebugSectionExpanded    = applicationSettingsRepository.IsDebugSectionExpanded;
 			IsProgressSectionExpanded = applicationSettingsRepository.IsProgressSecionExpanded;			
+		}
+
+		private void OnIsBoardRotatedVariableChanged(bool isRotated)
+		{
+			IsBoardRotated = isRotated;
 		}
 
 		private void OnNewGameStatusAvailable(GameStatus gameStatus)
@@ -215,6 +228,12 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 		}
 		
 		public bool PreventWindowClosingToAskUser { get; private set; }
+
+		public bool IsBoardRotated
+		{
+			get { return isBoardRotated; }
+			private set { PropertyChanged.ChangeAndNotify(this, ref isBoardRotated, value); }
+		}
 
 		public string ProgressCaption => Captions.PvB_ProgressCaption;		
 		public string DebugCaption    => Captions.PvB_DebugCaption;	

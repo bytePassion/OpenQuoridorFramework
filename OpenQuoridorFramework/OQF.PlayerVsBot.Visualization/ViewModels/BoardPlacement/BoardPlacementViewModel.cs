@@ -60,9 +60,9 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 		{
 			Application.Current.Dispatcher.Invoke(() =>
 			{
-				if (boardState?.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+				if (boardState?.CurrentMover.PlayerType == gameService.HumanPlayerPosition)
 				{
-					var boardAnalysis = PlayerAnalysis.GetResult(boardState, PlayerType.BottomPlayer);
+					var boardAnalysis = PlayerAnalysis.GetResult(boardState, gameService.HumanPlayerPosition);
 
 					allPossibleWalls = boardAnalysis.PossibleWalls;				
 
@@ -88,7 +88,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 			{
 				currentMousePosition = value;
 
-				if (gameService.CurrentBoardState?.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+				if (gameService.CurrentBoardState?.CurrentMover.PlayerType == gameService.HumanPlayerPosition)
 				{
 					if (gameService.CurrentBoardState.BottomPlayer.WallsToPlace > 0)
 						CheckIfMouseIsOverPossibleWall();

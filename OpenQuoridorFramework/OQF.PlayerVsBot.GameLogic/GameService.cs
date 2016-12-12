@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Threading;
+using Lib.Communication.State;
 using Lib.Concurrency;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts;
+using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.PlayerVsBot.Contracts;
@@ -13,6 +15,7 @@ namespace OQF.PlayerVsBot.GameLogic
 	public class GameService : IGameService
 	{		
 		private readonly bool disableBotTimeout;
+		private readonly ISharedStateWriteOnly<bool> isBoardRotatedVariable;
 
 		public event Action<BoardState> NewBoardStateAvailable;
 		public event Action<string> NewDebugMsgAvailable;
@@ -20,17 +23,18 @@ namespace OQF.PlayerVsBot.GameLogic
 		public event Action<GameStatus> NewGameStatusAvailable;
 
 		private TimeoutBlockingQueue<Move> humenMoves;
-		private GameLoopThreadPvB gameLoopThreadPvB;
+		private IGameLoopThread gameLoopThread;
 		private IQuoridorBot quoridorBot;
 		private BoardState currentBoardState;
 		private GameStatus currentGameStatus;
 
 
-		public GameService(bool disableBotTimeout)
+		public GameService(bool disableBotTimeout, ISharedStateWriteOnly<bool> isBoardRotatedVariable)
 		{			
-			this.disableBotTimeout = disableBotTimeout;			
+			this.disableBotTimeout = disableBotTimeout;
+			this.isBoardRotatedVariable = isBoardRotatedVariable;
 			CurrentBoardState = null;
-			gameLoopThreadPvB = null;
+			gameLoopThread = null;
 			CurrentGameStatus = GameStatus.Unloaded;
 		}
 
@@ -61,10 +65,15 @@ namespace OQF.PlayerVsBot.GameLogic
 			}
 		}
 
+		public PlayerType HumanPlayerPosition { get; private set; }
+
 		public void CreateGame(IQuoridorBot uninitializedBot, string botName, GameConstraints gameConstraints, 
-							   QProgress initialProgress)
+							   PlayerType startingPosition, QProgress initialProgress)
 		{
-			if (gameLoopThreadPvB != null)
+			HumanPlayerPosition = startingPosition;
+			isBoardRotatedVariable.Value = startingPosition == PlayerType.TopPlayer;
+
+			if (gameLoopThread != null)
 			{
 				StopGame();
 			}
@@ -78,18 +87,16 @@ namespace OQF.PlayerVsBot.GameLogic
 
 			humenMoves = new TimeoutBlockingQueue<Move>(200);
 
-			gameLoopThreadPvB = new GameLoopThreadPvB(quoridorBot, 
-													  botName, 
-													  humenMoves, 
-													  finalGameConstraints, 
-													  initialProgress);
+			gameLoopThread = startingPosition == PlayerType.BottomPlayer 
+										? (IGameLoopThread) new GameLoopThreadPvB(quoridorBot, botName, humenMoves, finalGameConstraints, initialProgress)
+										: (IGameLoopThread) new GameLoopThreadBvP(quoridorBot, botName, humenMoves, finalGameConstraints, initialProgress);
 
-			gameLoopThreadPvB.NewBoardStateAvailable += OnNewBoardStateAvailable;
-			gameLoopThreadPvB.WinnerAvailable += OnWinnerAvailable;
+			gameLoopThread.NewBoardStateAvailable += OnNewBoardStateAvailable;
+			gameLoopThread.WinnerAvailable        += OnWinnerAvailable;
 
 			CurrentGameStatus = GameStatus.Active;
 
-			new Thread(gameLoopThreadPvB.Run).Start();			
+			new Thread(gameLoopThread.Run).Start();			
 		}
 
 		private void OnWinnerAvailable(Player player, WinningReason winningReason, Move invalidMove)
@@ -115,16 +122,16 @@ namespace OQF.PlayerVsBot.GameLogic
 
 		public void StopGame()
 		{
-			if (gameLoopThreadPvB != null)
+			if (gameLoopThread != null)
 			{
 				quoridorBot.DebugMessageAvailable -= OnDebugMessageAvailable;
 
-				gameLoopThreadPvB.Stop();
+				gameLoopThread.Stop();
 
-				gameLoopThreadPvB.NewBoardStateAvailable -= OnNewBoardStateAvailable;
-				gameLoopThreadPvB.WinnerAvailable -= OnWinnerAvailable;
+				gameLoopThread.NewBoardStateAvailable -= OnNewBoardStateAvailable;
+				gameLoopThread.WinnerAvailable -= OnWinnerAvailable;
 
-				gameLoopThreadPvB = null;
+				gameLoopThread = null;
 				CurrentBoardState = null;
 			}
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts;
+using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.CommonUiElements.Board.ViewModels;
@@ -15,10 +16,12 @@ namespace OQF.PlayerVsBot.Contracts
 		event Action<GameStatus>                  NewGameStatusAvailable;
 
 		GameStatus CurrentGameStatus { get; }
+		PlayerType HumanPlayerPosition { get; }
 
 		void CreateGame(IQuoridorBot uninitializedBot, 
 						string botName, 
 						GameConstraints gameConstraints, 
+						PlayerType startingPosition,
 						QProgress initialProgress = null);
 
 		void ReportHumanMove(Move move);

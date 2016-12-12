@@ -32,6 +32,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 			IsDisabledOverlayVisible = true;
 			PreventWindowClosingToAskUser = false;
+			IsBoardRotated = false;
 
 			ProgressCaption = "Spielverlauf";			
 			DebugCaption    = "Debug";																		
@@ -54,6 +55,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.MainWindow
 
 		public bool IsDisabledOverlayVisible      { get; }		
 		public bool PreventWindowClosingToAskUser { get; }
+		public bool IsBoardRotated { get; }
 
 		public string ProgressCaption { get; }		
 		public string DebugCaption    { get; }		
