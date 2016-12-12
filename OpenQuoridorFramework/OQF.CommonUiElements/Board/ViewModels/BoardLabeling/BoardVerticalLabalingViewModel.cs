@@ -39,18 +39,6 @@ namespace OQF.CommonUiElements.Board.ViewModels.BoardLabeling
 		{
 			if (isRotated)
 			{
-				Label1 = "9";
-				Label2 = "8";
-				Label3 = "7";
-				Label4 = "6";
-				Label5 = "5";
-				Label6 = "4";
-				Label7 = "3";
-				Label8 = "2";
-				Label9 = "1";
-			}
-			else
-			{
 				Label1 = "1";
 				Label2 = "2";
 				Label3 = "3";
@@ -60,6 +48,18 @@ namespace OQF.CommonUiElements.Board.ViewModels.BoardLabeling
 				Label7 = "7";
 				Label8 = "8";
 				Label9 = "9";
+			}
+			else
+			{
+				Label1 = "9";
+				Label2 = "8";
+				Label3 = "7";
+				Label4 = "6";
+				Label5 = "5";
+				Label6 = "4";
+				Label7 = "3";
+				Label8 = "2";
+				Label9 = "1";				
 			}
 		}
 
