@@ -5,7 +5,6 @@ using System.Windows;
 using Lib.FrameworkExtension;
 using Lib.Utils;
 using Lib.Wpf.ViewModelBase;
-using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.Visualization.Global;
@@ -47,7 +46,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.BotStatusBar
 				{					
 					TopPlayerWallCountLeft = boardState.TopPlayer.WallsToPlace;
 
-					if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+					if (boardState.CurrentMover.PlayerType == gameService.HumanPlayerPosition)
 					{
 						StopTimer();
 					}
