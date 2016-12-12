@@ -1,7 +1,9 @@
 ﻿using System.Globalization;
+using System.Linq;
 using System.Windows;
 using Lib.Communication.State;
 using Lib.Wpf;
+using OQF.Bot.Contracts.Coordination;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
@@ -68,11 +70,15 @@ namespace OQF.PlayerVsBot.Application
 															  commandLineArguments.DisableClosingDialogs,
 															  isBoardRotatedVariable);
 
+			actionBarViewModel.SelectedOption = commandLineArguments.StartGameAsTopPlayer
+					? actionBarViewModel.StartOptions.First(option => option.PlayerStartingType == PlayerType.TopPlayer)
+					: actionBarViewModel.StartOptions.First(option => option.PlayerStartingType == PlayerType.BottomPlayer);
+
 			if (!string.IsNullOrWhiteSpace(commandLineArguments.BotPath))
 			{
 				var dllPath = commandLineArguments.BotPath;
 				actionBarViewModel.DllPathInput = dllPath;
-
+				
 				if (!string.IsNullOrWhiteSpace(commandLineArguments.ProgressFilePath))
 				{
 					if (actionBarViewModel.StartWithProgress.CanExecute(null))

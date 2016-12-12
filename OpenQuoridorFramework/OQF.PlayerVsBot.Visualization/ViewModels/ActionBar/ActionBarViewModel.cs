@@ -40,8 +40,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		private bool isBotLoaded;
 
 		public ActionBarViewModel(IApplicationSettingsRepository applicationSettingsRepository,
-			IGameService gameService,
-			ILanguageSelectionViewModel languageSelectionViewModel)
+			                      IGameService gameService,
+			                      ILanguageSelectionViewModel languageSelectionViewModel)
 		{
 			CultureManager.CultureChanged += RefreshCaptions;
 
@@ -208,7 +208,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 				IsBotLoaded = false;
 
 				await NotificationDialogService.Show(loadingResult.ErrorMessage,
-					Captions.ND_OkButtonCaption);
+					                                 Captions.ND_OkButtonCaption);
 
 				return null;
 			}

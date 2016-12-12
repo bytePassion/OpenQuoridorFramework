@@ -6,6 +6,7 @@ namespace OQF.PlayerVsBot.Application
 	{
 		private const string DisableClosingDialogsParameter = "-disableClosingDialog";
 		private const string DisableBotTimeOutParameter     = "-disableBotTimeout";
+		private const string StartGameAsTopPlayerParameter  = "-startAsTopPlayer";
 		private const string BotDllPathParameter            = "-botDll=";
 		private const string ProgressFilePathParameter      = "-progressFile=";
 		private const string ProgressStringParameter        = "-progressString=";
@@ -14,6 +15,7 @@ namespace OQF.PlayerVsBot.Application
 		{
 			var disableClosingDialogs = false;
 			var disableBotTimeout     = false;
+			var startGameAsTopPlayer  = false;
 			var botDllPath            = string.Empty;
 			var progressString        = string.Empty;
 			var progressFilePath      = string.Empty;
@@ -28,6 +30,11 @@ namespace OQF.PlayerVsBot.Application
 				if (string.Equals(arg, DisableBotTimeOutParameter, StringComparison.OrdinalIgnoreCase))
 				{
 					disableBotTimeout = true;
+				}
+
+				if (string.Equals(arg, StartGameAsTopPlayerParameter, StringComparison.OrdinalIgnoreCase))
+				{
+					startGameAsTopPlayer = true;
 				}
 
 				if (arg.ToLower().StartsWith(BotDllPathParameter.ToLower()))
@@ -50,7 +57,8 @@ namespace OQF.PlayerVsBot.Application
 											progressFilePath,
 											progressString,
 											disableClosingDialogs, 
-											disableBotTimeout);
+											disableBotTimeout,
+											startGameAsTopPlayer);
 		}
 	}
 }
