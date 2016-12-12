@@ -8,7 +8,8 @@ OpenQuoridorFramework (4.X)
 [XX]
 --------------------------------------------------------------------------------
 - PlayerVsBot (1.2)
-    - Minor bug fixes
+    - Several Minor bug fixes
+    - Human Player can play as top player
 - ReplayViewer (1.1)
 - Network.DesktopClient (1.0)
 - Network.LanServer (1.0)    
