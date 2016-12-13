@@ -5,7 +5,7 @@
 ################################################################################ 
 
 OpenQuoridorFramework (4.3.1)
-[XX]
+[December 13th, 2016]
 --------------------------------------------------------------------------------
 - PlayerVsBot (1.2)
     - Several bug fixes
@@ -36,7 +36,8 @@ OpenQuoridorFramework (2.2)
     - Progress can be viewed and copied as compressed-progress-string
     - Game can be started from a comressed-progress-string as well as from a 
       progress-file
-    - added new commandLineParamter to start a game from a compressed-progress-string
+    - added new commandLineParamter to start a game from a compressed-progress-
+      string
 - ReplayViewer (1.1)
     - Several minor bug fixes
     - Several Ui-Improvements, including localization (de & en)

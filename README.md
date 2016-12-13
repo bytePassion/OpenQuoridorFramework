@@ -9,7 +9,7 @@ Fragen zum Contest beantworten wir gerne in der Kommentar-Sektion auf der Homepa
 
 ![OQF_Logo](/OpenQuoridorFramework/quoridor_logo.ico)
 
-# OpenQuoridorFramework (4.2)
+# OpenQuoridorFramework (4.3.1)
 
 [![Join the chat at https://gitter.im/bytePassion/OpenQuoridorFramework](https://badges.gitter.im/bytePassion/OpenQuoridorFramework.svg)](https://gitter.im/bytePassion/OpenQuoridorFramework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![view and contribute to current tasks on trello](https://img.shields.io/badge/tasks-on%20trello-blue.svg)](https://trello.com/b/X9gnlWEl/openquoridorframework)
@@ -57,13 +57,14 @@ Usages:
 
 Latest ChangeLog Entry:
 
-[December 8th, 2016]
- - PlayerVsBot (1.1)
- - ReplayViewer (1.1)
- - Network.DesktopClient (1.0)
-   - Initial Release
- - Network.LanServer (1.0)
-   - Initial Release
+[December 13th, 2016]
+- PlayerVsBot (1.2)
+  - Several bug fixes
+  - Human Player can play as top player
+- ReplayViewer (1.1)
+- Network.DesktopClient (1.0.1)
+  - Minor bug fix [prevented double-move-submission]
+- Network.LanServer (1.0)    
 
 ---
 
