@@ -1087,7 +1087,7 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Play with white pawn (start player).
+        ///   Looks up a localized string similar to Bottom (white).
         /// </summary>
         public static string PvB_StartOption_BottomPlayer {
             get {
@@ -1096,11 +1096,20 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Play with black pawn.
+        ///   Looks up a localized string similar to Top (black).
         /// </summary>
         public static string PvB_StartOption_TopPlayer {
             get {
                 return ResourceManager.GetString("PvB_StartOption_TopPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Startposition.
+        /// </summary>
+        public static string PvB_StartOptionHeader {
+            get {
+                return ResourceManager.GetString("PvB_StartOptionHeader", resourceCulture);
             }
         }
         

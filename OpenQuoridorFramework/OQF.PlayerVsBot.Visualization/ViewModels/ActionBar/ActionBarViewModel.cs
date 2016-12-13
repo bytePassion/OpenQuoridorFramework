@@ -337,7 +337,10 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		public string StartWithProgressGameButtonToolTipCaption => Captions.PvB_StartWithProgressGameButtonToolTipCaption;
 		public string OpenInfoButtonToolTipCaption              => Captions.PvB_OpenInfoButtonToolTipCaption;
 		public string StartGameFromStringButtonCaption          => Captions.PvB_StartGameFromStringButtonCaption;
-		public string StartGameFromFileButtonCaption            => Captions.PvB_StartGameFromFileButtonCaption;		
+		public string StartGameFromFileButtonCaption            => Captions.PvB_StartGameFromFileButtonCaption;
+		public string StartOptionBottomPlayer                   => Captions.PvB_StartOption_BottomPlayer;
+		public string StartOptionTopPlayer                      => Captions.PvB_StartOption_TopPlayer;
+		public string StartOptionHeader                         => Captions.PvB_StartOptionHeader;
 		public string HeaderCaptionPlayer                       => Captions.PvB_HeaderCaptionPlayer;
 
 		private void RefreshCaptions ()
@@ -348,6 +351,9 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 										 nameof(StartGameFromStringButtonCaption),
 										 nameof(StartGameFromFileButtonCaption),
 										 nameof(HeaderCaptionPlayer),										 
+										 nameof(StartOptionBottomPlayer),										 
+										 nameof(StartOptionTopPlayer),										 
+										 nameof(StartOptionHeader),										 										 
 										 nameof(OpenInfoButtonToolTipCaption));
 
 			if (!IsBotLoaded)

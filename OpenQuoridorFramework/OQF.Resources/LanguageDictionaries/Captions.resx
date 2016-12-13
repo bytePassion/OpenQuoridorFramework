@@ -722,9 +722,12 @@
     <value>is thinking ....</value>
   </data>
   <data name="PvB_StartOption_BottomPlayer" xml:space="preserve">
-    <value>Play with white pawn (start player)</value>
+    <value>Bottom (white)</value>
   </data>
   <data name="PvB_StartOption_TopPlayer" xml:space="preserve">
-    <value>Play with black pawn</value>
+    <value>Top (black)</value>
+  </data>
+  <data name="PvB_StartOptionHeader" xml:space="preserve">
+    <value>Startposition</value>
   </data>
 </root>

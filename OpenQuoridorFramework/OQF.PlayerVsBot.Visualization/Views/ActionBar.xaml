@@ -11,7 +11,6 @@
              mc:Ignorable="d" 
              d:DesignWidth="1200">
 
-	
 	<d:DesignData.DataContext>
 		<sampleData:ActionBarViewModelSampleData/>
 	</d:DesignData.DataContext>
@@ -98,28 +97,29 @@
 				</materialDesign:ColorZone>
 
 			</Popup>
+			
             <StackPanel DockPanel.Dock="Left" Margin="4,0,0,0">
-                <TextBlock
-                       Text="Startposition"  
-                       VerticalAlignment="Center"></TextBlock>
+                
+				<TextBlock Text="{Binding StartOptionHeader}"  
+						   VerticalAlignment="Center"/>
+				
                 <DockPanel>
                     <TextBlock DockPanel.Dock="Left" 
-                       Text="Top" 
-                       VerticalAlignment="Center"></TextBlock>
+                               Text="{Binding StartOptionTopPlayer}" 
+                               VerticalAlignment="Center"/>
                     <ToggleButton DockPanel.Dock="Left"
-                          VerticalAlignment="Center"
-                          IsChecked="{Binding SelectedOption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StartOptionsToBoolConverter}}"
-                          Margin="8,0"
-                          >
-                    </ToggleButton>
+                                  VerticalAlignment="Center"
+                                  IsChecked="{Binding SelectedOption, 
+												      Mode=TwoWay, 
+													  UpdateSourceTrigger=PropertyChanged, 
+													  Converter={StaticResource StartOptionsToBoolConverter}}"
+                                  Margin="8,0"/>
                     <TextBlock DockPanel.Dock="Left" 
-                       Text="Bottom" 
-                       VerticalAlignment="Center"></TextBlock>
+                               Text="{Binding StartOptionBottomPlayer}" 
+                               VerticalAlignment="Center"/>
                 </DockPanel>
             </StackPanel>
             
-
-
 
             <Button Margin="4,0"
                     Command="{Binding ShowAboutHelp}"
@@ -161,3 +161,4 @@
 
 
 </UserControl>
+

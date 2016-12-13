@@ -742,9 +742,12 @@
     <value>denkt nach ....</value>
   </data>
   <data name="PvB_StartOption_BottomPlayer" xml:space="preserve">
-    <value>Mit weißer Figur (Startspieler) spielen</value>
+    <value>Unten (weiß)</value>
   </data>
   <data name="PvB_StartOption_TopPlayer" xml:space="preserve">
-    <value>Mit schwarzer Figur spielen</value>
+    <value>Oben (schwarz)</value>
+  </data>
+  <data name="PvB_StartOptionHeader" xml:space="preserve">
+    <value>Startposition</value>
   </data>
 </root>

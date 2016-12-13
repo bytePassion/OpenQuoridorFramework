@@ -33,5 +33,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		string OpenInfoButtonToolTipCaption              { get; }
 		string StartGameFromStringButtonCaption          { get; }
 		string StartGameFromFileButtonCaption            { get; }		
+		string StartOptionBottomPlayer                   { get; }
+		string StartOptionTopPlayer                      { get; }
+		string StartOptionHeader                         { get; }
 	}
 }
