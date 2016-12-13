@@ -42,7 +42,7 @@ namespace OQF.Resources
 			public static class PlayerVsBot
 			{
 				private const string Name               = "Player vs. Bot";
-				private const string ApplicationVersion = "1.1";
+				private const string ApplicationVersion = "1.2";
 				
 				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, 
 																				  ApplicationVersion,
