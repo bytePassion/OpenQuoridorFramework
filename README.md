@@ -61,6 +61,7 @@ Latest ChangeLog Entry:
 - PlayerVsBot (1.2)
   - Several bug fixes
   - Human Player can play as top player
+  - Added new commandLineParamter to start a game as top player 
 - ReplayViewer (1.1)
 - Network.DesktopClient (1.0.1)
   - Minor bug fix [prevented double-move-submission]
