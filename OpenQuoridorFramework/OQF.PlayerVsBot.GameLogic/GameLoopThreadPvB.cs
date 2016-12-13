@@ -96,7 +96,7 @@ namespace OQF.PlayerVsBot.GameLogic
 				{
 					currentBoardState = currentBoardState.ApplyMove(move);
 					NewBoardStateAvailable?.Invoke(currentBoardState);
-				}
+				}				
 
 				if (moves.Count()%2 == 1)
 				{
@@ -125,7 +125,6 @@ namespace OQF.PlayerVsBot.GameLogic
 				succeedGame = DoHumanMove();
 				if (!succeedGame)
 					break;
-
 
 				succeedGame = DoBotMove();
 				if (!succeedGame)
