@@ -5,6 +5,8 @@ Wer also gerne mit der aktuellen Version von PlayerVsBot herumspielen mag, ist g
 
 Trotzdem empfehlen wir vor der Abgabe den Bot auf jeden Fall nochmal mit dem offizellen Contest-Code zu testen.
 
+Fragen zum Contest beantworten wir gerne in der Kommentar-Sektion auf der Homepage der dotnetpro, per E-Mail, oder im [Gitter-Chat](https://gitter.im/bytePassion/OpenQuoridorFramework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![OQF_Logo](/OpenQuoridorFramework/quoridor_logo.ico)
 
 # OpenQuoridorFramework (4.2)
