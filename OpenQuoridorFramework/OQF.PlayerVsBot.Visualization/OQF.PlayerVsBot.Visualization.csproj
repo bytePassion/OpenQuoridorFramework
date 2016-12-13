@@ -70,6 +70,7 @@
     <Compile Include="ViewModels\ActionBar\ActionBarViewModel.cs" />
     <Compile Include="ViewModels\ActionBar\ActionBarViewModelSampleData.cs" />
     <Compile Include="ViewModels\ActionBar\Helper\StartOptionsDisplayData.cs" />
+    <Compile Include="ViewModels\ActionBar\Helper\StartOptionsToBoolConverter.cs" />
     <Compile Include="ViewModels\ActionBar\IActionBarViewModel.cs" />
     <Compile Include="ViewModels\BoardPlacement\BoardPlacementViewModel.cs" />
     <Compile Include="ViewModels\BotStatusBar\BotStatusBarViewModel.cs" />

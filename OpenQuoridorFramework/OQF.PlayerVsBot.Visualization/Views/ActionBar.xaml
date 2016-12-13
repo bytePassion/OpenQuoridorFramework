@@ -9,12 +9,16 @@
              xmlns:sampleData="clr-namespace:OQF.PlayerVsBot.Visualization.ViewModels.ActionBar"
              xmlns:helper="clr-namespace:OQF.PlayerVsBot.Visualization.ViewModels.ActionBar.Helper"
              mc:Ignorable="d" 
-             d:DesignHeight="47" d:DesignWidth="1200">
+             d:DesignWidth="1200">
 
 	
 	<d:DesignData.DataContext>
 		<sampleData:ActionBarViewModelSampleData/>
 	</d:DesignData.DataContext>
+    
+    <UserControl.Resources>
+        <helper:StartOptionsToBoolConverter x:Key="StartOptionsToBoolConverter"></helper:StartOptionsToBoolConverter>
+    </UserControl.Resources>
 	
 	<materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
                               Mode="Dark"
@@ -94,23 +98,30 @@
 				</materialDesign:ColorZone>
 
 			</Popup>
+            <StackPanel DockPanel.Dock="Left" Margin="4,0,0,0">
+                <TextBlock
+                       Text="Startposition"  
+                       VerticalAlignment="Center"></TextBlock>
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Left" 
+                       Text="Top" 
+                       VerticalAlignment="Center"></TextBlock>
+                    <ToggleButton DockPanel.Dock="Left"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding SelectedOption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StartOptionsToBoolConverter}}"
+                          Margin="8,0"
+                          >
+                    </ToggleButton>
+                    <TextBlock DockPanel.Dock="Left" 
+                       Text="Bottom" 
+                       VerticalAlignment="Center"></TextBlock>
+                </DockPanel>
+            </StackPanel>
+            
 
-			<ComboBox DockPanel.Dock="Left"
-					  Margin="4,0,0,0"
-					  ItemsSource="{Binding StartOptions}"
-					  SelectedItem="{Binding SelectedOption, 
-											 Mode=TwoWay, 
-											 UpdateSourceTrigger=PropertyChanged}">
 
-				<ComboBox.ItemTemplate>
-					<DataTemplate DataType="helper:StartOptionsDisplayData">
-						<TextBlock Text="{Binding DisplayCaption}"/>
-					</DataTemplate>
-				</ComboBox.ItemTemplate>
 
-			</ComboBox>
-
-			<Button Margin="4,0"
+            <Button Margin="4,0"
                     Command="{Binding ShowAboutHelp}"
                     DockPanel.Dock="Right"
                     Style="{StaticResource MaterialDesignRaisedButton}"
