@@ -35,7 +35,7 @@ namespace OQF.Resources
 		public static readonly Uri GitHubUri = new Uri(GitHubUriText);
 		public const string GitHubUriText = @"https://github.com/bytePassion/OpenQuoridorFramework.git";
 
-		public const string FrameworkVersion = "4.2";
+		public const string FrameworkVersion = "4.3";
 
 		public static class Applications
 		{
