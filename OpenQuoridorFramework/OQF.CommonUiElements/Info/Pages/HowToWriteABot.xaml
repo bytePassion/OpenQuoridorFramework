@@ -44,14 +44,10 @@
                         <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-                            <Run Text="{Binding GeneralProceedingItem1, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding GeneralProceedingItem2, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding GeneralProceedingItem3, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding GeneralProceedingItem4, Mode=OneWay}" />
-                            <LineBreak />
+                            <Run Text="{Binding GeneralProceedingItem1, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding GeneralProceedingItem2, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding GeneralProceedingItem3, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding GeneralProceedingItem4, Mode=OneWay}" /> <LineBreak />
                             <Run Text="{Binding GeneralProceedingItem5, Mode=OneWay}" />
                         </TextBlock>
 
@@ -112,16 +108,11 @@
                         <TextBlock Margin="0,0,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
-                            <Run Text="{Binding GameFlowItem1, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding GameFlowItem2, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding GameFlowItem3, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding GameFlowItem4, Mode=OneWay}" />
-                            <LineBreak />
-                            <Run Text="{Binding GameFlowItem5, Mode=OneWay}" />
-                        </TextBlock>
+                            <Run Text="{Binding GameFlowItem1, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding GameFlowItem2, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding GameFlowItem3, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding GameFlowItem4, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding GameFlowItem5, Mode=OneWay}" /> </TextBlock>
 
                     </StackPanel>
 
