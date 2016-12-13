@@ -1339,6 +1339,15 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 24. Choose startposition for the upcomming game.
+        /// </summary>
+        public static string PvBH_Explanation24 {
+            get {
+                return ResourceManager.GetString("PvBH_Explanation24", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Note: To submit a move just click on the board on the UI. You get a preview for wall-placement as well as for moving the pawn..
         /// </summary>
         public static string PvBH_Note {

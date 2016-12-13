@@ -750,4 +750,7 @@
   <data name="PvB_StartOptionHeader" xml:space="preserve">
     <value>Startposition</value>
   </data>
+  <data name="PvBH_Explanation24" xml:space="preserve">
+    <value>24. Wähle die Startposition für das nächste Spiel</value>
+  </data>
 </root>

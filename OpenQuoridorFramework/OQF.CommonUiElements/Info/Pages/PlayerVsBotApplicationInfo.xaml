@@ -72,7 +72,8 @@
                             <Run Text="{Binding Explanation20, Mode=OneWay}" /> <LineBreak />
                             <Run Text="{Binding Explanation21, Mode=OneWay}" /> <LineBreak />
                             <Run Text="{Binding Explanation22, Mode=OneWay}" /> <LineBreak />
-                            <Run Text="{Binding Explanation23, Mode=OneWay}" />
+                            <Run Text="{Binding Explanation23, Mode=OneWay}" /> <LineBreak />
+                            <Run Text="{Binding Explanation24, Mode=OneWay}" />
                         </TextBlock>
 
                     </StackPanel>

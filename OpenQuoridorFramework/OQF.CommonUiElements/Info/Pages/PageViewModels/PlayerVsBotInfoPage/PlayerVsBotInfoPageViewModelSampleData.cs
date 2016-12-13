@@ -31,7 +31,8 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 		public string Explanation21 => "21 blubb";
 		public string Explanation22 => "22 blubb";
 		public string Explanation23 => "23 blubb";
-        public string DisplayName   => "PlayerVsBot";
+		public string Explanation24 => "24 blubb";
+		public string DisplayName   => "PlayerVsBot";
 
 
         public void Dispose () { }

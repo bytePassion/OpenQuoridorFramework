@@ -30,5 +30,6 @@ namespace OQF.CommonUiElements.Info.Pages.PageViewModels.PlayerVsBotInfoPage
 		string Explanation21 { get; }
 		string Explanation22 { get; }
 		string Explanation23 { get; }
+		string Explanation24 { get; }
 	}
 }
