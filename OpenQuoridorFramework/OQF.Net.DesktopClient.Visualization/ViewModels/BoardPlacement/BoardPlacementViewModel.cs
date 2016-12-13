@@ -130,6 +130,7 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement
 			if (PotentialPlacedWall.Count > 0)
 			{
 				networkGameService.SubmitMove(new WallMove(PotentialPlacedWall[0]));
+				DisablePlacement();
 				return;
 			}
 
@@ -137,7 +138,8 @@ namespace OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement
 
 			if (fieldToMove.HasValue)
 			{
-				networkGameService.SubmitMove(new FigureMove(fieldToMove.Value));						
+				networkGameService.SubmitMove(new FigureMove(fieldToMove.Value));
+				DisablePlacement();
 			}
 		}
 
