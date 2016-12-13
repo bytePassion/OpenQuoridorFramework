@@ -1087,7 +1087,7 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start as bottom player.
+        ///   Looks up a localized string similar to Play with white pawn (start player).
         /// </summary>
         public static string PvB_StartOption_BottomPlayer {
             get {
@@ -1096,7 +1096,7 @@ namespace OQF.Resources.LanguageDictionaries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start as top player.
+        ///   Looks up a localized string similar to Play with black pawn.
         /// </summary>
         public static string PvB_StartOption_TopPlayer {
             get {
