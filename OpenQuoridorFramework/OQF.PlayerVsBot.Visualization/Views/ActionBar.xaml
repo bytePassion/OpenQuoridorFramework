@@ -20,11 +20,11 @@
                               Mode="Dark"
                               Padding="8">
 		
-		<Grid Height="80">
+		<Grid>
 
 			<Grid.RowDefinitions>
-				<RowDefinition/>
-				<RowDefinition/>
+				<RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
 			
 			<Grid.ColumnDefinitions>
@@ -38,7 +38,6 @@
 
 			<Button Grid.Row="0"
 					Grid.Column="0"
-					Grid.RowSpan="2"
 					HorizontalAlignment="Center"
                     VerticalAlignment="Center" 
 					Width="65"
@@ -138,7 +137,6 @@
 
 			<Button Grid.Row="0"
 					Grid.Column="5"
-					Grid.RowSpan="2"
 					HorizontalAlignment="Center"
 					VerticalAlignment="Center"
                     Command="{Binding ShowAboutHelp}"                  
@@ -149,7 +147,6 @@
 
 			<languageSelection:LanguageSelectionView Grid.Row="0"
 													 Grid.Column="4"
-													 Grid.RowSpan="2"
 													 HorizontalAlignment="Center"
 													 VerticalAlignment="Center"
 				                                     DataContext="{Binding LanguageSelectionViewModel}"/>
@@ -158,7 +155,6 @@
 
 			<StackPanel Grid.Row="0"
 						Grid.Column="3"
-						Grid.RowSpan="2"
 						HorizontalAlignment="Center"
                         VerticalAlignment="Center"                        
                         Orientation="Horizontal">
