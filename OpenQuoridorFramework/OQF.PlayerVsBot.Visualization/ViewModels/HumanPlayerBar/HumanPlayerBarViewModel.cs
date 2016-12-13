@@ -5,7 +5,6 @@ using Lib.FrameworkExtension;
 using Lib.Wpf.Commands;
 using Lib.Wpf.Commands.Updater;
 using Lib.Wpf.ViewModelBase;
-using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.PlayerVsBot.Contracts;
@@ -65,7 +64,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.HumanPlayerBar
 				{					
 					BottomPlayerWallCountLeft = boardState.BottomPlayer.WallsToPlace;
 
-					if (boardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+					if (boardState.CurrentMover.PlayerType == gameService.HumanPlayerPosition)
 					{						
 						var currentMovesLeft = int.Parse(MovesLeft);
 						MovesLeft = (currentMovesLeft - 1).ToString();
@@ -99,9 +98,8 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.HumanPlayerBar
 			if (gameService.CurrentGameStatus != GameStatus.Active)
 				return false;
 
-			return gameService.CurrentBoardState?.CurrentMover.PlayerType == PlayerType.BottomPlayer;
+			return gameService.CurrentBoardState?.CurrentMover.PlayerType == gameService.HumanPlayerPosition;
 		}
-
 
 		private void DoCapitulate ()
 		{
