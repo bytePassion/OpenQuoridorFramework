@@ -35,7 +35,7 @@ namespace OQF.Resources
 		public static readonly Uri GitHubUri = new Uri(GitHubUriText);
 		public const string GitHubUriText = @"https://github.com/bytePassion/OpenQuoridorFramework.git";
 
-		public const string FrameworkVersion = "4.3";
+		public const string FrameworkVersion = "4.3.1";
 
 		public static class Applications
 		{
@@ -90,7 +90,7 @@ namespace OQF.Resources
 			public static class NetworkDesktopClient
 			{
 				public const string Name               = "Network.DesktopClient";
-				public const string ApplicationVersion = "1.0";
+				public const string ApplicationVersion = "1.0.1";
 
 				public static readonly ApplicationInfo Info = new ApplicationInfo(Name,
 																				  ApplicationVersion,
