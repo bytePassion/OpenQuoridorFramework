@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Windows.Input;
 using OQF.Bot.Contracts.Coordination;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
-using OQF.PlayerVsBot.Visualization.ViewModels.ActionBar.Helper;
 
 #pragma warning disable 0067
 
@@ -20,13 +17,6 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			IsStartWithProgressPopupVisible = true;
 			TopPlayerName = "PlayerOben";
 
-			StartOptions = new List<StartOptionsDisplayData>
-			{
-				new StartOptionsDisplayData(PlayerType.TopPlayer,    "start as TopPlayer"),
-				new StartOptionsDisplayData(PlayerType.BottomPlayer, "start as BottomPlayer")
-			};
-			SelectedOption = StartOptions.First();
-
 			HeaderCaptionPlayer                       = "Spieler";
 			BrowseForBotButtonToolTipCaption          = "bot dll laden";
 			StartGameButtonToolTipCaption             = "Start";
@@ -37,7 +27,10 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 			StartOptionBottomPlayer                   = "bottom";
 			StartOptionTopPlayer                      = "top";
 			StartOptionHeader                         = "Startpostion";
+
+			StartPosition = PlayerType.BottomPlayer;
 		}
+
 
 		public ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
 
@@ -48,8 +41,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		public ICommand ShowAboutHelp               => null;
 		public ICommand BrowseDll                   => null;
 
-		public IEnumerable<StartOptionsDisplayData> StartOptions { get; }
-		public StartOptionsDisplayData SelectedOption { get; set; }
+		public PlayerType StartPosition { get; set; }
 
 		public string DllPathInput { get; set; }
 		public bool IsStartWithProgressPopupVisible { get; set; }

@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using System.Linq;
 using System.Windows;
 using Lib.Communication.State;
 using Lib.Wpf;
@@ -70,9 +69,9 @@ namespace OQF.PlayerVsBot.Application
 															  commandLineArguments.DisableClosingDialogs,
 															  isBoardRotatedVariable);
 
-			actionBarViewModel.SelectedOption = commandLineArguments.StartGameAsTopPlayer
-					? actionBarViewModel.StartOptions.First(option => option.PlayerStartingType == PlayerType.TopPlayer)
-					: actionBarViewModel.StartOptions.First(option => option.PlayerStartingType == PlayerType.BottomPlayer);
+			actionBarViewModel.StartPosition = commandLineArguments.StartGameAsTopPlayer
+													? PlayerType.TopPlayer
+													: PlayerType.BottomPlayer;
 
 			if (!string.IsNullOrWhiteSpace(commandLineArguments.BotPath))
 			{

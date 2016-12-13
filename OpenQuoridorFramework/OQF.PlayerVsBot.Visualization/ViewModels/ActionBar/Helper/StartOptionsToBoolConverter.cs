@@ -4,17 +4,18 @@ using OQF.Bot.Contracts.Coordination;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar.Helper
 {
-    class StartOptionsToBoolConverter : GenericValueConverter<StartOptionsDisplayData, bool>
+	internal class StartOptionsToBoolConverter : GenericValueConverter<PlayerType, bool>
     {
-        protected override bool Convert(StartOptionsDisplayData value, CultureInfo culture)
+        protected override bool Convert(PlayerType value, CultureInfo culture)
         {
-            return value.PlayerStartingType != PlayerType.TopPlayer;
+            return value == PlayerType.TopPlayer;
         }
 
-        protected override StartOptionsDisplayData ConvertBack(bool value, CultureInfo culture)
+        protected override PlayerType ConvertBack(bool value, CultureInfo culture)
         {
-            return value ? new StartOptionsDisplayData(PlayerType.BottomPlayer,string.Empty) 
-                : new StartOptionsDisplayData(PlayerType.TopPlayer, string.Empty);
+            return value 
+				? PlayerType.TopPlayer
+                : PlayerType.BottomPlayer;
         }
     }
 }

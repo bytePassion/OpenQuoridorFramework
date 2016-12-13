@@ -16,7 +16,7 @@
 	</d:DesignData.DataContext>
     
     <UserControl.Resources>
-        <helper:StartOptionsToBoolConverter x:Key="StartOptionsToBoolConverter"></helper:StartOptionsToBoolConverter>
+        <helper:StartOptionsToBoolConverter x:Key="StartOptionsToBoolConverter"/>
     </UserControl.Resources>
 	
 	<materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3"
@@ -105,17 +105,17 @@
 				
                 <DockPanel>
                     <TextBlock DockPanel.Dock="Left" 
-                               Text="{Binding StartOptionTopPlayer}" 
+                               Text="{Binding StartOptionBottomPlayer}" 
                                VerticalAlignment="Center"/>
                     <ToggleButton DockPanel.Dock="Left"
                                   VerticalAlignment="Center"
-                                  IsChecked="{Binding SelectedOption, 
+                                  IsChecked="{Binding StartPosition, 
 												      Mode=TwoWay, 
 													  UpdateSourceTrigger=PropertyChanged, 
 													  Converter={StaticResource StartOptionsToBoolConverter}}"
                                   Margin="8,0"/>
                     <TextBlock DockPanel.Dock="Left" 
-                               Text="{Binding StartOptionBottomPlayer}" 
+                               Text="{Binding StartOptionTopPlayer}" 
                                VerticalAlignment="Center"/>
                 </DockPanel>
             </StackPanel>

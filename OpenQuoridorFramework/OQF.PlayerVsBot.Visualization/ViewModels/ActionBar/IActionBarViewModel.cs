@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Lib.Wpf.ViewModelBase;
+using OQF.Bot.Contracts.Coordination;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
-using OQF.PlayerVsBot.Visualization.ViewModels.ActionBar.Helper;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 {
@@ -17,8 +16,7 @@ namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar
 		ICommand ShowAboutHelp               { get; }
 		ICommand BrowseDll                   { get; }
 
-		IEnumerable<StartOptionsDisplayData> StartOptions { get; }
-		StartOptionsDisplayData SelectedOption { get; set; }
+		PlayerType StartPosition { get; set; }		
 
 		string DllPathInput { get; set; }
 
