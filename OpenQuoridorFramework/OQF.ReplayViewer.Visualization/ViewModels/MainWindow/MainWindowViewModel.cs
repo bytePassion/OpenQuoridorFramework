@@ -204,7 +204,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			}
 
 			var progress = CreateQProgress.FromReadableProgressTextFile(fileText);
-			await LoadProgress(progress);
+			await LoadProgress(progress);			
 		}
 
 		private async Task LoadProgress(QProgress progress)
@@ -234,6 +234,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			moveIndex = 0;
 			MaxMoveIndex = replayService.MoveCount - 1;
 
+			SetHighlightning(MoveIndex);
 			PropertyChanged.Notify(this, nameof(MoveIndex));
 		}
 
@@ -246,9 +247,7 @@ namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow
 			else
 			{
 				await LoadGameFromString();
-			}
-
-			SetHighlightning(MoveIndex);
+			}			
 		}		
 
 		private bool IsStringAFilePath(string s)
