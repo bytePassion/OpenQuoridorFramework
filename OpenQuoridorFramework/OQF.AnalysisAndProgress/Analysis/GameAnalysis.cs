@@ -1,4 +1,5 @@
-﻿using OQF.AnalysisAndProgress.Analysis.AnalysisGraph;
+﻿using System.Linq;
+using OQF.AnalysisAndProgress.Analysis.AnalysisGraph;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
@@ -16,6 +17,11 @@ namespace OQF.AnalysisAndProgress.Analysis
 
 			if (potentialNextMove is WallMove)
 			{
+				if (currentBoardState.PlacedWalls.Select(wall => wall.TopLeft).Contains(((WallMove) potentialNextMove).PlacedWall.TopLeft))
+				{
+					return false;
+				}
+
 				if (currentBoardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
 				{
 					if (currentBoardState.BottomPlayer.WallsToPlace == 0)
