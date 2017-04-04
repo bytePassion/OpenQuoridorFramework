@@ -1,6 +1,5 @@
-﻿using System;
-using System.Globalization;
-using Lib.Wpf.ConverterBase;
+﻿using System.Globalization;
+using bytePassion.Lib.WpfLib.ConverterBase;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Resources.LanguageDictionaries;
 

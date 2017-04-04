@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;

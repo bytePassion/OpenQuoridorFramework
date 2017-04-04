@@ -1,6 +1,6 @@
 using System.Globalization;
 using System.Windows.Media;
-using Lib.Wpf.ConverterBase;
+using bytePassion.Lib.WpfLib.ConverterBase;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
 

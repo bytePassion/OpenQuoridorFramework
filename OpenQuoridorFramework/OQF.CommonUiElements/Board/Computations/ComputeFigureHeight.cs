@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
-using Lib.SemanicTypes;
-using Lib.Wpf.ConverterBase;
+using bytePassion.Lib.Types.SemanticTypes;
+using bytePassion.Lib.WpfLib.ConverterBase;
 using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.CommonUiElements.Board.Computations

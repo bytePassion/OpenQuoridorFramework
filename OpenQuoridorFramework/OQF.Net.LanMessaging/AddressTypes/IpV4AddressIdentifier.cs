@@ -1,5 +1,5 @@
 using System.Linq;
-using Lib.FrameworkExtension;
+using bytePassion.Lib.FrameworkExtensions;
 
 namespace OQF.Net.LanMessaging.AddressTypes
 {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.Types.SemanticTypes;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.CommonUiElements.Board.ViewModels.Board
@@ -9,6 +10,6 @@ namespace OQF.CommonUiElements.Board.ViewModels.Board
 		ObservableCollection<Wall>        VisibleWalls   { get; }
 		ObservableCollection<PlayerState> VisiblePlayers { get; }		
 
-		Lib.SemanicTypes.Size BoardSize { get; set; }
+		Size BoardSize { get; set; }
 	}
 }

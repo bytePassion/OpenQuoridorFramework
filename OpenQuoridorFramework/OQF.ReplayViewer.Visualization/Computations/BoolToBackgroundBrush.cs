@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows.Media;
-using Lib.Wpf.ConverterBase;
+using bytePassion.Lib.WpfLib.ConverterBase;
 
 namespace OQF.ReplayViewer.Visualization.Computations
 {

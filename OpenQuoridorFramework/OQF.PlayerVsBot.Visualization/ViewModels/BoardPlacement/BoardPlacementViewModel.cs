@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using Lib.FrameworkExtension;
-using Lib.Wpf.Commands;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.FrameworkExtensions;
+using bytePassion.Lib.WpfLib.Commands;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.AnalysisAndProgress.Analysis;
 using OQF.Bot.Contracts.Coordination;
 using OQF.Bot.Contracts.GameElements;
@@ -14,8 +14,8 @@ using OQF.Bot.Contracts.Moves;
 using OQF.CommonUiElements.Board.ViewModels.BoardPlacement;
 using OQF.PlayerVsBot.Contracts;
 using OQF.Utils.Enum;
-using Point = Lib.SemanicTypes.Point;
-using Size = Lib.SemanicTypes.Size;
+using Point = bytePassion.Lib.Types.SemanticTypes.Point;
+using Size = bytePassion.Lib.Types.SemanticTypes.Size;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.BoardPlacement
 {

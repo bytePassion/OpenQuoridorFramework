@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Net.LanServer.Contracts;
 
 #pragma warning disable 0067

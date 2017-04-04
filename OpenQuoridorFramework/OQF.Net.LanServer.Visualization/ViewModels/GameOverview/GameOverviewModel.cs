@@ -2,8 +2,8 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
-using Lib.FrameworkExtension;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.FrameworkExtensions;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Net.LanServer.Contracts;
 using OQF.Net.LanServer.Visualization.ViewModels.GameOverview.Helper;
 

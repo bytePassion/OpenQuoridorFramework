@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interactivity;
-using Lib.SemanicTypes;
-using Point = Lib.SemanicTypes.Point;
+using bytePassion.Lib.Types.SemanticTypes;
+using Point = bytePassion.Lib.Types.SemanticTypes.Point;
 
 namespace OQF.Net.DesktopClient.Visualization.Behaviors
 {

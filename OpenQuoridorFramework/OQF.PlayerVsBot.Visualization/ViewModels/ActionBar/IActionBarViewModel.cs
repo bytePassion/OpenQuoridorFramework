@@ -1,5 +1,5 @@
 ﻿using System.Windows.Input;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Bot.Contracts.Coordination;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 

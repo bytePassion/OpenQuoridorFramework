@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Lib.FrameworkExtension;
+using bytePassion.Lib.FrameworkExtensions;
 using OQF.Net.LanMessaging.NetworkMessageBase;
 using OQF.Net.LanMessaging.NetworkMessages.Notifications;
 using OQF.Net.LanMessaging.Types;

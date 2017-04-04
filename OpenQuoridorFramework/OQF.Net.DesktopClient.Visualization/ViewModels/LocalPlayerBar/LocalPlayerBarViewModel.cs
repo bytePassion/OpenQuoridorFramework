@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
-using Lib.FrameworkExtension;
-using Lib.Wpf.Commands;
-using Lib.Wpf.Commands.Updater;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.FrameworkExtensions;
+using bytePassion.Lib.WpfLib.Commands;
+using bytePassion.Lib.WpfLib.Commands.Updater;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.CommonUiElements.Dialogs.YesNo;

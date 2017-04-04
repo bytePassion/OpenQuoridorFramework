@@ -1,4 +1,4 @@
-﻿using Lib.Wpf.ViewModelBase;
+﻿using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.PlayerVsBot.Contracts;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.BotStatusBar

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using Lib.FrameworkExtension;
+using bytePassion.Lib.FrameworkExtensions;
 using OQF.Net.LanMessaging.AddressTypes;
 
 namespace OQF.Net.LanMessaging.Utils

@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Resources.LanguageDictionaries;
 
 #pragma warning disable 0067

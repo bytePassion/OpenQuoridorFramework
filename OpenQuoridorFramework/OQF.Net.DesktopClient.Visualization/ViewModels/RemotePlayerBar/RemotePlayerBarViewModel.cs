@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
-using Lib.FrameworkExtension;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.FrameworkExtensions;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Net.DesktopClient.Contracts;
 using OQF.Resources.LanguageDictionaries;

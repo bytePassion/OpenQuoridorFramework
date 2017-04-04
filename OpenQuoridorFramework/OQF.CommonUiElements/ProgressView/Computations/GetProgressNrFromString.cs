@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using Lib.Wpf.ConverterBase;
+using bytePassion.Lib.WpfLib.ConverterBase;
 
 namespace OQF.CommonUiElements.ProgressView.Computations
 {

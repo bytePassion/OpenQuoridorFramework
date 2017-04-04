@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using Lib.FrameworkExtension;
-using Lib.Wpf.Commands;
-using Lib.Wpf.Commands.Updater;
+using bytePassion.Lib.FrameworkExtensions;
+using bytePassion.Lib.WpfLib.Commands;
+using bytePassion.Lib.WpfLib.Commands.Updater;
 using Microsoft.Win32;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts.Coordination;
@@ -16,7 +16,7 @@ using OQF.Utils;
 
 namespace OQF.CommonUiElements.ProgressView.ViewModel
 {
-	public class ProgressViewModel : Lib.Wpf.ViewModelBase.ViewModel, IProgressViewModel
+	public class ProgressViewModel : bytePassion.Lib.WpfLib.ViewModelBase.ViewModel, IProgressViewModel
 	{
 		private readonly IBoardStateProvider gameService;
 

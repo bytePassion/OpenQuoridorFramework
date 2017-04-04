@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Lib.Wpf.ConverterBase;
+using bytePassion.Lib.WpfLib.ConverterBase;
 
 namespace OQF.CommonUiElements.Language.LanguageSelection.Computations
 {

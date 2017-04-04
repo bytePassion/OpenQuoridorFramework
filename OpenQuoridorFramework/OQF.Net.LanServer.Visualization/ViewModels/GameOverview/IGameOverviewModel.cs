@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Net.LanServer.Visualization.ViewModels.GameOverview.Helper;
 
 namespace OQF.Net.LanServer.Visualization.ViewModels.GameOverview

@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using Lib.Wpf.ConverterBase;
+using bytePassion.Lib.WpfLib.ConverterBase;
 using OQF.Bot.Contracts.Coordination;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar.Helper

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
-using Lib.Wpf.ConverterBase;
+using bytePassion.Lib.WpfLib.ConverterBase;
 using OQF.Net.DesktopClient.Contracts;
 
 namespace OQF.Net.DesktopClient.Visualization.Computations

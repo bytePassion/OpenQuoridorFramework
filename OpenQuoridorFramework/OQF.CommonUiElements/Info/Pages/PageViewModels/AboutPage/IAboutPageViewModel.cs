@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Resources;
 
 namespace OQF.CommonUiElements.Info.Pages.PageViewModels.AboutPage

@@ -1,5 +1,5 @@
 ﻿using System;
-using Lib.SemanicTypes.Base;
+using bytePassion.Lib.Types.SemanticTypes.Base;
 
 namespace OQF.Net.LanMessaging.AddressTypes
 {

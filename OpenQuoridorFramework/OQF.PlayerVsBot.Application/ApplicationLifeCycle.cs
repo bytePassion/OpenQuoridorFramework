@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows;
-using Lib.Communication.State;
+using bytePassion.Lib.Communication.State;
 using Lib.Wpf;
 using OQF.Bot.Contracts.Coordination;
 using OQF.CommonUiElements.Board.ViewModels.Board;

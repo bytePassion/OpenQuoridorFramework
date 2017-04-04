@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using Lib.Wpf.Commands;
+using bytePassion.Lib.WpfLib.Commands;
 using OQF.CommonUiElements.Info.Pages.PageViewModels;
 using OQF.Resources.LanguageDictionaries;
 
@@ -11,7 +11,7 @@ using OQF.Resources.LanguageDictionaries;
 
 namespace OQF.CommonUiElements.Info.InfoWindow.ViewModel
 {
-	internal class InfoWindowViewModel : Lib.Wpf.ViewModelBase.ViewModel, IInfoWindowViewModel
+	internal class InfoWindowViewModel : bytePassion.Lib.WpfLib.ViewModelBase.ViewModel, IInfoWindowViewModel
 	{				
 		public InfoWindowViewModel(IEnumerable<IPage> visibleInfoPages)
 		{					

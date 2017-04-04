@@ -1,4 +1,4 @@
-﻿using Lib.Wpf.ViewModelBase;
+﻿using bytePassion.Lib.WpfLib.ViewModelBase;
 
 namespace OQF.CommonUiElements.Info.Pages.PageViewModels.BotVsBotInfoPage
 {

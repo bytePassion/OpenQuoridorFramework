@@ -3,13 +3,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
-using Lib.FrameworkExtension;
+using bytePassion.Lib.FrameworkExtensions;
 using OQF.Resources;
 using OQF.Utils;
 
 namespace OQF.CommonUiElements.Language.LanguageSelection.ViewModel
 {
-	public class LanguageSelectionViewModel : Lib.Wpf.ViewModelBase.ViewModel, ILanguageSelectionViewModel 
+	public class LanguageSelectionViewModel : bytePassion.Lib.WpfLib.ViewModelBase.ViewModel, ILanguageSelectionViewModel 
 	{
 		private string selectedCountryCode;
 

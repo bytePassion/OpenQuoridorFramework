@@ -1,4 +1,4 @@
-﻿using Lib.Wpf.ViewModelBase;
+﻿using bytePassion.Lib.WpfLib.ViewModelBase;
 
 namespace OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar
 {

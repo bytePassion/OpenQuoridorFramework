@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows.Media;
-using Lib.Wpf.ConverterBase;
+using bytePassion.Lib.WpfLib.ConverterBase;
 using static OQF.CommonUiElements.Board.BoardColors.Brushes;
 
 namespace OQF.Net.DesktopClient.Visualization.Computations

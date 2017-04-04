@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using Lib.FrameworkExtension;
+using bytePassion.Lib.FrameworkExtensions;
 
 namespace OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper
 {

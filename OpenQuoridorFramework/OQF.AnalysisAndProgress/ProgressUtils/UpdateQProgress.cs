@@ -1,4 +1,4 @@
-﻿using Lib.FrameworkExtension;
+﻿using bytePassion.Lib.FrameworkExtensions;
 using OQF.Bot.Contracts.Moves;
 
 namespace OQF.AnalysisAndProgress.ProgressUtils

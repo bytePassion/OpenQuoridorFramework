@@ -1,5 +1,5 @@
 ﻿using System;
-using Lib.Concurrency;
+using bytePassion.Lib.ConcurrencyLib;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 using OQF.Utils.Enum;

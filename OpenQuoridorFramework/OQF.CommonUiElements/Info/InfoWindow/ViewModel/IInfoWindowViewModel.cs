@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.CommonUiElements.Info.Pages.PageViewModels;
 
 namespace OQF.CommonUiElements.Info.InfoWindow.ViewModel

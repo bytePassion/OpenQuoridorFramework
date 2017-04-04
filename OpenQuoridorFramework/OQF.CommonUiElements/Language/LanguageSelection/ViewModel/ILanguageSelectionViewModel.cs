@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 
 namespace OQF.CommonUiElements.Language.LanguageSelection.ViewModel
 {

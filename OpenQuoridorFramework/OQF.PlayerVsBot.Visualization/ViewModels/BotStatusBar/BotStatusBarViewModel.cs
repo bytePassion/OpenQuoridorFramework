@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.Threading;
 using System.Windows;
-using Lib.FrameworkExtension;
-using Lib.Utils;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.FrameworkExtensions;
+using bytePassion.Lib.GeometryLib.Utils;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 using OQF.PlayerVsBot.Contracts;
 using OQF.PlayerVsBot.Visualization.Global;

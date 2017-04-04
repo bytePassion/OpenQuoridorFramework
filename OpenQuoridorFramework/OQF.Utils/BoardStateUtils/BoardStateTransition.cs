@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Lib.FrameworkExtension;
+using bytePassion.Lib.FrameworkExtensions;
 using OQF.Bot.Contracts.GameElements;
 using OQF.Bot.Contracts.Moves;
 

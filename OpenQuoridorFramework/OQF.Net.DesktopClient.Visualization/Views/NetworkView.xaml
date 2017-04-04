@@ -7,8 +7,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:networkView="clr-namespace:OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:commandExecutingBehaviors="clr-namespace:Lib.Wpf.CommandExecutingBehaviors;assembly=Lib.Wpf"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"             
+             xmlns:commandExecutingBehaviors1="clr-namespace:bytePassion.Lib.WpfLib.CommandExecutingBehaviors;assembly=bytePassion.Lib"
              d:DesignHeight="700"
              d:DesignWidth="300"
              mc:Ignorable="d">
@@ -45,7 +45,7 @@
 						 Text="{Binding ServerAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 
 					<i:Interaction.Behaviors>
-						<commandExecutingBehaviors:ExecuteCommandOnEnter Command="{Binding ConnectToServer}"/>
+						<commandExecutingBehaviors1:ExecuteCommandOnEnter Command="{Binding ConnectToServer}"/>
 					</i:Interaction.Behaviors>
 					
 				</TextBox>
@@ -58,7 +58,7 @@
 						 Text="{Binding PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 
 					<i:Interaction.Behaviors>
-						<commandExecutingBehaviors:ExecuteCommandOnEnter Command="{Binding ConnectToServer}"/>
+						<commandExecutingBehaviors1:ExecuteCommandOnEnter Command="{Binding ConnectToServer}"/>
 					</i:Interaction.Behaviors>
 
 				</TextBox>
@@ -120,7 +120,7 @@
                 <TextBox materialDesign:HintAssist.Hint="{Binding NewGameNameHint}" 
 						 Text="{Binding NewGameName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 					<i:Interaction.Behaviors>
-						<commandExecutingBehaviors:ExecuteCommandOnEnter Command="{Binding CreateGame}"/>
+						<commandExecutingBehaviors1:ExecuteCommandOnEnter Command="{Binding CreateGame}"/>
 					</i:Interaction.Behaviors>
 					
 				</TextBox>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
-using Lib.Communication.State;
-using Lib.Concurrency;
+using bytePassion.Lib.Communication.State;
+using Lib.Wpf;
 using OQF.AnalysisAndProgress.ProgressUtils;
 using OQF.Bot.Contracts;
 using OQF.Bot.Contracts.Coordination;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
-using Lib.Concurrency;
-using Lib.FrameworkExtension;
+using bytePassion.Lib.ConcurrencyLib;
+using bytePassion.Lib.FrameworkExtensions;
 using OQF.Net.LanMessaging.AddressTypes;
 using OQF.Net.LanMessaging.NetworkMessageBase;
 

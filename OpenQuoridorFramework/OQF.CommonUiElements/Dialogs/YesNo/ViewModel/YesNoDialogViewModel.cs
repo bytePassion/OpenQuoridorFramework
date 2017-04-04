@@ -5,7 +5,7 @@ using OQF.Resources.LanguageDictionaries;
 
 namespace OQF.CommonUiElements.Dialogs.YesNo.ViewModel
 {
-	internal class YesNoDialogViewModel : Lib.Wpf.ViewModelBase.ViewModel, IYesNoDialogViewModel
+	internal class YesNoDialogViewModel : bytePassion.Lib.WpfLib.ViewModelBase.ViewModel, IYesNoDialogViewModel
     {
 	    public YesNoDialogViewModel(string message)
 	    {

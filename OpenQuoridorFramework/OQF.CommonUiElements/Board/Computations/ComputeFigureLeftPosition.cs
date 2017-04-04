@@ -1,12 +1,13 @@
 ﻿using System.Globalization;
-using Lib.Wpf.ConverterBase;
+using bytePassion.Lib.Types.SemanticTypes;
+using bytePassion.Lib.WpfLib.ConverterBase;
 using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.CommonUiElements.Board.Computations
 {
-    public class ComputeFigureLeftPosition : GenericTwoToOneValueConverter<PlayerState, Lib.SemanicTypes.Size, double>
+	public class ComputeFigureLeftPosition : GenericTwoToOneValueConverter<PlayerState, Size, double>
     {
-        protected override double Convert(PlayerState currentPlayerState, Lib.SemanicTypes.Size currentBoadSize, CultureInfo culture)
+        protected override double Convert(PlayerState currentPlayerState, Size currentBoadSize, CultureInfo culture)
         {
             var cellWidth = currentBoadSize.Width / 11.4;
 

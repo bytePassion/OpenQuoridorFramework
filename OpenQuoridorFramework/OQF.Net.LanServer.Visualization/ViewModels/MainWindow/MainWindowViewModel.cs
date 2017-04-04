@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
-using Lib.FrameworkExtension;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.FrameworkExtensions;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Net.LanServer.Visualization.ViewModels.ActionBar;
 using OQF.Net.LanServer.Visualization.ViewModels.ClientsView;
 using OQF.Net.LanServer.Visualization.ViewModels.ConnectionBar;

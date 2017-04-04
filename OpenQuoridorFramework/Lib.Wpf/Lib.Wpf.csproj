@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Lib.Wpf</RootNamespace>
     <AssemblyName>Lib.Wpf</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,11 +31,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="bytePassion.Lib, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\bytePassion.Library.1.0.0\lib\bytePassion.Lib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\bytePassion.Library.1.0.0\lib\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,59 +53,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Behaviors\AutoScrollDownBehavior.cs" />
-    <Compile Include="Behaviors\KeepQuadratic.cs" />
-    <Compile Include="Behaviors\SizeReportingBehavior.cs" />
-    <Compile Include="CommandExecutingBehaviors\ExecuteCommandOnClickBehavior.cs" />
-    <Compile Include="CommandExecutingBehaviors\ExecuteCommandOnDoubleClickBehavior.cs" />
-    <Compile Include="CommandExecutingBehaviors\ExecuteCommandOnEnter.cs" />
-    <Compile Include="CommandExecutingBehaviors\ExecuteCommandOnEscape.cs" />
-    <Compile Include="CommandExecutingBehaviors\ExecuteCommandOnMouseUp.cs" />
-    <Compile Include="CommandExecutingBehaviors\ExecuteCommandWhenToggleButtonGetsCheckedBehavior.cs" />
-    <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\ParameterrizedCommand.cs" />
-    <Compile Include="Commands\Updater\ICommandUpdater.cs" />
-    <Compile Include="Commands\Updater\PropertyChangedCommandUpdater.cs" />
-    <Compile Include="Commands\Updater\SharedStateCommandUpdate.cs" />
-    <Compile Include="Commands\Updater\SharedStateReadOnlyCommandUpdate.cs" />
-    <Compile Include="ConverterBase\GenericFiveToOneValueConverter.cs" />
-    <Compile Include="ConverterBase\GenericFourToOneValueConverter.cs" />
-    <Compile Include="ConverterBase\GenericParameterizedValueConverter.cs" />
-    <Compile Include="ConverterBase\GenericThreeToOneValueConverter.cs" />
-    <Compile Include="ConverterBase\GenericTwoToOneValueConverter.cs" />
-    <Compile Include="ConverterBase\GenericValueConverter.cs" />
-    <Compile Include="Converter\BoolInverter.cs" />
-    <Compile Include="Converter\BoolToCollapsedVisibilityConverter.cs" />
-    <Compile Include="Converter\BoolToHiddenVisibilityConverter.cs" />
-    <Compile Include="Converter\BoolToNullableBoolConverter.cs" />
-    <Compile Include="Converter\ColorToSolidColorBrushConverter.cs" />
-    <Compile Include="Converter\InvertedBoolToCollapsedVisibilityConverter.cs" />
-    <Compile Include="Converter\SemanticDoubleTypeToDoubleConverter.cs" />
-    <Compile Include="Converter\XCoordAndOffsetToDoubleConverter.cs" />
-    <Compile Include="Converter\XCoordToDoubleConverter.cs" />
-    <Compile Include="Converter\YCoordAndOffsetToDoubleConverter.cs" />
-    <Compile Include="Converter\YCoordToDoubleConverter.cs" />
+    <Compile Include="AutoScrollDownBehavior.cs" />
     <Compile Include="IApplicationLifeCycle.cs" />
-    <Compile Include="Panels\DeckPanel.cs" />
+    <Compile Include="KeepQuadratic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModelBase\IViewModel.cs" />
-    <Compile Include="ViewModelBase\ViewModel.cs" />
+    <Compile Include="TimeoutBlockingQueue.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lib.Communication\Lib.Communication.csproj">
-      <Project>{A7CA266B-B1A3-4ED5-B0BE-EE5EE80A48FC}</Project>
-      <Name>Lib.Communication</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Lib.FrameworkExtension\Lib.FrameworkExtension.csproj">
-      <Project>{6C27F04B-CFCC-4267-8720-4A44D7529A21}</Project>
-      <Name>Lib.FrameworkExtension</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Lib.SemanicTypes\Lib.SemanicTypes.csproj">
-      <Project>{8FE851FB-DD9C-4C93-BCED-5098235D44E9}</Project>
-      <Name>Lib.SemanicTypes</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

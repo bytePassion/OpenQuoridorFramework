@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using Lib.FrameworkExtension;
+using bytePassion.Lib.FrameworkExtensions;
 using OQF.Net.DesktopClient.NetworkGameLogic.Messaging;
 using OQF.Net.LanMessaging.NetworkMessageBase;
 using OQF.Net.LanMessaging.NetworkMessages.Notifications;

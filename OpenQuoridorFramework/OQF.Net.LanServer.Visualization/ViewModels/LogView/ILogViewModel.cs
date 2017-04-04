@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 
 namespace OQF.Net.LanServer.Visualization.ViewModels.LogView
 {

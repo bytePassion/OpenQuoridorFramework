@@ -1,10 +1,9 @@
-﻿using Lib.Wpf.ViewModelBase;
+﻿using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;
 using OQF.CommonUiElements.Board.ViewModels.BoardPlacement;
 using OQF.CommonUiElements.ProgressView.ViewModel;
 using OQF.Net.DesktopClient.Visualization.ViewModels.ActionBar;
-using OQF.Net.DesktopClient.Visualization.ViewModels.BoardPlacement;
 using OQF.Net.DesktopClient.Visualization.ViewModels.LocalPlayerBar;
 using OQF.Net.DesktopClient.Visualization.ViewModels.NetworkView;
 using OQF.Net.DesktopClient.Visualization.ViewModels.RemotePlayerBar;

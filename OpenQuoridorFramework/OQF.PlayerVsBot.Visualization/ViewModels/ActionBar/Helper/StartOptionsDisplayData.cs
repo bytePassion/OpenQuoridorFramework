@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using Lib.FrameworkExtension;
+using bytePassion.Lib.FrameworkExtensions;
 using OQF.Bot.Contracts.Coordination;
 
 namespace OQF.PlayerVsBot.Visualization.ViewModels.ActionBar.Helper

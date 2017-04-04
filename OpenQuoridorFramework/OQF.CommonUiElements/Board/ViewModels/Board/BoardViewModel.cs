@@ -1,11 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
-using Lib.FrameworkExtension;
-using Lib.SemanicTypes;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.FrameworkExtensions;
+using bytePassion.Lib.Types.SemanticTypes;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
-using Size = Lib.SemanicTypes.Size;
+using Size = bytePassion.Lib.Types.SemanticTypes.Size;
 
 namespace OQF.CommonUiElements.Board.ViewModels.Board
 {

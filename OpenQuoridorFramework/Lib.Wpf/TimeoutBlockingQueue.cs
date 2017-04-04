@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using Lib.FrameworkExtension;
+using bytePassion.Lib.FrameworkExtensions;
 
-namespace Lib.Concurrency
+namespace Lib.Wpf
 {
 	/**
 		Achtung: kann sein, dass es nur mit einem abnehmer wirklich gut funktioniert ....

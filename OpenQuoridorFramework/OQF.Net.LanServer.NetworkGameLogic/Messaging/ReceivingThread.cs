@@ -1,5 +1,5 @@
 ﻿using System;
-using Lib.Concurrency;
+using bytePassion.Lib.ConcurrencyLib;
 using NetMQ.Sockets;
 using OQF.Net.LanMessaging;
 using OQF.Net.LanMessaging.AddressTypes;

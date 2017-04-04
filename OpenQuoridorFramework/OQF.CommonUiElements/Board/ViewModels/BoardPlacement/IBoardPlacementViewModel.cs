@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Lib.SemanicTypes;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.Types.SemanticTypes;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.CommonUiElements.Board.ViewModels.BoardPlacement

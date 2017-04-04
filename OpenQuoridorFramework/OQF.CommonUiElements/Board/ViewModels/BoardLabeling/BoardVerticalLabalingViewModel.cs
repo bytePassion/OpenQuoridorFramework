@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
-using Lib.Communication.State;
-using Lib.FrameworkExtension;
-using Lib.Wpf.ViewModelBase;
+using bytePassion.Lib.Communication.State;
+using bytePassion.Lib.FrameworkExtensions;
+using bytePassion.Lib.WpfLib.ViewModelBase;
 
 namespace OQF.CommonUiElements.Board.ViewModels.BoardLabeling
 {
