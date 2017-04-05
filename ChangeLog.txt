@@ -4,6 +4,17 @@
 ###                                                                          ###
 ################################################################################ 
 
+OpenQuoridorFramework (4.12.1)
+[April 5th, 2017]
+--------------------------------------------------------------------------------
+- PlayerVsBot (1.2)   
+- ReplayViewer (1.1)
+- Network.DesktopClient (1.0.1)    
+- Network.LanServer (1.0)  
+- Tournament (0.9 Beta)
+    Initial Release (still beta)
+
+
 OpenQuoridorFramework (4.3.1)
 [December 13th, 2016]
 --------------------------------------------------------------------------------
