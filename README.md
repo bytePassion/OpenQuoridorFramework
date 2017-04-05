@@ -55,7 +55,7 @@ Latest ChangeLog Entry:
 - Network.DesktopClient (1.0.1)    
 - Network.LanServer (1.0)  
 - Tournament (0.9 Beta)
-    Initial Release (still beta)
+    - Initial Release (still beta)
 
 ---
 
