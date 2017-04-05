@@ -68,6 +68,10 @@
       <Project>{8f773744-6fe4-49c2-8651-e6f29ec828fa}</Project>
       <Name>OQF.CommonUiElements</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OQF.Resources\OQF.Resources.csproj">
+      <Project>{03EE53DA-74C5-4883-98F0-BF2618EBDF93}</Project>
+      <Name>OQF.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.Tournament.Contracts\OQF.Tournament.Contracts.csproj">
       <Project>{1242DE0E-D767-4B86-9155-C11E78BD4ED5}</Project>
       <Name>OQF.Tournament.Contracts</Name>

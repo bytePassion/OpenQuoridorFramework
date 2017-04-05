@@ -8,7 +8,9 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         Title="MainWindow"
-        mc:Ignorable="d">
+        mc:Ignorable="d"
+		d:DesignWidth="1300">
+	
     <Grid Margin="16">
        
         <Grid.ColumnDefinitions>
@@ -103,6 +105,7 @@
                 </Grid>
             </GroupBox>
         </Grid>
+		
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -112,6 +115,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Button Grid.Row="0" Width="48" HorizontalAlignment="Right" VerticalAlignment="Center" Content="+" Command="{Binding AddBotsToTournament}" />
+			<Button Grid.Row="0" Width="48" HorizontalAlignment="Left" VerticalAlignment="Center" Content="?" Command="{Binding ShowAboutHelp}" />
             <ListBox Grid.Row="2" VerticalAlignment="Stretch"
                      DisplayMemberPath="Name"
                      ItemsSource="{Binding Participants}" />

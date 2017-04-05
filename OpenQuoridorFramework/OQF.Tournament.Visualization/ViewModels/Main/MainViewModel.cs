@@ -9,6 +9,8 @@ using bytePassion.Lib.WpfLib.Commands;
 using Microsoft.Win32;
 using OQF.Bot.Contracts;
 using OQF.CommonUiElements.Board.ViewModels.Board;
+using OQF.CommonUiElements.Info;
+using OQF.Resources;
 using OQF.Tournament.Contracts;
 using OQF.Tournament.Contracts.DTO;
 using OQF.Tournament.Contracts.Logger;
@@ -43,6 +45,8 @@ namespace OQF.Tournament.Visualization.ViewModels.Main
 
             StartTournament = new Command(OnStartTournament);
             AbortTournament = new Command(OnAbortTournament);
+
+			ShowAboutHelp = new Command(DoShowAboutHelp);
 
 			dataLogger.OnNewLogEntry += OnNewLogEntry;
 			tournament.TournamentOver += OnTournamentOver;
@@ -80,7 +84,13 @@ namespace OQF.Tournament.Visualization.ViewModels.Main
 			);
         }
 
-        private void OnAddBot()
+		private void DoShowAboutHelp ()
+		{
+			InfoWindowService.Show(OpenQuoridorFrameworkInfo.Applications.Tournament.Info,								   							  
+								   InfoPage.About);
+		}
+
+		private void OnAddBot()
         {
             var dialog = new OpenFileDialog
             {
@@ -107,7 +117,8 @@ namespace OQF.Tournament.Visualization.ViewModels.Main
         public ICommand RemoveBotFromTournament { get; }
         public ICommand StartTournament { get; }
         public ICommand AbortTournament { get; }
-        public TournamentType SelectedTournamentMode { get; set; }
+	    public ICommand ShowAboutHelp { get; }
+	    public TournamentType SelectedTournamentMode { get; set; }
         public IEnumerable<TournamentType> TournamentModes { get; }
         public int MaximumMoveCount { get; set; }
         public int MaximumMoveDurationInSeconds { get; set; }

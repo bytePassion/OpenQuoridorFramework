@@ -17,5 +17,7 @@ namespace OQF.Tournament.Visualization.ViewModels.Main
         ICommand RemoveBotFromTournament { get; }
         ICommand StartTournament { get; }
         ICommand AbortTournament { get; }
+
+		ICommand ShowAboutHelp { get; }
     }
 }
