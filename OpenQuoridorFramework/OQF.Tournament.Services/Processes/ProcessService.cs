@@ -51,7 +51,7 @@ namespace OQF.Tournament.Services.Processes
 		}
 	
 
-	public void LoadBot(Guid internalProcessId, string dllPath, PlayerType playerSide, Action loadingFinishedCallback)
+		public void LoadBot(Guid internalProcessId, string dllPath, PlayerType playerSide, Action loadingFinishedCallback)
         {
             if (processes.ContainsKey(internalProcessId))
             {
