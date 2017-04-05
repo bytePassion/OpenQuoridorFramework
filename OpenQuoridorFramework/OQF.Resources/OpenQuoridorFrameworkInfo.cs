@@ -39,45 +39,11 @@ namespace OQF.Resources
 
 		public static class Applications
 		{
-			public static class PlayerVsBot
-			{
-				private const string Name               = "Player vs. Bot";
-				private const string ApplicationVersion = "1.2";
-				
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, ApplicationVersion);
-			}
-
-			public static class ReplayViewer
-			{
-				public const string Name               = "Replay Viewer";
-				public const string ApplicationVersion = "1.1";
-
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, ApplicationVersion);
-			}
-
-			public static class NetworkLanServer
-			{
-				public const string Name               = "Network.LanServer";
-				public const string ApplicationVersion = "1.0";
-
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, ApplicationVersion);
-			}
-
-			public static class NetworkDesktopClient
-			{
-				public const string Name               = "Network.DesktopClient";
-				public const string ApplicationVersion = "1.0.1";
-
-					public static readonly ApplicationInfo Info = new ApplicationInfo(Name, ApplicationVersion);
-			}
-
-			public static class Tournament
-			{
-				public const string Name               = "Tournament";
-				public const string ApplicationVersion = "0.4 Alpha";
-
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, ApplicationVersion);
-			}			
+			public static class PlayerVsBot          { public static readonly ApplicationInfo Info = new ApplicationInfo("Player vs. Bot",        "1.2");       }
+			public static class ReplayViewer         { public static readonly ApplicationInfo Info = new ApplicationInfo("Replay Viewer",         "1.1");       }
+			public static class NetworkLanServer     { public static readonly ApplicationInfo Info = new ApplicationInfo("Network.LanServer",     "1.0");       }
+			public static class NetworkDesktopClient { public static readonly ApplicationInfo Info = new ApplicationInfo("Network.DesktopClient", "1.0.1");     }
+			public static class Tournament           { public static readonly ApplicationInfo Info = new ApplicationInfo("Tournament",            "0.4 Alpha"); }			
 		}
 	}
 }
