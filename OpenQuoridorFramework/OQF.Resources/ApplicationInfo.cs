@@ -5,19 +5,18 @@ namespace OQF.Resources
 {
 	public class ApplicationInfo
 	{
-		public ApplicationInfo(string name, string version, string frameworkVersion, string licenceName, Uri licenceUri, 
-							   string developedBy, Uri developedByUri,
-							   IEnumerable<string> developers, IEnumerable<ThirdPartyItem> thirdPartyItems)
+		public ApplicationInfo(string name, string version)
 		{
 			Name = name;
 			ApplicationVersion = version;
-			LicenceName = licenceName;
-			LicenceUri = licenceUri;
-			Developers = developers;
-			ThirdPartyItems = thirdPartyItems;
-			DevelopedBy = developedBy;
-			DevelopedByUri = developedByUri;
-			FrameworkVersion = frameworkVersion;
+
+			LicenceName      = OpenQuoridorFrameworkInfo.Licence;
+			LicenceUri       = OpenQuoridorFrameworkInfo.LicenceUri;
+			Developers       = OpenQuoridorFrameworkInfo.ActiveDevelopers;
+			ThirdPartyItems  = OpenQuoridorFrameworkInfo.ThirdPartyItems;
+			DevelopedBy      = OpenQuoridorFrameworkInfo.DevelopedBy;
+			DevelopedByUri   = OpenQuoridorFrameworkInfo.DevelopedByUrl;
+			FrameworkVersion = OpenQuoridorFrameworkInfo.FrameworkVersion;
 		}
 
 		public IEnumerable<string>         Developers      { get; }

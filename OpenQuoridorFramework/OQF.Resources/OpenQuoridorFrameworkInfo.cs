@@ -35,7 +35,7 @@ namespace OQF.Resources
 		public static readonly Uri GitHubUri = new Uri(GitHubUriText);
 		public const string GitHubUriText = @"https://github.com/bytePassion/OpenQuoridorFramework.git";
 
-		public const string FrameworkVersion = "4.3.1";
+		public const string FrameworkVersion = "4.12.1";
 
 		public static class Applications
 		{
@@ -44,31 +44,15 @@ namespace OQF.Resources
 				private const string Name               = "Player vs. Bot";
 				private const string ApplicationVersion = "1.2";
 				
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, 
-																				  ApplicationVersion,
-																				  FrameworkVersion, 
-																				  Licence, 
-																				  LicenceUri, 
-																				  DevelopedBy,
-																				  DevelopedByUrl,
-																				  ActiveDevelopers, 
-																				  ThirdPartyItems);
+				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, ApplicationVersion);
 			}
 
 			public static class ReplayViewer
 			{
 				public const string Name               = "Replay Viewer";
 				public const string ApplicationVersion = "1.1";
-				
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name,
-																				  ApplicationVersion,
-																				  FrameworkVersion,
-																				  Licence, 
-																				  LicenceUri,
-																				  DevelopedBy,
-																				  DevelopedByUrl,
-																				  ActiveDevelopers, 
-																				  ThirdPartyItems);
+
+				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, ApplicationVersion);
 			}
 
 			public static class NetworkLanServer
@@ -76,15 +60,7 @@ namespace OQF.Resources
 				public const string Name               = "Network.LanServer";
 				public const string ApplicationVersion = "1.0";
 
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name,
-																				  ApplicationVersion,
-																				  FrameworkVersion,
-																				  Licence,
-																				  LicenceUri,
-																				  DevelopedBy,
-																				  DevelopedByUrl,
-																				  ActiveDevelopers,
-																				  ThirdPartyItems);
+				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, ApplicationVersion);
 			}
 
 			public static class NetworkDesktopClient
@@ -92,31 +68,15 @@ namespace OQF.Resources
 				public const string Name               = "Network.DesktopClient";
 				public const string ApplicationVersion = "1.0.1";
 
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name,
-																				  ApplicationVersion,
-																				  FrameworkVersion,
-																				  Licence,
-																				  LicenceUri,
-																				  DevelopedBy,
-																				  DevelopedByUrl,
-																				  ActiveDevelopers,
-																				  ThirdPartyItems);
-			}
+					public static readonly ApplicationInfo Info = new ApplicationInfo(Name, ApplicationVersion);
+				}
 
 			public static class Tournament
 			{
 				public const string Name               = "Tournament";
-				public const string ApplicationVersion = "0.0";
+				public const string ApplicationVersion = "0.9 Beta";
 
-				public static readonly ApplicationInfo Info = new ApplicationInfo(Name,
-																				  ApplicationVersion,
-																				  FrameworkVersion,
-																				  Licence,
-																				  LicenceUri,
-																				  DevelopedBy,
-																				  DevelopedByUrl,
-																				  ActiveDevelopers,
-																				  ThirdPartyItems);
+				public static readonly ApplicationInfo Info = new ApplicationInfo(Name, ApplicationVersion);
 			}			
 		}
 	}
