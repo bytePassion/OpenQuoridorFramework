@@ -85,6 +85,9 @@ namespace OQF.Tournament.Services.Processes
         {
 			if (processes.ContainsKey(internalProcessId))
 			{
+				processes[internalProcessId].Process.OutputDataReceived -= OutputHandler;
+				processes[internalProcessId].Process.ErrorDataReceived  -= OutputHandler;
+
 				portService.FreePort(processes[internalProcessId].Port);
                 new GameFinishedHandler(processes[internalProcessId].MessagingService);
 				processes[internalProcessId].MessagingService.SendMessage(new GameFinishedRequest());
