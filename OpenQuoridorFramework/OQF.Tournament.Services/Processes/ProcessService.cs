@@ -16,27 +16,42 @@ using OQF.Tournament.Services.Processes.MessageHandler;
 namespace OQF.Tournament.Services.Processes
 {
 	public class ProcessService : DisposingObject, IProcessService
-    {
-        private readonly IPortService portService;
-        private readonly IDictionary<Guid, ProcessData> processes;
+	{
+		private readonly IPortService portService;
+		private readonly IDictionary<Guid, ProcessData> processes;
 
-        public ProcessService(IPortService portService)
-        {
-            this.portService = portService;
-            processes = new Dictionary<Guid, ProcessData>();
-        }
+		public ProcessService(IPortService portService)
+		{
+			this.portService = portService;
+			processes = new Dictionary<Guid, ProcessData>();
+		}
 
-        public Guid CreateBotProcess()
-        {
-            var port = portService.GetPort();
-            var process = CreateWrapperProcessForBot(port);
-            process.Start();
-            var id = Guid.NewGuid();
-            processes.Add(id, new ProcessData(new MessagingService(port), id, process, port));
-            return id;
-        }
+		public Guid CreateBotProcess()
+		{
+			var port = portService.GetPort();
+			var process = CreateWrapperProcessForBot(port);
 
-        public void LoadBot(Guid internalProcessId, string dllPath, PlayerType playerSide, Action loadingFinishedCallback)
+			process.OutputDataReceived += OutputHandler;
+			process.ErrorDataReceived += OutputHandler;
+
+			process.Start();
+
+			process.BeginOutputReadLine();
+			process.BeginErrorReadLine();
+
+			var id = Guid.NewGuid();
+			processes.Add(id, new ProcessData(new MessagingService(port), id, process, port));
+			return id;
+		}
+
+		// This handler releases and shows stuck messages made by Console.Writes called by external loaded Dlls such as the Bot-Dlls
+		private static void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+		{
+			Debug.WriteLine(outLine.Data);
+		}
+	
+
+	public void LoadBot(Guid internalProcessId, string dllPath, PlayerType playerSide, Action loadingFinishedCallback)
         {
             if (processes.ContainsKey(internalProcessId))
             {
