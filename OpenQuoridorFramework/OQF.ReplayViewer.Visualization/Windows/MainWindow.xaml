@@ -214,7 +214,7 @@
             <Grid Margin="15">
 
                 <i:Interaction.Behaviors>
-                    <libBehaviors:KeepQuadratic />
+					<libBehaviors:KeepQuadratic Margin="16"/>
                 </i:Interaction.Behaviors>
 
                 <Grid.RowDefinitions>

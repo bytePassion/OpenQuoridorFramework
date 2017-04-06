@@ -30,7 +30,7 @@
 			<Grid Margin="15">
 
 				<i:Interaction.Behaviors>
-					<behaviors:KeepQuadratic />
+					<behaviors:KeepQuadratic Margin="16"/>
 				</i:Interaction.Behaviors>
 
 				<Grid.RowDefinitions>
@@ -138,11 +138,11 @@
 				<ListView ItemsSource="{Binding LogMessages}"/>
 
 				<i:Interaction.Behaviors>
-					<behaviors:AutoScrollDownBehavior >
-						<behaviors:AutoScrollDownBehavior.IsAutoScrollActive>
+					<behaviors:ScrollViewerAutoScrollDownBehavior >
+						<behaviors:ScrollViewerAutoScrollDownBehavior.IsAutoScrollActive>
 							<system:Boolean>True</system:Boolean>
-						</behaviors:AutoScrollDownBehavior.IsAutoScrollActive>
-					</behaviors:AutoScrollDownBehavior>
+						</behaviors:ScrollViewerAutoScrollDownBehavior.IsAutoScrollActive>
+					</behaviors:ScrollViewerAutoScrollDownBehavior>
 				</i:Interaction.Behaviors>
 			</ScrollViewer>
 										

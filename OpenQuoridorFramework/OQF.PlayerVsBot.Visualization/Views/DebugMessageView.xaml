@@ -61,7 +61,7 @@
 				</ItemsControl>
 
 				<i:Interaction.Behaviors>
-					<behaviors:AutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
+					<behaviors:ScrollViewerAutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollDebugMsgActive}" />
 				</i:Interaction.Behaviors>
 			</ScrollViewer>
 

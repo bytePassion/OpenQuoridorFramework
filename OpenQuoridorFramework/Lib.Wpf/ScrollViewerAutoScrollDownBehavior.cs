@@ -4,12 +4,12 @@ using System.Windows.Interactivity;
 
 namespace Lib.Wpf.Behaviors
 {
-	public class AutoScrollDownBehavior : Behavior<ScrollViewer>
+	public class ScrollViewerAutoScrollDownBehavior : Behavior<ScrollViewer>
     {
         public static readonly DependencyProperty IsAutoScrollActiveProperty =
             DependencyProperty.Register(nameof(IsAutoScrollActive),
 										typeof(bool),
-										typeof(AutoScrollDownBehavior));
+										typeof(ScrollViewerAutoScrollDownBehavior));
 
         public bool IsAutoScrollActive
         {

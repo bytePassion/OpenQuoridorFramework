@@ -53,7 +53,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoScrollDownBehavior.cs" />
+    <Compile Include="ScrollViewerAutoScrollDownBehavior.cs" />
     <Compile Include="IApplicationLifeCycle.cs" />
     <Compile Include="KeepQuadratic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

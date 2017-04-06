@@ -6,6 +6,18 @@ namespace Lib.Wpf.Behaviors
 {
 	public class KeepQuadratic : Behavior<FrameworkElement>
 	{
+		public static readonly DependencyProperty MarginProperty = 
+			DependencyProperty.Register("Margin", 
+									    typeof(double), 
+										typeof(KeepQuadratic), 
+										new PropertyMetadata(0.0));
+
+		public double Margin
+		{
+			get { return (double) GetValue(MarginProperty); }
+			set { SetValue(MarginProperty, value); }
+		}
+
 		protected override void OnAttached()
 		{
 			base.OnAttached();
@@ -23,8 +35,8 @@ namespace Lib.Wpf.Behaviors
 										? parentSize.Width 
 										: parentSize.Height;
 
-			AssociatedObject.Height = lengthOfSmalerSide - 32;
-			AssociatedObject.Width  = lengthOfSmalerSide - 32;
+			AssociatedObject.Height = lengthOfSmalerSide - Margin * 2;
+			AssociatedObject.Width  = lengthOfSmalerSide - Margin * 2;
 		}
 	}
 }
