@@ -127,10 +127,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lib.Wpf\Lib.Wpf.csproj">
-      <Project>{762EF986-E716-4D0B-A13B-360A0BF97086}</Project>
-      <Name>Lib.Wpf</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
       <Project>{8F773744-6FE4-49C2-8651-E6F29EC828FA}</Project>
       <Name>OQF.CommonUiElements</Name>

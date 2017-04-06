@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows;
-using Lib.Wpf;
+using bytePassion.Lib.Utils;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;

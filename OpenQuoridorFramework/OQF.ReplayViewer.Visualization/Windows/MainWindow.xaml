@@ -4,13 +4,13 @@
         xmlns:computations="clr-namespace:OQF.ReplayViewer.Visualization.Computations"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:helper="clr-namespace:OQF.ReplayViewer.Visualization.ViewModels.MainWindow.Helper"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        xmlns:libBehaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"        
         xmlns:mainWindow="clr-namespace:OQF.ReplayViewer.Visualization.ViewModels.MainWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:OQF.CommonUiElements.Board.Views;assembly=OQF.CommonUiElements"
         xmlns:languageSelection="clr-namespace:OQF.CommonUiElements.Language.LanguageSelection;assembly=OQF.CommonUiElements"
+        xmlns:behaviors="clr-namespace:bytePassion.Lib.WpfLib.Behaviors;assembly=bytePassion.Lib"
         Title="OpenQuoridorFramework - Replay Viewer"
         Width="1200"
         MinWidth="800"
@@ -214,7 +214,7 @@
             <Grid Margin="15">
 
                 <i:Interaction.Behaviors>
-					<libBehaviors:KeepQuadratic Margin="16"/>
+					<behaviors:KeepQuadratic Margin="16"/>
                 </i:Interaction.Behaviors>
 
                 <Grid.RowDefinitions>

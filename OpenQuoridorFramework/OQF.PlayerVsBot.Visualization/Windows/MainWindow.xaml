@@ -3,14 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:behaviors="clr-namespace:OQF.PlayerVsBot.Visualization.Behaviors"        
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"        
-        xmlns:libBehaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"                
         xmlns:mainWindow="clr-namespace:OQF.PlayerVsBot.Visualization.ViewModels.MainWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         xmlns:views="clr-namespace:OQF.PlayerVsBot.Visualization.Views"
         xmlns:views1="clr-namespace:OQF.CommonUiElements.Board.Views;assembly=OQF.CommonUiElements"
-        xmlns:progressView="clr-namespace:OQF.CommonUiElements.ProgressView;assembly=OQF.CommonUiElements"        
+        xmlns:progressView="clr-namespace:OQF.CommonUiElements.ProgressView;assembly=OQF.CommonUiElements"
+        xmlns:behaviors1="clr-namespace:bytePassion.Lib.WpfLib.Behaviors;assembly=bytePassion.Lib"
         Title="OpenQuoridorFramework - Player vs. Bot"
         Width="1200"
         Height="950"
@@ -87,7 +87,7 @@
                 <Grid Margin="15">
 
                     <i:Interaction.Behaviors>
-						<libBehaviors:KeepQuadratic Margin="16"/>
+						<behaviors1:KeepQuadratic Margin="16"/>
                     </i:Interaction.Behaviors>
 
                     <Grid.RowDefinitions>

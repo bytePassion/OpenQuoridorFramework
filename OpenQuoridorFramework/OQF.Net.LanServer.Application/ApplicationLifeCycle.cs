@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows;
-using Lib.Wpf;
+using bytePassion.Lib.Utils;
 using OQF.CommonUiElements.Language.LanguageSelection.ViewModel;
 using OQF.Net.LanServer.Contracts;
 using OQF.Net.LanServer.NetworkGameLogic.GameServer;

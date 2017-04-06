@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
 using bytePassion.Lib.Communication.State;
-using Lib.Wpf;
+using bytePassion.Lib.Utils;
 using OQF.Bot.Contracts.Coordination;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.CommonUiElements.Board.ViewModels.BoardLabeling;

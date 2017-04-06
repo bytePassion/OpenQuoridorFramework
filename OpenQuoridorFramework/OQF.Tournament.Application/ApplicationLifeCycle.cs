@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Lib.Wpf;
+using bytePassion.Lib.Utils;
 using OQF.CommonUiElements.Board.ViewModels.Board;
 using OQF.Tournament.Contracts;
 using OQF.Tournament.Services;

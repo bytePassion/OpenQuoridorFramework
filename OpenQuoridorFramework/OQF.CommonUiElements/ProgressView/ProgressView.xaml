@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:behaviors="clr-namespace:Lib.Wpf.Behaviors;assembly=Lib.Wpf"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"             
              xmlns:viewModel="clr-namespace:OQF.CommonUiElements.ProgressView.ViewModel"
              xmlns:computations="clr-namespace:OQF.CommonUiElements.ProgressView.Computations"
+             xmlns:behaviors1="clr-namespace:bytePassion.Lib.WpfLib.Behaviors;assembly=bytePassion.Lib"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
@@ -128,7 +128,7 @@
 					</ItemsControl>
 
 					<i:Interaction.Behaviors>
-						<behaviors:ScrollViewerAutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
+						<behaviors1:ScrollViewerAutoScrollDownBehavior IsAutoScrollActive="{Binding IsAutoScrollProgressActive}" />
 					</i:Interaction.Behaviors>
 				</ScrollViewer>
 			</Grid>
