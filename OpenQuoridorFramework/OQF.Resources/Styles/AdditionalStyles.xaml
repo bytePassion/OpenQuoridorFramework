@@ -89,8 +89,7 @@
                                                                        RelativeSource={RelativeSource TemplatedParent}}" />
 
                 <materialDesign:ComboBoxPopup x:Name="PART_Popup"
-                                                      AllowsTransparency="true"
-                                                      DefaultContentTemplate="{StaticResource PopupContentDefaultTemplate}"
+                                                      AllowsTransparency="true"                                                     
                                                       DefaultVerticalOffset="5"
                                                       DownContentTemplate="{StaticResource PopupContentDownTemplate}"
                                                       DownVerticalOffset="-15.5"
