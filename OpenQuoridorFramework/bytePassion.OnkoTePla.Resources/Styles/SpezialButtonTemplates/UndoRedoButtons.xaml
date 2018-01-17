@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="pack://application:,,,/bytePassion.OnkoTePla.Resources;component/Icons/Icons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/bytePassion.OnkoTePla.Resources;component/Styles/Fonts.xaml" />
+
+        <ResourceDictionary>
+
+            <Canvas x:Key="UndoButtonContent"
+                    Width="24" 
+                    Height="24">
+                
+                <Viewbox Width="30" 
+                         Height="30" 
+                         Canvas.Left="-8"
+                         Canvas.Top="-11">
+                    
+                    <Path Data="{StaticResource UndoIcon}"
+                          Fill="{StaticResource BrightFontColorBrush}" />
+                </Viewbox>
+            </Canvas>
+
+            <Canvas x:Key="RedoButtonContent"
+                    Width="24" 
+                    Height="24">
+                
+                <Viewbox Width="30" 
+                         Height="30" 
+                         Canvas.Left="-8"
+                         Canvas.Top="-11">
+                    
+                    <Path Data="{StaticResource RedoIcon}" 
+                          Fill="{StaticResource BrightFontColorBrush}" />
+                </Viewbox>
+            </Canvas>
+
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+    
+</ResourceDictionary>

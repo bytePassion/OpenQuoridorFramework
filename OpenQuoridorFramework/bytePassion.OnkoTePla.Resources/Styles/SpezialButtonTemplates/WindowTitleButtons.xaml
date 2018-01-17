@@ -1,0 +1,75 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="pack://application:,,,/bytePassion.OnkoTePla.Resources;component/Icons/Icons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/bytePassion.OnkoTePla.Resources;component/Styles/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/bytePassion.OnkoTePla.Resources;component/Styles/Brushes/Brushes.xaml" />
+        
+        <ResourceDictionary>
+
+            <Style TargetType="Border" x:Key="WindowButtonBorderStyle">
+                <Setter Property="Background" Value="Transparent"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{StaticResource WindowBarButtonBackgroundBrush}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <ControlTemplate TargetType="Button" x:Key="CloseButtonTemplate">
+                <Border Style="{StaticResource WindowButtonBorderStyle}">
+                    <Viewbox Width="18" Height="18">
+                        <Canvas Width="24" Height="24">
+                            <Path Canvas.Top="0"
+                                  Canvas.Left="0"
+                                  Data="{StaticResource CloseIcon}" 
+                                  Fill="{StaticResource BrightFontColorBrush}" />
+                        </Canvas>
+                    </Viewbox>
+                </Border>
+            </ControlTemplate>
+
+            <ControlTemplate TargetType="Button" x:Key="MaximizeButtonTemplate">
+                <Border Style="{StaticResource WindowButtonBorderStyle}">
+                    <Viewbox Width="16" Height="16">
+                        <Canvas Width="24" Height="24">
+                            <Path Canvas.Top="0"
+                                  Canvas.Left="0"
+                                  Data="{StaticResource MaximizeIcon}" 
+                                  Fill="{StaticResource BrightFontColorBrush}" />
+                        </Canvas>
+                    </Viewbox>
+                </Border>
+            </ControlTemplate>
+
+            <ControlTemplate TargetType="Button" x:Key="RestoreButtonTemplate">
+                <Border Style="{StaticResource WindowButtonBorderStyle}">
+                    <Viewbox Width="18" Height="18">
+                        <Canvas Width="24" Height="24">
+                            <Path Canvas.Top="0"
+                                  Canvas.Left="0"
+                                  Data="{StaticResource RestoreIcon}" 
+                                  Fill="{StaticResource BrightFontColorBrush}" />
+                        </Canvas>
+                    </Viewbox>
+                </Border>
+            </ControlTemplate>
+
+            <ControlTemplate TargetType="Button" x:Key="MinimizeButtonTemplate">
+                <Border Style="{StaticResource WindowButtonBorderStyle}">
+                    <Viewbox Width="16" Height="16">
+                        <Canvas Width="24" Height="24">
+                            <Path Canvas.Top="5"
+                                  Canvas.Left="0"
+                                  Data="{StaticResource MinimizeIcon}" 
+                                  Fill="{StaticResource BrightFontColorBrush}" />
+                        </Canvas>
+                    </Viewbox>
+                </Border>
+            </ControlTemplate>
+
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+    
+</ResourceDictionary>

@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:bytePassion.Lib.WpfLib.Converter;assembly=bytePassion.Lib">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="pack://application:,,,/bytePassion.OnkoTePla.Resources;component/Icons/Icons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/bytePassion.OnkoTePla.Resources;component/Styles/Brushes/Brushes.xaml" />
+
+        <ResourceDictionary>
+
+            <converter:InvertedBoolToCollapsedVisibilityConverter x:Key="InvertedBoolToCollapsedVisibilityConverter"/>
+            
+            <ControlTemplate x:Key="PlusButtonControlTemplate" TargetType="Button">
+
+                <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                    <Border Background="Transparent">
+                        <Viewbox>
+                            <Path Data="{StaticResource PlusIcon}" 
+                                  Fill="{StaticResource PlusButtonBackgroundBrush}" />
+                        </Viewbox>
+                    </Border>
+
+                    <Ellipse Margin="3,3,1,0"
+                             Fill="Gray"
+                             Opacity="0.9"
+                             Visibility="{TemplateBinding IsEnabled,
+                                                          Converter={StaticResource InvertedBoolToCollapsedVisibilityConverter}}" />
+                </Grid>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MinusButtonControlTemplate" TargetType="Button">
+
+                <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                    <Border Background="Transparent">
+                        <Viewbox>
+                            <Path Data="{StaticResource MinusIcon}" 
+                                  Fill="{StaticResource MinusButtonBackgroundBrush}" />
+                        </Viewbox>
+                    </Border>
+
+                    <Ellipse Margin="3,3,1,0"
+                             Fill="Gray"
+                             Opacity="0.9"
+                             Visibility="{TemplateBinding IsEnabled,
+                                                          Converter={StaticResource InvertedBoolToCollapsedVisibilityConverter}}" />
+                </Grid>
+            </ControlTemplate>
+
+
+
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+    
+</ResourceDictionary>

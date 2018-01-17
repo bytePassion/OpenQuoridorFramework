@@ -13,13 +13,8 @@
         <quoridorRulesPage:QuoridorRulesPageViewModelSampleData />
     </d:DesignData.DataContext>
 
-    <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
-
-    </UserControl.Resources>
-
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                  Style="{StaticResource CustomMaterialDesignScrollViewer}"
+    <!-- TODO !! -->
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"                
                   VerticalScrollBarVisibility="Auto">
 
         <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
@@ -116,7 +111,7 @@
 
                     <materialDesign:Card Width="150" Margin="0,0,0,0">
                         <StackPanel>
-							<Image Source="pack://application:,,,/OQF.Resources;Component/InfoImages/Board4.png" />
+                            <Image Source="pack://application:,,,/OQF.Resources;Component/InfoImages/Board4.png" />
                             <TextBlock Margin="6"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}"
                                        Text="{Binding Picture4Caption}"

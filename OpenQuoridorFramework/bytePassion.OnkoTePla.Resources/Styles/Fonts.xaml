@@ -1,0 +1,99 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+
+    <FontFamily    x:Key="StandardFontFamily"> Segoe UI          </FontFamily>
+    <FontFamily    x:Key="HeaderFontFamily">   Segoe UI SemiBold </FontFamily>
+    
+    <system:Double x:Key="NormalFontSize">      14 </system:Double>
+    <system:Double x:Key="HeaderFontSize">      20 </system:Double>
+    <system:Double x:Key="LargeHeaderFontSize"> 40 </system:Double>
+    
+    <SolidColorBrush x:Key="DarkFontColorBrush"          Color="#202020"     />
+    <SolidColorBrush x:Key="LightDarkFontColorBrush"     Color="#494949" />
+    <SolidColorBrush x:Key="VeryLightDarkFontColorBrush" Color="#a4a4a4" />
+    <SolidColorBrush x:Key="BrightFontColorBrush"        Color="#EAEEF0" />
+
+
+    
+    
+    
+    <!-- ##################################################################################################################### -->
+    <!-- ########################################                             ################################################ -->
+    <!-- ########################################         Normal Size         ################################################ -->
+    <!-- ########################################                             ################################################ -->
+    <!-- ##################################################################################################################### -->
+    
+    <Style x:Key="DarkTextBlockStyle"            TargetType="TextBlock">
+
+        <Setter Property="FontFamily" Value="{StaticResource StandardFontFamily}" />
+        <Setter Property="FontSize"   Value="{StaticResource NormalFontSize}"   />
+        <Setter Property="Foreground" Value="{StaticResource DarkFontColorBrush}" />
+    </Style>
+
+    <Style x:Key="LightDarkTextBlockStyle"       TargetType="TextBlock">
+
+        <Setter Property="FontFamily" Value="{StaticResource StandardFontFamily}" />
+        <Setter Property="FontSize"   Value="{StaticResource NormalFontSize}"   />
+        <Setter Property="Foreground" Value="{StaticResource LightDarkFontColorBrush}" />
+    </Style>
+
+    <Style x:Key="VeryLightDarkTextBlockStyle"   TargetType="TextBlock">
+
+        <Setter Property="FontFamily" Value="{StaticResource StandardFontFamily}" />
+        <Setter Property="FontSize"   Value="{StaticResource NormalFontSize}"   />
+        <Setter Property="Foreground" Value="{StaticResource VeryLightDarkFontColorBrush}" />
+    </Style>
+
+    <Style x:Key="BrightTextBlockStyle"          TargetType="TextBlock">
+
+        <Setter Property="FontFamily" Value="{StaticResource StandardFontFamily}"   />
+        <Setter Property="FontSize"   Value="{StaticResource NormalFontSize}"     />
+        <Setter Property="Foreground" Value="{StaticResource BrightFontColorBrush}" />
+    </Style>
+
+
+
+    
+
+    <!-- ##################################################################################################################### -->
+    <!-- ########################################                             ################################################ -->
+    <!-- ########################################            Header           ################################################ -->
+    <!-- ########################################                             ################################################ -->
+    <!-- ##################################################################################################################### -->
+
+    <Style x:Key="DarkHeaderTextBlockStyle"      TargetType="TextBlock">
+
+        <Setter Property="FontSize"   Value="{StaticResource HeaderFontSize}"     />
+        <Setter Property="FontFamily" Value="{StaticResource HeaderFontFamily}"     />
+        <Setter Property="Foreground" Value="{StaticResource DarkFontColorBrush}" />
+    </Style>
+
+    <Style x:Key="LightDarkHeaderTextBlockStyle"  TargetType="TextBlock">
+
+        <Setter Property="FontSize"   Value="{StaticResource HeaderFontSize}"     />
+        <Setter Property="FontFamily" Value="{StaticResource HeaderFontFamily}"     />
+        <Setter Property="Foreground" Value="{StaticResource LightDarkFontColorBrush}" />
+    </Style>
+
+
+
+    
+    
+    <!-- ##################################################################################################################### -->
+    <!-- ########################################                             ################################################ -->
+    <!-- ########################################         Large Header        ################################################ -->
+    <!-- ########################################                             ################################################ -->
+    <!-- ##################################################################################################################### -->
+
+    <Style x:Key="DarkLargeHeaderTextBlockStyle" TargetType="TextBlock" >
+
+        <Setter Property="FontSize"   Value="{StaticResource LargeHeaderFontSize}" />
+        <Setter Property="FontFamily" Value="{StaticResource HeaderFontFamily}"      />
+        <Setter Property="Foreground" Value="{StaticResource DarkFontColorBrush}"  />
+    </Style>
+
+
+
+</ResourceDictionary>

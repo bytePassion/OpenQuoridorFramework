@@ -16,20 +16,7 @@
 
 
     <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
-
-            </ResourceDictionary.MergedDictionaries>
-            <computations:GetFlagImageFromCountryCode x:Key="GetFlagImageFromCountryCode" />
-
-
-
-        </ResourceDictionary>
-
-
-
-
+        <computations:GetFlagImageFromCountryCode x:Key="GetFlagImageFromCountryCode" />
     </UserControl.Resources>
 
     <ComboBox Margin="4,0"
@@ -37,15 +24,20 @@
               SelectedValue="{Binding SelectedCountryCode,
                                       Mode=TwoWay,
                                       UpdateSourceTrigger=PropertyChanged}">
+
+        <!-- TODO !! -->
         <ComboBox.Style>
-            <Style BasedOn="{StaticResource MaterialDesignComboBoxBlank}" TargetType="{x:Type ComboBox}">
+            <Style  TargetType="{x:Type ComboBox}">
                 <Setter Property="BorderThickness" Value="0 0 0 0" />
 
             </Style>
         </ComboBox.Style>
+
+        <!--  TODO !!
         <ComboBox.Resources>
             <system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">0</system:Double>
         </ComboBox.Resources>
+        -->
 
         <ComboBox.ItemTemplate>
             <DataTemplate DataType="system:String">

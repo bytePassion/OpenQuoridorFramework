@@ -101,6 +101,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\bytePassion.OnkoTePla.Resources\bytePassion.OnkoTePla.Resources.csproj">
+      <Project>{1ff3c490-8680-46a5-ab65-6329863326dc}</Project>
+      <Name>bytePassion.OnkoTePla.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.ReplayViewer.Contracts\OQF.ReplayViewer.Contracts.csproj">
       <Project>{687B9BF9-025F-41D1-928D-AF349D624A50}</Project>
       <Name>OQF.ReplayViewer.Contracts</Name>

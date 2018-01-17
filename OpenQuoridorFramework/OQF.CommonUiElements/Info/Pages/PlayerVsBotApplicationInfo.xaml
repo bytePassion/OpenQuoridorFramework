@@ -13,13 +13,9 @@
         <playerVsBotInfoPage:PlayerVsBotInfoPageViewModelSampleData />
     </d:DesignData.DataContext>
 
-    <UserControl.Resources>
-		<ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
-	</UserControl.Resources>
-
+    <!-- TODO !! -->
     <ScrollViewer Background="White"
-                  HorizontalScrollBarVisibility="Disabled"
-                  Style="{StaticResource CustomMaterialDesignScrollViewer}"
+                  HorizontalScrollBarVisibility="Disabled"                  
                   VerticalScrollBarVisibility="Auto">
         <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 

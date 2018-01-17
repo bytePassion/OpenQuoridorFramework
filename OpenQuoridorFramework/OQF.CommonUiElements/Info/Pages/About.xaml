@@ -17,13 +17,9 @@
         <aboutPage:AboutPageViewModelSampleData />
     </d:DesignData.DataContext>
 
-    <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
-
-    </UserControl.Resources>
-
+    <!-- TODO !! -->
     <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                  VerticalScrollBarVisibility="Auto" Style="{StaticResource CustomMaterialDesignScrollViewer}">
+                  VerticalScrollBarVisibility="Auto">
 
         <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 
@@ -43,47 +39,47 @@
                                      Padding="8">
                     <StackPanel>
                         <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="{Binding ApplicationSectionHeader}" />
-						<Grid Margin="20,0,0,0">
-							<Grid.RowDefinitions>
-								<RowDefinition />
-								<RowDefinition />
-							</Grid.RowDefinitions>
+                        <Grid Margin="20,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
 
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="Auto" />
-								<ColumnDefinition />
-							</Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
 
-							<TextBlock Grid.Row="0"
+                            <TextBlock Grid.Row="0"
                                        Grid.Column="0"
                                        Margin="0,0,10,0"
                                        HorizontalAlignment="Right"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}">
                                 <Run Text="{Binding ApplicationNameSubItem, Mode=OneWay}"/>:
-							</TextBlock>
+                            </TextBlock>
 
-							<TextBlock Grid.Row="0"
+                            <TextBlock Grid.Row="0"
                                        Grid.Column="1"
                                        HorizontalAlignment="Left"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}"
                                        Text="{Binding ApplicationName}" />
 
-							<TextBlock Grid.Row="1"
+                            <TextBlock Grid.Row="1"
                                        Grid.Column="0"
                                        Margin="0,0,10,0"
                                        HorizontalAlignment="Right"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}">
                                 <Run Text="{Binding ApplicationVersionSubItem, Mode=OneWay}"/>:
-							</TextBlock>
+                            </TextBlock>
 
-							<TextBlock Grid.Row="1"
+                            <TextBlock Grid.Row="1"
                                        Grid.Column="1"
                                        HorizontalAlignment="Left"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}"
-									   Text="{Binding VersionIdentifier}"/>
+                                       Text="{Binding VersionIdentifier}"/>
 
-						</Grid>
-					</StackPanel>
+                        </Grid>
+                    </StackPanel>
                 </materialDesign:Card>
 
                 <materialDesign:Card Margin="8,0"
@@ -190,7 +186,7 @@
                                        HorizontalAlignment="Right"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}">
                                 <Run Text="{Binding QuoridorInventerSubItem, Mode=OneWay}" />:
-							</TextBlock>
+                            </TextBlock>
 
                             <TextBlock Grid.Row="0"
                                        Grid.Column="1"
@@ -204,7 +200,7 @@
                                        HorizontalAlignment="Right"
                                        Style="{StaticResource MaterialDesignBody1TextBlock}">
                                 <Run Text="{Binding QuoridorPublisherSubItem, Mode=OneWay}" />:
-							</TextBlock>
+                            </TextBlock>
 
                             <TextBlock Grid.Row="1"
                                        Grid.Column="1"
@@ -247,27 +243,27 @@
                     </StackPanel>
                 </materialDesign:Card>
 
-				<materialDesign:Card Margin="8,0"
+                <materialDesign:Card Margin="8,0"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-					<StackPanel>
-						<TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" >
-							<Run Text="{Binding DevelopedBy, Mode=OneWay}"/>
-							<Hyperlink NavigateUri="{Binding BytePassionUri}">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" >
+                            <Run Text="{Binding DevelopedBy, Mode=OneWay}"/>
+                            <Hyperlink NavigateUri="{Binding BytePassionUri}">
                                 <TextBlock Foreground="#FF0066CC" Text="{Binding BytePassionName}" />
 
                                 <i:Interaction.Behaviors>
                                     <behaviors:UrlNavigationBehavior />
                                 </i:Interaction.Behaviors>
                             </Hyperlink>
-						</TextBlock>
-						
-						<Image Source="pack://application:,,,/OQF.Resources;Component/Images/bytePassionLogo.png"
-							   MaxWidth="500"/>
-					</StackPanel>
-				</materialDesign:Card>
+                        </TextBlock>
+                        
+                        <Image Source="pack://application:,,,/OQF.Resources;Component/Images/bytePassionLogo.png"
+                               MaxWidth="500"/>
+                    </StackPanel>
+                </materialDesign:Card>
 
-			</StackPanel>
+            </StackPanel>
         </Grid>
     </ScrollViewer>
 </UserControl>

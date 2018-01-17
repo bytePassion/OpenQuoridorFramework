@@ -101,6 +101,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\bytePassion.OnkoTePla.Resources\bytePassion.OnkoTePla.Resources.csproj">
+      <Project>{1ff3c490-8680-46a5-ab65-6329863326dc}</Project>
+      <Name>bytePassion.OnkoTePla.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OQF.CommonUiElements\OQF.CommonUiElements.csproj">
       <Project>{8f773744-6fe4-49c2-8651-e6f29ec828fa}</Project>
       <Name>OQF.CommonUiElements</Name>

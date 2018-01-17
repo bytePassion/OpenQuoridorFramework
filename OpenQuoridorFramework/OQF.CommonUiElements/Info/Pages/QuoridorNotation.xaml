@@ -13,13 +13,9 @@
         <quoridorNotationPage:QuoridorNotationPageViewModelSampleData />
     </d:DesignData.DataContext>
 
-    <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
 
-    </UserControl.Resources>
-
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                  Style="{StaticResource CustomMaterialDesignScrollViewer}"
+    <!-- TODO !! -->
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"                  
                   VerticalScrollBarVisibility="Auto">
 
         <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">

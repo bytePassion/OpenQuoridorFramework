@@ -9,40 +9,36 @@
              d:DesignWidth="1000"
              mc:Ignorable="d">
 
-	<d:DesignData.DataContext>
-		<sampleData:ReplayViewerInfoPageViewModelSampleData />
-	</d:DesignData.DataContext>
+    <d:DesignData.DataContext>
+        <sampleData:ReplayViewerInfoPageViewModelSampleData />
+    </d:DesignData.DataContext>
 
-	<UserControl.Resources>
-		<ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
-	</UserControl.Resources>
-
-	<ScrollViewer Background="White"
-                  HorizontalScrollBarVisibility="Disabled"
-                  Style="{StaticResource CustomMaterialDesignScrollViewer}"
+    <!-- TODO !! -->
+    <ScrollViewer Background="White"
+                  HorizontalScrollBarVisibility="Disabled"                  
                   VerticalScrollBarVisibility="Auto">
-		<Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
+        <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
 
-			<Grid.RowDefinitions>
-				<RowDefinition Height="70" />
-				<RowDefinition />
-			</Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-			<TextBlock Margin="16,0,0,0"
+            <TextBlock Margin="16,0,0,0"
                        FontSize="35"
                        Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                        Text="{Binding PageHeader}" />
 
-			<StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1">
 
-				<materialDesign:Card Margin="8,0"
+                <materialDesign:Card Margin="8,0"
                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                      Padding="8">
-					<StackPanel>
-						<Image MaxWidth="1073"
+                    <StackPanel>
+                        <Image MaxWidth="1073"
                                Source="pack://application:,,,/OQF.Resources;Component/InfoImages/replayViewer_help_german.png"
                                Stretch="Uniform" />
-						<TextBlock Margin="0,20,0,16"
+                        <TextBlock Margin="0,20,0,16"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                                    TextWrapping="Wrap">
                             <Run Text="{Binding Explanation01, Mode=OneWay}" /> <LineBreak />
@@ -55,14 +51,14 @@
                             <Run Text="{Binding Explanation08, Mode=OneWay}" /> <LineBreak />
                             <Run Text="{Binding Explanation09, Mode=OneWay}" /> <LineBreak />
                             <Run Text="{Binding Explanation10, Mode=OneWay}" />
-						</TextBlock>
+                        </TextBlock>
 
-					</StackPanel>
+                    </StackPanel>
 
-				</materialDesign:Card>
+                </materialDesign:Card>
 
-			</StackPanel>
+            </StackPanel>
 
-		</Grid>
-	</ScrollViewer>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

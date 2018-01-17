@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.PlayerVsBot.Visualization", "OQF.PlayerVsBot.Visualization\OQF.PlayerVsBot.Visualization.csproj", "{2CB42D9D-79D7-4C2E-A1F4-EF7D85E33E2C}"
 EndProject
@@ -80,6 +80,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Tournament.Visualization", "OQF.Tournament.Visualization\OQF.Tournament.Visualization.csproj", "{7F6F313B-98CD-46BD-ACC9-025249C25523}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Tournament.Application", "OQF.Tournament.Application\OQF.Tournament.Application.csproj", "{0C47D701-12EE-4901-892B-DB1C7648B54F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bytePassion.OnkoTePla.Resources", "bytePassion.OnkoTePla.Resources\bytePassion.OnkoTePla.Resources.csproj", "{1FF3C490-8680-46A5-AB65-6329863326DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RTestApp", "RTestApp", "{22EAEA07-DDD2-4579-AF36-EE8E0A4C3414}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtestApp", "RtestApp\RtestApp.csproj", "{BBEAF7FD-A31E-4747-B8FD-B3D9744CAABC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -199,6 +205,14 @@ Global
 		{0C47D701-12EE-4901-892B-DB1C7648B54F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C47D701-12EE-4901-892B-DB1C7648B54F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C47D701-12EE-4901-892B-DB1C7648B54F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FF3C490-8680-46A5-AB65-6329863326DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF3C490-8680-46A5-AB65-6329863326DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF3C490-8680-46A5-AB65-6329863326DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF3C490-8680-46A5-AB65-6329863326DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBEAF7FD-A31E-4747-B8FD-B3D9744CAABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBEAF7FD-A31E-4747-B8FD-B3D9744CAABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBEAF7FD-A31E-4747-B8FD-B3D9744CAABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBEAF7FD-A31E-4747-B8FD-B3D9744CAABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -240,5 +254,11 @@ Global
 		{3E548063-9AAE-4144-BFFF-A537345D5075} = {56626F86-9DDA-4258-BC76-F71943782681}
 		{7F6F313B-98CD-46BD-ACC9-025249C25523} = {56626F86-9DDA-4258-BC76-F71943782681}
 		{0C47D701-12EE-4901-892B-DB1C7648B54F} = {56626F86-9DDA-4258-BC76-F71943782681}
+		{1FF3C490-8680-46A5-AB65-6329863326DC} = {8B363327-22CA-4F4C-9688-F3FE164324FE}
+		{22EAEA07-DDD2-4579-AF36-EE8E0A4C3414} = {4EADBE11-04E1-44FD-B0A3-F0CF22B1EAE4}
+		{BBEAF7FD-A31E-4747-B8FD-B3D9744CAABC} = {22EAEA07-DDD2-4579-AF36-EE8E0A4C3414}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCAFFB27-6294-41B9-8C8B-60DF9861B700}
 	EndGlobalSection
 EndGlobal

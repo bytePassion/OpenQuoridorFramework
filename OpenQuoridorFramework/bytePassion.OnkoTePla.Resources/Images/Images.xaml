@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ImageSource x:Key="BytePassionLogo"> bytePassionLogo.png </ImageSource>
+    <ImageSource x:Key="DeathRibbon"> death-ribbon.png </ImageSource>
+    
+    <ImageSource x:Key="Flagde"> Flags/de.png </ImageSource>
+    <ImageSource x:Key="Flagen"> Flags/en.png </ImageSource>
+    
+    <ImageSource x:Key="PlaceTypeBed1">   TherapyPlaceType/bed01.png   </ImageSource>
+    <ImageSource x:Key="PlaceTypeBed2">   TherapyPlaceType/bed02.png   </ImageSource>
+    <ImageSource x:Key="PlaceTypeChair1"> TherapyPlaceType/chair01.png </ImageSource>
+    <ImageSource x:Key="PlaceTypeChair2"> TherapyPlaceType/chair02.png </ImageSource>
+    
+    <ImageSource x:Key="ClientApplicationIcon">     Application/onkotepla-client.png     </ImageSource>
+    <ImageSource x:Key="ServerApplicationIcon">     Application/onkotepla-server.png     </ImageSource>
+    <ImageSource x:Key="BackupToolApplicationIcon"> Application/onkotepla-backupTool.png </ImageSource>
+    
+</ResourceDictionary>

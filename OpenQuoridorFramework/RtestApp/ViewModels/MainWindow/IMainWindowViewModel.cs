@@ -1,0 +1,40 @@
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
+using bytePassion.Lib.WpfLib.ViewModelBase;
+using RtestApp.ViewModels.MainWindow.Helper;
+
+namespace RtestApp.ViewModels.MainWindow
+{
+    internal interface IMainWindowViewModel : IViewModel
+    {
+//		IBoardViewModel BoardViewModel { get; }
+//		ILanguageSelectionViewModel LanguageSelectionViewModel { get; }
+//		IBoardLabelingViewModel BoardHorizontalLabelingViewModel { get; }
+//		IBoardLabelingViewModel BoardVerticalLabelingViewModel { get; }
+
+
+        ICommand LoadGame      { get; }
+        ICommand BrowseFile    { get; }
+        ICommand ShowAboutHelp { get; }
+        ICommand NextMove      { get; }
+        ICommand PreviousMove  { get; }
+
+        int MoveIndex { get; set; }
+        int MaxMoveIndex { get; }
+                                        
+        bool IsReplayLoaded { get; }
+                        
+        ObservableCollection<ProgressRow> ProgressRows { get; }
+
+        string LodingString { get; set; }	
+        
+        
+        string BrowseFileButtonCaption    { get; }
+        string InputPromtLabelCaption     { get; }
+        string LoadAndStartButtonCaption  { get; }	
+        string NextStepButtonCaption      { get; }
+        string PrevStepButtonCaption      { get; }
+        string ProgressSectionHeader      { get; }
+        string ShowAboutHelpButtonCaption { get; }
+    }
+}
