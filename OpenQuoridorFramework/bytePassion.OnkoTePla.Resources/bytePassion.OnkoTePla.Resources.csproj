@@ -56,12 +56,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationInfo.cs" />
-    <Compile Include="Languages\ClientLang\Client.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Client.resx</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow\Converter\MaximizeVisibilityConverter.cs" />
     <Compile Include="MainWindow\Converter\RestoreVisibilityConverter.cs" />
     <Compile Include="MainWindow\MoveMainWindowBehavior.cs" />
@@ -73,19 +67,9 @@
     <Compile Include="MainWindow\WindowsApi\Rect.cs" />
     <Compile Include="MainWindow\WindowsApi\WinApiPoint.cs" />
     <Compile Include="Styles\Converter\BrushRoundConverter.cs" />
-    <Compile Include="GlobalConstants.cs" />
-    <Compile Include="Languages\CommonLang\Common.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Common.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Images\Images.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainWindow\OnkoTePlaWindowStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -156,44 +140,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\death-ribbon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\bytePassionLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\TherapyPlaceType\bed01.png" />
-    <Resource Include="Images\TherapyPlaceType\bed02.png" />
-    <Resource Include="Images\TherapyPlaceType\chair01.png" />
-    <Resource Include="Images\TherapyPlaceType\chair02.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Languages\ClientLang\Client.de.resx" />
-    <EmbeddedResource Include="Languages\ClientLang\Client.en.resx" />
-    <EmbeddedResource Include="Languages\ClientLang\Client.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Client.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Languages\CommonLang\Common.de.resx" />
-    <EmbeddedResource Include="Languages\CommonLang\Common.en.resx" />
-    <EmbeddedResource Include="Languages\CommonLang\Common.resx">
-      <LastGenOutput>Common.Designer.cs</LastGenOutput>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Flags\de.png" />
-    <Resource Include="Images\Flags\en.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Application\onkotepla-client.png" />
-    <Resource Include="Images\Application\onkotepla-server.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Application\onkotepla-backupTool.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

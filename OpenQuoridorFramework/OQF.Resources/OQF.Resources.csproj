@@ -97,6 +97,10 @@
     <Resource Include="InfoImages\playerVsBot_help_german.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Images.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\AdditionalStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

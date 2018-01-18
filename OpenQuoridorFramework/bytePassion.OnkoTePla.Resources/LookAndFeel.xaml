@@ -17,7 +17,6 @@
         <ResourceDictionary Source="MainWindow/OnkoTePlaWindowStyle.xaml"/>
 
         <ResourceDictionary Source="Icons/Icons.xaml" />
-        <ResourceDictionary Source="Images/Images.xaml" />
         <ResourceDictionary Source="Styles/Brushes/Brushes.xaml" />
         <ResourceDictionary Source="Styles/Calendar.xaml" />
         <ResourceDictionary Source="Styles/ListBox.xaml" />
