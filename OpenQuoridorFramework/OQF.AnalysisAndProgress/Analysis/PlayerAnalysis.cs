@@ -6,29 +6,29 @@ using OQF.Bot.Contracts.GameElements;
 
 namespace OQF.AnalysisAndProgress.Analysis
 {
-	public static class PlayerAnalysis 
-	{		
-		public static PlayerAnalysisResult GetResult(BoardState boardState, PlayerType forPlayerType)
-		{		
-			var gameGraph = new Graph(boardState);
-							
-			if (boardState.CurrentMover.PlayerType == forPlayerType)
-			{
-				var possibleMoves = gameGraph.GetNode(forPlayerType == PlayerType.BottomPlayer 
-															? boardState.BottomPlayer.Position 
-															: boardState.TopPlayer.Position)
-										     .Neighbours
-										     .Select(nodeNeigbour => nodeNeigbour.Coord);
-				
-				var possibleWalls = GeneratePhysicalPossibleWalls(boardState);
+    public static class PlayerAnalysis 
+    {		
+        public static PlayerAnalysisResult GetResult(BoardState boardState, PlayerType forPlayerType)
+        {		
+            var gameGraph = new Graph(boardState);
+                            
+            if (boardState.CurrentMover.PlayerType == forPlayerType)
+            {
+                var possibleMoves = gameGraph.GetNode(forPlayerType == PlayerType.BottomPlayer 
+                                                            ? boardState.BottomPlayer.Position 
+                                                            : boardState.TopPlayer.Position)
+                                             .Neighbours
+                                             .Select(nodeNeigbour => nodeNeigbour.Coord);
+                
+                var possibleWalls = GeneratePhysicalPossibleWalls(boardState);
 
-				return new PlayerAnalysisResult(possibleWalls, possibleMoves);
-			}
-			
-			return null;
-		}
+                return new PlayerAnalysisResult(possibleWalls, possibleMoves);
+            }
+            
+            return null;
+        }
 
-		
+        
 
 //		First version
 //		
@@ -42,7 +42,7 @@ namespace OQF.AnalysisAndProgress.Analysis
 //				{
 //					var coord = new FieldCoordinate(xCoord, yCoord);
 //
-//					var placedWalls = boardState.PlacedWalls;
+//				    var placedWalls = boardState.PlacedWalls;
 //
 //					if (placedWalls.Any(wall => wall.TopLeft == coord))
 //						continue;
@@ -66,46 +66,46 @@ namespace OQF.AnalysisAndProgress.Analysis
 //			return resultList;
 //		}
 
-		private static IEnumerable<Wall> GeneratePhysicalPossibleWalls (BoardState boardState)
-		{
-			var allHorizontalWalls = new Dictionary<FieldCoordinate, Wall>();
-			var allVerticalWalls  = new Dictionary<FieldCoordinate, Wall>();			
+        private static IEnumerable<Wall> GeneratePhysicalPossibleWalls (BoardState boardState)
+        {
+            var allHorizontalWalls = new Dictionary<FieldCoordinate, Wall>();
+            var allVerticalWalls  = new Dictionary<FieldCoordinate, Wall>();			
 
-			for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
-			{
-				for (var yCoord = YField.Nine; yCoord < YField.One; yCoord++)
-				{
-					var coord = new FieldCoordinate(xCoord, yCoord);
+            for (var xCoord = XField.A; xCoord < XField.I; xCoord++)
+            {
+                for (var yCoord = YField.Nine; yCoord < YField.One; yCoord++)
+                {
+                    var coord = new FieldCoordinate(xCoord, yCoord);
 
-					allHorizontalWalls.Add(coord, new Wall(coord, WallOrientation.Horizontal));
-					allVerticalWalls.Add  (coord, new Wall(coord, WallOrientation.Vertical));					
-				}
-			}
+                    allHorizontalWalls.Add(coord, new Wall(coord, WallOrientation.Horizontal));
+                    allVerticalWalls.Add  (coord, new Wall(coord, WallOrientation.Vertical));					
+                }
+            }
 
-			var horizontalWalls = boardState.PlacedWalls.Where(wall => wall.Orientation == WallOrientation.Horizontal);
-			var verticalWalls   = boardState.PlacedWalls.Where(wall => wall.Orientation == WallOrientation.Vertical);
+            var horizontalWalls = boardState.PlacedWalls.Where(wall => wall.Orientation == WallOrientation.Horizontal);
+            var verticalWalls   = boardState.PlacedWalls.Where(wall => wall.Orientation == WallOrientation.Vertical);
 
-			foreach (var verticalWall in verticalWalls)
-			{
-				var topLeft = verticalWall.TopLeft;
+            foreach (var verticalWall in verticalWalls)
+            {
+                var topLeft = verticalWall.TopLeft;
 
-				allHorizontalWalls.Remove(topLeft);
-				allVerticalWalls.Remove(topLeft);				
-				allVerticalWalls.Remove(new FieldCoordinate(topLeft.XCoord, topLeft.YCoord + 1));
-				allVerticalWalls.Remove(new FieldCoordinate(topLeft.XCoord, topLeft.YCoord - 1));
-			}
+                allHorizontalWalls.Remove(topLeft);
+                allVerticalWalls.Remove(topLeft);				
+                allVerticalWalls.Remove(new FieldCoordinate(topLeft.XCoord, topLeft.YCoord + 1));
+                allVerticalWalls.Remove(new FieldCoordinate(topLeft.XCoord, topLeft.YCoord - 1));
+            }
 
-			foreach (var horizontalWall in horizontalWalls)
-			{
-				var topLeft = horizontalWall.TopLeft;
+            foreach (var horizontalWall in horizontalWalls)
+            {
+                var topLeft = horizontalWall.TopLeft;
 
-				allVerticalWalls.Remove(topLeft);
-				allHorizontalWalls.Remove(topLeft);				
-				allHorizontalWalls.Remove(new FieldCoordinate(topLeft.XCoord - 1, topLeft.YCoord));
-				allHorizontalWalls.Remove(new FieldCoordinate(topLeft.XCoord + 1, topLeft.YCoord));
-			}
+                allVerticalWalls.Remove(topLeft);
+                allHorizontalWalls.Remove(topLeft);				
+                allHorizontalWalls.Remove(new FieldCoordinate(topLeft.XCoord - 1, topLeft.YCoord));
+                allHorizontalWalls.Remove(new FieldCoordinate(topLeft.XCoord + 1, topLeft.YCoord));
+            }
 
-			return allHorizontalWalls.Values.Concat(allVerticalWalls.Values);
-		}
-	}
+            return allHorizontalWalls.Values.Concat(allVerticalWalls.Values);
+        }
+    }
 }

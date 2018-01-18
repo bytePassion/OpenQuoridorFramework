@@ -65,7 +65,6 @@
     <Compile Include="ProgressUtils\Parsing\MoveParser.cs" />
     <Compile Include="ProgressUtils\Parsing\ParseProgressText.cs" />
     <Compile Include="ProgressUtils\QProgress.cs" />
-    <Compile Include="ProgressUtils\UpdateQProgress.cs" />
     <Compile Include="ProgressUtils\Validation\MoveValidator.cs" />
     <Compile Include="ProgressUtils\Validation\ProgressVerificationResult.cs" />
     <Compile Include="ProgressUtils\Validation\ProgressVerifier.cs" />

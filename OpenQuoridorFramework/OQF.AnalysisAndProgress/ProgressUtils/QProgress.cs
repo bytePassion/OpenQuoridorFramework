@@ -7,27 +7,21 @@ using OQF.Utils.BoardStateUtils;
 
 namespace OQF.AnalysisAndProgress.ProgressUtils
 {
-	public class QProgress
-	{
-		internal QProgress(IEnumerable<Move> moves)
-		{
-			Moves = moves;
-		}
+    public class QProgress
+    {
+        internal QProgress(IEnumerable<Move> moves)
+        {
+            Moves = moves;
+        }
 
-		public IEnumerable<Move> Moves { get; }
-		public int MoveCount => Moves.Count();
-		public string Compressed => ProgressCoding.ProgressToCompressedString(Moves);
+        public IEnumerable<Move> Moves { get; }
+        public int MoveCount => Moves.Count();
+        public string Compressed => ProgressCoding.ProgressToCompressedString(Moves);
 
-		public BoardState GetBoardState(Player bottomPlayer, Player topPlayer)
-		{
-			var boardState = BoardStateTransition.CreateInitialBoadState(topPlayer, bottomPlayer);
-
-			foreach (var move in Moves)
-			{
-				boardState = boardState.ApplyMove(move);
-			}
-
-			return boardState;			
-		}
-	}
+        public BoardState GetBoardState(Player bottomPlayer, Player topPlayer)
+        {
+            var boardState = BoardStateTransition.CreateInitialBoadState(topPlayer, bottomPlayer);
+            return Moves.Aggregate(boardState, (current, move) => current.ApplyMove(move));			
+        }
+    }
 }

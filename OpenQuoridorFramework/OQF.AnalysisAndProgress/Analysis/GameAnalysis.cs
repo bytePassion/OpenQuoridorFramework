@@ -6,52 +6,52 @@ using OQF.Bot.Contracts.Moves;
 
 namespace OQF.AnalysisAndProgress.Analysis
 {
-	public static class GameAnalysis
-	{
-	    public static bool IsMoveLegal(BoardState currentBoardState, Move potentialNextMove)
-		{
-		    if (potentialNextMove is Capitulation)
-		    {
-			    return true;
-		    }
+    public static class GameAnalysis
+    {
+        public static bool IsMoveLegal(BoardState currentBoardState, Move potentialNextMove)
+        {
+            if (potentialNextMove is Capitulation)
+            {
+                return true;
+            }
 
-			if (potentialNextMove is WallMove)
-			{
-				if (currentBoardState.PlacedWalls.Select(wall => wall.TopLeft).Contains(((WallMove) potentialNextMove).PlacedWall.TopLeft))
-				{
-					return false;
-				}
+            if (potentialNextMove is WallMove move)
+            {
+                if (currentBoardState.PlacedWalls.Select(wall => wall.TopLeft).Contains(move.PlacedWall.TopLeft))
+                {
+                    return false;
+                }
 
-				if (currentBoardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
-				{
-					if (currentBoardState.BottomPlayer.WallsToPlace == 0)
-						return false;					
-				}
-				else
-				{
-					if (currentBoardState.TopPlayer.WallsToPlace == 0)
-						return false;
-				}
-			}
+                if (currentBoardState.CurrentMover.PlayerType == PlayerType.BottomPlayer)
+                {
+                    if (currentBoardState.BottomPlayer.WallsToPlace == 0)
+                        return false;					
+                }
+                else
+                {
+                    if (currentBoardState.TopPlayer.WallsToPlace == 0)
+                        return false;
+                }
+            }
 
-			var gameGraph = new Graph(currentBoardState);
+            var gameGraph = new Graph(currentBoardState);
 
-			return gameGraph.ValidateMove(potentialNextMove, currentBoardState.CurrentMover.PlayerType);           		              
-		}
+            return gameGraph.ValidateMove(potentialNextMove, currentBoardState.CurrentMover.PlayerType);           		              
+        }
 
-		public static Player CheckWinningCondition(BoardState currentBoardState)
-		{
-			var topPlayerState = currentBoardState.TopPlayer;
+        public static Player CheckWinningCondition(BoardState currentBoardState)
+        {
+            var topPlayerState = currentBoardState.TopPlayer;
 
-			if (topPlayerState.Position.YCoord == YField.One)
-				return topPlayerState.Player;
+            if (topPlayerState.Position.YCoord == YField.One)
+                return topPlayerState.Player;
 
-			var bottomPlayerState = currentBoardState.BottomPlayer;
+            var bottomPlayerState = currentBoardState.BottomPlayer;
 
-			if (bottomPlayerState.Position.YCoord == YField.Nine)
-				return bottomPlayerState.Player;
+            if (bottomPlayerState.Position.YCoord == YField.Nine)
+                return bottomPlayerState.Player;
 
-			return null;
-		}
-	}
+            return null;
+        }
+    }
 }
