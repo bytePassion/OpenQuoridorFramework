@@ -8,7 +8,7 @@ using OQF.Resources2.MainWindow.WindowsApi;
 
 namespace OQF.Resources2.MainWindow
 {
-    public class OnkoTePlaMainWindow : Window
+    public class OpenQuoridorFrameworkMainWindow : Window
     {
         private enum WindowBorderEdge
         {
@@ -35,7 +35,7 @@ namespace OQF.Resources2.MainWindow
         private FrameworkElement borderBottomLeft;
 
 
-        public OnkoTePlaMainWindow()
+        public OpenQuoridorFrameworkMainWindow()
         {
             SourceInitialized += (sender, e) =>
             {
@@ -43,7 +43,7 @@ namespace OQF.Resources2.MainWindow
                 var hwndSource = HwndSource.FromHwnd(handle);
                 hwndSource?.AddHook(WndProc);
             };
-            Style = (Style)FindResource("OnkoTePlaWindowStyle");
+            Style = (Style)FindResource("OpenQuoridorFrameworkWindowStyle");
         }
 
 

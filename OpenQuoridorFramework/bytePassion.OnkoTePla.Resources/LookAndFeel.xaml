@@ -14,7 +14,7 @@
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.BlueGrey.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.DeepOrange.xaml" />
 
-        <ResourceDictionary Source="MainWindow/OnkoTePlaWindowStyle.xaml"/>
+        <ResourceDictionary Source="MainWindow/OpenQuoridorFrameworkWindowStyle.xaml"/>
 
         <ResourceDictionary Source="Icons/Icons.xaml" />
         <ResourceDictionary Source="Styles/Brushes/Brushes.xaml" />

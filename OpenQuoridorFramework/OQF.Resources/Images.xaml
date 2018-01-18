@@ -12,8 +12,5 @@
 <!--    <ImageSource x:Key="PlaceTypeChair1"> TherapyPlaceType/chair01.png </ImageSource>-->
 <!--    <ImageSource x:Key="PlaceTypeChair2"> TherapyPlaceType/chair02.png </ImageSource>-->
 <!--    -->
-<!--    <ImageSource x:Key="ClientApplicationIcon">     Application/onkotepla-client.png     </ImageSource>-->
-<!--    <ImageSource x:Key="ServerApplicationIcon">     Application/onkotepla-server.png     </ImageSource>-->
-<!--    <ImageSource x:Key="BackupToolApplicationIcon"> Application/onkotepla-backupTool.png </ImageSource>-->
     
 </ResourceDictionary>

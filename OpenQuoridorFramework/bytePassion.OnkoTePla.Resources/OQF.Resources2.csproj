@@ -59,7 +59,7 @@
     <Compile Include="MainWindow\Converter\MaximizeVisibilityConverter.cs" />
     <Compile Include="MainWindow\Converter\RestoreVisibilityConverter.cs" />
     <Compile Include="MainWindow\MoveMainWindowBehavior.cs" />
-    <Compile Include="MainWindow\OnkoTePlaMainWindow.cs" />
+    <Compile Include="MainWindow\OpenQuoridorFrameworkMainWindow.cs" />
     <Compile Include="MainWindow\Converter\MinimizeVisibilityConverter.cs" />
     <Compile Include="MainWindow\WindowsApi\Minmaxinfo.cs" />
     <Compile Include="MainWindow\WindowsApi\Monitorinfo.cs" />
@@ -70,7 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainWindow\OnkoTePlaWindowStyle.xaml">
+    <Page Include="MainWindow\OpenQuoridorFrameworkWindowStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
