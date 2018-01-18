@@ -4,9 +4,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
-using bytePassion.OnkoTePla.Resources.MainWindow.WindowsApi;
+using OQF.Resources2.MainWindow.WindowsApi;
 
-namespace bytePassion.OnkoTePla.Resources.MainWindow
+namespace OQF.Resources2.MainWindow
 {
     public class OnkoTePlaMainWindow : Window
     {

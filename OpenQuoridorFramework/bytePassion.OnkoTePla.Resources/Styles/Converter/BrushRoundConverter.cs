@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace bytePassion.OnkoTePla.Resources.Styles.Converter
+namespace OQF.Resources2.Styles.Converter
 {
     public class BrushRoundConverter : IValueConverter
     {

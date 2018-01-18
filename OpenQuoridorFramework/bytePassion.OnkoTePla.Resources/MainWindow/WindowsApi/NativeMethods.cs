@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace bytePassion.OnkoTePla.Resources.MainWindow.WindowsApi
+namespace OQF.Resources2.MainWindow.WindowsApi
 {
     internal static class NativeMethods
     {

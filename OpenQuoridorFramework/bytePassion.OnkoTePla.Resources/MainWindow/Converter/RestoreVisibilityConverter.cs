@@ -2,7 +2,7 @@
 using System.Windows;
 using bytePassion.Lib.WpfLib.ConverterBase;
 
-namespace bytePassion.OnkoTePla.Resources.MainWindow.Converter
+namespace OQF.Resources2.MainWindow.Converter
 {
     internal class RestoreVisibilityConverter : GenericTwoToOneValueConverter<ResizeMode, WindowState, Visibility>
     {

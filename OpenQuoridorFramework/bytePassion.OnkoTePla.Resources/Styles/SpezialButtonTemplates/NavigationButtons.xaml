@@ -2,9 +2,9 @@
 
     <ResourceDictionary.MergedDictionaries>
 
-        <ResourceDictionary Source="pack://application:,,,/bytePassion.OnkoTePla.Resources;component/Icons/Icons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/bytePassion.OnkoTePla.Resources;component/Styles/Brushes/Brushes.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/bytePassion.OnkoTePla.Resources;component/Styles/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources2;component/Icons/Icons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources2;component/Styles/Brushes/Brushes.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources2;component/Styles/Fonts.xaml" />
 
         <ResourceDictionary>
 

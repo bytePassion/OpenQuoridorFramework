@@ -81,7 +81,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Tournament.Visualizatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Tournament.Application", "OQF.Tournament.Application\OQF.Tournament.Application.csproj", "{0C47D701-12EE-4901-892B-DB1C7648B54F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bytePassion.OnkoTePla.Resources", "bytePassion.OnkoTePla.Resources\bytePassion.OnkoTePla.Resources.csproj", "{1FF3C490-8680-46A5-AB65-6329863326DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OQF.Resources2", "bytePassion.OnkoTePla.Resources\OQF.Resources2.csproj", "{1FF3C490-8680-46A5-AB65-6329863326DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

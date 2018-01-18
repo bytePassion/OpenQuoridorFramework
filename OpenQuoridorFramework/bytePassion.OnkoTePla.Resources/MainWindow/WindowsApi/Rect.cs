@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace bytePassion.OnkoTePla.Resources.MainWindow.WindowsApi
+namespace OQF.Resources2.MainWindow.WindowsApi
 {
     [StructLayout(LayoutKind.Sequential, Pack = 0)]
     public struct Rect

@@ -7,8 +7,8 @@
     <ProjectGuid>{1FF3C490-8680-46A5-AB65-6329863326DC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bytePassion.OnkoTePla.Resources</RootNamespace>
-    <AssemblyName>bytePassion.OnkoTePla.Resources</AssemblyName>
+    <RootNamespace>OQF.Resources2</RootNamespace>
+    <AssemblyName>OQF.Resources2</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

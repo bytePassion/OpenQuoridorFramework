@@ -111,9 +111,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\bytePassion.OnkoTePla.Resources\bytePassion.OnkoTePla.Resources.csproj">
+    <ProjectReference Include="..\bytePassion.OnkoTePla.Resources\OQF.Resources2.csproj">
       <Project>{1ff3c490-8680-46a5-ab65-6329863326dc}</Project>
-      <Name>bytePassion.OnkoTePla.Resources</Name>
+      <Name>OQF.Resources2</Name>
     </ProjectReference>
     <ProjectReference Include="..\OQF.AnalysisAndProgress\OQF.AnalysisAndProgress.csproj">
       <Project>{1BD024DD-F067-439E-9A9D-87739108D8D9}</Project>

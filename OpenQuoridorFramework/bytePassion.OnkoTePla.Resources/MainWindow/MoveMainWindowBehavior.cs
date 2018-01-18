@@ -5,7 +5,7 @@ using System.Windows.Interactivity;
 using bytePassion.Lib.FrameworkExtensions;
 using bytePassion.Lib.WpfLib.Commands;
 
-namespace bytePassion.OnkoTePla.Resources.MainWindow
+namespace OQF.Resources2.MainWindow
 {
     public class MoveMainWindowBehavior : Behavior<FrameworkElement>
     {
