@@ -8,11 +8,11 @@
              d:DesignWidth="300"
              mc:Ignorable="d">
 
-	<d:DesignData.DataContext>
-		<botVsBotInfoPage:BotVsBotInfoPageViewModelSampleData/>
-	</d:DesignData.DataContext>
-	
-    <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
+    <d:DesignData.DataContext>
+        <botVsBotInfoPage:BotVsBotInfoPageViewModelSampleData/>
+    </d:DesignData.DataContext>
+
+    <Grid Background="Aquamarine">
 
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Center"

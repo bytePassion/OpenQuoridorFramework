@@ -21,7 +21,7 @@
     <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                   VerticalScrollBarVisibility="Auto">
 
-        <Grid Background="{DynamicResource MaterialDesignFlatButtonClick}">
+        <Grid Background="Aquamarine">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="70" />

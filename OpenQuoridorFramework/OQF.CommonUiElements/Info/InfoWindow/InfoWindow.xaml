@@ -20,7 +20,7 @@
         MinHeight="400"
         d:DesignHeight="700"
         d:DesignWidth="700"
-        Background="{DynamicResource MaterialDesignFlatButtonClick}"
+        Background="Aquamarine"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         TextElement.FontSize="12"
         TextElement.FontWeight="Medium"
@@ -64,7 +64,7 @@
     </d:DesignData.DataContext>
 
     <Grid Margin="0,30,0,0"
-          Background="{DynamicResource MaterialDesignFlatButtonClick}"
+          Background="Aquamarine"
           ZIndex="99">
 
         <Grid.ColumnDefinitions>
@@ -99,7 +99,7 @@
 
         <Border Grid.Row="0"
                 Grid.Column="1"
-                Background="{DynamicResource MaterialDesignFlatButtonClick}">
+                Background="Aquamarine">
             <ContentControl Content="{Binding ElementName=Pages, Path=SelectedItem}" />
         </Border>
        

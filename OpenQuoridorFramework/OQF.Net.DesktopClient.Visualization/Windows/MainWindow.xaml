@@ -15,7 +15,7 @@
         Height="950"
         MinWidth="1000"
         MinHeight="600"
-        Background="{DynamicResource MaterialDesignFlatButtonClick}"
+        Background="{DynamicResource Aquamarine}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         TextElement.FontSize="12"
         TextElement.FontWeight="Medium"
