@@ -1,3 +1,5 @@
+##WARNING: the current state of the master-branch is unstable - please use the latest release!!
+
 ![OQF_Logo](/OpenQuoridorFramework/quoridor_logo.ico)
 
 # OpenQuoridorFramework (4.7.1)
