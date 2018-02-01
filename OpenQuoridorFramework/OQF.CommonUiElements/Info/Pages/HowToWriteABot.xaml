@@ -19,7 +19,7 @@
                   HorizontalScrollBarVisibility="Disabled"
                 
                   VerticalScrollBarVisibility="Auto">
-        <Grid Background="{DynamicResource Aquamarine}">
+        <Grid Background="Aquamarine">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="70" />

@@ -125,9 +125,6 @@
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
     <Compile Include="Info\Pages\Behaviors\UrlNavigationBehavior.cs" />
-    <Compile Include="Info\Pages\BotVsBotApplicationInfo.xaml.cs">
-      <DependentUpon>BotVsBotApplicationInfo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Info\Pages\HowToWriteABot.xaml.cs">
       <DependentUpon>HowToWriteABot.xaml</DependentUpon>
     </Compile>
@@ -234,10 +231,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Info\Pages\About.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Info\Pages\BotVsBotApplicationInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -45,17 +45,17 @@
                           Background="Transparent"
                           ItemsSource="{Binding VisiblePlayers}">
 
-				<ItemsControl.ItemsPanel>
+                <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 
                 <!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
-				<ItemsControl.ItemContainerStyle>
-					<Style TargetType="ContentPresenter">
-						<Setter Property="Margin" Value="2,2,0,0" />
-						<Setter Property="Canvas.Left">
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Margin" Value="2,2,0,0" />
+                        <Setter Property="Canvas.Left">
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeFigureLeftPosition}">
                                     <Binding />
@@ -75,17 +75,16 @@
 
                         <Setter Property="ContentTemplate">
                             <Setter.Value>
-								<DataTemplate DataType="gameElements:PlayerState">
+                                <DataTemplate DataType="gameElements:PlayerState">
 
                                     <Ellipse Fill="{Binding Converter={StaticResource PlayerColor}}" RenderTransformOrigin="0.5,0.5">
-										<Ellipse.RenderTransform>
-											<RotateTransform Angle="-45" />
-										</Ellipse.RenderTransform>
+                                        <Ellipse.RenderTransform>
+                                            <RotateTransform Angle="-45" />
+                                        </Ellipse.RenderTransform>
                                         <Ellipse.Width>
                                             <MultiBinding Converter="{StaticResource ComputeFigureWidth}">
                                                 <Binding />
                                                 <Binding ElementName="VisiblePlayersBox" Path="DataContext.BoardSize" />
-
                                             </MultiBinding>
                                         </Ellipse.Width>
 
@@ -108,24 +107,24 @@
 
             </ItemsControl>
 
-			<ItemsControl Name="VisibleWallBox"
-						  Background="Transparent"						 
-						  ItemsSource="{Binding VisibleWalls}">
-				<ItemsControl.ItemsPanel>
+            <ItemsControl Name="VisibleWallBox"
+                          Background="Transparent"						 
+                          ItemsSource="{Binding VisibleWalls}">
+                <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 
                 <!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
-				<ItemsControl.ItemContainerStyle>
-					<Style TargetType="ContentPresenter">
-						<Setter Property="Canvas.Left">
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left">
                             <Setter.Value>
                                 <MultiBinding Converter="{StaticResource ComputeWallLeftPosition}">
                                     <Binding />
-									<Binding ElementName="VisibleWallBox" Path="DataContext.BoardSize" />
-								</MultiBinding>
+                                    <Binding ElementName="VisibleWallBox" Path="DataContext.BoardSize" />
+                                </MultiBinding>
                             </Setter.Value>
                         </Setter>
 
@@ -141,7 +140,7 @@
 
                         <Setter Property="ContentTemplate">
                             <Setter.Value>
-								<DataTemplate DataType="gameElements:Wall">
+                                <DataTemplate DataType="gameElements:Wall">
 
                                     <Rectangle Fill="{x:Static boardColors:Brushes.WallColor}"
                                                Stroke="{x:Static boardColors:Brushes.FrameColor}"
@@ -150,15 +149,15 @@
                                         <Rectangle.Width>
                                             <MultiBinding Converter="{StaticResource ComputeWallWidth}">
                                                 <Binding />
-												<Binding ElementName="VisibleWallBox" Path="DataContext.BoardSize" />
-											</MultiBinding>
+                                                <Binding ElementName="VisibleWallBox" Path="DataContext.BoardSize" />
+                                            </MultiBinding>
                                         </Rectangle.Width>
 
                                         <Rectangle.Height>
                                             <MultiBinding Converter="{StaticResource ComputeWallHeight}">
                                                 <Binding />
-												<Binding ElementName="VisibleWallBox" Path="DataContext.BoardSize" />
-											</MultiBinding>
+                                                <Binding ElementName="VisibleWallBox" Path="DataContext.BoardSize" />
+                                            </MultiBinding>
                                         </Rectangle.Height>
 
                                     </Rectangle>

@@ -12,7 +12,7 @@
         <tournamentInfoPage:TournamentInfoPageViewModelSampleData />
     </d:DesignData.DataContext>
 
-    <Grid Background="{DynamicResource Aquamarine}">
+    <Grid Background="Aquamarine">
 
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Center"

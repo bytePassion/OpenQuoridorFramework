@@ -51,7 +51,7 @@
             <views:ActionBar Grid.Row="0"
                              Grid.Column="0"
                              Grid.ColumnSpan="3"
-							 DataContext="{Binding ActionBarViewModel}"/>
+                             DataContext="{Binding ActionBarViewModel}"/>
 
             <views:BotStatusBar Grid.Row="1"
                                  Grid.Column="0"
@@ -72,22 +72,22 @@
                         </TextBlock>
                     </Expander.Header>
 
-					<progressView:ProgressView DataContext="{Binding ProgressViewModel}"/>
+                    <progressView:ProgressView DataContext="{Binding ProgressViewModel}"/>
 
-				</Expander>
+                </Expander>
 
             </materialDesign:Card>
 
             <Border Grid.Row="2"
                     Grid.Column="1"
                     Margin="5,0"
-					Name="BoardContainer"
+                    Name="BoardContainer"
                     Padding="0">
 
                 <Grid Margin="15">
 
                     <i:Interaction.Behaviors>
-						<behaviors1:KeepQuadratic Margin="16"/>
+                        <behaviors1:KeepQuadratic Margin="16"/>
                     </i:Interaction.Behaviors>
 
                     <Grid.RowDefinitions>
@@ -105,60 +105,60 @@
                     <views1:BoardHorizontalLabelling Grid.Row="0"
                                                      Grid.Column="1"
                                                      IsHitTestVisible="False"
-													 DataContext="{Binding BoardHorizontalLabelingViewModel}"/>
+                                                     DataContext="{Binding BoardHorizontalLabelingViewModel}"/>
 
                     <views1:BoardVerticalLabelling Grid.Row="1"
                                                    Grid.Column="0"
                                                    IsHitTestVisible="False" 
-												   DataContext="{Binding BoardVerticalLabelingViewModel}"/>
+                                                   DataContext="{Binding BoardVerticalLabelingViewModel}"/>
 
-					<views1:Board Grid.Row="1"
+                    <views1:Board Grid.Row="1"
                                   Grid.Column="1"
                                   DataContext="{Binding BoardViewModel}"
                                   IsHitTestVisible="False"
                                   Padding="0" 
-								  RenderTransformOrigin="0.5, 0.5">
+                                  RenderTransformOrigin="0.5, 0.5">
 
-						<views1:Board.Style>
-							<Style TargetType="views1:Board">
-								<Style.Triggers>
-									<DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
-										<Setter Property="RenderTransform">
-											<Setter.Value>
-												<RotateTransform Angle="180"
-																 CenterX="0.5"
-																 CenterY="0.5"/>
-											</Setter.Value>
-										</Setter>
-									</DataTrigger>
-								</Style.Triggers>
-							</Style>
-						</views1:Board.Style>
-					</views1:Board>
+                        <views1:Board.Style>
+                            <Style TargetType="views1:Board">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <RotateTransform Angle="180"
+                                                                 CenterX="0.5"
+                                                                 CenterY="0.5"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </views1:Board.Style>
+                    </views1:Board>
 
-					<views1:BoardPlacement Grid.Row="1"
+                    <views1:BoardPlacement Grid.Row="1"
                                            Grid.Column="1"
                                            DataContext="{Binding BoardPlacementViewModel}"
                                            Padding="0" 
-										   RenderTransformOrigin="0.5, 0.5">
+                                           RenderTransformOrigin="0.5, 0.5">
 
-						<views1:BoardPlacement.Style>
-							<Style TargetType="views1:BoardPlacement">
-								<Style.Triggers>
-									<DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
-										<Setter Property="RenderTransform">
-											<Setter.Value>
-												<RotateTransform Angle="180"
-																 CenterX="0.5"
-																 CenterY="0.5"/>
-											</Setter.Value>
-										</Setter>
-									</DataTrigger>
-								</Style.Triggers>
-							</Style>
-						</views1:BoardPlacement.Style>
+                        <views1:BoardPlacement.Style>
+                            <Style TargetType="views1:BoardPlacement">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <RotateTransform Angle="180"
+                                                                 CenterX="0.5"
+                                                                 CenterY="0.5"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </views1:BoardPlacement.Style>
 
-					</views1:BoardPlacement>
+                    </views1:BoardPlacement>
 
                 </Grid>
             </Border>
@@ -180,7 +180,7 @@
                             </TextBlock.LayoutTransform>
                         </TextBlock>
                     </Expander.Header>
-					
+                    
                     <views:DebugMessageView DataContext="{Binding DebugMessageViewModel}"/>
 
                 </Expander>
@@ -190,7 +190,7 @@
             <views:HumanPlayerBar Grid.Row="3"
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
-								  DataContext="{Binding HumanPlayerBarViewModel}"/>
+                                  DataContext="{Binding HumanPlayerBarViewModel}"/>
 
         </Grid>
 

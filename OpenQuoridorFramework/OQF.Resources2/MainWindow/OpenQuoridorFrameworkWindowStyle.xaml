@@ -2,14 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                     xmlns:local="clr-namespace:OQF.Resources2.MainWindow"
-                    xmlns:converter="clr-namespace:OQF.Resources2.MainWindow.Converter"
-                    >
+                    xmlns:converter="clr-namespace:OQF.Resources2.MainWindow.Converter">
 
     <ResourceDictionary.MergedDictionaries>
 
         <ResourceDictionary Source="pack://application:,,,/OQF.Resources2;component/Icons/Icons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/OQF.Resources2;component/Styles/Brushes/Brushes.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/OQF.Resources2;component/Styles/SpezialButtonTemplates/WindowTitleButtons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources2;component/Styles/WindowTitleButtons.xaml" />
 
         <ResourceDictionary>
 

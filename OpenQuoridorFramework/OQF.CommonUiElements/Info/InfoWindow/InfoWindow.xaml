@@ -40,9 +40,6 @@
             <DataTemplate DataType="{x:Type quoridorNotationPage:QuoridorNotationPageViewModel}">
                 <pages:QuoridorNotation />
             </DataTemplate>
-            <DataTemplate DataType="{x:Type botVsBotInfoPage:BotVsBotInfoPageViewModel}">
-                <pages:BotVsBotApplicationInfo />
-            </DataTemplate>
             <DataTemplate DataType="{x:Type playerVsBotInfoPage:PlayerVsBotInfoPageViewModel}">
                 <pages:PlayerVsBotApplicationInfo />
             </DataTemplate>

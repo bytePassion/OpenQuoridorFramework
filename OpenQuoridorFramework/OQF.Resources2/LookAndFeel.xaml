@@ -18,20 +18,12 @@
 
         <ResourceDictionary Source="Icons/Icons.xaml" />
         <ResourceDictionary Source="Styles/Brushes/Brushes.xaml" />
-        <ResourceDictionary Source="Styles/Calendar.xaml" />
         <ResourceDictionary Source="Styles/ListBox.xaml" />
         <ResourceDictionary Source="Styles/ItemsControl.xaml" />
         <ResourceDictionary Source="Styles/ScrollViewer.xaml"/>
         <ResourceDictionary Source="Styles/Fonts.xaml"/>
-        <ResourceDictionary Source="Styles/OverlayingScrollViewer.xaml"/>
-
-        <ResourceDictionary Source="Styles/SpezialButtonTemplates/OverviewPageButtons.xaml"/>
-        <ResourceDictionary Source="Styles/SpezialButtonTemplates/NavigationButtons.xaml"/>
-        <ResourceDictionary Source="Styles/SpezialButtonTemplates/PlusMinusButtons.xaml"/>
-        <ResourceDictionary Source="Styles/SpezialButtonTemplates/AppointmentEditButtons.xaml"/>
-        <ResourceDictionary Source="Styles/SpezialButtonTemplates/UndoRedoButtons.xaml"/>
-        <ResourceDictionary Source="Styles/SpezialButtonTemplates/SearchPageAppointmentButtons.xaml"/>
-                
+        <ResourceDictionary Source="Styles/WindowTitleButtons.xaml"/>
+        
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

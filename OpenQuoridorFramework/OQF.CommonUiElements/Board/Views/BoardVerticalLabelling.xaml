@@ -8,11 +8,11 @@
              d:DesignWidth="40"
              mc:Ignorable="d">
 
-	<d:DesignData.DataContext>
-		<boardLabeling:BoardLabelingViewModelSampleData/>
-	</d:DesignData.DataContext>
+    <d:DesignData.DataContext>
+        <boardLabeling:BoardLabelingViewModelSampleData/>
+    </d:DesignData.DataContext>
 
-	<Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="0.3*" />

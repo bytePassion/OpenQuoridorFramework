@@ -15,190 +15,190 @@
         Height="950"
         MinWidth="1000"
         MinHeight="600"
-        Background="{DynamicResource Aquamarine}"
+        Background="Aquamarine"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         TextElement.FontSize="12"
         TextElement.FontWeight="Medium"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
-	
-	<d:DesignData.DataContext>
-		<mainWindow1:MainWindowViewModelSampleData/>
-	</d:DesignData.DataContext>
+    
+    <d:DesignData.DataContext>
+        <mainWindow1:MainWindowViewModelSampleData/>
+    </d:DesignData.DataContext>
 
 
-	<materialDesign:DialogHost Identifier="RootDialog">
+    <materialDesign:DialogHost Identifier="RootDialog">
 
-		<Grid>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto" />
-				<RowDefinition Height="Auto" />
-				<RowDefinition />
-				<RowDefinition Height="Auto" />
-			</Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition />
-				<ColumnDefinition Width="Auto" />
-			</Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-			<TextBlock Grid.Row="0"
-					   Grid.Column="0"
-					   Grid.ColumnSpan="3"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center"
-					   Text="ActionBar"/>
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="ActionBar"/>
 
-			<views:ActionBar Grid.Row="0"
+            <views:ActionBar Grid.Row="0"
                              Grid.Column="0"
                              Grid.ColumnSpan="3"
-							 DataContext="{Binding ActionBarViewModel}"/>
+                             DataContext="{Binding ActionBarViewModel}"/>
 
-			<views:RemotePlayerBar Grid.Row="1"
-					               Grid.Column="0"
-					               Grid.ColumnSpan="3"
-					               DataContext="{Binding RemotePlayerBarViewModel}"/>
+            <views:RemotePlayerBar Grid.Row="1"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="3"
+                                   DataContext="{Binding RemotePlayerBarViewModel}"/>
 
-			<materialDesign:Card Grid.Row="2"
+            <materialDesign:Card Grid.Row="2"
                                  Grid.Column="0"
                                  Margin="8,0,0,0"
                                  VerticalAlignment="Stretch">
 
-				
-				<!--	TODO: vll höhe des expanders an die der card binden  -->
-				
-				<Expander ExpandDirection="Right" IsExpanded="{Binding IsProgressViewExpanded, Mode=OneWay}">
-					<Expander.Header>
-						<TextBlock RenderTransformOrigin=".5,.5" Text="{Binding ProgressCaption}">
-							<TextBlock.LayoutTransform>
-								<RotateTransform Angle="90" />
-							</TextBlock.LayoutTransform>
-						</TextBlock>
-					</Expander.Header>
+                
+                <!--	TODO: vll höhe des expanders an die der card binden  -->
+                
+                <Expander ExpandDirection="Right" IsExpanded="{Binding IsProgressViewExpanded, Mode=OneWay}">
+                    <Expander.Header>
+                        <TextBlock RenderTransformOrigin=".5,.5" Text="{Binding ProgressCaption}">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="90" />
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Expander.Header>
 
 
-					<progressView:ProgressView DataContext="{Binding ProgressViewModel}"/>
+                    <progressView:ProgressView DataContext="{Binding ProgressViewModel}"/>
 
-				</Expander>
+                </Expander>
 
-			</materialDesign:Card>
+            </materialDesign:Card>
 
-			<Border Grid.Row="2"
+            <Border Grid.Row="2"
                     Grid.Column="1"
                     Margin="5,0"
                     Padding="0"
-					Name="BoardContainer">
+                    Name="BoardContainer">
 
-				<Grid Margin="15">
+                <Grid Margin="15">
 
-					<i:Interaction.Behaviors>
-						<behaviors:KeepQuadratic Margin="16"/>
-					</i:Interaction.Behaviors>
+                    <i:Interaction.Behaviors>
+                        <behaviors:KeepQuadratic Margin="16"/>
+                    </i:Interaction.Behaviors>
 
-					<Grid.RowDefinitions>
-						<RowDefinition Height="40" />
-						<RowDefinition />
-					</Grid.RowDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
 
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="40" />
-						<ColumnDefinition />
-					</Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
 
-					<materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />
+                    <materialDesign:Card Grid.RowSpan="2" Grid.ColumnSpan="2" />
 
-					<views1:BoardHorizontalLabelling Grid.Row="0"
+                    <views1:BoardHorizontalLabelling Grid.Row="0"
                                                      Grid.Column="1"
                                                      IsHitTestVisible="False"
-													 DataContext="{Binding BoardHorizontalLabelingViewModel}"/>
+                                                     DataContext="{Binding BoardHorizontalLabelingViewModel}"/>
 
-					<views1:BoardVerticalLabelling Grid.Row="1"
+                    <views1:BoardVerticalLabelling Grid.Row="1"
                                                    Grid.Column="0"
                                                    IsHitTestVisible="False"
-												   DataContext="{Binding BoardVerticalLabelingViewModel}"/>
+                                                   DataContext="{Binding BoardVerticalLabelingViewModel}"/>
 
-					<views1:Board Grid.Row="1"
-					              Grid.Column="1"
-					              DataContext="{Binding BoardViewModel}"
-					              IsHitTestVisible="False"
-					              Padding="0"
-								  RenderTransformOrigin="0.5, 0.5">
+                    <views1:Board Grid.Row="1"
+                                  Grid.Column="1"
+                                  DataContext="{Binding BoardViewModel}"
+                                  IsHitTestVisible="False"
+                                  Padding="0"
+                                  RenderTransformOrigin="0.5, 0.5">
 
-						<views1:Board.Style>
-							<Style TargetType="views1:Board">
-								<Style.Triggers>
-									<DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
-										<Setter Property="RenderTransform">
-											<Setter.Value>
-												<RotateTransform Angle="180"
-																 CenterX="0.5"
-																 CenterY="0.5"/>
-											</Setter.Value>
-										</Setter>
-									</DataTrigger>
-								</Style.Triggers>
-							</Style>
-						</views1:Board.Style>
-					</views1:Board>
+                        <views1:Board.Style>
+                            <Style TargetType="views1:Board">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <RotateTransform Angle="180"
+                                                                 CenterX="0.5"
+                                                                 CenterY="0.5"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </views1:Board.Style>
+                    </views1:Board>
 
-					<views1:BoardPlacement Grid.Row="1"
-					                      Grid.Column="1"
-					                      DataContext="{Binding BoardPlacementViewModel}"
-					                      Padding="0" 
-										  RenderTransformOrigin="0.5, 0.5">
+                    <views1:BoardPlacement Grid.Row="1"
+                                          Grid.Column="1"
+                                          DataContext="{Binding BoardPlacementViewModel}"
+                                          Padding="0" 
+                                          RenderTransformOrigin="0.5, 0.5">
 
-						<views1:BoardPlacement.Style>
-							<Style TargetType="views1:BoardPlacement">
-								<Style.Triggers>
-									<DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
-										<Setter Property="RenderTransform">
-											<Setter.Value>
-												<RotateTransform Angle="180"
-																 CenterX="0.5"
-																 CenterY="0.5"/>
-											</Setter.Value>
-										</Setter>
-									</DataTrigger>
-								</Style.Triggers>
-							</Style>
-						</views1:BoardPlacement.Style>
-											
-					</views1:BoardPlacement>
+                        <views1:BoardPlacement.Style>
+                            <Style TargetType="views1:BoardPlacement">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=DataContext.IsBoardRotated, ElementName=BoardContainer}" Value="True">
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <RotateTransform Angle="180"
+                                                                 CenterX="0.5"
+                                                                 CenterY="0.5"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </views1:BoardPlacement.Style>
+                                            
+                    </views1:BoardPlacement>
 
-				</Grid>
-			</Border>
+                </Grid>
+            </Border>
 
-			<materialDesign:Card Grid.Row="2"
+            <materialDesign:Card Grid.Row="2"
                                  Grid.Column="2"
                                  Margin="0,0,8,0"
                                  VerticalAlignment="Stretch">
 
-				<Expander DockPanel.Dock="Right"
+                <Expander DockPanel.Dock="Right"
                           ExpandDirection="Left"
                           IsExpanded="{Binding IsNetworkViewExpanded,
                                                Mode=OneWay}">
-					<Expander.Header>
-						<TextBlock RenderTransformOrigin=".5,.5" Text="{Binding NetworkViewCaption}">
-							<TextBlock.LayoutTransform>
-								<RotateTransform Angle="-90" />
-							</TextBlock.LayoutTransform>
-						</TextBlock>
-					</Expander.Header>
+                    <Expander.Header>
+                        <TextBlock RenderTransformOrigin=".5,.5" Text="{Binding NetworkViewCaption}">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90" />
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Expander.Header>
 
-					<views:NetworkView DataContext="{Binding NetworkViewModel}"
-									   Margin="10,5,0,5"/>
-				</Expander>
+                    <views:NetworkView DataContext="{Binding NetworkViewModel}"
+                                       Margin="10,5,0,5"/>
+                </Expander>
 
-			</materialDesign:Card>
+            </materialDesign:Card>
 
-			<views:LocalPlayerBar Grid.Row="3"
-					              Grid.Column="0"
-					              Grid.ColumnSpan="3"					             
-					              DataContext="{Binding LocalPlayerBarViewModel}"/>
-		</Grid>
+            <views:LocalPlayerBar Grid.Row="3"
+                                  Grid.Column="0"
+                                  Grid.ColumnSpan="3"					             
+                                  DataContext="{Binding LocalPlayerBarViewModel}"/>
+        </Grid>
 
-	</materialDesign:DialogHost>
+    </materialDesign:DialogHost>
 </Window>
 
