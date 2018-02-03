@@ -1,7 +1,6 @@
 ﻿<UserControl x:Class="OQF.Net.DesktopClient.Visualization.Views.RemotePlayerBar"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:computations="clr-namespace:OQF.Net.DesktopClient.Visualization.Computations"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"             
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -13,10 +12,6 @@
     <d:DesignData.DataContext>
         <remotePlayerBar:RemotePlayerBarViewModelSampleData />
     </d:DesignData.DataContext>
-
-    <UserControl.Resources>
-        <computations:GetPlayerIconBrush x:Key="GetPlayerIconBrush" />
-    </UserControl.Resources>
 
     <materialDesign:Card Margin="8" Padding="8">
 
@@ -41,39 +36,52 @@
                 <Ellipse Grid.Column="0"
                          Width="40"
                          Height="40"
-                         Margin="10,0"
-                         Fill="{Binding IsGameInitiator,
-                                        Converter={StaticResource GetPlayerIconBrush}}"
+                         Margin="10,0"                      
                          RenderTransformOrigin="0.5, 0.5">
 
                     <Ellipse.RenderTransform>
                         <RotateTransform Angle="-45" />
                     </Ellipse.RenderTransform>
 
+                    <Ellipse.Style>
+                        <Style TargetType="Ellipse">
+                            <Setter Property="Fill" Value="{StaticResource TopPlayerActiveBrush}"/>
+
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsGameInitiator}" Value="{x:Null}">
+                                    <Setter Property="Fill" Value="{StaticResource PlayerInactiveBrush}"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsGameInitiator}" Value="True">
+                                    <Setter Property="Fill" Value="{StaticResource BottomPlayerActiveBrush}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Ellipse.Style>
+
                 </Ellipse>
 
-				<TextBlock Grid.Column="1"
+                <TextBlock Grid.Column="1"
                            VerticalAlignment="Center"
                            FontSize="30" 
-						   Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                           Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                            d:LayoutOverrides="Height" >
-					<Run Text="{Binding PlayerName, Mode=OneWay}"/>
-					<Run Text="{Binding PlayerStatus, Mode=OneWay}"/>
-				</TextBlock>
+                    <Run Text="{Binding PlayerName, Mode=OneWay}"/>
+                    <Run Text="{Binding PlayerStatus, Mode=OneWay}"/>
+                </TextBlock>
 
-			</Grid>
+            </Grid>
 
             <TextBlock Grid.Column="2"
                        VerticalAlignment="Center"
                        FontSize="30"
-					   Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                       Style="{StaticResource MaterialDesignHeadlineTextBlock}">
                 <Run Text="{Binding WallsLeftLabelCaption, Mode=OneWay}" />:
-			</TextBlock>
+            </TextBlock>
 
             <TextBlock Grid.Column="4"
                        VerticalAlignment="Center"
                        FontSize="30"
-					   Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                       Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                        Text="{Binding WallsLeft}" />
         </Grid>
 

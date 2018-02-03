@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board\Behaviors\ReportRelativeMousePositionBehavior.cs" />
-    <Compile Include="Board\BoardColors\Brushes.cs" />
     <Compile Include="Board\ViewModels\BoardLabeling\BoardHorizontalLabelingViewModel.cs" />
     <Compile Include="Board\ViewModels\BoardLabeling\BoardLabelingViewModelSampleData.cs" />
     <Compile Include="Board\ViewModels\BoardLabeling\BoardVerticalLabalingViewModel.cs" />
@@ -95,7 +94,6 @@
     <Compile Include="Board\Computations\ComputeWallLeftPosition.cs" />
     <Compile Include="Board\Computations\ComputeWallTopPosition.cs" />
     <Compile Include="Board\Computations\ComputeWallWidth.cs" />
-    <Compile Include="Board\Computations\PlayerColor.cs" />
     <Compile Include="Dialogs\Notification\NotificationDialog.xaml.cs">
       <DependentUpon>NotificationDialog.xaml</DependentUpon>
     </Compile>

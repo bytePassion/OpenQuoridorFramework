@@ -71,8 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behaviors\MainWindowClosingBehavior.cs" />
-    <Compile Include="Computations\BottomPlayerMarkerColor.cs" />
-    <Compile Include="Computations\TopPlayerMarkerColor.cs" />
     <Compile Include="Global\Constants.cs" />
     <Compile Include="ViewModels\ActionBar\ActionBarViewModel.cs" />
     <Compile Include="ViewModels\ActionBar\ActionBarViewModelSampleData.cs" />

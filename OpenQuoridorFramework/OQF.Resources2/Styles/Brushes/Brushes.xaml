@@ -1,4 +1,5 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="SemiTransparentWhiteBrush" Color="White" Opacity="0.5"/>
     <SolidColorBrush x:Key="WhiteColorBrush"           Color="White"       />
@@ -9,18 +10,7 @@
     <SolidColorBrush x:Key="CardBackgroundBrush"         Color="#FFFAFAFA" />
     <SolidColorBrush x:Key="HeaderBackgroundBrush"       Color="#FF607D8B" />
     <SolidColorBrush x:Key="ActionBarBackgroungBrush"    Color="#FF37474F" />
-    <SolidColorBrush x:Key="TimeGridLineBrush"           Color="#99A9A9A9" />
-
-    <SolidColorBrush x:Key="ButtonBackgroundBrush"               Color="#FF607D8B" />
-    <SolidColorBrush x:Key="AppointmentBackgroundBrush"          Color="#FF607D8B" />
-    <SolidColorBrush x:Key="AppointmentFontColorBrush"           Color="#FFEAEEF0" />
-    <SolidColorBrush x:Key="EditAppointmentBackgroundBrush"      Color="#FFFFAA00" />
-    <SolidColorBrush x:Key="EditAppointmentForegroundBrush"      Color="Black"     />
-    <SolidColorBrush x:Key="EditAppointmentDisabledOverlayBrush" Color="DarkGray"  />
-    <SolidColorBrush x:Key="AppointmentDropIsPossibleBrush"      Color="LawnGreen" />
-    <SolidColorBrush x:Key="AppointmentDropIsNotPossibleBrush"   Color="Red"       />
-    <SolidColorBrush x:Key="AppointmentRowBorderBrush"           Color="#99A9A9A9" />
-    <SolidColorBrush x:Key="AppointmentLabelStrokeBrush"         Color="Black" />
+    <SolidColorBrush x:Key="ButtonBackgroundBrush"       Color="#FF607D8B" />
 
     <SolidColorBrush x:Key="ListItemBackgroundUnselected" Color="#FFEAEAEA" />
     <SolidColorBrush x:Key="ListItemBackgroundSelected"   Color="#FFADADAD" />
@@ -28,28 +18,30 @@
     <SolidColorBrush x:Key="ListItemBackgroundMouseOver"  Color="#FFADADAD" />
     <SolidColorBrush x:Key="ListItemFontColor"            Color="Black"     />
 
-    <SolidColorBrush x:Key="ConnectionStatusConnected"           Color="#FF607D8B"  />
-    <SolidColorBrush x:Key="ConnectionStatusDisconnected"        Color="Red"        />
-    <SolidColorBrush x:Key="ConnectionStatusTryingToConnect"     Color="#FFEAEEF0"  />
-    <SolidColorBrush x:Key="ConnectionStatusTryingToDisconnect"  Color="#FFEAEEF0"  />
-
-    <SolidColorBrush x:Key="AppointmentCreateStateNoPatientSelected"            Color="Red"       />
-    <SolidColorBrush x:Key="AppointmentCreateStatePatientHasAlreadyAppointment" Color="Red"       />
-    <SolidColorBrush x:Key="AppointmentCreateStateNoSpaceAvailable"			    Color="Red"       />
-    <SolidColorBrush x:Key="AppointmentCreateStateComplete"					    Color="#FF00AE00" />
-    <SolidColorBrush x:Key="AppointmentCreateStatePossibleButNotComplete"	    Color="Orange"    />
-
-    <SolidColorBrush x:Key="PlusButtonBackgroundBrush"  Color="#FF295891" />
-    <SolidColorBrush x:Key="MinusButtonBackgroundBrush" Color="#FFA03D3D" />
-
-    <SolidColorBrush x:Key="ConfirmButtonBackgroundBrush" Color="YellowGreen" />
-    <SolidColorBrush x:Key="DiscardButtonBackgroundBrush" Color="Red"       />
-    <SolidColorBrush x:Key="EditButtonBackgroundBrush"    Color="DarkGray"  />
-    <SolidColorBrush x:Key="DeleteButtonBackgroundBrush"  Color="#ba2525"       />
-
     <SolidColorBrush x:Key="WindowBarButtonBackgroundBrush"  Color="#FF303030" />
+    
+    <SolidColorBrush x:Key="PlayerInactiveBrush"      Color="DarkGray"/>
+    <SolidColorBrush x:Key="FieldBackgroundBrush"     Color="#FF795D56"/>
+    <SolidColorBrush x:Key="FieldBrush"               Color="#FF614038"/>
+    <SolidColorBrush x:Key="FrameBrush"               Color="Black"/>
+    <SolidColorBrush x:Key="WallBrush"                Color="AntiqueWhite"/>
+    <SolidColorBrush x:Key="PossibleMoveFieldBrush"   Color="#60FFF9C5"/>
+    <SolidColorBrush x:Key="PotentialPlacedWallBrush" Color="#CFFFFFFF"/>
+    
+    <LinearGradientBrush x:Key="BottomPlayerActiveBrush"
+                         MappingMode="RelativeToBoundingBox"
+                         EndPoint="0.5, 1"
+                         StartPoint="0.5, 0">
+        <GradientStop Color="#FFF1F1F1" Offset="0.159"/>
+        <GradientStop Color="#FFB2B2B2" Offset="0.674"/>
+    </LinearGradientBrush>
 
-	<SolidColorBrush x:Key="ZoneProtectionVisualizerEditModeColor" Color="#45FF0000" />
-	<SolidColorBrush x:Key="ZoneProtectionVisualizerNormalColor"   Color="#10000000" />
-    	    
+    <LinearGradientBrush x:Key="TopPlayerActiveBrush"
+                         MappingMode="RelativeToBoundingBox"
+                         EndPoint="0.5, 1"
+                         StartPoint="0.5, 0">
+        <GradientStop Color="#FF7A7A7A" Offset="0.159"/>
+        <GradientStop Color="#FF303030" Offset="0.674"/>
+    </LinearGradientBrush>
+
 </ResourceDictionary>

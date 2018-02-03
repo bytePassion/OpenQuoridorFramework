@@ -5,40 +5,48 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:sampleData="clr-namespace:OQF.PlayerVsBot.Visualization.ViewModels.HumanPlayerBar"
-             xmlns:computations="clr-namespace:OQF.PlayerVsBot.Visualization.Computations"
+             xmlns:contracts="clr-namespace:OQF.PlayerVsBot.Contracts;assembly=OQF.PlayerVsBot.Contracts"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-	
-	<d:DesignData.DataContext>
-		<sampleData:HumanPlayerBarViewModelSampleData/>
-	</d:DesignData.DataContext>
-	
-	<UserControl.Resources>
-		<computations:BottomPlayerMarkerColor x:Key="BottomPlayerMarkerColor" />
-	</UserControl.Resources>
-	
-	<materialDesign:Card Margin="8"
+             d:DesignHeight="100" d:DesignWidth="800">
+
+    <d:DesignData.DataContext>
+        <sampleData:HumanPlayerBarViewModelSampleData/>
+    </d:DesignData.DataContext>
+
+    <materialDesign:Card Margin="8"
                          Padding="8">
 
-		<Grid>
+        <Grid>
 
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="70" />
-				<ColumnDefinition Width="Auto" MinWidth="150" />
-				<ColumnDefinition />
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="Auto" />
-			</Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="Auto" MinWidth="150" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
 
-			<Ellipse Grid.Column="0"
+            <Ellipse Grid.Column="0"
                              Width="40"
-                             Height="40"
-                             Fill="{Binding GameStatus,
-                                            Converter={StaticResource BottomPlayerMarkerColor}}" />
+                             Height="40">
+
+                <Ellipse.Style>
+                    <Style TargetType="Ellipse">
+                        <Setter Property="Fill" Value="{StaticResource BottomPlayerActiveBrush}"/>
+
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding GameStatus}" Value="{x:Static contracts:GameStatus.Unloaded}">
+                                <Setter Property="Fill" Value="{StaticResource PlayerInactiveBrush}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Ellipse.Style>
+
+            </Ellipse>
 
 
-			<TextBlock Grid.Column="1"
+            <TextBlock Grid.Column="1"
                                Margin="80,0,10,0"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
@@ -46,13 +54,13 @@
                         <Run Text="{Binding MovesLeftLabelCaption, Mode=OneWay}" />
                         :</TextBlock>
 
-			<TextBlock Grid.Column="2"
+            <TextBlock Grid.Column="2"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                FontSize="20"
                                Text="{Binding MovesLeft}" />
 
-			<TextBlock Grid.Column="4"
+            <TextBlock Grid.Column="4"
                                Margin="0,0,46,0"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
@@ -61,7 +69,7 @@
                         :</TextBlock>
 
 
-			<TextBlock Grid.Column="4"
+            <TextBlock Grid.Column="4"
                                Margin="0,0,5,0"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
@@ -70,14 +78,14 @@
 
 
 
-			<Button Grid.Row="0"
+            <Button Grid.Row="0"
                             Grid.Column="3"
                             Margin="20,7"
                             HorizontalAlignment="Right"
                             Command="{Binding Capitulate}"
                             Content="{Binding CapitulateButtonCaption}" />
 
-		</Grid>
+        </Grid>
 
-	</materialDesign:Card>
+    </materialDesign:Card>
 </UserControl>
