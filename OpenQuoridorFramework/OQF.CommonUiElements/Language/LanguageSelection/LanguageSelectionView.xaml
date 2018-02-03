@@ -17,36 +17,85 @@
 
     <UserControl.Resources>
         <computations:GetFlagImageFromCountryCode x:Key="GetFlagImageFromCountryCode" />
+                               
+        <Style x:Key="ComboBoxFlatStyle"  TargetType="{x:Type ComboBox}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="TextElement.Foreground" Value="Black"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton Name="ToggleButton" 
+                                          ClickMode="Press" Focusable="False"
+                                          IsChecked="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Grid Background="Transparent"/>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"
+                                              HorizontalAlignment="Left" VerticalAlignment="Center"                              
+                                              Content="{TemplateBinding ComboBox.SelectionBoxItem}" 
+                                              ContentTemplate="{TemplateBinding ComboBox.SelectionBoxItemTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
+                                                     
+                            <Popup Name="Popup" Placement="Bottom"
+                                   Focusable="False" AllowsTransparency="True"
+                                   IsOpen="{TemplateBinding ComboBox.IsDropDownOpen}"
+                                   PopupAnimation="Slide">
+
+                                <Grid SnapsToDevicePixels="True"
+                                      MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
+                                      MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}"
+                                      Background="{StaticResource BackgroundBrush}">
+                                    
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="ItemsControl.IsGrouping" Value="True">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
+                            </Trigger>
+                            
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
     </UserControl.Resources>
 
-    <ComboBox Margin="4,0"
+    <ComboBox Style="{StaticResource ComboBoxFlatStyle}"
               ItemsSource="{Binding AvailableCountryCodes}"
               SelectedValue="{Binding SelectedCountryCode,
                                       Mode=TwoWay,
                                       UpdateSourceTrigger=PropertyChanged}">
 
-        <!-- TODO !! -->
-        <ComboBox.Style>
-            <Style  TargetType="{x:Type ComboBox}">
-                <Setter Property="BorderThickness" Value="0 0 0 0" />
-
-            </Style>
-        </ComboBox.Style>
-
-        <!--  TODO !!
-        <ComboBox.Resources>
-            <system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">0</system:Double>
-        </ComboBox.Resources>
-        -->
-
         <ComboBox.ItemTemplate>
             <DataTemplate DataType="system:String">
-                <Image Width="40"
-                       Height="25"
-                       Source="{Binding Converter={StaticResource GetFlagImageFromCountryCode}}" />
-
+                <Image Source="{Binding Converter={StaticResource GetFlagImageFromCountryCode}}" />
             </DataTemplate>
         </ComboBox.ItemTemplate>
 
     </ComboBox>
 </UserControl>
+
+
+
+
+
+
+
