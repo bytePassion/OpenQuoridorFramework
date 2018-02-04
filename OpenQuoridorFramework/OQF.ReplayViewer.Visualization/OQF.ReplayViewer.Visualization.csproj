@@ -67,7 +67,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Computations\BoolToBackgroundBrush.cs" />
     <Compile Include="ViewModels\MainWindow\Helper\ProgressRow.cs" />
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
