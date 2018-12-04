@@ -12,13 +12,16 @@
     <d:DesignData.DataContext>
         <howToWriteABotPage:HowToWriteABotPageViewModelSampleData />
     </d:DesignData.DataContext>
-  
 
-    <!-- TODO !!! -->
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
+    </UserControl.Resources>
+
     <ScrollViewer Background="White"
                   HorizontalScrollBarVisibility="Disabled"
-                
+                  Style="{StaticResource CustomMaterialDesignScrollViewer}"                
                   VerticalScrollBarVisibility="Auto">
+
         <Grid Background="{StaticResource BackgroundBrush}">
 
             <Grid.RowDefinitions>

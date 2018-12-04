@@ -12,8 +12,13 @@
 		<gameOverview:GameOverviewModelSampleData/>
 	</d:DesignData.DataContext>
 
-	<ScrollViewer HorizontalScrollBarVisibility="Disabled"
-				  VerticalScrollBarVisibility="Auto">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+				  VerticalScrollBarVisibility="Auto"
+                  Style="{StaticResource CustomMaterialDesignScrollViewer}">
 
 		<ItemsControl ItemsSource="{Binding CurrentGames}"
 					  Margin="5">

@@ -16,8 +16,8 @@
 		<viewModel:ProgressViewModelSampleData/>
 	</d:DesignData.DataContext>
 
-	<UserControl.Resources>
-		<computations:GetBottomPlayerMoveFromString x:Key="GetBottomPlayerMoveFromString" />
+    <UserControl.Resources>
+        <computations:GetBottomPlayerMoveFromString x:Key="GetBottomPlayerMoveFromString" />
 		<computations:GetTopPlayerMoveFromString x:Key="GetTopPlayerMoveFromString" />
 		<computations:GetProgressNrFromString x:Key="GetProgressNrFromString" />
 	</UserControl.Resources>
@@ -94,10 +94,15 @@
                                         Content="{Binding DumpProgressToFileButtonCaption}" />
 
 				<ScrollViewer Grid.Row="1"
-                                              HorizontalScrollBarVisibility="Auto"
-                                              VerticalScrollBarVisibility="Auto">
+                              HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Auto"
+				              Style="{StaticResource CustomMaterialDesignScrollViewer}">
 
-					<ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}">
+                    <ScrollViewer.Resources>
+				        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
+				    </ScrollViewer.Resources>
+
+                    <ItemsControl Margin="0,20,0,0" ItemsSource="{Binding GameProgress}">
 
 						<ItemsControl.ItemTemplate>
 							<DataTemplate DataType="system:String">

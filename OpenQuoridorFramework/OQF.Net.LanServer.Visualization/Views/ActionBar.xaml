@@ -35,6 +35,7 @@
 			</Button>
 
 			<languageSelection:LanguageSelectionView Margin="2,0"
+                                                     Height="30"
                                                      DataContext="{Binding LanguageSelectionViewModel}"
                                                      Grid.Column="2" />
 
