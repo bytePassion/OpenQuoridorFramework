@@ -130,6 +130,7 @@
 			</Button>
 
 			<languageSelection:LanguageSelectionView Margin="4,0"
+                                                     Height="30"
                                                      DataContext="{Binding LanguageSelectionViewModel}"
                                                      DockPanel.Dock="Right" />
 

@@ -20,7 +20,7 @@
         MinHeight="400"
         d:DesignHeight="700"
         d:DesignWidth="700"
-        Background="Aquamarine"
+        Background="{StaticResource BackgroundBrush}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         TextElement.FontSize="12"
         TextElement.FontWeight="Medium"
@@ -60,8 +60,7 @@
         <viewModel:InfoWindowViewModelSampleData />
     </d:DesignData.DataContext>
 
-    <Grid Margin="0,30,0,0"
-          Background="Aquamarine"
+    <Grid Margin="0,30,0,0"          
           ZIndex="99">
 
         <Grid.ColumnDefinitions>
@@ -95,8 +94,7 @@
         </ListBox>
 
         <Border Grid.Row="0"
-                Grid.Column="1"
-                Background="Aquamarine">
+                Grid.Column="1">
             <ContentControl Content="{Binding ElementName=Pages, Path=SelectedItem}" />
         </Border>
        

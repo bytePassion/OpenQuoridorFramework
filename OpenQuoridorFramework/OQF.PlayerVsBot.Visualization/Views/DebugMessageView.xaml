@@ -14,9 +14,12 @@
 	<d:DesignData.DataContext>
 		<sampleData:DebugMessageViewModelSampleData/>
 	</d:DesignData.DataContext>
-	
 
-	<GroupBox Width="350"
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
+    </UserControl.Resources>
+
+    <GroupBox Width="350"
               Margin="5"
               materialDesign:ShadowAssist.ShadowDepth="Depth2"
               BorderThickness="0"
@@ -47,8 +50,9 @@
                                     Content="{Binding DumpDebugToFileButtonCaption}" />
 
 			<ScrollViewer Grid.Row="1"
-                                          HorizontalScrollBarVisibility="Disabled"
-                                          VerticalScrollBarVisibility="Auto">
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto"
+			              Style="{StaticResource CustomMaterialDesignScrollViewer}">
 				<ItemsControl Margin="0,20,0,0" ItemsSource="{Binding DebugMessages}">
 
 					<ItemsControl.ItemTemplate>

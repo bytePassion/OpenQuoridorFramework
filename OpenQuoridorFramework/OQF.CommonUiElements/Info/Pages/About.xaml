@@ -17,11 +17,15 @@
         <aboutPage:AboutPageViewModelSampleData />
     </d:DesignData.DataContext>
 
-    <!-- TODO !! -->
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                  VerticalScrollBarVisibility="Auto">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/OQF.Resources;component/Styles/AdditionalStyles.xaml" />
+    </UserControl.Resources>
 
-        <Grid Background="Aquamarine">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto"
+                  Style="{StaticResource CustomMaterialDesignScrollViewer}">
+
+        <Grid Background="{StaticResource BackgroundBrush}">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="70" />

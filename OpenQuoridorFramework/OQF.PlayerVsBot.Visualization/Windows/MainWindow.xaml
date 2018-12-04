@@ -12,11 +12,12 @@
         xmlns:progressView="clr-namespace:OQF.CommonUiElements.ProgressView;assembly=OQF.CommonUiElements"
         xmlns:behaviors1="clr-namespace:bytePassion.Lib.WpfLib.Behaviors;assembly=bytePassion.Lib"
         Title="OpenQuoridorFramework - Player vs. Bot"
+        Background="{StaticResource BackgroundBrush}"
         Width="1200"
         Height="950"
         MinWidth="1000"
         MinHeight="600"
-        Background="Aquamarine"
+        
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         TextElement.FontSize="12"
         TextElement.FontWeight="Medium"
